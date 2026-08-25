@@ -1,0 +1,20 @@
+{
+  "name": "Global Headlines",
+  "short_name": "Headlines",
+  "description": "Multilingual global news aggregator",
+  "start_url": "/zh/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#f04142",
+  "lang": "zh-CN",
+  "dir": "auto",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

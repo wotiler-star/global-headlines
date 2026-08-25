@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Global Headlines</title>
+    <script>
+      // CloudStudio serves this file as the universal fallback for any clean path
+      // (e.g. /zh/, /en/article/x/). Map it to the concrete index.html so there is
+      // no redirect loop, and preserve the query string.
+      (function () {
+        var p = location.pathname || "/";
+        var search = location.search || "";
+        var target;
+        if (p === "/" || p === "") {
+          target = "/zh/index.html" + search;
+        } else if (p.indexOf("/index.html") !== -1) {
+          target = p + search; // already explicit (shouldn't hit fallback)
+        } else if (p.charAt(p.length - 1) === "/") {
+          target = p + "index.html" + search;
+        } else {
+          target = p + "/index.html" + search;
+        }
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body>Redirecting…</body>
+</html>
