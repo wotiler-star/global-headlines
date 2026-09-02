@@ -8,6 +8,8 @@ export type SessionUser = {
   id: number;
   username: string;
   email: string | null;
+  role: string;
+  banned: number;
   created_at: number;
 };
 
@@ -18,7 +20,17 @@ export async function getCurrentUser(): Promise<SessionUser | null> {
   if (!token) return null;
   const db = getDb();
   const u = getUserBySession(db, token);
-  return u ? { id: u.id, username: u.username, email: u.email, created_at: u.created_at } : null;
+  return u
+    ? { id: u.id, username: u.username, email: u.email, role: u.role, banned: u.banned, created_at: u.created_at }
+    : null;
+}
+
+// 要求管理员权限；否则抛出 Response（由路由捕获返回 403）
+export async function requireAdmin(): Promise<SessionUser> {
+  const u = await getCurrentUser();
+  if (!u) throw new Response("Unauthorized", { status: 401 });
+  if (u.role !== "admin" || u.banned === 1) throw new Response("Forbidden", { status: 403 });
+  return u;
 }
 
 // 建立会话并写入 cookie（注册/登录成功后调用）

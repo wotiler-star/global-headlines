@@ -36,5 +36,5 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "注册失败，请稍后再试" }, { status: 500 });
   }
   await startSession(id);
-  return NextResponse.json({ ok: true, user: { id, username, email } }, { status: 201 });
+  return NextResponse.json({ ok: true, user: { id, username, email, role: "user" } }, { status: 201 });
 }

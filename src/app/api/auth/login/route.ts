@@ -26,6 +26,12 @@ export async function POST(req: NextRequest) {
   if (!ok) {
     return NextResponse.json({ error: "用户名或密码错误" }, { status: 401 });
   }
+  if (user.banned === 1) {
+    return NextResponse.json({ error: "账号已被封禁" }, { status: 403 });
+  }
   await startSession(user.id);
-  return NextResponse.json({ ok: true, user: { id: user.id, username: user.username, email: user.email } });
+  return NextResponse.json({
+    ok: true,
+    user: { id: user.id, username: user.username, email: user.email, role: user.role },
+  });
 }

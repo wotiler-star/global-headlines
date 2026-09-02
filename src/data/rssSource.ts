@@ -367,7 +367,13 @@ export async function getRssHomeFeed(locale: Locale): Promise<Article[] | null> 
   }
 
   if (real === 0) return null; // RSS 整语言失败 → 由上层回退 mock
-  return feed;
+  // 真实采集文章置顶，避免无真实 RSS 的分类（如 zh 的 world）的 mock  fallback 抢占首屏。
+  return feed.sort((a, b) => {
+    const aReal = a.id.startsWith("rss-") ? 0 : 1;
+    const bReal = b.id.startsWith("rss-") ? 0 : 1;
+    if (aReal !== bReal) return aReal - bReal;
+    return b.publishedAt - a.publishedAt;
+  });
 }
 
 // 仅用于构建日志，确认哪些语言成功拉到了真实 RSS

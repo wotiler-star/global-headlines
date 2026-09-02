@@ -6,6 +6,8 @@ const nextConfig = {
   images: { unoptimized: true },
   // node:sqlite 是 Node 内置模块，标记为外部包避免被打包。
   serverExternalPackages: ["node:sqlite"],
+  // 沙箱环境下多 worker 并行编译会死锁，强制单 worker 构建。
+  experimental: { cpus: 1 },
 };
 
 export default nextConfig;

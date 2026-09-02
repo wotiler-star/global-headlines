@@ -44,10 +44,13 @@ export default function InfiniteFeed({
   const q = qParam?.trim().toLowerCase() || "";
   const tag = tagParam?.trim().toLowerCase() || "";
 
+  const followingEmpty = isFollowing && follows.size === 0;
+
   const filtered = useMemo(() => {
     return articles.filter((a) => {
       if (isBookmarks && !bookmarks.has(a.id)) return false;
-      if (isFollowing && !follows.has(a.source)) return false;
+      // 关注页：未关注任何来源时回退到推荐流，避免首屏空框
+      if (isFollowing && follows.size > 0 && !follows.has(a.source)) return false;
       if (!isBookmarks && !isFollowing && active !== "recommend" && a.category !== active) return false;
       if (tag && !a.tags.some((t) => t.toLowerCase().includes(tag)) && !a.title.toLowerCase().includes(tag))
         return false;
@@ -105,7 +108,7 @@ export default function InfiniteFeed({
       {isFollowing && (
         <div className="section-title">
           <span className="bar" />
-          {d.followTitle}
+          {followingEmpty ? `${d.followTitle} · ${d.recommendTitle}` : d.followTitle}
         </div>
       )}
       {!isBookmarks && !isFollowing && !q && !tag && active !== "recommend" && (

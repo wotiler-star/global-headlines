@@ -32,6 +32,18 @@ export default function LeftRail({ locale }: { locale: Locale }) {
           </>
         )}
       </div>
+      {ready && user && user.role === "admin" && (
+        <div className="panel">
+          <h3>
+            <span className="bar" />
+            {d.adminTitle}
+          </h3>
+          <Link href={`/${locale}/admin`} className="topic">
+            <span className="topic-ic">⚙</span>
+            {d.adminTitle}
+          </Link>
+        </div>
+      )}
       <div className="panel">
         <h3>
           <span className="bar" />

@@ -9,14 +9,18 @@ import { getArticles as mockGetArticles } from "@/data/news";
 // 单例：同一进程复用连接；首次访问建表并种子数据。
 // ---------------------------------------------------------------------------
 
-const DB_PATH = process.env.SQLITE_DB_PATH || path.join(process.cwd(), "data", "app.sqlite");
+const DB_PATH = process.env.SQLITE_DB_PATH || path.join(process.cwd(), "data", "global-headlines.sqlite");
 
 let _db: DatabaseSync | null = null;
 
 export function getDb(): DatabaseSync {
   if (_db) return _db;
   const db = new DatabaseSync(DB_PATH);
-  db.exec("PRAGMA journal_mode = WAL;");
+  // DELETE 模式（非 WAL）：沙箱里 next start 进程无法创建 -wal/-shm 共享内存文件，
+  // 会导致 "attempt to write a readonly database"。DELETE 仅事务期间生成临时 -journal，
+  // 无需共享内存，单连接（本应用为单例）下无并发损失。
+  db.exec("PRAGMA journal_mode = DELETE;");
+  db.exec("PRAGMA synchronous = NORMAL;");
   db.exec("PRAGMA foreign_keys = ON;");
   initSchema(db);
   seedIfEmpty(db);
@@ -84,6 +88,24 @@ function initSchema(db: DatabaseSync) {
     CREATE INDEX IF NOT EXISTS idx_articles_locale ON articles(locale);
     CREATE INDEX IF NOT EXISTS idx_articles_cat ON articles(locale, category);
   `);
+  migrate(db);
+}
+
+// 已有数据库（开发期已生成）补充新列，避免重建库丢失数据
+function migrate(db: DatabaseSync) {
+  const alters = [
+    "ALTER TABLE users ADD COLUMN role TEXT NOT NULL DEFAULT 'user'",
+    "ALTER TABLE users ADD COLUMN banned INTEGER NOT NULL DEFAULT 0",
+    "ALTER TABLE articles ADD COLUMN pinned INTEGER NOT NULL DEFAULT 0",
+    "ALTER TABLE articles ADD COLUMN deleted INTEGER NOT NULL DEFAULT 0",
+  ];
+  for (const sql of alters) {
+    try {
+      db.exec(sql);
+    } catch {
+      /* 列已存在则忽略 */
+    }
+  }
 }
 
 // 首次启动种子：演示账号 + 文章（来自现有 mock 生成器，保证有内容可管）
@@ -96,6 +118,12 @@ function seedIfEmpty(db: DatabaseSync) {
       const demo = db.prepare("SELECT username FROM users WHERE id = ?").get(id) as { username: string };
       void demo;
     }
+  }
+  // 确保始终存在至少一个管理员账号（兼容旧库用户表非空的情况）
+  const adminCnt = db.prepare("SELECT COUNT(*) AS c FROM users WHERE role = 'admin'").get() as { c: number };
+  if (adminCnt.c === 0) {
+    const aid = createUser(db, "admin", "admin@example.com", "admin1234");
+    if (aid) db.prepare("UPDATE users SET role = 'admin' WHERE id = ?").run(aid);
   }
   const a = db.prepare("SELECT COUNT(*) AS c FROM articles").get() as { c: number };
   if (a.c === 0) {
@@ -179,13 +207,21 @@ function hashPasswordSync(pw: string): string {
 
 export function getUserByUsername(db: DatabaseSync, username: string) {
   return db.prepare("SELECT * FROM users WHERE username = ?").get(username) as
-    | { id: number; username: string; email: string | null; password_hash: string; created_at: number }
+    | {
+        id: number;
+        username: string;
+        email: string | null;
+        password_hash: string;
+        role: string;
+        banned: number;
+        created_at: number;
+      }
     | undefined;
 }
 
 export function getUserById(db: DatabaseSync, id: number) {
-  return db.prepare("SELECT id, username, email, created_at FROM users WHERE id = ?").get(id) as
-    | { id: number; username: string; email: string | null; created_at: number }
+  return db.prepare("SELECT id, username, email, role, banned, created_at FROM users WHERE id = ?").get(id) as
+    | { id: number; username: string; email: string | null; role: string; banned: number; created_at: number }
     | undefined;
 }
 
@@ -306,10 +342,21 @@ export type DbArticle = {
 
 export function queryArticles(
   db: DatabaseSync,
-  opts: { locale?: string; category?: string; q?: string; tag?: string; limit?: number; offset?: number }
+  opts: {
+    locale?: string;
+    category?: string;
+    q?: string;
+    tag?: string;
+    limit?: number;
+    offset?: number;
+    includeDeleted?: boolean;
+  }
 ): DbArticle[] {
   const where: string[] = [];
   const params: unknown[] = [];
+  if (!opts.includeDeleted) {
+    where.push("deleted = 0");
+  }
   if (opts.locale) {
     where.push("locale = ?");
     params.push(opts.locale);
@@ -328,12 +375,130 @@ export function queryArticles(
   }
   const limit = Math.min(opts.limit ?? 30, 100);
   const offset = opts.offset ?? 0;
-  const sql = `SELECT * FROM articles ${where.length ? "WHERE " + where.join(" AND ") : ""} ORDER BY published_at DESC LIMIT ? OFFSET ?`;
+  const sql = `SELECT * FROM articles ${where.length ? "WHERE " + where.join(" AND ") : ""} ORDER BY pinned DESC, published_at DESC LIMIT ? OFFSET ?`;
   return db.prepare(sql).all(...params, limit, offset) as DbArticle[];
 }
 
 export function getArticleRow(db: DatabaseSync, id: string): DbArticle | undefined {
   return db.prepare("SELECT * FROM articles WHERE id = ?").get(id) as DbArticle | undefined;
+}
+
+// ------------------------------- 管理后台 ------------------------------
+export type AdminUserRow = {
+  id: number;
+  username: string;
+  email: string | null;
+  role: string;
+  banned: number;
+  created_at: number;
+  bookmarks: number;
+  comments: number;
+};
+
+export function listUsersAdmin(db: DatabaseSync): AdminUserRow[] {
+  return db
+    .prepare(
+      `SELECT u.id, u.username, u.email, u.role, u.banned, u.created_at,
+              (SELECT COUNT(*) FROM bookmarks b WHERE b.user_id = u.id) AS bookmarks,
+              (SELECT COUNT(*) FROM comments c WHERE c.user_id = u.id) AS comments
+       FROM users u ORDER BY u.created_at DESC`
+    )
+    .all() as AdminUserRow[];
+}
+
+export function setUserRole(db: DatabaseSync, id: number, role: string) {
+  db.prepare("UPDATE users SET role = ? WHERE id = ?").run(role, id);
+}
+
+export function setUserBanned(db: DatabaseSync, id: number, banned: boolean) {
+  db.prepare("UPDATE users SET banned = ? WHERE id = ?").run(banned ? 1 : 0, id);
+}
+
+export function deleteUser(db: DatabaseSync, id: number) {
+  db.prepare("DELETE FROM users WHERE id = ?").run(id);
+}
+
+export type AdminCommentRow = {
+  id: number;
+  article_id: string;
+  user_id: number | null;
+  author_name: string;
+  body: string;
+  created_at: number;
+  username: string | null;
+};
+
+export function listCommentsAdmin(db: DatabaseSync, limit = 100): AdminCommentRow[] {
+  return db
+    .prepare(
+      `SELECT c.id, c.article_id, c.user_id, c.author_name, c.body, c.created_at, u.username
+       FROM comments c LEFT JOIN users u ON u.id = c.user_id
+       ORDER BY c.created_at DESC LIMIT ?`
+    )
+    .all(limit) as AdminCommentRow[];
+}
+
+export function deleteCommentAdmin(db: DatabaseSync, id: number) {
+  db.prepare("DELETE FROM comments WHERE id = ?").run(id);
+}
+
+export function updateArticlePin(db: DatabaseSync, id: string, pinned: boolean) {
+  db.prepare("UPDATE articles SET pinned = ? WHERE id = ?").run(pinned ? 1 : 0, id);
+}
+
+export function setArticleDeleted(db: DatabaseSync, id: string, deleted: boolean) {
+  db.prepare("UPDATE articles SET deleted = ? WHERE id = ?").run(deleted ? 1 : 0, id);
+}
+
+export function updateArticle(
+  db: DatabaseSync,
+  id: string,
+  fields: { title?: string; summary?: string; category?: string; source?: string }
+) {
+  const sets: string[] = [];
+  const params: unknown[] = [];
+  if (fields.title !== undefined) {
+    sets.push("title = ?");
+    params.push(fields.title);
+  }
+  if (fields.summary !== undefined) {
+    sets.push("summary = ?");
+    params.push(fields.summary);
+  }
+  if (fields.category !== undefined) {
+    sets.push("category = ?");
+    params.push(fields.category);
+  }
+  if (fields.source !== undefined) {
+    sets.push("source = ?");
+    params.push(fields.source);
+  }
+  if (sets.length === 0) return;
+  params.push(id);
+  db.prepare(`UPDATE articles SET ${sets.join(", ")} WHERE id = ?`).run(...params);
+}
+
+export type AdminStats = {
+  users: number;
+  admins: number;
+  articles: number;
+  comments: number;
+  bookmarks: number;
+  follows: number;
+  bannedUsers: number;
+};
+
+export function getAdminStats(db: DatabaseSync): AdminStats {
+  const one = (sql: string) => (db.prepare(sql).get() as { c: number }).c;
+  return {
+    users: one("SELECT COUNT(*) AS c FROM users"),
+    admins: one("SELECT COUNT(*) AS c FROM users WHERE role = 'admin'"),
+    articles: one("SELECT COUNT(*) AS c FROM articles WHERE deleted = 0"),
+    comments: one("SELECT COUNT(*) AS c FROM comments"),
+    bookmarks: one("SELECT COUNT(*) AS c FROM bookmarks"),
+    follows: one("SELECT COUNT(*) AS c FROM follows"),
+    bannedUsers: one("SELECT COUNT(*) AS c FROM users WHERE banned = 1"),
+  };
 }
 
 export type { Locale, Category };

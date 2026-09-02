@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Locale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { Article } from "@/data/news";
@@ -22,7 +22,12 @@ export default function RecommendRail({
   articles: Article[];
 }) {
   const d = getDict(locale);
-  const [recs, setRecs] = useState<Article[]>([]);
+
+  // 服务端/静态生成时直接按最新文章填充，避免首屏空框；挂载后读取阅读历史做个性化。
+  const initialRecs = useMemo(() => {
+    return [...articles].sort((a, b) => b.publishedAt - a.publishedAt).slice(0, 6);
+  }, [articles]);
+  const [recs, setRecs] = useState<Article[]>(initialRecs);
 
   useEffect(() => {
     let hist: HistoryItem[] = [];
@@ -31,6 +36,7 @@ export default function RecommendRail({
     } catch {
       hist = [];
     }
+    if (hist.length === 0) return;
     const readIds = new Set(hist.map((h) => h.id));
     const catBoost = new Map<string, number>();
     hist.forEach((h) => catBoost.set(h.cat, (catBoost.get(h.cat) || 0) + 1));

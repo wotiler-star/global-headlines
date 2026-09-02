@@ -42,6 +42,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "评论过长（上限 1000 字）" }, { status: 400 });
   }
   const user = await getCurrentUser();
+  if (user && user.banned === 1) {
+    return NextResponse.json({ error: "账号已被禁言" }, { status: 403 });
+  }
   let authorName = String(body?.authorName ?? "").trim();
   if (user) {
     authorName = authorName || user.username;

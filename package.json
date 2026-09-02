@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--experimental-sqlite next dev -p 3000",
+    "dev": "node scripts/run-next.cjs dev -p 3000",
     "collect": "node scripts/collect-articles.mjs",
-    "build": "node scripts/collect-articles.mjs && next build && node scripts/gen-rss.mjs",
-    "start": "cross-env NODE_OPTIONS=--experimental-sqlite next start -p 3000",
+    "seed": "node scripts/seed-db.mjs",
+    "build": "node scripts/collect-articles.mjs && node scripts/run-next.cjs build && node scripts/gen-rss.mjs",
+    "start": "node scripts/seed-db.mjs && node scripts/collect-articles.mjs && node scripts/run-next.cjs start -p 3000",
     "lint": "next lint",
     "rss": "node scripts/gen-rss.mjs"
   },

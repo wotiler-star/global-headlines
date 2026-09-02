@@ -13,3 +13,17 @@ next-env.d.ts
 
 # 运行时数据（DB 在首次运行自动重建）
 /data/
+
+# 调试/构建过程中的临时产物（非源码）
+.next.corrupt.bak/
+.next_bad/
+.next_c1/
+.next_hung/
+.next_stale/
+.nextbuild_bad/
+.nextbuild/
+.trace-redirect
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.testdb.sqlite*
