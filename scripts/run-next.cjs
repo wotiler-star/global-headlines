@@ -15,7 +15,7 @@ const args = process.argv.slice(2);
 const cmd = args[0];
 const nodeArgs = ["-r", shim];
 // node:sqlite 仅在运行时（dev/start）需要；build 不连库，可省（带上也无害，但避免无关告警）
-if (cmd === "dev" || cmd === "start") nodeArgs.push("--experimental-sqlite");
+if (cmd === "dev" || cmd === "start" || cmd === "build") nodeArgs.push("--experimental-sqlite");
 
 const child = spawn(process.execPath, [...nodeArgs, nextBin, ...args], {
   stdio: "inherit",
