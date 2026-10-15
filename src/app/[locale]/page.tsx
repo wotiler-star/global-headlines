@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { isLocale, Locale } from "@/i18n/config";
+import { isLocale, Locale, locales } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { getArticles } from "@/data/newsSource";
 import { getHotBoard } from "@/services/feed";
@@ -10,8 +10,8 @@ import HotBoard from "@/components/HotBoard";
 import LeftRail from "@/components/LeftRail";
 import RecommendRail from "@/components/RecommendRail";
 import BreakingTicker from "@/components/BreakingTicker";
-import SignalOriginMap, { SourceSignal } from "@/components/SignalOriginMap";
-import { geoOf } from "@/lib/sourceGeo";
+import SignalDeck from "@/components/SignalDeck";
+import { aggregateRegions } from "@/lib/sourceGeo";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -46,23 +46,16 @@ export default async function Home({
   const articles = await getArticles(loc);
   const hot = await getHotBoard(loc, 10);
 
-  // 信号源地理汇总（与信息流同源的构建时快照）
-  const geoCount = new Map<string, SourceSignal>();
-  for (const a of articles) {
-    const g = geoOf(a.sourceUrl);
-    if (!g) continue;
-    const cur = geoCount.get(g.code);
-    if (cur) cur.count += 1;
-    else geoCount.set(g.code, { code: g.code, x: g.x, y: g.y, count: 1 });
-  }
-  const signals: SourceSignal[] = [...geoCount.values()].sort((a, b) => b.count - a.count);
+  // 全球地区指标汇总（全语言文章构建时聚合，仅用于地球可视化）
+  const allArticles = (await Promise.all(locales.map((l) => getArticles(l)))).flat();
+  const stats = aggregateRegions(allArticles, loc);
 
   return (
     <>
       <div className="container">
         <BreakingTicker articles={hot} />
         <Suspense fallback={null}>
-          <SignalOriginMap locale={loc} sources={signals} />
+          <SignalDeck regions={stats} locale={loc} />
         </Suspense>
         <div className="layout">
           <aside className="left-rail">
