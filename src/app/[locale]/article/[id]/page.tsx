@@ -3,7 +3,7 @@ import { isLocale, Locale, locales, categories } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { getArticle, getRelated, getArticles } from "@/data/newsSource";
 import { formatRelativeTime } from "@/data/news";
-import { buildAlternates } from "@/lib/site";
+import { absUrl, buildAlternates } from "@/lib/site";
 import { videoEmbedSrc } from "@/lib/video";
 import { homeHref } from "@/lib/paths";
 import CategoryNav from "@/components/CategoryNav";
@@ -44,16 +44,29 @@ export async function generateMetadata({
   const article = await getArticle(loc, id);
   if (!article) return {};
   const alts = buildAlternates(loc, `/article/${id}`);
+  const url = absUrl(loc, `/article/${id}`);
+  const iso = new Date(article.publishedAt).toISOString();
   return {
     title: article.title,
     description: article.summary,
+    alternates: { canonical: alts.canonical, languages: alts.languages },
     openGraph: {
       title: article.title,
       description: article.summary,
       images: [{ url: article.images[0] }],
       type: "article",
+      url,
+      publishedTime: iso,
+      modifiedTime: iso,
+      authors: [article.author || article.source],
+      section: article.category,
     },
-    alternates: { canonical: alts.canonical, languages: alts.languages },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.summary,
+      images: [article.images[0]],
+    },
   };
 }
 
@@ -77,6 +90,37 @@ export default async function ArticlePage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "NewsArticle",
+                headline: article.title,
+                description: article.summary,
+                image: article.images,
+                datePublished: new Date(article.publishedAt).toISOString(),
+                dateModified: new Date(article.publishedAt).toISOString(),
+                author: { "@type": "Person", name: article.author || article.source },
+                publisher: { "@type": "Organization", name: d.siteName },
+                mainEntityOfPage: absUrl(loc, `/article/${id}`),
+                articleSection: article.category,
+                keywords: article.tags.join(", "),
+              },
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: d.siteName, item: absUrl(loc, "") },
+                  { "@type": "ListItem", position: 2, name: d.categories[article.category], item: absUrl(loc, `/?cat=${article.category}`) },
+                  { "@type": "ListItem", position: 3, name: article.title },
+                ],
+              },
+            ],
+          }),
+        }}
+      />
       <ReadHistoryTracker id={article.id} category={article.category} />
       <Suspense fallback={null}>
         <CategoryNav locale={loc} active={article.category} />
@@ -109,7 +153,7 @@ export default async function ArticlePage({
             ) : (
               <>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={article.images[0]} alt={article.title} loading="lazy" />
+                <img src={article.images[0]} alt={article.title} fetchPriority="high" />
               </>
             )}
           </div>

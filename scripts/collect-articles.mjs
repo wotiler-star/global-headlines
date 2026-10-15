@@ -156,7 +156,7 @@ async function fetchFeed(url, locale, category) {
   const res = await fetch(url, {
     signal: AbortSignal.timeout(4000),
     headers: {
-      "User-Agent": "Mozilla/5.0 (GlobalHeadlines/1.0; +https://global-headlines.example.com)",
+      "User-Agent": "Mozilla/5.0 (GlobalHeadlines/1.0; +https://www.starteday.com)",
       Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
     },
     redirect: "follow",

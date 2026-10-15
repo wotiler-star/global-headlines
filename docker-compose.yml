@@ -1,0 +1,27 @@
+services:
+  global-headlines:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SITE_URL: "https://www.starteday.com"
+    container_name: global-headlines
+    restart: unless-stopped
+    ports:
+      - "8082:3000"
+    environment:
+      NODE_ENV: production
+      SITE_URL: "https://www.starteday.com"
+    volumes:
+      - gh-data:/app/data
+    networks:
+      - default
+      - ainav-net
+
+volumes:
+  gh-data:
+
+networks:
+  ainav-net:
+    external: true
+    name: ai-tools-nav_ainav-net

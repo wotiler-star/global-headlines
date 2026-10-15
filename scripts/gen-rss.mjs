@@ -1,16 +1,21 @@
-// 构建后生成 RSS：扫描 out/<locale>/article/<id>/index.html，提取 <title> 与
-// <meta name="description">，写出 out/rss.xml（合并）与 out/<locale>/rss.xml（分语言）。
-// 纯 Node（无依赖），在 `next build` 之后运行（见 package.json 的 build 脚本）。
-import { readFileSync, readdirSync, existsSync, writeFileSync } from "node:fs";
+// 生成 RSS：直接读取 data/articles.json（collect-articles.mjs 写的可读镜像），
+// 写出 public/rss.xml（合并）与 public/<locale>/rss.xml（分语言）。
+// 纯 Node 无依赖；构建后 / 容器启动时运行均可（幂等覆盖写）。
+// 历史：旧版扫描 out/<locale>/article/<id>/index.html，那是 CloudStudio 静态导出
+// 时代的逻辑，Docker(next start) 部署下 out/ 不存在，导致 RSS 从未生成（线上 404/500）。
+import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const OUT = join(fileURLToPath(new URL("../out/", import.meta.url)));
-const SITE_URL = (process.env.SITE_URL || "https://global-headlines.example.com").replace(/\/$/, "");
+const ROOT = join(fileURLToPath(new URL("../", import.meta.url)));
+const DATA = join(ROOT, "data", "articles.json");
+const PUB = join(ROOT, "public");
+const SITE_URL = (process.env.SITE_URL || "https://www.starteday.com").replace(/\/$/, "");
 const LOCALES = ["zh", "en", "ja", "ko", "es", "fr"];
+const MAX_ITEMS = 50;
 
 function escapeXml(s = "") {
-  return s
+  return String(s)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -18,16 +23,7 @@ function escapeXml(s = "") {
     .replace(/'/g, "&apos;");
 }
 
-function extract(html) {
-  const title = (html.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || "";
-  const desc =
-    (html.match(/<meta\s+name="description"\s+content="([\s\S]*?)"/i) || [])[1] ||
-    (html.match(/<meta\s+content="([\s\S]*?)"\s+name="description"/i) || [])[1] ||
-    "";
-  return { title: title.trim(), desc: desc.trim() };
-}
-
-function buildFeed(items, title, link) {
+function buildFeed(items, title, link, lang) {
   const now = new Date().toUTCString();
   const body = items
     .map(
@@ -36,7 +32,7 @@ function buildFeed(items, title, link) {
       <link>${escapeXml(it.link)}</link>
       <guid isPermaLink="true">${escapeXml(it.link)}</guid>
       <description>${escapeXml(it.desc)}</description>
-      <pubDate>${now}</pubDate>
+      <pubDate>${escapeXml(new Date(it.publishedAt).toUTCString())}</pubDate>${it.image ? `\n      <enclosure url="${escapeXml(it.image)}" type="image/jpeg" />` : ""}
     </item>`
     )
     .join("\n");
@@ -47,7 +43,7 @@ function buildFeed(items, title, link) {
     <link>${escapeXml(link)}</link>
     <atom:link href="${escapeXml(link)}" rel="self" type="application/rss+xml" />
     <description>${escapeXml(title)}</description>
-    <language>${items[0]?.lang || "zh"}</language>
+    <language>${lang}</language>
     <lastBuildDate>${now}</lastBuildDate>
 ${body}
   </channel>
@@ -55,38 +51,51 @@ ${body}
 `;
 }
 
-function collectLocale(locale) {
-  const dir = join(OUT, locale, "article");
-  if (!existsSync(dir)) return [];
-  const items = [];
-  for (const id of readdirSync(dir)) {
-    const f = join(dir, id, "index.html");
-    if (!existsSync(f)) continue;
-    const html = readFileSync(f, "utf8");
-    const { title, desc } = extract(html);
-    if (!title) continue;
-    items.push({
-      title,
-      desc,
-      link: `${SITE_URL}/${locale}/article/${id}/index.html`,
-      lang: locale,
-    });
-  }
-  return items;
+if (!existsSync(DATA)) {
+  console.log("[rss] data/articles.json 不存在，跳过（容器启动 collect 后再生成）");
+  process.exit(0);
 }
+
+let articles = [];
+try {
+  articles = JSON.parse(readFileSync(DATA, "utf8"));
+} catch (e) {
+  console.log("[rss] articles.json 解析失败，跳过:", e.message);
+  process.exit(0);
+}
+if (!Array.isArray(articles) || articles.length === 0) {
+  console.log("[rss] 无文章数据，跳过");
+  process.exit(0);
+}
+
+mkdirSync(PUB, { recursive: true });
 
 const all = [];
 for (const loc of LOCALES) {
-  const items = collectLocale(loc);
+  const items = articles
+    .filter((a) => a && a.locale === loc && a.title && a.id)
+    .sort((a, b) => (b.publishedAt || 0) - (a.publishedAt || 0))
+    .slice(0, MAX_ITEMS)
+    .map((a) => ({
+      title: a.title,
+      desc: a.summary || a.title,
+      link: `${SITE_URL}/${loc}/article/${a.id}`,
+      publishedAt: a.publishedAt || Date.now(),
+      image: Array.isArray(a.images) ? a.images[0] : undefined,
+    }));
   if (items.length === 0) continue;
-  const feed = buildFeed(items, `全球头条 (${loc})`, `${SITE_URL}/${loc}/rss.xml`);
-  writeFileSync(join(OUT, loc, "rss.xml"), feed, "utf8");
+  const feed = buildFeed(items, `全球头条 (${loc})`, `${SITE_URL}/${loc}/rss.xml`, loc);
+  const dir = join(PUB, loc);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, "rss.xml"), feed, "utf8");
   console.log(`[rss] wrote ${loc}/rss.xml (${items.length} items)`);
   all.push(...items);
 }
 
 if (all.length) {
-  const combined = buildFeed(all, "全球头条 Global Headlines", `${SITE_URL}/rss.xml`);
-  writeFileSync(join(OUT, "rss.xml"), combined, "utf8");
-  console.log(`[rss] wrote rss.xml (combined ${all.length} items)`);
+  all.sort((a, b) => b.publishedAt - a.publishedAt);
+  const top = all.slice(0, 100);
+  const combined = buildFeed(top, "全球头条 Global Headlines", `${SITE_URL}/rss.xml`, "zh");
+  writeFileSync(join(PUB, "rss.xml"), combined, "utf8");
+  console.log(`[rss] wrote rss.xml (combined ${top.length} items)`);
 }
