@@ -42,7 +42,8 @@ export interface RegionStat {
   lat: number;
   lng: number;
   signalCount: number;   // 信号量
-  sources: number;       // 活跃源数
+  sources: number;
+  sourcesList: string[];   // 活跃源域名列表(去重 top8)
   lastSignal: number;    // 最新信号 epoch ms
   topCategory: string;   // 主导分类 key
   categoryDist: { cat: string; n: number }[]; // 分类分布 top4
@@ -102,6 +103,7 @@ export function aggregateRegions(articles: Article[], locale: Locale): RegionSta
       lng: city.lng,
       signalCount: items.length,
       sources: sources.size,
+      sourcesList: [...sources].slice(0, 8),
       lastSignal: last,
       topCategory: top,
       categoryDist: dist.slice(0, 4),

@@ -27,19 +27,53 @@ function relTime(ms: number, locale: Locale): string {
   return Math.floor(h / 24) + " " + u.day;
 }
 
+// 活跃度配色：低(青) -> 高(琥珀)，让热点地区更"烫"
+function activityRGB(a: number): [number, number, number] {
+  const t = Math.max(0, Math.min(1, (a || 0) / 100));
+  const r = Math.round(34 + (255 - 34) * t);
+  const g = Math.round(211 + (178 - 211) * t);
+  const b = Math.round(238 + (36 - 238) * t);
+  return [r, g, b];
+}
+function activityColor(a: number): string {
+  const [r, g, b] = activityRGB(a);
+  return `rgb(${r},${g},${b})`;
+}
+function activityColorA(a: number, alpha: number): string {
+  const [r, g, b] = activityRGB(a);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
 export default function SignalDeck({ regions, locale }: { regions: RegionStat[]; locale: Locale }) {
   const mountRef = useRef<HTMLDivElement>(null);
+  const worldRef = useRef<any>(null);
   const router = useRouter();
   const sp = useSearchParams();
   const active = sp.get("src");
   const selected = regions.find((r) => r.code === active) || null;
   const [noWebGL, setNoWebGL] = useState(false);
+  const [rotating, setRotating] = useState(true);
+  const [, forceTick] = useState(0); // 30s 刷新相对时间
 
   const activeRef = useRef(active);
   activeRef.current = active;
 
   const total = regions.reduce((s, r) => s + r.signalCount, 0);
   const peak = regions[0];
+  const d = getDict(locale);
+
+  // live last-signal time
+  useEffect(() => {
+    const id = setInterval(() => forceTick((t) => t + 1), 30000);
+    return () => clearInterval(id);
+  }, []);
+
+  // 尊重 reduced-motion
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setRotating(false);
+    }
+  }, []);
 
   useEffect(() => {
     const el = mountRef.current;
@@ -50,7 +84,6 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       setNoWebGL(true);
       return;
     }
-    let world: any;
     let ro: ResizeObserver | undefined;
     let cancelled = false;
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -62,11 +95,12 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       const node = mountRef.current;
       const w = node.clientWidth || 600;
       const h = node.clientHeight || 420;
-      world = new Globe(node)
+      const world = new Globe(node)
         .width(w)
         .height(h)
         .backgroundColor("rgba(0,0,0,0)")
         .showGlobe(true)
+        .showGraticules(true)
         .showAtmosphere(true)
         .atmosphereColor("#ffb224")
         .atmosphereAltitude(0.22)
@@ -76,33 +110,44 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
         .pointsData(regions as any)
         .pointLat("lat")
         .pointLng("lng")
-        .pointColor(() => "#ffb224")
+        .pointColor((p: any) => activityColor(p.activity))
         .pointAltitude(0.012)
-        .pointRadius((d: any) => 0.22 + (d.activity / 100) * 0.5)
+        .pointRadius((p: any) => 0.22 + (p.activity / 100) * 0.5)
         .pointLabel(
-          (d: any) =>
-            '<div class="globe-tip"><b>' + d.name + "</b><br>" + d.signalCount + " SIGNALS · " + d.code + "</div>"
+          (p: any) =>
+            '<div class="globe-tip"><b>' +
+            p.name +
+            "</b><br>" +
+            p.signalCount +
+            " SIGNALS · " +
+            p.code +
+            " · ACT " +
+            p.activity +
+            "%</div>"
         )
         .ringsData(regions as any)
         .ringLat("lat")
         .ringLng("lng")
-        .ringColor(() => "rgba(255,178,36,0.55)")
-        .ringMaxRadius((d: any) => 2 + (d.activity / 100) * 4)
+        .ringColor((p: any) => activityColorA(p.activity, 0.5))
+        .ringMaxRadius((p: any) => 2 + (p.activity / 100) * 4)
         .ringPropagationSpeed(1.1)
         .ringRepeatPeriod(1400)
-        .onPointClick((d: any) => onPick(d.code));
+        .onPointClick((p: any) => onPick(p.code));
 
       const ctrl = world.controls();
-      ctrl.autoRotate = !prefersReduced;
+      ctrl.autoRotate = !prefersReduced && rotating;
       ctrl.autoRotateSpeed = 0.5;
       ctrl.enableZoom = true;
+      ctrl.enableDamping = true;
+      ctrl.dampingFactor = 0.08;
       ctrl.minDistance = 180;
       ctrl.maxDistance = 420;
       ctrl.enablePan = false;
 
+      worldRef.current = world;
       ro = new ResizeObserver(() => {
-        if (world && mountRef.current) {
-          world.width(mountRef.current.clientWidth).height(mountRef.current.clientHeight);
+        if (worldRef.current && mountRef.current) {
+          worldRef.current.width(mountRef.current.clientWidth).height(mountRef.current.clientHeight);
         }
       });
       ro.observe(node);
@@ -118,12 +163,44 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       cancelled = true;
       if (ro) ro.disconnect();
       try {
-        if (world && world._destructor) world._destructor();
+        if (worldRef.current && worldRef.current._destructor) worldRef.current._destructor();
       } catch (e) {}
+      worldRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regions]);
 
+  // 自转开关同步
+  useEffect(() => {
+    const w = worldRef.current;
+    if (w && w.controls) {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      w.controls().autoRotate = !prefersReduced && rotating;
+    }
+  }, [rotating]);
+
+  // 选中地区时把地球转向它
+  useEffect(() => {
+    const w = worldRef.current;
+    if (w && active && selected) {
+      w.pointOfView({ lat: selected.lat, lng: selected.lng, altitude: 2.2 }, 700);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active]);
+
+  function toggleRotate() {
+    setRotating((r) => !r);
+  }
+  function pick(code: string) {
+    const base = homeHref(locale);
+    if (active === code) router.push(base);
+    else router.push(base + "?src=" + code);
+  }
+  function focusRegion(code: string) {
+    const w = worldRef.current;
+    const r = regions.find((x) => x.code === code);
+    if (w && r) w.pointOfView({ lat: r.lat, lng: r.lng, altitude: 2.2 }, 600);
+  }
   function clearFilter() {
     router.push(homeHref(locale));
   }
@@ -145,7 +222,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       {noWebGL ? (
         <div className="sd-fallback">
           {regions.map((r) => (
-            <button key={r.code} className="sd-fb-item" onClick={() => router.push(homeHref(locale) + "?src=" + r.code)}>
+            <button key={r.code} className="sd-fb-item" onClick={() => pick(r.code)}>
               <span className="sd-fb-code">{r.code}</span>
               <span className="sd-fb-name">{r.name}</span>
               <span className="sd-fb-count">{r.signalCount}</span>
@@ -153,15 +230,41 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
           ))}
         </div>
       ) : (
-        <div className="sd-globe" ref={mountRef} />
+        <div className="sd-globe-wrap">
+          <div className="sd-globe" ref={mountRef} />
+          <ul className="sd-legend" aria-label="地区图例">
+            {regions.map((r) => (
+              <li
+                key={r.code}
+                className={"sd-leg-item" + (active === r.code ? " on" : "")}
+                onClick={() => pick(r.code)}
+                onMouseEnter={() => focusRegion(r.code)}
+                title={r.name}
+              >
+                <span
+                  className="sd-leg-dot"
+                  style={{ background: activityColor(r.activity), color: activityColor(r.activity) }}
+                />
+                <span className="sd-leg-code">{r.code}</span>
+                <span className="sd-leg-name">{r.name}</span>
+                <span className="sd-leg-count">{r.signalCount}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
 
       <div className="sd-foot">
         <span>
-          <span style={{ color: "var(--live)" }}>●</span> 拖拽旋转 · 点击信号源查看指标
+          <span style={{ color: "var(--live)" }}>●</span> 拖拽旋转 · 悬停/点击地区查看指标
           {selected ? " · 当前 " + selected.code : ""}
         </span>
-        <span>SYNC LIVE</span>
+        <span className="sd-foot-right">
+          <button className="sd-rot" onClick={toggleRotate} aria-label="切换自转">
+            {rotating ? "⏸ 暂停" : "▶ 自转"}
+          </button>
+          <span className="sd-sync">SYNC LIVE</span>
+        </span>
       </div>
 
       {selected && (
@@ -193,6 +296,20 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
               <span className="sd-m-val">{selected.activity}%</span>
             </div>
           </div>
+
+          {selected.sourcesList && selected.sourcesList.length > 0 && (
+            <div className="sd-sources">
+              <div className="sd-cat-title">活跃源域名 ACTIVE SOURCES</div>
+              <div className="sd-src-list">
+                {selected.sourcesList.map((s) => (
+                  <span key={s} className="sd-src-chip">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="sd-act-bar">
             <div className="sd-act-fill" style={{ width: selected.activity + "%" }} />
           </div>
@@ -201,7 +318,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
             {selected.categoryDist.map((c) => {
               const max = selected.categoryDist[0] ? selected.categoryDist[0].n : 1;
               const pct = (c.n / max) * 100;
-              const catName = getDict(locale).categories[c.cat as Category] || c.cat;
+              const catName = d.categories[c.cat as Category] || c.cat;
               return (
                 <div className="sd-cat-row" key={c.cat}>
                   <span className="sd-cat-name">{catName}</span>
@@ -214,7 +331,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
             })}
           </div>
           <div className="sd-topcat">
-            主导分类 TOP · {getDict(locale).categories[selected.topCategory as Category] || selected.topCategory}
+            主导分类 TOP · {d.categories[selected.topCategory as Category] || selected.topCategory}
           </div>
         </div>
       )}

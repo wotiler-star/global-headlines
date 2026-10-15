@@ -975,3 +975,64 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .sd-topcat { margin-top: 8px; font-family: var(--font-mn); font-size: 10px; letter-spacing: .06em; color: var(--ink-3); }
 .globe-tip { font-family: var(--font-mn); font-size: 11px; color: var(--ink); background: rgba(10,14,20,.9); border: 1px solid var(--brand); border-radius: 5px; padding: 4px 7px; white-space: nowrap; }
 .globe-tip b { color: var(--brand); }
+
+/* ===== 信号地球 ENHANCED v2 (legend / toggle / sources / depth) ===== */
+.sd-globe-wrap { position: relative; }
+.sd-globe-wrap::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 45%, transparent 52%, rgba(10,14,20,.6) 100%);
+  pointer-events: none; z-index: 1;
+}
+.sd-globe { width: 100%; height: clamp(360px, 46vw, 460px); cursor: grab; }
+.sd-globe:active { cursor: grabbing; }
+
+/* 常驻可交互图例（与地球联动） */
+.sd-legend {
+  position: absolute; top: 50%; left: 10px; transform: translateY(-50%);
+  list-style: none; margin: 0; padding: 8px;
+  display: flex; flex-direction: column; gap: 4px;
+  background: rgba(10,14,20,.55); border: 1px solid var(--line); border-radius: 8px;
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  pointer-events: none; z-index: 4; max-height: 88%; overflow: auto;
+}
+.sd-leg-item {
+  display: flex; align-items: center; gap: 7px;
+  padding: 4px 6px; border-radius: 5px; cursor: pointer; pointer-events: auto;
+  font-family: var(--font-mn); white-space: nowrap;
+  transition: background .15s, box-shadow .15s;
+}
+.sd-leg-item:hover { background: var(--brand-soft); }
+.sd-leg-item.on { background: var(--brand-soft); box-shadow: inset 0 0 0 1px var(--brand); }
+.sd-leg-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; box-shadow: 0 0 6px currentColor; }
+.sd-leg-code { font-size: 10px; font-weight: 700; color: var(--ink); letter-spacing: .08em; }
+.sd-leg-name { flex: 1; font-size: 11px; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; max-width: 84px; }
+.sd-leg-count { font-size: 11px; color: var(--brand); flex: none; }
+
+/* 自转开关 + SYNC LIVE */
+.sd-foot-right { display: flex; align-items: center; gap: 10px; }
+.sd-rot {
+  font-family: var(--font-mn); font-size: 10px; letter-spacing: .06em;
+  color: var(--brand); background: transparent; border: 1px solid var(--brand);
+  border-radius: 999px; padding: 2px 9px; cursor: pointer; transition: background .15s;
+}
+.sd-rot:hover { background: var(--brand-soft); }
+.sd-sync { color: var(--live); }
+
+/* 面板内活跃源域名列表 */
+.sd-sources { margin: 10px 0 6px; }
+.sd-src-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+.sd-src-chip {
+  font-family: var(--font-mn); font-size: 10px; color: var(--ink-2);
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px;
+}
+
+/* 窄屏：图例转为底部横排 */
+@media (max-width: 720px) {
+  .sd-legend {
+    top: auto; bottom: 8px; left: 50%; transform: translateX(-50%);
+    flex-direction: row; flex-wrap: wrap; justify-content: center;
+    max-width: 94%; max-height: none;
+  }
+  .sd-leg-name { display: none; }
+}
