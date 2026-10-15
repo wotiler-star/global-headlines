@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Locale, Category } from "@/i18n/config";
+import { Locale, Category, categories } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { RegionStat } from "@/lib/sourceGeo";
 import { homeHref } from "@/lib/paths";
@@ -27,7 +27,7 @@ function relTime(ms: number, locale: Locale): string {
   return Math.floor(h / 24) + " " + u.day;
 }
 
-// 活跃度配色：低(青) -> 高(琥珀)，让热点地区更"烫"
+// 活跃度配色：低(青) -> 高(琥珀)
 function activityRGB(a: number): [number, number, number] {
   const t = Math.max(0, Math.min(1, (a || 0) / 100));
   const r = Math.round(34 + (255 - 34) * t);
@@ -42,6 +42,22 @@ function activityColor(a: number): string {
 function activityColorA(a: number, alpha: number): string {
   const [r, g, b] = activityRGB(a);
   return `rgba(${r},${g},${b},${alpha})`;
+}
+
+// 分类配色（多色分层）
+const CAT_COLORS: Record<string, string> = {
+  recommend: "#ffb224",
+  world: "#22d3ee",
+  tech: "#6ea8fe",
+  finance: "#3ddc97",
+  sports: "#ff7a59",
+  entertainment: "#c792ea",
+  health: "#f06ea9",
+  science: "#7ee787",
+  video: "#ff5c8a",
+};
+function catColor(cat: string): string {
+  return CAT_COLORS[cat] || "#ffb224";
 }
 
 export default function SignalDeck({ regions, locale }: { regions: RegionStat[]; locale: Locale }) {
@@ -95,6 +111,23 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       const node = mountRef.current;
       const w = node.clientWidth || 600;
       const h = node.clientHeight || 420;
+      const dict = getDict(locale);
+
+      // 每地区按其分类分布拆成多个彩色分层点（rank 决定堆叠高度）
+      const catPoints = regions.flatMap((r) =>
+        (r.categoryDist || []).map((c, i) => ({
+          code: r.code,
+          name: r.name,
+          lat: r.lat,
+          lng: r.lng,
+          cat: c.cat,
+          catName: dict.categories[c.cat as Category] || c.cat,
+          n: c.n,
+          max: r.categoryDist[0] ? r.categoryDist[0].n : 1,
+          rank: i,
+        }))
+      );
+
       const world = new Globe(node)
         .width(w)
         .height(h)
@@ -107,23 +140,15 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
         .globeMaterial(
           new THREE.MeshPhongMaterial({ color: "#0a0e14", emissive: "#070a0f", shininess: 2 })
         )
-        .pointsData(regions as any)
+        .pointsData(catPoints as any)
         .pointLat("lat")
         .pointLng("lng")
-        .pointColor((p: any) => activityColor(p.activity))
-        .pointAltitude(0.012)
-        .pointRadius((p: any) => 0.22 + (p.activity / 100) * 0.5)
+        .pointColor((p: any) => catColor(p.cat))
+        .pointAltitude((p: any) => 0.01 + p.rank * 0.03)
+        .pointRadius((p: any) => 0.12 + (p.n / p.max) * 0.55)
         .pointLabel(
           (p: any) =>
-            '<div class="globe-tip"><b>' +
-            p.name +
-            "</b><br>" +
-            p.signalCount +
-            " SIGNALS · " +
-            p.code +
-            " · ACT " +
-            p.activity +
-            "%</div>"
+            '<div class="globe-tip"><b>' + p.name + "</b><br>" + p.catName + " · " + p.n + "</div>"
         )
         .ringsData(regions as any)
         .ringLat("lat")
@@ -191,6 +216,9 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
   function toggleRotate() {
     setRotating((r) => !r);
   }
+  function resetView() {
+    if (worldRef.current) worldRef.current.pointOfView({ lat: 20, lng: 0, altitude: 2.5 }, 800);
+  }
   function pick(code: string) {
     const base = homeHref(locale);
     if (active === code) router.push(base);
@@ -251,6 +279,16 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
               </li>
             ))}
           </ul>
+          <div className="sd-cat-legend" aria-label="分类色图例">
+            {categories
+              .filter((c) => c !== "recommend")
+              .map((c) => (
+                <span className="sd-cl-item" key={c}>
+                  <span className="sd-cl-dot" style={{ background: catColor(c) }} />
+                  {d.categories[c as Category] || c}
+                </span>
+              ))}
+          </div>
         </div>
       )}
 
@@ -260,6 +298,9 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
           {selected ? " · 当前 " + selected.code : ""}
         </span>
         <span className="sd-foot-right">
+          <button className="sd-rot" onClick={resetView} aria-label="回到全景">
+            ⤢ 全景
+          </button>
           <button className="sd-rot" onClick={toggleRotate} aria-label="切换自转">
             {rotating ? "⏸ 暂停" : "▶ 自转"}
           </button>
@@ -323,7 +364,10 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
                 <div className="sd-cat-row" key={c.cat}>
                   <span className="sd-cat-name">{catName}</span>
                   <span className="sd-cat-bar">
-                    <span className="sd-cat-fill" style={{ width: pct + "%" }} />
+                    <span
+                      className="sd-cat-fill"
+                      style={{ width: pct + "%", background: catColor(c.cat) }}
+                    />
                   </span>
                   <span className="sd-cat-n">{c.n}</span>
                 </div>

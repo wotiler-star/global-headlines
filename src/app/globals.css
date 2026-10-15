@@ -1036,3 +1036,13 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
   }
   .sd-leg-name { display: none; }
 }
+
+/* ===== 信号地球 ENHANCED v3 (category color legend) ===== */
+.sd-cat-legend {
+  display: flex; flex-wrap: wrap; gap: 5px 12px;
+  margin-top: 8px; padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mn); font-size: 10px; color: var(--ink-3);
+}
+.sd-cl-item { display: inline-flex; align-items: center; gap: 5px; }
+.sd-cl-dot { width: 8px; height: 8px; border-radius: 2px; flex: none; box-shadow: 0 0 5px currentColor; }
