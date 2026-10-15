@@ -1,43 +1,34 @@
-// Navigation URL helpers for CloudStudio static hosting.
-//
-// CloudStudio only serves EXPLICIT files (e.g. /zh/index.html). Clean directory
-// URLs (/zh/) are NOT resolved to index.html — instead they fall back to the root
-// index.html (our redirect). So every in-app <Link> must point at the concrete
-// index.html file, otherwise navigation would loop through the root redirect.
+// Navigation URL helpers (Docker / next start deployment — clean URLs).
+// Canonical form carries NO trailing slash: /zh and /zh/article/x serve 200
+// directly (verified). Legacy /index.html links still resolve through the
+// middleware 307 strip (kept as a safety net for old bookmarks/SEO).
 import { Locale } from "@/i18n/config";
 
 export function homeHref(locale: Locale): string {
-  return `/${locale}/index.html`;
+  return `/${locale}`;
 }
 
 export function articleHref(locale: Locale, id: string): string {
-  return `/${locale}/article/${id}/index.html`;
+  return `/${locale}/article/${id}`;
 }
 
 export function categoryHref(locale: Locale, cat: string, query?: string): string {
-  const base = `/${locale}/index.html`;
+  const base = `/${locale}`;
   if (cat && cat !== "recommend") {
     return query ? `${base}?cat=${cat}&${query}` : `${base}?cat=${cat}`;
   }
   return query ? `${base}?${query}` : base;
 }
 
-// Swap the locale segment of an existing in-app path and ALWAYS return the
-// explicit index.html file — CloudStudio only serves explicit files, so a clean
-// path like /en would 404 there. Works whether the incoming pathname is a logical
-// route (/zh) or already explicit (/zh/index.html, /zh/article/<id>/index.html).
-// Pass `query` (e.g. "cat=world") to preserve filters across a language switch.
+// Swap the locale segment of an existing in-app path. Accepts logical routes
+// (/zh), clean explicit paths, or legacy /index.html forms; always returns the
+// clean canonical target. RSS article ids are per-language, so switching from
+// an RSS article falls back to the target-language home instead of a 404.
 export function swapLocale(pathname: string, next: Locale, query?: string): string {
-  const cleaned = pathname.replace(/index\.html$/, "");
+  const cleaned = pathname.replace(/index\.html$/, "").replace(/\/+$/, "");
   const seg = cleaned.split("/").filter(Boolean);
-  // RSS articles are collected per-language with independent ids, so a same-id
-  // article page does NOT exist in other locales. Switching languages from an RSS
-  // article falls back to the target-language home (always exists) instead of 404.
-  const isRssArticle = seg[1] === "article" && seg[2]?.startsWith("rss-");
-  const explicit = isRssArticle
-    ? `/${next}/index.html`
-    : seg[1] === "article" && seg[2]
-      ? `/${next}/article/${seg[2]}/index.html`
-      : `/${next}/index.html`;
-  return query ? `${explicit}?${query}` : explicit;
+  const isRssArticle = seg[1] === "article" && seg[2] && seg[2].indexOf("rss-") === 0;
+  const target =
+    isRssArticle || !(seg[1] === "article" && seg[2]) ? `/${next}` : `/${next}/article/${seg[2]}`;
+  return query ? `${target}?${query}` : target;
 }

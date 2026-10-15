@@ -2,7 +2,7 @@
   "name": "Global Headlines",
   "short_name": "Headlines",
   "description": "Multilingual global news aggregator",
-  "start_url": "/zh/index.html",
+  "start_url": "/zh",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f5f5f5",

@@ -6,7 +6,7 @@
   --input-bg: #161e29;
   --ink: #e8eef5;
   --ink-2: #93a4b8;
-  --ink-3: #5c6b7f;
+  --ink-3: #75839a;
   --line: #1e2836;
   --brand: #ffb224;
   --brand-dark: #f59e0b;
@@ -31,13 +31,13 @@
   --input-bg: #ffffff;
   --ink: #0c1218;
   --ink-2: #41505f;
-  --ink-3: #6b7a8a;
+  --ink-3: #5f6d7d;
   --line: #d7dee6;
   --brand: #b45309;
   --brand-dark: #92400e;
   --on-brand: #ffffff;
-  --live: #0e9f6e;
-  --alert: #dc2626;
+  --live: #0c7d58;
+  --alert: #c61d1d;
   --brand-soft: rgba(180, 83, 9, 0.10);
 }
 
@@ -915,9 +915,19 @@ mark, .hl {
 .wf-caption { font-family: var(--font-mn); font-size: 10px; letter-spacing: 0.14em; color: var(--ink-3); margin-top: 6px; }
 .read-size { display: flex; align-items: center; gap: 6px; font-family: var(--font-mn); }
 .read-size .rs-label { font-size: 12px; color: var(--ink-3); letter-spacing: 0.08em; }
-.rs-btn { font-family: var(--font-mn); font-size: 11px; padding: 3px 9px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); border-radius: 4px; cursor: pointer; }
-.rs-btn:hover { border-color: var(--brand); color: var(--brand); }
-.rs-btn.on { border-color: var(--brand); color: var(--brand); }
+/* rs-btn 已迁移至组件库 SdButton（见下方 sd-btn） */
 html[data-reading="s"] .article-body p { font-size: 14px; }
 html[data-reading="l"] .article-body p { font-size: 18px; }
 .article-title { min-height: 1.2em; }
+
+/* ===== 信号台基础组件库（P3） ===== */
+.sd-btn { font-family: var(--font-mn); font-size: 11px; letter-spacing: 0.1em; padding: 5px 14px; border-radius: 4px; border: 1px solid var(--brand); background: transparent; color: var(--brand); cursor: pointer; transition: opacity 0.25s ease, border-color 0.25s ease; }
+.sd-btn:hover { opacity: 0.82; }
+.sd-btn:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.sd-btn-solid { background: var(--brand); color: var(--on-brand); }
+.sd-btn-dim { border-color: var(--line); color: var(--ink-2); }
+.sd-btn-dim:hover { border-color: var(--brand); color: var(--brand); opacity: 1; }
+.sd-chip { display: inline-block; font-family: var(--font-mn); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-2); background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; }
+.sd-chip.on { color: var(--brand); border-color: var(--brand); }
+.sd-input { font-family: var(--font-mn); font-size: 13px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--input-bg); color: var(--ink); }
+.sd-input:focus { outline: none; border-color: var(--brand); }

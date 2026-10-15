@@ -2,7 +2,7 @@
 // Static hosting only: cache same-origin GET responses; navigations fall back to
 // the cached index so the app opens offline. Never breaks the page on failure.
 const CACHE = "gh-cache-v1";
-const CORE = ["/index.html", "/zh/index.html", "/en/index.html", "/manifest.webmanifest", "/icon.svg"];
+const CORE = ["/zh", "/en", "/manifest.webmanifest", "/icon.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -33,7 +33,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
           return res;
         })
-        .catch(() => caches.match(req).then((r) => r || caches.match("/zh/index.html")))
+        .catch(() => caches.match(req).then((r) => r || caches.match("/zh")))
     );
     return;
   }

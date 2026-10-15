@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { SdButton } from "./ui";
 
 const KEY = "gh_read_size";
 const SIZES = ["s", "m", "l"] as const;
@@ -24,16 +25,16 @@ export default function ReadingSize() {
     <div className="read-size" role="group" aria-label="正文字号">
       <span className="rs-label">Aa</span>
       {SIZES.map((s) => (
-        <button
+        <SdButton
           key={s}
           type="button"
-          className={"rs-btn" + (size === s ? " on" : "")}
+          variant={size === s ? "primary" : "dim"}
           onClick={() => setSize(s)}
           aria-pressed={size === s}
           aria-label={"字号 " + (s === "s" ? "小" : s === "l" ? "大" : "标准")}
         >
           {s === "s" ? "A-" : s === "l" ? "A+" : "A"}
-        </button>
+        </SdButton>
       ))}
     </div>
   );
