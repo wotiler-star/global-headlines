@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, Fragment } from "react";
 import { isLocale, Locale, locales, categories } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { getArticle, getRelated, getArticles } from "@/data/newsSource";
@@ -13,6 +13,10 @@ import BookmarkButton from "@/components/BookmarkButton";
 import FollowButton from "@/components/FollowButton";
 import ShareBar from "@/components/ShareBar";
 import ReadingProgress from "@/components/ReadingProgress";
+import DecodeTitle from "@/components/DecodeTitle";
+import WaveformDivider from "@/components/WaveformDivider";
+import ReadingSize from "@/components/ReadingSize";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -70,6 +74,15 @@ export async function generateMetadata({
   };
 }
 
+// 从正文抽取最具信息量的一句作为引述（确定性，无随机）
+function pickQuote(body: string[]): string {
+  const src = body.slice(1, 3).join(" ") || body.join(" ");
+  const parts = src.split(/(?<=[。！？!?])/).map((x) => x.trim()).filter((x) => x.length >= 12);
+  if (parts.length === 0) return "";
+  parts.sort((a, b) => b.length - a.length);
+  return parts[0].slice(0, 120);
+}
+
 export default async function ArticlePage({
   params,
 }: {
@@ -87,6 +100,8 @@ export default async function ArticlePage({
   const videos = article.media === "video"
     ? (await getArticles(loc, "video")).filter((a) => a.id !== article.id).slice(0, 6)
     : [];
+  const quote = article.media === "video" ? "" : pickQuote(article.body);
+  const signalId = "SIGNAL_" + article.id.replace(/[^a-zA-Z0-9]/g, "").slice(-6).toUpperCase();
 
   return (
     <>
@@ -128,19 +143,34 @@ export default async function ArticlePage({
       <div className="container">
         <article className="article">
           <ReadingProgress />
-          <h1 className="article-title">{article.title}</h1>
-          <div className="article-meta">
-            <span className="src">{article.source}</span>
-            <span>{formatRelativeTime(loc, article.publishedAt, d)}</span>
-            <span>{article.readMinutes} min</span>
+          <nav className="art-crumb" aria-label="breadcrumb">
+            <Link href={homeHref(loc)}>HOME</Link>
+            <span className="sep">/</span>
             <span>{d.categories[article.category]}</span>
+            <span className="sep">/</span>
+            <span className="sig">{signalId}</span>
+          </nav>
+          <div className="art-kicker">// {d.categories[article.category]} · SIGNAL STRONG</div>
+          <DecodeTitle text={article.title} className="article-title" />
+          <div className="article-byline">
+            <div className="article-meta">
+              <span className="src">{article.source}</span>
+              <span>{formatRelativeTime(loc, article.publishedAt, d)}</span>
+              <span>{article.readMinutes} min</span>
+              <span>{d.categories[article.category]}</span>
+            </div>
+            <ReadingSize />
           </div>
           <div className="article-actions">
             <FollowButton source={article.source} locale={loc} />
             <BookmarkButton id={article.id} />
             <ShareBar locale={loc} id={article.id} title={article.title} />
           </div>
-          <div className="hero">
+          <div className="hero hud-frame">
+            <span className="hud-c tl" />
+            <span className="hud-c tr" />
+            <span className="hud-c bl" />
+            <span className="hud-c br" />
             {article.media === "video" ? (
               <iframe
                 className="hero-video"
@@ -157,11 +187,27 @@ export default async function ArticlePage({
               </>
             )}
           </div>
+          {article.media !== "video" && (
+            <div className="art-caption">SOURCE · {article.source}</div>
+          )}
+          <div className="art-lead">
+            <div className="al-label">LEAD · 导读</div>
+            <p>{article.summary}</p>
+          </div>
           <div className="article-body">
             {article.body.map((p, i) => (
-              <p key={i}>{p}</p>
+              <Fragment key={i}>
+                <p>{p}</p>
+                {i === Math.min(1, article.body.length - 1) && quote && (
+                  <div className="art-quote">
+                    <div className="aq-label">QUOTE · 引述</div>
+                    <blockquote>{quote}</blockquote>
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
+          <WaveformDivider paragraphs={article.body.length} minutes={article.readMinutes} />
           {article.sourceUrl && (
             <a
               className="read-original"

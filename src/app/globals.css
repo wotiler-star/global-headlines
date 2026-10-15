@@ -892,3 +892,32 @@ mark, .hl {
 @media (max-width: 600px) {
   .pulse-link .p-label { display: none; }
 }
+
+/* ===== 信号台 P2：文章页仪器化 ===== */
+.art-crumb { font-family: var(--font-mn); font-size: 11px; letter-spacing: 0.1em; color: var(--ink-3); margin-bottom: 12px; }
+.art-crumb a { color: var(--ink-2); }
+.art-crumb a:hover { color: var(--brand); }
+.art-crumb .sep { color: var(--line); margin: 0 6px; }
+.art-crumb .sig { color: var(--brand); }
+.art-kicker { font-family: var(--font-mn); font-size: 11px; letter-spacing: 0.16em; color: var(--brand); margin-bottom: 8px; }
+.article-byline { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.art-lead { border-left: 3px solid var(--brand); padding: 2px 0 2px 14px; margin: 0 0 20px; }
+.art-lead .al-label { font-family: var(--font-mn); font-size: 10px; letter-spacing: 0.2em; color: var(--brand); margin-bottom: 6px; }
+.art-lead p { font-size: 16px; line-height: 1.8; color: var(--ink); font-weight: 500; margin: 0; }
+.art-quote { border: 1px solid var(--line); border-left: 3px solid var(--brand); background: var(--surface); padding: 12px 16px; margin: 20px 0; }
+.art-quote .aq-label { font-family: var(--font-mn); font-size: 10px; letter-spacing: 0.2em; color: var(--brand); margin-bottom: 6px; }
+.art-quote blockquote { margin: 0; font-family: var(--font-gk); font-size: 16px; line-height: 1.7; color: var(--ink); }
+.art-caption { font-family: var(--font-mn); font-size: 11px; color: var(--ink-3); letter-spacing: 0.06em; margin: -10px 0 18px; }
+.article-actions { font-family: var(--font-mn); }
+.tag-chip { font-family: var(--font-mn); }
+.waveform-block { margin: 22px 0; }
+.waveform-block .waveform { height: 40px; }
+.wf-caption { font-family: var(--font-mn); font-size: 10px; letter-spacing: 0.14em; color: var(--ink-3); margin-top: 6px; }
+.read-size { display: flex; align-items: center; gap: 6px; font-family: var(--font-mn); }
+.read-size .rs-label { font-size: 12px; color: var(--ink-3); letter-spacing: 0.08em; }
+.rs-btn { font-family: var(--font-mn); font-size: 11px; padding: 3px 9px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); border-radius: 4px; cursor: pointer; }
+.rs-btn:hover { border-color: var(--brand); color: var(--brand); }
+.rs-btn.on { border-color: var(--brand); color: var(--brand); }
+html[data-reading="s"] .article-body p { font-size: 14px; }
+html[data-reading="l"] .article-body p { font-size: 18px; }
+.article-title { min-height: 1.2em; }
