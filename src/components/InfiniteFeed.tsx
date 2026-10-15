@@ -8,6 +8,7 @@ import { getDict } from "@/i18n/dictionaries";
 import { Article } from "@/data/news";
 import { useBookmarks, useFollows } from "@/lib/personal";
 import { homeHref } from "@/lib/paths";
+import { geoCodeOf } from "@/lib/sourceGeo";
 import { useVideoModal } from "./VideoModal";
 import NewsCard from "./NewsCard";
 
@@ -38,6 +39,7 @@ export default function InfiniteFeed({
   const catParam = sp.get("cat");
   const qParam = sp.get("q");
   const tagParam = sp.get("tag");
+  const srcParam = sp.get("src");
   const isBookmarks = sp.get("view") === "bookmarks";
   const isFollowing = sp.get("view") === "following";
   const active: Category = catParam && isCategory(catParam) ? catParam : "recommend";
@@ -66,7 +68,7 @@ export default function InfiniteFeed({
   // Reset pagination whenever the active filter changes.
   useEffect(() => {
     setCount(PAGE);
-  }, [active, q, tag, isBookmarks, isFollowing]);
+  }, [active, q, tag, isBookmarks, isFollowing, srcParam]);
 
   useEffect(() => {
     const el = sentinel.current;

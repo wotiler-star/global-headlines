@@ -6,12 +6,14 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeToggle from "./ThemeToggle";
 import SearchBox from "./SearchBox";
 import CategoryNav from "./CategoryNav";
+import TelemetryBar from "./TelemetryBar";
 import { homeHref } from "@/lib/paths";
 
 export default function Header({ locale }: { locale: Locale }) {
   const d = getDict(locale);
   return (
     <header className="app-header">
+      <TelemetryBar signal={4} />
       <div className="header-inner">
         <Link href={homeHref(locale)} className="logo">
           <span className="logo-mark">头</span>

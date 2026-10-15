@@ -34,6 +34,7 @@ export type Dict = {
   copyLink: string;
   copied: string;
   breakingTitle: string;
+  signalMapTitle: string;
   relatedVideos: string;
   tagTitle: string;
   readOriginal: string;
@@ -124,6 +125,7 @@ const dict: Record<Locale, Dict> = {
     copyLink: "复制链接",
     copied: "已复制",
     breakingTitle: "突发",
+    signalMapTitle: "全球信号源",
     relatedVideos: "相关视频",
     tagTitle: "标签",
     readOriginal: "阅读原文",
@@ -222,6 +224,7 @@ const dict: Record<Locale, Dict> = {
     copyLink: "Copy link",
     copied: "Copied",
     breakingTitle: "Breaking",
+    signalMapTitle: "全球信号源",
     relatedVideos: "Related videos",
     tagTitle: "Tag",
     readOriginal: "Read original",
@@ -320,6 +323,7 @@ const dict: Record<Locale, Dict> = {
     copyLink: "リンクをコピー",
     copied: "コピーしました",
     breakingTitle: "速報",
+    signalMapTitle: "全球信号源",
     relatedVideos: "関連動画",
     tagTitle: "タグ",
     readOriginal: "原文を読む",
@@ -418,6 +422,7 @@ const dict: Record<Locale, Dict> = {
     copyLink: "링크 복사",
     copied: "복사됨",
     breakingTitle: "속보",
+    signalMapTitle: "全球信号源",
     relatedVideos: "관련 영상",
     tagTitle: "태그",
     readOriginal: "원문 보기",
@@ -516,6 +521,7 @@ const dict: Record<Locale, Dict> = {
     copyLink: "Copiar enlace",
     copied: "Copiado",
     breakingTitle: "Última hora",
+    signalMapTitle: "全球信号源",
     relatedVideos: "Vídeos relacionados",
     tagTitle: "Etiqueta",
     readOriginal: "Leer original",
@@ -614,6 +620,7 @@ const dict: Record<Locale, Dict> = {
     copyLink: "Copier le lien",
     copied: "Copié",
     breakingTitle: "À la une",
+    signalMapTitle: "全球信号源",
     relatedVideos: "Vidéos liées",
     tagTitle: "Étiquette",
     readOriginal: "Lire l'original",

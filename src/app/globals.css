@@ -868,3 +868,27 @@ mark, .hl {
 .waveform i.hi { background: var(--brand); opacity: 1; }
 
 .decode-target { font-family: var(--font-gk); }
+
+/* ===== 信号台 P1：信号源地图 / 脉冲 / 雷达 ===== */
+.signal-map { margin: 14px 0; border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); }
+.sm-head { display: flex; justify-content: space-between; align-items: center; padding: 9px 14px; border-bottom: 1px solid var(--line); font-family: var(--font-mn); font-size: 11px; }
+.sm-title { color: var(--brand); letter-spacing: 0.14em; }
+.sm-count { color: var(--ink-3); letter-spacing: 0.08em; }
+.sm-svg { display: block; width: 100%; height: auto; }
+.sm-foot { display: flex; justify-content: space-between; padding: 8px 14px; border-top: 1px solid var(--line); font-family: var(--font-mn); font-size: 11px; color: var(--ink-3); }
+.pulse-link { cursor: pointer; }
+.pulse-link .p-ring { transform-box: fill-box; transform-origin: center; animation: ping 2.6s ease-out infinite; }
+.pulse-link .p-label { font-family: var(--font-mn); }
+.pulse-link:hover .p-label { fill: var(--brand); }
+.pulse-link.on .p-dot { fill: var(--brand); }
+.pulse-link.on .p-label { fill: var(--brand); }
+@keyframes ping { 0% { transform: scale(0.35); opacity: 0.85; } 75% { opacity: 0; } 100% { transform: scale(1.7); opacity: 0; } }
+.sweep { transform-box: view-box; transform-origin: 340px 125px; animation: radar 9s linear infinite; }
+@keyframes radar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .pulse-link .p-ring { animation: none; opacity: 0.4; }
+  .sweep { animation: none; }
+}
+@media (max-width: 600px) {
+  .pulse-link .p-label { display: none; }
+}

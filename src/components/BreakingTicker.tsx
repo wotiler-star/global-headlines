@@ -12,7 +12,8 @@ export default function BreakingTicker({ articles }: { articles: Article[] }) {
   // 复制一份以实现无缝循环
   const loop = [...items, ...items];
   return (
-    <div className="breaking" aria-label={d.breakingTitle}>
+    <div className="breaking scanline" aria-label={d.breakingTitle}>
+      <span className="live-dot" aria-hidden="true" />
       <span className="breaking-tag">{d.breakingTitle}</span>
       <div className="breaking-track-wrap">
         <div className="breaking-track">
