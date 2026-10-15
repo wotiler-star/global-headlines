@@ -8,7 +8,7 @@ import { getDict } from "@/i18n/dictionaries";
 import { Article } from "@/data/news";
 import { useBookmarks, useFollows } from "@/lib/personal";
 import { homeHref } from "@/lib/paths";
-import { geoCodeOf } from "@/lib/sourceGeo";
+import { geoCodeOf, cityName } from "@/lib/sourceGeo";
 import { useVideoModal } from "./VideoModal";
 import NewsCard from "./NewsCard";
 
@@ -21,9 +21,11 @@ const PAGE = 10;
 export default function InfiniteFeed({
   locale,
   articles,
+  allArticles,
 }: {
   locale: Locale;
   articles: Article[];
+  allArticles?: Article[];
 }) {
   const sp = useSearchParams();
   const d = getDict(locale);
@@ -49,7 +51,10 @@ export default function InfiniteFeed({
   const followingEmpty = isFollowing && follows.size === 0;
 
   const filtered = useMemo(() => {
-    return articles.filter((a) => {
+    const base = srcParam ? (allArticles && allArticles.length ? allArticles : articles) : articles;
+    return base.filter((a) => {
+      // 地区筛选：点地球某地区时，按 sourceUrl 所属城市代码过滤（跨语言聚合）
+      if (srcParam && geoCodeOf(a.sourceUrl) !== srcParam) return false;
       if (isBookmarks && !bookmarks.has(a.id)) return false;
       // 关注页：未关注任何来源时回退到推荐流，避免首屏空框
       if (isFollowing && follows.size > 0 && !follows.has(a.source)) return false;
@@ -60,7 +65,7 @@ export default function InfiniteFeed({
         return false;
       return true;
     });
-  }, [articles, isBookmarks, bookmarks, isFollowing, follows, active, tag, q]);
+  }, [articles, allArticles, isBookmarks, bookmarks, isFollowing, follows, active, tag, q, srcParam]);
 
   const [count, setCount] = useState(PAGE);
   const sentinel = useRef<HTMLDivElement>(null);
@@ -117,6 +122,12 @@ export default function InfiniteFeed({
         <div className="section-title">
           <span className="bar" />
           {d.categories[active]}
+        </div>
+      )}
+      {srcParam && !isBookmarks && !isFollowing && !q && !tag && active === "recommend" && (
+        <div className="section-title">
+          <span className="bar" />
+          {cityName(srcParam, locale)} · {filtered.length} {d.relatedTitle}
         </div>
       )}
       <div className="feed">

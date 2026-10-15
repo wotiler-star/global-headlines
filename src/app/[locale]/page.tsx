@@ -63,7 +63,7 @@ export default async function Home({
           </aside>
           <Suspense fallback={null}>
             <SearchChips locale={loc} />
-            <InfiniteFeed locale={loc} articles={articles} />
+            <InfiniteFeed locale={loc} articles={articles} allArticles={allArticles} />
           </Suspense>
           <aside className="sidebar">
             <HotBoard locale={loc} items={hot} />
