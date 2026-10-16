@@ -451,7 +451,19 @@ mark, .hl {
 @media (max-width: 1100px) {
   .layout { grid-template-columns: 1fr; }
   .left-rail { display: none; }
-  .sidebar { position: static; }
+  .sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .sidebar > * { min-width: 0; }
+}
+
+/* 手机窄屏：右栏恢复单列，避免两列过挤 */
+@media (max-width: 640px) {
+  .sidebar { grid-template-columns: 1fr; }
 }
 
 /* ---------- Responsive ---------- */
