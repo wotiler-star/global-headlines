@@ -218,6 +218,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
   }
   function resetView() {
     if (worldRef.current) worldRef.current.pointOfView({ lat: 20, lng: 0, altitude: 2.5 }, 800);
+    router.push(homeHref(locale)); // 复位镜头 + 清除 ?src 筛选
   }
   function pick(code: string) {
     const base = homeHref(locale);
