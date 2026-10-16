@@ -13,7 +13,7 @@
   --on-brand: #0a0e14;
   --live: #3ddc97;
   --alert: #ff5c5c;
-  --max: 1100px;
+  --max: 1280px;
   --radius: 8px;
   --font-gk: "Space Grotesk", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   --font-mn: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -1046,3 +1046,23 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 }
 .sd-cl-item { display: inline-flex; align-items: center; gap: 5px; }
 .sd-cl-dot { width: 8px; height: 8px; border-radius: 2px; flex: none; box-shadow: 0 0 5px currentColor; }
+
+/* ===== 信号地球 ENHANCED v4 (persistent panel fills blank + glow + wider) ===== */
+.sd-globe { position: relative; z-index: 1; }
+.sd-globe-wrap::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 48%, rgba(255,178,36,.07), transparent 62%);
+  pointer-events: none; z-index: 0;
+}
+.sd-panel { top: 52px; }
+.sd-panel.is-global { border-color: var(--line); background: rgba(16,22,31,.78); }
+.sd-panel.is-global .sd-panel-code { color: var(--ink-2); }
+.sd-m-full { grid-column: 1 / -1; }
+.sd-global-hint {
+  margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line);
+  font-family: var(--font-mn); font-size: 10px; line-height: 1.5; color: var(--ink-3);
+}
+@media (max-width: 720px) {
+  .sd-panel { position: static; width: auto; margin-top: 10px; box-shadow: none; top: auto; right: auto; }
+}

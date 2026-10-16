@@ -75,8 +75,16 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
   activeRef.current = active;
 
   const total = regions.reduce((s, r) => s + r.signalCount, 0);
-  const peak = regions[0];
+  const peak = [...regions].sort((a, b) => b.signalCount - a.signalCount)[0];
   const d = getDict(locale);
+  const globalCat = regions
+    .flatMap((r) => r.categoryDist)
+    .reduce<Record<string, number>>((acc, c) => {
+      acc[c.cat] = (acc[c.cat] || 0) + c.n;
+      return acc;
+    }, {} as Record<string, number>);
+  const globalTop = Object.entries(globalCat).sort((a, b) => b[1] - a[1])[0];
+  const globalTopName = globalTop ? (d.categories[globalTop[0] as Category] || globalTop[0]) : "—";
 
   // live last-signal time
   useEffect(() => {
@@ -309,6 +317,35 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
         </span>
       </div>
 
+      {!selected && (
+        <div className="sd-panel is-global">
+          <div className="sd-panel-head">
+            <div>
+              <div className="sd-panel-code">GLOBAL</div>
+              <div className="sd-panel-name">全球概览</div>
+            </div>
+          </div>
+          <div className="sd-metrics">
+            <div className="sd-metric">
+              <span className="sd-m-label">信号总量 TOTAL</span>
+              <span className="sd-m-val">{total}</span>
+            </div>
+            <div className="sd-metric">
+              <span className="sd-m-label">覆盖地区 REGIONS</span>
+              <span className="sd-m-val">{regions.length}</span>
+            </div>
+            <div className="sd-metric sd-m-full">
+              <span className="sd-m-label">最热地区 PEAK</span>
+              <span className="sd-m-val sd-m-sm">{peak.name} · {peak.signalCount}</span>
+            </div>
+            <div className="sd-metric sd-m-full">
+              <span className="sd-m-label">主导分类 TOP</span>
+              <span className="sd-m-val sd-m-sm">{globalTopName}</span>
+            </div>
+          </div>
+          <div className="sd-global-hint">点击地球地区或左侧图例 → 筛选该区信息流</div>
+        </div>
+      )}
       {selected && (
         <div className="sd-panel">
           <div className="sd-panel-head">
