@@ -447,6 +447,13 @@ mark, .hl {
 .bottom-nav { display: none; }
 .lang-popover { display: none; }
 
+/* 中等屏过渡：隐藏左栏、右栏下沉到信息流下方，消除 900-1100px 留白断层 */
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 1fr; }
+  .left-rail { display: none; }
+  .sidebar { position: static; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .layout { grid-template-columns: 1fr; }
