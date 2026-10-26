@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Locale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import LanguageSwitcher from "./LanguageSwitcher";
+import TopBarExtras from "./TopBarExtras";
 import ThemeToggle from "./ThemeToggle";
 import SearchBox from "./SearchBox";
 import CategoryNav from "./CategoryNav";
@@ -15,7 +16,7 @@ export default function Header({ locale }: { locale: Locale }) {
     <header className="app-header">
       <TelemetryBar signal={4} />
       <div className="header-inner">
-        <Link href={homeHref(locale)} className="logo">
+        <Link prefetch={false} href={homeHref(locale)} className="logo">
           <span className="logo-mark">头</span>
           {d.siteName}
         </Link>
@@ -29,11 +30,12 @@ export default function Header({ locale }: { locale: Locale }) {
         >
           <SearchBox locale={locale} />
         </Suspense>
+        <TopBarExtras locale={locale} />
         <ThemeToggle />
         <LanguageSwitcher locale={locale} />
       </div>
       <Suspense fallback={null}>
-        <CategoryNav locale={locale} />
+        <CategoryNav locale={locale} suppressOnArticle />
       </Suspense>
     </header>
   );

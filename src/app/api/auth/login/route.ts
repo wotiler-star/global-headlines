@@ -32,6 +32,6 @@ export async function POST(req: NextRequest) {
   await startSession(user.id);
   return NextResponse.json({
     ok: true,
-    user: { id: user.id, username: user.username, email: user.email, role: user.role },
+    user: { id: user.id, username: user.username, email: user.email, role: user.role, avatar: (user as { avatar?: string | null }).avatar ?? null },
   });
 }

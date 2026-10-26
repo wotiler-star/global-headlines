@@ -24,6 +24,8 @@ const VIDEO_QUERY: Record<Locale, string> = {
   ko: "기술 자연 우주 다큐멘터리",
   es: "tecnología naturaleza espacio documental",
   fr: "technologie nature espace documentaire",
+  pt: "tecnologia natureza espaço documentário",
+  tr: "teknoloji doğa uzay belgesel",
 };
 
 // YouTube 检索语言（relevanceLanguage）
@@ -37,7 +39,22 @@ const YT_LANG: Partial<Record<Locale, string>> = {
 };
 
 const TTL = 10 * 60 * 1000; // 构建期内缓存，避免重复消耗配额
-const cache = new Map<Locale, { ts: number; items: Article[] }>();
+const cache = new Map<Locale, { ts: number; items: Article[]; refreshing?: boolean }>();
+
+// 实际拉取（YouTube + Bilibili 交织；无 key / 失败 → 内置示例 ID 兜底）
+async function refreshVideos(locale: Locale): Promise<Article[]> {
+  const query = VIDEO_QUERY[locale] || VIDEO_QUERY.en;
+  const [yt, bili] = await Promise.all([
+    fetchYoutube(query, locale, 10),
+    BILIBILI_COOKIE ? fetchBilibili(query, locale, 10) : Promise.resolve([]),
+  ]);
+  let items: Article[] = interleave(yt, bili);
+  if (items.length === 0) {
+    // 回退：内置公开示例（维持无 key 时的原行为）
+    items = mock.getArticles(locale, "video");
+  }
+  return items;
+}
 
 export function hasVideoApi(): boolean {
   return !!YOUTUBE_API_KEY;
@@ -205,23 +222,35 @@ function interleave(a: Article[], b: Article[]): Article[] {
 /**
  * 取某语言的真实视频列表（YouTube + Bilibili 交织）。
  * 无 key / 拉取失败 → 回退 news.ts 内置示例 ID，保证视频 tab 永不为空。
+ *
+ * 缓存策略（stale-while-revalidate，cov23 修 #418）：
+ * TTL 过期时【先返回旧列表】并后台静默刷新——若改成过期即同步重拉，
+ * 同一请求的多次调用（首页 getArticles 被调 8 次）可能拿到新旧两份不同列表，
+ * SSR HTML 与客户端水合树不一致 → React #418（首页偶发、交互子树失效）。
+ * 刷新失败则续期沿用旧列表（密钥失效时不闪断视频位）。
  */
 export async function getRealVideos(locale: Locale): Promise<Article[]> {
   const cached = cache.get(locale);
-  if (cached && Date.now() - cached.ts < TTL) return cached.items;
-
-  const query = VIDEO_QUERY[locale] || VIDEO_QUERY.en;
-  const [yt, bili] = await Promise.all([
-    fetchYoutube(query, locale, 10),
-    BILIBILI_COOKIE ? fetchBilibili(query, locale, 10) : Promise.resolve([]),
-  ]);
-
-  let items: Article[] = interleave(yt, bili);
-  if (items.length === 0) {
-    // 回退：内置公开示例（维持无 key 时的原行为）
-    items = mock.getArticles(locale, "video");
+  if (cached) {
+    if (Date.now() - cached.ts < TTL) return cached.items;
+    if (!cached.refreshing) {
+      cached.refreshing = true;
+      refreshVideos(locale)
+        .then((items) => {
+          cache.set(locale, { ts: Date.now(), items, refreshing: false });
+        })
+        .catch(() => {
+          const c = cache.get(locale);
+          if (c) {
+            c.ts = Date.now(); // 失败：续期旧数据，下个 TTL 再试
+            c.refreshing = false;
+          }
+        });
+    }
+    return cached.items;
   }
-  cache.set(locale, { ts: Date.now(), items });
+  const items = await refreshVideos(locale);
+  cache.set(locale, { ts: Date.now(), items, refreshing: false });
   return items;
 }
 

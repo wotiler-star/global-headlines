@@ -53,7 +53,7 @@ export function useBookmarks() {
   }, [user, authReady]);
 
   const toggle = useCallback(
-    (id: string) => {
+    (id: string, category?: string) => {
       setIds((prev) => {
         const next = new Set(prev);
         const on = !next.has(id);
@@ -71,7 +71,7 @@ export function useBookmarks() {
         fetch("/api/bookmarks", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ articleId: id, on }),
+          body: JSON.stringify({ articleId: id, on, category: category || null }),
         }).catch(() => {});
       }
     },
@@ -139,4 +139,50 @@ export function useFollows() {
   const has = useCallback((source: string) => sources.has(source), [sources]);
 
   return { sources, has, toggle, ready };
+}
+
+const LIKES_KEY = "gh_likes";
+
+/**
+ * 点赞（本地态）：与书签同构但仅存 localStorage（无服务端点赞表）。
+ * 挂载后从 localStorage 读出，SSR 首帧统一为未点赞，避免水合错位。
+ */
+export function useLikes() {
+  const [ids, setIds] = useState<Set<string>>(new Set());
+  useEffect(() => setIds(new Set(readList(LIKES_KEY))), []);
+  const toggle = useCallback((id: string) => {
+    setIds((prev) => {
+      const next = new Set(prev);
+      const on = !next.has(id);
+      if (on) next.add(id);
+      else next.delete(id);
+      writeList(LIKES_KEY, Array.from(next));
+      return next;
+    });
+  }, []);
+  const has = useCallback((id: string) => ids.has(id), [ids]);
+  return { has, toggle };
+}
+
+const COMMENT_LIKES_KEY = "gh_comment_likes";
+
+/**
+ * 评论点赞（本地态）：仅 localStorage，挂载后读取，SSR 首帧统一未点赞。
+ */
+export function useCommentLikes() {
+  const [ids, setIds] = useState<Set<string>>(new Set());
+  useEffect(() => setIds(new Set(readList(COMMENT_LIKES_KEY))), []);
+  const toggle = useCallback((id: string | number) => {
+    const key = String(id);
+    setIds((prev) => {
+      const next = new Set(prev);
+      const on = !next.has(key);
+      if (on) next.add(key);
+      else next.delete(key);
+      writeList(COMMENT_LIKES_KEY, Array.from(next));
+      return next;
+    });
+  }, []);
+  const has = useCallback((id: string | number) => ids.has(String(id)), [ids]);
+  return { has, toggle };
 }

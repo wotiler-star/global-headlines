@@ -16,9 +16,16 @@ import ReadingProgress from "@/components/ReadingProgress";
 import DecodeTitle from "@/components/DecodeTitle";
 import WaveformDivider from "@/components/WaveformDivider";
 import ReadingSize from "@/components/ReadingSize";
+import AdSlot from "@/components/AdSlot";
+import OwnerEditLink from "@/components/OwnerEditLink";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import ViewTracker from "@/components/ViewTracker";
+import CommentSection from "@/components/CommentSection";
+import ArticleRail from "@/components/ArticleRail";
+import ArticleAuthorCard from "@/components/ArticleAuthorCard";
+import ArticlePrevNext from "@/components/ArticlePrevNext";
 
 export const dynamic = "force-static";
 
@@ -57,7 +64,7 @@ export async function generateMetadata({
     openGraph: {
       title: article.title,
       description: article.summary,
-      images: [{ url: article.images[0] }],
+      images: [{ url: article.cover || (article.images || [])[0] }],
       type: "article",
       url,
       publishedTime: iso,
@@ -69,14 +76,16 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: article.title,
       description: article.summary,
-      images: [article.images[0]],
+      images: [article.cover || (article.images || [])[0]],
     },
   };
 }
 
 // 从正文抽取最具信息量的一句作为引述（确定性，无随机）
-function pickQuote(body: string[]): string {
-  const src = body.slice(1, 3).join(" ") || body.join(" ");
+// 防御：存量 articles.json 历史上存在缺 body 的条目（卷内旧数据 / 旧版采集器 / rebuild-mirror），
+// 按 undefined 容忍，避免 pickQuote 抛错把文章页打成 500。
+function pickQuote(body: string[] | undefined): string {
+  const src = (body?.slice(1, 3).join(" ") || body?.join(" ") || "").trim();
   const parts = src.split(/(?<=[。！？!?])/).map((x) => x.trim()).filter((x) => x.length >= 12);
   if (parts.length === 0) return "";
   parts.sort((a, b) => b.length - a.length);
@@ -101,6 +110,10 @@ export default async function ArticlePage({
     ? (await getArticles(loc, "video")).filter((a) => a.id !== article.id).slice(0, 6)
     : [];
   const quote = article.media === "video" ? "" : pickQuote(article.body);
+  // 阅读时长实时估算：数据源 readMinutes 对用户稿是默认值，按正文长度重算更准
+  const bodyChars = (article.body || []).join("").length;
+  const cjk = loc === "zh" || loc === "ja" || loc === "ko";
+  const readMin = Math.max(1, Math.round(cjk ? bodyChars / 400 : bodyChars / 1000));
   const signalId = "SIGNAL_" + article.id.replace(/[^a-zA-Z0-9]/g, "").slice(-6).toUpperCase();
 
   return (
@@ -141,6 +154,7 @@ export default async function ArticlePage({
         <CategoryNav locale={loc} active={article.category} />
       </Suspense>
       <div className="container">
+        <ArticleRail locale={loc} id={id} />
         <article className="article">
           <ReadingProgress />
           <nav className="art-crumb" aria-label="breadcrumb">
@@ -156,15 +170,17 @@ export default async function ArticlePage({
             <div className="article-meta">
               <span className="src">{article.source}</span>
               <span>{formatRelativeTime(loc, article.publishedAt, d)}</span>
-              <span>{article.readMinutes} min</span>
+              <span>{readMin} min</span>
+              <ViewTracker articleId={article.id} locale={loc} category={article.category} />
               <span>{d.categories[article.category]}</span>
             </div>
             <ReadingSize />
           </div>
           <div className="article-actions">
-            <FollowButton source={article.source} locale={loc} />
-            <BookmarkButton id={article.id} />
+            <ArticleAuthorCard source={article.source} category={article.category} locale={loc} />
+            <BookmarkButton id={article.id} category={article.category} />
             <ShareBar locale={loc} id={article.id} title={article.title} />
+            <OwnerEditLink articleId={article.id} locale={loc} />
           </div>
           <div className="hero hud-frame">
             <span className="hud-c tl" />
@@ -183,17 +199,26 @@ export default async function ArticlePage({
             ) : (
               <>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={article.images[0]} alt={article.title} fetchPriority="high" />
+                <img src={article.cover || article.images[0]} alt={article.title} fetchPriority="high" />
               </>
             )}
           </div>
           {article.media !== "video" && (
             <div className="art-caption">SOURCE · {article.source}</div>
           )}
+          {article.media !== "video" && (article.images || []).length > 1 && (
+            <div className="art-gallery">
+              {(article.images || []).slice(1).map((src, i) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={i} src={src} alt={(article.title || "配图") + " 配图 " + (i + 1)} loading="lazy" decoding="async" />
+              ))}
+            </div>
+          )}
           <div className="art-lead">
             <div className="al-label">LEAD · 导读</div>
             <p>{article.summary}</p>
           </div>
+          <AdSlot articleId={article.id} />
           <div className="article-body">
             {article.body.map((p, i) => (
               <Fragment key={i}>
@@ -207,7 +232,7 @@ export default async function ArticlePage({
               </Fragment>
             ))}
           </div>
-          <WaveformDivider paragraphs={article.body.length} minutes={article.readMinutes} />
+          <WaveformDivider paragraphs={article.body.length} minutes={readMin} />
           {article.sourceUrl && (
             <a
               className="read-original"
@@ -227,6 +252,8 @@ export default async function ArticlePage({
             ))}
           </div>
         </article>
+        <ArticlePrevNext locale={loc} currentId={article.id} />
+        <CommentSection locale={loc} articleId={article.id} category={article.category} />
         {!article.media || article.media !== "video" ? (
           <RelatedPanel articles={related} />
         ) : null}

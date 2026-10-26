@@ -1,5 +1,5 @@
 // 多语言配置：子目录路由策略（/zh /en /ja ...），每个语言版本独立 URL
-export const locales = ["zh", "en", "ja", "ko", "es", "fr"] as const;
+export const locales = ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr"] as const;
 export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = "zh";
@@ -14,6 +14,8 @@ export const localeMeta: Record<
   ko: { name: "한국어", englishName: "Korean", dir: "ltr", hreflang: "ko-KR" },
   es: { name: "Español", englishName: "Spanish", dir: "ltr", hreflang: "es-ES" },
   fr: { name: "Français", englishName: "French", dir: "ltr", hreflang: "fr-FR" },
+  pt: { name: "Português", englishName: "Portuguese", dir: "ltr", hreflang: "pt-PT" },
+  tr: { name: "Türkçe", englishName: "Turkish", dir: "ltr", hreflang: "tr-TR" },
 };
 
 // 资讯分类（key 稳定，标签走字典）
@@ -26,6 +28,7 @@ export const categories = [
   "entertainment",
   "health",
   "science",
+  "culture",
   "video",
 ] as const;
 export type Category = (typeof categories)[number];

@@ -19,6 +19,7 @@ export default function BreakingTicker({ articles }: { articles: Article[] }) {
         <div className="breaking-track">
           {loop.map((a, i) => (
             <Link key={`${a.id}-${i}`} href={articleHref(a.locale, a.id)} className="breaking-item">
+              <span className="bk-cat">{d.categories[a.category]}</span>
               {a.title}
             </Link>
           ))}

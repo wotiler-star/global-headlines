@@ -27,3 +27,12 @@ next-env.d.ts
 *.sqlite-wal
 *.sqlite-shm
 *.testdb.sqlite*
+
+# 验证/调试脚本产出的截图与结果（非源码，勿入库）
+cov15_card.png
+cov15_china_news.png
+*_out.json
+shots_live/
+debug_cov*
+tsconfig.tsbuildinfo
+*.bak*

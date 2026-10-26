@@ -5,6 +5,7 @@ import { Locale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { Article } from "@/data/news";
 import { articleHref } from "@/lib/paths";
+import { useAuth } from "@/lib/auth-client";
 import Link from "next/link";
 
 const KEY = "gh_read_history";
@@ -22,6 +23,7 @@ export default function RecommendRail({
   articles: Article[];
 }) {
   const d = getDict(locale);
+  const { user } = useAuth();
 
   // 服务端/静态生成时直接按最新文章填充，避免首屏空框；挂载后读取阅读历史做个性化。
   const initialRecs = useMemo(() => {
@@ -30,6 +32,28 @@ export default function RecommendRail({
   const [recs, setRecs] = useState<Article[]>(initialRecs);
 
   useEffect(() => {
+    let alive = true;
+    // 登录用户：服务端个性化推荐（兴趣画像 + 打分排序）
+    if (user) {
+      const cands = articles.slice(0, 80).map((a) => ({ id: a.id, cat: a.category, ts: a.publishedAt, tags: a.tags || [], src: a.source || "", title: a.title }));
+      fetch("/api/recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ locale, candidates: cands, limit: 6 }),
+      })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((j) => {
+          if (!alive || !j || !Array.isArray(j.items)) return;
+          const byId = new Map(articles.map((a) => [a.id, a]));
+          const list = (j.items as { id: string }[]).map((i) => byId.get(i.id)).filter(Boolean) as Article[];
+          if (list.length) setRecs(list);
+        })
+        .catch(() => {});
+      return () => {
+        alive = false;
+      };
+    }
+    // 匿名：本地阅读历史提权（设备级）
     let hist: HistoryItem[] = [];
     try {
       hist = JSON.parse(localStorage.getItem(KEY) || "[]") as HistoryItem[];
@@ -40,14 +64,10 @@ export default function RecommendRail({
     const readIds = new Set(hist.map((h) => h.id));
     const catBoost = new Map<string, number>();
     hist.forEach((h) => catBoost.set(h.cat, (catBoost.get(h.cat) || 0) + 1));
-
     const pool = articles.filter((a) => !readIds.has(a.id));
-    pool.sort(
-      (a, b) =>
-        (catBoost.get(b.category) || 0) - (catBoost.get(a.category) || 0)
-    );
+    pool.sort((a, b) => (catBoost.get(b.category) || 0) - (catBoost.get(a.category) || 0));
     setRecs(pool.slice(0, 6));
-  }, [articles]);
+  }, [articles, user, locale]);
 
   if (recs.length === 0) return null;
 

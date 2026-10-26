@@ -12,8 +12,10 @@ export type Article = {
   publishedAt: number; // epoch ms
   imageCount: 1 | 3;
   images: string[];
+  cover?: string;
   tags: string[];
   readMinutes: number;
+  timeAgo?: string; // 构建期服务端相对时间（SSR 占位；挂载后由客户端重算，避免水合 mismatch）
   media?: "video";
   videoUrl?: string;
   videoPlatform?: "youtube" | "bilibili";
@@ -60,6 +62,18 @@ const titleTpl: Record<Locale, string[]> = {
     "Les derniers développements de {topic} attirent l'attention",
     "Comment {topic} changera notre avenir",
   ],
+  pt: [
+    "{topic} registra um avanço importante",
+    "{topic} torna-se o novo foco do setor",
+    "Últimos desenvolvimentos de {topic} atraem grande atenção",
+    "Como {topic} vai mudar o nosso futuro",
+  ],
+  tr: [
+    "{topic} büyük bir atılım kaydetti",
+    "{topic} sektörün yeni odağı oldu",
+    "{topic} gelişmeleri geniş yankı buldu",
+    "{topic} geleceğimizi nasıl değiştirecek?",
+  ],
 };
 
 const summaryTpl: Record<Locale, string[]> = {
@@ -86,6 +100,14 @@ const summaryTpl: Record<Locale, string[]> = {
   fr: [
     "Selon la couverture de {topic}, {source} rapporte des avancées clés qui retiennent l'attention du secteur.",
     "{source} a publié une analyse indiquant que {topic} se répand vite et mérite un suivi.",
+  ],
+  pt: [
+    "Segundo a cobertura sobre {topic}, {source} relata diversos avanços importantes que atraem forte atenção do setor.",
+    "{source} publicou uma análise afirmando que {topic} se espalha rapidamente por todos os setores e merece acompanhamento.",
+  ],
+  tr: [
+    "{topic} haberlerine göre {source}, sektörün büyük dikkatini çeken birkaç önemli gelişmeden söz ediyor.",
+    "{source} yayımladığı analizde {topic} her sektöre hızla yayılıyor ve yakından takip edilmeli dedi.",
   ],
 };
 
@@ -120,6 +142,16 @@ const bodyExtra: Record<Locale, string[]> = {
     "Dans le monde, les régions abordent {topic} avec des priorités différentes, mêlant coopération et concurrence.",
     "Les analystes pensent que {topic} pourrait donner des résultats concrets dans un à deux ans.",
   ],
+  pt: [
+    "Vários especialistas afirmam que o ritmo de {topic} supera as expectativas, com investimentos a crescer.",
+    "A nível global, as regiões abordam {topic} com prioridades diferentes, misturando cooperação e concorrência.",
+    "Analistas acreditam que {topic} poderá trazer resultados concretos nos próximos um a dois anos.",
+  ],
+  tr: [
+    "Birçok uzman, {topic} gelişmelerinin beklenenden hızlı olduğunu ve yatırımların arttığını söylüyor.",
+    "Küresel olarak bölgeler {topic} konusunda farklı önceliklere odaklanıyor; iş birliği ve rekabet iç içe.",
+    "Analistler, {topic} konusunun önümüzdeki bir iki yıl içinde somut sonuçlar verebileceğini düşünüyor.",
+  ],
 };
 
 const sources: Record<Locale, string[]> = {
@@ -129,58 +161,60 @@ const sources: Record<Locale, string[]> = {
   ko: ["서울경제", "한국일보", "연합통신", "테크투데이"],
   es: ["Diario Global", "Noticias Hoy", "El Mundo", "La Vanguardia"],
   fr: ["Le Quotidien", "Actualités Monde", "France Info", "Le Point"],
+  pt: ["Diário Global", "Notícias Hoje", "O Mundo", "A Vanguarda"],
+  tr: ["Küresel Telgraf", "Günlük Kronik", "Teknoloji Gözlemci", "Dünya Nabzı"],
 };
 
 const concepts: Concept[] = [
   // world
-  { id: "un-climate-summit", category: "world", t: { zh: "联合国气候峰会", en: "UN climate summit", ja: "国連気候サミット", ko: "유엔 기후 정상회의", es: "cumbre climática de la ONU", fr: "sommet climat de l'ONU" } },
-  { id: "refugee-crisis", category: "world", t: { zh: "难民危机", en: "refugee crisis", ja: "難民危機", ko: "난민 위기", es: "crisis de refugiados", fr: "crise des réfugiés" } },
-  { id: "global-trade", category: "world", t: { zh: "全球贸易格局", en: "global trade landscape", ja: "世界貿易の構造", ko: "세계 무역 구조", es: "comercio global", fr: "commerce mondial" } },
-  { id: "election-watch", category: "world", t: { zh: "大选观察", en: "election watch", ja: "選挙ウオッチ", ko: "선거 관망", es: "elecciones", fr: "élections" } },
-  { id: "peace-talks", category: "world", t: { zh: "和平谈判", en: "peace talks", ja: "平和交渉", ko: "평화 회담", es: "conversaciones de paz", fr: "pourparlers de paix" } },
-  { id: "space-cooperation", category: "world", t: { zh: "太空国际合作", en: "space cooperation", ja: "宇宙国際協力", ko: "우주 국제 협력", es: "cooperación espacial", fr: "coopération spatiale" } },
+  { id: "un-climate-summit", category: "world", t: { zh: "联合国气候峰会", en: "UN climate summit", ja: "国連気候サミット", ko: "유엔 기후 정상회의", es: "cumbre climática de la ONU", fr: "sommet climat de l'ONU", pt: "cúpula climática da ONU", tr: "BK iklim zirvesi" } },
+  { id: "refugee-crisis", category: "world", t: { zh: "难民危机", en: "refugee crisis", ja: "難民危機", ko: "난민 위기", es: "crisis de refugiados", fr: "crise des réfugiés", pt: "crise de refugiados", tr: "mülteci krizi" } },
+  { id: "global-trade", category: "world", t: { zh: "全球贸易格局", en: "global trade landscape", ja: "世界貿易の構造", ko: "세계 무역 구조", es: "comercio global", fr: "commerce mondial", pt: "panorama do comércio global", tr: "küresel ticaret yapısı" } },
+  { id: "election-watch", category: "world", t: { zh: "大选观察", en: "election watch", ja: "選挙ウオッチ", ko: "선거 관망", es: "elecciones", fr: "élections", pt: "observatório eleitoral", tr: "seçim takibi" } },
+  { id: "peace-talks", category: "world", t: { zh: "和平谈判", en: "peace talks", ja: "平和交渉", ko: "평화 회담", es: "conversaciones de paz", fr: "pourparlers de paix", pt: "negociações de paz", tr: "barış görüşmeleri" } },
+  { id: "space-cooperation", category: "world", t: { zh: "太空国际合作", en: "space cooperation", ja: "宇宙国際協力", ko: "우주 국제 협력", es: "cooperación espacial", fr: "coopération spatiale", pt: "cooperação espacial", tr: "uzay iş birliği" } },
   // tech
-  { id: "artificial-intelligence", category: "tech", t: { zh: "人工智能", en: "artificial intelligence", ja: "人工知能", ko: "인공지능", es: "inteligencia artificial", fr: "intelligence artificielle" } },
-  { id: "quantum-computing", category: "tech", t: { zh: "量子计算", en: "quantum computing", ja: "量子コンピューティング", ko: "양자 컴퓨팅", es: "computación cuántica", fr: "informatique quantique" } },
-  { id: "electric-vehicles", category: "tech", t: { zh: "电动汽车", en: "electric vehicles", ja: "電気自動車", ko: "전기차", es: "vehículos eléctricos", fr: "véhicules électriques" } },
-  { id: "6g-network", category: "tech", t: { zh: "6G 网络", en: "6G network", ja: "6Gネットワーク", ko: "6G 네트워크", es: "red 6G", fr: "réseau 6G" } },
-  { id: "brain-computer", category: "tech", t: { zh: "脑机接口", en: "brain-computer interface", ja: "ブレイン・コンピュータ・インタフェース", ko: "뇌-컴퓨터 인터페이스", es: "interfaz cerebro-computadora", fr: "interface cerveau-ordinateur" } },
-  { id: "open-source", category: "tech", t: { zh: "开源生态", en: "open-source ecosystem", ja: "オープンソース", ko: "오픈소스 생태계", es: "código abierto", fr: "open source" } },
+  { id: "artificial-intelligence", category: "tech", t: { zh: "人工智能", en: "artificial intelligence", ja: "人工知能", ko: "인공지능", es: "inteligencia artificial", fr: "intelligence artificielle", pt: "inteligência artificial", tr: "yapay zekâ" } },
+  { id: "quantum-computing", category: "tech", t: { zh: "量子计算", en: "quantum computing", ja: "量子コンピューティング", ko: "양자 컴퓨팅", es: "computación cuántica", fr: "informatique quantique", pt: "computação quântica", tr: "kuantum bilişim" } },
+  { id: "electric-vehicles", category: "tech", t: { zh: "电动汽车", en: "electric vehicles", ja: "電気自動車", ko: "전기차", es: "vehículos eléctricos", fr: "véhicules électriques", pt: "veículos elétricos", tr: "elektrikli araçlar" } },
+  { id: "6g-network", category: "tech", t: { zh: "6G 网络", en: "6G network", ja: "6Gネットワーク", ko: "6G 네트워크", es: "red 6G", fr: "réseau 6G", pt: "rede 6G", tr: "6G ağı" } },
+  { id: "brain-computer", category: "tech", t: { zh: "脑机接口", en: "brain-computer interface", ja: "ブレイン・コンピュータ・インタフェース", ko: "뇌-컴퓨터 인터페이스", es: "interfaz cerebro-computadora", fr: "interface cerveau-ordinateur", pt: "interface cérebro-computador", tr: "beyin-bilgisayar arayüzü" } },
+  { id: "open-source", category: "tech", t: { zh: "开源生态", en: "open-source ecosystem", ja: "オープンソース", ko: "오픈소스 생태계", es: "código abierto", fr: "open source", pt: "ecossistema de código aberto", tr: "açık kaynak ekosistemi" } },
   // finance
-  { id: "central-bank-rates", category: "finance", t: { zh: "央行利率", en: "central bank rates", ja: "中央銀行金利", ko: "중앙은행 금리", es: "tasas de bancos centrales", fr: "taux des banques centrales" } },
-  { id: "crypto-markets", category: "finance", t: { zh: "加密货币市场", en: "crypto markets", ja: "暗号資産市場", ko: "암호화폐 시장", es: "mercados cripto", fr: "marchés crypto" } },
-  { id: "global-inflation", category: "finance", t: { zh: "全球通胀", en: "global inflation", ja: "世界インフレ", ko: "세계 인플레이션", es: "inflación global", fr: "inflation mondiale" } },
-  { id: "green-energy-stocks", category: "finance", t: { zh: "新能源股", en: "green energy stocks", ja: "グリーンエネルギー株", ko: "친환경 에너지 주식", es: "acciones de energía verde", fr: "actions d'énergie verte" } },
-  { id: "real-estate", category: "finance", t: { zh: "房地产市场", en: "real estate market", ja: "不動産市場", ko: "부동산 시장", es: "mercado inmobiliario", fr: "marché immobilier" } },
-  { id: "supply-chain", category: "finance", t: { zh: "全球供应链", en: "global supply chain", ja: "世界サプライチェーン", ko: "글로벌 공급망", es: "cadena de suministro", fr: "chaîne d'approvisionnement" } },
+  { id: "central-bank-rates", category: "finance", t: { zh: "央行利率", en: "central bank rates", ja: "中央銀行金利", ko: "중앙은행 금리", es: "tasas de bancos centrales", fr: "taux des banques centrales", pt: "taxas dos bancos centrais", tr: "merkez bankası faizleri" } },
+  { id: "crypto-markets", category: "finance", t: { zh: "加密货币市场", en: "crypto markets", ja: "暗号資産市場", ko: "암호화폐 시장", es: "mercados cripto", fr: "marchés crypto", pt: "mercados de cripto", tr: "kripto piyasaları" } },
+  { id: "global-inflation", category: "finance", t: { zh: "全球通胀", en: "global inflation", ja: "世界インフレ", ko: "세계 인플레이션", es: "inflación global", fr: "inflation mondiale", pt: "inflação global", tr: "küresel enflasyon" } },
+  { id: "green-energy-stocks", category: "finance", t: { zh: "新能源股", en: "green energy stocks", ja: "グリーンエネルギー株", ko: "친환경 에너지 주식", es: "acciones de energía verde", fr: "actions d'énergie verte", pt: "ações de energia verde", tr: "yeşil enerji hisseleri" } },
+  { id: "real-estate", category: "finance", t: { zh: "房地产市场", en: "real estate market", ja: "不動産市場", ko: "부동산 시장", es: "mercado inmobiliario", fr: "marché immobilier", pt: "mercado imobiliário", tr: "gayrimenkul piyasası" } },
+  { id: "supply-chain", category: "finance", t: { zh: "全球供应链", en: "global supply chain", ja: "世界サプライチェーン", ko: "글로벌 공급망", es: "cadena de suministro", fr: "chaîne d'approvisionnement", pt: "cadeia de abastecimento global", tr: "küresel tedarik zinciri" } },
   // sports
-  { id: "world-cup", category: "sports", t: { zh: "世界杯", en: "World Cup", ja: "ワールドカップ", ko: "월드컵", es: "Copa del Mundo", fr: "Coupe du Monde" } },
-  { id: "olympics", category: "sports", t: { zh: "奥运会", en: "Olympics", ja: "オリンピック", ko: "올림픽", es: "Juegos Olímpicos", fr: "Jeux Olympiques" } },
-  { id: "marathon-record", category: "sports", t: { zh: "马拉松纪录", en: "marathon record", ja: "マラソン記録", ko: "마라톤 기록", es: "récord de maratón", fr: "record du marathon" } },
-  { id: "tennis-open", category: "sports", t: { zh: "网球大满贯", en: "tennis Grand Slam", ja: "テニス四大大会", ko: "테니스 그랜드슬램", es: "Grand Slam de tenis", fr: "Grand Chelem de tennis" } },
-  { id: "basketball-finals", category: "sports", t: { zh: "篮球总决赛", en: "basketball finals", ja: "バスケットボール決勝", ko: "농구 결승", es: "finales de baloncesto", fr: "finales de basket" } },
-  { id: "esports", category: "sports", t: { zh: "电子竞技", en: "esports", ja: "eスポーツ", ko: "e스포츠", es: "deportes electrónicos", fr: "esport" } },
+  { id: "world-cup", category: "sports", t: { zh: "世界杯", en: "World Cup", ja: "ワールドカップ", ko: "월드컵", es: "Copa del Mundo", fr: "Coupe du Monde", pt: "Copa do Mundo", tr: "Dünya Kupası" } },
+  { id: "olympics", category: "sports", t: { zh: "奥运会", en: "Olympics", ja: "オリンピック", ko: "올림픽", es: "Juegos Olímpicos", fr: "Jeux Olympiques", pt: "Jogos Olímpicos", tr: "Olimpiyatlar" } },
+  { id: "marathon-record", category: "sports", t: { zh: "马拉松纪录", en: "marathon record", ja: "マラソン記録", ko: "마라톤 기록", es: "récord de maratón", fr: "record du marathon", pt: "recorde de maratona", tr: "maraton rekoru" } },
+  { id: "tennis-open", category: "sports", t: { zh: "网球大满贯", en: "tennis Grand Slam", ja: "テニス四大大会", ko: "테니스 그랜드슬램", es: "Grand Slam de tenis", fr: "Grand Chelem de tennis", pt: "Grand Slam de tênis", tr: "tenis Grand Slam'i" } },
+  { id: "basketball-finals", category: "sports", t: { zh: "篮球总决赛", en: "basketball finals", ja: "バスケットボール決勝", ko: "농구 결승", es: "finales de baloncesto", fr: "finales de basket", pt: "finais de basquete", tr: "basketbol finalleri" } },
+  { id: "esports", category: "sports", t: { zh: "电子竞技", en: "esports", ja: "eスポーツ", ko: "e스포츠", es: "deportes electrónicos", fr: "esport", pt: "esportes eletrônicos", tr: "e-spor" } },
   // entertainment
-  { id: "film-festival", category: "entertainment", t: { zh: "国际电影节", en: "film festival", ja: "国際映画祭", ko: "국제 영화제", es: "festival de cine", fr: "festival de cinéma" } },
-  { id: "streaming-wars", category: "entertainment", t: { zh: "流媒体之争", en: "streaming wars", ja: "配信戦争", ko: "스트리밍 전쟁", es: "guerras del streaming", fr: "guerres du streaming" } },
-  { id: "pop-music", category: "entertainment", t: { zh: "流行音乐", en: "pop music", ja: "ポップミュージック", ko: "K-팝", es: "música pop", fr: "musique pop" } },
-  { id: "box-office", category: "entertainment", t: { zh: "全球票房", en: "global box office", ja: "世界興行収入", ko: "글로벌 박스오피스", es: "taquilla global", fr: "box-office mondial" } },
-  { id: "celebrity-news", category: "entertainment", t: { zh: "明星动态", en: "celebrity news", ja: "セレブニュース", ko: "연예 뉴스", es: "noticias de famosos", fr: "actualité people" } },
-  { id: "awards-season", category: "entertainment", t: { zh: "颁奖季", en: "awards season", ja: "授賞式シーズン", ko: "시상식 시즌", es: "temporada de premios", fr: "saison des prix" } },
+  { id: "film-festival", category: "entertainment", t: { zh: "国际电影节", en: "film festival", ja: "国際映画祭", ko: "국제 영화제", es: "festival de cine", fr: "festival de cinéma", pt: "festival de cinema", tr: "film festivali" } },
+  { id: "streaming-wars", category: "entertainment", t: { zh: "流媒体之争", en: "streaming wars", ja: "配信戦争", ko: "스트리밍 전쟁", es: "guerras del streaming", fr: "guerres du streaming", pt: "guerras do streaming", tr: "yayın savaşları" } },
+  { id: "pop-music", category: "entertainment", t: { zh: "流行音乐", en: "pop music", ja: "ポップミュージック", ko: "K-팝", es: "música pop", fr: "musique pop", pt: "música pop", tr: "pop müzik" } },
+  { id: "box-office", category: "entertainment", t: { zh: "全球票房", en: "global box office", ja: "世界興行収入", ko: "글로벌 박스오피스", es: "taquilla global", fr: "box-office mondial", pt: "bilheteria global", tr: "küresel gişe" } },
+  { id: "celebrity-news", category: "entertainment", t: { zh: "明星动态", en: "celebrity news", ja: "セレブニュース", ko: "연예 뉴스", es: "noticias de famosos", fr: "actualité people", pt: "notícias de famosos", tr: "magazin haberleri" } },
+  { id: "awards-season", category: "entertainment", t: { zh: "颁奖季", en: "awards season", ja: "授賞式シーズン", ko: "시상식 시즌", es: "temporada de premios", fr: "saison des prix", pt: "temporada de premiações", tr: "ödül sezonu" } },
   // health
-  { id: "vaccine-research", category: "health", t: { zh: "疫苗研究", en: "vaccine research", ja: "ワクチン研究", ko: "백신 연구", es: "investigación de vacunas", fr: "recherche vaccinale" } },
-  { id: "mental-health", category: "health", t: { zh: "心理健康", en: "mental health", ja: "メンタルヘルス", ko: "정신 건강", es: "salud mental", fr: "santé mentale" } },
-  { id: "aging-society", category: "health", t: { zh: "老龄化社会", en: "aging society", ja: "高齢化社会", ko: "고령화 사회", es: "envejecimiento poblacional", fr: "vieillissement démographique" } },
-  { id: "nutrition", category: "health", t: { zh: "营养科学", en: "nutrition science", ja: "栄養科学", ko: "영양 과학", es: "nutrición", fr: "nutrition" } },
-  { id: "telemedicine", category: "health", t: { zh: "远程医疗", en: "telemedicine", ja: "遠隔医療", ko: "원격 의료", es: "telemedicina", fr: "télémédecine" } },
-  { id: "sleep-health", category: "health", t: { zh: "睡眠健康", en: "sleep health", ja: "睡眠の健康", ko: "수면 건강", es: "sueño saludable", fr: "sommeil sain" } },
+  { id: "vaccine-research", category: "health", t: { zh: "疫苗研究", en: "vaccine research", ja: "ワクチン研究", ko: "백신 연구", es: "investigación de vacunas", fr: "recherche vaccinale", pt: "pesquisa de vacinas", tr: "aşı araştırmaları" } },
+  { id: "mental-health", category: "health", t: { zh: "心理健康", en: "mental health", ja: "メンタルヘルス", ko: "정신 건강", es: "salud mental", fr: "santé mentale", pt: "saúde mental", tr: "ruh sağlığı" } },
+  { id: "aging-society", category: "health", t: { zh: "老龄化社会", en: "aging society", ja: "高齢化社会", ko: "고령화 사회", es: "envejecimiento poblacional", fr: "vieillissement démographique", pt: "envelhecimento populacional", tr: "yaşlanan toplum" } },
+  { id: "nutrition", category: "health", t: { zh: "营养科学", en: "nutrition science", ja: "栄養科学", ko: "영양 과학", es: "nutrición", fr: "nutrition", pt: "nutrição", tr: "beslenme bilimi" } },
+  { id: "telemedicine", category: "health", t: { zh: "远程医疗", en: "telemedicine", ja: "遠隔医療", ko: "원격 의료", es: "telemedicina", fr: "télémédecine", pt: "telemedicina", tr: "tele tıp" } },
+  { id: "sleep-health", category: "health", t: { zh: "睡眠健康", en: "sleep health", ja: "睡眠の健康", ko: "수면 건강", es: "sueño saludable", fr: "sommeil sain", pt: "saúde do sono", tr: "uyku sağlığı" } },
   // science
-  { id: "james-webb", category: "science", t: { zh: "詹姆斯·韦伯望远镜", en: "James Webb telescope", ja: "ジェームズ・ウェッブ望遠鏡", ko: "제임스 웹 망원경", es: "telescopio James Webb", fr: "télescope James Webb" } },
-  { id: "fusion-energy", category: "science", t: { zh: "核聚变能源", en: "fusion energy", ja: "核融合エネルギー", ko: "핵융합 에너지", es: "energía de fusión", fr: "énergie de fusion" } },
-  { id: "gene-editing", category: "science", t: { zh: "基因编辑", en: "gene editing", ja: "遺伝子編集", ko: "유전자 편집", es: "edición genética", fr: "édition génétique" } },
-  { id: "climate-science", category: "science", t: { zh: "气候科学", en: "climate science", ja: "気候科学", ko: "기후 과학", es: "ciencia del clima", fr: "science du climat" } },
-  { id: "mars-mission", category: "science", t: { zh: "火星任务", en: "Mars mission", ja: "火星ミッション", ko: "화성 탐사", es: "misión a Marte", fr: "mission Mars" } },
-  { id: "dark-matter", category: "science", t: { zh: "暗物质", en: "dark matter", ja: "暗黒物質", ko: "암흑 물질", es: "materia oscura", fr: "matière noire" } },
+  { id: "james-webb", category: "science", t: { zh: "詹姆斯·韦伯望远镜", en: "James Webb telescope", ja: "ジェームズ・ウェッブ望遠鏡", ko: "제임스 웹 망원경", es: "telescopio James Webb", fr: "télescope James Webb", pt: "telescópio James Webb", tr: "James Webb teleskobu" } },
+  { id: "fusion-energy", category: "science", t: { zh: "核聚变能源", en: "fusion energy", ja: "核融合エネルギー", ko: "핵융합 에너지", es: "energía de fusión", fr: "énergie de fusion", pt: "energia de fusão", tr: "füzyon enerjisi" } },
+  { id: "gene-editing", category: "science", t: { zh: "基因编辑", en: "gene editing", ja: "遺伝子編集", ko: "유전자 편집", es: "edición genética", fr: "édition génétique", pt: "edição genética", tr: "gen düzenleme" } },
+  { id: "climate-science", category: "science", t: { zh: "气候科学", en: "climate science", ja: "気候科学", ko: "기후 과학", es: "ciencia del clima", fr: "science du climat", pt: "ciência do clima", tr: "iklim bilimi" } },
+  { id: "mars-mission", category: "science", t: { zh: "火星任务", en: "Mars mission", ja: "火星ミッション", ko: "화성 탐사", es: "misión a Marte", fr: "mission Mars", pt: "missão a Marte", tr: "Mars görevi" } },
+  { id: "dark-matter", category: "science", t: { zh: "暗物质", en: "dark matter", ja: "暗黒物質", ko: "암흑 물질", es: "materia oscura", fr: "matière noire", pt: "matéria escura", tr: "kara madde" } },
 ];
 
 // 视频条目用的「平台 + 视频ID」示例（公开可嵌入）。
@@ -200,14 +234,14 @@ const videoEmbeds: { platform: "youtube" | "bilibili"; id: string }[] = [
 
 // 视频概念池（category 固定为 video）
 const videoConcepts: Concept[] = [
-  { id: "rocket-launch", category: "video", t: { zh: "火箭发射直播", en: "Rocket launch livestream", ja: "ロケット打ち上げ中継", ko: "로켓 발사 생중계", es: "Lanzamiento de cohete en directo", fr: "Lancement de fusée en direct" } },
-  { id: "wildlife-doc", category: "video", t: { zh: "野生动物纪录片", en: "Wildlife documentary", ja: "野生動物ドキュメンタリー", ko: "야생동물 다큐", es: "Documental de vida silvestre", fr: "Documentaire sur la faune" } },
-  { id: "city-aerial", category: "video", t: { zh: "城市夜景航拍", en: "City night aerial", ja: "都市の夜景空撮", ko: "도시 야경 드론", es: "Vista aérea nocturna", fr: "Vidéo aérienne de nuit" } },
-  { id: "cooking-proc", category: "video", t: { zh: "美食制作过程", en: "Cooking process", ja: "料理の作り方", ko: "요리 과정", es: "Proceso de cocina", fr: "Recette en vidéo" } },
-  { id: "football-highlights", category: "video", t: { zh: "足球精彩集锦", en: "Football highlights", ja: "サッカーハイライト", ko: "축구 하이라이트", es: "Resumen de fútbol", fr: "Temps forts de foot" } },
-  { id: "space-station-view", category: "video", t: { zh: "太空站视角", en: "Space station view", ja: "宇宙ステーション映像", ko: "우주정거장 영상", es: "Vista desde la EEI", fr: "Vue de la station spatiale" } },
-  { id: "aurora-timelapse", category: "video", t: { zh: "极光延时摄影", en: "Aurora timelapse", ja: "オーロラ撮影", ko: "오로라 타임랩스", es: "Timelapse de auroras", fr: "Timelapse des aurores" } },
-  { id: "concert-live", category: "video", t: { zh: "音乐会现场", en: "Concert live", ja: "コンサート生中継", ko: "콘서트 라이브", es: "Concierto en vivo", fr: "Concert en direct" } },
+  { id: "rocket-launch", category: "video", t: { zh: "火箭发射直播", en: "Rocket launch livestream", ja: "ロケット打ち上げ中継", ko: "로켓 발사 생중계", es: "Lanzamiento de cohete en directo", fr: "Lancement de fusée en direct", pt: "transmissão de lançamento de foguete", tr: "roket fırlatma canlı yayını" } },
+  { id: "wildlife-doc", category: "video", t: { zh: "野生动物纪录片", en: "Wildlife documentary", ja: "野生動物ドキュメンタリー", ko: "야생동물 다큐", es: "Documental de vida silvestre", fr: "Documentaire sur la faune", pt: "documentário sobre a vida selvagem", tr: "yaban hayatı belgeseli" } },
+  { id: "city-aerial", category: "video", t: { zh: "城市夜景航拍", en: "City night aerial", ja: "都市の夜景空撮", ko: "도시 야경 드론", es: "Vista aérea nocturna", fr: "Vidéo aérienne de nuit", pt: "vista aérea noturna da cidade", tr: "şehir gece havadan çekimi" } },
+  { id: "cooking-proc", category: "video", t: { zh: "美食制作过程", en: "Cooking process", ja: "料理の作り方", ko: "요리 과정", es: "Proceso de cocina", fr: "Recette en vidéo", pt: "processo de culinária", tr: "yemek yapım süreci" } },
+  { id: "football-highlights", category: "video", t: { zh: "足球精彩集锦", en: "Football highlights", ja: "サッカーハイライト", ko: "축구 하이라이트", es: "Resumen de fútbol", fr: "Temps forts de foot", pt: "melhores momentos de futebol", tr: "futbol öne çıkanlar" } },
+  { id: "space-station-view", category: "video", t: { zh: "太空站视角", en: "Space station view", ja: "宇宙ステーション映像", ko: "우주정거장 영상", es: "Vista desde la EEI", fr: "Vue de la station spatiale", pt: "vista da estação espacial", tr: "uzay istasyonu görüntüsü" } },
+  { id: "aurora-timelapse", category: "video", t: { zh: "极光延时摄影", en: "Aurora timelapse", ja: "オーロラ撮影", ko: "오로라 타임랩스", es: "Timelapse de auroras", fr: "Timelapse des aurores", pt: "timelapse de auroras", tr: "aurora timelapse" } },
+  { id: "concert-live", category: "video", t: { zh: "音乐会现场", en: "Concert live", ja: "コンサート生中継", ko: "콘서트 라이브", es: "Concierto en vivo", fr: "Concert en direct", pt: "concerto ao vivo", tr: "konser canlı" } },
 ];
 
 function hash(s: string): number {

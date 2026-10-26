@@ -5,9 +5,11 @@ import { useBookmarks } from "@/lib/personal";
 // 收藏（书签）切换按钮。可放在卡片角标或文章页操作栏。
 export default function BookmarkButton({
   id,
+  category,
   className,
 }: {
   id: string;
+  category?: string;
   className?: string;
 }) {
   const { has, toggle } = useBookmarks();
@@ -21,7 +23,7 @@ export default function BookmarkButton({
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        toggle(id);
+        toggle(id, category);
       }}
     >
       {on ? "♥" : "♡"}

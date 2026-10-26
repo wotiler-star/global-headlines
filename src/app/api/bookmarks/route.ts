@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDb, getBookmarks, setBookmark } from "@/lib/db";
+import { getDb, getBookmarks, setBookmark, getArticleRow, recordUserEvent } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -24,10 +24,15 @@ export async function POST(req: NextRequest) {
   }
   const articleId = String(body?.articleId ?? "").trim();
   const on = Boolean(body?.on);
+  const clientCat = body?.category ? String(body.category).slice(0, 32) : null;
   if (!articleId) {
     return NextResponse.json({ error: "articleId 必填" }, { status: 400 });
   }
   const db = getDb();
   setBookmark(db, user.id, articleId, on);
+  if (on) {
+    const cat = clientCat || getArticleRow(db, articleId)?.category || null;
+    if (cat) recordUserEvent(db, user.id, "bookmark", cat, 3, articleId);
+  }
   return NextResponse.json({ ok: true, bookmarks: getBookmarks(db, user.id) });
 }

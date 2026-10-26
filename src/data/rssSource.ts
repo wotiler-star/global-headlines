@@ -28,6 +28,7 @@ const FR24: Record<RssCat, string> = {
   entertainment: "https://www.france24.com/fr/culture/rss",
   health: "https://www.france24.com/fr/rss",
   science: "https://www.france24.com/fr/environnement/rss",
+  culture: "https://www.france24.com/fr/culture/rss",
 };
 
 // 主流媒体 RSS 订阅源地图（locale → category → feed urls）
@@ -35,7 +36,84 @@ const FR24: Record<RssCat, string> = {
 // ja/fr 原生源（NHK / Le Monde）在构建沙箱网络不可达，改用 Google News RSS 保证真实内容。
 const FEEDS: Partial<Record<Locale, Partial<Record<RssCat, string[]>>>> = {
   en: {
-    world: ["https://feeds.bbci.co.uk/news/world/rss.xml"],
+    // cov19 主要大国分站源（服务器实测可达，容器启动时由 collect-articles 入库）：
+    // 俄 TASS · 加 CBC · 沙特 Arab News · 巴西 G1 · 印度 The Hindu · 南非 SABC · 澳 ABC
+    // cov20 分站源：德 DW/明镜 · 意 共和报/AGI/24小时太阳报 · 日 时报(英) · 埃及 DNE/独立报(英)
+    world: [
+      "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "https://tass.com/rss/v2.xml",
+      "https://www.cbc.ca/cmlink/rss-topstories",
+      "https://www.arabnews.com/rss",
+      "https://g1.globo.com/rss/g1/",
+      "https://www.thehindu.com/news/national/feeder/default.rss",
+      "https://www.sabcnews.com/sabcnews/feed/",
+      "https://www.abc.net.au/news/feed/51120/rss.xml",
+      "https://rss.dw.com/rdf/rss-en-world",
+      "https://www.spiegel.de/schlagzeilen/index.rss",
+      "https://www.repubblica.it/rss/homepage/rss2.0.xml",
+      "https://www.agi.it/rss",
+      "https://www.ilsole24ore.com/rss/economia.xml",
+      "https://www.japantimes.co.jp/feed/",
+      "https://dailynewsegypt.com/feed/",
+      "https://www.egyptindependent.com/feed/",
+      // cov23：YNA 英文源——韩文主站被限流(ECONNRESET)时的 ICN 备份源（英文内容）
+      "https://en.yna.co.kr/RSS/news.xml",
+      // cov28 分站源（葡语 / 土耳其 / 东南亚 数据覆盖扩充；与 collect-articles.mjs 保持一致）
+      // —— 葡语区 ——
+      "https://www.publico.pt/rss",
+      "https://www.observador.pt/rss/",
+      "https://www.uol.com.br/rss/",
+      // —— 土耳其（cov34：替换不可达端点 aa/hurriyet/dailysabah；trthaber 服务器实测 OK）——
+      "https://www.trthaber.com/sondakika.rss",
+      // —— 东南亚（英文版）——
+      "https://www.bangkokpost.com/rss/news",
+      "https://www.antaranews.com/rss",
+      "https://www.thestar.com.my/rss/news",
+      "https://www.channelnewsasia.com/api/v1/rss/home",
+      "https://tuoitre.vn/rss/home.rss",
+      "https://www.inquirer.net/feed",                       // MNL 马尼拉（菲律宾英文；cov34 补回，此前仅映射未入 FEEDS）
+      // cov29：更多非洲 / 中东 稳定源（国际桶，跨语言聚合）
+      "https://www.middleeasteye.net/rss",                   // DXB 迪拜（cov34 替换 404 的 thenationalnews）
+      "https://www.timesofisrael.com/feed/",
+      "https://www.aljazeera.com/xml/rss/all.xml",
+      "https://www.jordantimes.com/rss",
+      "https://www.capitalfm.co.ke/feed/",                   // NBO 内罗毕（cov34 替换 403 的 nation.africa）
+      "https://www.iol.co.za/rss",
+      "https://addisstandard.com/feed/",
+      "https://www.mosaiquefm.net/rss",                       // TUN 突尼斯（cov34 替换 403 的 lapresse.tn）
+      "https://www.myjoyonline.com/rss",                     // GHA 阿克拉（cov34 替换 NOITEMS 的 ghanaweb）
+      // cov30 中亚分站源（国际桶，跨语言聚合显示信号）
+      "https://tengrinews.kz/rss/",
+      "https://www.inform.kz/rss",
+      "https://kun.uz/rss",
+      "https://www.gazeta.uz/rss",
+      "https://24.kg/rss/",
+      "https://asiaplustj.info/rss",
+      "https://report.az/rss",
+      "https://www.trend.az/rss",
+      // cov31 北欧 / 巴尔干 分站源（国际桶，跨语言聚合显示信号）
+      // —— 北欧 ——
+      "https://www.thelocal.no/feed/",         // OSL 奥斯陆（挪威英文；cov34 /rss→/feed）
+      "https://www.thelocal.dk/feed/",         // CPH 哥本哈根（丹麦英文；cov34 /rss→/feed）
+      "https://www.foreigner.fi/feed/",        // HEL 赫尔辛基（芬兰英文）
+      // —— 巴尔干 ——
+      "https://rs.n1info.com/feed/",            // BEG 贝尔格莱德（塞尔维亚英文）
+      "https://nezavisen.mk/feed/",             // SKP 斯科普里（北马其顿；cov34 替换 403 的 time.mk）
+      "https://www.total-croatia-news.com/feed/", // ZAG 萨格勒布（克罗地亚英文）
+      "https://www.novinite.com/section.rss",   // SOF 索菲亚（保加利亚英文）
+      "https://www.sarajevotimes.com/feed/",    // SAR 萨拉热窝（波黑英文）
+      // —— 南亚（cov32；挂 en.world 国际桶，跨语言聚合显示信号）——
+      "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms", // DEL 德里（印度英文）
+      "https://www.freepressjournal.in/feed",                       // BOM 孟买（印度英文）
+      "https://kathmandupost.com/rss",                              // KTM 加德满都（尼泊尔英文）
+      "https://www.dailynews.lk/rss",                               // CMB 科伦坡（斯里兰卡英文）
+      "https://www.dawn.com/feeds/home.rss",                        // ISB 伊斯兰堡（巴基斯坦英文）
+      "https://www.thenews.com.pk/rss/1/3",                         // KHI 卡拉奇（巴基斯坦英文）
+      "https://tribune.com.pk/feed",                                // LAH 拉合尔（巴基斯坦英文）
+      // —— 中亚补全（cov32）——
+      "https://www.ubpost.mn/feed/",                                // ULN 乌兰巴托（蒙古英文）
+      "https://orient.tm/en/feed/",                                 // ASH 阿什哈巴德（土库曼英文）
+    ],
     tech: ["https://www.theverge.com/rss/index.xml"],
     finance: ["https://www.cnbc.com/id/10001147/device/rss/rss.html"],
     sports: ["https://www.espn.com/espn/rss/news"],
@@ -44,25 +122,55 @@ const FEEDS: Partial<Record<Locale, Partial<Record<RssCat, string[]>>>> = {
     science: ["https://www.sciencedaily.com/rss/all.xml"],
   },
   ja: {
-    // 构建沙箱网络不可达任何日语音源（NHK/.or.jp、asahi/.com 等皆超时/失败），
-    // 故 ja 不配置 RSS，首页整语言回退内置 mock（日文 UI 完整可用）。
+    // cov20：ja 首次接入真实 RSS（共同/朝日/每日，服务器实测可达且为当日内容；
+    // 构建沙箱不可达，构建期仍回退 mock，运行时由 collect-articles 入库生效）。
+    // NHK cat0 feed 已停更（停留在 8 月），弃用。
+    world: [
+      "https://www.kyodo.co.jp/rss/",
+      "https://www.asahi.com/rss/asahi/newsheadlines.rdf",
+      "https://mainichi.jp/rss/etc/mainichi-flash.rss",
+    ],
   },
   ko: {
-    world: ["https://www.yna.co.kr/rss/world.xml"],
+    // cov21 扩充（Hani 韩民族 + MBN，服务器实测可达且当日内容）
+    world: ["https://www.yna.co.kr/rss/world.xml", "https://www.hani.co.kr/rss/", "https://mbn.co.kr/rss/"],
     tech: ["https://www.yna.co.kr/rss/it.xml"],
     finance: ["https://www.yna.co.kr/rss/economy.xml"],
     sports: ["https://www.yna.co.kr/rss/sports.xml"],
     entertainment: ["https://www.yna.co.kr/rss/entertainment.xml"],
   },
   es: {
-    world: ["https://feeds.bbci.co.uk/mundo/rss.xml"],
+    // cov21 拉美源（服务器实测可达且当日内容）：阿根廷 Clarín/Naive/Infobae · 墨西哥 El Financiero/Jornada/Mexico News Daily
+    world: [
+      "https://feeds.bbci.co.uk/mundo/rss.xml",
+      "https://www.clarin.com/rss/lo-ultimo/",
+      "https://www.lanacion.com.ar/arcio/rss/",
+      "https://www.infobae.com/arc/outboundfeeds/rss/",
+      "https://www.elfinanciero.com.mx/rss/",
+      "https://www.jornada.com.mx/rss/edicion.xml?v=1",
+      "https://mexiconewsdaily.com/feed/",
+      // cov30 拉美西语区补充（智利 / 哥伦比亚 / 委内瑞拉）
+      "https://www.latercera.com/rss/",
+      "https://www.emol.com/rss/",
+      "https://www.eltiempo.com/rss",
+      "https://www.elespectador.com/rss",
+      "https://www.eluniversal.com/rss",
+    ],
     tech: ["https://www.xataka.com/index.xml"],
     finance: ["https://www.bolsamania.com/noticias/rss/"],
     sports: ["https://www.marca.com/rss/portada.xml"],
     entertainment: ["https://www.elmundo.es/rss/elmundo/cultura.xml"],
   },
   fr: {
-    world: [FR24.world],
+    // cov21 非洲法语源（服务器实测可达且当日内容）：塞内加尔 APS/Le Soleil · 摩洛哥 Hespress FR/Le Site Info/Aujourd'hui
+    world: [
+      FR24.world,
+      "https://www.aps.sn/rss",
+      "https://www.lesoleil.sn/rss",
+      "https://fr.hespress.com/rss",
+      "https://lesiteinfo.com/feed/",
+      "https://www.aujourdhui.ma/rss",
+    ],
     tech: [FR24.tech],
     finance: [FR24.finance],
     sports: [FR24.sports],
@@ -79,6 +187,36 @@ const FEEDS: Partial<Record<Locale, Partial<Record<RssCat, string[]>>>> = {
     ],
     world: ["https://feedx.net/rss/people.politics.xml"],
     finance: ["https://www.36kr.com/feed"],
+  },
+  // cov30：葡语（pt-PT）真实 RSS——替代此前回退的 mock 内容
+  pt: {
+    world: [
+      "https://www.publico.pt/rss",
+      "https://www.observador.pt/rss/",
+      "https://www.rtp.pt/rss",
+      "https://www.expresso.pt/rss",
+      "https://www.jn.pt/rss",
+    ],
+    tech: ["https://www.sapo.pt/rss/tecnologia"],
+    finance: ["https://www.jornaldenegocios.pt/rss"],
+    sports: ["https://www.record.pt/rss", "https://www.ojogo.pt/rss"],
+    health: ["https://www.sapo.pt/rss/saude"],
+    science: ["https://www.publico.pt/ciencia/rss"],
+    culture: ["https://www.sapo.pt/rss/cultura"],
+  },
+  // cov30：土耳其语（tr-TR）真实 RSS——替代此前回退的 mock 内容
+  tr: {
+    world: [
+      "https://www.aa.com.tr/tr/rss",
+      "https://www.sozcu.com.tr/rss",
+      "https://www.cumhuriyet.com.tr/rss",
+    ],
+    finance: ["https://www.dunya.com/rss"],
+    sports: ["https://www.fanatik.com.tr/rss"],
+    tech: ["https://www.webrazzi.com/feed/"],
+    health: ["https://www.ntv.com.tr/saglik.rss"],
+    science: ["https://www.ntv.com.tr/bilim.rss"],
+    culture: ["https://www.ntv.com.tr/kultur.rss"],
   },
 };
 
@@ -158,6 +296,8 @@ function parseItem(
     link = hrefs.find((h) => !/\.xml$/i.test(h)) || hrefs[0] || "";
   }
   if (!link) return null;
+  // XML 实体解码（MBN 等源的链接带 &amp;，直接存会得到坏的原文字链）
+  link = link.replace(/&amp;/g, "&").replace(/&#0?39;/g, "'").replace(/&quot;/g, '"');
 
   const summaryRaw = getTag(itemXml, "description") || getTag(itemXml, "summary");
   const contentRaw =
@@ -240,17 +380,34 @@ function parseItem(
 // ---------------------------------------------------------------------------
 // 抓取单个 feed（带超时与失败兜底）
 // ---------------------------------------------------------------------------
+// 站点 UA 策略：两类源都存在——YNA 等只认机器人 UA（浏览器 UA 直接 404），
+// CBC / Arab News 等反过来挂起或 403 机器人 UA。故先试机器人 UA，
+// 失败（非 2xx / 超时 / 无条目）再用标准浏览器 UA 重试一次。
+const UA_BOT = "Mozilla/5.0 (GlobalHeadlines/1.0; +https://global-headlines.example.com)";
+const UA_BROWSER =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
+
+async function fetchFeedXml(url: string, ua: string): Promise<string | null> {
+  try {
+    const res = await fetch(url, {
+      signal: AbortSignal.timeout(15000),
+      headers: {
+        "User-Agent": ua,
+        Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
+      },
+      redirect: "follow",
+    });
+    if (!res.ok) return null;
+    return await res.text();
+  } catch {
+    return null;
+  }
+}
+
 async function fetchFeed(url: string, locale: Locale, category: RssCat): Promise<Article[]> {
-  const res = await fetch(url, {
-    signal: AbortSignal.timeout(4000),
-    headers: {
-      "User-Agent": "Mozilla/5.0 (GlobalHeadlines/1.0; +https://global-headlines.example.com)",
-      Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
-    },
-    redirect: "follow",
-  });
-  if (!res.ok) return [];
-  const xml = await res.text();
+  let xml = await fetchFeedXml(url, UA_BOT);
+  if (!xml || !/<item\b|<entry\b/i.test(xml)) xml = await fetchFeedXml(url, UA_BROWSER);
+  if (!xml) return [];
 
   // feed 标题（渠道名 / 站点名）
   let feedTitle = "";
@@ -283,13 +440,20 @@ const cache = new Map<string, Article[]>();
 // 存在则直接当作「单一真相源」读取，跳过联网；不存在则退回实时拉取（兼容直接 next build）。
 let jsonDb: Article[] | null = null;
 let jsonDbLoaded = false;
+// 归一化：存量镜像里 historically 有缺 body 的条目（卷内旧数据 / 旧版采集器 / rebuild-mirror.mjs
+// 从无 body 列的 DB 重建）。读取时统一补齐，保证下游（文章页 pickQuote / 正文渲染）不踩 undefined。
+function normalizeArticle(a: Article): Article {
+  if (Array.isArray(a.body) && a.body.length > 0) return a;
+  const fallback = a.summary || a.title || "";
+  return { ...a, body: [fallback] };
+}
 function loadJsonDb(): Article[] | null {
   if (jsonDbLoaded) return jsonDb;
   jsonDbLoaded = true;
   try {
     const p = path.join(process.cwd(), "data", "articles.json");
     if (fs.existsSync(p)) {
-      jsonDb = JSON.parse(fs.readFileSync(p, "utf8")) as Article[];
+      jsonDb = (JSON.parse(fs.readFileSync(p, "utf8")) as Article[]).map(normalizeArticle);
       return jsonDb;
     }
   } catch {
@@ -334,7 +498,24 @@ export async function getRssArticles(locale: Locale, category: RssCat): Promise<
 }
 
 export function findRssArticle(id: string): Article | undefined {
-  return byId.get(id);
+  const hit = byId.get(id);
+  if (hit) return hit;
+  // 兜底：直接扫描 articles.json 全量，覆盖未被预热的分类（如 zh 无 RSS 源的 sports/health 等）
+  const db = loadJsonDb();
+  return db ? db.find((a) => a.id === id) : undefined;
+}
+
+// 原创策展文章（data/original 合并进 articles.json，id 形如 rss-orig-*）：
+// 供新闻流与详情页按 (locale, category) 注入，确保各分类板块都有原创内容。
+export function getOriginalArticles(locale: Locale, category?: Category): Article[] {
+  const db = loadJsonDb();
+  if (!db) return [];
+  return db.filter(
+    (a) =>
+      a.locale === locale &&
+      (category ? a.category === category : true) &&
+      (a.id || "").startsWith("rss-orig-")
+  );
 }
 
 // ---------------------------------------------------------------------------

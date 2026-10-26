@@ -1,8 +1,10 @@
 import { Locale, Category, categories } from "@/i18n/config";
 import { Article } from "@/data/news";
 import * as mock from "@/data/news";
+import { rankRelated } from "@/lib/related";
 import { getRealVideos, findVideo } from "@/data/videoSource";
-import { getRssHomeFeed, findRssArticle, getRssArticles, RSS_ENABLED } from "@/data/rssSource";
+import { getRssHomeFeed, findRssArticle, getRssArticles, getOriginalArticles, RSS_ENABLED } from "@/data/rssSource";
+import { getDb, getArticleRow, queryArticles, DbArticle } from "@/lib/db";
 
 // 数据源适配层：默认走内置 mock（无需 key 即可跑），
 // 设了 NEWS_API_KEY 环境变量则自动切到 NewsAPI（多语言 + 分类映射 + 服务端缓存 + 失败回退 mock）。
@@ -27,7 +29,8 @@ class MockNewsSource implements NewsSource {
     return mock.getTrending(locale, n);
   }
   async getRelated(locale: Locale, article: Article, n = 6) {
-    return mock.getRelated(locale, article, n);
+    // 由"同分类取前 N"改为相似度精排（关键词 IDF + 标签 + 来源 + 分类 + 时效 + 同来源降重）
+    return rankRelated(article, mock.getArticles(locale), n);
   }
 }
 
@@ -160,10 +163,41 @@ export function getSourceName(): string {
   return getNewsSource().name;
 }
 
-// 顶层便捷函数：自动走当前数据源（mock / NewsAPI / RSS 聚合）
+// 顶层便捷函数：自动走当前数据源（mock / NewsAPI / RSS 聚合）。
+// 模块级 TTL 缓存：force-dynamic 下每个请求都会重跑本函数（RSS 合并 + 原创/用户稿件注入 + 视频交织），
+// 加一层按 (locale,category) 的短时效缓存，避免相同请求在 TTL 内重复做这份纯计算，缩短首字节时间。
+const _articlesCache = new Map<string, { ts: number; items: Article[] }>();
+const ARTICLES_TTL = 10 * 60_000; // 10 分钟（cov35：拉长，首页/信息流纯计算更久复用）
+
+// cov35：相关推荐按文章 id 缓存。rankRelated 的语料分词（16MB 词典 × 数百篇文章）
+// 在「每 locale 首次」文章页冷渲染时约耗 50s；结果按 id 缓存 30min，
+// 使同一文章页的重复访问（含被 nginx/CDN 回源）零计算，也避免不同文章反复触发冷构建。
+const _relatedCache = new Map<string, { ts: number; items: Article[] }>();
+const RELATED_TTL = 30 * 60_000;
+
 export async function getArticles(locale: Locale, category?: Category): Promise<Article[]> {
+  const key = `${locale}:${category ?? "all"}`;
+  const hit = _articlesCache.get(key);
+  if (hit && Date.now() - hit.ts < ARTICLES_TTL) return hit.items;
+  const items = await getArticlesInner(locale, category);
+  _articlesCache.set(key, { ts: Date.now(), items });
+  return items;
+}
+
+async function getArticlesInner(locale: Locale, category?: Category): Promise<Article[]> {
   // 视频分类：统一走真实视频源（YouTube+Bilibili，密钥仅服务端、构建时拉取）
   if (category === "video") return getRealVideos(locale);
+
+  // 注入「原创策展文章」（data/original 合并进 articles.json，id 形如 rss-orig-*），
+  // 使各分类板块（含 zh 无 RSS 源的 sports/health 等）都有原创内容，且能被预渲染。
+  const injectOriginals = (list: Article[]): Article[] => {
+    const extras = getOriginalArticles(locale, category);
+    if (!extras.length) return list;
+    const ids = new Set(list.map((a) => a.id));
+    const out = list.slice();
+    for (const o of extras) if (!ids.has(o.id)) { out.push(o); ids.add(o.id); }
+    return out;
+  };
 
   // RSS 聚合（构建时拉取真实媒体资讯，无 key 时优先；设了 NEWS_API_KEY 则让位 NewsAPI）
   if (!category && RSS_ENABLED && !process.env.NEWS_API_KEY) {
@@ -174,7 +208,7 @@ export async function getArticles(locale: Locale, category?: Category): Promise<
           console.log(`[rss] ${locale}: 真实 RSS 聚合生效，共 ${feed.length} 条`);
         }
         const videos = await getRealVideos(locale);
-        return mergeVideos(feed, videos);
+        return mergeVideos(injectUserArticles(injectOriginals(feed), locale), videos);
       }
     } catch {
       // 落到下方 mock
@@ -182,11 +216,59 @@ export async function getArticles(locale: Locale, category?: Category): Promise<
   }
 
   const base = await getNewsSource().getArticles(locale, category);
-  if (category) return base; // 指定非视频分类：不混入视频
+  if (category) return injectUserArticles(injectOriginals(base), locale, category); // 指定非视频分类：不混入视频，但注入原创 + 用户稿件
 
   // 首页「推荐」流：把真实视频交织进新闻流（视频 tab 也靠这一份过滤）
   const videos = await getRealVideos(locale);
-  return mergeVideos(base, videos);
+  return mergeVideos(injectUserArticles(injectOriginals(base), locale), videos);
+}
+
+// DB 文章行 -> 前端 Article（用户稿件桥接）
+function dbArticleToArticle(a: DbArticle): Article {
+  const images = JSON.parse(a.images || "[]") as string[];
+  const tags = JSON.parse(a.tags || "[]") as string[];
+  const summary = a.summary || "";
+  const body = summary
+    .split(/\n{1,}/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return {
+    id: a.id,
+    locale: a.locale as Locale,
+    category: a.category as Category,
+    title: a.title,
+    summary,
+    body: body.length ? body : [summary || "暂无正文。"],
+    source: a.source || "用户投稿",
+    author: a.author || "用户投稿",
+    publishedAt: a.published_at,
+    imageCount: (images.length >= 3 ? 3 : 1) as 1 | 3,
+    images: images.length ? images : ["/img/earth-night.jpg"],
+    cover: a.cover || undefined,
+    tags,
+    readMinutes: a.read_minutes || 2,
+    sourceUrl: a.source_url || undefined,
+    media: a.media === "video" ? "video" : undefined,
+    videoPlatform: (a.video_platform as "youtube" | "bilibili") || undefined,
+    videoId: a.video_id || undefined,
+  };
+}
+
+// 注入用户发布的稿件（DB）进公共信息流；DB 不可用（构建期）时静默跳过
+function injectUserArticles(list: Article[], locale: Locale, category?: Category): Article[] {
+  try {
+    const db = getDb();
+    const rows = queryArticles(db, { locale, category, includeDrafts: false, limit: 20 });
+    const mine = rows
+      .filter((r) => (r as { owner_id?: number | null }).owner_id != null)
+      .map(dbArticleToArticle);
+    if (!mine.length) return list;
+    const ids = new Set(list.map((a) => a.id));
+    const extras = mine.filter((a) => !ids.has(a.id));
+    return extras.concat(list);
+  } catch {
+    return list;
+  }
 }
 
 // 新闻流每 ~8 条插 1 条视频，视频不足时补在末尾
@@ -216,6 +298,16 @@ export async function getArticle(locale: Locale, id: string): Promise<Article | 
   }
   // 兜底真实视频（id 形如 video-<ytId> / video-<bvid>）
   if (id.startsWith("video-")) return findVideo(locale, id);
+  // 兜底用户稿件（DB，id 形如 u<base36>...）：发布后文章页可直接访问
+  if (id.startsWith("u")) {
+    try {
+      const db = getDb();
+      const row = getArticleRow(db, id) as (DbArticle & { deleted?: number }) | undefined;
+      if (row && !row.deleted && row.locale === locale) return dbArticleToArticle(row);
+    } catch {
+      /* 构建期无 DB 时忽略 */
+    }
+  }
   return undefined;
 }
 export function getTrending(locale: Locale, n = 10): Promise<Article[]> {
@@ -223,31 +315,36 @@ export function getTrending(locale: Locale, n = 10): Promise<Article[]> {
 }
 
 // 相关推荐：真实 RSS 文章优先推荐同语言、同分类（不足再跨分类）的真实采集文章，
-// 按标签重合度排序；非 RSS / RSS 拉取失败则回退当前数据源（mock / NewsAPI）。
+// 用「标题关键词(词典分词+IDF) + 标签 + 来源 + 分类 + 时效」相似度精排，并做同来源降重；
+// 非 RSS / RSS 拉取失败则回退当前数据源（mock / NewsAPI，同样走相似度精排）。
 export async function getRelated(locale: Locale, article: Article, n = 6): Promise<Article[]> {
+  const rkey = `${locale}:${article.id}:${n}`;
+  const rhit = _relatedCache.get(rkey);
+  if (rhit && Date.now() - rhit.ts < RELATED_TTL) return rhit.items;
+  let result: Article[] | null = null;
   if (!process.env.NEWS_API_KEY && RSS_ENABLED && article.id.startsWith("rss-")) {
     try {
       const rssCat = article.category as Exclude<Category, "recommend" | "video">;
       let pool = await getRssArticles(locale, rssCat);
-      if (pool.length < n) {
+      if (pool.length < 200) {
         const others = categories.filter(
           (c) => c !== "video" && c !== "recommend" && c !== article.category
         ) as Exclude<Category, "recommend" | "video">[];
         for (const c of others) {
           pool = pool.concat(await getRssArticles(locale, c));
-          if (pool.length >= n * 2) break;
+          if (pool.length >= 200) break;
         }
       }
       const rel = pool.filter((a) => a.id !== article.id);
       if (rel.length) {
-        const tagset = new Set(article.tags.map((t) => t.toLowerCase()));
-        const score = (a: Article) =>
-          a.tags.reduce((s, t) => (tagset.has(t.toLowerCase()) ? s + 1 : s), 0);
-        return [...rel].sort((a, b) => score(b) - score(a)).slice(0, n);
+        // 相似度精排（RSS 的 tag 多等于标题，按标签重合排序等于没排，故改用内容相似度）
+        result = rankRelated(article, rel, n);
       }
     } catch {
       /* 落到下方回退 */
     }
   }
-  return getNewsSource().getRelated(locale, article, n);
+  if (!result) result = await getNewsSource().getRelated(locale, article, n);
+  _relatedCache.set(rkey, { ts: Date.now(), items: result });
+  return result;
 }

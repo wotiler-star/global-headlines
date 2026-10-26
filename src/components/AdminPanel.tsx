@@ -24,6 +24,8 @@ type ArtRow = {
   published_at: number;
   pinned: number;
   deleted: number;
+  status?: string;
+  review_note?: string | null;
 };
 
 type CmtRow = {
@@ -47,7 +49,7 @@ type UsrRow = {
   comments: number;
 };
 
-type Tab = "overview" | "articles" | "comments" | "users";
+type Tab = "overview" | "pending" | "articles" | "comments" | "users";
 
 export default function AdminPanel({ locale, username }: { locale: Locale; username: string }) {
   const d = getDict(locale);
@@ -121,7 +123,8 @@ export default function AdminPanel({ locale, username }: { locale: Locale; usern
   }, [api]);
 
   useEffect(() => {
-    if (tab === "overview") loadStats();
+    if (tab === "overview") { loadStats(); loadArts(); }
+    if (tab === "pending") loadArts();
     if (tab === "articles") loadArts();
     if (tab === "comments") loadCmts();
     if (tab === "users") loadUsrs();
@@ -169,8 +172,10 @@ export default function AdminPanel({ locale, username }: { locale: Locale; usern
     }
   };
 
-  const tabs = [
+  const pendingCount = arts.filter((a) => a.status === "pending").length;
+  const tabs: { k: Tab; label: string; badge?: number }[] = [
     { k: "overview" as Tab, label: d.adminOverview },
+    { k: "pending" as Tab, label: d.adminPending, badge: pendingCount },
     { k: "articles" as Tab, label: d.adminArticles },
     { k: "comments" as Tab, label: d.adminComments },
     { k: "users" as Tab, label: d.adminUsers },
@@ -196,6 +201,7 @@ export default function AdminPanel({ locale, username }: { locale: Locale; usern
             onClick={() => setTab(t.k)}
           >
             {t.label}
+            {t.badge ? <span className="member-badge">{t.badge > 99 ? "99+" : t.badge}</span> : null}
           </button>
         ))}
       </div>
@@ -215,7 +221,7 @@ export default function AdminPanel({ locale, username }: { locale: Locale; usern
         </div>
       )}
 
-      {tab === "articles" && (
+      {(tab === "articles" || tab === "pending") && (
         <div className="admin-section">
           <div className="admin-toolbar">
             <input
@@ -241,12 +247,12 @@ export default function AdminPanel({ locale, username }: { locale: Locale; usern
             <thead>
               <tr>
                 <th>{d.adminArticles}</th>
-                <th>{d.adminRole}</th>
+                <th>{d.adminStatus}</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              {arts.map((a) => (
+              {(tab === "pending" ? arts.filter((a) => a.status === "pending" || a.status === "rejected").sort((x, y) => (y.published_at || 0) - (x.published_at || 0)) : arts).map((a) => (
                 <tr key={a.id} className={a.deleted ? "row-del" : ""}>
                   <td>
                     <div className="art-title">{a.title}</div>
@@ -254,9 +260,14 @@ export default function AdminPanel({ locale, username }: { locale: Locale; usern
                       {a.locale} · {a.category} · {a.source || "-"}
                       {a.pinned ? " · 📌" : ""}
                       {a.deleted ? " · 🗑" : ""}
+                      {a.status === "rejected" && a.review_note ? " · ⚠ " + a.review_note : ""}
                     </div>
                   </td>
-                  <td>{a.category}</td>
+                  <td>
+                    <span className={"status-pill " + (a.deleted ? "trash" : a.status === "draft" ? "draft" : a.status === "published" ? "published" : a.status === "rejected" ? "rejected" : "pending")}>
+                      {a.deleted ? d.memberTrash : a.status === "draft" ? d.memberDraft : a.status === "published" ? d.memberPublished : a.status === "rejected" ? d.reviewRejected : d.reviewPending}
+                    </span>
+                  </td>
                   <td className="admin-actions">
                     {a.pinned ? (
                       <button className="btn-sm" onClick={() => actArt(a.id, "unpin")}>
@@ -276,10 +287,16 @@ export default function AdminPanel({ locale, username }: { locale: Locale; usern
                         {d.adminDelete}
                       </button>
                     )}
+                    {!a.deleted && (a.status === "pending" || a.status === "rejected") && (
+                      <button className="btn-sm" onClick={() => actArt(a.id, "approve")}>{d.adminApprove}</button>
+                    )}
+                    {!a.deleted && a.status === "pending" && (
+                      <button className="btn-sm danger" onClick={() => { const note = window.prompt(d.rejectReason + ""); if (note !== null) actArt(a.id, "reject", { reviewNote: note }); }}>{d.adminReject}</button>
+                    )}
                   </td>
                 </tr>
               ))}
-              {arts.length === 0 && (
+              {(tab === "pending" ? arts.filter((a) => a.status === "pending" || a.status === "rejected").sort((x, y) => (y.published_at || 0) - (x.published_at || 0)) : arts).length === 0 && (
                 <tr>
                   <td colSpan={3} className="admin-empty">
                     {d.adminNoResult}

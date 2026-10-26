@@ -48,8 +48,11 @@ export default async function LocaleLayout({
   const loc = locale as Locale;
   const meta = localeMeta[loc];
   const d = getDict(loc);
+  // suppressHydrationWarning: 内联脚本在 hydrate 前于 <html> 上写入 data-theme，
+  // 服务端 HTML 无该属性，客户端有，属 React 19 已知的可容忍顶层属性差异。
+  // 不加此标记会偶发触发 #418（args=[HTML,""]）。
   return (
-    <html lang={meta.hreflang} dir={meta.dir}>
+    <html lang={meta.hreflang} dir={meta.dir} suppressHydrationWarning>
       <body>
         <link
           rel="alternate"

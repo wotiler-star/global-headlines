@@ -11,13 +11,24 @@ export default function TelemetryBar({ signal = 4 }: { signal?: number }) {
     const t = setInterval(tick, 1000);
     return () => clearInterval(t);
   }, []);
-  const dateStr = new Date().toLocaleDateString("zh-CN", {
-    timeZone: "Asia/Shanghai",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    weekday: "long",
-  });
+  const [dateStr, setDateStr] = useState("");
+  // 日期改为挂载后计算：页面 force-static，SSR 日期冻结在构建期，
+  // 渲染期直接 new Date() 会在跨天后每次访问都 hydration mismatch(#418)。
+  useEffect(() => {
+    const fmt = () =>
+      setDateStr(
+        new Date().toLocaleDateString("zh-CN", {
+          timeZone: "Asia/Shanghai",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          weekday: "long",
+        })
+      );
+    fmt();
+    const t = setInterval(fmt, 60_000); // 跨零点自动更新
+    return () => clearInterval(t);
+  }, []);
   const bars = [4, 7, 10, 12, 12];
   return (
     <div className="telemetry-bar" role="status">

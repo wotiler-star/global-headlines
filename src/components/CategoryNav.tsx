@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import { Locale, Category, categories, isCategory } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { categoryHref, homeHref } from "@/lib/paths";
@@ -9,11 +9,16 @@ import { categoryHref, homeHref } from "@/lib/paths";
 export default function CategoryNav({
   locale,
   active,
+  suppressOnArticle = false,
 }: {
   locale: Locale;
   active?: Category;
+  suppressOnArticle?: boolean;
 }) {
   const sp = useSearchParams();
+  const pathname = usePathname();
+  // 文章页会自渲染带高亮的分类导航（active=文章分类）；全局实例（suppressOnArticle）在此让位，避免重复两行
+  if (suppressOnArticle && pathname && pathname.includes("/article/")) return null;
   const d = getDict(locale);
   const catParam = sp.get("cat");
   const isFollowing = sp.get("view") === "following";
@@ -34,14 +39,14 @@ export default function CategoryNav({
   return (
     <nav className="cat-nav">
       <div className="cat-nav-inner">
-        <Link href={followHref} className={`cat-link${isFollowing ? " active" : ""}`}>
+        <Link prefetch={false} href={followHref} className={`cat-link${isFollowing ? " active" : ""}`}>
           {d.followChannel}
         </Link>
         {cats.map((c) => {
           const href = categoryHref(locale, c, keep);
           const isActive = !isFollowing && current === c;
           return (
-            <Link key={c} href={href} className={`cat-link${isActive ? " active" : ""}`}>
+            <Link prefetch={false} key={c} href={href} className={`cat-link${isActive ? " active" : ""}`}>
               {d.categories[c]}
             </Link>
           );
