@@ -36,3 +36,18 @@ shots_live/
 debug_cov*
 tsconfig.tsbuildinfo
 *.bak*
+
+# 地球仪 hard 模式 / 面板遮挡修复：Playwright 验证脚本与截图
+shot_hard*.js
+diag_*.js
+verify_fix_css.js
+hard_*.png
+el_btn.png
+el_foot.png
+p_btn.png
+p_card.png
+p_foot.png
+diag_*.png
+fix_btn.png
+fix_foot.png
+verify_*.json

@@ -1079,7 +1079,10 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
   background: radial-gradient(circle at 50% 48%, rgba(255,178,36,.07), transparent 62%);
   pointer-events: none; z-index: 0;
 }
-.sd-panel { top: 52px; }
+/* 面板是 .sd-globe-wrap/.sd-foot 的兄弟节点，百分比 max-height 会按整卡高度解析，
+   导致面板溢出到页脚按钮上（遮挡「硬核」等控件并拦截点击）。
+   这里改用地球自身高度约束，保证面板始终收在地球区域内。 */
+.sd-panel { top: 52px; max-height: calc(clamp(360px, 46vw, 460px) - 70px); }
 .sd-panel.is-global { border-color: var(--line); background: rgba(16,22,31,.78); }
 .sd-panel.is-global .sd-panel-code { color: var(--ink-2); }
 .sd-m-full { grid-column: 1 / -1; }
