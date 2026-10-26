@@ -72,13 +72,13 @@ function catColorA(cat: string, alpha: number): string {
 // 信号弧线：枢纽（选中地区，无则最热地区）→ 最活跃的前 MAX_ARCS 个地区。
 // 只画前 N 条是为了避免 21 个地区拉出满屏蛛网（视觉噪声盖过地球本体）。
 const MAX_ARCS = 12;
-function buildArcs(hub: RegionStat | undefined, list: RegionStat[]) {
+function buildArcs(hub: RegionStat | undefined, list: RegionStat[], max: number = MAX_ARCS) {
   if (!hub) return [];
   return list
     .filter((r) => r.code !== hub.code)
     .slice()
     .sort((a, b) => b.signalCount - a.signalCount)
-    .slice(0, MAX_ARCS)
+    .slice(0, max)
     .map((r) => ({
       startLat: hub.lat,
       startLng: hub.lng,
@@ -197,6 +197,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
   const [rotating, setRotating] = useState(true);
   const [tour, setTour] = useState(false);      // 自动巡览（每 6s 轮播地区）
   const [booting, setBooting] = useState(true); // 地球初始化占位
+  const [hard, setHard] = useState(true);        // 硬核模式（视觉/交互拉满）：默认开；挂载后从 localStorage 同步
   const [mounted, setMounted] = useState(false); // 挂载后再说：SSR 无 searchParams，active 相关 UI 须等挂载后再切换，避免水合树不一致（React #418）
   const [, forceTick] = useState(0); // 30s 刷新相对时间
 
@@ -206,6 +207,8 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
   rotatingRef.current = rotating;
   const tourRef = useRef(false);
   tourRef.current = tour;
+  const hardRef = useRef(true);
+  hardRef.current = hard;
   const coordRef = useRef<HTMLSpanElement>(null); // 实时坐标读数（命令式更新，避免 60fps setState）
   const cardRef = useRef<HTMLDivElement>(null);   // 国家分站卡片（命令式跟随鼠标）
   const cardPlaceRef = useRef<(() => void) | null>(null); // 卡片定位函数（globe effect 内赋值）
@@ -284,6 +287,16 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
     touchRef.current =
       typeof window !== "undefined" &&
       (("ontouchstart" in window) || ((navigator as unknown as { maxTouchPoints?: number }).maxTouchPoints || 0) > 0);
+  }, []);
+
+  // 挂载后从 localStorage 同步硬核模式偏好（默认开；之前关过的访客保持关闭，避免每次强开）
+  useEffect(() => {
+    try {
+      const v = localStorage.getItem("gh-globe-hard");
+      if (v === "0") setHard(false);
+      else if (v === "1") setHard(true);
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 自动巡览：每 6s 轮换地区（replace 不进历史栈；POV/弧线/面板由 active 驱动链自动跟随）
@@ -408,26 +421,28 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
         .arcColor((d: any) =>
           hoverCodeRef.current === d.code
             ? ["rgba(255,255,255,0.98)", "rgba(255,255,255,0.80)"]
-            : ["rgba(255,205,110,0.95)", catColorA(d.cat, 0.88)]
+            : hardRef.current
+              ? ["rgba(255,228,150,0.98)", catColorA(d.cat, 0.95)]
+              : ["rgba(255,205,110,0.95)", catColorA(d.cat, 0.88)]
         )
         .arcStroke((d: any) =>
-          hoverCodeRef.current === d.code ? 0.46 : 0.16 + (d.activity / 100) * 0.28
+          hoverCodeRef.current === d.code ? 0.55 : (hardRef.current ? 0.28 : 0.16) + (d.activity / 100) * (hardRef.current ? 0.40 : 0.28)
         )
         .arcDashLength(0.42)
         .arcDashGap(0.7)
-        .arcDashAnimateTime((d: any) => 6500 - (d.activity / 100) * 3500)
+        .arcDashAnimateTime((d: any) => (hardRef.current ? 3800 : 6500) - (d.activity / 100) * (hardRef.current ? 2200 : 3500))
         .arcAltitudeAutoScale(0.38)
         .arcsData([] as any)
         .atmosphereColor("#5aa9ff")
-        .atmosphereAltitude(0.18)
+        .atmosphereAltitude(hardRef.current ? 0.28 : 0.18)
         .globeImageUrl("/img/earth-day.webp")
         .bumpImageUrl("/img/earth-topology.webp")
         .pointsData(catPoints as any)
         .pointLat("lat")
         .pointLng("lng")
         .pointColor((p: any) => (hoverCodeRef.current === p.code ? "#ffffff" : catColor(p.cat)))
-        .pointAltitude((p: any) => 0.01 + p.rank * 0.03)
-        .pointRadius((p: any) => 0.12 + (p.n / p.max) * 0.55)
+        .pointAltitude((p: any) => 0.01 + p.rank * (hardRef.current ? 0.04 : 0.03))
+        .pointRadius((p: any) => (hardRef.current ? 0.04 : 0.12) + (p.n / p.max) * (hardRef.current ? 0.72 : 0.55))
         .pointLabel(
           (p: any) =>
             '<div class="globe-tip"><b>' + p.name + "</b><br>" + p.catName + " · " + p.n + "</div>"
@@ -436,8 +451,8 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
         .ringLat("lat")
         .ringLng("lng")
         .ringColor((p: any) => activityColorA(p.activity, 0.5))
-        .ringMaxRadius((p: any) => 2 + (p.activity / 100) * 4)
-        .ringPropagationSpeed(1.1)
+        .ringMaxRadius((p: any) => (hardRef.current ? 3 + (p.activity / 100) * 7 : 2 + (p.activity / 100) * 4))
+        .ringPropagationSpeed(hardRef.current ? 1.9 : 1.1)
         .ringRepeatPeriod(1400)
         .onPointClick((p: any) => onPick(p.code))
         .onPointHover((p: any) => {
@@ -613,7 +628,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
 
       const ctrl = world.controls();
       ctrl.autoRotate = !prefersReduced && rotating && !tour;
-      ctrl.autoRotateSpeed = 0.5;
+      ctrl.autoRotateSpeed = hardRef.current ? 1.8 : 0.5;
       ctrl.enableZoom = true;
       ctrl.enableDamping = true;
       ctrl.dampingFactor = 0.08;
@@ -712,7 +727,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       // 初始链路弧：最热地区 -> 最活跃的前 MAX_ARCS 个地区（effect 首跑时 worldRef 未就绪，这里补铺）
       const hub0 = [...regions].sort((a, b) => b.signalCount - a.signalCount)[0];
       if (hub0 && regions.length > 1) {
-        world.arcsData(buildArcs(hub0, regions) as any);
+        world.arcsData(buildArcs(hub0, regions, hardRef.current ? 24 : MAX_ARCS) as any);
       }
       ro = new ResizeObserver(() => {
         if (worldRef.current && mountRef.current) {
@@ -803,7 +818,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       w.arcsData([]);
       return;
     }
-    w.arcsData(buildArcs(hub, regions) as any);
+    w.arcsData(buildArcs(hub, regions, hardRef.current ? 24 : MAX_ARCS) as any);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, regions]);
 
@@ -816,8 +831,30 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
     }
   }, [hoverCode]);
 
+  // 硬核模式：视觉/交互拉满（更密更亮弧线、更快自转/涟漪、更强辉光）。切换时重铺 globe 参数。
+  useEffect(() => {
+    const w = worldRef.current;
+    if (!w || !w.controls) return;
+    w.controls().autoRotateSpeed = hard ? 1.8 : 0.5;
+    if (w.arcColor) { w.arcColor(w.arcColor()); w.arcStroke(w.arcStroke()); w.arcDashAnimateTime(w.arcDashAnimateTime()); }
+    if (w.ringMaxRadius) { w.ringMaxRadius(w.ringMaxRadius()); w.ringPropagationSpeed(hard ? 1.9 : 1.1); }
+    if (w.pointRadius) { w.pointRadius(w.pointRadius()); w.pointAltitude(w.pointAltitude()); }
+    if (w.atmosphereAltitude) w.atmosphereAltitude(hard ? 0.28 : 0.18);
+    // 弧线数量随硬核模式加倍（重算枢纽 → 各地区链路）
+    const hub = selected || peak;
+    if (hub && regions.length >= 2) w.arcsData(buildArcs(hub, regions, hard ? 24 : MAX_ARCS) as any);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hard]);
+
   function toggleRotate() {
     setRotating((r) => !r);
+  }
+  function toggleHard() {
+    setHard((h) => {
+      const nv = !h;
+      try { localStorage.setItem("gh-globe-hard", nv ? "1" : "0"); } catch {}
+      return nv;
+    });
   }
   function toggleTour() {
     setTour((t) => !t);
@@ -1024,6 +1061,9 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
           </button>
           <button className="sd-rot" onClick={toggleRotate} aria-label="切换自转">
             {rotating ? "⏸ 暂停" : "▶ 自转"}
+          </button>
+          <button className={"sd-rot hard" + (hard ? " on" : "")} onClick={toggleHard} aria-label={hard ? "关闭硬核模式" : "开启硬核模式"}>
+            {hard ? "⚡ 硬核" : "⚡ HARD"}
           </button>
           <span className="sd-sync">SYNC LIVE</span>
         </span>

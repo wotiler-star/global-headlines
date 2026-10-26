@@ -1540,7 +1540,13 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 /* ===== 信号地球 ENHANCED v6 (auto tour / coord HUD / boot overlay / pause) ===== */
 .sd-foot { flex-wrap: wrap; row-gap: 4px; }
 .sd-coord { margin-left: 10px; padding-left: 10px; border-left: 1px solid var(--line); color: var(--brand); letter-spacing: .06em; }
-.sd-rot.on { background: var(--brand); color: var(--on-brand); border-color: var(--brand); }
+.sd-rot.on { background: var(--brand); color: var(--on-brand); border-color: var(--brand); box-shadow: 0 0 10px rgba(255,178,36,.55); }
+/* 硬核模式按钮：开启时琥珀辉光脉冲，强化「拉满」观感 */
+.sd-rot.hard.on { animation: sd-hard-pulse 1.6s ease-in-out infinite; }
+@keyframes sd-hard-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(255,178,36,.45); }
+  50% { box-shadow: 0 0 16px rgba(255,178,36,.85); }
+}
 .sd-boot {
   position: absolute; inset: 0; z-index: 3;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
