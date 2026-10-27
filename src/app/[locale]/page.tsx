@@ -83,7 +83,6 @@ export default async function Home({
   const slim = <T extends { body: string[] }>(list: T[]) => list.map((a) => ({ ...a, body: [] as string[] }));
   const slimArticles = slim(articles);
   const slimHot = slim(hot);
-  const slimAll = slim(allArticles);
 
   return (
     <>
@@ -101,7 +100,9 @@ export default async function Home({
             <div className="main-col">
               <TodayBrief locale={loc} items={slimHot} />
               <SearchChips locale={loc} />
-              <HomeFeedRouterLazy locale={loc} articles={slimArticles} allArticles={slimAll} />
+              {/* cov39：跨语种全量数据集(allArticles)不再下发 SSR，改由首页点地球地区(?src=)时
+                  客户端按需拉 /api/all-articles，首屏 RSC 体积从 ~9MB 降到 ~3MB */}
+              <HomeFeedRouterLazy locale={loc} articles={slimArticles} />
             </div>
           </Suspense>
           <aside className="sidebar">

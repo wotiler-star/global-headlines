@@ -51,3 +51,8 @@ diag_*.png
 fix_btn.png
 fix_foot.png
 verify_*.json
+
+# 首屏性能/新鲜度验证脚本与截图（非源码）
+perf_probe.js
+check_*.mjs
+cov37_*.png

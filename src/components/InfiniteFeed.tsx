@@ -48,10 +48,38 @@ export default function InfiniteFeed({
   const q = qParam?.trim().toLowerCase() || "";
   const tag = tagParam?.trim().toLowerCase() || "";
 
+  // cov39：跨语种全量数据不再由 SSR 下发（避免首屏 RSC 膨胀 ~5.7MB）。
+  // 仅在用户点开地球某地区(?src=)时，客户端按需拉取 /api/all-articles。
+  const [fetchedAll, setFetchedAll] = useState<Article[] | null>(null);
+  const [loadingAll, setLoadingAll] = useState(false);
+  useEffect(() => {
+    if (!srcParam) {
+      setFetchedAll(null);
+      return;
+    }
+    if (allArticles && allArticles.length) return; // SSR 已带（理论上不会发生）
+    let cancelled = false;
+    setLoadingAll(true);
+    fetch("/api/all-articles")
+      .then((r) => r.json())
+      .then((d) => {
+        if (cancelled) return;
+        setFetchedAll(Array.isArray(d?.articles) ? d.articles : []);
+        setLoadingAll(false);
+      })
+      .catch(() => {
+        if (!cancelled) setLoadingAll(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [srcParam, allArticles]);
+  const effectiveAll = allArticles && allArticles.length ? allArticles : (fetchedAll || []);
+
   const followingEmpty = isFollowing && follows.size === 0;
 
   const filtered = useMemo(() => {
-    const base = srcParam ? (allArticles && allArticles.length ? allArticles : articles) : articles;
+    const base = srcParam ? effectiveAll : articles;
     return base.filter((a) => {
       // 地区筛选：点地球某地区时，按 sourceUrl 所属城市代码过滤（跨语言聚合）
       if (srcParam && geoCodeOf(a.sourceUrl) !== srcParam) return false;
@@ -65,7 +93,7 @@ export default function InfiniteFeed({
         return false;
       return true;
     });
-  }, [articles, allArticles, isBookmarks, bookmarks, isFollowing, follows, active, tag, q, srcParam]);
+  }, [articles, effectiveAll, isBookmarks, bookmarks, isFollowing, follows, active, tag, q, srcParam]);
 
   const [count, setCount] = useState(PAGE);
   const sentinel = useRef<HTMLDivElement>(null);
@@ -131,7 +159,9 @@ export default function InfiniteFeed({
         </div>
       )}
       <div className="feed">
-        {shown.length === 0 ? (
+        {loadingAll && srcParam ? (
+          <div className="feed-more">{d.loadingMore}</div>
+        ) : shown.length === 0 ? (
           <div className="empty">
             {isBookmarks
               ? d.bookmarksEmpty
