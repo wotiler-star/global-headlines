@@ -221,9 +221,18 @@ const DOMAIN_TO_CODE: Record<string, string> = {
   "trthaber.com": "IST",
   "myjoyonline.com": "GHA",
   "capitalfm.co.ke": "NBO",
+  "capitalfm.africa": "NBO",
   "mosaiquefm.net": "TUN",
   "middleeasteye.net": "DXB",
   "nezavisen.mk": "SKP",
+  // cov37：13 死城复测后找到的可达端点（与上面城市一一对应）
+  "dnevnik.bg": "SOF",
+  "livemint.com": "BOM",
+  "prachachat.net": "BKK",
+  "matichon.co.th": "BKK",
+  "ikon.mn": "ULN",
+  "thereporterethiopia.com": "ADD",
+  "ethiopianmonitor.com": "ADD",
 };
 
 // 地区运行时指标（首页地球面板用）

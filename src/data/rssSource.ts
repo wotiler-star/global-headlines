@@ -66,7 +66,8 @@ const FEEDS: Partial<Record<Locale, Partial<Record<RssCat, string[]>>>> = {
       // —— 土耳其（cov34：替换不可达端点 aa/hurriyet/dailysabah；trthaber 服务器实测 OK）——
       "https://www.trthaber.com/sondakika.rss",
       // —— 东南亚（英文版）——
-      "https://www.bangkokpost.com/rss/news",
+      "https://www.prachachat.net/feed",   // BKK 曼谷（cov37 替换 451 的 bangkokpost）
+      "https://www.matichon.co.th/feed",   // BKK 曼谷（cov37 补充，实测 50 条）
       "https://www.antaranews.com/rss",
       "https://www.thestar.com.my/rss/news",
       "https://www.channelnewsasia.com/api/v1/rss/home",
@@ -79,7 +80,8 @@ const FEEDS: Partial<Record<Locale, Partial<Record<RssCat, string[]>>>> = {
       "https://www.jordantimes.com/rss",
       "https://www.capitalfm.co.ke/feed/",                   // NBO 内罗毕（cov34 替换 403 的 nation.africa）
       "https://www.iol.co.za/rss",
-      "https://addisstandard.com/feed/",
+      "https://www.thereporterethiopia.com/feed/", // ADD 亚的斯亚贝巴（cov37 替换 403 的 addisstandard）
+      "https://www.ethiopianmonitor.com/feed/",    // ADD 亚的斯亚贝巴（cov37 补充）
       "https://www.mosaiquefm.net/rss",                       // TUN 突尼斯（cov34 替换 403 的 lapresse.tn）
       "https://www.myjoyonline.com/rss",                     // GHA 阿克拉（cov34 替换 NOITEMS 的 ghanaweb）
       // cov30 中亚分站源（国际桶，跨语言聚合显示信号）
@@ -100,18 +102,18 @@ const FEEDS: Partial<Record<Locale, Partial<Record<RssCat, string[]>>>> = {
       "https://rs.n1info.com/feed/",            // BEG 贝尔格莱德（塞尔维亚英文）
       "https://nezavisen.mk/feed/",             // SKP 斯科普里（北马其顿；cov34 替换 403 的 time.mk）
       "https://www.total-croatia-news.com/feed/", // ZAG 萨格勒布（克罗地亚英文）
-      "https://www.novinite.com/section.rss",   // SOF 索菲亚（保加利亚英文）
+      "https://www.dnevnik.bg/rss/",           // SOF 索菲亚（cov37 替换 404 的 novinite）
       "https://www.sarajevotimes.com/feed/",    // SAR 萨拉热窝（波黑英文）
       // —— 南亚（cov32；挂 en.world 国际桶，跨语言聚合显示信号）——
       "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms", // DEL 德里（印度英文）
-      "https://www.freepressjournal.in/feed",                       // BOM 孟买（印度英文）
+      "https://www.livemint.com/rss/news",                          // BOM 孟买（cov37 替换 NOITEMS 的 freepressjournal）
       "https://kathmandupost.com/rss",                              // KTM 加德满都（尼泊尔英文）
       "https://www.dailynews.lk/rss",                               // CMB 科伦坡（斯里兰卡英文）
       "https://www.dawn.com/feeds/home.rss",                        // ISB 伊斯兰堡（巴基斯坦英文）
       "https://www.thenews.com.pk/rss/1/3",                         // KHI 卡拉奇（巴基斯坦英文）
       "https://tribune.com.pk/feed",                                // LAH 拉合尔（巴基斯坦英文）
       // —— 中亚补全（cov32）——
-      "https://www.ubpost.mn/feed/",                                // ULN 乌兰巴托（蒙古英文）
+      "https://ikon.mn/rss",                                        // ULN 乌兰巴托（cov37 替换 404 的 ubpost）
       "https://orient.tm/en/feed/",                                 // ASH 阿什哈巴德（土库曼英文）
     ],
     tech: ["https://www.theverge.com/rss/index.xml"],
@@ -440,6 +442,11 @@ const cache = new Map<string, Article[]>();
 // 存在则直接当作「单一真相源」读取，跳过联网；不存在则退回实时拉取（兼容直接 next build）。
 let jsonDb: Article[] | null = null;
 let jsonDbLoaded = false;
+let jsonDbTs = 0;
+// cov38：articles.json 在容器运行期会被定时采集任务重写，若只在进程内读一次，
+// 新采集的内容永远不生效（新闻会冻结在容器启动那一刻）。加 10 分钟 TTL 定期重读，
+// 让「定时采集」真正反映到线上；文件读取+解析仅百毫秒级，开销可忽略。
+const JSON_DB_TTL = 10 * 60_000;
 // 归一化：存量镜像里 historically 有缺 body 的条目（卷内旧数据 / 旧版采集器 / rebuild-mirror.mjs
 // 从无 body 列的 DB 重建）。读取时统一补齐，保证下游（文章页 pickQuote / 正文渲染）不踩 undefined。
 function normalizeArticle(a: Article): Article {
@@ -448,16 +455,18 @@ function normalizeArticle(a: Article): Article {
   return { ...a, body: [fallback] };
 }
 function loadJsonDb(): Article[] | null {
-  if (jsonDbLoaded) return jsonDb;
-  jsonDbLoaded = true;
+  if (jsonDbLoaded && jsonDb && Date.now() - jsonDbTs < JSON_DB_TTL) return jsonDb;
   try {
     const p = path.join(process.cwd(), "data", "articles.json");
     if (fs.existsSync(p)) {
       jsonDb = (JSON.parse(fs.readFileSync(p, "utf8")) as Article[]).map(normalizeArticle);
+      jsonDbLoaded = true;
+      jsonDbTs = Date.now();
       return jsonDb;
     }
   } catch {
-    /* ignore */
+    // 重读失败（文件正被采集器写入等）时保留旧数据，下次再试，不让站点变空
+    if (jsonDb) return jsonDb;
   }
   return null;
 }

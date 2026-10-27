@@ -61,7 +61,8 @@ const FEEDS = {
       // —— 土耳其（cov34：替换不可达端点 aa/hurriyet/dailysabah；trthaber 服务器实测 OK）——
       "https://www.trthaber.com/sondakika.rss",
       // —— 东南亚（英文版）——
-      "https://www.bangkokpost.com/rss/news",
+      "https://www.prachachat.net/feed",   // BKK 曼谷（cov37 替换 451 的 bangkokpost）
+      "https://www.matichon.co.th/feed",   // BKK 曼谷（cov37 补充，实测 50 条）
       "https://www.antaranews.com/rss",
       "https://www.thestar.com.my/rss/news",
       "https://www.channelnewsasia.com/api/v1/rss/home",
@@ -74,7 +75,8 @@ const FEEDS = {
       "https://www.jordantimes.com/rss",
       "https://www.capitalfm.co.ke/feed/",                   // NBO 内罗毕（cov34 替换 403 的 nation.africa）
       "https://www.iol.co.za/rss",
-      "https://addisstandard.com/feed/",
+      "https://www.thereporterethiopia.com/feed/", // ADD 亚的斯亚贝巴（cov37 替换 403 的 addisstandard）
+      "https://www.ethiopianmonitor.com/feed/",    // ADD 亚的斯亚贝巴（cov37 补充）
       "https://www.mosaiquefm.net/rss",                       // TUN 突尼斯（cov34 替换 403 的 lapresse.tn）
       "https://www.myjoyonline.com/rss",                     // GHA 阿克拉（cov34 替换 NOITEMS 的 ghanaweb）
       // cov30 中亚分站源（国际桶，跨语言聚合显示信号）
@@ -95,18 +97,18 @@ const FEEDS = {
       "https://rs.n1info.com/feed/",            // BEG 贝尔格莱德（塞尔维亚英文）
       "https://nezavisen.mk/feed/",             // SKP 斯科普里（北马其顿；cov34 替换 403 的 time.mk）
       "https://www.total-croatia-news.com/feed/", // ZAG 萨格勒布（克罗地亚英文）
-      "https://www.novinite.com/section.rss",   // SOF 索菲亚（保加利亚英文）
+      "https://www.dnevnik.bg/rss/",           // SOF 索菲亚（cov37 替换 404 的 novinite）
       "https://www.sarajevotimes.com/feed/",    // SAR 萨拉热窝（波黑英文）
       // —— 南亚（cov32；挂 en.world 国际桶，跨语言聚合显示信号）——
       "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms", // DEL 德里（印度英文）
-      "https://www.freepressjournal.in/feed",                       // BOM 孟买（印度英文）
+      "https://www.livemint.com/rss/news",                          // BOM 孟买（cov37 替换 NOITEMS 的 freepressjournal）
       "https://kathmandupost.com/rss",                              // KTM 加德满都（尼泊尔英文）
       "https://www.dailynews.lk/rss",                               // CMB 科伦坡（斯里兰卡英文）
       "https://www.dawn.com/feeds/home.rss",                        // ISB 伊斯兰堡（巴基斯坦英文）
       "https://www.thenews.com.pk/rss/1/3",                         // KHI 卡拉奇（巴基斯坦英文）
       "https://tribune.com.pk/feed",                                // LAH 拉合尔（巴基斯坦英文）
       // —— 中亚补全（cov32）——
-      "https://www.ubpost.mn/feed/",                                // ULN 乌兰巴托（蒙古英文）
+      "https://ikon.mn/rss",                                        // ULN 乌兰巴托（cov37 替换 404 的 ubpost）
       "https://orient.tm/en/feed/",                                 // ASH 阿什哈巴德（土库曼英文）
     ],
     tech: ["https://www.theverge.com/rss/index.xml"],
@@ -300,7 +302,7 @@ const UA_BROWSER =
 async function fetchFeedXml(url, ua) {
   try {
     const res = await fetch(url, {
-      signal: AbortSignal.timeout(15000),
+      signal: AbortSignal.timeout(8000),
       headers: {
         "User-Agent": ua,
         Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
@@ -314,41 +316,45 @@ async function fetchFeedXml(url, ua) {
   }
 }
 
-// 带重试的抓取：瞬时失败（ECONNRESET/限流——YNA 就被限过）退避 2s/5s 再试，最多 3 轮。
-// 只有「成功且有条目」才算通过；持续失败返回 []（由镜像合并逻辑兜底，不会让源从首页消失）。
+// 抓取单源：先试机器人 UA（YNA 等只认机器人 UA），失败（非 2xx/超时/无条目）再用浏览器 UA 重试一次。
+// 不做多秒退避——瞬时失败由下方「镜像合并」兜底（保留上一次成功内容，源不会从首页消失）。
 async function fetchFeed(url, locale, category) {
-  for (let attempt = 0; attempt < 3; attempt++) {
-    let xml = await fetchFeedXml(url, UA_BOT);
-    if (!xml || !/<item\b|<entry\b/i.test(xml)) xml = await fetchFeedXml(url, UA_BROWSER);
-    if (xml && /<item\b|<entry\b/i.test(xml)) {
-      let feedTitle = "";
-      const ch = xml.match(/<channel\b[^>]*>([\s\S]*?)<\/channel>/i);
-      if (ch) feedTitle = stripHtml(getTag(ch[1], "title"));
-      if (!feedTitle) { const fe = xml.match(/<feed\b[^>]*>([\s\S]*?)<\/feed>/i); if (fe) feedTitle = stripHtml(getTag(fe[1], "title")); }
-      const items = matchAll(xml, /<item\b[^>]*>([\s\S]*?)<\/item>/gi);
-      const entries = matchAll(xml, /<entry\b[^>]*>([\s\S]*?)<\/entry>/gi);
-      const blocks = items.length ? items : entries;
-      const out = [];
-      for (const b of blocks) { const a = parseItem(b, locale, category, feedTitle); if (a) out.push(a); }
-      if (out.length) return out;
-    }
-    if (attempt < 2) await new Promise((s) => setTimeout(s, 2000 * (attempt + 1)));
+  let xml = await fetchFeedXml(url, UA_BOT);
+  if (!xml || !/<item\b|<entry\b/i.test(xml)) xml = await fetchFeedXml(url, UA_BROWSER);
+  if (xml && /<item\b|<entry\b/i.test(xml)) {
+    let feedTitle = "";
+    const ch = xml.match(/<channel\b[^>]*>([\s\S]*?)<\/channel>/i);
+    if (ch) feedTitle = stripHtml(getTag(ch[1], "title"));
+    if (!feedTitle) { const fe = xml.match(/<feed\b[^>]*>([\s\S]*?)<\/feed>/i); if (fe) feedTitle = stripHtml(getTag(fe[1], "title")); }
+    const items = matchAll(xml, /<item\b[^>]*>([\s\S]*?)<\/item>/gi);
+    const entries = matchAll(xml, /<entry\b[^>]*>([\s\S]*?)<\/entry>/gi);
+    const blocks = items.length ? items : entries;
+    const out = [];
+    for (const b of blocks) { const a = parseItem(b, locale, category, feedTitle); if (a) out.push(a); }
+    return out;
   }
-  console.log(`[collect] feed 持续失败（3 次重试）: ${url}`);
+  console.log(`[collect] feed 持续失败: ${url}`);
   return [];
 }
 
 // 归一化：补齐缺 body 的条目（卷内存量旧数据 / rebuild-mirror 历史产物），
 // 用 summary/title 兜底，保证文章页 pickQuote 不踩 undefined。合并时统一过一遍，镜像随时间自愈。
+// cov38：顺带钳制「未来时间」——部分源 pubDate 带时区偏移被解析成未来时刻，
+// 会污染首页「最近 1h / 24h 信号分布」，故超过当前时间的统一压到当前时间。
 function normalizeArticle(a) {
   if (!a || !a.id) return a;
-  if (Array.isArray(a.body) && a.body.length > 0) return a;
-  return { ...a, body: [a.summary || a.title || ""] };
+  const now = Date.now();
+  const fixedTime = typeof a.publishedAt === "number" && a.publishedAt > now ? now : a.publishedAt;
+  const hasBody = Array.isArray(a.body) && a.body.length > 0;
+  if (hasBody && fixedTime === a.publishedAt) return a;
+  return { ...a, body: hasBody ? a.body : [a.summary || a.title || ""], publishedAt: fixedTime };
 }
 
 // 镜像合并写入：读入上一次 articles.json，按 id 叠加本次新采集。
 // 关键——单个 feed 瞬时失败（被限流/挂起）时不会把该源从首页/地球仪抹掉；
-// 同时按「每语言最多 800 条 + 丢弃 14 天前」控体量，防止无限增长。
+// 同时按「每语言最多 2000 条 + 丢弃 14 天前」控体量，防止无限增长。
+// cov36：上限由 800 提到 2000——按 publishedAt 降序取前 N 时，更新较慢的新接入源
+// （如 inquirer/capitalfm，文章比其他源旧几小时）会被新鲜度排名挤出、导致该城市无信号。
 function mergeMirror(all) {
   let prev = [];
   try {
@@ -368,7 +374,7 @@ function mergeMirror(all) {
   const final = [];
   for (const list of byLoc.values()) {
     list.sort((x, y) => (y.publishedAt || 0) - (x.publishedAt || 0));
-    final.push(...list.slice(0, 800));
+    final.push(...list.slice(0, 2000));
   }
   return final;
 }
@@ -415,27 +421,40 @@ function openRuntimeDb() {
 }
 
 async function main() {
-  const all = [];
-  const seen = new Set();
+  // 扁平化所有 (语言, 分类, 源) 任务，全局并发抓取——避免「按语言顺序处理」导致后段语言里
+  // 的慢超时源累加出 3-4 分钟。限流 N 个在途，失败源由 8s 超时快速判定，整体再套 90s 上限，
+  // 即使个别源卡死也不会拖垮构建/启动。
+  const tasks = [];
   for (const locale of Object.keys(FEEDS)) {
     const catMap = FEEDS[locale];
-    const cats = Object.keys(catMap);
-    const perCat = cats.map((c) =>
-      Promise.all(catMap[c].map((u) => fetchFeed(u, locale, c).catch(() => []))).then((r) => r.flat())
-    );
-    const results = await Promise.all(perCat);
-    let count = 0;
-    results.forEach((arts, i) => {
-      const c = cats[i];
+    for (const c of Object.keys(catMap)) {
+      for (const u of catMap[c]) tasks.push({ locale, category: c, url: u });
+    }
+  }
+
+  const seen = new Set();
+  const all = [];
+  const N = 20;
+  let idx = 0;
+  async function worker() {
+    while (true) {
+      const i = idx++;
+      if (i >= tasks.length) return;
+      const t = tasks[i];
+      const arts = await fetchFeed(t.url, t.locale, t.category).catch(() => []);
       for (const a of arts) {
         if (a.sourceUrl && seen.has(a.sourceUrl)) continue;
         if (a.sourceUrl) seen.add(a.sourceUrl);
         all.push(a);
-        count++;
       }
-    });
-    console.log(`[collect] ${locale}: ${count} 条`);
+    }
   }
+  const pool = Promise.all(Array.from({ length: Math.min(N, tasks.length) }, worker));
+  await Promise.race([pool, new Promise((r) => setTimeout(r, 90000))]);
+
+  const byLoc = new Map();
+  for (const a of all) byLoc.set(a.locale, (byLoc.get(a.locale) || 0) + 1);
+  for (const l of Object.keys(FEEDS)) console.log(`[collect] ${l}: ${byLoc.get(l) || 0} 条`);
 
   if (all.length === 0) {
     // 网络不通：保留上一次成功生成的数据库（离线持久化），不覆盖为空。

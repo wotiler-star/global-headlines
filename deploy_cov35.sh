@@ -2,9 +2,10 @@
 # deploy_cov35.sh — 性能根治（应用层，无外部反代可配）
 # 根因：容器直接发布 80/443/8082，无 nginx 反代；首页 force-dynamic 每次重渲染，
 #   而 rankRelated 的语料分词在「每 locale 首次」文章页冷渲染约 50s。
-# 改动（2 文件）：
+# 改动（3 文件）：
 #   src/app/[locale]/page.tsx        ALL_ARTICLES_TTL 90s → 15min
 #   src/data/newsSource.ts           _articlesCache 2min → 10min；getRelated 加按文章 id 缓存(30min)
+#   src/lib/sourceGeo.ts             capitalfm.africa → NBO（cov34 端点真实域名是 .africa，补地图让 NBO 亮）
 # 启动预热：重启后主动请求八语首页 + 每语一篇真实文章页，把冷渲染成本（含分词语料构建）
 #   在部署阶段一次性消化，真实用户永不等冷。
 set -e
@@ -17,6 +18,7 @@ LOG=/tmp/gh_build_cov35_$TS.log
 FILES=(
   "src/app/[locale]/page.tsx"
   src/data/newsSource.ts
+  src/lib/sourceGeo.ts
 )
 
 echo "本地项目: $LOCAL"
