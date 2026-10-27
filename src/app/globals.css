@@ -1042,6 +1042,9 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 }
 .sd-rot:hover { background: var(--brand-soft); }
 .sd-sync { color: var(--live); }
+.sd-timeline { display: inline-flex; align-items: center; gap: 7px; }
+.sd-range { width: 116px; height: 3px; accent-color: var(--brand); background: transparent; cursor: pointer; vertical-align: middle; }
+.sd-hour { font-size: 11px; color: var(--live); min-width: 58px; text-align: left; letter-spacing: .04em; }
 
 /* 面板内活跃源域名列表 */
 .sd-sources { margin: 10px 0 6px; }

@@ -151,10 +151,12 @@ void main() {
 }
 `;
 // 地球本体：日间贴图按受光强度衰减，夜侧切到城市灯光贴图，交界处 smoothstep 出晨昏带
+// mode: 0=自动（按真实太阳晨昏混合） 1=强制日间蓝 marble 2=强制夜间城市灯光
 const GLOBE_FRAG = `
 uniform sampler2D dayMap;
 uniform sampler2D nightMap;
 uniform vec3 sunDir;
+uniform int mode;
 varying vec2 vUv;
 varying vec3 vNormalW;
 void main() {
@@ -163,7 +165,8 @@ void main() {
   float t = smoothstep(-0.26, 0.38, d);                       // 晨昏过渡宽度
   vec3 day = texture2D(dayMap, vUv).rgb * (0.18 + 0.88 * clamp(d + 0.08, 0.0, 1.0));
   vec3 night = texture2D(nightMap, vUv).rgb * 2.3 + vec3(0.030, 0.050, 0.095);
-  gl_FragColor = vec4(mix(night, day, t), 1.0);
+  vec3 col = (mode == 1) ? day : (mode == 2 ? night : mix(night, day, t));
+  gl_FragColor = vec4(col, 1.0);
 }
 `;
 // 云层：白色半透明，白昼明亮、夜侧淡出（避免夜面浮着一层白雾）
@@ -214,6 +217,13 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
   const cardPlaceRef = useRef<(() => void) | null>(null); // 卡片定位函数（globe effect 内赋值）
   const lastMouseRef = useRef({ x: 0, y: 0 });    // 最近一次鼠标在 globe 内的坐标
   const touchRef = useRef(false);                 // 是否触屏设备（影响点击国家行为：触屏先弹卡片）
+
+  // cov40：时间轴 / 贴图模式 / 星空背景
+  const [hour, setHour] = useState<number | null>(null); // null=全时聚合(LIVE)；否则 0-23 UTC 小时
+  const hourRef = useRef<number | null>(null);
+  const [mapMode, setMapMode] = useState<0 | 1 | 2>(0);  // 0 昼夜自动 1 日间蓝marble 2 夜间城市灯光
+  const starRef = useRef<{ stars: any; mat: any } | null>(null); // 星空层（HARD 调密度/亮度）
+  const globeMatRef = useRef<any>(null);                  // 地球本体 shaderMaterial（切贴图模式用）
   // 悬停卡片「移入可点击」：离开国家多边形后延迟清除 hoverGeo，鼠标进入卡片则取消清除
   const hoverClearRef = useRef<number | null>(null);
   const scheduleHoverClear = () => {
@@ -393,6 +403,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
           n: c.n,
           max: r.categoryDist[0] ? r.categoryDist[0].n : 1,
           rank: i,
+          hourDist: r.hourDist,
         }))
       );
 
@@ -442,7 +453,14 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
         .pointLng("lng")
         .pointColor((p: any) => (hoverCodeRef.current === p.code ? "#ffffff" : catColor(p.cat)))
         .pointAltitude((p: any) => 0.01 + p.rank * (hardRef.current ? 0.04 : 0.03))
-        .pointRadius((p: any) => (hardRef.current ? 0.04 : 0.12) + (p.n / p.max) * (hardRef.current ? 0.72 : 0.55))
+        .pointRadius((p: any) => {
+          const base = (hardRef.current ? 0.04 : 0.12) + (p.n / p.max) * (hardRef.current ? 0.72 : 0.55);
+          const h = hourRef.current;
+          if (h == null) return base;
+          const hm = Math.max(1, ...(p.hourDist || [1])); // 该地区 24h 峰值（时间轴归一化基准）
+          const inten = Math.min(1, ((p.hourDist && p.hourDist[h]) || 0) / hm);
+          return base * (0.22 + 0.78 * inten);
+        })
         .pointLabel(
           (p: any) =>
             '<div class="globe-tip"><b>' + p.name + "</b><br>" + p.catName + " · " + p.n + "</div>"
@@ -450,10 +468,28 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
         .ringsData(regions as any)
         .ringLat("lat")
         .ringLng("lng")
-        .ringColor((p: any) => activityColorA(p.activity, 0.5))
-        .ringMaxRadius((p: any) => (hardRef.current ? 3 + (p.activity / 100) * 7 : 2 + (p.activity / 100) * 4))
+        .ringColor((p: any) => {
+          const h = hourRef.current;
+          let a = 0.5;
+          if (h != null) {
+            const hm = Math.max(1, ...(p.hourDist || [1]));
+            const inten = Math.min(1, ((p.hourDist && p.hourDist[h]) || 0) / hm);
+            a = 0.16 + 0.62 * inten;
+          }
+          return activityColorA(p.activity, a);
+        })
+        .ringMaxRadius((p: any) => {
+          const base = hardRef.current ? 3 + (p.activity / 100) * 7 : 2 + (p.activity / 100) * 4;
+          const h = hourRef.current;
+          if (h == null) return base;
+          const hm = Math.max(1, ...(p.hourDist || [1]));
+          const inten = Math.min(1, ((p.hourDist && p.hourDist[h]) || 0) / hm);
+          return base * (0.2 + 0.8 * inten);
+        })
         .ringPropagationSpeed(hardRef.current ? 1.9 : 1.1)
         .ringRepeatPeriod(1400)
+        .onPointClick((p: any) => onPick(p.code))
+        .onArcClick((d: any) => { if (d && d.code) onPick(d.code); }) // 点信号弧线 → 聚焦并进入目标分站
         .onPointClick((p: any) => onPick(p.code))
         .onPointHover((p: any) => {
           const code = p ? (p as any).code : null;
@@ -471,6 +507,29 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
             lastGlobeClick = now;
           }
         });
+
+      // ---- 常驻分站标签（cov40）----
+      // 标注按信号量排序的 top 活跃地区：普通模式 top10（轻量信息），HARD 模式 top36（信息拉满）。
+      // 悬停或选中该地区时高亮为暖琥珀色，引导"点这里"。
+      world
+        .labelsData(
+          [...regions]
+            .sort((a, b) => b.signalCount - a.signalCount)
+            .slice(0, hardRef.current ? 36 : 10)
+            .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng })) as any
+        )
+        .labelLat("lat")
+        .labelLng("lng")
+        .labelText((d: any) => d.name)
+        .labelSize(0.95)
+        .labelAltitude(0.012)
+        .labelColor((d: any) =>
+          hoverCodeRef.current === d.code || activeRef.current === d.code
+            ? "rgba(255,221,120,1)"
+            : "rgba(192,214,255,0.75)"
+        )
+        .labelResolution(2)
+        .labelDotRadius(0.32);
 
       // ---- 昼夜分界线 + 云层（cov24）----
       // 用自定义 ShaderMaterial 按「太阳方向 · 法线」混合日间贴图与夜间灯光贴图：
@@ -504,11 +563,12 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
         loader.load("/img/earth-night.webp", (night: any) => {
           if (cancelled) return;
           const mat = new THREE.ShaderMaterial({
-            uniforms: { dayMap: { value: day }, nightMap: { value: night }, sunDir },
+            uniforms: { dayMap: { value: day }, nightMap: { value: night }, sunDir, mode: { value: mapMode } },
             vertexShader: GLOBE_VERT,
             fragmentShader: GLOBE_FRAG,
           });
           world.globeMaterial(mat);
+          globeMatRef.current = mat;
         });
       });
 
@@ -545,6 +605,32 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
         cloudRaf = requestAnimationFrame(spinClouds);
       };
       spinClouds();
+
+      // ---- 星空背景（cov40）----
+      // 在地球外侧球壳均匀撒点作深空背景；HARD 模式更密更亮。静态层（真实星空相对地球极慢，忽略自转）。
+      try {
+        const scene = world.scene();
+        const starCount = hardRef.current ? 1800 : 900;
+        const starPos = new Float32Array(starCount * 3);
+        for (let i = 0; i < starCount; i++) {
+          const u = Math.random(), v = Math.random();
+          const theta = 2 * Math.PI * u, phi = Math.acos(2 * v - 1);
+          const rad = GLOBE_R * (2.4 + Math.random() * 1.8);
+          starPos[i * 3] = rad * Math.sin(phi) * Math.cos(theta);
+          starPos[i * 3 + 1] = rad * Math.cos(phi);
+          starPos[i * 3 + 2] = rad * Math.sin(phi) * Math.sin(theta);
+        }
+        const starGeo = new THREE.BufferGeometry();
+        starGeo.setAttribute("position", new THREE.BufferAttribute(starPos, 3));
+        const starMat = new THREE.PointsMaterial({
+          color: 0xbfd4ff, size: hardRef.current ? 1.2 : 0.85, sizeAttenuation: true,
+          transparent: true, opacity: hardRef.current ? 0.92 : 0.6, depthWrite: false,
+        });
+        const stars = new THREE.Points(starGeo, starMat);
+        stars.name = "gh-starfield";
+        scene.add(stars);
+        starRef.current = { stars, mat: starMat };
+      } catch (e) {}
 
       // 地理数据（边界弧线/国家多边形）延迟到浏览器空闲时加载，不阻塞地球首帧
       const deferGeo = (fn: () => void) => {
@@ -822,14 +908,13 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, regions]);
 
-  // 悬停变化时重算弧线配色/线宽（弧线不具备自动刷新机制，需手动触发访问器）
+  // 悬停/选中变化时重算弧线配色/线宽 + 标签高亮（globe.gl 访问器不自动刷新，需手动触发）
   useEffect(() => {
     const w = worldRef.current;
-    if (w && w.arcColor) {
-      w.arcColor(w.arcColor());
-      w.arcStroke(w.arcStroke());
-    }
-  }, [hoverCode]);
+    if (!w) return;
+    if (w.arcColor) { w.arcColor(w.arcColor()); w.arcStroke(w.arcStroke()); }
+    if (w.labelColor) w.labelColor(w.labelColor());
+  }, [hoverCode, active]);
 
   // 硬核模式：视觉/交互拉满（更密更亮弧线、更快自转/涟漪、更强辉光）。切换时重铺 globe 参数。
   useEffect(() => {
@@ -843,8 +928,38 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
     // 弧线数量随硬核模式加倍（重算枢纽 → 各地区链路）
     const hub = selected || peak;
     if (hub && regions.length >= 2) w.arcsData(buildArcs(hub, regions, hard ? 24 : MAX_ARCS) as any);
+    // 星空密度/亮度随硬核模式
+    if (starRef.current) {
+      starRef.current.mat.opacity = hard ? 0.92 : 0.6;
+      starRef.current.mat.size = hard ? 1.2 : 0.85;
+    }
+    // 常驻标签数量随硬核模式（普通 top10 / HARD top36）
+    if (w.labelsData) {
+      w.labelsData(
+        [...regions]
+          .sort((a, b) => b.signalCount - a.signalCount)
+          .slice(0, hard ? 36 : 10)
+          .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng })) as any
+      );
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hard]);
+
+  // 贴图模式：昼夜自动 / 日间蓝 marble / 夜间城市灯光（切 shaderMaterial mode uniform）
+  useEffect(() => {
+    if (globeMatRef.current) globeMatRef.current.uniforms.mode.value = mapMode;
+  }, [mapMode]);
+
+  // 时间轴：拖动到某 UTC 小时 → 按该地区 hourDist 归一化缩放信号点/涟漪强度；null=全时聚合(保持现状)
+  useEffect(() => {
+    hourRef.current = hour;
+    const w = worldRef.current;
+    if (w) {
+      if (w.pointRadius) w.pointRadius(w.pointRadius());
+      if (w.ringMaxRadius) w.ringMaxRadius(w.ringMaxRadius());
+      if (w.ringColor) w.ringColor(w.ringColor());
+    }
+  }, [hour]);
 
   function toggleRotate() {
     setRotating((r) => !r);
@@ -1049,6 +1164,23 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
           <span className="sd-coord" ref={coordRef} />
         </span>
         <span className="sd-foot-right">
+          {mounted && (
+            <span className="sd-timeline" title="按小时回放全球信号分布">
+              <button className="sd-rot" onClick={() => setHour(null)} aria-label="实时全时聚合">
+                {hour === null ? "⟲ LIVE" : "LIVE"}
+              </button>
+              <input
+                className="sd-range"
+                type="range"
+                min={0}
+                max={23}
+                step={1}
+                value={hour ?? new Date().getUTCHours()}
+                onChange={(e) => setHour(parseInt(e.target.value, 10))}
+              />
+              <span className="sd-hour">{hour === null ? "全时" : String(hour).padStart(2, "0") + ":00Z"}</span>
+            </span>
+          )}
           <button
             className={"sd-rot" + (tour ? " on" : "")}
             onClick={toggleTour}
@@ -1064,6 +1196,9 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
           </button>
           <button className={"sd-rot hard" + (hard ? " on" : "")} onClick={toggleHard} aria-label={hard ? "关闭硬核模式" : "开启硬核模式"}>
             {hard ? "⚡ 硬核" : "⚡ HARD"}
+          </button>
+          <button className="sd-rot" onClick={() => setMapMode((m) => (m === 0 ? 1 : m === 1 ? 2 : 0))} aria-label="切换贴图模式">
+            {mapMode === 0 ? "◐ 昼夜" : mapMode === 1 ? "◑ 日间" : "◉ 夜间"}
           </button>
           <span className="sd-sync">SYNC LIVE</span>
         </span>
