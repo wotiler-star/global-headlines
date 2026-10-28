@@ -1,8 +1,8 @@
+import { redirect } from "next/navigation";
 import { isLocale, Locale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { getCurrentUser } from "@/lib/auth";
 import ArticleEditor from "@/components/ArticleEditor";
-import LoginEntryButton from "@/components/LoginEntryButton";
 
 export const dynamic = "force-dynamic";
 
@@ -25,20 +25,8 @@ export default async function WritePage({ params }: { params: Promise<{ locale: 
     );
   }
   const user = await getCurrentUser();
-  if (!user) {
-    return (
-      <div className="container">
-        <div className="admin-guard">
-          <h1>{d.memberWrite}</h1>
-          <p>{d.memberNeedLogin}</p>
-          <p className="admin-hint">{d.adminHint}</p>
-          <p>
-            <LoginEntryButton next={`/${loc}/write`} label={d.authLoginContinue} />
-          </p>
-        </div>
-      </div>
-    );
-  }
+  // 未登录 → 登录页，登录后自动回到投稿页（服务端跳转，session 立刻生效）
+  if (!user) redirect(`/${loc}/login?next=${encodeURIComponent("/write")}`);
   return (
     <div className="container">
       <ArticleEditor locale={loc} />

@@ -1,7 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { getDb, queryArticles, DbArticle } from "@/lib/db";
+import { hit } from "@/lib/ratelimit";
 import { isLocale, isCategory } from "@/i18n/config";
+import {
+  sanitizeBody,
+  deriveSummary,
+  countWords,
+  resolveTargetStatus,
+  MAX_SUMMARY_CHARS,
+  MIN_BODY_CHARS,
+  POINTS_PUBLISH,
+} from "@/lib/moderation";
 
 export const dynamic = "force-dynamic";
 
@@ -61,6 +71,9 @@ export async function POST(req: NextRequest) {
   const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: "请先登录" }, { status: 401 });
   if (user.banned === 1) return NextResponse.json({ error: "账号已被封禁" }, { status: 403 });
+  // 投稿限流：防止脚本刷量占满审核队列
+  const rl = hit("post:" + user.id, 30, 10 * 60 * 1000);
+  if (!rl.ok) return NextResponse.json({ error: "投稿过于频繁，请稍后再试" }, { status: 429 });
 
   let body: any;
   try {
@@ -71,36 +84,46 @@ export async function POST(req: NextRequest) {
   const locale = String(body?.locale ?? "").trim();
   const category = String(body?.category ?? "").trim();
   const title = String(body?.title ?? "").trim();
-  const summary = body?.summary ? String(body.summary).trim() : null;
+  const content = sanitizeBody(body?.body);
+  const summaryRaw = body?.summary ? String(body.summary).trim() : "";
+  const summary = (summaryRaw || deriveSummary(content)).slice(0, MAX_SUMMARY_CHARS);
   const source = body?.source ? String(body.source).trim().slice(0, 60) : null;
   const tags: string[] = Array.isArray(body?.tags)
     ? body.tags.map((t: unknown) => String(t).trim()).filter(Boolean).slice(0, 8)
     : [];
-  const rawStatus = body?.status;
-  let status: "draft" | "pending" | "published" | "rejected" =
-    rawStatus === "draft" || rawStatus === "pending" || rawStatus === "published" || rawStatus === "rejected"
-      ? rawStatus
-      : "published";
-  // 普通会员"发布"一律进入待审核；管理员可直发；rejected 状态不允许由客户端直接写入
-  if (user.role !== "admin") {
-    if (status === "published") status = "pending";
-    if (status === "rejected") status = "pending";
-  }
+  // 状态由统一状态机裁决：未显式传值时按「发布」意图处理
+  const desired = String(body?.status ?? "published");
+  const status = resolveTargetStatus(user, null, desired);
 
   if (!isLocale(locale)) return NextResponse.json({ error: "语言参数不合法" }, { status: 400 });
   if (!isCategory(category)) return NextResponse.json({ error: "分类参数不合法" }, { status: 400 });
   if (!title || title.length > 120) return NextResponse.json({ error: "标题必填且不超过 120 字" }, { status: 400 });
-  if (summary && summary.length > 2000) return NextResponse.json({ error: "摘要不超过 2000 字" }, { status: 400 });
+  if (summary && summary.length > MAX_SUMMARY_CHARS)
+    return NextResponse.json({ error: `摘要不超过 ${MAX_SUMMARY_CHARS} 字` }, { status: 400 });
+  // 草稿允许留白；一旦进入发布/审核流程就必须有可审的正文
+  if (status !== "draft" && content.length < MIN_BODY_CHARS)
+    return NextResponse.json({ error: `正文至少需要 ${MIN_BODY_CHARS} 字才能提交审核` }, { status: 400 });
 
   const db = getDb();
-  const id = createUserArticle(db, user.id, { locale, category, title, summary, source, tags, cover: body?.cover ? String(body.cover).slice(0, 200) : null, status });
+  const id = createUserArticle(db, user.id, {
+    locale,
+    category,
+    title,
+    summary,
+    source,
+    tags,
+    cover: body?.cover ? String(body.cover).slice(0, 200) : null,
+    body: content,
+    wordCount: countWords(content),
+    status,
+  });
   if (status === "published") {
-    const pts = addPoints(db, user.id, 20, "publish", id);
-    createMessage(db, user.id, "稿件已发布", `《${title}》已上线，奖励 20 积分，当前积分 ${pts}。`, "system");
+    const pts = addPoints(db, user.id, POINTS_PUBLISH, "publish", id);
+    createMessage(db, user.id, "稿件已发布", `《${title}》已上线，奖励 ${POINTS_PUBLISH} 积分，当前积分 ${pts}。`, "system");
   } else if (status === "pending") {
-    createMessage(db, user.id, "稿件已提交审核", `《${title}》已提交审核，通过后将自动上线。`, "system");
+    createMessage(db, user.id, "稿件已提交审核", `《${title}》已提交审核，通过后会自动上线并奖励 ${POINTS_PUBLISH} 积分。`, "system");
   } else {
-    createMessage(db, user.id, "草稿已保存", `《${title}》已存入草稿箱。`, "system");
+    createMessage(db, user.id, "草稿已保存", `《${title}》已存入草稿箱，随时可以继续编辑。`, "system");
   }
   revalidatePath(`/${locale}`);
   return NextResponse.json({ ok: true, id }, { status: 201 });

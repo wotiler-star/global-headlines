@@ -168,6 +168,12 @@ function migrate(db: DatabaseSync) {
     "ALTER TABLE articles ADD COLUMN status TEXT NOT NULL DEFAULT 'published'",
     "ALTER TABLE articles ADD COLUMN cover TEXT",
     "ALTER TABLE articles ADD COLUMN review_note TEXT",
+    // cov43：会员投稿正文 —— 过去正文只能塞进 summary，真正的稿件需要独立的正文列
+    "ALTER TABLE articles ADD COLUMN body TEXT",
+    "ALTER TABLE articles ADD COLUMN submitted_at INTEGER",
+    "ALTER TABLE articles ADD COLUMN updated_at INTEGER",
+    "ALTER TABLE articles ADD COLUMN word_count INTEGER NOT NULL DEFAULT 0",
+    "ALTER TABLE users ADD COLUMN last_login_at INTEGER",
   ];
   for (const sql of alters) {
     try {
@@ -463,6 +469,14 @@ export type DbArticle = {
   source_url: string | null;
   cover?: string | null;
   review_note?: string | null;
+  status?: string | null;
+  owner_id?: number | null;
+  deleted?: number;
+  pinned?: number;
+  body?: string | null;
+  submitted_at?: number | null;
+  updated_at?: number | null;
+  word_count?: number | null;
 };
 
 export function queryArticles(
@@ -648,6 +662,7 @@ export function updateArticle(
     source?: string;
     cover?: string | null;
     reviewNote?: string | null;
+    publishedAt?: number;
     status?: "draft" | "pending" | "published" | "rejected";
   }
 ) {
@@ -677,10 +692,16 @@ export function updateArticle(
     sets.push("review_note = ?");
     params.push(fields.reviewNote);
   }
+  if (fields.publishedAt !== undefined) {
+    sets.push("published_at = ?");
+    params.push(fields.publishedAt);
+  }
   if (fields.status !== undefined) {
     sets.push("status = ?");
     params.push(fields.status);
   }
+  sets.push("updated_at = ?");
+  params.push(Date.now());
   if (sets.length === 0) return;
   params.push(id);
   db.prepare(`UPDATE articles SET ${sets.join(", ")} WHERE id = ?`).run(...params);
@@ -710,26 +731,31 @@ export function getAdminStats(db: DatabaseSync): AdminStats {
 }
 
 // ------------------------------ 用户稿件(UGC) ------------------------------
+export type ArticleStatus = "draft" | "pending" | "published" | "rejected";
+
 export type UserArticleInput = {
   locale: string;
   category: string;
   title: string;
+  body?: string | null;
   summary?: string | null;
   source?: string | null;
   author?: string | null;
   images?: string[];
   tags?: string[];
   cover?: string | null;
-  status?: "draft" | "pending" | "published" | "rejected";
+  wordCount?: number;
+  status?: ArticleStatus;
 };
 
 export function createUserArticle(db: DatabaseSync, ownerId: number, f: UserArticleInput): string {
   const id = "u" + Date.now().toString(36) + randomBytes(4).toString("hex");
   const now = Date.now();
+  const st = f.status ?? "published";
   db.prepare(
     `INSERT INTO articles
-     (id, locale, category, title, summary, source, author, published_at, image_count, images, tags, read_minutes, media, video_platform, video_id, source_url, owner_id, cover, status)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+     (id, locale, category, title, summary, source, author, published_at, image_count, images, tags, read_minutes, media, video_platform, video_id, source_url, owner_id, cover, status, body, submitted_at, updated_at, word_count)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).run(
     id,
     f.locale,
@@ -749,7 +775,11 @@ export function createUserArticle(db: DatabaseSync, ownerId: number, f: UserArti
     null,
     ownerId,
     f.cover ?? null,
-    f.status ?? "published"
+    st,
+    f.body ?? null,
+    st === "pending" || st === "published" ? now : null,
+    now,
+    f.wordCount ?? 0
   );
   return id;
 }
@@ -767,17 +797,28 @@ export function updateUserArticle(
   fields: {
     title?: string;
     summary?: string | null;
+    body?: string | null;
     category?: string;
     source?: string | null;
     tags?: string[];
     images?: string[];
     cover?: string | null;
     reviewNote?: string | null;
-    status?: "draft" | "pending" | "published" | "rejected";
+    wordCount?: number;
+    publishedAt?: number;
+    status?: ArticleStatus;
   }
 ) {
   const sets: string[] = [];
   const params: unknown[] = [];
+  if (fields.body !== undefined) {
+    sets.push("body = ?");
+    params.push(fields.body);
+  }
+  if (fields.wordCount !== undefined) {
+    sets.push("word_count = ?");
+    params.push(fields.wordCount);
+  }
   if (fields.title !== undefined) {
     sets.push("title = ?");
     params.push(fields.title);
@@ -810,10 +851,21 @@ export function updateUserArticle(
     sets.push("review_note = ?");
     params.push(fields.reviewNote);
   }
+  if (fields.publishedAt !== undefined) {
+    sets.push("published_at = ?");
+    params.push(fields.publishedAt);
+  }
   if (fields.status !== undefined) {
     sets.push("status = ?");
     params.push(fields.status);
+    // 进入/重进审核队列时刷新提交时间，便于后台按提交先后排序
+    if (fields.status === "pending" || fields.status === "published") {
+      sets.push("submitted_at = ?");
+      params.push(Date.now());
+    }
   }
+  sets.push("updated_at = ?");
+  params.push(Date.now());
   if (sets.length === 0) return;
   params.push(id);
   db.prepare(`UPDATE articles SET ${sets.join(", ")} WHERE id = ?`).run(...params);

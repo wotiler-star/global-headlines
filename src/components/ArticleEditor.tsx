@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { Locale, locales, categories } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { useAuth } from "@/lib/auth-client";
+import { countWords, MIN_BODY_CHARS } from "@/lib/moderation";
 
 type Snap = {
   artLocale: string;
   category: string;
   title: string;
   summary: string;
+  body: string;
   source: string;
   tags: string;
 };
@@ -19,6 +21,7 @@ const emptySnap = (locale: string): Snap => ({
   category: "world",
   title: "",
   summary: "",
+  body: "",
   source: "",
   tags: "",
 });
@@ -30,6 +33,8 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
   const [category, setCategory] = useState<string>("world");
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
+  const [body, setBody] = useState("");
+  const bodyRef = useRef<HTMLTextAreaElement | null>(null);
   const [source, setSource] = useState("");
   const [tags, setTags] = useState("");
   const [cover, setCover] = useState<string | null>(null);
@@ -46,6 +51,12 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [loaded, setLoaded] = useState(!editId);
+  // 云端稿件 id：新建时首 autosave 建草稿后才产生，此后所有保存都走 PATCH
+  const [docId, setDocId] = useState<string | null>(editId || null);
+  const [docStatus, setDocStatus] = useState<"draft" | "pending" | "published" | "rejected">("draft");
+  const [reviewNote, setReviewNote] = useState<string | null>(null);
+  const [cloudState, setCloudState] = useState<"idle" | "saving" | "saved">("idle");
+  const [cloudAt, setCloudAt] = useState<number | null>(null);
 
   // ---------- 草稿自动保存（localStorage，崩溃/断网恢复向） ----------
   const DRAFT_KEY = "gh_editor_draft:" + (editId || "new");
@@ -74,14 +85,19 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
           setCategory(a.category);
           setTitle(a.title);
           setSummary(a.summary || "");
+          setBody(a.body || a.summary || "");
           setSource(a.source || "");
           setTags((a.tags || []).join(", "));
           setCover(a.cover || null);
+          setDocId(a.id);
+          setDocStatus(a.status || "published");
+          setReviewNote(a.reviewNote || null);
           snapRef.current = {
             artLocale: a.locale,
             category: a.category,
             title: a.title,
             summary: a.summary || "",
+            body: a.body || a.summary || "",
             source: a.source || "",
             tags: (a.tags || []).join(", "),
           };
@@ -97,9 +113,9 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
   // dirty：当前表单与快照不一致
   useEffect(() => {
     if (!loaded) return;
-    const now: Snap = { artLocale, category, title, summary, source, tags };
+    const now: Snap = { artLocale, category, title, summary, body, source, tags };
     setDirty(JSON.stringify(now) !== JSON.stringify(snapRef.current));
-  }, [loaded, artLocale, category, title, summary, source, tags]);
+  }, [loaded, artLocale, category, title, summary, body, source, tags]);
 
   // 挂载后检查本地草稿：与当前快照不同则提示恢复
   useEffect(() => {
@@ -108,10 +124,11 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
       const raw = localStorage.getItem(DRAFT_KEY);
       if (!raw) return;
       const d = JSON.parse(raw);
-      if (!d || (!d.title && !d.summary)) return;
+      if (!d || (!d.title && !d.body && !d.summary)) return;
       const snap = snapRef.current;
       const same =
         (d.title || "") === snap.title &&
+        (d.body || "") === snap.body &&
         (d.summary || "") === snap.summary &&
         (d.category || "world") === snap.category &&
         (d.artLocale || locale) === snap.artLocale &&
@@ -126,12 +143,12 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
   // 防抖自动保存（停止输入 800ms 后落盘；空内容不保存）
   useEffect(() => {
     if (!loaded) return;
-    if (!title.trim() && !summary.trim()) return;
+    if (!title.trim() && !body.trim() && !summary.trim()) return;
     const t = window.setTimeout(() => {
       try {
         localStorage.setItem(
           DRAFT_KEY,
-          JSON.stringify({ artLocale, category, title, summary, source, tags, savedAt: Date.now() })
+          JSON.stringify({ artLocale, category, title, summary, body, source, tags, savedAt: Date.now() })
         );
         setSavedAt(Date.now());
       } catch {
@@ -139,7 +156,7 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
       }
     }, 800);
     return () => window.clearTimeout(t);
-  }, [loaded, artLocale, category, title, summary, source, tags, DRAFT_KEY]);
+  }, [loaded, artLocale, category, title, summary, body, source, tags, DRAFT_KEY]);
 
   const applyDraft = () => {
     try {
@@ -147,10 +164,11 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
       if (raw) {
         const d = JSON.parse(raw);
         setArtLocale(d.artLocale || locale);
-        setCategory(d.category || "world");
-        setTitle(d.title || "");
-        setSummary(d.summary || "");
-        setSource(d.source || "");
+      setCategory(d.category || "world");
+      setTitle(d.title || "");
+      setSummary(d.summary || "");
+      setBody(d.body || "");
+      setSource(d.source || "");
         setTags(d.tags || "");
       }
     } catch {
@@ -229,7 +247,8 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
   };
 
   const preview = () => {
-    if (editId) window.open(`/${locale}/article/${editId}`, "_blank", "noopener");
+    const id = docId || editId;
+    if (id) window.open(`/${locale}/article/${id}`, "_blank", "noopener");
   };
 
   const confirmLeave = () => {
@@ -514,13 +533,126 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
     };
   }, [cropSrc, cropScale, cropOff, cropNat, cropFit]);
 
+  const splitTags = (raw: string): string[] =>
+    raw
+      .split(/[,，]/)
+      .map((t) => t.trim())
+      .filter(Boolean)
+      .slice(0, 8);
+
+  // ---------- 云端自动保存：草稿不再只躺 localStorage，换设备也能续写 ----------
+  const persistDraft = async (): Promise<string | null> => {
+    if (!title.trim() || busy) return docId;
+    setCloudState("saving");
+    const base = {
+      locale: artLocale,
+      category,
+      title: title.trim(),
+      summary: summary.trim() || null,
+      body,
+      source: source.trim() || null,
+      tags: splitTags(tags),
+      cover: cover || null,
+    };
+    try {
+      let id = docId;
+      if (!id) {
+        const r = await fetch("/api/articles", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...base, status: "draft" }),
+        });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok) {
+          setErr(j.error || "network error");
+          setCloudState("idle");
+          return null;
+        }
+        id = j.id;
+        setDocId(id);
+        setDocStatus("draft");
+      } else {
+        // 不带 status：保持稿件当前状态（已发布稿件的自动存盘不该触发重审）
+        const r = await fetch(`/api/articles/${encodeURIComponent(id)}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(base),
+        });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok) {
+          setErr(j.error || "network error");
+          setCloudState("idle");
+          return null;
+        }
+        if (j.status) setDocStatus(j.status);
+      }
+      snapRef.current = { artLocale, category, title, summary, body, source, tags };
+      setDirty(false);
+      setCloudState("saved");
+      setCloudAt(Date.now());
+      return id;
+    } catch {
+      setCloudState("idle");
+      return null;
+    }
+  };
+
+  // 停止输入 12s 后静默存到云端（有标题才存，避免产生空草稿）
+  useEffect(() => {
+    if (!loaded || !dirty || !title.trim()) return;
+    const t = window.setTimeout(() => {
+      void persistDraft();
+    }, 12000);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded, dirty, title, summary, body, category, artLocale, source, tags, cover, docId]);
+
+  // ---------- 正文编辑工具：极简 Markdown 行内/行首标记 ----------
+  const wrapSelection = (before: string, after: string) => {
+    const el = bodyRef.current;
+    if (!el) return;
+    const s = el.selectionStart;
+    const e = el.selectionEnd;
+    const sel = el.value.slice(s, e);
+    const next = el.value.slice(0, s) + before + sel + after + el.value.slice(e);
+    setBody(next);
+    requestAnimationFrame(() => {
+      el.focus();
+      const pos = s + before.length + sel.length;
+      el.setSelectionRange(pos, pos);
+    });
+  };
+
+  const prefixSelectionLines = (prefix: string) => {
+    const el = bodyRef.current;
+    if (!el) return;
+    const s = el.selectionStart;
+    const e = el.selectionEnd;
+    const lineStart = el.value.lastIndexOf("\n", s - 1) + 1;
+    let lineEnd = el.value.indexOf("\n", e);
+    if (lineEnd === -1) lineEnd = el.value.length;
+    const block = el.value.slice(lineStart, lineEnd);
+    const lines = block.split("\n").map((l) => (l.startsWith(prefix) ? l.slice(prefix.length) : prefix + l));
+    const next = el.value.slice(0, lineStart) + lines.join("\n") + el.value.slice(lineEnd);
+    setBody(next);
+    requestAnimationFrame(() => {
+      el.focus();
+      el.setSelectionRange(lineStart, lineStart + lines.join("\n").length);
+    });
+  };
+
   const submit = async (mode: "draft" | "publish") => {
     setErr(null);
     if (!title.trim()) {
       setErr(d.memberTitlePh);
       return;
     }
+    if (mode === "publish" && body.trim().length < MIN_BODY_CHARS) {
+      setErr(d.writeNeedBody);
+      return;
+    }
     setBusy(true);
+    // 服务端会再裁决一次（普通会员的 published 一律落到待审核），这里只是给 UI 一个预期
     const status = mode === "publish" ? (user?.role === "admin" ? "published" : "pending") : "draft";
     try {
       const payload = {
@@ -528,16 +660,15 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
         category,
         title: title.trim(),
         summary: summary.trim() || null,
+        body,
         source: source.trim() || null,
-        tags: tags
-          .split(/[,，]/)
-          .map((t) => t.trim())
-          .filter(Boolean),
+        tags: splitTags(tags),
         cover: cover || null,
         status,
       };
-      const r = await fetch(editId ? `/api/articles/${encodeURIComponent(editId)}` : "/api/articles", {
-        method: editId ? "PATCH" : "POST",
+      const target = docId || editId;
+      const r = await fetch(target ? `/api/articles/${encodeURIComponent(target)}` : "/api/articles", {
+        method: target ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
@@ -548,15 +679,24 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
         return;
       }
       // 保存成功：刷新快照（清除 dirty），放行后续导航
-      snapRef.current = { artLocale, category, title, summary, source, tags };
+      snapRef.current = { artLocale, category, title, summary, body, source, tags };
       setDirty(false);
-      bypass.current = true;
+      if (j.status) setDocStatus(j.status);
+      if (status === "draft" && j.id) setDocId(j.id);
       try {
         localStorage.removeItem(DRAFT_KEY);
       } catch {
         /* ignore */
       }
-      // 硬导航：与登录回跳一致，规避客户端路由导航在此环境下的静默失败
+      if (mode === "draft") {
+        setBusy(false);
+        bypass.current = true;
+        setCloudState("saved");
+        setCloudAt(Date.now());
+        return;
+      }
+      // 提交审核/发布后跳转到会员中心查看结果
+      bypass.current = true;
       window.location.assign(`/${locale}/me`);
     } catch {
       setErr("network error");
@@ -576,7 +716,22 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
 
   return (
     <div className="write">
-      <h1>{editId ? d.memberEditArticle : d.memberWriteNew}</h1>
+      <h1>{docId ? d.memberEditArticle : d.memberWriteNew}</h1>
+      {(docId || reviewNote) && (
+        <div className="write-status">
+          {(docId ? docStatus : "draft") === "draft" && <span className="status-pill draft">{d.memberDraft}</span>}
+          {docId && docStatus === "pending" && <span className="status-pill pending">{d.reviewPending}</span>}
+          {docId && docStatus === "published" && <span className="status-pill published">{d.memberPublished}</span>}
+          {docId && docStatus === "rejected" && <span className="status-pill rejected">{d.reviewRejected}</span>}
+          {docId && docStatus === "pending" && <span className="write-status-hint">{d.reviewPendingHint}</span>}
+        </div>
+      )}
+      {docStatus === "rejected" && reviewNote && (
+        <div className="reject-banner">
+          <strong>{d.rejectReason}</strong>
+          <span>{reviewNote}</span>
+        </div>
+      )}
       {draftInfo && (
         <div className="draft-banner">
           <span>
@@ -597,8 +752,30 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
         <input className="write-title-input" placeholder={d.memberTitlePh} value={title} maxLength={120} onChange={(e) => setTitle(e.target.value)} />
       </label>
       <label className="member-field">
-        <span className="field-head"><span>{d.memberSummaryPh}</span><span className="char-count">{summary.length}/2000</span></span>
-        <textarea className="write-summary-input" placeholder={d.memberSummaryPh} value={summary} maxLength={2000} rows={8} onChange={(e) => setSummary(e.target.value)} />
+        <span className="field-head"><span>{d.memberSummaryPh}</span><span className="char-count">{summary.length}/300</span></span>
+        <textarea className="write-summary-input" placeholder={d.memberSummaryPh} value={summary} maxLength={300} rows={3} onChange={(e) => setSummary(e.target.value)} />
+      </label>
+      <label className="member-field">
+        <span className="field-head">
+          <span>{d.memberBodyPh}</span>
+          <span className="char-count">{body.length}/{countWords(body)} {d.editorWords}</span>
+        </span>
+        <div className="md-bar">
+          <button type="button" className="md-btn" title={d.mdBold} onClick={() => wrapSelection("**", "**")}><b>B</b></button>
+          <button type="button" className="md-btn" title={d.mdItalic} onClick={() => wrapSelection("*", "*")}><i>I</i></button>
+          <button type="button" className="md-btn" title={d.mdHeading} onClick={() => prefixSelectionLines("## ")}>H</button>
+          <button type="button" className="md-btn" title={d.mdList} onClick={() => prefixSelectionLines("- ")}>&#8226;</button>
+          <button type="button" className="md-btn" title={d.mdQuote} onClick={() => prefixSelectionLines("> ")}>&rdquo;</button>
+          <span className="md-tip">{d.memberBodyHint}</span>
+        </div>
+        <textarea
+          ref={bodyRef}
+          className="write-body-input"
+          placeholder={d.memberBodyPh}
+          value={body}
+          rows={16}
+          onChange={(e) => setBody(e.target.value)}
+        />
       </label>
       <label className="member-field">
         <span>{d.coverAdd}</span>
@@ -709,10 +886,18 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
       </label>
       </div>
       {err && <div className="modal-error">{err}</div>}
-      <p className="member-muted">+20 · {d.memberPoints}</p>
+      <p className="member-muted">+{20} · {d.memberPoints}</p>
       <div className="write-bar">
         <span className="write-bar-info">
-          {savedAt ? <span className="write-saved">{d.draftSaved} · {ago(savedAt)}</span> : <span className="member-muted">{d.editorAutoSave}</span>}
+          {cloudState === "saving" ? (
+            <span className="member-muted">{d.editorSavingCloud}…</span>
+          ) : cloudState === "saved" && cloudAt ? (
+            <span className="write-saved">{d.editorSavedCloud} · {ago(cloudAt)}</span>
+          ) : savedAt ? (
+            <span className="write-saved">{d.draftSaved} · {ago(savedAt)}</span>
+          ) : (
+            <span className="member-muted">{d.editorAutoSave}</span>
+          )}
         </span>
         <div className="write-actions">
           <button className="btn btn-ghost" disabled={busy} onClick={() => requestLeave(`/${locale}/me`)}>
@@ -721,11 +906,11 @@ export default function ArticleEditor({ locale, editId }: { locale: Locale; edit
           <button className="btn-ghost" disabled={busy} onClick={() => submit("draft")}>
             {d.memberSaveDraft}
           </button>
-          <button className="btn-ghost" disabled={busy || !editId} onClick={preview}>
+          <button className="btn-ghost" disabled={busy || !(docId || editId) || docStatus === "published"} onClick={preview}>
             {d.memberPreview}
           </button>
           <button className="btn btn-primary" disabled={busy} onClick={() => submit("publish")}>
-            {d.memberPublish}
+            {user?.role === "admin" ? d.memberPublish : d.memberSubmitReview}
           </button>
         </div>
       </div>

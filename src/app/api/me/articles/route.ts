@@ -20,6 +20,10 @@ function serialize(a: DbArticle) {
     deleted: (a as { deleted?: number }).deleted ?? 0,
     cover: (a as { cover?: string | null }).cover ?? null,
     reviewNote: (a as { review_note?: string | null }).review_note ?? null,
+    body: a.body ?? null,
+    wordCount: a.word_count ?? 0,
+    submittedAt: a.submitted_at ?? null,
+    updatedAt: a.updated_at ?? null,
   };
 }
 

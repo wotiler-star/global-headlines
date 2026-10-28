@@ -3,6 +3,8 @@ import { getDb, createSession, getUserBySession, deleteSession } from "./db";
 
 export const SESSION_COOKIE = "gh_session";
 export const SESSION_TTL = 30 * 24 * 3600 * 1000;
+/** 勾选「记住我」时的长效会话 */
+export const SESSION_TTL_REMEMBER = 180 * 24 * 3600 * 1000;
 
 export type SessionUser = {
   id: number;
@@ -34,9 +36,10 @@ export async function requireAdmin(): Promise<SessionUser> {
 }
 
 // 建立会话并写入 cookie（注册/登录成功后调用）
-export async function startSession(userId: number): Promise<string> {
+export async function startSession(userId: number, ttlMs: number = SESSION_TTL): Promise<string> {
   const db = getDb();
-  const token = createSession(db, userId, SESSION_TTL);
+  const token = createSession(db, userId, ttlMs);
+  db.prepare("UPDATE users SET last_login_at = ? WHERE id = ?").run(Date.now(), userId);
   // 仅当真实传输为 HTTPS 时才置 Secure，否则本地/HTTP 部署下浏览器会丢弃 cookie
   const h = await headers();
   const isHttps = h.get("x-forwarded-proto") === "https";
@@ -45,7 +48,7 @@ export async function startSession(userId: number): Promise<string> {
     httpOnly: true,
     sameSite: "lax",
     path: "/",
-    maxAge: Math.floor(SESSION_TTL / 1000),
+    maxAge: Math.floor(ttlMs / 1000),
     secure: isHttps,
   });
   return token;

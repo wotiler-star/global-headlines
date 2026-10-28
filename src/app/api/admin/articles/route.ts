@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getDb, queryArticles, updateArticlePin, setArticleDeleted, updateArticle, addPoints, createMessage, getArticleOwner} from "@/lib/db";
 import { requireAdmin } from "@/lib/auth";
+import { POINTS_PUBLISH } from "@/lib/moderation";
 
 export const dynamic = "force-dynamic";
 

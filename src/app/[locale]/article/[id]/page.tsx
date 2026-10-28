@@ -18,6 +18,7 @@ import WaveformDivider from "@/components/WaveformDivider";
 import ReadingSize from "@/components/ReadingSize";
 import AdSlot from "@/components/AdSlot";
 import OwnerEditLink from "@/components/OwnerEditLink";
+import { RichBlock } from "@/components/RichLine";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -222,7 +223,7 @@ export default async function ArticlePage({
           <div className="article-body">
             {article.body.map((p, i) => (
               <Fragment key={i}>
-                <p>{p}</p>
+                <RichBlock line={p} />
                 {i === Math.min(1, article.body.length - 1) && quote && (
                   <div className="art-quote">
                     <div className="aq-label">QUOTE · 引述</div>

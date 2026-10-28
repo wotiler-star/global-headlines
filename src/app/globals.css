@@ -1764,3 +1764,53 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .sd-m-val.down { color: #ff7a59; }
 /* 24h 走势图可点击回放 */
 .sd-spark.click { cursor: crosshair; }
+
+/* ===== cov43 会员核心链路：登录注册页 + 投稿编辑器正文 ===== */
+.write-status { display: flex; align-items: center; gap: 8px; margin: 6px 0 10px; }
+.write-status-hint { font-size: 11px; color: var(--ink-3); }
+.reject-banner {
+  display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap;
+  border: 1px solid rgba(255,122,89,.5); background: rgba(255,122,89,.1);
+  border-radius: 6px; padding: 8px 10px; margin-bottom: 10px; font-size: 12px;
+}
+/* 极简 Markdown 工具栏 */
+.md-bar { display: flex; align-items: center; gap: 4px; margin: 4px 0 6px; flex-wrap: wrap; }
+.md-btn {
+  min-width: 26px; height: 24px; padding: 0 6px;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: 4px;
+  color: var(--ink-2); font-size: 12px; cursor: pointer; transition: color .15s, border-color .15s;
+}
+.md-btn:hover { color: var(--brand); border-color: var(--brand); }
+.md-tip { font-size: 10px; color: var(--ink-3); margin-left: 4px; }
+.write-body-input {
+  width: 100%; min-height: 320px; resize: vertical;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px;
+  color: var(--ink); font-size: 14px; line-height: 1.75; padding: 10px 12px; outline: none;
+}
+.write-body-input:focus { border-color: var(--brand); }
+/* 登录 / 注册页 */
+.auth-page { max-width: 420px; margin: 0 auto; padding: 12px 0 32px; }
+.auth-page h1 { font-size: 22px; margin-bottom: 6px; }
+.auth-page .member-field { margin-bottom: 14px; }
+.auth-next { font-size: 12px; color: var(--brand); margin-bottom: 10px; }
+.auth-check { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-2); margin-bottom: 12px; }
+.auth-check input { accent-color: var(--brand); }
+.auth-note { font-size: 12px; color: #3ddc97; margin-bottom: 10px; }
+.auth-tip { font-size: 11px; color: var(--ink-3); margin-top: 12px; line-height: 1.6; }
+.auth-page .write-actions { margin-top: 10px; gap: 8px; }
+.pw-row { display: flex; gap: 6px; align-items: stretch; }
+.pw-row input { flex: 1; }
+.pw-meter { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 10px; color: var(--ink-3); }
+.pw-meter i { flex: 1; height: 4px; border-radius: 2px; background: var(--line); }
+.pw-meter i.s1 { background: #ff7a59; }
+.pw-meter i.s2 { background: #ffb224; }
+.pw-meter i.s3 { background: #3ddc97; }
+.uname-hint { font-size: 11px; margin-top: 4px; }
+.uname-hint.available { color: #3ddc97; }
+.uname-hint.taken, .uname-hint.invalid { color: #ff7a59; }
+.uname-hint.checking { color: var(--ink-3); }
+/* 投稿正文渲染（Markdown 子集） */
+.article-body .art-h { margin: 18px 0 8px; line-height: 1.35; }
+.article-body .art-bq { border-left: 2px solid var(--brand); padding-left: 12px; margin: 10px 0; color: var(--ink-2); font-style: italic; }
+.article-body .art-li { display: flex; gap: 8px; margin: 4px 0; }
+.article-body .art-li-dot { flex: none; width: 5px; height: 5px; border-radius: 50%; background: var(--brand); margin-top: 10px; }

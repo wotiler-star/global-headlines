@@ -228,10 +228,10 @@ function dbArticleToArticle(a: DbArticle): Article {
   const images = JSON.parse(a.images || "[]") as string[];
   const tags = JSON.parse(a.tags || "[]") as string[];
   const summary = a.summary || "";
-  const body = summary
-    .split(/\n{1,}/)
-    .map((s) => s.trim())
-    .filter(Boolean);
+  // cov43：会员稿件有独立正文列时优先使用它；老数据仍按摘要反推，保证兼容
+  const raw = a.body || summary;
+  const paras = raw.split(/\n{2,}/).map((s) => s.trim()).filter(Boolean);
+  const body = paras.length ? paras : raw.split(/\n+/).map((s) => s.trim()).filter(Boolean);
   return {
     id: a.id,
     locale: a.locale as Locale,
