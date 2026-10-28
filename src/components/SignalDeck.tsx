@@ -135,6 +135,16 @@ function Sparkline({ data, label }: { data: number[]; label: string }) {
   );
 }
 
+// 24h 信号分布迷你走势（榜单行内用，52x12）；纯数据驱动无时间分量，SSR/客户端输出一致
+function miniPath(data?: number[]): string {
+  if (!data || data.length === 0) return "";
+  const w = 52;
+  const h = 12;
+  const max = Math.max(1, ...data);
+  const step = w / (data.length - 1);
+  return "M" + data.map((v, i) => (i * step).toFixed(1) + "," + (h - (v / max) * (h - 2) - 1).toFixed(1)).join(" L");
+}
+
 // globe.gl 的地球半径（globeObj 几何体固定值，云层球壳按此比例外扩）
 const GLOBE_R = 100;
 
@@ -185,7 +195,7 @@ void main() {
 }
 `;
 
-export default function SignalDeck({ regions, locale }: { regions: RegionStat[]; locale: Locale }) {
+export default function SignalDeck({ regions: initialRegions, locale }: { regions: RegionStat[]; locale: Locale }) {
   const mountRef = useRef<HTMLDivElement>(null);
   const worldRef = useRef<any>(null);
   const hoverCountryRef = useRef<string | null>(null);
@@ -193,8 +203,20 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
   const router = useRouter();
   const sp = useSearchParams();
   const active = sp.get("src");
+  // cov41 实时化：regions 改为「SSR 初始 → /api/geo-stats 每 60s 轮询刷新」。
+  // initialRegions 只作首屏快照；地球几何（lat/lng/name）不随轮询变化，geoRef 固定初始化快照，
+  // 避免主初始化 effect 因 regions 引用变化被整体重建（那会每分钟拆掉重建 WebGL 实例）。
+  const geoRef = useRef<RegionStat[]>(initialRegions);
+  const [liveRegions, setLiveRegions] = useState<RegionStat[] | null>(null);
+  const regions = liveRegions || initialRegions;
   const selected = regions.find((r) => r.code === active) || null;
   const [noWebGL, setNoWebGL] = useState(false);
+  const [syncing, setSyncing] = useState(false);
+  const [lastSync, setLastSync] = useState<number | null>(null);
+  // cov41 榜单交互：排序 + 搜索过滤
+  const [sortKey, setSortKey] = useState<"signals" | "fresh" | "activity">("signals");
+  const [q, setQ] = useState("");
+  const legRef = useRef<HTMLUListElement>(null);
   const [hoverGeo, setHoverGeo] = useState<GeoLabel | null>(null); // 悬停国家/地区（合规展示名）
   const [hoverCode, setHoverCode] = useState<string | null>(null);
   const [rotating, setRotating] = useState(true);
@@ -243,6 +265,8 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
   };
 
   const total = regions.reduce((s, r) => s + r.signalCount, 0);
+  // 近 1 小时全球新增信号（hourDist 桶 23）
+  const new1h = regions.reduce((s, r) => s + ((r.hourDist && r.hourDist[23]) || 0), 0);
   const peak = [...regions].sort((a, b) => b.signalCount - a.signalCount)[0];
   const d = getDict(locale);
   const globalCat = regions
@@ -280,6 +304,80 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
     const id = setInterval(() => forceTick((t) => t + 1), 30000);
     return () => clearInterval(id);
   }, []);
+
+  // cov41 实时轮询：每 60s 拉 /api/geo-stats 刷新榜单/面板/地球数据层；
+  // 页面不可见时跳过（下次可见再拉），失败静默保留旧数据。首次拉取延迟 20s（避开首屏关键路径）。
+  useEffect(() => {
+    if (!mounted) return;
+    let stop = false;
+    let timer = 0;
+    const pull = async () => {
+      if (stop) return;
+      if (document.hidden) {
+        timer = window.setTimeout(pull, 30000);
+        return;
+      }
+      setSyncing(true);
+      try {
+        const res = await fetch("/api/geo-stats?lang=" + locale, { cache: "no-store" });
+        if (res.ok) {
+          const j = await res.json();
+          if (!stop && Array.isArray(j.regions) && j.regions.length > 0) {
+            setLiveRegions(j.regions as RegionStat[]);
+            setLastSync((j.ts as number) || Date.now());
+          }
+        }
+      } catch {}
+      if (!stop) {
+        setSyncing(false);
+        timer = window.setTimeout(pull, 60000);
+      }
+    };
+    timer = window.setTimeout(pull, 20000);
+    return () => {
+      stop = true;
+      window.clearTimeout(timer);
+    };
+  }, [mounted, locale]);
+
+  // cov41 实时数据落到地球数据层（points/rings/labels，不重建 WebGL 实例）
+  useEffect(() => {
+    const w = worldRef.current;
+    if (!w || !liveRegions) return;
+    const dict = getDict(locale);
+    const catPoints = liveRegions.flatMap((r) =>
+      (r.categoryDist || []).map((c, i) => ({
+        code: r.code,
+        name: r.name,
+        lat: r.lat,
+        lng: r.lng,
+        cat: c.cat,
+        catName: dict.categories[c.cat as Category] || c.cat,
+        n: c.n,
+        max: r.categoryDist[0] ? r.categoryDist[0].n : 1,
+        rank: i,
+        hourDist: r.hourDist,
+      }))
+    );
+    if (w.pointsData) w.pointsData(catPoints);
+    if (w.ringsData) w.ringsData(liveRegions);
+    if (w.labelsData) {
+      w.labelsData(
+        [...liveRegions]
+          .sort((a, b) => b.signalCount - a.signalCount)
+          .slice(0, hardRef.current ? 36 : 10)
+          .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng })) as any
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [liveRegions]);
+
+  // cov41 选中/过滤后把激活行滚入视野
+  useEffect(() => {
+    if (!mounted || !active) return;
+    const el = legRef.current?.querySelector(".sd-leg-item.on");
+    if (el) el.scrollIntoView({ block: "nearest" });
+  }, [active, mounted]);
 
   // 尊重 reduced-motion
   useEffect(() => {
@@ -392,7 +490,8 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       const dict = getDict(locale);
 
       // 每地区按其分类分布拆成多个彩色分层点（rank 决定堆叠高度）
-      const catPoints = regions.flatMap((r) =>
+      // 注意用 geoRef 快照（静态几何），不随实时轮询变化
+      const catPoints = geoRef.current.flatMap((r) =>
         (r.categoryDist || []).map((c, i) => ({
           code: r.code,
           name: r.name,
@@ -465,7 +564,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
           (p: any) =>
             '<div class="globe-tip"><b>' + p.name + "</b><br>" + p.catName + " · " + p.n + "</div>"
         )
-        .ringsData(regions as any)
+        .ringsData(geoRef.current as any)
         .ringLat("lat")
         .ringLng("lng")
         .ringColor((p: any) => {
@@ -513,7 +612,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       // 悬停或选中该地区时高亮为暖琥珀色，引导"点这里"。
       world
         .labelsData(
-          [...regions]
+          [...geoRef.current]
             .sort((a, b) => b.signalCount - a.signalCount)
             .slice(0, hardRef.current ? 36 : 10)
             .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng })) as any
@@ -769,7 +868,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       // worldRef 此刻仍为 null，[active] 镜头 effect 在水合/初始化窗口内跳过 → 地球不转向该地区。
       // 这里在地球就绪的同一刻补转（altitude 2.2 与手动选中一致，duration 0 避免加载期突兀滑动）。
       if (activeRef.current) {
-        const r = regions.find((x) => x.code === activeRef.current);
+        const r = geoRef.current.find((x) => x.code === activeRef.current);
         if (r) world.pointOfView({ lat: r.lat, lng: r.lng, altitude: 2.2 }, 0);
       }
       setBooting(false); // 地球就绪，关闭初始化占位
@@ -811,9 +910,9 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       node.addEventListener("touchmove", onTouchHandler, { passive: true });
       cardPlaceRef.current = placeCard;
       // 初始链路弧：最热地区 -> 最活跃的前 MAX_ARCS 个地区（effect 首跑时 worldRef 未就绪，这里补铺）
-      const hub0 = [...regions].sort((a, b) => b.signalCount - a.signalCount)[0];
-      if (hub0 && regions.length > 1) {
-        world.arcsData(buildArcs(hub0, regions, hardRef.current ? 24 : MAX_ARCS) as any);
+      const hub0 = [...geoRef.current].sort((a, b) => b.signalCount - a.signalCount)[0];
+      if (hub0 && geoRef.current.length > 1) {
+        world.arcsData(buildArcs(hub0, geoRef.current, hardRef.current ? 24 : MAX_ARCS) as any);
       }
       ro = new ResizeObserver(() => {
         if (worldRef.current && mountRef.current) {
@@ -870,7 +969,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       worldRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [regions, mounted]);
+  }, [mounted]);
 
   // 自转开关同步（自动巡览期间强制停转，避免镜头对抗）
   useEffect(() => {
@@ -994,6 +1093,18 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
     router.push(homeHref(locale));
   }
 
+  // cov41 榜单视图：搜索过滤 + 排序（默认信号量序 = SSR 原序，首渲一致）
+  const viewList = (() => {
+    const s = q.trim().toLowerCase();
+    const arr = s
+      ? regions.filter((r) => r.code.toLowerCase().includes(s) || r.name.toLowerCase().includes(s))
+      : regions.slice();
+    if (sortKey === "fresh") arr.sort((a, b) => (b.lastSignal || 0) - (a.lastSignal || 0));
+    else if (sortKey === "activity") arr.sort((a, b) => b.activity - a.activity);
+    else arr.sort((a, b) => b.signalCount - a.signalCount);
+    return arr;
+  })();
+
   return (
     <div className="signal-deck hud-frame">
       <span className="hud-c tl" />
@@ -1003,7 +1114,7 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
       <div className="sd-head">
         <span className="sd-title">SIGNAL GLOBE // 全球信号地球</span>
         <span className="sd-stats">
-          {total} SIGNALS · {regions.length} REGIONS
+          {total} SIGNALS · {regions.length} REGIONS · +{new1h}/1H
           {peak ? " · PEAK " + peak.name : ""}
         </span>
       </div>
@@ -1096,49 +1207,98 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
               </>
             )}
           </div>
-          <ul className="sd-legend" aria-label="地区图例">
-            {regions.map((r) => (
-              <li
-                key={r.code}
-                className={"sd-leg-item" + (mounted && active === r.code ? " on" : "") + (hoverCode === r.code ? " hover" : "")}
-                role="button"
-                tabIndex={0}
-                onClick={() => pick(r.code)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    pick(r.code);
-                  }
-                }}
-                // 悬停图例：镜头转向该地区 + 高亮它那条信号弧线
-                onMouseEnter={() => {
-                  focusRegion(r.code);
-                  hoverCodeRef.current = r.code;
-                  setHoverCode(r.code);
-                }}
-                onMouseLeave={() => {
-                  hoverCodeRef.current = null;
-                  setHoverCode(null);
-                }}
-                title={r.name}
-              >
-                <span
-                  className="sd-leg-dot"
-                  style={{ background: activityColor(r.activity), color: activityColor(r.activity) }}
-                />
-                <span className="sd-leg-code">{r.code}</span>
-                <span className="sd-leg-name">{r.name}</span>
-                <span className="sd-leg-bar">
-                  <i
-                    style={{
-                      width: (peak && peak.signalCount ? Math.max(8, Math.round((r.signalCount / peak.signalCount) * 100)) : 8) + "%",
-                      background: activityColor(r.activity),
-                    }}
+          <ul className="sd-legend" aria-label="地区图例" ref={legRef}>
+            {/* cov41 榜单工具行：搜索过滤 + 排序（信号量/最新/活跃度） */}
+            <li className="sd-leg-tools">
+              <input
+                className="sd-leg-search"
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="筛选地区 / 搜索 CODE"
+                aria-label="筛选地区"
+                spellCheck={false}
+              />
+              <span className="sd-leg-sorts" role="group" aria-label="排序方式">
+                <button
+                  className={"sd-sort-btn" + (sortKey === "signals" ? " on" : "")}
+                  onClick={() => setSortKey("signals")}
+                  title="按信号量排序"
+                >
+                  信号
+                </button>
+                <button
+                  className={"sd-sort-btn" + (sortKey === "fresh" ? " on" : "")}
+                  onClick={() => setSortKey("fresh")}
+                  title="按最新信号时间排序"
+                >
+                  最新
+                </button>
+                <button
+                  className={"sd-sort-btn" + (sortKey === "activity" ? " on" : "")}
+                  onClick={() => setSortKey("activity")}
+                  title="按活跃度排序"
+                >
+                  活跃
+                </button>
+              </span>
+            </li>
+            {viewList.map((r) => {
+              const d1 = (r.hourDist && r.hourDist[23]) || 0; // 近 1h 新增
+              const d0 = (r.hourDist && r.hourDist[22]) || 0; // 上一小时
+              const trend = d1 > d0 ? "▲" : d1 < d0 ? "▼" : "▬";
+              return (
+                <li
+                  key={r.code}
+                  className={"sd-leg-item" + (mounted && active === r.code ? " on" : "") + (hoverCode === r.code ? " hover" : "")}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => pick(r.code)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      pick(r.code);
+                    }
+                  }}
+                  // 悬停图例：镜头转向该地区 + 高亮它那条信号弧线
+                  onMouseEnter={() => {
+                    focusRegion(r.code);
+                    hoverCodeRef.current = r.code;
+                    setHoverCode(r.code);
+                  }}
+                  onMouseLeave={() => {
+                    hoverCodeRef.current = null;
+                    setHoverCode(null);
+                  }}
+                  title={r.name + " · 近1h +" + d1}
+                >
+                  <span
+                    className="sd-leg-dot"
+                    style={{ background: activityColor(r.activity), color: activityColor(r.activity) }}
                   />
-                </span>
-                <span className="sd-leg-count">{r.signalCount}</span>
-              </li>
-            ))}
+                  <span className="sd-leg-code">{r.code}</span>
+                  <span className="sd-leg-name">{r.name}</span>
+                  <svg className="sd-leg-spark" viewBox="0 0 52 12" preserveAspectRatio="none" aria-hidden>
+                    <path d={miniPath(r.hourDist)} />
+                  </svg>
+                  <span className="sd-leg-bar">
+                    <i
+                      style={{
+                        width: (peak && peak.signalCount ? Math.max(8, Math.round((r.signalCount / peak.signalCount) * 100)) : 8) + "%",
+                        background: activityColor(r.activity),
+                      }}
+                    />
+                  </span>
+                  <span className="sd-leg-count">{r.signalCount}</span>
+                  <span
+                    className={"sd-leg-delta" + (d1 > d0 ? " up" : d1 < d0 ? " down" : "")}
+                    aria-label={"近 1 小时新增 " + d1 + " 条信号"}
+                  >
+                    {trend} {d1}
+                  </span>
+                </li>
+              );
+            })}
+            {viewList.length === 0 ? <li className="sd-leg-empty">无匹配地区 NO MATCH</li> : null}
           </ul>
           <div className="sd-cat-legend" aria-label="分类色图例">
             {categories
@@ -1200,7 +1360,15 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
           <button className="sd-rot" onClick={() => setMapMode((m) => (m === 0 ? 1 : m === 1 ? 2 : 0))} aria-label="切换贴图模式">
             {mapMode === 0 ? "◐ 昼夜" : mapMode === 1 ? "◑ 日间" : "◉ 夜间"}
           </button>
-          <span className="sd-sync">SYNC LIVE</span>
+          <span
+            className={"sd-sync" + (syncing ? " sync" : "")}
+            title="每 60 秒自动同步全球信号数据"
+            suppressHydrationWarning
+          >
+            {lastSync
+              ? (syncing ? "◌ SYNC…" : "◉ LIVE " + new Date(lastSync).toLocaleTimeString("en-GB", { hour12: false }))
+              : "SYNC LIVE"}
+          </span>
         </span>
       </div>
 
@@ -1221,6 +1389,10 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
             <div className="sd-metric">
               <span className="sd-m-label">覆盖地区 REGIONS</span>
               <span className="sd-m-val">{regions.length}</span>
+            </div>
+            <div className="sd-metric">
+              <span className="sd-m-label">近 1 小时 NEW/1H</span>
+              <span className="sd-m-val">+{new1h}</span>
             </div>
             <div className="sd-metric sd-m-full">
               <span className="sd-m-label">最热地区 PEAK</span>
@@ -1287,6 +1459,10 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
               <span className="sd-m-val">{selected.signalCount}</span>
             </div>
             <div className="sd-metric">
+              <span className="sd-m-label">近 1 小时 NEW/1H</span>
+              <span className="sd-m-val">+{((selected.hourDist && selected.hourDist[23]) || 0)}</span>
+            </div>
+            <div className="sd-metric">
               <span className="sd-m-label">活跃源 SOURCES</span>
               <span className="sd-m-val">{selected.sources}</span>
             </div>
@@ -1320,6 +1496,24 @@ export default function SignalDeck({ regions, locale }: { regions: RegionStat[];
           ) : null}
 
           {mounted && <Sparkline data={selected.hourDist || []} label={"过去 24 小时" + selected.name + "信号分布"} />}
+
+          {/* cov41 最新信号列表：面板内直接浏览该地区最新 5 条（跨语言聚合），点击进详情 */}
+          {mounted && selected.headlines && selected.headlines.length > 0 ? (
+            <div className="sd-news">
+              <div className="sd-cat-title">信号流 LATEST FEED · {selected.headlines.length}</div>
+              {selected.headlines.map((h) => (
+                <button
+                  key={h.id + h.locale}
+                  className="sd-news-item"
+                  onClick={() => router.push(articleHref(h.locale, h.id))}
+                >
+                  <span className="sd-cc-dot" style={{ background: catColor(h.category) }} />
+                  <span className="sd-news-t">{h.title}</span>
+                  <span className="sd-news-time" suppressHydrationWarning>{relTime(h.publishedAt, locale)}</span>
+                </button>
+              ))}
+            </div>
+          ) : null}
 
           {selected.sourcesList && selected.sourcesList.length > 0 && (
             <div className="sd-sources">

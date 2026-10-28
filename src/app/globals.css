@@ -1679,3 +1679,64 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 }
 
 
+
+/* ===== cov41 地球仪榜单/面板增强（实时轮询 + 排序搜索 + 走势/增量徽标）===== */
+.sd-leg-tools {
+  display: flex; align-items: center; gap: 6px;
+  padding: 2px 2px 6px; margin-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+  list-style: none; pointer-events: auto;
+}
+.sd-leg-search {
+  flex: 1; min-width: 0;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: 4px;
+  color: var(--ink); font-family: var(--font-mn); font-size: 10px;
+  padding: 3px 6px; outline: none;
+}
+.sd-leg-search:focus { border-color: var(--brand); }
+.sd-leg-search::placeholder { color: var(--ink-3); }
+.sd-leg-sorts { display: inline-flex; gap: 3px; flex: none; }
+.sd-sort-btn {
+  font-family: var(--font-mn); font-size: 9px; color: var(--ink-3);
+  background: transparent; border: 1px solid var(--line); border-radius: 3px;
+  padding: 2px 5px; cursor: pointer; transition: color .15s, border-color .15s, background .15s;
+}
+.sd-sort-btn:hover { color: var(--ink); border-color: var(--brand); }
+.sd-sort-btn.on { color: var(--brand); border-color: var(--brand); background: var(--brand-soft); }
+/* 行内 24h 迷你走势：默认隐藏，悬停/选中时展开（保持榜单日常紧凑） */
+.sd-leg-spark { width: 52px; height: 12px; flex: none; display: none; opacity: 0; transition: opacity .15s; }
+.sd-leg-spark path { fill: none; stroke: rgba(255,178,36,.85); stroke-width: 1.2; stroke-linejoin: round; }
+.sd-leg-item:hover .sd-leg-spark, .sd-leg-item.on .sd-leg-spark { display: block; opacity: 1; }
+/* 近 1h 增量徽标：▲上升(绿) ▼回落(橙) ▬持平 */
+.sd-leg-delta {
+  flex: none; min-width: 30px; text-align: right;
+  font-size: 9px; color: var(--ink-3); font-variant-numeric: tabular-nums;
+}
+.sd-leg-delta.up { color: #3ddc97; }
+.sd-leg-delta.down { color: #ff7a59; }
+.sd-leg-empty {
+  list-style: none; padding: 10px 6px; text-align: center; pointer-events: none;
+  font-family: var(--font-mn); font-size: 10px; color: var(--ink-3);
+}
+/* SYNC 指示：拉取中脉冲 */
+.sd-sync.sync { animation: sd-sync-pulse 1s ease-in-out infinite; }
+@keyframes sd-sync-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+/* 面板信号流（最新 5 条，可点击进详情） */
+.sd-news { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); }
+.sd-news-item {
+  display: grid; grid-template-columns: 8px 1fr auto; gap: 6px; align-items: start;
+  width: 100%; text-align: left; margin-bottom: 2px;
+  background: transparent; border: 1px solid transparent; border-radius: 4px;
+  padding: 4px; cursor: pointer; transition: background .15s, border-color .15s;
+}
+.sd-news-item:hover { background: var(--brand-soft); border-color: rgba(255,178,36,.4); }
+.sd-news-item .sd-cc-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 4px; }
+.sd-news-t {
+  font-size: 11px; line-height: 1.45; color: var(--ink);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.sd-news-time { font-family: var(--font-mn); font-size: 9px; color: var(--ink-3); white-space: nowrap; margin-top: 1px; }
+/* 窄屏：图例转底部横排时收起工具行/走势/徽标，避免拥挤 */
+@media (max-width: 980px) {
+  .sd-leg-tools, .sd-leg-spark, .sd-leg-delta { display: none; }
+}
