@@ -80,9 +80,20 @@ export default async function Home({
   const stats = aggregateRegions(allArticles, loc);
 
   // 首页信息流/热榜/全语言集均无正文消费方：strip body 后再进 RSC payload（HTML 瘦身约一半）
-  const slim = <T extends { body: string[] }>(list: T[]) => list.map((a) => ({ ...a, body: [] as string[] }));
-  const slimArticles = slim(articles);
-  const slimHot = slim(hot);
+  // cov43：进一步裁剪——卡片只用 category/source/images/tags/summary/cover/media，
+  // author 与 readMinutes 是详情页字段；summary 卡片最多两行，截断到 140 字。
+  // 单语种信息流上千条，每省 200~300B 就能把首屏 RSC 载荷砍掉三分之一。
+  const FEED_SUMMARY = 140;
+  const feedSlim = <T extends { body: string[]; summary: string }>(list: T[]) =>
+    list.map((a) => ({
+      ...a,
+      body: [] as string[],
+      author: "",
+      readMinutes: 0,
+      summary: a.summary.length > FEED_SUMMARY ? a.summary.slice(0, FEED_SUMMARY) + "…" : a.summary,
+    }));
+  const slimArticles = feedSlim(articles);
+  const slimHot = feedSlim(hot);
 
   return (
     <>
