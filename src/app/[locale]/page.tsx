@@ -99,8 +99,32 @@ export default async function Home({
   const slimArticles = feedSlim(articles);
   const slimHot = feedSlim(hot);
 
+  // cov45：卡片图来自几十个不同 CDN，首屏建连（DNS+TCP+TLS）是真实往返开销。
+  // 取首屏最常出现的几个图床 origin 提前 preconnect，能明显提前 LCP 图片到位时间。
+  // 注意：卡片 <img> 没带 crossorigin，这里也不能加 crossOrigin，否则会多开一条匿名连接。
+  const IMG_ORIGINS = (() => {
+    // 占位图域（mock 数据用）不值得建连，过滤掉免得白开 TCP/TLS
+    const SKIP = /picsum\.photos|placehold\.co|placeholder\.com|dummyimage\.com/i;
+    const hits = new Map<string, number>();
+    for (const a of slimArticles.slice(0, 30)) {
+      for (const u of (a as { images?: string[] }).images ?? []) {
+        try {
+          const o = new URL(u).origin;
+          if (SKIP.test(o)) continue;
+          hits.set(o, (hits.get(o) || 0) + 1);
+        } catch {
+          /* 相对路径/非法地址忽略 */
+        }
+      }
+    }
+    return [...hits.entries()].sort((x, y) => y[1] - x[1]).slice(0, 5).map(([o]) => o);
+  })();
+
   return (
     <>
+      {IMG_ORIGINS.map((o) => (
+        <link key={o} rel="preconnect" href={o} />
+      ))}
       <div className="container">
         <BreakingTicker articles={slimHot} />
         <HeroHead locale={loc} />
