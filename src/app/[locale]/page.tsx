@@ -67,12 +67,16 @@ export default async function Home({
   if (!isLocale(loc)) notFound();
 
   const d = getDict(loc);
-  // timeAgo 在服务端（构建期）算好并随 RSC 载荷下发：SSR HTML 与客户端首渲一致，
-  // 挂载后 NewsCard 再用实时时间重算，避免 force-static 页面跨时间后 hydration mismatch。
-  const articles = (await getArticles(loc)).map((a) => ({
-    ...a,
-    timeAgo: formatRelativeTime(loc, a.publishedAt, d),
-  }));
+  // cov44：首屏只下发最近 FEED_LIMIT 条。信息流本就在客户端切片（分类/搜索/标签/书签/关注），
+  // 但把单语种上千条全部塞进 RSC payload 会让首屏 HTML 膨胀到 1.2MB+（gzip 后仍 300KB+）。
+  // 400 条足够用户连续下滑很久，更老的内容走 /search（服务端分页，无上限）。
+  const FEED_LIMIT = 400;
+  const articles = (await getArticles(loc))
+    .slice(0, FEED_LIMIT)
+    .map((a) => ({
+      ...a,
+      timeAgo: formatRelativeTime(loc, a.publishedAt, d),
+    }));
   const hot = await getHotBoard(loc, 10);
 
   // 全球地区指标汇总（全语言文章聚合，仅用于地球可视化；命中模块级缓存则零重建）
