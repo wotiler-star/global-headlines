@@ -7,7 +7,8 @@ export const dynamic = "force-dynamic";
 // GET /api/bookmarks -> 当前登录用户的收藏列表
 export async function GET() {
   const user = await getCurrentUser();
-  if (!user) return NextResponse.json({ error: "未登录" }, { status: 401 });
+  // 匿名访问：未登录即无收藏，返回空数组而非 401（登录态由 localStorage 兜底）
+  if (!user) return NextResponse.json({ bookmarks: [] });
   const db = getDb();
   return NextResponse.json({ bookmarks: getBookmarks(db, user.id) });
 }

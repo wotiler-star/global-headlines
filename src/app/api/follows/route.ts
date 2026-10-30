@@ -7,7 +7,8 @@ export const dynamic = "force-dynamic";
 // GET /api/follows -> 当前登录用户的关注来源列表
 export async function GET() {
   const user = await getCurrentUser();
-  if (!user) return NextResponse.json({ error: "未登录" }, { status: 401 });
+  // 匿名访问：未登录即无关注，返回空数组而非 401
+  if (!user) return NextResponse.json({ follows: [] });
   const db = getDb();
   return NextResponse.json({ follows: getFollows(db, user.id) });
 }

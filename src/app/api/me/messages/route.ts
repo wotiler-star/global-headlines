@@ -7,7 +7,8 @@ export const dynamic = "force-dynamic";
 // GET /api/me/messages -> 消息列表 + 未读数
 export async function GET() {
   const user = await getCurrentUser();
-  if (!user) return NextResponse.json({ error: "未登录" }, { status: 401 });
+  // 匿名访问：没登录就是没有消息，返回空列表而不是 401（避免每个页面都刷一条控制台错误）
+  if (!user) return NextResponse.json({ items: [], unread: 0 });
   const db = getDb();
   return NextResponse.json({ items: listMessages(db, user.id, 50), unread: unreadMessageCount(db, user.id) });
 }

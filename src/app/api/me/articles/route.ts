@@ -30,7 +30,8 @@ function serialize(a: DbArticle) {
 // GET /api/me/articles -> 当前用户的全部稿件（含草稿/已删）
 export async function GET() {
   const user = await getCurrentUser();
-  if (!user) return NextResponse.json({ error: "未登录" }, { status: 401 });
+  // 匿名访问：未登录即没有稿件（文章页用它判断是否是作者），返回空列表而非 401
+  if (!user) return NextResponse.json({ items: [] });
   const db = getDb();
   const rows = queryArticles(db, {
     ownerId: user.id,
