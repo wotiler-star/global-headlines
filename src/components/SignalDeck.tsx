@@ -90,6 +90,32 @@ function buildArcs(hub: RegionStat | undefined, list: RegionStat[], max: number 
     }));
 }
 
+// cov46 图层开关：把「数据 → globe.gl 图层」的构造抽成纯函数，
+// 这样开关图层时不需要重新计算，只需决定是否把结果喂给对应图层。
+function catPointsOf(list: RegionStat[], dict: { categories: Record<string, string> }) {
+  return list.flatMap((r) =>
+    (r.categoryDist || []).map((c, i) => ({
+      code: r.code,
+      name: r.name,
+      lat: r.lat,
+      lng: r.lng,
+      cat: c.cat,
+      catName: dict.categories[c.cat] || c.cat,
+      n: c.n,
+      max: r.categoryDist[0] ? r.categoryDist[0].n : 1,
+      rank: i,
+      hourDist: r.hourDist,
+    }))
+  );
+}
+
+function labelsOf(list: RegionStat[], n: number) {
+  return [...list]
+    .sort((a, b) => b.signalCount - a.signalCount)
+    .slice(0, n)
+    .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng }));
+}
+
 // 按经度估算城市当地时间（lng/15 小时，太阳时近似）；Date.now() 即 UTC epoch，直接加时区偏移
 function localTime(lng: number): string {
   const d = new Date(Date.now() + (lng / 15) * 3_600_000);
@@ -273,6 +299,17 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   const [hour, setHour] = useState<number | null>(null); // null=全时聚合(LIVE)；否则 0-23 UTC 小时
   const hourRef = useRef<number | null>(null);
   const [mapMode, setMapMode] = useState<0 | 1 | 2>(0);  // 0 昼夜自动 1 日间蓝marble 2 夜间城市灯光
+  // cov46 图层开关：链路 / 信号柱 / 涟漪 / 地名 / 国界，偏好存 localStorage
+  const [layers, setLayers] = useState({ arcs: true, bars: true, rings: true, labels: true, borders: true });
+  const layerRef = useRef(layers);
+  layerRef.current = layers;
+  // cov46 各图层最近一次的数据快照（关图层时清空、开图层时原样回填，不必重算）
+  const arcsRef = useRef<any[]>([]);
+  const polyRef = useRef<any[]>([]);
+  const ptsRef = useRef<any[]>([]);
+  const ringsRef = useRef<any[]>([]);
+  const labelsRef = useRef<any[]>([]);
+  const [alt, setAlt] = useState(2.5); // 当前视距（放大倍数读数）
   const starRef = useRef<{ stars: any; mat: any } | null>(null); // 星空层（HARD 调密度/亮度）
   const globeMatRef = useRef<any>(null);                  // 地球本体 shaderMaterial（切贴图模式用）
   // 悬停卡片「移入可点击」：离开国家多边形后延迟清除 hoverGeo，鼠标进入卡片则取消清除
@@ -375,32 +412,31 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
     const w = worldRef.current;
     if (!w || !liveRegions) return;
     const dict = getDict(locale);
-    const catPoints = liveRegions.flatMap((r) =>
-      (r.categoryDist || []).map((c, i) => ({
-        code: r.code,
-        name: r.name,
-        lat: r.lat,
-        lng: r.lng,
-        cat: c.cat,
-        catName: dict.categories[c.cat as Category] || c.cat,
-        n: c.n,
-        max: r.categoryDist[0] ? r.categoryDist[0].n : 1,
-        rank: i,
-        hourDist: r.hourDist,
-      }))
-    );
-    if (w.pointsData) w.pointsData(catPoints);
-    if (w.ringsData) w.ringsData(liveRegions);
-    if (w.labelsData) {
-      w.labelsData(
-        [...liveRegions]
-          .sort((a, b) => b.signalCount - a.signalCount)
-          .slice(0, hardRef.current ? 36 : 10)
-          .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng })) as any
-      );
-    }
+    // 先算出各图层数据并缓存，再按图层开关决定是否喂给 globe（关掉的图层传空数组）
+    ptsRef.current = catPointsOf(liveRegions, dict as unknown as { categories: Record<string, string> });
+    ringsRef.current = liveRegions;
+    labelsRef.current = labelsOf(liveRegions, hardRef.current ? 36 : 10);
+    applyLayers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [liveRegions]);
+
+  // cov46 图层应用：把缓存的数据按开关状态推给各图层
+  function applyLayers() {
+    const w = worldRef.current;
+    if (!w) return;
+    const L = layerRef.current;
+    if (w.pointsData) w.pointsData(L.bars ? ptsRef.current : []);
+    if (w.ringsData) w.ringsData(L.rings ? ringsRef.current : []);
+    if (w.labelsData) w.labelsData(L.labels ? labelsRef.current : []);
+    if (w.arcsData) w.arcsData(L.arcs ? arcsRef.current : []);
+    if (w.polygonsData) w.polygonsData(L.borders ? polyRef.current : []);
+  }
+
+  // 图层开关变化 / 地球就绪后，立即重刷一次图层
+  useEffect(() => {
+    applyLayers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [layers, mounted]);
 
   // cov42 刷新不跳动：行序冻结/解冻
   useEffect(() => {
@@ -454,6 +490,24 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // cov46 图层偏好恢复（关掉的图层下次访问保持关闭）
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("gh-globe-layers");
+      if (!raw) return;
+      const v = JSON.parse(raw);
+      if (v && typeof v === "object") {
+        setLayers((cur) => ({
+          arcs: typeof v.arcs === "boolean" ? v.arcs : cur.arcs,
+          bars: typeof v.bars === "boolean" ? v.bars : cur.bars,
+          rings: typeof v.rings === "boolean" ? v.rings : cur.rings,
+          labels: typeof v.labels === "boolean" ? v.labels : cur.labels,
+          borders: typeof v.borders === "boolean" ? v.borders : cur.borders,
+        }));
+      }
+    } catch {}
+  }, []);
+
   // 自动巡览：每 6s 轮换地区（replace 不进历史栈；POV/弧线/面板由 active 驱动链自动跟随）
   useEffect(() => {
     if (!tour || regions.length === 0) return;
@@ -487,6 +541,18 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
         }
       } else if (e.key === "r" || e.key === "R") {
         setRotating((v) => !v);
+      } else if (e.key === "+" || e.key === "=") {
+        e.preventDefault();
+        zoomBy(1 / 1.35); // 放大 = 视距变小
+      } else if (e.key === "-" || e.key === "_") {
+        e.preventDefault();
+        zoomBy(1.35);
+      } else if (e.key === "p" || e.key === "P") {
+        resetView();
+      } else if (e.key === "l" || e.key === "L") {
+        toggleLayer("labels");
+      } else if (e.key === "a" || e.key === "A") {
+        toggleLayer("arcs");
       }
     };
     window.addEventListener("keydown", onKey);
@@ -552,6 +618,8 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
           hourDist: r.hourDist,
         }))
       );
+      ptsRef.current = catPoints;   // cov46 图层开关回填用
+      ringsRef.current = geoRef.current;
 
       let lastGlobeClick = 0; // 双击复位计时（300ms 内两次点击空白处）
       // 苹果式布光：强环境光打底提亮暗面 + 主光（右上前）塑形 + 冷蓝补光（左前下，模拟大气散射），
@@ -660,10 +728,10 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
       // 悬停或选中该地区时高亮为暖琥珀色，引导"点这里"。
       world
         .labelsData(
-          [...geoRef.current]
+          (labelsRef.current = [...geoRef.current]
             .sort((a, b) => b.signalCount - a.signalCount)
             .slice(0, hardRef.current ? 36 : 10)
-            .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng })) as any
+            .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng }))) as any
         )
         .labelLat("lat")
         .labelLng("lng")
@@ -807,8 +875,9 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
         .then((r) => r.json())
         .then((fc: any) => {
           if (cancelled || !worldRef.current) return;
+          polyRef.current = fc.features as any[]; // cov46 国界图层可关
           world
-            .polygonsData(fc.features as any)
+            .polygonsData(layerRef.current.borders ? (fc.features as any) : ([] as any))
             .polygonCapColor(() => "rgba(0,0,0,0)")
             .polygonSideColor(() => "rgba(0,0,0,0)")
             .polygonStrokeColor((f: any) =>
@@ -867,8 +936,9 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
       ctrl.enableZoom = true;
       ctrl.enableDamping = true;
       ctrl.dampingFactor = 0.08;
-      ctrl.minDistance = 180;
-      ctrl.maxDistance = 420;
+      // cov46 放宽缩放区间：原来 1.8~4.2 倍太窄，拉远看不到全景、推近也进不了城市尺度
+      ctrl.minDistance = 140;
+      ctrl.maxDistance = 700;
       ctrl.enablePan = false;
       // 实时坐标读数：controls change 时把相机对应的经纬度写进 HUD（命令式更新，不触发 React 重渲染）
       const writeCoord = () => {
@@ -962,7 +1032,9 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
       // 初始链路弧：最热地区 -> 最活跃的前 MAX_ARCS 个地区（effect 首跑时 worldRef 未就绪，这里补铺）
       const hub0 = [...geoRef.current].sort((a, b) => b.signalCount - a.signalCount)[0];
       if (hub0 && geoRef.current.length > 1) {
-        world.arcsData(buildArcs(hub0, geoRef.current, hardRef.current ? 24 : MAX_ARCS) as any);
+        const arcs0 = buildArcs(hub0, geoRef.current, hardRef.current ? 24 : MAX_ARCS);
+        arcsRef.current = arcs0;
+        world.arcsData(layerRef.current.arcs ? (arcs0 as any) : ([] as any));
       }
       ro = new ResizeObserver(() => {
         if (worldRef.current && mountRef.current) {
@@ -1050,10 +1122,13 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
     if (!w || !w.arcsData) return;
     const hub = selected || peak;
     if (!hub || regions.length < 2) {
+      arcsRef.current = [];
       w.arcsData([]);
       return;
     }
-    w.arcsData(buildArcs(hub, regions, hardRef.current ? 24 : MAX_ARCS) as any);
+    const ar = buildArcs(hub, regions, hardRef.current ? 24 : MAX_ARCS);
+    arcsRef.current = ar;
+    w.arcsData(layerRef.current.arcs ? (ar as any) : ([] as any));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, regions]);
 
@@ -1076,7 +1151,11 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
     if (w.atmosphereAltitude) w.atmosphereAltitude(hard ? 0.28 : 0.18);
     // 弧线数量随硬核模式加倍（重算枢纽 → 各地区链路）
     const hub = selected || peak;
-    if (hub && regions.length >= 2) w.arcsData(buildArcs(hub, regions, hard ? 24 : MAX_ARCS) as any);
+    if (hub && regions.length >= 2) {
+      const ar = buildArcs(hub, regions, hard ? 24 : MAX_ARCS);
+      arcsRef.current = ar;
+      w.arcsData(layerRef.current.arcs ? (ar as any) : ([] as any));
+    }
     // 星空密度/亮度随硬核模式
     if (starRef.current) {
       starRef.current.mat.opacity = hard ? 0.92 : 0.6;
@@ -1084,12 +1163,11 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
     }
     // 常驻标签数量随硬核模式（普通 top10 / HARD top36）
     if (w.labelsData) {
-      w.labelsData(
-        [...regions]
-          .sort((a, b) => b.signalCount - a.signalCount)
-          .slice(0, hard ? 36 : 10)
-          .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng })) as any
-      );
+      labelsRef.current = [...regions]
+        .sort((a, b) => b.signalCount - a.signalCount)
+        .slice(0, hard ? 36 : 10)
+        .map((r) => ({ code: r.code, name: r.name, lat: r.lat, lng: r.lng }));
+      w.labelsData(layerRef.current.labels ? (labelsRef.current as any) : ([] as any));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hard]);
@@ -1122,6 +1200,23 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   }
   function toggleTour() {
     setTour((t) => !t);
+  }
+  // cov46 缩放：按钮/键盘共用，读数同步（1.4~6.5 倍视距）
+  function zoomBy(factor: number) {
+    const w = worldRef.current;
+    if (!w || !w.pointOfView) return;
+    const pov = w.pointOfView() as { lat: number; lng: number; altitude: number };
+    const next = Math.min(6.5, Math.max(1.4, (pov.altitude || 2.5) * factor));
+    w.pointOfView({ lat: pov.lat, lng: pov.lng, altitude: next }, 260);
+    setAlt(Math.round(next * 10) / 10);
+  }
+  // cov46 图层开关：记住偏好，关掉的图层下次访问保持关闭
+  function toggleLayer(k: "arcs" | "bars" | "rings" | "labels" | "borders") {
+    setLayers((cur) => {
+      const nv = { ...cur, [k]: !cur[k] };
+      try { localStorage.setItem("gh-globe-layers", JSON.stringify(nv)); } catch {}
+      return nv;
+    });
   }
   function resetView() {
     if (worldRef.current) worldRef.current.pointOfView({ lat: 20, lng: 0, altitude: 2.5 }, 800);
@@ -1445,6 +1540,21 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
               <span className="sd-hour">{hour === null ? "全时" : String(hour).padStart(2, "0") + ":00Z"}</span>
             </span>
           )}
+          <button className="sd-rot" onClick={() => zoomBy(1 / 1.35)} aria-label={d.globeZoomIn}>
+            ＋
+          </button>
+          <button className="sd-rot" onClick={() => zoomBy(1.35)} aria-label={d.globeZoomOut}>
+            －
+          </button>
+          <span className="sd-zoom" title={d.globeZoomIn + " / " + d.globeZoomOut}>{alt.toFixed(1)}×</span>
+          {/* cov46 图层开关：链路 / 信号柱 / 涟漪 / 地名 / 国界，按需取舍画面密度 */}
+          <span className="sd-layers" role="group" aria-label={d.globeLayers}>
+            <button className={"sd-rot" + (layers.arcs ? " on" : "")} onClick={() => toggleLayer("arcs")} title={d.globeArcs + " (A)"}>◠</button>
+            <button className={"sd-rot" + (layers.bars ? " on" : "")} onClick={() => toggleLayer("bars")} title={d.globeBars}>▮</button>
+            <button className={"sd-rot" + (layers.rings ? " on" : "")} onClick={() => toggleLayer("rings")} title={d.globeRings}>◎</button>
+            <button className={"sd-rot" + (layers.labels ? " on" : "")} onClick={() => toggleLayer("labels")} title={d.globeLabels + " (L)"}>A</button>
+            <button className={"sd-rot" + (layers.borders ? " on" : "")} onClick={() => toggleLayer("borders")} title={d.globeBorders}>▦</button>
+          </span>
           <button
             className={"sd-rot" + (tour ? " on" : "")}
             onClick={toggleTour}

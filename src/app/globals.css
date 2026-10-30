@@ -1814,3 +1814,14 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .article-body .art-bq { border-left: 2px solid var(--brand); padding-left: 12px; margin: 10px 0; color: var(--ink-2); font-style: italic; }
 .article-body .art-li { display: flex; gap: 8px; margin: 4px 0; }
 .article-body .art-li-dot { flex: none; width: 5px; height: 5px; border-radius: 50%; background: var(--brand); margin-top: 10px; }
+
+/* ===== cov46 地球仪：图层开关 + 缩放控制 ===== */
+.sd-layers { display: inline-flex; gap: 2px; margin-right: 2px; }
+.sd-layers .sd-rot { min-width: 22px; padding: 0 4px; font-size: 11px; }
+.sd-zoom {
+  font-family: var(--font-mn); font-size: 10px; color: var(--ink-3);
+  margin: 0 2px; min-width: 30px; text-align: center; font-variant-numeric: tabular-nums;
+}
+@media (max-width: 980px) {
+  .sd-zoom { display: none; }
+}
