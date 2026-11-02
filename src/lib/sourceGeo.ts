@@ -199,6 +199,8 @@ const DOMAIN_TO_CODE: Record<string, string> = {
   "thelocal.no": "OSL",
   "thelocal.dk": "CPH",
   "foreigner.fi": "HEL",
+  "helsinkitimes.fi": "HEL",
+  "yle.fi": "HEL",
   // —— 巴尔干 ——
   "rs.n1info.com": "BEG",
   "time.mk": "SKP",
@@ -233,6 +235,18 @@ const DOMAIN_TO_CODE: Record<string, string> = {
   "ikon.mn": "ULN",
   "thereporterethiopia.com": "ADD",
   "ethiopianmonitor.com": "ADD",
+  // cov41 覆盖度修复：下列域名在生产库有大量真实文章，但此前未归入对应分站
+  // （采集到的文章 host 与注册域名不一致 / 跨 TLD 镜像），导致这些文章沦为「未映射」、
+  // 分站统计明显偏低。仅新增映射、不改动既有键，风险可控。
+  // —— 贝尔格莱德：rs.n1info.com 注册源落库 0 篇，实际西语/英文镜像在 n1info.rs ——
+  "n1info.rs": "BEG",
+  // —— 伊斯坦布尔：tr 源 cumhuriyet.com.tr 大量文章未归站 ——
+  "cumhuriyet.com.tr": "IST",
+  // —— 里斯本：pt 源 record.pt / jornaldenegocios.pt 未映射（已是 pt FEEDS 在采）——
+  "record.pt": "LIS",
+  "jornaldenegocios.pt": "LIS",
+  // —— 杜尚别：asiaplustj.info 注册源落库 0 篇，实际域名已迁到 asiaplus.news ——
+  "asiaplus.news": "DUSH",
 };
 
 // 地区运行时指标（首页地球面板用）

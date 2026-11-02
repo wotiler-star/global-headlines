@@ -437,6 +437,10 @@ async function fetchFeed(url: string, locale: Locale, category: RssCat): Promise
 // ---------------------------------------------------------------------------
 const byId = new Map<string, Article>();
 const cache = new Map<string, Article[]>();
+// cov44：cache 原先无 TTL，一旦预热就永久冻结，导致采集器定时重写 articles.json 后
+// 线上新闻永远停在容器启动那一刻（必须重启才生效），也让 loadJsonDb 的 10 分钟 TTL 失效。
+// 这里给 (locale,category) 结果加同样的 TTL，让「定时采集」真正自动反映到线上。
+const cacheTs = new Map<string, number>();
 
 // 构建时数据库缓存：collect-articles.mjs 生成的 data/articles.json（真实 SQLite 的 JSON 镜像）。
 // 存在则直接当作「单一真相源」读取，跳过联网；不存在则退回实时拉取（兼容直接 next build）。
@@ -474,7 +478,7 @@ function loadJsonDb(): Article[] | null {
 export async function getRssArticles(locale: Locale, category: RssCat): Promise<Article[]> {
   const key = `${locale}:${category}`;
   const c = cache.get(key);
-  if (c) return c;
+  if (c && Date.now() - (cacheTs.get(key) || 0) < JSON_DB_TTL) return c;
 
   // 优先使用采集数据库（data/articles.json），避免重复联网、支持离线重建
   const db = loadJsonDb();
@@ -482,6 +486,7 @@ export async function getRssArticles(locale: Locale, category: RssCat): Promise<
     const out = db.filter((a) => a.locale === locale && a.category === category);
     for (const a of out) byId.set(a.id, a);
     cache.set(key, out);
+    cacheTs.set(key, Date.now());
     return out;
   }
 
@@ -503,6 +508,7 @@ export async function getRssArticles(locale: Locale, category: RssCat): Promise<
     out.push(a);
   }
   cache.set(key, out);
+  cacheTs.set(key, Date.now());
   return out;
 }
 

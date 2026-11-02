@@ -216,6 +216,32 @@ const FEEDS = {
   },
 };
 
+// ---- Google News RSS 兜底（修复死站）----
+// 下列分站的直连 RSS 在服务器侧持续失败（404 死链 / Cloudflare 403 反爬 / 返回 HTML 落地页），
+// 且其同站无其它可用源，导致该分站在地球上长期 0 信号（死站）。
+// Google News RSS 的 site: 查询对这些域名普遍可达，且 <source url> 带真实出版方域名，
+// 正好用于正确归属分站。解析复用 parseItem（其已支持 "标题 - 来源" 拆分），
+// 仅把 sourceUrl 覆盖为真实域名 origin（覆盖默认的 google 跳转 link）。
+const FALLBACK_SITES = [
+  { site: "channelnewsasia.com", locale: "en", category: "world" }, // SIN 新加坡
+  { site: "orient.tm",           locale: "en", category: "world" }, // ASH 阿什哈巴德
+  { site: "thestar.com.my",      locale: "en", category: "world" }, // KUL 吉隆坡
+  { site: "timesofisrael.com",   locale: "en", category: "world" }, // TLV 特拉维夫
+  { site: "jordantimes.com",     locale: "en", category: "world" }, // AMM 安曼
+  { site: "tengrinews.kz",       locale: "en", category: "world" }, // ALA 阿拉木图
+  { site: "inform.kz",           locale: "en", category: "world" }, // ALA 阿拉木图（补充）
+  { site: "foreigner.fi",        locale: "en", category: "world" }, // HEL 赫尔辛基（Google 无索引，实测 0 条；保留占位）
+  { site: "helsinkitimes.fi",    locale: "en", category: "world" }, // HEL 赫尔辛基（替代源，英语芬兰新闻）
+  { site: "yle.fi",              locale: "en", category: "world" }, // HEL 赫尔辛基（替代源，芬兰国家广播）
+  { site: "dailynews.lk",        locale: "en", category: "world" }, // CMB 科伦坡
+  { site: "dawn.com",            locale: "en", category: "world" }, // ISB 伊斯兰堡
+  { site: "thenews.com.pk",      locale: "en", category: "world" }, // KHI 卡拉奇
+  { site: "tribune.com.pk",      locale: "en", category: "world" }, // LAH 拉合尔
+  { site: "antaranews.com",      locale: "en", category: "world" }, // JKT 雅加达
+  { site: "eltiempo.com",        locale: "es", category: "world" }, // BOG 波哥大
+  { site: "elespectador.com",    locale: "es", category: "world" }, // BOG 波哥大
+];
+
 // ---- 解析工具（与 rssSource.ts 的纯函数保持一致）----
 function decodeEntities(s) {
   return s
@@ -337,6 +363,29 @@ async function fetchFeed(url, locale, category) {
   return [];
 }
 
+// Google News RSS 兜底抓取（仅用于 FALLBACK_SITES 的死站）。
+// news.google.com/rss/search?q=site:域名 对反爬/死链站普遍可达，且每条 <item> 带
+// <source url="真实出版方">，可据此正确归属分站。解析复用 parseItem（其已按 feedTitle
+// 含 "google" 拆分 "标题 - 来源"），再把 sourceUrl 覆盖为真实域名 origin。
+async function fetchGoogleNews(site, locale, category) {
+  const q = encodeURIComponent(`site:${site}`);
+  const url = `https://news.google.com/rss/search?q=${q}&hl=en-US&gl=US&ceid=US:en`;
+  const xml = await fetchFeedXml(url, UA_BROWSER);
+  if (!xml || !/<item\b|<entry\b/i.test(xml)) return [];
+  const ch = xml.match(/<channel\b[^>]*>([\s\S]*?)<\/channel>/i);
+  const feedTitle = ch ? stripHtml(getTag(ch[1], "title")) : "Google News";
+  const items = matchAll(xml, /<item\b[^>]*>([\s\S]*?)<\/item>/gi);
+  const out = [];
+  for (const b of items) {
+    const a = parseItem(b, locale, category, feedTitle);
+    if (!a) continue;
+    const srcM = b.match(/<source\b[^>]*url=["']([^"']+)["']/i);
+    if (srcM) { try { a.sourceUrl = new URL(srcM[1]).origin; } catch { /* 忽略非法 url */ } }
+    out.push(a);
+  }
+  return out;
+}
+
 // 归一化：补齐缺 body 的条目（卷内存量旧数据 / rebuild-mirror 历史产物），
 // 用 summary/title 兜底，保证文章页 pickQuote 不踩 undefined。合并时统一过一遍，镜像随时间自愈。
 // cov38：顺带钳制「未来时间」——部分源 pubDate 带时区偏移被解析成未来时刻，
@@ -348,6 +397,18 @@ function normalizeArticle(a) {
   const hasBody = Array.isArray(a.body) && a.body.length > 0;
   if (hasBody && fixedTime === a.publishedAt) return a;
   return { ...a, body: hasBody ? a.body : [a.summary || a.title || ""], publishedAt: fixedTime };
+}
+
+const MIRROR_CAP = 2000; // 每语言新鲜度 top-N
+const MIRROR_HOST_FLOOR = 6; // 每个源至少保留条数（保底，防止小体量分站被挤出）
+const MIRROR_FLOOR_BUDGET = 900; // 每语言保底补充总量上限，控体量
+
+function hostOf(a) {
+  try {
+    return new URL(a.sourceUrl).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return "";
+  }
 }
 
 // 镜像合并写入：读入上一次 articles.json，按 id 叠加本次新采集。
@@ -374,7 +435,29 @@ function mergeMirror(all) {
   const final = [];
   for (const list of byLoc.values()) {
     list.sort((x, y) => (y.publishedAt || 0) - (x.publishedAt || 0));
-    final.push(...list.slice(0, 2000));
+    const picked = list.slice(0, MIRROR_CAP);
+    const pickedIds = new Set(picked.map((a) => a.id));
+    // 按源保底：体量小/更新慢的源在纯新鲜度排名里会被挤出 top-N，导致其城市在地球仪上
+    // 无信号（cov36 曾靠 800→2000 提上限缓解，但根因未除）。这里给每个源兜底保留若干条，
+    // 让每个分站都稳定亮起；list 已按时间降序，保底取的也是该源最新几条。
+    const perHost = new Map();
+    for (const a of picked) {
+      const h = hostOf(a);
+      if (h) perHost.set(h, (perHost.get(h) || 0) + 1);
+    }
+    let budget = MIRROR_FLOOR_BUDGET;
+    for (const a of list) {
+      if (budget <= 0) break;
+      const h = hostOf(a);
+      if (!h || pickedIds.has(a.id)) continue;
+      if ((perHost.get(h) || 0) >= MIRROR_HOST_FLOOR) continue;
+      picked.push(a);
+      pickedIds.add(a.id);
+      perHost.set(h, (perHost.get(h) || 0) + 1);
+      budget -= 1;
+    }
+    picked.sort((x, y) => (y.publishedAt || 0) - (x.publishedAt || 0));
+    final.push(...picked);
   }
   return final;
 }
@@ -428,9 +511,11 @@ async function main() {
   for (const locale of Object.keys(FEEDS)) {
     const catMap = FEEDS[locale];
     for (const c of Object.keys(catMap)) {
-      for (const u of catMap[c]) tasks.push({ locale, category: c, url: u });
+      for (const u of catMap[c]) tasks.push({ kind: "rss", locale, category: c, url: u });
     }
   }
+  // 死站兜底任务（Google News RSS），kind=gn 走 fetchGoogleNews
+  for (const s of FALLBACK_SITES) tasks.push({ kind: "gn", locale: s.locale, category: s.category, url: s.site });
 
   const seen = new Set();
   const all = [];
@@ -441,10 +526,12 @@ async function main() {
       const i = idx++;
       if (i >= tasks.length) return;
       const t = tasks[i];
-      const arts = await fetchFeed(t.url, t.locale, t.category).catch(() => []);
+      const arts = t.kind === "gn"
+        ? await fetchGoogleNews(t.url, t.locale, t.category).catch(() => [])
+        : await fetchFeed(t.url, t.locale, t.category).catch(() => []);
       for (const a of arts) {
-        if (a.sourceUrl && seen.has(a.sourceUrl)) continue;
-        if (a.sourceUrl) seen.add(a.sourceUrl);
+        if (a.id && seen.has(a.id)) continue; // 按 id 去重（google 兜底同站多文才不会合并成 1 条）
+        if (a.id) seen.add(a.id);
         all.push(a);
       }
     }

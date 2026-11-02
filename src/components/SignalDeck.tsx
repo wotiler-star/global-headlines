@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Locale, Category, categories } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
@@ -265,6 +265,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   // cov41 榜单交互：排序 + 搜索过滤
   const [sortKey, setSortKey] = useState<"signals" | "fresh" | "activity">("signals");
   const [q, setQ] = useState("");
+  const [showAll, setShowAll] = useState(false); // 分站栏「更多」展开：暴露 top-N 之外的全部分站（建设可见度 + 一键切换）
   const legRef = useRef<HTMLUListElement>(null);
   // cov42 刷新不跳动：冻结榜单行序（实时刷新只更新数字；仅手动排序/搜索时重算行序）
   const frozenOrderRef = useRef<string[] | null>(null);
@@ -335,6 +336,24 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   // 近 1 小时全球新增信号（hourDist 桶 23）
   const new1h = regions.reduce((s, r) => s + ((r.hourDist && r.hourDist[23]) || 0), 0);
   const peak = [...regions].sort((a, b) => b.signalCount - a.signalCount)[0];
+
+  // 分站切换栏：按信号量取 top-N 分站；若当前选中分站不在前 N（如弱信号站），前置插入确保可见可点。
+  const topStations = useMemo(() => {
+    const arr = [...regions].sort((a, b) => b.signalCount - a.signalCount);
+    if (active) {
+      const idx = arr.findIndex((r) => r.code === active);
+      if (idx > 0) {
+        const [hit] = arr.splice(idx, 1);
+        arr.unshift(hit);
+      }
+    }
+    return arr.slice(0, 18);
+  }, [regions, active]);
+  // top-N 之外的剩余分站（按信号量排序），供「更多」展开；全部 50+ 分站都可达
+  const restStations = useMemo(() => {
+    const top = new Set(topStations.map((r) => r.code));
+    return regions.filter((r) => !top.has(r.code)).sort((a, b) => b.signalCount - a.signalCount);
+  }, [regions, topStations]);
   const d = getDict(locale);
   const globalCat = regions
     .flatMap((r) => r.categoryDist)
@@ -1308,6 +1327,62 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
           ) : null}
         </span>
       </div>
+
+      {/* 分站切换栏：横向可滚动 top-N 分站 chips，点击切 ?src=；与地球/图例/键盘共用 pick()，
+          悬停仅预览面板（不转地球，避免扫 chips 时镜头乱跳）。当前选中分站高亮 + 常驻 GLOBAL 复位。 */}
+      <div className="sd-stationbar" role="tablist" aria-label="分站切换">
+        {topStations.map((r) => (
+          <button
+            key={r.code}
+            role="tab"
+            aria-selected={mounted && active === r.code}
+            className={"sd-station-chip" + (mounted && active === r.code ? " on" : "")}
+            title={r.name + " · " + r.signalCount + " 信号"}
+            onClick={() => pick(r.code)}
+            onMouseEnter={() => setPreviewCode(r.code)}
+            onMouseLeave={() => setPreviewCode(null)}
+          >
+            <span className="ss-code">{r.code}</span>
+            <span className="ss-name">{r.name}</span>
+            <span className="ss-count">{r.signalCount}</span>
+          </button>
+        ))}
+        {mounted && active ? (
+          <button className="sd-station-chip reset" onClick={clearFilter} title="返回全球总览（清除 ?src 筛选）">
+            ⊙ GLOBAL
+          </button>
+        ) : null}
+        {mounted && restStations.length > 0 ? (
+          <button
+            className="sd-station-chip more"
+            aria-expanded={showAll}
+            onClick={() => setShowAll((v) => !v)}
+            title="展开 / 收起全部分站"
+          >
+            {showAll ? "收起 ▴" : `更多 ${restStations.length} 站 ▾`}
+          </button>
+        ) : null}
+      </div>
+      {mounted && showAll && restStations.length > 0 ? (
+        <div className="sd-station-more" role="tablist" aria-label="全部分站">
+          {restStations.map((r) => (
+            <button
+              key={r.code}
+              role="tab"
+              aria-selected={active === r.code}
+              className={"sd-station-chip" + (active === r.code ? " on" : "")}
+              title={r.name + " · " + r.signalCount + " 信号"}
+              onClick={() => pick(r.code)}
+              onMouseEnter={() => setPreviewCode(r.code)}
+              onMouseLeave={() => setPreviewCode(null)}
+            >
+              <span className="ss-code">{r.code}</span>
+              <span className="ss-name">{r.name}</span>
+              <span className="ss-count">{r.signalCount}</span>
+            </button>
+          ))}
+        </div>
+      ) : null}
 
       {noWebGL ? (
         <div className="sd-fallback">

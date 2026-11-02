@@ -1074,6 +1074,40 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .sd-cl-item { display: inline-flex; align-items: center; gap: 5px; }
 .sd-cl-dot { width: 8px; height: 8px; border-radius: 2px; flex: none; box-shadow: 0 0 5px currentColor; }
 
+/* ===== 分站切换栏（横向可滚动 chips，常驻显式分站入口） ===== */
+.sd-stationbar {
+  display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 9px;
+  margin-top: 2px; scrollbar-width: thin; -webkit-overflow-scrolling: touch;
+}
+.sd-stationbar::-webkit-scrollbar { height: 5px; }
+.sd-stationbar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+.sd-station-chip {
+  flex: none; display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mn); font-size: 11px; letter-spacing: .04em;
+  color: var(--ink-2); background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 999px; padding: 4px 11px; cursor: pointer; white-space: nowrap;
+  transition: border-color .15s, color .15s, background .15s, box-shadow .15s;
+}
+.sd-station-chip:hover { border-color: var(--brand); color: var(--ink); background: var(--brand-soft); }
+.sd-station-chip.on { color: var(--brand); border-color: var(--brand); background: var(--brand-soft); box-shadow: 0 0 0 1px var(--brand); }
+.sd-station-chip .ss-code { font-weight: 700; color: var(--brand); }
+.sd-station-chip .ss-name { color: var(--ink-2); }
+.sd-station-chip .ss-count { font-size: 10px; color: var(--ink-3); }
+.sd-station-chip.reset { color: var(--live); border-color: var(--live); }
+.sd-station-chip.reset:hover { background: var(--live-soft, rgba(61,220,151,.12)); }
+@media (max-width: 720px) {
+  .sd-stationbar { padding-bottom: 8px; }
+  .sd-station-chip .ss-name { display: none; }
+}
+/* 「更多」展开网格：换行铺满，全部分站一键可达 */
+.sd-station-more { display: flex; flex-wrap: wrap; gap: 6px; padding: 9px 0 2px; }
+.sd-station-more .sd-station-chip { font-size: 10px; padding: 3px 9px; }
+.sd-station-chip.more { color: var(--ink-3); border-style: dashed; }
+.sd-station-chip.more:hover { color: var(--brand); border-color: var(--brand); background: var(--brand-soft); }
+@media (max-width: 720px) {
+  .sd-station-more .sd-station-chip .ss-name { display: none; }
+}
+
 /* ===== 信号地球 ENHANCED v4 (persistent panel fills blank + glow + wider) ===== */
 .sd-globe { position: relative; z-index: 1; }
 .sd-globe-wrap::before {
