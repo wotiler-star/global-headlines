@@ -1102,6 +1102,21 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 /* 「更多」展开网格：换行铺满，全部分站一键可达 */
 .sd-station-more { display: flex; flex-wrap: wrap; gap: 6px; padding: 9px 0 2px; }
 .sd-station-more .sd-station-chip { font-size: 10px; padding: 3px 9px; }
+/* cov48：展开面板内分站搜索框 */
+.sd-station-search { display: flex; align-items: center; gap: 6px; width: 100%; position: relative; margin-bottom: 2px; }
+.sd-station-search input {
+  flex: 1; min-width: 0; height: 26px; padding: 0 26px 0 10px; border-radius: 7px;
+  border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--ink);
+  font-family: var(--font-mn); font-size: 12px; outline: none;
+}
+.sd-station-search input::placeholder { color: var(--ink-3); }
+.sd-station-search input:focus { border-color: var(--brand); background: rgba(255,255,255,.07); }
+.sd-station-search-clear {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  color: var(--ink-3); font-size: 15px; line-height: 1; cursor: pointer; user-select: none;
+}
+.sd-station-search-clear:hover { color: var(--brand); }
+.sd-station-empty { width: 100%; padding: 6px 2px; font-size: 11px; color: var(--ink-3); font-family: var(--font-mn); }
 .sd-station-chip.more { color: var(--ink-3); border-style: dashed; }
 .sd-station-chip.more:hover { color: var(--brand); border-color: var(--brand); background: var(--brand-soft); }
 @media (max-width: 720px) {

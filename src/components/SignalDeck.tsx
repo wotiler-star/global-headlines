@@ -266,6 +266,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   const [sortKey, setSortKey] = useState<"signals" | "fresh" | "activity">("signals");
   const [q, setQ] = useState("");
   const [showAll, setShowAll] = useState(false); // 分站栏「更多」展开：暴露 top-N 之外的全部分站（建设可见度 + 一键切换）
+  const [qMore, setQMore] = useState(""); // cov48 分站搜索：展开面板内按 code/name 过滤 62 站
   const legRef = useRef<HTMLUListElement>(null);
   // cov42 刷新不跳动：冻结榜单行序（实时刷新只更新数字；仅手动排序/搜索时重算行序）
   const frozenOrderRef = useRef<string[] | null>(null);
@@ -354,6 +355,14 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
     const top = new Set(topStations.map((r) => r.code));
     return regions.filter((r) => !top.has(r.code)).sort((a, b) => b.signalCount - a.signalCount);
   }, [regions, topStations]);
+  // cov48：展开面板内搜索过滤（按 code/name，不区分大小写）；无查询时返回全部
+  const filteredMore = useMemo(() => {
+    const kw = qMore.trim().toLowerCase();
+    if (!kw) return restStations;
+    return restStations.filter(
+      (r) => r.code.toLowerCase().includes(kw) || (r.name || "").toLowerCase().includes(kw)
+    );
+  }, [restStations, qMore]);
   const d = getDict(locale);
   const globalCat = regions
     .flatMap((r) => r.categoryDist)
@@ -1365,22 +1374,39 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
       </div>
       {mounted && showAll && restStations.length > 0 ? (
         <div className="sd-station-more" role="tablist" aria-label="全部分站">
-          {restStations.map((r) => (
-            <button
-              key={r.code}
-              role="tab"
-              aria-selected={active === r.code}
-              className={"sd-station-chip" + (active === r.code ? " on" : "")}
-              title={r.name + " · " + r.signalCount + " 信号"}
-              onClick={() => pick(r.code)}
-              onMouseEnter={() => setPreviewCode(r.code)}
-              onMouseLeave={() => setPreviewCode(null)}
-            >
-              <span className="ss-code">{r.code}</span>
-              <span className="ss-name">{r.name}</span>
-              <span className="ss-count">{r.signalCount}</span>
-            </button>
-          ))}
+          <div className="sd-station-search">
+            <input
+              type="text"
+              value={qMore}
+              placeholder="搜索分站 / 城市…"
+              onChange={(e) => setQMore(e.target.value)}
+              onKeyDown={(e) => e.stopPropagation()} // 不触发地球快捷键
+              aria-label="搜索分站"
+            />
+            {qMore ? (
+              <span className="sd-station-search-clear" onClick={() => setQMore("")} role="button" aria-label="清除">×</span>
+            ) : null}
+          </div>
+          {filteredMore.length === 0 ? (
+            <div className="sd-station-empty">无匹配「{qMore}」</div>
+          ) : (
+            filteredMore.map((r) => (
+              <button
+                key={r.code}
+                role="tab"
+                aria-selected={active === r.code}
+                className={"sd-station-chip" + (active === r.code ? " on" : "")}
+                title={r.name + " · " + r.signalCount + " 信号"}
+                onClick={() => pick(r.code)}
+                onMouseEnter={() => setPreviewCode(r.code)}
+                onMouseLeave={() => setPreviewCode(null)}
+              >
+                <span className="ss-code">{r.code}</span>
+                <span className="ss-name">{r.name}</span>
+                <span className="ss-count">{r.signalCount}</span>
+              </button>
+            ))
+          )}
         </div>
       ) : null}
 

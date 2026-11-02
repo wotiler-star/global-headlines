@@ -23,8 +23,10 @@ export async function GET(req: Request) {
     cache.set(locale, hit);
   }
 
+  // cov48 性能：数据服务端每 60s 重算一次，这里允许客户端/共享缓存(CDN/nginx)复用 60s，
+  // 并允许过期后 300s 内后台再验证（stale-while-revalidate）——避免每个标签页每 60s 轮询都重传 81KB、并让边缘节点可缓存。
   return NextResponse.json(
     { regions: hit.regions, ts: hit.ts },
-    { headers: { "Cache-Control": "no-store" } }
+    { headers: { "Cache-Control": "public, max-age=60, s-maxage=120, stale-while-revalidate=300" } }
   );
 }
