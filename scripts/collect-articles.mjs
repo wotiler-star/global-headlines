@@ -447,8 +447,11 @@ function normalizeArticle(a) {
 }
 
 const MIRROR_CAP = 2000; // 每语言新鲜度 top-N
-const MIRROR_HOST_FLOOR = 6; // 每个源至少保留条数（保底，防止小体量分站被挤出）
-const MIRROR_FLOOR_BUDGET = 900; // 每语言保底补充总量上限，控体量
+// cov49：每源保底 6 → 18。根因：英文桶 14 天约 4 万条，仅最近 ~17h 的 2000 条进镜像，
+// 弱站被挤到只剩保底 6。抬高到 18 直接托底弱源（高体量源已在 top-N 远超 18，无影响）。
+// 保底循环从完整 14 天 list 取该源最新若干条，故不受 2000 截断限制；预算相应 900 → 4000 容纳。
+const MIRROR_HOST_FLOOR = 18;
+const MIRROR_FLOOR_BUDGET = 4000; // 每语言保底补充总量上限，控体量
 
 function hostOf(a) {
   try {
