@@ -338,6 +338,13 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   const new1h = regions.reduce((s, r) => s + ((r.hourDist && r.hourDist[23]) || 0), 0);
   const peak = [...regions].sort((a, b) => b.signalCount - a.signalCount)[0];
 
+  // cov48b 全局面板"活"指标（参照 FlightRadar24 / Windy / USGS 等主流地球仪仪表盘口径）
+  // 上一小时全球新增 → 与当前小时比较得动量；实时速率=近1h÷60；活跃地区=近1h有信号的地区数
+  const new1hPrev = regions.reduce((s, r) => s + ((r.hourDist && r.hourDist[22]) || 0), 0);
+  const ratePerMin = new1h > 0 ? Math.round(new1h / 60) : 0;
+  const activeRegions = regions.filter((r) => (r.hourDist && r.hourDist[23] || 0) > 0).length;
+  const momentum = new1h - new1hPrev; // >0 升温 / <0 降温 / =0 持平
+
   // 分站切换栏：按信号量取 top-N 分站；若当前选中分站不在前 N（如弱信号站），前置插入确保可见可点。
   const topStations = useMemo(() => {
     const arr = [...regions].sort((a, b) => b.signalCount - a.signalCount);
@@ -1710,8 +1717,24 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
               <span className="sd-m-val">{regions.length}</span>
             </div>
             <div className="sd-metric">
+              <span className="sd-m-label">活跃地区 ACTIVE/1H</span>
+              <span className="sd-m-val">
+                {activeRegions}
+                <span className="sd-m-sub">/{regions.length}</span>
+              </span>
+            </div>
+            <div className="sd-metric">
               <span className="sd-m-label">近 1 小时 NEW/1H</span>
-              <span className="sd-m-val">+{new1h}</span>
+              <span className="sd-m-val">
+                +{new1h}
+                <span className={"sd-mom" + (momentum > 0 ? " up" : momentum < 0 ? " down" : "")}>
+                  {momentum > 0 ? " ▲" : momentum < 0 ? " ▼" : " —"}
+                </span>
+              </span>
+            </div>
+            <div className="sd-metric">
+              <span className="sd-m-label">实时速率 RATE/MIN</span>
+              <span className="sd-m-val">≈{ratePerMin}</span>
             </div>
             <div className="sd-metric sd-m-full">
               <span className="sd-m-label">最热地区 PEAK</span>

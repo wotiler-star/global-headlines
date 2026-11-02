@@ -988,6 +988,9 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .sd-m-label { display: block; font-family: var(--font-mn); font-size: 9px; letter-spacing: .1em; color: var(--ink-3); }
 .sd-m-val { display: block; font-family: var(--font-mn); font-size: 18px; font-weight: 700; color: var(--ink); margin-top: 3px; }
 .sd-m-sub { font-size: 10px; font-weight: 400; color: var(--ink-3); margin-left: 2px; }
+.sd-mom { font-size: 12px; font-weight: 700; margin-left: 4px; vertical-align: 1px; }
+.sd-mom.up { color: #3ddc97; }
+.sd-mom.down { color: #ff7a59; }
 .sd-m-sm { font-size: 13px; }
 .sd-act-bar { height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; margin-bottom: 10px; }
 .sd-act-fill { height: 100%; background: linear-gradient(90deg, var(--brand-dark), var(--brand)); }
