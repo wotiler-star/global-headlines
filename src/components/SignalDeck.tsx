@@ -1313,6 +1313,10 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   const pnlTrend = pnlD1 > pnlD0 ? "▲" : pnlD1 < pnlD0 ? "▼" : "▬";
   const pnlTrendCls = pnlD1 > pnlD0 ? " up" : pnlD1 < pnlD0 ? " down" : "";
   const pnlPeak = pnl ? peakBucket(pnl.hourDist) : null;
+  // cov48 面板参数活值化：SHARE/ACTIVITY 对弱站恒为 0.0%/0%（死数字）。
+  // 改用主流地球仪表盘口径：热度排名（恒有意义）+ 24h 信号量（"现在"的体量）+ 24h 走势曲线。
+  const pnlRank = pnl ? [...regions].sort((a, b) => b.signalCount - a.signalCount).findIndex((r) => r.code === pnl.code) + 1 : 0;
+  const pnl24 = pnl ? (pnl.hourDist || []).reduce((s, v) => s + v, 0) : 0;
   const gPeak = peakBucket(globalHourDist);
   const isPreview = !!(pnl && previewRegion && active !== pnl.code);
 
@@ -1789,8 +1793,8 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
           </div>
           <div className="sd-metrics">
             <div className="sd-metric">
-              <span className="sd-m-label">信号量 SIGNAL</span>
-              <span className="sd-m-val">{pnl.signalCount}</span>
+              <span className="sd-m-label">信号总量 TOTAL</span>
+              <span className="sd-m-val" title="近 14 天累计信号数">{pnl.signalCount}</span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">近 1 小时 NEW/1H</span>
@@ -1800,19 +1804,19 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">活跃源 SOURCES</span>
-              <span className="sd-m-val">{pnl.sources}</span>
+              <span className="sd-m-val" title={pnl.sourcesList && pnl.sourcesList.length ? "活跃源: " + pnl.sourcesList.slice(0, 4).join(", ") : undefined}>{pnl.sources}</span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">最新信号 LAST</span>
               <span className="sd-m-val sd-m-sm" suppressHydrationWarning>{relTime(pnl.lastSignal, locale)}</span>
             </div>
             <div className="sd-metric">
-              <span className="sd-m-label">全球占比 SHARE</span>
-              <span className="sd-m-val">{total ? ((pnl.signalCount / total) * 100).toFixed(1) : "0.0"}%</span>
+              <span className="sd-m-label">热度排名 RANK</span>
+              <span className="sd-m-val" title={"按近 14 天信号量在 " + regions.length + " 个分站中排名"}>#{pnlRank || "—"}<span className="sd-m-sub">/{regions.length}</span></span>
             </div>
             <div className="sd-metric">
-              <span className="sd-m-label">活跃度 ACTIVITY</span>
-              <span className="sd-m-val">{pnl.activity}%</span>
+              <span className="sd-m-label">24H 信号 NEW/24H</span>
+              <span className="sd-m-val" title="过去 24 小时新增信号数（底部曲线同口径）">+{pnl24}</span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">本地时间 LOCAL</span>
@@ -1835,6 +1839,11 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
               </div>
             ) : null}
           </div>
+
+          {/* cov48：该分站 24h 信号走势（主流仪表盘核心"活"元素；与全球面板同款组件，点击回放该小时） */}
+          {pnl.hourDist && pnl.hourDist.length ? (
+            <Sparkline data={pnl.hourDist} label={"过去 24 小时 " + pnl.name + " 信号分布"} onSeek={(i) => setHour(i)} />
+          ) : null}
 
           {pnl.latestTitle ? (
             <button
