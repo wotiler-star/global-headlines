@@ -1,0 +1,16 @@
+# 统一换行符：仓库内一律 LF（CRLF 曾随 scp 带上生产服务器，造成假 diff）
+* text=auto eol=lf
+
+# 二进制：禁止换行归一化与差异处理
+*.woff2  binary
+*.woff   binary
+*.ttf    binary
+*.otf    binary
+*.webp   binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.sqlite binary
+*.db     binary
