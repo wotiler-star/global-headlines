@@ -247,6 +247,22 @@ const DOMAIN_TO_CODE: Record<string, string> = {
   "jornaldenegocios.pt": "LIS",
   // —— 杜尚别：asiaplustj.info 注册源落库 0 篇，实际域名已迁到 asiaplus.news ——
   "asiaplus.news": "DUSH",
+  // cov49 弱站补源对应映射（真实出版方域名，取自 Google News <source url> 实测）
+  "norwaytoday.info": "OSL", "newsinenglish.no": "OSL",
+  "balkaninsight.com": "SAR",
+  "thestar.com": "YTO", "globalnews.ca": "YTO",
+  "philstar.com": "MNL", "rappler.com": "MNL",
+  "cphpost.dk": "CPH",
+  "borkena.com": "ADD",
+  "newsfirst.lk": "CMB",
+  "pakistantoday.com.pk": "KHI", "dailytimes.com.pk": "KHI",
+  "croatiaweek.com": "ZAG",
+  "royanews.tv": "AMM", "en.royanews.tv": "AMM", "petra.gov.jo": "AMM",
+  "turkmenportal.com": "ASH",
+  "jpost.com": "TLV", "ynetnews.com": "TLV",
+  "thecitypaperbogota.com": "BOG",
+  "astanatimes.com": "ALA",
+  "themalaysianreserve.com": "KUL", "todayonline.com": "SIN",
 };
 
 // 地区运行时指标（首页地球面板用）

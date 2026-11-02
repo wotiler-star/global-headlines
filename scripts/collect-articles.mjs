@@ -240,6 +240,53 @@ const FALLBACK_SITES = [
   { site: "antaranews.com",      locale: "en", category: "world" }, // JKT 雅加达
   { site: "eltiempo.com",        locale: "es", category: "world" }, // BOG 波哥大
   { site: "elespectador.com",    locale: "es", category: "world" }, // BOG 波哥大
+  // cov49 弱站补源：给 18 个信号≤12 的分站各加 2-3 个 Google News 可达的英文源，
+  // 解除「单源卡保底 6 条」瓶颈（MIRROR_HOST_FLOOR 是下限，源不够则抬不动）。全部经 host 实测可达。
+  // —— OSL 奥斯陆（原仅 thelocal.no）——
+  { site: "norwaytoday.info",  locale: "en", category: "world" }, // OSL 英文挪威
+  { site: "newsinenglish.no",  locale: "en", category: "world" }, // OSL 英文挪威
+  // —— SAR 萨拉热窝（原仅 sarajevotimes.com）——
+  { site: "balkaninsight.com", locale: "en", category: "world" }, // SAR 英文巴尔干（萨拉热窝）
+  // —— YTO 多伦多（原仅 cbc.ca 且产出偏少）——
+  { site: "thestar.com",       locale: "en", category: "world" }, // YTO 多伦多星报
+  { site: "globalnews.ca",     locale: "en", category: "world" }, // YTO 环球新闻
+  // —— MNL 马尼拉（原仅 inquirer.net）——
+  { site: "philstar.com",      locale: "en", category: "world" }, // MNL 菲律宾星报
+  { site: "rappler.com",       locale: "en", category: "world" }, // MNL Rappler
+  { site: "gmanetwork.com",    locale: "en", category: "world" }, // MNL 已映射，确保进采集
+  // —— CPH 哥本哈根（原仅 thelocal.dk）——
+  { site: "cphpost.dk",        locale: "en", category: "world" }, // CPH 英文丹麦（Copenhagen Post）
+  // —— ADD 亚的斯亚贝巴（原仅 thereporterethiopia.com）——
+  { site: "borkena.com",       locale: "en", category: "world" }, // ADD 英文埃塞
+  { site: "ethiopianmonitor.com", locale: "en", category: "world" }, // ADD 已映射，确保进采集
+  // —— CMB 科伦坡（原仅 dailynews.lk）——
+  { site: "newsfirst.lk",      locale: "en", category: "world" }, // CMB 英文斯里兰卡
+  // —— KHI 卡拉奇（原仅 thenews.com.pk）——
+  { site: "pakistantoday.com.pk", locale: "en", category: "world" }, // KHI 巴基斯坦今日
+  { site: "dailytimes.com.pk", locale: "en", category: "world" }, // KHI Daily Times
+  // —— ZAG 萨格勒布（原仅 total-croatia-news.com）——
+  { site: "croatiaweek.com",   locale: "en", category: "world" }, // ZAG 英文克罗地亚
+  // —— AMM 安曼（原仅 jordantimes.com）——
+  { site: "royanews.tv",       locale: "en", category: "world" }, // AMM 英文约旦（真实源 en.royanews.tv）
+  { site: "petra.gov.jo",      locale: "en", category: "world" }, // AMM 约旦通讯社
+  // —— ASH 阿什哈巴德（原仅 orient.tm）——
+  { site: "turkmenportal.com", locale: "en", category: "world" }, // ASH 英文土库曼
+  // —— TLV 特拉维夫（原 timesofisrael，补英文以色列源）——
+  { site: "jpost.com",         locale: "en", category: "world" }, // TLV 耶路撒冷邮报
+  { site: "ynetnews.com",      locale: "en", category: "world" }, // TLV Ynet
+  // —— BOG 波哥大（原 es 两源，补英文哥伦比亚源）——
+  { site: "colombiareports.com", locale: "en", category: "world" }, // BOG 已映射，确保进采集
+  { site: "thecitypaperbogota.com", locale: "en", category: "world" }, // BOG 英文波哥大
+  // —— DUSH 杜尚别（原仅 asiaplus.news）——
+  { site: "asiaplustj.info",   locale: "en", category: "world" }, // DUSH 旧域名仍可采
+  // —— ALA 阿拉木图（原 tengrinews+inform，补英文哈萨克源）——
+  { site: "astanatimes.com",   locale: "en", category: "world" }, // ALA 英文哈萨克斯坦
+  // —— KUL 吉隆坡（确保 malaymail 进采集，补源）——
+  { site: "malaymail.com",     locale: "en", category: "world" }, // KUL 已映射，确保进采集
+  { site: "themalaysianreserve.com", locale: "en", category: "world" }, // KUL
+  // —— SIN 新加坡（确保 straitstimes 进采集，补源）——
+  { site: "straitstimes.com",  locale: "en", category: "world" }, // SIN 已映射，确保进采集
+  { site: "todayonline.com",    locale: "en", category: "world" }, // SIN
 ];
 
 // ---- 解析工具（与 rssSource.ts 的纯函数保持一致）----
