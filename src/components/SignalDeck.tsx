@@ -7,6 +7,52 @@ import { RegionStat, geoLabel, stationOfCountry, cityName, GeoLabel } from "@/li
 import { homeHref, articleHref } from "@/lib/paths";
 import CurrencyConverter from "@/components/CurrencyConverter";
 
+// 偏好减少动效（用于数字补间 / 云层自转等）
+function usePrefersReducedMotion(): boolean {
+  const [r, setR] = useState(false);
+  useEffect(() => {
+    const m = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setR(m.matches);
+    const h = () => setR(m.matches);
+    m.addEventListener?.("change", h);
+    return () => m.removeEventListener?.("change", h);
+  }, []);
+  return r;
+}
+
+// 数字补间：仅数值变化时从旧值平滑过渡到新值（easeOutCubic / RAF）。
+// 用于全局/分站"活"指标，强化地球仪仪表盘实时观感；减少动效偏好下直接显示终值。
+function useCountUp(value: number, duration = 600): number {
+  const reduced = usePrefersReducedMotion();
+  const [disp, setDisp] = useState(value);
+  const fromRef = useRef(value);
+  const rafRef = useRef(0);
+  useEffect(() => {
+    if (reduced || fromRef.current === value) {
+      fromRef.current = value;
+      setDisp(value);
+      return;
+    }
+    const from = fromRef.current;
+    const to = value;
+    const t0 = performance.now();
+    const step = (now: number) => {
+      const p = Math.min(1, (now - t0) / duration);
+      const e = 1 - Math.pow(1 - p, 3);
+      setDisp(from + (to - from) * e);
+      if (p < 1) rafRef.current = requestAnimationFrame(step);
+      else { fromRef.current = to; setDisp(to); }
+    };
+    rafRef.current = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [value, reduced, duration]);
+  return Math.round(disp);
+}
+
+function CountUp({ value, dur }: { value: number; dur?: number }) {
+  return <>{useCountUp(value, dur)}</>;
+}
+
 const REL: Record<string, { just: string; min: string; hr: string; day: string }> = {
   zh: { just: "刚刚", min: "分钟前", hr: "小时前", day: "天前" },
   en: { just: "just now", min: "m ago", hr: "h ago", day: "d ago" },
@@ -838,6 +884,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
       loader.load("/img/clouds.webp", (tex: any) => {
         if (!cancelled) cloudUniforms.cloudMap.value = tex;
       });
+      const SD_CLOUD_STEP = prefersReduced ? 0 : 0.00022;
       let cloudSpin = 0;
       const cloudMesh = new THREE.Mesh(new THREE.SphereGeometry(GLOBE_R * 1.008, 48, 24), cloudMat);
       cloudMesh.rotation.y = -Math.PI / 2; // 与地球贴图同朝向
@@ -850,7 +897,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
         });
       const spinClouds = () => {
         if (cancelled) return;
-        cloudSpin += 0.00022;
+        cloudSpin += SD_CLOUD_STEP;
         cloudMesh.rotation.y = -Math.PI / 2 + cloudSpin;
         cloudRaf = requestAnimationFrame(spinClouds);
       };
@@ -1710,23 +1757,23 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
           <div className="sd-metrics">
             <div className="sd-metric">
               <span className="sd-m-label">信号总量 TOTAL</span>
-              <span className="sd-m-val">{total}</span>
+              <span className="sd-m-val"><CountUp value={total} /></span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">覆盖地区 REGIONS</span>
-              <span className="sd-m-val">{regions.length}</span>
+              <span className="sd-m-val"><CountUp value={regions.length} /></span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">活跃地区 ACTIVE/1H</span>
               <span className="sd-m-val">
-                {activeRegions}
+                <CountUp value={activeRegions} />
                 <span className="sd-m-sub">/{regions.length}</span>
               </span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">近 1 小时 NEW/1H</span>
               <span className="sd-m-val">
-                +{new1h}
+                +<CountUp value={new1h} />
                 <span className={"sd-mom" + (momentum > 0 ? " up" : momentum < 0 ? " down" : "")}>
                   {momentum > 0 ? " ▲" : momentum < 0 ? " ▼" : " —"}
                 </span>
@@ -1734,11 +1781,11 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">实时速率 RATE/MIN</span>
-              <span className="sd-m-val">≈{ratePerMin}</span>
+              <span className="sd-m-val">≈<CountUp value={ratePerMin} /></span>
             </div>
             <div className="sd-metric sd-m-full">
               <span className="sd-m-label">最热地区 PEAK</span>
-              <span className="sd-m-val sd-m-sm">{peak.name} · {peak.signalCount}</span>
+              <span className="sd-m-val sd-m-sm">{peak.name} · <CountUp value={peak.signalCount} /></span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">最新信号 LAST</span>
@@ -1817,17 +1864,17 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
           <div className="sd-metrics">
             <div className="sd-metric">
               <span className="sd-m-label">信号总量 TOTAL</span>
-              <span className="sd-m-val" title="近 14 天累计信号数">{pnl.signalCount}</span>
+              <span className="sd-m-val" title="近 14 天累计信号数"><CountUp value={pnl.signalCount} /></span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">近 1 小时 NEW/1H</span>
               <span className={"sd-m-val" + pnlTrendCls} title="与上一小时对比（与榜单行 ▲▼ 同口径）">
-                {pnlTrend} +{pnlD1}
+                {pnlTrend} +<CountUp value={pnlD1} />
               </span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">活跃源 SOURCES</span>
-              <span className="sd-m-val" title={pnl.sourcesList && pnl.sourcesList.length ? "活跃源: " + pnl.sourcesList.slice(0, 4).join(", ") : undefined}>{pnl.sources}</span>
+              <span className="sd-m-val" title={pnl.sourcesList && pnl.sourcesList.length ? "活跃源: " + pnl.sourcesList.slice(0, 4).join(", ") : undefined}><CountUp value={pnl.sources} /></span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">最新信号 LAST</span>
@@ -1835,11 +1882,11 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">热度排名 RANK</span>
-              <span className="sd-m-val" title={"按近 14 天信号量在 " + regions.length + " 个分站中排名"}>#{pnlRank || "—"}<span className="sd-m-sub">/{regions.length}</span></span>
+              <span className="sd-m-val" title={"按近 14 天信号量在 " + regions.length + " 个分站中排名"}>#{pnlRank ? <CountUp value={pnlRank} /> : "—"}<span className="sd-m-sub">/{regions.length}</span></span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">24H 信号 NEW/24H</span>
-              <span className="sd-m-val" title="过去 24 小时新增信号数（底部曲线同口径）">+{pnl24}</span>
+              <span className="sd-m-val" title="过去 24 小时新增信号数（底部曲线同口径）">+<CountUp value={pnl24} /></span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">本地时间 LOCAL</span>
