@@ -59,8 +59,11 @@ export default function InfiniteFeed({
     }
     if (allArticles && allArticles.length) return; // SSR 已带（理论上不会发生）
     let cancelled = false;
+    // cov51：服务端按 ?src= 过滤（响应从 ~3.2MB 降到数十 KB），15s 超时兜底防止永久 Loading
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
     setLoadingAll(true);
-    fetch("/api/all-articles")
+    fetch(`/api/all-articles?src=${encodeURIComponent(srcParam)}`, { signal: ctrl.signal })
       .then((r) => r.json())
       .then((d) => {
         if (cancelled) return;
@@ -72,6 +75,8 @@ export default function InfiniteFeed({
       });
     return () => {
       cancelled = true;
+      clearTimeout(timer);
+      ctrl.abort();
     };
   }, [srcParam, allArticles]);
   const effectiveAll = allArticles && allArticles.length ? allArticles : (fetchedAll || []);
