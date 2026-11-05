@@ -108,7 +108,9 @@ export default async function LocaleLayout({
                     "@type": "SearchAction",
                     target: {
                       "@type": "EntryPoint",
-                      urlTemplate: absUrl(loc, "/?q={search_term_string}"),
+                      // cov57：真实搜索落地页是 /search?q=（SearchBox form action 指向它），
+                      // 之前错写成 /?q=（首页不渲染搜索结果）→ 站点搜索框结构化数据失效。
+                      urlTemplate: absUrl(loc, "/search?q={search_term_string}"),
                     },
                     "query-input": "required name=search_term_string",
                   },

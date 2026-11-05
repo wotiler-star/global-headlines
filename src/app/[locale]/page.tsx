@@ -4,7 +4,7 @@ import { getDict } from "@/i18n/dictionaries";
 import { getArticles } from "@/data/newsSource";
 import { formatRelativeTime, type Article } from "@/data/news";
 import { getHotBoard } from "@/services/feed";
-import { buildAlternates } from "@/lib/site";
+import { buildAlternates, absUrl, SITE_URL } from "@/lib/site";
 import SearchChips from "@/components/SearchChips";
 import HeroHead from "@/components/HeroHead";
 import TodayBrief from "@/components/TodayBrief";
@@ -180,6 +180,24 @@ export default async function Home({
           </aside>
         </div>
       </div>
+      {/* ItemList：首页信息流是可索引的列表页，用结构化数据显式标注前 20 条文章
+          （position + url + name），帮助 Google 理解列表结构、提升收录与潜在富结果。 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            numberOfItems: Math.min(slimArticles.length, 20),
+            itemListElement: slimArticles.slice(0, 20).map((a, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: absUrl(loc, `/article/${a.id}`),
+              name: a.title,
+            })),
+          }),
+        }}
+      />
     </>
   );
 }

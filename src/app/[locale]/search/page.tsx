@@ -8,12 +8,15 @@ import SearchHotBoard from "@/components/SearchHotBoard";
 import SearchBox from "@/components/SearchBox";
 import { BrandMark, BrandWordmark } from "@/components/BrandMark";
 import { homeHref } from "@/lib/paths";
+import { buildAlternates, absUrl, SITE_URL } from "@/lib/site";
+import { FAQ } from "@/i18n/faq";
 import { BRAND_NAME } from "@/lib/brand";
 import Link from "next/link";
 import { Suspense } from "react";
 import type { Metadata } from "next";
 
-// 搜索结果页不进索引（内容随 q 变化），标题带上关键词
+// 搜索结果页（带 q）不进索引（内容随查询变化、易成薄/重复页）；
+// 但 bare /search 落地页可索引、承载 8 语种 hreflang 集群与 FAQ，让站点搜索入口可被收录。
 export async function generateMetadata({
   params,
   searchParams,
@@ -26,8 +29,21 @@ export async function generateMetadata({
   const loc: Locale = isLocale(locale) ? locale : "zh";
   const d = getDict(loc);
   const q = (sp.q || "").trim();
+  const alts = buildAlternates(loc, "/search");
+  if (!q) {
+    // 落地页：可索引 + 完整 hreflang 集群 + 本地化描述（与首页区分）
+    return {
+      title: `${d.searchResults} · ${d.siteName}`,
+      description: FAQ[loc].landingDesc,
+      alternates: { canonical: alts.canonical, languages: alts.languages },
+      robots: { index: true, follow: true },
+    };
+  }
+  // 结果页：不索引，canonical 收敛到 bare /search（避免每个 ?q= 产生软 404/重复），
+  // 不声明 hreflang（Google 对 noindex 页忽略 hreflang，无需浪费）。
   return {
-    title: q ? `${q} - ${d.searchResults}` : d.searchResults,
+    title: `${q} - ${d.searchResults}`,
+    alternates: { canonical: absUrl(loc, "/search") },
     robots: { index: false, follow: true },
   };
 }
@@ -103,7 +119,36 @@ export default async function SearchPage({
       <div className="sp-layout">
         <div className="sp-main">
           {!q ? (
-            <div className="search-empty">{d.searchEmpty}</div>
+            <>
+              <div className="search-empty">{d.searchEmpty}</div>
+              {/* 可见 FAQ：既充实 bare /search 落地页内容（使其值得索引），
+                  又作为 FAQPage 结构化数据的 DOM 来源，schema 必须与此处一致。 */}
+              <section className="search-faq" aria-label={FAQ[loc].title}>
+                <h2 className="sf-title">{FAQ[loc].title}</h2>
+                <ul className="sf-list">
+                  {FAQ[loc].items.map((it, i) => (
+                    <li className="sf-item" key={i}>
+                      <h3 className="sf-q">{it.q}</h3>
+                      <p className="sf-a">{it.a}</p>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    mainEntity: FAQ[loc].items.map((it) => ({
+                      "@type": "Question",
+                      name: it.q,
+                      acceptedAnswer: { "@type": "Answer", text: it.a },
+                    })),
+                  }),
+                }}
+              />
+            </>
           ) : (
             // 有 q 就保持 SearchResults 挂载（即使当前分类 0 结果）：
             // 分类 tab 常驻，键盘/鼠标都能从无结果状态切到别的分类，不会被困住。
