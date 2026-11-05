@@ -28,11 +28,13 @@ function countryFromHeaders(req: NextRequest): string | undefined {
   return undefined;
 }
 
-/** 首次访客选择语种：国家头 > Accept-Language > 默认；cookie 优先（在调用方处理） */
+/** 首次访客选择语种：国家头 > Accept-Language > 国际通用语 en */
 function pickLocale(req: NextRequest): string {
   const country = countryFromHeaders(req);
   if (country) return countryToLocale(country);
-  return acceptLanguageToLocale(req.headers.get("accept-language")) || defaultLocale;
+  // 德语/意语/俄语等站点暂不支持的语种回退 en，而不是中文——
+  // 面向全球网友时 en 是更中性的兜底，随后 /api/geo 会按 IP 精修。
+  return acceptLanguageToLocale(req.headers.get("accept-language")) || "en";
 }
 
 // 注意：本 middleware **不写** gh_locale cookie。

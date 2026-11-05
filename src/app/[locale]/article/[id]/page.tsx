@@ -3,7 +3,7 @@ import { isLocale, Locale, locales, categories, ogLocale, localeMeta } from "@/i
 import { getDict } from "@/i18n/dictionaries";
 import { getArticle, getRelated, getArticles } from "@/data/newsSource";
 import { formatRelativeTime } from "@/data/news";
-import { absUrl, buildAlternates } from "@/lib/site";
+import { absUrl, buildArticleAlternates } from "@/lib/site";
 import { videoEmbedSrc } from "@/lib/video";
 import { homeHref } from "@/lib/paths";
 import CategoryNav from "@/components/CategoryNav";
@@ -55,7 +55,7 @@ export async function generateMetadata({
   const loc = locale as Locale;
   const article = await getArticle(loc, id);
   if (!article) return {};
-  const alts = buildAlternates(loc, `/article/${id}`);
+  const alts = buildArticleAlternates(loc, `/article/${id}`);
   const url = absUrl(loc, `/article/${id}`);
   const iso = new Date(article.publishedAt).toISOString();
   return {

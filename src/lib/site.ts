@@ -14,9 +14,11 @@ export function localePath(locale: Locale, path = "") {
   const base = qIndex >= 0 ? path.slice(0, qIndex) : path;
   const p = base && !base.startsWith("/") ? `/${base}` : base;
   // Docker(next start) 部署服务干净 URL，不再追加 /index.html（CloudStudio 静态托管遗留逻辑）
+  // Next 默认 trailingSlash:false：/zh/ 会 308 到 /zh。
+  // canonical/hreflang/sitemap 必须指向真正返回 200 的 URL，否则形成
+  // 「规范链重定向」，Google 会弱化该信号。统一为无尾斜杠。
   const full = `/${locale}${p}`.replace(/\/+$/, "");
-  // 目录型根路径保留尾斜杠（/zh/），其余为干净路径（/zh/article/xxx）
-  return (full === `/${locale}` ? `${full}/` : full) + query;
+  return full + query;
 }
 
 export function absUrl(locale: Locale, path = "") {
@@ -52,4 +54,20 @@ export function buildSitemapAlternates(locale: Locale, path = "") {
   for (const l of locales) languages[localeMeta[l].hreflang] = absUrl(l, path);
   languages["x-default"] = absUrl(defaultLocale, path);
   return { canonical: absUrl(locale, path), languages };
+}
+
+// 文章页专用：只声明本文所属语言 + x-default。
+// 站内文章 id 跨语言共享（同一稿件可在任意 /xx/article/id 下渲染，内容不翻译），
+// 若像首页那样声明 68 个地区 hreflang，等于把同一份内容谎称为多种语言版本，
+// Google 会判 hreflang 无效甚至视为 doorway。地区级声明只适用于确实按语言切换
+// 界面的首页/分类页。
+export function buildArticleAlternates(locale: Locale, path = "") {
+  const url = absUrl(locale, path);
+  return {
+    canonical: url,
+    languages: {
+      [localeMeta[locale].hreflang]: url,
+      "x-default": url,
+    },
+  };
 }

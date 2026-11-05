@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales, categories, Locale } from "@/i18n/config";
 import { getArticles } from "@/data/newsSource";
-import { absUrl, buildSitemapAlternates } from "@/lib/site";
+import { absUrl, buildSitemapAlternates, buildArticleAlternates } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -34,7 +34,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       for (const a of await getArticles(loc, c)) articleIds.add(a.id);
     }
     for (const id of articleIds) {
-      const alts = buildSitemapAlternates(loc, `/article/${id}`);
+      const alts = buildArticleAlternates(loc, `/article/${id}`);
       urls.push({
         url: absUrl(loc, `/article/${id}`),
         lastModified: new Date(),
