@@ -120,6 +120,29 @@ export default async function ArticlePage({
   const readMin = Math.max(1, Math.round(cjk ? bodyChars / 400 : bodyChars / 1000));
   const signalId = "SIGNAL_" + article.id.replace(/[^a-zA-Z0-9]/g, "").slice(-6).toUpperCase();
 
+  // 配图内联：不再用独立图集区，而是把 hero 之外的配图按正文均匀分布插入段落之间
+  // 位置确定性计算：第 k 张插在 body 长度的 (k+1)/(n+1) 处段落之后，避开引述位、去重
+  const inlineFigs = (() => {
+    if (article.media === "video") return [] as { at: number; src: string; no: number }[];
+    const imgs = (article.images || []).slice(1);
+    const len = article.body.length;
+    if (!imgs.length || len === 0) return [];
+    const quoteAt = Math.min(1, len - 1);
+    const out: { at: number; src: string; no: number }[] = [];
+    let prev = -1;
+    imgs.forEach((src, k) => {
+      let at = Math.round((len * (k + 1)) / (imgs.length + 1)) - 1;
+      at = Math.min(Math.max(at, 0), len - 1);
+      if (at === quoteAt && quote) at = Math.min(at + 1, len - 1); // 避免引述块后紧贴配图
+      if (at <= prev) at = prev + 1;
+      if (at > len - 1) return;
+      prev = at;
+      out.push({ at, src, no: k + 1 });
+    });
+    return out;
+  })();
+  const figMap = new Map(inlineFigs.map((f) => [f.at, f]));
+
   return (
     <>
       <script
@@ -212,14 +235,6 @@ export default async function ArticlePage({
           {article.media !== "video" && (
             <div className="art-caption">SOURCE · {article.source}</div>
           )}
-          {article.media !== "video" && (article.images || []).length > 1 && (
-            <div className="art-gallery">
-              {(article.images || []).slice(1).map((src, i) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img key={i} src={src} alt={(article.title || "配图") + " 配图 " + (i + 1)} loading="lazy" decoding="async" />
-              ))}
-            </div>
-          )}
           <div className="art-lead">
             <div className="al-label">LEAD · 导读</div>
             <p>{article.summary}</p>
@@ -234,6 +249,20 @@ export default async function ArticlePage({
                     <div className="aq-label">QUOTE · 引述</div>
                     <blockquote>{quote}</blockquote>
                   </div>
+                )}
+                {figMap.get(i) && (
+                  <figure className="art-inline-fig">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={figMap.get(i)!.src}
+                      alt={article.title + " 配图 " + figMap.get(i)!.no}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <figcaption>
+                      FIG.{String(figMap.get(i)!.no).padStart(2, "0")} · {article.source}
+                    </figcaption>
+                  </figure>
                 )}
               </Fragment>
             ))}

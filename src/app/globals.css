@@ -1162,9 +1162,10 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
   .sd-leg-name { display: none; }
 }
 
-/* 原创文章内文配图画廊（images.slice(1)） */
-.art-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 18px 0; }
-.art-gallery img { width: 100%; height: 168px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); background: var(--surface-2); }
+/* 原创文章配图内联 figure（images.slice(1) 均匀插入正文段落之间，全宽不裁切） */
+.art-inline-fig { margin: 24px 0; }
+.art-inline-fig img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); background: var(--surface-2); }
+.art-inline-fig figcaption { font-family: var(--font-mn); font-size: 10px; letter-spacing: 0.2em; color: var(--ink-3); margin-top: 8px; text-transform: uppercase; }
 /* ART-GALLERY-ORIGINAL */
 
 /* ===== 首页三栏 Grid 定位修复（主列空白/红框 2026-10-16）===== */
