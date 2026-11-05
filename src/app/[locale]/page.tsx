@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { isLocale, Locale, locales } from "@/i18n/config";
+import { isLocale, Locale, locales, ogLocale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { getArticles } from "@/data/newsSource";
 import { formatRelativeTime, type Article } from "@/data/news";
@@ -54,6 +54,17 @@ export async function generateMetadata({
     title: d.homeTitle,
     description: d.homeDesc,
     alternates: { canonical: alts.canonical, languages: alts.languages },
+    // OG locale：社交平台按地区/语言呈现；alternateLocale 声明全部可用语种
+    openGraph: {
+      title: d.homeTitle,
+      description: d.homeDesc,
+      url: alts.canonical,
+      siteName: d.siteName,
+      locale: ogLocale[loc],
+      alternateLocale: locales.filter((l) => l !== loc).map((l) => ogLocale[l]),
+      type: "website",
+    },
+    twitter: { card: "summary_large_image", title: d.homeTitle, description: d.homeDesc },
   };
 }
 

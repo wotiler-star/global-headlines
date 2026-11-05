@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales, categories, Locale } from "@/i18n/config";
 import { getArticles } from "@/data/newsSource";
-import { absUrl, buildAlternates } from "@/lib/site";
+import { absUrl, buildSitemapAlternates } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -12,13 +12,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const loc = l as Locale;
 
     // 首页（每个语言独立 URL）
-    const home = buildAlternates(loc, "");
+    const home = buildSitemapAlternates(loc, "");
     urls.push({ url: absUrl(loc, ""), lastModified: new Date(), alternates: { languages: home.languages } });
 
     // 分类页
     for (const c of categories) {
       if (c === "recommend") continue;
-      const alts = buildAlternates(loc, `/?cat=${c}`);
+      const alts = buildSitemapAlternates(loc, `/?cat=${c}`);
       urls.push({
         url: absUrl(loc, `/?cat=${c}`),
         lastModified: new Date(),
@@ -34,7 +34,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       for (const a of await getArticles(loc, c)) articleIds.add(a.id);
     }
     for (const id of articleIds) {
-      const alts = buildAlternates(loc, `/article/${id}`);
+      const alts = buildSitemapAlternates(loc, `/article/${id}`);
       urls.push({
         url: absUrl(loc, `/article/${id}`),
         lastModified: new Date(),

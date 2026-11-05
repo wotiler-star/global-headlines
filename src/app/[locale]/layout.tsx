@@ -1,10 +1,11 @@
-import { locales, localeMeta, Locale } from "@/i18n/config";
+import { locales, localeMeta, ogLocale, Locale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
-import { buildAlternates, SITE_URL } from "@/lib/site";
+import { buildAlternates, absUrl, SITE_URL } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import BackToTop from "@/components/BackToTop";
+import GeoLocaleGuard from "@/components/GeoLocaleGuard";
 import PwaRegister from "@/components/PwaRegister";
 import VideoModalProvider from "@/components/VideoModal";
 import { AuthProvider } from "@/lib/auth-client";
@@ -34,6 +35,12 @@ export async function generateMetadata({
       canonical: alts.canonical,
       languages: alts.languages,
     },
+    openGraph: {
+      siteName: d.siteName,
+      locale: ogLocale[loc],
+      alternateLocale: locales.filter((l) => l !== loc).map((l) => ogLocale[l]),
+      type: "website",
+    },
   };
 }
 
@@ -54,6 +61,43 @@ export default async function LocaleLayout({
   return (
     <html lang={meta.hreflang} dir={meta.dir} suppressHydrationWarning>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": `${SITE_URL}/#website`,
+                  url: absUrl(loc, ""),
+                  name: d.siteName,
+                  description: d.homeDesc,
+                  inLanguage: meta.hreflang,
+                  publisher: { "@id": `${SITE_URL}/#organization` },
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate: absUrl(loc, "/?q={search_term_string}"),
+                    },
+                    "query-input": "required name=search_term_string",
+                  },
+                },
+                {
+                  "@type": "Organization",
+                  "@id": `${SITE_URL}/#organization`,
+                  name: d.siteName,
+                  url: absUrl(loc, ""),
+                  logo: {
+                    "@type": "ImageObject",
+                    url: `${SITE_URL}/icon.svg`,
+                  },
+                },
+              ],
+            }),
+          }}
+        />
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -73,6 +117,7 @@ export default async function LocaleLayout({
           }}
         />
         <Header locale={loc} />
+        <GeoLocaleGuard locale={loc} />
         <AuthProvider locale={loc}>
           <VideoModalProvider locale={loc}>{children}</VideoModalProvider>
           <Footer locale={loc} />

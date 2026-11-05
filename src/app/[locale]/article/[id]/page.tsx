@@ -1,5 +1,5 @@
 import { Suspense, Fragment } from "react";
-import { isLocale, Locale, locales, categories } from "@/i18n/config";
+import { isLocale, Locale, locales, categories, ogLocale, localeMeta } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { getArticle, getRelated, getArticles } from "@/data/newsSource";
 import { formatRelativeTime } from "@/data/news";
@@ -68,6 +68,9 @@ export async function generateMetadata({
       images: [{ url: article.cover || (article.images || [])[0] }],
       type: "article",
       url,
+      locale: ogLocale[loc],
+      alternateLocale: locales.filter((l) => l !== loc).map((l) => ogLocale[l]),
+      siteName: getDict(loc).siteName,
       publishedTime: iso,
       modifiedTime: iso,
       authors: [article.author || article.source],
@@ -129,6 +132,8 @@ export default async function ArticlePage({
                 "@type": "NewsArticle",
                 headline: article.title,
                 description: article.summary,
+                inLanguage: localeMeta[loc].hreflang,
+                isAccessibleForFree: true,
                 image: article.images,
                 datePublished: new Date(article.publishedAt).toISOString(),
                 dateModified: new Date(article.publishedAt).toISOString(),

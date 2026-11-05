@@ -4,14 +4,14 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        SITE_URL: "https://www.starteday.com"
+        SITE_URL: "https://starteday.com"
     container_name: global-headlines
     restart: unless-stopped
     ports:
       - "8082:3000"
     environment:
       NODE_ENV: production
-      SITE_URL: "https://www.starteday.com"
+      SITE_URL: "https://starteday.com"
     volumes:
       - gh-data:/app/data
     networks:
