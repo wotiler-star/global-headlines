@@ -3,10 +3,10 @@ import { isLocale, Locale, locales, categories, ogLocale, localeMeta } from "@/i
 import { getDict } from "@/i18n/dictionaries";
 import { getArticle, getRelated, getArticles } from "@/data/newsSource";
 import { formatRelativeTime } from "@/data/news";
-import { absUrl, buildArticleAlternates, SITE_URL } from "@/lib/site";
+import { absUrl, buildArticleAlternates, SITE_URL, articleBaseId, articleVersionId } from "@/lib/site";
 import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
-import { homeHref } from "@/lib/paths";
+import { homeHref, articleHref } from "@/lib/paths";
 import CategoryNav from "@/components/CategoryNav";
 import RelatedPanel from "@/components/RelatedPanel";
 import ReadHistoryTracker from "@/components/ReadHistoryTracker";
@@ -56,13 +56,21 @@ export async function generateMetadata({
   const loc = locale as Locale;
   const article = await getArticle(loc, id);
   if (!article) return {};
-  const alts = buildArticleAlternates(loc, `/article/${id}`);
+  const alts = buildArticleAlternates(loc, id);
   const url = absUrl(loc, `/article/${id}`);
   const iso = new Date(article.publishedAt).toISOString();
   return {
     title: article.title,
     description: article.summary,
     alternates: { canonical: alts.canonical, languages: alts.languages },
+    // 允许大图预览与完整摘要，提升搜索结果/社交卡片展示
+    robots: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
     openGraph: {
       title: article.title,
       description: article.summary,
@@ -76,6 +84,7 @@ export async function generateMetadata({
       modifiedTime: iso,
       authors: [article.author || article.source],
       section: article.category,
+      tags: article.tags,
     },
     twitter: {
       card: "summary_large_image",
@@ -120,6 +129,10 @@ export default async function ArticlePage({
   const cjk = loc === "zh" || loc === "ja" || loc === "ko";
   const readMin = Math.max(1, Math.round(cjk ? bodyChars / 400 : bodyChars / 1000));
   const signalId = "SIGNAL_" + article.id.replace(/[^a-zA-Z0-9]/g, "").slice(-6).toUpperCase();
+  // 原创稿每个主题都有 8 份独立撰写的本地化版本；head 里已声明完整 hreflang 互链，
+  // 这里再给出可见内链，帮助爬虫发现与用户主动切换（hreflang 之外的第二重信号）。
+  const isMultilingual = article.id.startsWith("rss-orig-");
+  const baseId = isMultilingual ? articleBaseId(article.id) : article.id;
 
   // 配图内联：不再用独立图集区，而是把 hero 之外的配图按正文均匀分布插入段落之间
   // 位置确定性计算：第 k 张插在 body 长度的 (k+1)/(n+1) 处段落之后，避开引述位、去重
@@ -154,10 +167,13 @@ export default async function ArticlePage({
             "@graph": [
               {
                 "@type": "NewsArticle",
+                "@id": absUrl(loc, `/article/${id}#article`),
                 headline: article.title,
                 description: article.summary,
+                url: absUrl(loc, `/article/${id}`),
                 inLanguage: localeMeta[loc].hreflang,
                 isAccessibleForFree: true,
+                wordCount: bodyChars,
                 image: (article.images || []).map((p: string) =>
                   p.startsWith("http") ? p : `${SITE_URL}${p.startsWith("/") ? "" : "/"}${p}`
                 ),
@@ -166,7 +182,9 @@ export default async function ArticlePage({
                 author: { "@type": "Person", name: article.author || article.source },
                 publisher: {
                   "@type": "Organization",
+                  "@id": `${SITE_URL}/#organization`,
                   name: d.siteName,
+                  url: absUrl(loc, ""),
                   logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.svg` },
                 },
                 mainEntityOfPage: absUrl(loc, `/article/${id}`),
@@ -178,7 +196,7 @@ export default async function ArticlePage({
                 itemListElement: [
                   { "@type": "ListItem", position: 1, name: d.siteName, item: absUrl(loc, "") },
                   { "@type": "ListItem", position: 2, name: d.categories[article.category], item: absUrl(loc, `/?cat=${article.category}`) },
-                  { "@type": "ListItem", position: 3, name: article.title },
+                  { "@type": "ListItem", position: 3, name: article.title, item: absUrl(loc, `/article/${id}`) },
                 ],
               },
             ],
@@ -235,7 +253,7 @@ export default async function ArticlePage({
             ) : (
               <>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={article.cover || article.images[0]} alt={article.title} fetchPriority="high" />
+                <img src={article.cover || article.images[0]} alt={article.title} width={1200} height={800} fetchPriority="high" />
               </>
             )}
           </div>
@@ -263,6 +281,8 @@ export default async function ArticlePage({
                     <img
                       src={figMap.get(i)!.src}
                       alt={article.title + " 配图 " + figMap.get(i)!.no}
+                      width={1200}
+                      height={800}
                       loading="lazy"
                       decoding="async"
                     />
@@ -311,6 +331,24 @@ export default async function ArticlePage({
               </a>
             ))}
           </div>
+          {isMultilingual && (
+            <nav className="art-lang-versions" aria-label="其他语言版本">
+              <div className="alv-label">READ IN · 其他语言版本</div>
+              <div className="alv-links">
+                {locales.map((l) => (
+                  <Link
+                    key={l}
+                    href={articleHref(l, articleVersionId(baseId, l))}
+                    hrefLang={localeMeta[l].hreflang}
+                    aria-current={l === loc ? "page" : undefined}
+                    className={`alv-link${l === loc ? " current" : ""}`}
+                  >
+                    {localeMeta[l].name}
+                  </Link>
+                ))}
+              </div>
+            </nav>
+          )}
         </article>
         <ArticlePrevNext locale={loc} currentId={article.id} />
         <CommentSection locale={loc} articleId={article.id} category={article.category} />

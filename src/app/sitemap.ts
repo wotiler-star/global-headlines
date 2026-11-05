@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales, categories, Locale } from "@/i18n/config";
 import { getArticles } from "@/data/newsSource";
-import { absUrl, buildSitemapAlternates, buildArticleAlternates } from "@/lib/site";
+import { absUrl, buildSitemapAlternates, buildSitemapArticleAlternates } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -27,14 +27,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     urls.push({
       url: absUrl(loc, ""),
       lastModified: latest,
+      changeFrequency: "daily",
+      priority: 1,
       alternates: { languages: home.languages },
     });
 
     for (const [id, ts] of articleTimes) {
-      const alts = buildArticleAlternates(loc, `/article/${id}`);
+      const alts = buildSitemapArticleAlternates(loc, id);
       urls.push({
         url: absUrl(loc, `/article/${id}`),
         lastModified: ts ? new Date(ts) : latest,
+        changeFrequency: "monthly",
+        priority: 0.8,
         alternates: { languages: alts.languages },
       });
     }

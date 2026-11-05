@@ -56,18 +56,69 @@ export function buildSitemapAlternates(locale: Locale, path = "") {
   return { canonical: absUrl(locale, path), languages };
 }
 
-// 文章页专用：只声明本文所属语言 + x-default。
-// 站内文章 id 跨语言共享（同一稿件可在任意 /xx/article/id 下渲染，内容不翻译），
-// 若像首页那样声明 68 个地区 hreflang，等于把同一份内容谎称为多种语言版本，
-// Google 会判 hreflang 无效甚至视为 doorway。地区级声明只适用于确实按语言切换
-// 界面的首页/分类页。
-export function buildArticleAlternates(locale: Locale, path = "") {
-  const url = absUrl(locale, path);
-  return {
-    canonical: url,
-    languages: {
-      [localeMeta[locale].hreflang]: url,
-      "x-default": url,
-    },
-  };
+// 原创稿（rss-orig-*）每个主题都有 8 份独立撰写的本地化版本：
+// 中文用基础 id，其余语种为 <baseId>-<lang>。非原创稿仍按「跨语言共享 id」处理。
+export function articleBaseId(id: string) {
+  const m = /^(.*)-(en|ja|ko|es|fr|pt|tr)$/.exec(id);
+  return m ? m[1] : id;
+}
+
+// 供文章页渲染「其他语言版本」可见内链：中文用 baseId，其余语种加后缀
+export function articleVersionId(baseId: string, l: Locale) {
+  return articleIdFor(baseId, l);
+}
+
+function articleIdFor(baseId: string, l: Locale) {
+  return l === defaultLocale ? baseId : `${baseId}-${l}`;
+}
+
+// 返回 8 语种各自的文章路径；非原创稿返回 null（内容不翻译，不能声明多语言版本）
+function articleUrlMap(id: string): Record<Locale, string> | null {
+  if (!id.startsWith("rss-orig-")) return null;
+  const base = articleBaseId(id);
+  const map = {} as Record<Locale, string>;
+  for (const l of locales) map[l] = `/article/${articleIdFor(base, l)}`;
+  return map;
+}
+
+// 文章页专用：8 语种版本确实存在，声明完整地区级互链（与首页同一套口径）。
+// 同一主题的所有语言页都会生成完全相同的 languages 映射 + 各自 canonical，
+// 满足 hreflang return-tag 双向要求；x-default 统一指向默认语种版本。
+export function buildArticleAlternates(locale: Locale, id: string) {
+  const path = `/article/${id}`;
+  const map = articleUrlMap(id);
+  if (!map) {
+    const url = absUrl(locale, path);
+    return {
+      canonical: url,
+      languages: { [localeMeta[locale].hreflang]: url, "x-default": url },
+    };
+  }
+  const languages: Record<string, string> = {};
+  for (const l of locales) {
+    const url = absUrl(l, map[l]);
+    languages[localeMeta[l].hreflang] = url;
+    for (const region of localeRegions[l]) {
+      if (region !== localeMeta[l].hreflang) languages[region] = url;
+    }
+  }
+  languages["x-default"] = absUrl(defaultLocale, map[defaultLocale]);
+  return { canonical: absUrl(locale, path), languages };
+}
+
+// sitemap 专用精简版：只列 8 个主 hreflang + x-default，避免 48 篇文章 × 68 变体膨胀。
+export function buildSitemapArticleAlternates(locale: Locale, id: string) {
+  const path = `/article/${id}`;
+  const map = articleUrlMap(id);
+  if (!map) {
+    const url = absUrl(locale, path);
+    return {
+      canonical: url,
+      languages: { [localeMeta[locale].hreflang]: url, "x-default": url },
+    };
+  }
+  const languages: Record<string, string> = {};
+  for (const l of locales) languages[localeMeta[l].hreflang] = absUrl(l, map[l]);
+  languages["x-default"] = absUrl(defaultLocale, map[defaultLocale]);
+  return { canonical: absUrl(locale, path), languages };
 }

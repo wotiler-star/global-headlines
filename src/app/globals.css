@@ -1199,8 +1199,16 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 
 /* 原创文章配图内联 figure（images.slice(1) 均匀插入正文段落之间，全宽不裁切） */
 .art-inline-fig { margin: 24px 0; }
-.art-inline-fig img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); background: var(--surface-2); }
+.art-inline-fig img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; border-radius: 8px; border: 1px solid var(--line); background: var(--surface-2); }
 .art-inline-fig figcaption { font-family: var(--font-mn); font-size: 10px; letter-spacing: 0.2em; color: var(--ink-3); margin-top: 8px; text-transform: uppercase; }
+/* 文章页 8 语种版本可见内链（与 head hreflang 互链配套） */
+.art-lang-versions { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 18px; }
+.art-lang-versions .alv-label { font-family: var(--font-mn); font-size: 10px; letter-spacing: 0.2em; color: var(--brand); margin-bottom: 10px; }
+.art-lang-versions .alv-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.art-lang-versions .alv-link { font-family: var(--font-mn); font-size: 11px; letter-spacing: 0.04em; padding: 6px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); text-decoration: none; }
+.art-lang-versions .alv-link:hover { border-color: var(--brand); color: var(--brand); }
+.art-lang-versions .alv-link.current { border-color: var(--brand); background: var(--brand); color: #fff; }
+.art-lang-versions .alv-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 /* ART-GALLERY-ORIGINAL */
 
 /* ===== 首页三栏 Grid 定位修复（主列空白/红框 2026-10-16）===== */
