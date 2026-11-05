@@ -1,0 +1,114 @@
+[
+  {
+    "id": "rss-orig-rna-model-2026-11-en",
+    "title": "An open RNA model has learned to read shape, not just sequence",
+    "summary": "A team at the University of Science and Technology of China published structRFM in Nature on 5 November, pretraining on roughly 21 million sequence–structure pairs and releasing the data, weights and code. The interesting part is not scale: it is that folding becomes a built-in prior rather than a separate tool.",
+    "cover": "/original/rna-model-cover.webp",
+    "images": [
+      "/original/rna-model-cover.webp",
+      "/original/rna-model-fig1.webp",
+      "/original/rna-model-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "RNA",
+      "foundation model",
+      "structure prediction",
+      "open source",
+      "AI for science"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday 原创",
+    "sourceUrl": "https://news.cctv.cn/2026/11/05/ARTI8IFd5K33Ud0NYEWUtNlj261105.shtml",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890411423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Most coverage of a new biological foundation model begins with parameter counts and benchmark tables. The structRFM paper, published in Nature on 5 November by Shaohua Zhou and Peng Xiong's group at the University of Science and Technology of China, deserves a different opening: it changes what the model is asked to learn. Instead of treating an RNA molecule as a string of four letters, the pretraining objective forces the network to account for the shape that string folds into. That is a different claim about the object being modelled, and it is why the release matters beyond one more leaderboard entry.",
+      "RNA is routinely introduced as a messenger between genetic information and protein, which is a convenient simplification and a misleading one. The molecule participates in protein synthesis, gene expression control and splicing, and its behaviour depends on both its nucleotide order and the secondary and tertiary structures it adopts. An identical stretch of bases can produce different outcomes in different structural states. A language-model-style encoder trained only on A, U, C and G therefore starts with half the relevant information missing, and no amount of extra sequence data can fully compensate for a variable that was never shown to it.",
+      "The field's default answer has been to borrow the protein playbook: self-supervised pretraining on large sequence collections, then a separate fine-tune for every downstream task. Structure prediction, meanwhile, grew up as its own toolchain with its own assumptions and formats. The result is a fragmented workflow in which each new question requires a freshly engineered feature set, and tasks with small labelled datasets suffer most because they cannot reuse what the structure tools already know. Anyone who has tried to move between splice-site annotation and structure inference in a single project will recognise the friction.",
+      "structRFM begins with a dataset rather than an architecture. The team assembled roughly 21 million computationally annotated sequence–secondary-structure pairs, binding the question of which bases are present to the question of which bases pair with which. Computationally annotated is an important qualifier, and we will return to it; the immediate point is that structural information enters pretraining as a training signal instead of being bolted on afterwards. Pairing at this scale also makes the supervision dense: every position in a sequence carries a structural relationship, not just a single label at the end.",
+      "The objective is consequently two-sided, learning sequence context and structural dependency together, with a masking scheme designed to make both necessary. The paper's ablation work separates the contributions of the structural branch and the masking strategy, and finds that each matters. That detail is easy to skim past, yet it answers the most useful question a follow-up group can ask: which component actually produced the gain? A result that improves simply because the corpus got bigger is far less actionable than one whose mechanism has been isolated.",
+      "From a single input sequence the trained model emits representations at three granularities: whole-sequence, per-nucleotide, and nucleotide-pair. This is a deliberately practical design. Secondary structure is fundamentally a pairing problem, splice-site detection behaves like local labelling, and homology classification needs a global view. Covering all three with one encoder means downstream projects can start from a representation instead of building a bespoke encoder for each task, which is where most of the engineering cost in computational biology tends to sit.",
+      "The evaluation list is correspondingly varied: secondary structure prediction, zero-shot homology classification, splice-site prediction, internal ribosome entry site recognition, and non-coding RNA classification. The variety is the argument. If the model has genuinely internalised structural priors, these loosely related tasks should improve together rather than one metric being tuned at the expense of the rest. A model that only wins on the benchmark its authors cared about tells you very little about whether the representation generalises.",
+      "Two further results are worth more attention than the headline numbers. Feeding structRFM features into an existing three-dimensional prediction pipeline improved both the 3D output and its associated secondary structure, which is physically sensible: two-dimensional pairing constraints narrow the space of plausible folds. And the model held up on newly released RNA families, with a segmentation strategy extending it to long non-coding RNAs. Biological databases acquire new families continuously, so robustness to families unseen during training is closer to real utility than a marginal gain on a fixed test set.",
+      "The release includes the full paired dataset, model weights and source code. For computational biology the data is often the harder artifact to reproduce, because annotation pipelines carry parameters, versions and filtering rules that silently change results; publishing weights without them can leave a paper technically open but practically unrepeatable. Combined with the decision to share the paired data, the open release gives other groups a real chance to test where the approach breaks — including the gap between computational annotation and experimental measurement, and the question of how the model behaves on folds with no detectable homologues. That is a starting point for the community, not a finished answer."
+    ]
+  },
+  {
+    "id": "rss-orig-enamel-gel-2026-11-en",
+    "title": "The gel that asks saliva to rebuild enamel, crystal by crystal",
+    "summary": "Researchers at the University of Nottingham report in Nature Communications a fluoride-free protein gel that guides calcium and phosphate from saliva into ordered new crystals. In tests simulating brushing, chewing and acid exposure, the regenerated layer behaved like healthy enamel — a shift from protecting a surface to reconstructing it.",
+    "cover": "/original/enamel-gel-cover.webp",
+    "images": [
+      "/original/enamel-gel-cover.webp",
+      "/original/enamel-gel-fig1.webp",
+      "/original/enamel-gel-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "tooth enamel",
+      "biomaterials",
+      "epitaxial mineralization",
+      "oral health",
+      "regenerative dentistry"
+    ],
+    "category": "health",
+    "locale": "en",
+    "source": "starteday 原创",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261104005059.htm",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890351423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Dentistry has lived for decades with an awkward asymmetry: bone heals, skin closes, and the hardest tissue in the human body does neither. Once a tooth finishes developing, the cells that built its enamel are gone, so lost enamel stays lost. Work from the University of Nottingham, reported in Nature Communications on 5 November, does not reverse that biology. It routes around it, using a material to perform the scaffolding that cells once did, and in doing so it challenges the practical conclusion dentists have had to deliver to patients for years.",
+      "Saliva already contains calcium and phosphate, and it can put back a small amount of mineral lost in the very earliest stages of demineralisation. That is the honest basis for remineralising products. But the quantities involved are trivial compared with actual tissue loss: once acid erosion or abrasion has removed a meaningful layer, saliva can slow further damage but cannot rebuild the missing architecture. Fluoride varnishes and similar treatments make surviving enamel more acid-resistant and can arrest early chalky lesions. They are protective measures, and every dentist knows the point at which protection stops and a filling, veneer or crown begins.",
+      "The Nottingham group, drawn from the School of Pharmacy and the Department of Chemical and Environmental Engineering, inverted the usual question. Rather than delivering more mineral to the tooth, they asked how mineral ought to be arranged. Their material is a protein-based gel designed to imitate key features of the natural matrix proteins that guide enamel formation during tooth development. It contains no fluoride. Its job is not to supply building blocks but to supply order, which turns out to be the harder and more consequential half of the problem.",
+      "Application was deliberately kept close to existing practice: a clinician can paint the gel onto teeth much as a fluoride varnish is applied, with no new equipment, no curing step and no elaborate preparation. This looks like a modest design choice and is actually decisive for adoption. Any extra minutes added to an appointment reduce the likelihood that a technique reaches routine care, and a laboratory material that demands a completely new workflow tends to stay in the laboratory regardless of how well it performs.",
+      "Once applied, the gel forms a thin durable coating that penetrates the surface and fills microscopic cracks and gaps. That solves attachment first — a film merely resting on enamel would be stripped by the first few chewing cycles — and then provides a framework for mineral growth anchored to the existing tooth. The coating attracts calcium and phosphate ions naturally present in saliva and organises them into new crystals. The researchers describe this as epitaxial mineralisation: new crystals grow in alignment with the old ones, so the regenerated material becomes structurally continuous with the original surface rather than sitting on top of it as a separate layer.",
+      "Order matters more than deposition because enamel derives its hardness and durability from the precise arrangement of its crystals, not simply from what it is made of. Scattering mineral particles onto a tooth would produce a brittle coating with nothing like the mechanical behaviour of the real tissue. Lead author Abshar Hasan, a postdoctoral fellow, frames the achievement in exactly these terms: the material promotes integrated, organised crystal growth that recovers the architecture of healthy natural enamel. Architecture before composition is the line that separates this work from earlier remineralisation attempts.",
+      "The team then tested whether that architecture survives use, measuring mechanical behaviour under conditions simulating brushing, chewing and exposure to acidic foods. The regenerated tissue performed comparably to healthy natural enamel, which suggests a load-bearing layer rather than a temporary protective film. A related result extends the approach to exposed dentine, the softer tissue beneath enamel whose microscopic channels transmit hot, cold, sweet and acidic sensations toward the nerve. Growing an enamel-like mineral layer there could reduce sensitivity and improve how fillings and other restorations bond to the tooth.",
+      "Translation is already underway. Professor Alvaro Mata, who led the study, stresses that the technology was designed with the clinician and patient in mind: safe, quick to apply, scalable, and versatile enough to appear in several product formats. The group has begun commercialisation through the start-up Mintech-Bio with the aim of a first product the following year. Enamel deterioration contributes to dental problems affecting close to half of the world's population, and oral health is linked to wider conditions including diabetes and cardiovascular disease, so moving intervention earlier in the sequence would matter. Still, the evidence here is laboratory mechanical testing rather than long-term patient follow-up: durability under continuous acid challenge, variation in saliva composition between individuals, and performance across a real dentition all remain open questions. The direction has changed; routine care has not caught up yet."
+    ]
+  },
+  {
+    "id": "rss-orig-6g-prototype-2026-11-en",
+    "title": "6G steps out of the lab with four times the bandwidth — and a network that can sense",
+    "summary": "At the Shanghai import expo on 5 November, Qualcomm showed the first 3GPP-aligned 6G terminal prototype outside a laboratory, tested at 400 MHz downlink against 100 MHz in the 5G era. The more consequential signal came from systems nearby: communication, sensing and compute are being built as one machine.",
+    "cover": "/original/6g-prototype-cover.webp",
+    "images": [
+      "/original/6g-prototype-cover.webp",
+      "/original/6g-prototype-fig1.webp",
+      "/original/6g-prototype-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "6G",
+      "integrated sensing and communication",
+      "prototype",
+      "non-terrestrial networks",
+      "infrastructure"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday 原创",
+    "sourceUrl": "https://www.cnfin.com/gs-lb/detail/20261105/4491393_1.html",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890291423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "The least consumer-friendly object on show when the ninth China International Import Expo opened in Shanghai on 5 November was a piece of test equipment considerably larger than a phone. Qualcomm's 6G terminal prototype, described as the first to match the latest 3GPP definition, had previously lived mainly in the laboratory; this was its first public physical appearance at a large exhibition. Prototypes and products are usually separated by years, so the useful reading is not that a launch is near, but that the verification phase has produced something a manufacturer is willing to put on a stand and let the supply chain inspect.",
+      "The number everyone quotes is bandwidth: the device has been tested at 400 MHz downlink, against 100 MHz in the 5G era. More important than the multiple is what the hardware has been doing. It is not a concept mock-up: it has been used in joint technical testing and interoperability verification with industrial partners including China Mobile and ZTE. In communications, getting one box to talk to another vendor's box is a harder and more informative milestone than a peak figure recorded in isolation, because it surfaces the ambiguities that a written specification leaves behind.",
+      "Yonggang Li, technical marketing director at Qualcomm China, offered a historically grounded reading: judging by the 5G experience, large test prototypes of this kind eventually become chipsets and products. First-generation equipment is almost always cabinets and cabling before it is compressed into baseband silicon and modules. The bulk on display is therefore evidence of an early engineering stage rather than a barrier to deployment — though it says nothing about a commercial timetable, which still depends on standards and spectrum decisions that have not been settled.",
+      "Reducing 6G to faster data would miss the more substantive change. At the Light of Internet expo in Wuzhen, an end-to-end 6G prototype system combined communication, sensing and computing in a single setup and demonstrated remote control of construction machinery nearly a thousand kilometres away. Transmission was one function among several: the system was simultaneously measuring its environment and allocating compute. A link that must deliver a command at a determinate moment, while continuously knowing the state of the channel and the machine at the other end, is a different engineering problem from one that must simply move a video stream quickly.",
+      "The GSMA chair puts the distinction plainly: the biggest difference between 6G and 5G is sensing. Future networks should not only carry information but track objects in physical space in real time and use artificial intelligence to diagnose, repair and optimise themselves. The base station stops being a passive pipe and becomes a measuring node. That reframing explains why the industry keeps describing 6G as designed for an AI era: inference is increasingly split across device, edge and cloud, and the network is asked to participate in scheduling rather than merely transport the resulting traffic.",
+      "Coverage is the other half of the story. Zhang Huiqiang, a 6G test director at the Zhongguancun research consortium, points to integrated space–air–ground networks that could keep deserts, remote mountain regions, oceans and the sky connected. Terrestrial base-station density is limited by economics and geography, so folding non-terrestrial layers into one architecture addresses whether a connection exists at all rather than how fast it is. For a globally distributed audience, that may matter more than any urban peak rate. Glasses-free real-time 3D video sits at the opposite end, pushing bandwidth, latency and compute coordination at once — an application that cannot be solved by making the handset alone more powerful.",
+      "Several other firsts on the same show floor fill in the physical side of that chain. An immersion-cooled cabinet made its public debut, pointing at the heat problem in AI data centres; SK hynix presented a memory matrix spanning server, data-centre and mobile endpoints against a backdrop of sustained memory price increases through 2026; a driverless electric vehicle without a steering wheel or pedals, and a high-speed turn-mill machine tool in its Asian debut, showed the same pull toward placing capability close to the user on both the consumer and industrial sides. Before a network can compute faster, it has to be powered, cooled and supplied with storage.",
+      "None of this means 6G has arrived. Standards are unfinished, spectrum and terminal form factors remain under discussion, 400 MHz is a test condition rather than a speed anyone will see soon, and interoperability work is one early link in a long chain. The value of a public prototype is that it moves the argument from slides to measurable hardware: specifications can be debated indefinitely, but eventually a device has to connect, produce numbers and interwork with someone else's equipment. Once sensing, compute and communication are validated together in the same machine, the definition of the next generation shifts from how many gigabits it carries to how much judgement it can take on for the person using it."
+    ]
+  }
+]

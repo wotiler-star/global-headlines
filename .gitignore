@@ -67,6 +67,7 @@ cov4?_*.png
 # 会话级临时状态/中间产物（非源码）
 brand_images/
 brand_real/
+brand_real2/
 *_articles.json
 purged-lead-dup-ids.json
 reset-cov44-kept.json

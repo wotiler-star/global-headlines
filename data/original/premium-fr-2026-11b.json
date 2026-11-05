@@ -1,0 +1,110 @@
+[
+  {
+    "id": "rss-orig-rna-model-2026-11-fr",
+    "title": "Un modèle ouvert d'ARN apprend à lire la forme, pas seulement la séquence",
+    "summary": "Une équipe de l'Université des sciences et technologies de Chine a publié structRFM dans Nature le 5 novembre : un modèle préentraîné sur environ 21 millions de paires séquence–structure, avec données, poids et code ouverts. L'enjeu n'est pas la taille, mais le repliement devenu prémisse de l'apprentissage.",
+    "cover": "/original/rna-model-cover.webp",
+    "images": [
+      "/original/rna-model-cover.webp",
+      "/original/rna-model-fig1.webp",
+      "/original/rna-model-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "ARN",
+      "modèle fondation",
+      "prédiction de structure",
+      "open source",
+      "IA pour la science"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "starteday 原创",
+    "sourceUrl": "https://news.cctv.cn/2026/11/05/ARTI8IFd5K33Ud0NYEWUtNlj261105.shtml",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890411423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Lorsqu'un nouveau modèle fondationnel arrive en biologie, les comptes rendus commencent presque toujours par le nombre de paramètres et le tableau de scores. Le travail sur structRFM, publié dans Nature le 5 novembre par le groupe de Shaohua Zhou et Peng Xiong à l'Université des sciences et technologies de Chine, mérite une autre entrée en matière : il modifie ce que l'on demande au modèle d'apprendre. Au lieu de traiter une molécule d'ARN comme une chaîne de quatre lettres, le préentraînement oblige le réseau à tenir compte de la forme que cette chaîne adopte en se repliant. C'est une tout autre affirmation sur l'objet modélisé, et c'est pourquoi la publication compte au-delà d'une place dans un classement.",
+      "On présente souvent l'ARN comme le messager entre l'information génétique et la protéine : simplification commode et trompeuse. Il participe à la synthèse des protéines, mais aussi au contrôle de l'expression des gènes et à l'épissage, et son comportement dépend autant de l'ordre des nucléotides que des structures secondaire et tertiaire qu'il adopte. Un même enchaînement de bases peut produire des effets biologiques différents selon l'état structural. Un encodeur entraîné uniquement sur A, U, C et G commence donc amputé de la moitié de l'information pertinente, et aucune quantité supplémentaire de séquences ne compense entièrement une variable qui ne lui a jamais été montrée.",
+      "La réponse habituelle du domaine a consisté à importer la méthode éprouvée sur les protéines : préentraînement auto-supervisé sur de vastes collections de séquences, puis ajustement fin séparé pour chaque tâche. Or la prédiction de structure a grandi de son côté comme une chaîne d'outils indépendante, avec ses propres hypothèses et ses propres formats. Il en résulte un flux de travail fragmenté où chaque nouvelle question impose de refabriquer des caractéristiques, les tâches pauvres en données étiquetées étant les plus pénalisées faute de pouvoir réutiliser ce que les outils structuraux savent déjà.",
+      "structRFM commence par un jeu de données, non par une architecture. L'équipe a rassemblé environ 21 millions de paires séquence–structure secondaire annotées par voie computationnelle, liant la question des bases présentes à celle des bases qui s'apparient. Le caractère computationnel de l'annotation est une réserve importante, sur laquelle il faudra revenir ; l'essentiel est que l'information structurale entre dans le préentraînement comme signal d'apprentissage au lieu d'être ajoutée après coup. La supervision est en outre dense : chaque position de la séquence porte une relation structurale, et non une unique étiquette en bout de chaîne.",
+      "L'objectif est donc double : apprendre ensemble le contexte de séquence et la dépendance structurale, avec un schéma de masquage conçu pour rendre les deux nécessaires. Les expériences d'ablation séparent la contribution de la branche structurale et celle de la stratégie de masquage, et montrent que chacune compte. Ce détail répond à la question la plus utile pour qui voudra reproduire l'approche : quel composant a réellement produit le gain ? Un résultat qui s'améliore simplement parce que le corpus a grossi est bien moins exploitable qu'un résultat dont on a isolé le mécanisme. À partir d'une seule séquence en entrée, le modèle entraîné délivre des représentations à trois niveaux : séquence entière, nucléotide isolé et paire de nucléotides. C'est un parti pris délibérément pratique : la structure secondaire est fondamentalement un problème d'appariement, la détection des sites d'épissage s'apparente à un étiquetage local et la classification par homologie réclame une vue globale.",
+      "La liste d'évaluation est variée pour la même raison : prédiction de structure secondaire, classification d'homologie sans exemple préalable, prédiction de sites d'épissage, reconnaissance des sites d'entrée interne du ribosome et classification des ARN non codants. La variété est l'argument lui-même : si le modèle a vraiment intériorisé des régularités structurales, ces tâches doivent progresser ensemble au lieu d'un seul indicateur opportunément optimisé. Deux résultats méritent plus d'attention que les chiffres de une. En injectant les représentations de structRFM dans une chaîne de prédiction tridimensionnelle existante, la sortie 3D et la structure secondaire associée se sont toutes deux améliorées, ce qui est physiquement cohérent : les contraintes d'appariement réduisent l'espace des repliements plausibles. Le modèle s'est aussi maintenu face à des familles d'ARN nouvellement publiées, avec une stratégie de segmentation pour l'étendre aux ARN non codants longs. Les bases biologiques gagnent de nouvelles familles chaque jour, aussi cette robustesse est-elle plus proche de l'utilité réelle qu'un dixième de point gagné sur un jeu de test figé.",
+      "La publication comprend l'intégralité des paires, les poids et le code source. En biologie computationnelle, les données sont souvent l'élément le plus difficile à reproduire, parce que les chaînes d'annotation charrient paramètres, versions et règles de filtrage qui modifient silencieusement les résultats ; diffuser des poids sans ce contexte laisse un article techniquement ouvert mais pratiquement irrépétable. Avec les études d'ablation, cette ouverture donne aux autres équipes l'occasion de tester où l'approche échoue, y compris l'écart entre annotation computationnelle et mesure expérimentale, et le comportement face à des repliements sans homologue détectable. C'est un point de départ pour la communauté, pas une réponse définitive."
+    ]
+  },
+  {
+    "id": "rss-orig-enamel-gel-2026-11-fr",
+    "title": "Le gel qui demande à la salive de rebâtir l'émail, cristal après cristal",
+    "summary": "Des chercheurs de l'Université de Nottingham décrivent dans Nature Communications un gel protéique sans fluor qui oriente le calcium et le phosphate de la salive en cristaux neufs et ordonnés. Dans des essais simulant brossage, mastication et exposition acide, la couche régénérée s'est comportée comme un émail sain.",
+    "cover": "/original/enamel-gel-cover.webp",
+    "images": [
+      "/original/enamel-gel-cover.webp",
+      "/original/enamel-gel-fig1.webp",
+      "/original/enamel-gel-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "émail dentaire",
+      "biomatériaux",
+      "minéralisation épitaxiale",
+      "santé bucco-dentaire",
+      "dentisterie régénérative"
+    ],
+    "category": "health",
+    "locale": "fr",
+    "source": "starteday 原创",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261104005059.htm",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890351423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "La dentisterie vit depuis des décennies avec une asymétrie gênante : l'os se répare, la peau se referme, et le tissu le plus dur du corps ne fait ni l'un ni l'autre. Une fois la dent achevée, les cellules qui ont construit l'émail disparaissent et ce qui est perdu ne revient pas. Le travail de l'Université de Nottingham paru dans Nature Communications le 5 novembre n'inverse pas ce fait biologique : il le contourne, en confiant à un matériau l'échafaudage qu'assuraient autrefois les cellules, et il ébranle ainsi la conclusion pratique que les dentistes doivent énoncer depuis des années.",
+      "La salive contient déjà calcium et phosphate, et peut restituer une faible quantité de minéral perdu aux tout premiers stades de déminéralisation ; c'est le fondement honnête des produits dits reminéralisants. Mais les quantités en jeu sont sans commune mesure avec la perte réelle de tissu : lorsque l'érosion acide ou l'abrasion a emporté une couche significative, la salive peut ralentir la suite, elle ne peut pas reconstruire l'architecture absente. Les vernis fluorés et préparations comparables rendent l'émail restant plus résistant à l'acide et peuvent enrayer les lésions initiales crayeuses. Ce sont des mesures de protection, et tout praticien sait où s'arrête la protection et où commencent l'obturation, la facette ou la couronne.",
+      "L'équipe, issue de l'École de pharmacie et du Département de génie chimique et environnemental, a inversé la question. Plutôt que d'envoyer davantage de minéral à la dent, elle s'est demandé comment ce minéral devait être disposé. Son matériau est un gel à base de protéines conçu pour imiter les traits essentiels des protéines de la matrice naturelle qui guident la formation de l'émail pendant le développement dentaire. Il ne contient pas de fluor. Son rôle n'est pas de fournir des briques, mais de fournir un ordre — et c'est la moitié la plus difficile, et la plus décisive, du problème.",
+      "L'application a été volontairement maintenue au plus près de la pratique : le praticien peut étaler le gel sur les dents à la manière d'un vernis fluoré, sans équipement nouveau, sans polymérisation ni préparation complexe. Ce choix paraît modeste et il est en réalité déterminant pour l'adoption. Chaque minute ajoutée à une consultation réduit la probabilité qu'une technique atteigne les soins courants, et un matériau de laboratoire qui exige un protocole entièrement nouveau reste au laboratoire, quel que soit son niveau de performance.",
+      "Une fois appliqué, le gel forme un film mince et résistant qui pénètre la surface et comble fissures et interstices microscopiques. Cette étape règle d'abord l'adhérence : une simple couche posée sur l'émail serait arrachée aux premières mastications. Le film sert ensuite de trame à la croissance minérale ancrée dans la dent existante, en attirant les ions calcium et phosphate naturellement présents dans la salive pour les organiser en cristaux neufs. Les auteurs parlent de minéralisation épitaxiale : les cristaux croissent dans l'alignement des cristaux anciens, si bien que le matériau régénéré devient structurellement continu avec la surface d'origine au lieu de se superposer comme une couche étrangère. L'ordre importe plus que le dépôt parce que l'émail tire sa dureté et sa durabilité de l'arrangement précis de ses cristaux, non de sa seule composition. Répartir des particules minérales sur une dent produirait un revêtement blanc et fragile, sans le comportement mécanique du tissu réel.",
+      "L'équipe a ensuite vérifié si cette architecture résiste à l'usage, en mesurant le comportement mécanique dans des conditions simulant brossage, mastication et contact avec des aliments acides ; le tissu régénéré s'est comporté de façon comparable à un émail naturel sain, ce qui suggère une couche capable de supporter une charge et non une pellicule protectrice temporaire. Le premier auteur, le chercheur postdoctorant Abshar Hasan, le formule précisément en ces termes : le matériau favorise une croissance cristalline intégrée et ordonnée qui restitue l'architecture de l'émail naturel. Un résultat connexe étend l'approche à la dentine exposée, tissu plus tendre situé sous l'émail et parcouru de canaux microscopiques qui transmettent les sensations vers le nerf. Y faire croître une couche minérale analogue à l'émail pourrait à la fois réduire la sensibilité et améliorer l'adhésion des obturations et autres restaurations.",
+      "La translation est déjà engagée. Le professeur Alvaro Mata, qui a dirigé l'étude, souligne que la technologie a été pensée dès le départ pour le clinicien et le patient : sûre, rapide à appliquer, industrialisable, et assez souple pour prendre plusieurs formes de produit. L'équipe a commencé la valorisation via la jeune entreprise Mintech-Bio avec l'objectif d'un premier produit l'année suivante. La dégradation de l'émail contribue à des problèmes bucco-dentaires touchant près de la moitié de la population mondiale, et la santé orale est liée à des affections plus larges comme le diabète et les maladies cardiovasculaires : avancer le point d'intervention modifierait l'ordre même des soins. Reste que les preuves disponibles viennent d'essais mécaniques de laboratoire et non d'un suivi prolongé chez l'humain. La tenue du film sous une agression acide continue, les variations de composition de la salive entre individus et le comportement sur une denture réelle demeurent des questions ouvertes. La direction a changé ; la pratique courante n'a pas encore suivi."
+    ]
+  },
+  {
+    "id": "rss-orig-6g-prototype-2026-11-fr",
+    "title": "La 6G sort du laboratoire avec quatre fois plus de bande passante et un réseau qui perçoit",
+    "summary": "Au salon de l'importation de Shanghai, le 5 novembre, Qualcomm a montré hors du laboratoire le premier prototype de terminal 6G aligné sur la dernière définition du 3GPP, testé à 400 MHz contre 100 MHz à l'ère 5G. Le signal de fond est venu des systèmes voisins : communication, détection et calcul se construisent désormais comme une seule machine.",
+    "cover": "/original/6g-prototype-cover.webp",
+    "images": [
+      "/original/6g-prototype-cover.webp",
+      "/original/6g-prototype-fig1.webp",
+      "/original/6g-prototype-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "6G",
+      "détection et communication intégrées",
+      "prototype",
+      "réseaux non terrestres",
+      "infrastructure"
+    ],
+    "category": "tech",
+    "locale": "fr",
+    "source": "starteday 原创",
+    "sourceUrl": "https://www.cnfin.com/gs-lb/detail/20261105/4491393_1.html",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890291423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "L'objet le moins proche d'un produit grand public à la neuvième exposition internationale de l'importation de Shanghai, ouverte le 5 novembre, était un banc d'essai nettement plus volumineux qu'un téléphone. Le prototype de terminal 6G de Qualcomm, présenté comme le premier conforme à la définition la plus récente du 3GPP, avait jusque-là surtout vécu en laboratoire ; c'était sa première apparition physique devant le public lors d'un grand salon. Prototype et produit sont généralement séparés par plusieurs années : la lecture utile n'est donc pas qu'une commercialisation approche, mais que la phase de vérification a produit quelque chose qu'un constructeur accepte de montrer à sa chaîne d'approvisionnement.",
+      "Le chiffre le plus cité est la bande passante : l'équipement a été testé à 400 MHz en descendant, contre 100 MHz à l'ère 5G. Plus important que le multiple, il y a ce que le matériel a déjà fait. Ce n'est pas une maquette conceptuelle : il a servi à des essais techniques conjoints et à des vérifications d'interopérabilité avec des partenaires industriels comme China Mobile et ZTE. En télécommunications, parvenir à faire dialoguer un équipement avec celui d'un autre fournisseur est une étape plus difficile et plus instructive qu'un pic mesuré en isolation, parce qu'elle fait apparaître les ambiguïtés qu'une spécification écrite laisse subsister. Yonggang Li, directeur du marketing technique de Qualcomm en Chine, propose une lecture historique : l'expérience du 5G montre que ces grands prototypes de test finissent en chipsets et en produits. Le gabarit exposé est donc la trace d'une étape précoce d'ingénierie, non un obstacle au déploiement, même s'il ne dit rien d'un calendrier commercial qui dépend encore de décisions de norme et de spectre non arrêtées.",
+      "Réduire la 6G à un débit plus rapide ferait toutefois passer à côté du changement le plus substantiel. À l'exposition Lumière d'Internet de Wuzhen, un système prototype de bout en bout a réuni communication, détection et calcul dans un seul ensemble et démontré la commande à distance d'engins de chantier situés à près de mille kilomètres. La transmission n'était qu'une fonction parmi d'autres : le système mesurait simultanément son environnement et répartissait la puissance de calcul. Un lien qui doit délivrer un ordre à un instant déterminé tout en connaissant sans interruption l'état du canal et de la machine à l'autre bout est un problème d'ingénierie différent de celui qui consiste à transporter rapidement un flux vidéo.",
+      "La présidence de la GSMA résume la distinction en disant que la plus grande différence entre 6G et 5G est la détection. Les réseaux futurs ne se contenteront pas de transporter l'information : ils suivront en temps réel les objets dans l'espace physique et utiliseront l'intelligence artificielle pour se diagnostiquer, se réparer et s'optimiser eux-mêmes. La station de base cesse d'être un conduit passif pour devenir un nœud de mesure. C'est aussi pourquoi le secteur décrit de plus en plus la 6G comme conçue pour une ère de l'IA : l'inférence se répartissant entre terminal, périphérie et nuage, il est demandé au réseau de participer à l'ordonnancement et non plus seulement au transport du trafic résultant.",
+      "L'autre moitié de l'histoire est la couverture. Zhang Huiqiang, responsable des essais 6G du consortium de recherche de Zhongguancun, évoque des réseaux intégrés espace–air–terre capables de maintenir la connexion dans les déserts, les montagnes isolées, les océans et le ciel. La densité des stations terrestres est limitée par l'économie et la géographie : intégrer des couches non terrestres à une même architecture répond à la question de l'existence d'une connexion, non de sa vitesse. Pour un public réparti sur la planète, cela peut compter davantage que n'importe quel débit de pointe urbain. La vidéo 3D en temps réel sans lunettes occupe l'extrémité opposée, en exigeant à la fois bande passante, latence et coordination du calcul — une application qu'on ne résout pas en rendant le seul terminal plus puissant.",
+      "D'autres premières présentées sur le même salon complètent le versant physique de cette chaîne. Une armoire de refroidissement par immersion a été montrée au public pour la première fois, rappel de la difficulté thermique des centres de données d'IA ; SK hynix a présenté une gamme de mémoires allant du serveur au mobile, sur fond de hausse soutenue des prix des mémoires en 2026 ; un véhicule électrique autonome sans volant ni pédales et une machine-outil de tournage–fraisage à grande vitesse en première asiatique ont montré la même attraction vers une capacité placée au plus près de l'usager, côté consommation comme côté industrie. Avant de calculer plus vite, il faut amener l'énergie, évacuer la chaleur et trouver une place aux données.",
+      "Rien de tout cela ne signifie que la 6G est arrivée. Les normes sont inachevées, le spectre et les formats de terminal restent en discussion, 400 MHz est une condition d'essai et non un débit que quiconque verra demain, et l'interopérabilité n'est que le premier maillon d'une longue chaîne. La valeur d'un prototype public est de ramener le débat des diaporamas vers un matériel mesurable : une spécification se discute indéfiniment, mais il faut au bout du compte un appareil qui se connecte, produise des chiffres et fonctionne avec l'équipement d'autrui. Dès lors que détection, calcul et communication sont validés ensemble dans la même machine, la définition de la génération passe du nombre de gigabits transportés à la part de jugement qu'elle peut assumer à la place de l'usager."
+    ]
+  }
+]

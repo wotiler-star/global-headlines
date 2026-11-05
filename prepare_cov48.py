@@ -10,6 +10,9 @@ ROOT = Path(__file__).resolve().parent
 D = ROOT / "data/original"
 FILES = sorted(D.glob("premium-*.json"))
 EXPECTED = {"zh", "en", "ja", "ko", "es", "fr", "pt", "tr"}
+# 每批 3 篇。cov55 起累计 2 批（premium-2026-11.json 与 premium-2026-11b.json），
+# data/original/ 下所有 premium-*.json 都会被 merge-originals 与 reset 一起保留。
+PER_LOCALE = 6
 
 BANNED_ZH = [
     "政治", "政府", "选举", "总统", "议会", "国会", "外交", "关税", "制裁", "法案",
@@ -62,16 +65,16 @@ missing = EXPECTED - set(by_locale)
 if missing:
     problems.append(f"缺少语种: {missing}")
 for loc in EXPECTED:
-    if by_locale.get(loc) != 3:
-        problems.append(f"{loc} 应有 3 篇，实际 {by_locale.get(loc, 0)}")
+    if by_locale.get(loc) != PER_LOCALE:
+        problems.append(f"{loc} 应有 {PER_LOCALE} 篇，实际 {by_locale.get(loc, 0)}")
 
-# 葡语误用的西语词
-p = D / "premium-pt-2026-11.json"
-s = p.read_bytes()
-if b"nube" in s:
-    s = s.replace(b"nube", b"nuvem")
-    p.write_bytes(s)
-    print("修正葡语 nube -> nuvem")
+# 葡语误用的西语词（对所有 pt 批次文件生效）
+for p in D.glob("premium-pt-*.json"):
+    s = p.read_bytes()
+    if b"nube" in s:
+        s = s.replace(b"nube", b"nuvem")
+        p.write_bytes(s)
+        print("修正葡语 nube -> nuvem:", p.name)
 
 if problems:
     print("\n问题:")

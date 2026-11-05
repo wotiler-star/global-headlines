@@ -91,5 +91,98 @@
         "size_kb": 27
       }
     ]
+  },
+  "rna-model": {
+    "cover": {
+      "file": "/original/rna-model-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Ion Proton Sequencers, BGI Shenzhen.JPG",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Ion_Proton_Sequencers,_BGI_Shenzhen.JPG",
+      "artist": "Scotted400",
+      "license": "CC BY 3.0",
+      "size_kb": 56
+    },
+    "figs": [
+      {
+        "file": "/original/rna-model-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Laboratory pipettes.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Laboratory_pipettes.jpg",
+        "artist": "J.N. Eskra",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 91
+      },
+      {
+        "file": "/original/rna-model-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Laboratory microcentrifuge tubes and pipette tips 01.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Laboratory_microcentrifuge_tubes_and_pipette_tips_01.jpg",
+        "artist": "Gannu03",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 97
+      }
+    ]
+  },
+  "enamel-gel": {
+    "cover": {
+      "file": "/original/enamel-gel-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Adult human teeth.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Adult_human_teeth.jpg",
+      "artist": "Genusfotografen (Tomas Gunnarsson) / Wikimedia",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 93
+    },
+    "figs": [
+      {
+        "file": "/original/enamel-gel-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Dental tools and equipment arranged neatly on a clinical workstation at a modern dental clinic.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Dental_tools_and_equipment_arranged_neatly_on_a_clinical_workstation_at_a_modern_dental_clinic.jpg",
+        "artist": "Shixart1985",
+        "license": "CC BY 2.0",
+        "size_kb": 41
+      },
+      {
+        "file": "/original/enamel-gel-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Dental treatment room featuring equipment and a chair in a modern clinic.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Dental_treatment_room_featuring_equipment_and_a_chair_in_a_modern_clinic.jpg",
+        "artist": "Shixart1985",
+        "license": "CC BY 2.0",
+        "size_kb": 57
+      }
+    ]
+  },
+  "6g-prototype": {
+    "cover": {
+      "file": "/original/6g-prototype-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Cell tower antenna, Zagrebačka cesta.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Cell_tower_antenna,_Zagreba%C4%8Dka_cesta.jpg",
+      "artist": "Mnalis",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 200
+    },
+    "figs": [
+      {
+        "file": "/original/6g-prototype-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Zoomed in shot of mobile phone mast.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Zoomed_in_shot_of_mobile_phone_mast.jpg",
+        "artist": "Kernow Skies",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 95
+      },
+      {
+        "file": "/original/6g-prototype-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Cell Tower in Stykkishólmur.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Cell_Tower_in_Stykkish%C3%B3lmur.jpg",
+        "artist": "Kevin Kandlbinder",
+        "license": "CC BY 4.0",
+        "size_kb": 145
+      }
+    ]
   }
 }

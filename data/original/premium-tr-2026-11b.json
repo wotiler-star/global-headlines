@@ -1,0 +1,110 @@
+[
+  {
+    "id": "rss-orig-rna-model-2026-11-tr",
+    "title": "Açık bir RNA modeli dizinin yanında katlanma biçimini de okumayı öğrendi",
+    "summary": "Çin Bilim ve Teknoloji Üniversitesi ekibi 5 Kasımda structRFM adlı RNA dizisi temel modelini Nature dergisinde yayımladı; yaklaşık 21 milyon dizi–yapı çifti, ağırlıklar ve kod açıklandı. Önemli olan ölçek değil, katlanmanın ayrı bir aracın çıktısı olmaktan çıkıp öğrenmenin ön koşuluna dönüşmesidir.",
+    "cover": "/original/rna-model-cover.webp",
+    "images": [
+      "/original/rna-model-cover.webp",
+      "/original/rna-model-fig1.webp",
+      "/original/rna-model-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "RNA",
+      "temel model",
+      "yapı tahmini",
+      "açık kaynak",
+      "bilim için yapay zeka"
+    ],
+    "category": "science",
+    "locale": "tr",
+    "source": "starteday 原创",
+    "sourceUrl": "https://news.cctv.cn/2026/11/05/ARTI8IFd5K33Ud0NYEWUtNlj261105.shtml",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890411423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Biyolojide yeni bir temel model çıktığında haberler çoğu zaman parametre sayısı ve sonuç tablosuyla başlar. 5 Kasımda Nature dergisinde, Çin Bilim ve Teknoloji Üniversitesinden Shaohua Zhou ve Peng Xiong'un grubunun yayımladığı structRFM çalışması farklı bir girişi hak ediyor: modelden ne öğrenmesinin istendiğini değiştiriyor. Bir RNA molekülünü dört harften oluşan bir zincir gibi ele almak yerine, ön eğitim ağı o zincirin hangi biçime katlandığını da hesaba katmaya zorluyor. Bu, modellenen nesne hakkında bambaşka bir iddiadır ve çalışmayı bir sıralama tablosundaki konumdan daha değerli kılan da budur.",
+      "RNA çoğu zaman genetik bilgi ile protein arasındaki ulak olarak tanıtılır; kullanışlı ama yanıltıcı bir sadeleştirmedir. Protein sentezine katıldığı gibi gen ifadesinin denetimine ve ekleme sürecine de katılır, davranışı hem nükleotit sırasına hem de benimsediği ikincil ve üçüncül yapılara bağlıdır. Aynı baz dizisi farklı yapısal durumlarda farklı biyolojik sonuçlar doğurabilir. Yalnızca A, U, C ve G üzerinde eğitilen bir kodlayıcı dolayısıyla ilgili bilginin yarısından mahrum başlar ve kendisine hiç gösterilmemiş bir değişkeni hiçbir ek dizi miktarı tamamen telafi edemez.",
+      "Alanın alışılmış yanıtı proteinlerde işe yaramış yöntemi olduğu gibi aktarmak oldu: geniş dizi koleksiyonları üzerinde öz denetimli ön eğitim, sonra her görev için ayrı bir ince ayar. Oysa yapı tahmini uzun süre kendi varsayımları ve biçimleriyle bağımsız bir araç zinciri olarak büyüdü. Sonuç, her yeni soruda özniteliklerin yeniden üretildiği parçalı bir iş akışıdır; etiketli verisi az olan görevler, yapı araçlarının zaten bildiklerini yeniden kullanamadıkları için en çok kaybeden taraf olur.",
+      "structRFM bir mimariyle değil bir veri kümesiyle başlıyor. Ekip, hesapsal yolla etiketlenmiş yaklaşık 21 milyon dizi–ikincil yapı çifti oluşturdu; hangi bazların bulunduğu sorusuyla hangi bazların birbiriyle eşleştiği sorusunu aynı öğrenme birimine bağladı. Etiketlemenin hesapsal olması, ileride yeniden değineceğimiz önemli bir çekincedir; ancak yapısal bilginin sonradan eklenmek yerine ön eğitime bir öğrenme sinyali olarak girdiği kesindir. Üstelik denetim yoğundur: dizinin sonunda tek bir etiket değil, her konumda bir yapısal ilişki vardır.",
+      "Amaç bu yüzden iki yönlüdür: dizi bağlamı ile yapısal bağımlılığı birlikte öğrenmek, ikisini de zorunlu kılan bir maskeleme düzeniyle çalışmak. Ablasyon deneyleri yapı dalı ile maskeleme stratejisinin katkısını ayrı ayrı ölçüyor ve ikisinin de etkili olduğunu gösteriyor. Bu ayrıntı, yaklaşımı yeniden üretmek isteyen bir ekibin sorabileceği en yararlı soruyu yanıtlar: kazancı hangi bileşen gerçekten üretti? Yalnızca veri kümesi büyüdüğü için iyileşen bir sonuç, mekanizması ayrıştırılmış bir sonuçtan çok daha az işe yarar. Eğitilmiş model, tek bir dizi girdisinden üç ölçekte temsil üretir: dizinin tamamı, tek nükleotit ve nükleotit çifti. Bilinçli olarak pratik bir tasarımdır; ikincil yapı özünde bir eşleşme problemidir, ekleme bölgesi tespiti yerel etiketlemeye yakınken homoloji sınıflandırması bütüncül bir görüş ister.",
+      "Değerlendirme listesinin çeşitliliği de aynı savın parçasıdır: ikincil yapı tahmini, örnek görmeden homoloji sınıflandırması, ekleme bölgesi tahmini, ribozomun iç giriş bölgesinin tanınması ve kodlamayan RNA sınıflandırması. Çeşitlilik argümanın kendisidir: model gerçekten yapısal düzenlilikleri içselleştirdiyse bu görevlerin birlikte iyileşmesi, tek bir göstergenin özel olarak optimize edilmemesi gerekir. Manşet sayılarından daha fazla ilgiyi iki sonuç hak ediyor. structRFM temsilleri mevcut üç boyutlu tahmin hattına verildiğinde hem 3B çıktı hem ona bağlı ikincil yapı iyileşti; eşleşme kısıtları olası katlanmaların uzayını daralttığı için bu fiziksel olarak akla yatkındır. Model yeni yayımlanmış RNA aileleri karşısında da dayanıklı kaldı ve uzun kodlamayan RNA'lara bölümleme stratejisiyle uzatıldı. Biyolojik veri tabanları her gün yeni aileler kazandığından, sabit bir test kümesindeki küçük bir puan farkından çok bu dayanıklılık gerçek kullanıma yakındır.",
+      "Yayın, çiftlerin tamamını, ağırlıkları ve kaynak kodunu içeriyor. Hesaplamalı biyolojide çoğu zaman yeniden üretilmesi en zor olan veridir; etiketleme hatları sonuçları sessizce değiştiren parametreler, sürümler ve süzme kuralları taşır, bu bağlam olmadan yayımlanan ağırlıklar teknik olarak açık ama uygulamada tekrarlanamaz bir makale bırakır. Ablasyon çalışmalarıyla birlikte bu açıklık, başka ekiplere yaklaşımın nerede kırıldığını sınama fırsatı verir; hesapsal etiketleme ile deneysel ölçüm arasındaki fark ve saptanabilir homoloğu olmayan katlanmalarda davranış da buna dahildir. Bu, topluluk için bir başlangıç noktasıdır, bitmiş bir yanıt değil."
+    ]
+  },
+  {
+    "id": "rss-orig-enamel-gel-2026-11-tr",
+    "title": "Tükürüğe mineyi kristal kristal yeniden kurmasını söyleyen jel",
+    "summary": "Nottingham Üniversitesi araştırmacıları Nature Communications dergisinde, tükürükteki kalsiyum ve fosfatı düzenli yeni kristallere yönlendiren florürsüz bir protein jeli bildirdi. Fırçalama, çiğneme ve aside maruz kalma koşullarını taklit eden deneylerde yenilenmiş tabaka sağlıklı mine gibi davrandı.",
+    "cover": "/original/enamel-gel-cover.webp",
+    "images": [
+      "/original/enamel-gel-cover.webp",
+      "/original/enamel-gel-fig1.webp",
+      "/original/enamel-gel-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "diş minesi",
+      "biyomalzemeler",
+      "epitaksiyel mineralizasyon",
+      "ağız sağlığı",
+      "yenileyici diş hekimliği"
+    ],
+    "category": "health",
+    "locale": "tr",
+    "source": "starteday 原创",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261104005059.htm",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890351423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Diş hekimliği onlarca yıldır tuhaf bir asimetriyle yaşıyor: kemik kaynar, deri kapanır, vücudun en sert dokusu ikisini de yapmaz. Diş gelişimini tamamladığında mineyi üreten hücreler sahadan çekilir ve kaybedilen geri gelmez. 5 Kasımda Nature Communications dergisinde yayımlanan Nottingham Üniversitesi çalışması bu fizyolojik gerçeği tersine çevirmiyor; etrafından dolaşıyor, bir zamanlar hücrelerin yaptığı iskeleti bir malzemeye devrediyor ve hekimlerin yıllardır hastalara söylemek zorunda kaldığı pratik sonucu sarsıyor.",
+      "Önce tükürüğün ne yapabildiğini netleştirmek gerekir. Kalsiyum ve fosfat içerdiği için minerallerini kaybetmenin en erken evresinde az miktarda minerali geri koyabilir; yeniden mineralleştirici ürünlerin dürüst dayanağı budur. Ama söz konusu miktar, gerçek doku kaybının ölçeğiyle kıyaslanamaz: asit erozyonu veya aşınma belirgin bir tabakayı götürdüğünde tükürük ilerlemeyi yavaşlatabilir, eksik yapıyı yeniden kuramaz. Florür cilaları ve benzeri preparatlar kalan mineyi asite daha dayanıklı hale getirir, başlangıçtaki tebeşirimsi lezyonları durdurabilir. Bunlar koruma önlemleridir ve her hekim korumanın nerede bitip dolgu, veneer veya kuronun nerede başladığını bilir.",
+      "Eczacılık Fakültesi ile Kimya ve Çevre Mühendisliği Bölümünden oluşan ekip soruyu ters çevirdi. Dişe daha fazla mineral göndermek yerine, o mineralin nasıl dizilmesi gerektiğini sordu. Geliştirdikleri malzeme, diş gelişimi sırasında mine oluşumunu yönlendiren doğal matris proteinlerinin temel özelliklerini taklit eden protein bazlı bir jeldir. Florür içermez. Görevi yapı taşı sağlamak değil, düzen sağlamaktır; sorunun daha zor ve daha belirleyici yarısının bu olduğu ortaya çıktı.",
+      "Uygulama bilinçli olarak mevcut pratiğe yakın tutuldu: hekim jeli, bir florür cilası sürer gibi dişe sürebilir; yeni cihaz, sertleştirme adımı veya karmaşık hazırlık gerekmez. Bu mütevazı görünen seçim aslında benimseme açısından belirleyicidir. Bir muayeneye eklenen her dakika, tekniğin rutin bakıma ulaşma olasılığını düşürür ve tamamen yeni bir iş akışı isteyen laboratuvar malzemesi, ne kadar iyi çalışırsa çalışsın laboratuvarda kalma eğilimindedir.",
+      "Sürüldükten sonra jel ince ama dayanıklı bir film oluşturur, yüzeye nüfuz eder ve mikroskobik çatlakları ile boşlukları doldurur. Bu adım önce tutunma sorununu çözer; yalnızca minenin üzerinde duran bir tabaka ilk birkaç çiğneme döngüsünde sökülürdü. Film ardından mevcut dişe sabitlenen mineral büyümesi için iskelet görevi görür, tükürükte doğal olarak bulunan kalsiyum ve fosfat iyonlarını çekip yeni kristallere dönüştürür. Araştırmacılar buna epitaksiyel mineralizasyon diyor: yeni kristaller eski kristallerin yönü boyunca büyür, böylece yenilenmiş malzeme özgün yüzeyle yapısal olarak bütünleşir, üstüne yabancı bir katman gibi binmez. Düzenin birikintiden önemli olmasının nedeni, minenin sertliğini ve dayanıklılığını kristallerinin hassas diziliminden almasıdır, yalnızca bileşiminden değil. Dişin üzerine mineral parçacıkları serpmek kırılgan beyaz bir kaplama üretir, gerçek dokunun mekanik davranışına yaklaşamaz.",
+      "Ekip sonra bu yapının kullanıma dayanıp dayanmadığını sınadı; fırçalama, çiğneme ve asitli gıdalara maruz kalma koşullarını taklit ederek yenilenmiş tabakanın mekanik özelliklerini ölçtü ve sağlıklı doğal mineyle karşılaştırılabilir davranış elde etti. Bu, geçici koruyucu bir filmden çok uzun vadeli çiğneme yükünü taşıyabilecek bir tabakaya işaret eder. İlk yazar, doktora sonrası araştırmacı Abshar Hasan bunu tam da bu terimlerle anlatıyor: malzeme bütünleşmiş ve düzenli kristal büyümesini teşvik ederek doğal minenin mimarisini geri kazandırıyor. İlgili bir sonuç yaklaşımı açığa çıkmış dentine de uzatıyor; mine altındaki daha yumuşak bu doku, duyumları sinire ileten mikroskobik kanallarla doludur. Orada mine benzeri bir mineral tabakası oluşturmak hem hassasiyeti azaltabilir hem dolgu ve benzeri restorasyonların dişe tutunmasını iyileştirebilir.",
+      "Dönüşüm çalışması başlamış durumda. Çalışmayı yöneten Profesör Alvaro Mata, teknolojinin en başından hekim ve hasta göz önünde bulundurularak tasarlandığını vurguluyor: güvenli, hızlı uygulanabilir, ölçeklenebilir ve birden çok ürün biçimine uyarlanabilecek kadar esnek. Ekip, Mintech-Bio adlı girişim üzerinden ticarileştirmeye başladı ve ertesi yıl ilk ürünü hedefliyor. Mine bozulması dünya nüfusunun yarıya yakınını ilgilendiren ağız sorunlarına zemin hazırlıyor ve ağız sağlığı diyabet ile kardiyovasküler hastalıklar gibi daha geniş tablolarla ilişkilendiriliyor; müdahale noktasını öne çekmek bakımın sırasını değiştirebilir. Yine de eldeki kanıt laboratuvar mekanik deneyleridir, uzun süreli insan takibi değildir. Sürekli asit yükü altında filmin ömrü, tükürük bileşiminin kişiden kişiye değişmesinin mineralizasyona etkisi ve gerçek bir diş dizisindeki performans açık sorular olarak duruyor. Yön değişti; rutin bakım henüz yetişmedi."
+    ]
+  },
+  {
+    "id": "rss-orig-6g-prototype-2026-11-tr",
+    "title": "6G laboratuvardan çıktı: dört kat bant genişliği ve algılayan bir ağ",
+    "summary": "5 Kasımdaki Şanghay ithalat fuarında Qualcomm, 3GPP'nin en güncel tanımına uyan ilk 6G terminal prototipini ilk kez laboratuvar dışında gösterdi; 5G dönemindeki 100 MHz'e karşı 400 MHz ile sınandı. Asıl sinyal komşu sistemlerden geldi: iletişim, algılama ve hesaplama artık tek bir makine olarak kuruluyor.",
+    "cover": "/original/6g-prototype-cover.webp",
+    "images": [
+      "/original/6g-prototype-cover.webp",
+      "/original/6g-prototype-fig1.webp",
+      "/original/6g-prototype-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "6G",
+      "bütünleşik algılama ve iletişim",
+      "prototip",
+      "karasal olmayan ağlar",
+      "altyapı"
+    ],
+    "category": "tech",
+    "locale": "tr",
+    "source": "starteday 原创",
+    "sourceUrl": "https://www.cnfin.com/gs-lb/detail/20261105/4491393_1.html",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890291423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "5 Kasımda açılan dokuzuncu Şanghay uluslararası ithalat fuarında tüketim ürününe en az benzeyen nesne, bir telefondan epey büyük test cihazıydı. 3GPP'nin en güncel tanımına uyan ilk cihaz olarak sunulan Qualcomm 6G terminal prototipi o güne dek ağırlıklı olarak laboratuvarda kalmıştı; büyük bir fuarda ilk kez fiziksel olarak halka gösterildi. Prototiple ürün arasında genelde yıllar vardır, dolayısıyla doğru okuma lansmanın yakın olduğu değil, doğrulama aşamasının bir üreticinin tedarik zincirine göstermeye razı olduğu bir şey ürettiğidir.",
+      "En çok alıntılanan sayı bant genişliği: cihaz 400 MHz aşağı yön ile sınandı, 5G dönemindeki 100 MHz'in birkaç katı. Ancak kattan önemli olan, donanımın bugüne kadar ne yaptığıdır. Bu bir kavram maketi değil; China Mobile ve ZTE gibi sanayi ortaklarıyla ortak teknik testlerde ve birlikte çalışabilirlik doğrulamalarında kullanıldı. Telekomünikasyonda bir kutuyu başka bir üreticinin kutusuyla konuşturmak, yalıtılmış halde ölçülen bir tepe değerinden daha zor ve daha bilgilendiricidir; yazılı bir şartnamenin açık bıraktığı belirsizlikleri bağlantı anında ortaya çıkarır. Qualcomm Çin teknik pazarlama direktörü Yonggang Li'nin 5G deneyimine dayanarak bu büyüklükteki test prototiplerinin sonunda yongasetlerine ve ürünlere dönüştüğünü söylemesi de tarihsel bir okumadır: ilk nesil cihazlar kabin ve kablolarla başlar, sonra bant tabanlı silikona ve modüllere sıkışır. Sergilenen hacim dolayısıyla erken mühendislik aşamasının izidir, yaygınlaştırmanın önünde bir engel değildir; ama henüz kapanmamış standart ve spektrum kararlarına bağlı ticari takvim hakkında hiçbir şey söylemez.",
+      "Buna karşılık 6G'yi daha hızlı bir hatta indirgemek, bu neslin en özlü değişimini kaçırmak olur. Aynı dönemde Wuzhen'deki İnternetin Işığı fuarında uçtan uca bir 6G prototip sistemi iletişim, algılama ve hesaplamayı tek kurulumda birleştirdi ve yaklaşık bin kilometre uzaktaki iş makinesinin uzaktan kumandasını gösterdi. İletim birkaç işlevden yalnızca biriydi; sistem aynı anda çevresini ölçüyor ve hesaplama gücünü dağıtıyordu. Bir komutu belirlenen anda ulaştırırken kanalın ve karşı taraftaki makinenin durumunu kesintisiz bilmesi gereken bir bağlantı, yalnızca görüntüyü hızlı taşıyan bağlantıdan farklı bir mühendislik problemidir.",
+      "GSMA başkanının 6G ile 5G arasındaki en büyük farkın algılama olduğunu söylemesi de aynı bağlamda okunmalı. Geleceğin ağları bilgiyi taşımakla kalmayacak, fiziksel uzaydaki nesneleri gerçek zamanlı izleyecek ve yapay zeka ile kendini tanılayıp onarıp iyileştirecek. Baz istasyonu edilgen bir boru olmaktan çıkıp bir ölçüm düğümüne dönüşüyor. Sektörün 6G'yi yapay zeka çağının gereksinimlerine göre tasarlanmış diye tanımlamakta ısrar etmesinin nedeni de bu: çıkarım giderek cihaz, kenar ve bulut arasında bölündükçe ağdan yalnızca trafiği taşıması değil, bu dağıtımın düzenlenmesine katılması isteniyor.",
+      "Hikayenin öbür yarısı kapsama. Zhongguancun araştırma konsorsiyumunun 6G test sorumlusu Zhang Huiqiang, çölleri, uzak dağlık bölgeleri, okyanusları ve gökyüzünü bağlantıda tutabilecek uzay–hava–yer bütünleşik ağlarına işaret ediyor. Karasal baz istasyonu yoğunluğu ekonomi ve coğrafyayla sınırlı olduğundan, karasal olmayan katmanları aynı mimariye katmak bağlantının hızlı olup olmadığını değil var olup olmadığını çözer. Gezegenin dört bir yanına dağılmış bir kitle için bu, kentlerdeki tepe hızlarından daha ağır basabilir. Gözlüksüz gerçek zamanlı 3D video ise öbür uçta durur; bant genişliği, gecikme ve hesaplama eşgüdümünü aynı anda zorlar ve yalnızca terminali güçlendirerek çözülmez.",
+      "Aynı fuardaki başka ilk gösterimler bu zincirin fiziksel tarafını tamamlıyor. Daldırmalı soğutma kabininin ilk kez halka açık sergilenmesi, yapay zeka veri merkezlerinin ısı sorununa işaret ediyor; SK hynix'in sunucudan mobil cihazlara uzanan bellek dizisi, 2026 boyunca süren bellek fiyat artışının zemininde duruyor; direksiyonu ve pedalı olmayan otonom elektrikli araç ile Asya prömiyerini yapan yüksek hızlı torna–freze tezgahı, tüketim ve sanayi tarafında aynı yönelimi, kapasiteyi kullanıcıya yaklaştırma eğilimini gösteriyor. Daha hızlı hesaplamadan önce enerjiyi ulaştırmak, ısıyı uzaklaştırmak ve veriye yer açmak gerekir.",
+      "Bunların hiçbiri 6G'nin geldiği anlamına gelmiyor. Standartlar tamamlanmadı, spektrum ve terminal biçimleri tartışılıyor, 400 MHz bir test koşulu olup kimsenin yarın göreceği bir hız değil, birlikte çalışabilirlik doğrulaması da uzun zincirin ilk halkası. Açık bir prototipin değeri, tartışmayı sunumlardan ölçülebilir donanıma geri çekmesidir: bir şartname sonsuza dek tartışılabilir ama sonunda bağlanan, sayı üreten ve başkasının cihazıyla çalışan bir aygıt gerekir. Algılama, hesaplama ve iletişim aynı makinede birlikte doğrulanmaya başladığı anda, nesli tanımlayan şey kaç gigabit taşıdığı değil, kullanıcının yerine ne kadar karar alabildiği olur."
+    ]
+  }
+]

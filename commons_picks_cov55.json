@@ -1,0 +1,96 @@
+{
+  "picks": {
+    "rna-model-cover.webp": "Ion Proton Sequencers, BGI Shenzhen.JPG",
+    "rna-model-fig1.webp": "Laboratory pipettes.jpg",
+    "rna-model-fig2.webp": "Laboratory microcentrifuge tubes and pipette tips 01.jpg",
+    "enamel-gel-cover.webp": "Adult human teeth.jpg",
+    "enamel-gel-fig1.webp": "Dental tools and equipment arranged neatly on a clinical workstation at a modern dental clinic.jpg",
+    "enamel-gel-fig2.webp": "Dental treatment room featuring equipment and a chair in a modern clinic.jpg",
+    "6g-prototype-cover.webp": "Cell Tower in Stykkishólmur.jpg",
+    "6g-prototype-fig1.webp": "Cell tower antenna, Zagrebačka cesta.jpg",
+    "6g-prototype-fig2.webp": "Zoomed in shot of mobile phone mast.jpg"
+  },
+  "info": {
+    "Adult human teeth.jpg": {
+      "w": 5760,
+      "h": 3840,
+      "license": "CC BY-SA 4.0",
+      "artist": "Genusfotografen (Tomas Gunnarsson) / Wikimedia",
+      "usage": "Creative Commons Attribution-Share Alike 4.0",
+      "credit": "Private collectioninstitution QS:P195,somevalue,P3831,Q768717",
+      "url": "https://commons.wikimedia.org/wiki/File:Adult_human_teeth.jpg"
+    },
+    "Cell Tower in Stykkishólmur.jpg": {
+      "w": 4592,
+      "h": 2584,
+      "license": "CC BY 4.0",
+      "artist": "Kevin Kandlbinder",
+      "usage": "Creative Commons Attribution 4.0",
+      "credit": "Own work",
+      "url": "https://commons.wikimedia.org/wiki/File:Cell_Tower_in_Stykkish%C3%B3lmur.jpg"
+    },
+    "Cell tower antenna, Zagrebačka cesta.jpg": {
+      "w": 3060,
+      "h": 4080,
+      "license": "CC BY-SA 4.0",
+      "artist": "Mnalis",
+      "usage": "Creative Commons Attribution-Share Alike 4.0",
+      "credit": "Own work",
+      "url": "https://commons.wikimedia.org/wiki/File:Cell_tower_antenna,_Zagreba%C4%8Dka_cesta.jpg"
+    },
+    "Dental tools and equipment arranged neatly on a clinical workstation at a modern dental clinic.jpg": {
+      "w": 4016,
+      "h": 6016,
+      "license": "CC BY 2.0",
+      "artist": "Shixart1985",
+      "usage": "Creative Commons Attribution 2.0",
+      "credit": "Own work",
+      "url": "https://commons.wikimedia.org/wiki/File:Dental_tools_and_equipment_arranged_neatly_on_a_clinical_workstation_at_a_modern_dental_clinic.jpg"
+    },
+    "Dental treatment room featuring equipment and a chair in a modern clinic.jpg": {
+      "w": 4016,
+      "h": 6016,
+      "license": "CC BY 2.0",
+      "artist": "Shixart1985",
+      "usage": "Creative Commons Attribution 2.0",
+      "credit": "Own work",
+      "url": "https://commons.wikimedia.org/wiki/File:Dental_treatment_room_featuring_equipment_and_a_chair_in_a_modern_clinic.jpg"
+    },
+    "Ion Proton Sequencers, BGI Shenzhen.JPG": {
+      "w": 3264,
+      "h": 2448,
+      "license": "CC BY 3.0",
+      "artist": "Scotted400",
+      "usage": "Creative Commons Attribution 3.0",
+      "credit": "Own work",
+      "url": "https://commons.wikimedia.org/wiki/File:Ion_Proton_Sequencers,_BGI_Shenzhen.JPG"
+    },
+    "Laboratory microcentrifuge tubes and pipette tips 01.jpg": {
+      "w": 8192,
+      "h": 5464,
+      "license": "CC BY-SA 4.0",
+      "artist": "Gannu03",
+      "usage": "Creative Commons Attribution-Share Alike 4.0",
+      "credit": "Own work",
+      "url": "https://commons.wikimedia.org/wiki/File:Laboratory_microcentrifuge_tubes_and_pipette_tips_01.jpg"
+    },
+    "Laboratory pipettes.jpg": {
+      "w": 5945,
+      "h": 3963,
+      "license": "CC BY-SA 4.0",
+      "artist": "J.N. Eskra",
+      "usage": "Creative Commons Attribution-Share Alike 4.0",
+      "credit": "Own work",
+      "url": "https://commons.wikimedia.org/wiki/File:Laboratory_pipettes.jpg"
+    },
+    "Zoomed in shot of mobile phone mast.jpg": {
+      "w": 3960,
+      "h": 2970,
+      "license": "CC BY-SA 3.0",
+      "artist": "Kernow Skies",
+      "usage": "Creative Commons Attribution-Share Alike 3.0",
+      "credit": "The Photographer",
+      "url": "https://commons.wikimedia.org/wiki/File:Zoomed_in_shot_of_mobile_phone_mast.jpg"
+    }
+  }
+}
