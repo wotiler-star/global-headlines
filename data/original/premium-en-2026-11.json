@@ -1,0 +1,113 @@
+[
+  {
+    "id": "rss-orig-spatial-glasses-2026-11-en",
+    "title": "When glasses stop displaying and start understanding the room",
+    "summary": "INMO Future, launched on 4 November, packs mapping, spatial anchors and standalone compute into one pair of glasses. The real shift is not in the spec sheet: digital content finally has a location, and belongs to the room rather than the screen.",
+    "cover": "/original/spatial-glasses-cover.webp",
+    "images": [
+      "/original/spatial-glasses-cover.webp",
+      "/original/spatial-glasses-fig1.webp",
+      "/original/spatial-glasses-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "spatial computing",
+      "AR glasses",
+      "SLAM",
+      "on-device AI",
+      "consumer hardware"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.cqn.com.cn/cj/content/2026-11/04/content_9179545.htm",
+    "author": "starteday Editorial",
+    "publishedAt": 1793877718368,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "On 4 November 2026, INMO unveiled its fourth-generation AI+AR glasses, INMO Future, alongside the first full description of its InSpace optical-compute stack. The most revealing line in the launch material was not a number but a change of category: this is not a device that projects information in front of your eyes, it is a spatial computer that tries to understand the room you are standing in.",
+      "For years the smart-glasses pitch has been about display. Subtitles, teleprompters, floating video windows: all of them are, in essence, a screen relocated to the bridge of your nose. The content sits at a fixed point in your field of view and has no relationship to the physical space around you. Take the glasses off and the information vanishes; it never lived on the table or the wall.",
+      "Spatial computing changes that relationship. The device first works out where you are, which way you are facing and which surfaces are in front of you, then decides which wall or desk a piece of content belongs to. Content acquires coordinates. It stays where you left it and is still there when you come back. From showing in front of the eye to living in the space is a marketing phrase, but it points at a genuine change in interaction model.",
+      "The first engineering consequence is that compute has to leave the phone. INMO Future is a standalone spatial computer: no tethered host, no handset dependency, built around a Qualcomm spatial processing chip. Independence is not a spec war. Anchoring only works if localisation, mapping and rendering close the loop locally; a round trip to a phone introduces exactly the latency that makes virtual objects drift.",
+      "On the optical side the headset delivers dual 1080p full colour through an array waveguide, supports binocular disparity and offers a 36-degree field of view while remaining see-through. Thirty-six degrees looks modest next to an immersive headset, but for something you wear outdoors it is a deliberate compromise between optical volume, power draw and all-day acceptability rather than a ceiling on capability.",
+      "Perception decides the experience. The published pipeline combines real-time localisation and mapping, six-degree-of-freedom tracking and online loop closure, claiming centimetre-level positioning, degree-level orientation, multi-plane detection within three seconds and persistent spatial maps. Stripped of engineering language, there is one test that matters: put a virtual cup on a table, turn away, look back, and see whether it moved.",
+      "Thermal design is unusually prominent for this generation. An active cooling system keeps surface temperature below 42 degrees Celsius under sustained load. For a device pressed against the temple, heat is a harder constraint than raw compute: once battery, silicon and optics share a single frame, the question is not how fast it runs but how long spatial sensing can stay on. Open-ear stereo speakers, a ray-based controller and an Android 14 spatial OS round out the package, with existing Android apps installable and usable offline.",
+      "The open questions are equally concrete. All-day weight and battery life remain unproven; persistent maps of private spaces raise questions about how environment data is stored and shared; and a 36-degree canvas still has to earn daily use. Earlier waves of AR enthusiasm were rarely defeated in demo rooms, they faded in the six months afterwards. What this launch leaves behind is a testable proposition: can digital content hold a position that survives the device being switched off? If yes, AR no longer has to prove it sees better than a phone. It only has to prove it remembers the room."
+    ]
+  },
+  {
+    "id": "rss-orig-edge-ai-chip-2026-11-en",
+    "title": "One twentieth the standby power: edge AI finally runs on batteries",
+    "summary": "Nordic's nRF71, announced on 5 November, puts Wi-Fi, Bluetooth LE, Thread and an NPU on a single SoC. The point is not another radio, it is that battery-powered devices can now make decisions locally and still last for years.",
+    "cover": "/original/edge-ai-chip-cover.webp",
+    "images": [
+      "/original/edge-ai-chip-cover.webp",
+      "/original/edge-ai-chip-fig1.webp",
+      "/original/edge-ai-chip-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "edge AI",
+      "low-power silicon",
+      "IoT",
+      "NPU",
+      "Wi-Fi"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.21ic.com/a/1015926.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1793877658368,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "On 5 November 2026, Nordic Semiconductor announced the nRF71 series in Oslo. The headline figure is a standby power draw up to twenty times lower than its existing nRF70 Wi-Fi products, combined with ultra-low-power Wi-Fi, Bluetooth Low Energy, Thread and edge AI on one chip.",
+      "That combination matters because batteries and Wi-Fi have always been uneasy partners. Wi-Fi offers bandwidth and a mature ecosystem, but the energy cost of listening and reconnecting makes a coin cell a poor fit. Most sensors therefore retreated to Bluetooth LE and handed data to a gateway, which then reached the internet. The complexity of that chain has quietly capped how many devices get deployed at all.",
+      "Twenty times lower standby draw is less about saving electricity than about changing the arithmetic of a deployment. When average current falls into the range where a single cell lasts years, there is no longer a budget line for cabling, battery swaps or maintenance visits. For a sensor tucked above a doorframe or deep in a warehouse rack, that often decides whether the project happens.",
+      "Each of the four integrated blocks has a job: Wi-Fi for backhaul, Bluetooth LE for provisioning and wake-up, Thread for low-power mesh networking, and an NPU for local inference. Until now this usually meant two or three chips plus a coprocessor, and every extra part added static power, board traces and firmware coordination.",
+      "The Axon neural processing unit is the most interesting addition. Nordic claims model execution ten to seventeen times faster than a 256 MHz Arm Cortex-M33 alone, enabling keyword spotting, anomaly detection and image classification on battery power. The speed-up is not the goal; the goal is that these tasks no longer need to wake a main processor or ship raw data to the cloud. Its Neuton toolchain builds very small models from a developer's own data and runs them on that processor alone.",
+      "The architectural consequence is a shift from collect-and-upload to judge-then-report. In a conventional chain a microphone or accelerometer produces a continuous stream, the network carries it and the cloud interprets it. With local inference the device stays silent most of the time and transmits only when an event is detected. Fewer transmissions mean lower power, lower traffic and lower cloud bills at once.",
+      "Privacy and latency come along for free. Sound, vibration and image data can be classified without leaving the device, which keeps ambiguous raw data out of the network; and response time collapses from a round trip to a single inference. For anomaly shutdowns or equipment protection, tens of milliseconds are not an abstraction. Smart-home sensors, wearables and industrial vibration monitors all share the same shape: light tasks, sparse events, permanent readiness.",
+      "None of this replaces cloud models. Tasks needing long context, cross-device aggregation or generation still belong higher up. The constraints are equally real: single-chip memory caps model size, multi-protocol coexistence complicates scheduling, and putting AI in the lowest controller lengthens the chain for firmware and model updates. Once the power barrier drops by twenty times, the remaining hard problems move into software and operations. That is where this quiet infrastructure change will actually be won."
+    ]
+  },
+  {
+    "id": "rss-orig-car-ai-box-2026-11-en",
+    "title": "A 35-billion-parameter model in the car: why offline matters",
+    "summary": "PATEO's AI Box, announced on 3 November, runs speech recognition and a 35B mixture-of-experts model locally on NVIDIA DRIVE AGX Thor. It is not about a smarter assistant, it is about the assistant that goes silent in a tunnel.",
+    "cover": "/original/car-ai-cover.webp",
+    "images": [
+      "/original/car-ai-cover.webp",
+      "/original/car-ai-fig1.webp",
+      "/original/car-ai-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "in-car AI",
+      "offline inference",
+      "smart cockpit",
+      "edge computing",
+      "MoE"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://cherumbu.com/auto/pateo-nvidia-and-bytedance-just-redefined-what-a-cars-voice-assistant-can-actually-do-cherumbu-news",
+    "author": "starteday Editorial",
+    "publishedAt": 1793877598368,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Anyone who has used a voice assistant while driving knows the moment: the car enters a tunnel, a basement car park or a mountain road, the signal drops, and the assistant that was answering a second ago goes quiet. No feature list survives that failure. The PATEO AI Box, announced on 3 November 2026, is aimed squarely at this unglamorous but very real problem.",
+      "Rather than replacing the vehicle's existing main controller, the design adds a modular compute unit alongside it, built on NVIDIA DRIVE AGX Thor. That decision carries as much weight as the model itself: a carmaker does not have to redesign the whole electrical architecture for an AI upgrade, and programmes already deep in development can still adopt it.",
+      "Two workloads run inside the box: NVIDIA's Nemotron 3.5 ASR model for real-time speech recognition, and ByteDance's Doubao language model for understanding and contextual reasoning, a mixture-of-experts system with roughly 35 billion total parameters. Speech in, meaning out, with the entire loop closed inside the cabin and no cellular connection required.",
+      "Fitting 35 billion parameters into a car is not only a peak-compute problem. DRIVE AGX Thor offers up to 1,000 INT8 TOPS and 273 GB/s of memory bandwidth, and PATEO explicitly highlights the latter: as a conversation grows, the key-value cache expands, so bandwidth rather than TOPS is what gets squeezed first. A chip with a good benchmark score but weak bandwidth starts lagging halfway through a sentence, which is exactly when a driver stops trusting it.",
+      "The mixture-of-experts architecture is not decoration here. Instead of activating every parameter for each request, input is routed to a small specialised subset, cutting per-query compute while keeping the expressive depth of a dense model that would otherwise need a server. For a cabin that must control both power and heat, activating on demand is closer to engineering reality than piling on raw throughput.",
+      "Offline does not mean refusing the cloud. A more accurate description is layering: wake-up, recognition, cabin controls and basic reasoning stay local, while model updates, software refreshes and extended services remain connected. The network becomes an enhancement rather than an on-off switch. Decoupling availability from signal quality matters more than any debate about whether local or cloud models are cleverer.",
+      "The AI Agent platform fuses microphone input, driver-facing camera frames and vehicle sensor data into a live picture of the cabin. It can notice early signs of fatigue and offer to adjust ventilation or start a seat massager without waiting for a command; an air-quality sensor can close the windows and switch to recirculation when pollution rises. A further Sentinel layer extends awareness outside the cabin, flagging possible parking issues, nearby flooding or fire risk without a separate app. Users may also let the assistant learn climate and routing habits in a local profile that never leaves the car.",
+      "Commercial validation comes from a new-energy vehicle maker that has issued a mass-production nomination for a next-generation programme targeting Q2 2027, with the partner unnamed. PATEO is also developing a token-based billing model for in-vehicle compute, treating the box as the entry point for recurring service revenue rather than a one-off part. The risks are physical: sustained inference means power and heat in a cabin that can bake in the sun, and cost flows straight into vehicle pricing. For the driver, though, the standard is simple. Can you finish the sentence in a tunnel? That is the question this launch answers."
+    ]
+  }
+]

@@ -33,7 +33,7 @@ export default function InfiniteFeed({
   const { sources: follows } = useFollows();
   const vm = useVideoModal();
 
-  // 把当前信息流喂给视频浮层，供「相关视频」横条使用（对标头条浮层内连播）。
+  // 把当前信息流喂给视频浮层，供「相关视频」横条使用（参考信息流浮层内连播）。
   useEffect(() => {
     vm?.setFeed(articles);
   }, [vm, articles]);

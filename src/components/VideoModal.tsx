@@ -30,7 +30,7 @@ function embedSrc(a: Article): string | null {
 }
 
 // 视频浮层 Provider：包裹整站（layout 内），任意视频卡片点击即打开浮层播放，
-// 不离开当前信息流页面（对标头条「点视频直接在信息流内起播」的体验）。
+// 不离开当前信息流页面（参考信息流「点视频直接在信息流内起播」的体验）。
 // 同时持有首页信息流列表，用于浮层内「相关视频」横条。
 export default function VideoModalProvider({
   locale,
@@ -90,7 +90,7 @@ function VideoModalInner({
   const d = getDict(locale);
   const src = embedSrc(article);
 
-  // 相关视频：同分类优先，再补其他分类，最多 6 条（对标头条浮层「相关视频」）
+  // 相关视频：同分类优先，再补其他分类，最多 6 条（参考信息流浮层「相关视频」）
   const related = useMemo(() => {
     const vids = feed.filter((a) => a.media === "video" && a.id !== article.id);
     const sameCat = vids.filter((a) => a.category === article.category);

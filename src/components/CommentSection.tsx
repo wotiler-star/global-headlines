@@ -32,7 +32,7 @@ function initial(name: string): string {
 
 const PAGE_SIZE = 10;
 
-// 文章页评论区（对标今日头条）：头像 + 昵称 + 时间 + 正文 + 点赞/回复 + 最热/最新排序 + 一级回复。
+// 文章页评论区（参考主流资讯站）：头像 + 昵称 + 时间 + 正文 + 点赞/回复 + 最热/最新排序 + 一级回复。
 // SSR 首帧 list=null（客户端拉取），点赞态挂载后读 localStorage，均避免水合错位。
 export default function CommentSection({
   locale,

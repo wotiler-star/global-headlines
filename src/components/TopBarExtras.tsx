@@ -8,7 +8,7 @@ import { getDict } from "@/i18n/dictionaries";
 const CACHE_KEY = "gh_weather";
 type Wx = { city: string; temp: number; icon: string };
 
-// 今日头条式顶栏右侧：天气（IP 定位城市 + 温度）/ 消息（未读红点）/ 发布作品。
+// 信息流式顶栏右侧：天气（IP 定位城市 + 温度）/ 消息（未读红点）/ 发布作品。
 // 天气由 /api/weather 服务端按访客 IP 定位（不用浏览器定位，避免权限策略拦截与弹窗），
 // 浏览器侧再缓存 30 分钟。取不到天气整块隐藏，不展示错误城市。
 export default function TopBarExtras({ locale }: { locale: Locale }) {

@@ -8,7 +8,7 @@ import NewsCard from "@/components/NewsCard";
 
 const PAGE = 24;
 
-// 头条搜索式结果区：分类 tab（综合 + 各分类）+ 排序（相关度/最新）+ 加载更多。
+// 搜索结果式结果区：分类 tab（综合 + 各分类）+ 排序（相关度/最新）+ 加载更多。
 export default function SearchResults({
   locale,
   q,

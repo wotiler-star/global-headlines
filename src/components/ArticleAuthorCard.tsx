@@ -14,7 +14,7 @@ const AV_COLORS: Record<string, string> = {
   video: "#ff5c8a",
 };
 
-// 今日头条式作者卡片：头像（来源首字母）+ 来源名 + 分类副标题 + 关注按钮。
+// 信息流式作者卡片：头像（来源首字母）+ 来源名 + 分类副标题 + 关注按钮。
 // 服务端组件：无交互状态，避免 hydration。
 export default function ArticleAuthorCard({
   source,

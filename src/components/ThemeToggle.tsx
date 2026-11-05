@@ -16,7 +16,7 @@ export default function ThemeToggle() {
     setTheme(next);
     document.documentElement.dataset.theme = next;
     try {
-      localStorage.setItem("gh_theme", next);
+      localStorage.setItem("sd_theme", next);
     } catch {
       /* ignore */
     }

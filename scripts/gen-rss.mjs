@@ -1,8 +1,8 @@
 // 生成 RSS：直接读取 data/articles.json（collect-articles.mjs 写的可读镜像），
 // 写出 public/rss.xml（合并）与 public/<locale>/rss.xml（分语言）。
 // 纯 Node 无依赖；构建后 / 容器启动时运行均可（幂等覆盖写）。
-// 历史：旧版扫描 out/<locale>/article/<id>/index.html，那是 CloudStudio 静态导出
-// 时代的逻辑，Docker(next start) 部署下 out/ 不存在，导致 RSS 从未生成（线上 404/500）。
+// 历史：旧版扫描 out/<locale>/article/<id>/index.html，那是静态导出时代的逻辑，
+// Docker(next start) 部署下 out/ 不存在，导致 RSS 从未生成（线上 404/500）。
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -10,9 +10,28 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(fileURLToPath(new URL("../", import.meta.url)));
 const DATA = join(ROOT, "data", "articles.json");
 const PUB = join(ROOT, "public");
-const SITE_URL = (process.env.SITE_URL || "https://www.starteday.com").replace(/\/$/, "");
-const LOCALES = ["zh", "en", "ja", "ko", "es", "fr"];
+// 规范域是裸域（src/lib/site.ts 同值）。历史默认值误写 www，会让 feed 里的
+// <link> 与 canonical 分裂成另一个主机；保持与构建期注入的 SITE_URL 一致。
+const SITE_URL = (process.env.SITE_URL || "https://starteday.com").replace(/\/$/, "");
 const MAX_ITEMS = 50;
+
+// cov42：语种清单从 i18n 单一真相源读取。此前这里硬编码 6 个语种，
+// 站点却是 8 语种，导致 /pt/rss.xml 与 /tr/rss.xml 长期 404（数据其实各有 40/130 篇）。
+function readLocales() {
+  const fallback = ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr"];
+  try {
+    const src = readFileSync(join(ROOT, "src", "i18n", "config.ts"), "utf8");
+    const m = src.match(/export const locales\s*=\s*\[([^\]]+)\]/);
+    if (!m) throw new Error("locales 声明未找到");
+    const list = [...m[1].matchAll(/["']([a-z]{2})["']/g)].map((x) => x[1]);
+    if (list.length < 2) throw new Error("locales 过短");
+    return list;
+  } catch (e) {
+    console.warn("[rss] 解析 config.ts 失败，回退默认语种:", e.message);
+    return fallback;
+  }
+}
+const LOCALES = readLocales();
 
 function escapeXml(s = "") {
   return String(s)
@@ -83,8 +102,10 @@ for (const loc of LOCALES) {
       publishedAt: a.publishedAt || Date.now(),
       image: Array.isArray(a.images) ? a.images[0] : undefined,
     }));
-  if (items.length === 0) continue;
-  const feed = buildFeed(items, `全球头条 (${loc})`, `${SITE_URL}/${loc}/rss.xml`, loc);
+  // 即便某语种暂时没有文章也写出空 feed：页头 <link rel=alternate> 指向的
+  // 订阅地址必须始终返回 200，否则阅读器会报错、SEO 也会抓到 404。
+  if (items.length === 0) console.log(`[rss] ${loc} 暂无文章，写出空 feed`);
+  const feed = buildFeed(items, `starteday (${loc})`, `${SITE_URL}/${loc}/rss.xml`, loc);
   const dir = join(PUB, loc);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "rss.xml"), feed, "utf8");
@@ -95,7 +116,7 @@ for (const loc of LOCALES) {
 if (all.length) {
   all.sort((a, b) => b.publishedAt - a.publishedAt);
   const top = all.slice(0, 100);
-  const combined = buildFeed(top, "全球头条 Global Headlines", `${SITE_URL}/rss.xml`, "zh");
+  const combined = buildFeed(top, "starteday · Global News", `${SITE_URL}/rss.xml`, "zh");
   writeFileSync(join(PUB, "rss.xml"), combined, "utf8");
   console.log(`[rss] wrote rss.xml (combined ${top.length} items)`);
 }

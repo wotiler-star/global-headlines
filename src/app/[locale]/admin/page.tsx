@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import { isLocale, Locale } from "@/i18n/config";
 import { getCurrentUser } from "@/lib/auth";
 import { getDict } from "@/i18n/dictionaries";
 import AdminPanel from "@/components/AdminPanel";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Admin",
+  robots: { index: false, follow: false },
+};
 
 export default async function AdminPage({
   params,

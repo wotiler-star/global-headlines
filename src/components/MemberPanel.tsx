@@ -267,7 +267,7 @@ export default function MemberPanel({ locale }: { locale: Locale }) {
     <div className="member">
       <div className="member-head">
         <div className="member-head-id">
-          <div className="member-avatar">{me?.user?.avatar || "头"}</div>
+          <div className="member-avatar">{me?.user?.avatar || "S"}</div>
           <div>
             <h1>{d.memberCenter}</h1>
             <div className="member-sub">

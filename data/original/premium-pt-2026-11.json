@@ -1,0 +1,107 @@
+[
+  {
+    "id": "rss-orig-spatial-glasses-2026-11-pt",
+    "title": "Quando os óculos deixam de mostrar e começam a compreender o espaço",
+    "summary": "Apresentados a 4 de novembro, os INMO Future reúnem mapeamento, âncoras espaciais e computação autónoma. A mudança real não está na ficha técnica: o conteúdo digital passa a ter uma posição e pertence à sala, não ao ecrã.",
+    "cover": "/original/spatial-glasses-cover.webp",
+    "images": [
+      "/original/spatial-glasses-cover.webp",
+      "/original/spatial-glasses-fig1.webp",
+      "/original/spatial-glasses-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "computação espacial",
+      "óculos AR",
+      "SLAM",
+      "IA no dispositivo",
+      "hardware de consumo"
+    ],
+    "category": "tech",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.cqn.com.cn/cj/content/2026-11/04/content_9179545.htm",
+    "author": "Redação starteday",
+    "publishedAt": 1793877718368,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "A 4 de novembro de 2026, a INMO apresentou os óculos AI+AR de quarta geração INMO Future e descreveu pela primeira vez de forma completa a sua arquitetura ótica e de cálculo InSpace. O mais revelador não foi um número, mas uma mudança de categoria: o produto deixa de ser definido como um dispositivo que projeta informação à frente dos olhos e passa a ser um computador espacial que tenta compreender a sala onde a pessoa está.",
+      "Durante anos, a narrativa dos óculos inteligentes girou em torno da visualização. Legendas, teleponto, janelas de vídeo flutuantes: no fundo, era sempre um ecrã deslocado para a ponte do nariz. O conteúdo fica num ponto fixo do campo de visão e não tem qualquer relação com o espaço físico. Ao tirar os óculos, desaparece; nunca esteve na mesa nem na parede.",
+      "A computação espacial altera essa relação. O dispositivo determina primeiro onde está a pessoa, para onde olha e que superfícies tem pela frente, e só depois decide em que parede ou sobre que mesa colocar cada conteúdo. A informação ganha coordenadas, fica onde foi deixada e continua lá quando se regressa. Da exibição à frente do olho para a vida no espaço soa a marketing, mas aponta para uma mudança real do modelo de interação.",
+      "A primeira consequência técnica é que o cálculo tem de sair do telemóvel. O INMO Future é um computador espacial autónomo, sem anfitrião ligado por cabo nem dependência do smartphone, organizado em torno de um chip espacial da Qualcomm. A autonomia não é uma corrida às especificações: a ancoragem só funciona se localização, mapeamento e renderização fecharem o ciclo localmente. Uma ida e volta ao telefone introduz exatamente a latência que faz deslizar os objetos virtuais.",
+      "No lado ótico, oferece 1080p a cores em ambos os olhos por guia de ondas, visualização binocular diferenciada e um campo de 36 graus mantendo a transparência. Comparado com um capacete imersivo, 36 graus parecem poucos, mas para algo que se usa na rua é um compromisso deliberado entre volume ótico, consumo e conforto ao longo do dia, não um limite tecnológico.",
+      "O que decide a experiência é a perceção: localização e mapeamento em tempo real, seguimento de seis graus de liberdade, otimização de loop em linha, deteção de múltiplos planos em três segundos e mapas persistentes. Na prática há um único teste: pousar uma chávena virtual na mesa, virar a cabeça e verificar se ela se moveu. Ficam as dúvidas de sempre, peso, autonomia e o que fazer com mapas de espaços privados. As vagas anteriores de AR não perderam nas demonstrações, apagaram-se seis meses depois na taxa de utilização. Este lançamento deixa uma proposição verificável: pode o conteúdo manter uma posição que sobreviva a desligar o aparelho?"
+    ]
+  },
+  {
+    "id": "rss-orig-edge-ai-chip-2026-11-pt",
+    "title": "Um vigésimo do consumo em repouso: a IA periférica passa a funcionar a pilhas",
+    "summary": "O nRF71 da Nordic, anunciado a 5 de novembro, junta Wi-Fi, Bluetooth LE, Thread e uma NPU num único chip. O relevante não é mais uma rádio, mas um dispositivo a pilhas capaz de decidir localmente e durar anos.",
+    "cover": "/original/edge-ai-chip-cover.webp",
+    "images": [
+      "/original/edge-ai-chip-cover.webp",
+      "/original/edge-ai-chip-fig1.webp",
+      "/original/edge-ai-chip-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "IA periférica",
+      "chips de baixo consumo",
+      "IoT",
+      "NPU",
+      "Wi-Fi"
+    ],
+    "category": "tech",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.21ic.com/a/1015926.html",
+    "author": "Redação starteday",
+    "publishedAt": 1793877658368,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "A 5 de novembro de 2026, a Nordic Semiconductor anunciou em Oslo a série nRF71. O número principal é um consumo em repouso até vinte vezes inferior ao dos produtos Wi-Fi nRF70, com Wi-Fi de baixíssimo consumo, Bluetooth LE, Thread e IA periférica integrados num único SoC.",
+      "A combinação importa porque bateria e Wi-Fi sempre foram uma parceria difícil. O Wi-Fi oferece largura de banda e um ecossistema maduro, mas o custo energético de escutar e reconectar casa mal com uma pilha de botão. Por isso a maioria dos sensores recuou para o Bluetooth LE, entregava os dados a um gateway e só depois chegava à internet. A complexidade dessa cadeia limitou silenciosamente quantos dispositivos chegam a ser instalados.",
+      "Reduzir o consumo em repouso a um vigésimo muda menos a fatura de eletricidade do que a aritmética da instalação. Quando a corrente média cai para a faixa em que uma única pilha dura anos, deixam de ser necessárias rubricas de cablagem, substituição de baterias e visitas de manutenção. Para um sensor escondido sobre uma porta ou no fundo de uma estante industrial, isso decide se o projeto avança.",
+      "Cada bloco integrado tem a sua função: Wi-Fi para o retorno, Bluetooth LE para configuração e despertar, Thread para a malha de baixo consumo e NPU para a inferência local. Antes eram precisos dois ou três chips e um coprocessador, e cada peça acrescentava consumo estático, pistas na placa e coordenação de firmware. A NPU Axon executa modelos dez a dezassete vezes mais depressa do que um Cortex-M33 a 256 MHz isolado, e a ferramenta Neuton constrói modelos minúsculos com dados próprios que correm nesse processador.",
+      "A mudança de arquitetura é passar de recolher e enviar para julgar e só depois avisar. Na cadeia clássica, um microfone ou acelerómetro produz um fluxo contínuo, a rede transporta-o e a nuvem interpreta-o. Com inferência local, o dispositivo fica em silêncio quase todo o tempo e transmite apenas quando deteta um evento. Menos comunicações significam ao mesmo tempo menos energia, menos tráfego e menos custo na nuvem.",
+      "Privacidade e latência vêm por acréscimo: som, vibração e imagem são classificados sem sair do aparelho, e a resposta passa de uma ida e volta de rede a uma única inferência. Isto não substitui os modelos na nuvem, ainda necessários para contexto longo, agregação entre dispositivos ou geração. Os limites são igualmente concretos: a memória de um único chip limita o tamanho do modelo, a coexistência de protocolos complica o escalonamento e colocar IA no controlador mais baixo alonga a cadeia de atualizações. Quando a barreira energética cai vinte vezes, os problemas difíceis mudam-se para o software e para as operações."
+    ]
+  },
+  {
+    "id": "rss-orig-car-ai-box-2026-11-pt",
+    "title": "Um modelo de 35 mil milhões de parâmetros dentro do carro: por que razão o offline importa",
+    "summary": "A AI Box da PATEO, anunciada a 3 de novembro, executa reconhecimento de voz e um modelo MoE de 35B localmente sobre NVIDIA DRIVE AGX Thor. Não procura um assistente mais esperto, mas evitar que ele emudeça dentro de um túnel.",
+    "cover": "/original/car-ai-cover.webp",
+    "images": [
+      "/original/car-ai-cover.webp",
+      "/original/car-ai-fig1.webp",
+      "/original/car-ai-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "IA no automóvel",
+      "inferência offline",
+      "habitáculo inteligente",
+      "computação periférica",
+      "MoE"
+    ],
+    "category": "tech",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://cherumbu.com/auto/pateo-nvidia-and-bytedance-just-redefined-what-a-cars-voice-assistant-can-actually-do-cherumbu-news",
+    "author": "Redação starteday",
+    "publishedAt": 1793877598368,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Quem já usou um assistente de voz ao volante conhece o momento: o carro entra num túnel, num parque subterrâneo ou numa estrada de montanha, o sinal cai e o assistente que respondia há um segundo fica em silêncio. Nenhuma lista de funções sobrevive a essa falha. A AI Box da PATEO, anunciada a 3 de novembro de 2026, aponta exatamente para este problema pouco vistoso e muito real.",
+      "Em vez de substituir o controlador principal do veículo, acrescenta ao lado uma unidade de cálculo modular construída sobre NVIDIA DRIVE AGX Thor. É uma decisão com peso semelhante ao do modelo: o fabricante não precisa de redesenhar toda a arquitetura elétrica por causa de uma melhoria de IA, e programas já avançados ainda a podem incorporar.",
+      "Dentro da caixa correm duas cargas: o Nemotron 3.5 ASR da NVIDIA para reconhecimento de voz em tempo real e o modelo linguístico Doubao da ByteDance para compreensão e raciocínio contextual, uma mistura de peritos com cerca de 35 mil milhões de parâmetros. Voz que entra, significado que sai, com o ciclo fechado no habitáculo e sem ligação celular.",
+      "Colocar 35 mil milhões de parâmetros num carro não é apenas um problema de cálculo de pico. O DRIVE AGX Thor oferece até 1.000 INT8 TOPS e 273 GB/s de largura de banda de memória, e a PATEO sublinha precisamente o segundo valor: à medida que a conversa cresce, a cache chave-valor expande-se e o que satura primeiro é a largura de banda, não os TOPS. Um chip bem pontuado mas com pouca banda começa a atrasar-se a meio da frase, exatamente quando o condutor deixa de confiar.",
+      "A arquitetura de mistura de peritos não é decoração: em vez de ativar todos os parâmetros em cada pedido, encaminha a entrada para um pequeno subconjunto especializado, reduzindo o cálculo por consulta e mantendo a profundidade de um modelo denso que exigiria servidor. Num habitáculo que tem de controlar consumo e calor, ativar sob medida está mais perto da engenharia real do que empilhar potência bruta.",
+      "Offline não significa rejeitar a nuvem, mas estratificar: despertar, reconhecimento, controlos de climatização e compreensão básica ficam locais, enquanto atualizações de modelo, software e serviços alargados continuam em rede. A conetividade passa de interruptor a camada de melhoria. A plataforma Agent cruza voz, câmara voltada para o condutor e sensores do veículo, deteta sinais precoces de fadiga e pode propor ventilação ou massagem sem esperar uma ordem. Um fabricante de veículos de nova energia já emitiu uma nomeação de produção em série para o segundo trimestre de 2027, e a PATEO estuda ainda faturar o cálculo por tokens. Os riscos permanecem físicos: consumo, calor num carro ao sol e custo repercutido no preço. Para quem conduz, o critério é simples: consegue-se acabar a frase dentro do túnel?"
+    ]
+  }
+]

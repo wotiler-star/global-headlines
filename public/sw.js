@@ -1,12 +1,18 @@
-// Global Headlines — minimal service worker.
+// starteday - minimal service worker.
 //
 // cov16 关键修复：SW 绝不拦截「导航 HTML」与「/_next/ 静态分块」。
 // 实测表明，只要 SW 介入这两类请求（即便缓存优先），部署后旧分块 / 旧文档被回灌，
 // 就会触发 React #418（Hydration failed, args=[HTML,""]）。
 // Next.js 的 /_next 资源是内容哈希 + Cache-Control: immutable，浏览器原生 HTTP 缓存已足够，
 // 无需 SW 介入。SW 仅缓存版本稳定的小资源（icon / manifest）并负责离线图标。
-const CACHE = "gh-cache-v3";
-const CORE = ["/manifest.webmanifest", "/icon.svg"];
+const CACHE = "starteday-cache-v2";
+const CORE = [
+  "/manifest.webmanifest",
+  "/icon.svg",
+  "/icons/icon-192.png",
+  "/icons/icon-512.png",
+  "/apple-touch-icon.png",
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

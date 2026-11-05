@@ -3,7 +3,8 @@ import { isLocale, Locale, locales, categories, ogLocale, localeMeta } from "@/i
 import { getDict } from "@/i18n/dictionaries";
 import { getArticle, getRelated, getArticles } from "@/data/newsSource";
 import { formatRelativeTime } from "@/data/news";
-import { absUrl, buildArticleAlternates } from "@/lib/site";
+import { absUrl, buildArticleAlternates, SITE_URL } from "@/lib/site";
+import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
 import { homeHref } from "@/lib/paths";
 import CategoryNav from "@/components/CategoryNav";
@@ -157,11 +158,17 @@ export default async function ArticlePage({
                 description: article.summary,
                 inLanguage: localeMeta[loc].hreflang,
                 isAccessibleForFree: true,
-                image: article.images,
+                image: (article.images || []).map((p: string) =>
+                  p.startsWith("http") ? p : `${SITE_URL}${p.startsWith("/") ? "" : "/"}${p}`
+                ),
                 datePublished: new Date(article.publishedAt).toISOString(),
                 dateModified: new Date(article.publishedAt).toISOString(),
                 author: { "@type": "Person", name: article.author || article.source },
-                publisher: { "@type": "Organization", name: d.siteName },
+                publisher: {
+                  "@type": "Organization",
+                  name: d.siteName,
+                  logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.svg` },
+                },
                 mainEntityOfPage: absUrl(loc, `/article/${id}`),
                 articleSection: article.category,
                 keywords: article.tags.join(", "),
@@ -260,7 +267,10 @@ export default async function ArticlePage({
                       decoding="async"
                     />
                     <figcaption>
-                      FIG.{String(figMap.get(i)!.no).padStart(2, "0")} · {article.source}
+                      FIG.{String(figMap.get(i)!.no).padStart(2, "0")} · {IMAGE_CREDITS[figMap.get(i)!.src]?.artist || article.source}
+                      {IMAGE_CREDITS[figMap.get(i)!.src]?.license
+                        ? ` · ${IMAGE_CREDITS[figMap.get(i)!.src]!.license}`
+                        : ""}
                     </figcaption>
                   </figure>
                 )}
@@ -268,6 +278,21 @@ export default async function ArticlePage({
             ))}
           </div>
           <WaveformDivider paragraphs={article.body.length} minutes={readMin} />
+          {(article.images || []).some((p) => IMAGE_CREDITS[p]) && (
+            <section className="art-image-credits" aria-label="图片来源">
+              <div className="aic-label">IMAGE CREDITS · 图片来源</div>
+              <ul>
+                {(article.images || []).filter((p) => IMAGE_CREDITS[p]).map((p) => (
+                  <li key={p}>
+                    <a href={IMAGE_CREDITS[p].url} target="_blank" rel="noopener noreferrer">
+                      {p.split("/").pop()}
+                    </a>
+                    {" · "}{IMAGE_CREDITS[p].artist}{" · "}{IMAGE_CREDITS[p].license}{" · Wikimedia Commons"}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
           {article.sourceUrl && (
             <a
               className="read-original"

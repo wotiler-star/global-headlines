@@ -31,7 +31,7 @@ export default function AdSlot({ articleId }: { articleId?: string }) {
     <div className="ad-slot" role="complementary" aria-label="advertisement">
       <div className="ad-slot-tag">AD · 推广</div>
       <div className="ad-slot-body">
-        <b>全球头条 · 流量变现计划</b>
+        <b>starteday · 流量变现计划</b>
         <span>你的稿件曝光与点击将按比例分成，计入会员中心余额。</span>
       </div>
       <button type="button" className="ad-slot-cta" onClick={click}>

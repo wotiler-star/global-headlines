@@ -59,3 +59,17 @@ verify_*.json
 perf_probe.js
 check_*.mjs
 cov37_*.png
+
+# cov 验证截图（Playwright 产物，非源码）
+cov*_*.png
+cov4?_*.png
+
+# 会话级临时状态/中间产物（非源码）
+brand_images/
+brand_real/
+*_articles.json
+purged-lead-dup-ids.json
+reset-cov44-kept.json
+seo_audit_cov47*.json
+gsc_verification_cov46.json
+commons_picks_cov48.json

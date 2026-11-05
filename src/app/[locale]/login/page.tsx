@@ -8,7 +8,9 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const loc = locale as Locale;
-  return isLocale(loc) ? { title: getDict(loc).authLoginTitle, robots: { index: true, follow: true } } : { title: "Login" };
+  return isLocale(loc)
+    ? { title: getDict(loc).authLoginTitle, robots: { index: false, follow: false } }
+    : { title: "Login", robots: { index: false, follow: false } };
 }
 
 export default async function LoginPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ next?: string }> }) {

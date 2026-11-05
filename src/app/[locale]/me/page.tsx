@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const loc = locale as Locale;
   if (!isLocale(loc)) return { title: "Member" };
-  return { title: getDict(loc).memberCenter };
+  return { title: getDict(loc).memberCenter, robots: { index: false, follow: false } };
 }
 
 export default async function MemberPage({ params }: { params: Promise<{ locale: string }> }) {

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "rss-orig-spatial-glasses-2026-11-tr",
+    "title": "Gözlükler göstermeyi bırakıp odayı anlamaya başladığında",
+    "summary": "4 Kasım'da tanıtılan INMO Future; haritalama, mekânsal sabitleme ve bağımsız hesaplamayı tek bir gözlüğe sığdırdı. Asıl değişim teknik verilerde değil: dijital içerik ilk kez bir konuma sahip oluyor ve ekrana değil odaya ait oluyor.",
+    "cover": "/original/spatial-glasses-cover.webp",
+    "images": [
+      "/original/spatial-glasses-cover.webp",
+      "/original/spatial-glasses-fig1.webp",
+      "/original/spatial-glasses-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "mekânsal hesaplama",
+      "AR gözlük",
+      "SLAM",
+      "cihaz üstü yapay zekâ",
+      "tüketici donanımı"
+    ],
+    "category": "tech",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.cqn.com.cn/cj/content/2026-11/04/content_9179545.htm",
+    "author": "starteday Yazı İşleri",
+    "publishedAt": 1793877718368,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "4 Kasım 2026'da INMO, dördüncü nesil AI+AR gözlüğü INMO Future'ı ve InSpace adlı optik-hesaplama mimarisini ilk kez bütünüyle tanıttı. Tanıtım materyalinde en çok üzerinde durulması gereken şey bir rakam değil, sınıflandırmanın değişmesiydi: ürün artık gözün önüne bilgi yansıtan bir aygıt olarak değil, içinde bulunduğunuz odayı anlamaya çalışan mekânsal bir bilgisayar olarak tanımlanıyor.",
+      "Akıllı gözlüklerin hikâyesi yıllarca gösterim etrafında döndü. Altyazılar, telepromptör, havada duran video pencereleri: özünde ekranı burnun üzerine taşımaktan ibaretti. İçerik görüş alanında sabit bir noktada durur, gerçek mekânla hiçbir ilişki kurmaz. Gözlüğü çıkarınca kaybolur; ne masada ne duvarda hiç bulunmuştur.",
+      "Mekânsal hesaplama tam olarak bu ilişkiyi değiştiriyor. Cihaz önce nerede olduğunuzu, hangi yöne baktığınızı ve karşınızda hangi yüzeylerin bulunduğunu belirliyor, sonra içeriği hangi duvara veya masaya koyacağına karar veriyor. İçerik koordinat kazanıyor, bıraktığınız yerde kalıyor ve geri döndüğünüzde hâlâ orada oluyor. Gözün önünde göstermekten mekânın içinde yaşamaya geçiş ifadesi pazarlama koksa da etkileşim modelindeki gerçek bir kırılmayı işaret ediyor.",
+      "Bunun ilk mühendislik sonucu, hesaplamanın telefondan çıkması gerektiği oldu. INMO Future kablolu bir ana bilgisayara ya da akıllı telefona bağlı olmayan, Qualcomm'un mekânsal işlemcisi etrafında kurulmuş bağımsız bir bilgisayar. Bağımsızlık bir spec yarışı değil: konumlama, haritalama ve render aynı cihazın içinde kapanmazsa, telefona yapılan gidiş-dönüş tam da sanal nesnelerin kaymasına yol açan gecikmeyi doğuruyor.",
+      "Optik tarafta dalga kılavuzuyla çift göz için 1080p renkli görüntü, iki göz için ayrı render ve 36 derecelik görüş alanı, şeffaflığı koruyarak bir arada sunuluyor. Sürükleyici bir başlıkla kıyaslanınca 36 derece mütevazı görünür; fakat dışarıda takılan bir ürün için bu, optik hacim, güç tüketimi ve gün boyu konfor arasında bilinçli bir uzlaşmadır, teknolojik bir tavan değil.",
+      "Deneyimi belirleyen yine algı: gerçek zamanlı konumlama ve haritalama, altı serbestlik dereceli takip, çevrimiçi döngü optimizasyonu, üç saniyede çoklu düzlem tespiti ve kalıcı mekân haritaları. Pratikte tek bir sınav var: masaya sanal bir fincan koyup başınızı çevirdikten sonra yerinde durup durmadığına bakmak. Ağırlık, pil ömrü ve özel mekânların haritalarının ne yapılacağı gibi sorular da açık kalıyor. AR'ın önceki dalgaları demolarında yenilmedi, altı ay sonraki kullanım oranında söndü. Bu lansmanın bıraktığı şey sınanabilir bir önerme: içerik, cihaz kapandığında da silinmeyen bir konumu koruyabilir mi?"
+    ]
+  },
+  {
+    "id": "rss-orig-edge-ai-chip-2026-11-tr",
+    "title": "Bekleme gücünün yirmide biri: uç yapay zekâ artık pille çalışıyor",
+    "summary": "5 Kasım'da duyurulan Nordic nRF71; Wi-Fi, Bluetooth LE, Thread ve bir NPU'yu tek yongada birleştirdi. Önemli olan yeni bir radyo değil, pille çalışan bir cihazın yerel karar verip yıllarca dayanabilmesi.",
+    "cover": "/original/edge-ai-chip-cover.webp",
+    "images": [
+      "/original/edge-ai-chip-cover.webp",
+      "/original/edge-ai-chip-fig1.webp",
+      "/original/edge-ai-chip-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "uç yapay zekâ",
+      "düşük güç yongası",
+      "IoT",
+      "NPU",
+      "Wi-Fi"
+    ],
+    "category": "tech",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.21ic.com/a/1015926.html",
+    "author": "starteday Yazı İşleri",
+    "publishedAt": 1793877658368,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "5 Kasım 2026'da Nordic Semiconductor, Oslo'da nRF71 serisini duyurdu. Öne çıkan rakam, mevcut nRF70 Wi-Fi ürünlerine kıyasla bekleme gücünün yirmi kata kadar düşmesi; üstelik düşük güçlü Wi-Fi, Bluetooth LE, Thread ve uç yapay zekâ tek bir SoC üzerinde.",
+      "Bu birleşim önemli, çünkü pil ile Wi-Fi uzun süredir zor bir çift. Wi-Fi bant genişliği ve olgun bir ekosistem sunar; ancak dinleme ve yeniden bağlanmanın enerji maliyeti düğme pile uymaz. Bu yüzden çoğu sensör Bluetooth LE'ye çekildi, veriyi bir ağ geçidine devretti ve internete ancak oradan çıktı. Bu zincirin karmaşıklığı, sahada kaç cihaz kurulabileceğini sessizce sınırladı.",
+      "Bekleme gücünü yirmide bire indirmek elektrik faturasından çok kurulum aritmetiğini değiştiriyor. Ortalama akım, tek bir pilin yıllarca dayandığı aralığa düştüğünde kablolama, pil değişimi ve bakım ziyareti kalemleri baştan kalkıyor. Bir kapı üstüne veya endüstriyel bir rafın dibine konan sensör için bu, projenin yapılıp yapılmayacağını belirliyor.",
+      "Entegre edilen dört bloğun her birinin işi ayrı: Wi-Fi geri bağlantı, Bluetooth LE kurulum ve uyandırma, Thread düşük güçlü örgü ağ, NPU yerel çıkarım. Eskiden iki üç yongaya bir yardımcı işlemci eklenir; her parça statik güç, kart üzerinde iz ve firmware koordinasyonu eklerdi. Axon NPU, modelleri 256 MHz'lik bir Cortex-M33'e kıyasla on ila on yedi kat hızlı çalıştırıyor ve Neuton aracı geliştiricinin kendi verisiyle çok küçük modeller kurup o işlemcide koşuyor.",
+      "Mimarideki değişim, topla ve yükle yaklaşımından önce karar ver sonra bildir yaklaşımına geçmek. Klasik zincirde mikrofon veya ivmeölçer sürekli akış üretir, ağ taşır, bulut yorumlar. Yerel çıkarımda cihaz zamanın çoğunda sessiz kalır ve yalnızca bir olay algıladığında iletir. Daha az iletişim aynı anda daha az güç, daha az trafik ve daha düşük bulut maliyeti demek.",
+      "Gizlilik ve gecikme de bunun yanında geliyor: ses, titreşim ve görüntü cihazdan çıkmadan sınıflandırılıyor, yanıt bir ağ gidiş-dönüşünden tek bir çıkarıma iniyor. Bu, buluttaki büyük modellerin yerini almıyor; uzun bağlam, cihazlar arası toplulaştırma veya üretim hâlâ üst katmanın işi. Sınırlar da somut: tek yonganın belleği model boyutunu sınırlıyor, çoklu protokol birlikteliği zamanlamayı zorlaştırıyor ve en alt denetleyiciye yapay zekâ koymak güncelleme zincirini uzatıyor. Enerji engeli yirmide bire düştükten sonra zor sorular yazılıma ve işletmeye taşınıyor."
+    ]
+  },
+  {
+    "id": "rss-orig-car-ai-box-2026-11-tr",
+    "title": "Arabanın içinde 35 milyar parametre: çevrimdışı çalışmak neden önemli",
+    "summary": "3 Kasım'da duyurulan PATEO AI Box, konuşma tanıma ve 35B MoE modelini NVIDIA DRIVE AGX Thor üzerinde yerel olarak çalıştırıyor. Daha akıllı bir asistan değil, tünelde sessizleşen asistanı ortadan kaldırmak hedefleniyor.",
+    "cover": "/original/car-ai-cover.webp",
+    "images": [
+      "/original/car-ai-cover.webp",
+      "/original/car-ai-fig1.webp",
+      "/original/car-ai-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "araç içi yapay zekâ",
+      "çevrimdışı çıkarım",
+      "akıllı kabin",
+      "uç hesaplama",
+      "MoE"
+    ],
+    "category": "tech",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://cherumbu.com/auto/pateo-nvidia-and-bytedance-just-redefined-what-a-cars-voice-assistant-can-actually-do-cherumbu-news",
+    "author": "starteday Yazı İşleri",
+    "publishedAt": 1793877598368,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Direksiyon başında sesli asistan kullanan herkes o anı bilir: araç bir tünele, yeraltı otoparkına veya dağ yoluna girer, sinyal düşer ve bir saniye önce cevap veren asistan susar. Hiçbir özellik listesi bu arızanın üstünü örtemez. 3 Kasım 2026'da açıklanan PATEO AI Box, gösterişsiz ama çok gerçek olan tam bu soruna yöneliyor.",
+      "Yöntem, aracın mevcut ana denetleyicisini değiştirmek yerine yanına modüler bir hesaplama ünitesi eklemek; temelinde NVIDIA DRIVE AGX Thor var. Bu karar modelin kendisi kadar ağırlıklı: üretici bir yapay zekâ güncellemesi için tüm elektrik-elektronik mimarisini yeniden tasarlamak zorunda kalmıyor, geliştirmesi ilerlemiş programlar da sonradan dahil edilebiliyor.",
+      "Kutunun içinde iki yük çalışıyor: gerçek zamanlı konuşma tanıma için NVIDIA'nın Nemotron 3.5 ASR modeli, anlama ve bağlamsal akıl yürütme için ByteDance'ın Doubao dil modeli, yaklaşık 35 milyar parametreli bir uzman karışımı. Ses giriyor, anlam çıkıyor; döngü kabinin içinde, hücresel bağlantı olmadan kapanıyor.",
+      "35 milyar parametreyi araba içine sığdırmak yalnızca tepe hesaplama sorunu değil. DRIVE AGX Thor 1.000 INT8 TOPS'a kadar güç ve 273 GB/s bellek bant genişliği sunuyor; PATEO özellikle ikincisini vurguluyor: konuşma uzadıkça anahtar-değer önbelleği büyüyor ve önce TOPS değil bant genişliği sıkışıyor. Puanı iyi ama bant genişliği zayıf bir yonga, cümlenin ortasında yavaşlamaya başlıyor; tam da sürücünün güvenini kaybettiği yerde.",
+      "Uzman karışımı mimarisi burada süs değil: her istekte tüm parametreleri etkinleştirmek yerine girdiyi küçük bir uzman alt kümesine yönlendiriyor, istek başına hesabı azaltırken sunucu isteyecek yoğun bir modelin derinliğini koruyor. Gücü ve ısıyı birlikte yönetmesi gereken bir kabin için ihtiyaç kadar etkinleştirmek, ham güç yığmaktan mühendisliğe daha yakın.",
+      "Çevrimdışı olmak bulutu reddetmek değil, katmanlamak demek: uyandırma, tanıma, iklimlendirme kontrolleri ve temel anlama yerelde kalıyor; model güncellemeleri, yazılım ve genişletilmiş servisler ağ üzerinden sürüyor. Bağlantı bir açma-kapama düğmesi değil, iyileştirme katmanı oluyor. Agent platformu ses, sürücüye bakan kamera ve araç sensörlerini tek bir canlı kabin tablosunda birleştiriyor; yorgunluğun ilk işaretlerini okuyup komut beklemeden havalandırma veya koltuk masajı önerebiliyor. Yeni enerjili bir araç üreticisi 2027'nin ikinci çeyreği hedefli bir seri üretim adaylığı vermiş durumda; PATEO ayrıca araç içi hesabı token bazlı faturalandırmayı değerlendiriyor. Riskler fiziksel tarafta kalıyor: güneş altındaki kabinde güç ve ısı, maliyetin araç fiyatına yansıması. Sürücü için ölçüt ise basit: tünelde başladığın cümleyi bitirebiliyor musun?"
+    ]
+  }
+]

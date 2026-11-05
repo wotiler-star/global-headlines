@@ -10,7 +10,7 @@ type HotItem = { id: string; title: string; locale: Locale };
 
 const RANK_CLS = ["r1", "r2", "r3"];
 
-// 头条搜索页右栏「头条热榜」：排行 + 换一换（重新拉取榜单）。
+// 搜索页右栏「热榜」：排行 + 换一换（重新拉取榜单）。
 export default function SearchHotBoard({ locale, initial }: { locale: Locale; initial: HotItem[] }) {
   const d = getDict(locale);
   const [list, setList] = useState<HotItem[]>(initial);

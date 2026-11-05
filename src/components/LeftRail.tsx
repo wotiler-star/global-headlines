@@ -7,7 +7,7 @@ import { getDict } from "@/i18n/dictionaries";
 import { homeHref } from "@/lib/paths";
 import { useAuth } from "@/lib/auth-client";
 
-// 左栏（对标今日头条首页左侧）：登录卡 + 热门话题。桌面展示，移动端隐藏。
+// 左栏（参考主流资讯站首页左侧）：登录卡 + 热门话题。桌面展示，移动端隐藏。
 export default function LeftRail({ locale }: { locale: Locale }) {
   const d = getDict(locale);
   const { user, ready, openLogin, logout } = useAuth();
@@ -39,7 +39,7 @@ export default function LeftRail({ locale }: { locale: Locale }) {
   return (
     <>
       <div className="panel login-card">
-        <div className="avatar">{user?.avatar || "头"}</div>
+        <div className="avatar">{user?.avatar || "S"}</div>
         {ready && user ? (
           <>
             <div className="lc-title">{d.authHi(user.username)}</div>

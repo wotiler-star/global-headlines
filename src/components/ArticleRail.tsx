@@ -5,7 +5,7 @@ import { Locale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { useBookmarks, useLikes } from "@/lib/personal";
 
-// 今日头条式左侧悬浮操作栏：点赞 / 评论 / 收藏 / 分享。
+// 信息流式左侧悬浮操作栏：点赞 / 评论 / 收藏 / 分享。
 // 点赞与收藏走 localStorage（收藏登录后同步服务端），评论数为实时拉取。
 export default function ArticleRail({ locale, id }: { locale: Locale; id: string }) {
   const d = getDict(locale);

@@ -65,7 +65,7 @@ function NewsCardImpl({
     ? ({ loading: "eager" as const, fetchPriority: "high" as const })
     : ({ loading: "lazy" as const, decoding: "async" as const });
 
-  // 视频卡：点击在信息流内直接起播浮层（对标头条），而非跳转详情页。
+  // 视频卡：点击在信息流内直接起播浮层（参考信息流），而非跳转详情页。
   const onVideoClick = isVideo && vm
     ? (e: React.MouseEvent) => {
         e.preventDefault();

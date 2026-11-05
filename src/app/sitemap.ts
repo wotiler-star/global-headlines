@@ -5,39 +5,36 @@ import { absUrl, buildSitemapAlternates, buildArticleAlternates } from "@/lib/si
 
 export const dynamic = "force-static";
 
+// cov47：sitemap 只收录「canonical 指向自身」的 URL。
+// 分类页 /?cat=... 的 canonical 指向语言首页，收录它们会产生大量重复内容信号，
+// 因此从 sitemap 移除；Google 仍可通过首页导航发现这些栏目。
+// lastModified 改用文章真实发布时间，避免每次构建都把全部 URL 标成「刚更新」。
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const urls: MetadataRoute.Sitemap = [];
 
   for (const l of locales) {
     const loc = l as Locale;
-
-    // 首页（每个语言独立 URL）
     const home = buildSitemapAlternates(loc, "");
-    urls.push({ url: absUrl(loc, ""), lastModified: new Date(), alternates: { languages: home.languages } });
 
-    // 分类页
+    const articleTimes = new Map<string, number>();
+    for (const a of await getArticles(loc)) articleTimes.set(a.id, a.publishedAt || 0);
     for (const c of categories) {
-      if (c === "recommend") continue;
-      const alts = buildSitemapAlternates(loc, `/?cat=${c}`);
-      urls.push({
-        url: absUrl(loc, `/?cat=${c}`),
-        lastModified: new Date(),
-        alternates: { languages: alts.languages },
-      });
+      for (const a of await getArticles(loc, c)) articleTimes.set(a.id, a.publishedAt || 0);
     }
+    const times = [...articleTimes.values()].filter(Boolean);
+    const latest = times.length ? new Date(Math.max(...times)) : undefined;
 
-    // 文章页：遍历首页流 + 各分类，确保所有被预渲染的文章都被索引
-    // （mock 文章跨语言共享 id，只在分类下生成，必须遍历分类才不会漏）
-    const articleIds = new Set<string>();
-    for (const a of await getArticles(loc)) articleIds.add(a.id);
-    for (const c of categories) {
-      for (const a of await getArticles(loc, c)) articleIds.add(a.id);
-    }
-    for (const id of articleIds) {
+    urls.push({
+      url: absUrl(loc, ""),
+      lastModified: latest,
+      alternates: { languages: home.languages },
+    });
+
+    for (const [id, ts] of articleTimes) {
       const alts = buildArticleAlternates(loc, `/article/${id}`);
       urls.push({
         url: absUrl(loc, `/article/${id}`),
-        lastModified: new Date(),
+        lastModified: ts ? new Date(ts) : latest,
         alternates: { languages: alts.languages },
       });
     }

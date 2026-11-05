@@ -382,7 +382,8 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   const total = regions.reduce((s, r) => s + r.signalCount, 0);
   // 近 1 小时全球新增信号（hourDist 桶 23）
   const new1h = regions.reduce((s, r) => s + ((r.hourDist && r.hourDist[23]) || 0), 0);
-  const peak = [...regions].sort((a, b) => b.signalCount - a.signalCount)[0];
+  // cov44b：文章库可为空（内容重置态），peak 允许为 null，下游一律兜底
+  const peak = [...regions].sort((a, b) => b.signalCount - a.signalCount)[0] || null;
 
   // cov48b 全局面板"活"指标（参照 FlightRadar24 / Windy / USGS 等主流地球仪仪表盘口径）
   // 上一小时全球新增 → 与当前小时比较得动量；实时速率=近1h÷60；活跃地区=近1h有信号的地区数
@@ -1388,7 +1389,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
             <>
               {" · "}
               <button className="sd-peak-btn" onClick={gotoPeak} title="在左侧榜单中定位最热地区">
-                PEAK {peak.name} {peak.signalCount}
+                PEAK {peak ? peak.name : "—"} {peak ? peak.signalCount : 0}
               </button>
             </>
           ) : null}
@@ -1785,7 +1786,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
             </div>
             <div className="sd-metric sd-m-full">
               <span className="sd-m-label">最热地区 PEAK</span>
-              <span className="sd-m-val sd-m-sm">{peak.name} · <CountUp value={peak.signalCount} /></span>
+              <span className="sd-m-val sd-m-sm">{peak ? peak.name : "—"} · <CountUp value={peak ? peak.signalCount : 0} /></span>
             </div>
             <div className="sd-metric">
               <span className="sd-m-label">最新信号 LAST</span>

@@ -385,7 +385,7 @@ function parseItem(
 // 站点 UA 策略：两类源都存在——YNA 等只认机器人 UA（浏览器 UA 直接 404），
 // CBC / Arab News 等反过来挂起或 403 机器人 UA。故先试机器人 UA，
 // 失败（非 2xx / 超时 / 无条目）再用标准浏览器 UA 重试一次。
-const UA_BOT = "Mozilla/5.0 (GlobalHeadlines/1.0; +https://global-headlines.example.com)";
+const UA_BOT = "Mozilla/5.0 (starteday-bot/1.0; +https://starteday.com)";
 const UA_BROWSER =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
 

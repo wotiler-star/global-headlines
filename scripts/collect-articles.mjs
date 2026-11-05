@@ -14,6 +14,7 @@
 import { DatabaseSync } from "node:sqlite";
 import fs from "fs";
 import path from "path";
+import { shouldPurge } from "./lead-dup.mjs";
 
 // ---- 运行时数据库路径（必须与 src/lib/db.ts 的 DB_PATH 保持一致）----
 const DB_PATH = process.env.SQLITE_DB_PATH || path.join(process.cwd(), "data", "global-headlines.sqlite");
@@ -368,7 +369,7 @@ function parseItem(itemXml, locale, category, feedTitle) {
 // CBC / Arab News 等反过来挂起或 403 机器人 UA。故先试机器人 UA，
 // 失败（非 2xx / 超时 / 无条目）再用标准浏览器 UA 重试一次。
 // 超时 4s → 15s：G1 等大 feed（500KB+）4s 内拉不完，曾被静默丢弃。
-const UA_BOT = "Mozilla/5.0 (GlobalHeadlines/1.0; +https://www.starteday.com)";
+const UA_BOT = "Mozilla/5.0 (starteday-bot/1.0; +https://starteday.com)";
 const UA_BROWSER =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
 
@@ -482,6 +483,8 @@ function mergeMirror(all) {
   // 随稿件变旧而失效（cov52）。
   const reserved = [];
   for (const a of byId.values()) {
+    // cov43：导读与全文正文一字不差的摘要稿不进镜像（prev 里的存量也会被清掉）
+    if (shouldPurge(a)) continue;
     if (String(a.id || "").startsWith("rss-orig-")) { reserved.push(a); continue; }
     if (a.publishedAt && a.publishedAt < cutoff) continue; // 丢弃 14 天前的旧闻
     if (!byLoc.has(a.locale)) byLoc.set(a.locale, []);
@@ -559,6 +562,15 @@ function openRuntimeDb() {
 }
 
 async function main() {
+  // cov45：站点改为「每次 3 篇原创策展稿」的编辑管线。
+  // 内容由定时任务写入 data/original/*.json，启动管线的 merge-originals.mjs 负责合并入库；
+  // 这里不再抓取 131 个 RSS 源，避免把低质量摘要稿重新灌回文章库。
+  // 应急恢复全量 RSS 采集：创建 data/.rss-on 文件。
+  if (!fs.existsSync(path.join("data", ".rss-on"))) {
+    console.log("[collect] 精选模式：跳过 RSS 全量采集；内容由 data/original/*.json 提供（应急恢复请创建 data/.rss-on）。");
+    return;
+  }
+
   // 扁平化所有 (语言, 分类, 源) 任务，全局并发抓取——避免「按语言顺序处理」导致后段语言里
   // 的慢超时源累加出 3-4 分钟。限流 N 个在途，失败源由 8s 超时快速判定，整体再套 90s 上限，
   // 即使个别源卡死也不会拖垮构建/启动。
@@ -607,9 +619,10 @@ async function main() {
   fs.mkdirSync("data", { recursive: true });
 
   // JSON 镜像（供 rssSource.ts SSR 优先读取，支持离线重建）——合并写入，见 mergeMirror
-  const mirror = mergeMirror(all);
+  const kept = all.filter((a) => !shouldPurge(a));
+  const mirror = mergeMirror(kept);
   fs.writeFileSync("data/articles.json", JSON.stringify(mirror, null, 2));
-  console.log(`[collect] 写入 data/articles.json（合并后 ${mirror.length} 条，本次新采 ${all.length} 条）`);
+  console.log(`[collect] 写入 data/articles.json（合并后 ${mirror.length} 条，本次新采 ${kept.length} 条，过滤低质量 ${all.length - kept.length} 条）`);
 
   // 直接写入运行时数据库（node:sqlite，INSERT OR REPLACE 按 id 去重/更新，不破坏既有 mock 数据）
   const db = openRuntimeDb();
@@ -621,7 +634,7 @@ async function main() {
   const tx = db.prepare("BEGIN");
   const commit = db.prepare("COMMIT");
   tx.run();
-  for (const a of all) {
+  for (const a of kept) {
     stmt.run(
       a.id, a.locale, a.category, a.title, a.summary, a.source, a.author,
       a.publishedAt, a.imageCount, JSON.stringify(a.images), JSON.stringify(a.tags),
@@ -631,7 +644,7 @@ async function main() {
   commit.run();
 
   const total = db.prepare("SELECT COUNT(*) AS c FROM articles WHERE deleted = 0").get().c;
-  console.log(`[collect] 写入 data/global-headlines.sqlite（本次 +${all.length} 条，库内有效文章共 ${total} 条）✅`);
+  console.log(`[collect] 写入 data/global-headlines.sqlite（本次 +${kept.length} 条，库内有效文章共 ${total} 条）✅`);
 
   // 简单自校验
   const row = db.prepare("SELECT locale, COUNT(*) AS n FROM articles WHERE deleted = 0 GROUP BY locale ORDER BY n DESC").all();

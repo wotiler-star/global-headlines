@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { isLocale, Locale, locales, ogLocale } from "@/i18n/config";
+import { isLocale, Locale, locales, ogLocale, isCategory, Category } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { getArticles } from "@/data/newsSource";
 import { formatRelativeTime, type Article } from "@/data/news";
@@ -43,28 +43,45 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ cat?: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const sp = await searchParams;
   const loc = locale as Locale;
   const alts = buildAlternates(loc, "");
   const d = getDict(loc);
+  // cov47：分类页与首页共用模板，若无差异化元数据会被 Google 判为重复内容。
+  const catName = typeof sp.cat === "string" && isCategory(sp.cat) && sp.cat !== "recommend"
+    ? d.categories[sp.cat as Category]
+    : null;
+  const pageTitle = catName ? `${catName} · ${d.siteName}` : d.homeTitle;
+  const pageDesc = catName ? `${d.homeDesc} 当前栏目：${catName}。` : d.homeDesc;
   return {
-    title: d.homeTitle,
-    description: d.homeDesc,
+    title: pageTitle,
+    description: pageDesc,
     alternates: { canonical: alts.canonical, languages: alts.languages },
     // OG locale：社交平台按地区/语言呈现；alternateLocale 声明全部可用语种
     openGraph: {
-      title: d.homeTitle,
-      description: d.homeDesc,
+      title: pageTitle,
+      description: pageDesc,
       url: alts.canonical,
       siteName: d.siteName,
       locale: ogLocale[loc],
       alternateLocale: locales.filter((l) => l !== loc).map((l) => ogLocale[l]),
       type: "website",
+      images: [
+        { url: "/brand/og-cover.png", width: 1200, height: 630, alt: "starteday · 开启每一天" },
+      ],
     },
-    twitter: { card: "summary_large_image", title: d.homeTitle, description: d.homeDesc },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDesc,
+      images: ["/brand/og-cover.png"],
+    },
   };
 }
 

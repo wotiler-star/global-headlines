@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const POOL = "全球头条信号遥测网络快讯深度扫描解码锁定接收中0123456789";
+const POOL = "starteday信号遥测网络快讯深度扫描解码锁定接收中0123456789";
 
 // 解码揭示：SSR 渲染终题（SEO/无 JS 无损），挂载后逐字乱码滚动再定格。
 // prefers-reduced-motion 时直接显示，不动一笔。

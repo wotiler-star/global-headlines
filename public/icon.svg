@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <rect width="512" height="512" rx="96" fill="#f04142"/>
-  <text x="50%" y="50%" dy="0.36em" text-anchor="middle" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="280" font-weight="700" fill="#ffffff">头</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="starteday">
+  <defs>
+    <linearGradient id="sdSunrise" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb347"/>
+      <stop offset="0.52" stop-color="#ff7a3d"/>
+      <stop offset="1" stop-color="#f0512a"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#sdSunrise)"/>
+  <circle cx="256" cy="216" r="96" fill="#ffffff"/>
+  <path d="M80 328h352" stroke="#ffffff" stroke-width="40" stroke-linecap="round"/>
+  <path d="M144 400h224" stroke="#ffffff" stroke-width="32" stroke-linecap="round" opacity="0.55"/>
 </svg>

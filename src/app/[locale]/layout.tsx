@@ -11,7 +11,12 @@ import VideoModalProvider from "@/components/VideoModal";
 import { AuthProvider } from "@/lib/auth-client";
 import { Suspense } from "react";
 import "@/app/globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+// 浏览器地址栏 / PWA 标题栏染成品牌橙，与 manifest.theme_color 一致。
+export const viewport: Viewport = {
+  themeColor: "#ea5f22",
+};
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -31,6 +36,18 @@ export async function generateMetadata({
     title: { default: d.homeTitle, template: `%s · ${d.siteName}` },
     description: d.homeDesc,
     manifest: "/manifest.webmanifest",
+    // Google Search Console 站点所有权验证（HTML 标记方式）。
+    // Next.js 会输出 <meta name="google-site-verification" content="...">，覆盖全部语种页面。
+    verification: {
+      google: "88gJuwAfrMYN7Dj6ClSV7FmUB7M67d543Nb6ejwyB9c",
+    },
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon.svg", type: "image/svg+xml" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    },
     alternates: {
       canonical: alts.canonical,
       languages: alts.languages,
@@ -40,6 +57,18 @@ export async function generateMetadata({
       locale: ogLocale[loc],
       alternateLocale: locales.filter((l) => l !== loc).map((l) => ogLocale[l]),
       type: "website",
+      images: [
+        {
+          url: `${SITE_URL}/brand/og-cover.png`,
+          width: 1200,
+          height: 630,
+          alt: "starteday · 开启每一天",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [`${SITE_URL}/brand/og-cover.png`],
     },
   };
 }
@@ -107,13 +136,13 @@ export default async function LocaleLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="Global Headlines RSS"
+          title="starteday RSS"
           href={`${SITE_URL}/rss.xml`}
         />
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){try{var t=localStorage.getItem('gh_theme');if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();",
+              "(function(){try{var t=localStorage.getItem('sd_theme')||localStorage.getItem('gh_theme');if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();",
           }}
         />
         <Header locale={loc} />

@@ -337,7 +337,12 @@ function allArticles(): Article[] {
   return _all;
 }
 
+// cov44：站点内容重置为 3 篇原创策展稿，内置示例稿不再参与任何兜底。
+// 恢复示例数据：把 DISABLE_MOCK 改回 false 即可。
+const DISABLE_MOCK = true;
+
 export function getArticles(locale: Locale, category?: Category): Article[] {
+  if (DISABLE_MOCK) return [];
   let list = allArticles().filter((a) => a.locale === locale);
   if (category && category !== "recommend") {
     list = list.filter((a) => a.category === category);
@@ -346,6 +351,7 @@ export function getArticles(locale: Locale, category?: Category): Article[] {
 }
 
 export function getArticle(locale: Locale, id: string): Article | undefined {
+  if (DISABLE_MOCK) return undefined;
   return allArticles().find((a) => a.locale === locale && a.id === id);
 }
 

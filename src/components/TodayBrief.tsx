@@ -4,7 +4,7 @@ import { getDict } from "@/i18n/dictionaries";
 import { Article } from "@/data/news";
 import { articleHref } from "@/lib/paths";
 
-// 今日头条式「今日要闻」卡：日期 + 要闻标题列表（数据取热榜 top N）。
+// 信息流式「今日要闻」卡：日期 + 要闻标题列表（数据取热榜 top N）。
 // 服务端组件：日期在构建/ISR 再生期生成，随 revalidate=60 刷新，无水合风险。
 export default function TodayBrief({ locale, items }: { locale: Locale; items: Article[] }) {
   if (!items.length) return null;

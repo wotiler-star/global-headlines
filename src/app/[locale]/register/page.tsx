@@ -9,8 +9,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const loc = locale as Locale;
   return isLocale(loc)
-    ? { title: getDict(loc).authJoinTitle, robots: { index: true, follow: true } }
-    : { title: "Register" };
+    ? { title: getDict(loc).authJoinTitle, robots: { index: false, follow: false } }
+    : { title: "Register", robots: { index: false, follow: false } };
 }
 
 export default async function RegisterPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ next?: string }> }) {

@@ -6,6 +6,10 @@ import SearchExtras from "@/components/SearchExtras";
 import SearchResults from "@/components/SearchResults";
 import SearchHotBoard from "@/components/SearchHotBoard";
 import SearchBox from "@/components/SearchBox";
+import { BrandMark, BrandWordmark } from "@/components/BrandMark";
+import { homeHref } from "@/lib/paths";
+import { BRAND_NAME } from "@/lib/brand";
+import Link from "next/link";
 import { Suspense } from "react";
 import type { Metadata } from "next";
 
@@ -53,7 +57,7 @@ function serialize(a: DbArticle) {
   };
 }
 
-// 头条搜索式结果页：顶部搜索框行 + 左（分类 tab + 排序 + 结果）/ 右（热榜 + 搜索历史）两栏。
+// 搜索结果式结果页：顶部搜索框行 + 左（分类 tab + 排序 + 结果）/ 右（热榜 + 搜索历史）两栏。
 export default async function SearchPage({
   params,
   searchParams,
@@ -86,7 +90,10 @@ export default async function SearchPage({
   return (
     <main className="search-page container">
       <div className="sp-top">
-        <span className="sp-logo">{d.searchLogo}</span>
+        <Link prefetch={false} href={homeHref(loc)} className="sp-logo" aria-label={`${BRAND_NAME} home`}>
+          <BrandMark size={34} />
+          <BrandWordmark />
+        </Link>
         <Suspense
           fallback={<div className="search-box sb-hero" style={{ flex: 1, maxWidth: 640 }} />}
         >

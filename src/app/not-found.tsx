@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { homeHref } from "@/lib/paths";
 
-// 信号丢失页：噪声层 + 等宽遥测语汇（错误页是品牌体验的一部分）
+// 信号丢失页：噪声层 + 等宽遥测语汇 + starteday 品牌落款
+// （错误页也是品牌触点，独立 <html> 不继承 [locale] 布局，故全部用内联样式）
 export default function NotFound() {
   return (
     <html lang="zh-CN">
@@ -25,6 +26,18 @@ export default function NotFound() {
             <rect width="100%" height="100%" filter="url(#nf-noise)" />
           </svg>
           <div style={{ position: "relative" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 30 }}>
+              <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                <rect width="64" height="64" rx="14" fill="#ea5f22" />
+                <circle cx="32" cy="27" r="12" fill="#ffffff" />
+                <path d="M10 41h44" stroke="#ffffff" strokeWidth="5" strokeLinecap="round" />
+                <path d="M18 50h28" stroke="#ffffff" strokeWidth="4" strokeLinecap="round" opacity="0.55" />
+              </svg>
+              <span style={{ fontSize: 24, fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1 }}>
+                <span style={{ color: "#e8eef5" }}>start</span>
+                <span style={{ color: "#ff9248" }}>eday</span>
+              </span>
+            </div>
             <div
               style={{
                 fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
@@ -57,8 +70,8 @@ export default function NotFound() {
                   fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
                   fontSize: 12,
                   letterSpacing: "0.1em",
-                  color: "#ffb224",
-                  border: "1px solid #ffb224",
+                  color: "#ff9248",
+                  border: "1px solid #ff9248",
                   borderRadius: 4,
                   padding: "8px 18px",
                   textDecoration: "none",
@@ -80,6 +93,16 @@ export default function NotFound() {
               >
                 [ 返回控制台 ]
               </Link>
+            </div>
+            <div
+              style={{
+                marginTop: 30,
+                fontSize: 11,
+                letterSpacing: "0.16em",
+                color: "#75839a",
+              }}
+            >
+              starteday · 从这里，开始每一天
             </div>
           </div>
         </div>

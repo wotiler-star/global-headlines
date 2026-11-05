@@ -1,15 +1,34 @@
 {
-  "name": "Global Headlines",
-  "short_name": "Headlines",
-  "description": "Multilingual global news aggregator",
+  "name": "starteday · 开启每一天",
+  "short_name": "starteday",
+  "description": "Global news to start your day — multilingual, real-time signals from around the world.",
   "start_url": "/zh",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#f5f5f5",
-  "theme_color": "#f04142",
+  "background_color": "#0a0e14",
+  "theme_color": "#ea5f22",
   "lang": "zh-CN",
   "dir": "auto",
+  "categories": ["news", "magazines"],
   "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
     {
       "src": "/icon.svg",
       "sizes": "any",

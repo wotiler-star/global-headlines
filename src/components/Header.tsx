@@ -8,6 +8,8 @@ import ThemeToggle from "./ThemeToggle";
 import SearchBox from "./SearchBox";
 import CategoryNav from "./CategoryNav";
 import TelemetryBar from "./TelemetryBar";
+import { BrandMark, BrandWordmark } from "./BrandMark";
+import { BRAND_NAME } from "@/lib/brand";
 import { homeHref } from "@/lib/paths";
 
 export default function Header({ locale }: { locale: Locale }) {
@@ -16,9 +18,14 @@ export default function Header({ locale }: { locale: Locale }) {
     <header className="app-header">
       <TelemetryBar signal={4} />
       <div className="header-inner">
-        <Link prefetch={false} href={homeHref(locale)} className="logo">
-          <span className="logo-mark">头</span>
-          {d.siteName}
+        <Link
+          prefetch={false}
+          href={homeHref(locale)}
+          className="logo"
+          aria-label={`${BRAND_NAME} · ${d.tagline}`}
+        >
+          <BrandMark size={30} className="logo-mark" />
+          <BrandWordmark />
         </Link>
         <Suspense
           fallback={
