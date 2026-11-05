@@ -12,7 +12,10 @@ next-env.d.ts
 .workbuddy/
 
 # 运行时数据（DB 在首次运行自动重建）
-/data/
+/data/*
+# 「精内容原创稿」是源码资产，必须入库并随镜像部署（.dockerignore 已同样放行）
+!/data/original/
+!/data/original/**
 
 # 调试/构建过程中的临时产物（非源码）
 .next.corrupt.bak/

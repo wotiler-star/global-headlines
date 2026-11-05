@@ -477,12 +477,17 @@ function mergeMirror(all) {
   for (const a of all) if (a && a.id) byId.set(a.id, normalizeArticle(a)); // 新的覆盖旧的（同 id 内容更新）
   const cutoff = Date.now() - 14 * 86400000;
   const byLoc = new Map();
+  // 精内容原创稿（id 形如 rss-orig-*）是常驻编辑资产：不参与「14 天淘汰」与
+  // 「每语言 2000 上限」截断。否则运行期定时采集重写镜像后，编辑精选/详情页会
+  // 随稿件变旧而失效（cov52）。
+  const reserved = [];
   for (const a of byId.values()) {
+    if (String(a.id || "").startsWith("rss-orig-")) { reserved.push(a); continue; }
     if (a.publishedAt && a.publishedAt < cutoff) continue; // 丢弃 14 天前的旧闻
     if (!byLoc.has(a.locale)) byLoc.set(a.locale, []);
     byLoc.get(a.locale).push(a);
   }
-  const final = [];
+  const final = [...reserved];
   for (const list of byLoc.values()) {
     list.sort((x, y) => (y.publishedAt || 0) - (x.publishedAt || 0));
     const picked = list.slice(0, MIRROR_CAP);

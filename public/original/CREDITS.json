@@ -1,0 +1,86 @@
+{
+  "chogm": {
+    "cover": {
+      "file": "/original/chogm-cover.webp",
+      "source": "AI generated (Starteday editorial)",
+      "license": "原创生成",
+      "size_kb": 185
+    },
+    "figs": [
+      {
+        "file": "/original/chogm-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Antigua - Harbour of St. John's.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Antigua_-_Harbour_of_St._John%27s.jpg",
+        "artist": "John R. Anjo",
+        "license": "Public domain",
+        "size_kb": 189
+      },
+      {
+        "file": "/original/chogm-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Commonwealth Heads of Government Meeting - 2018 (26690677697).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Commonwealth_Heads_of_Government_Meeting_-_2018_(26690677697).jpg",
+        "artist": "Foreign and Commonwealth Office",
+        "license": "CC BY 2.0",
+        "size_kb": 91
+      }
+    ]
+  },
+  "opensource": {
+    "cover": {
+      "file": "/original/opensource-cover.webp",
+      "source": "AI generated (Starteday editorial)",
+      "license": "原创生成",
+      "size_kb": 206
+    },
+    "figs": [
+      {
+        "file": "/original/opensource-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:20090913 Wuzhen Town canal 5133.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:20090913_Wuzhen_Town_canal_5133.jpg",
+        "artist": "Jakub Hałun",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 190
+      },
+      {
+        "file": "/original/opensource-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Rear of rack at NERSC data center - closeup.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Rear_of_rack_at_NERSC_data_center_-_closeup.jpg",
+        "artist": "Derrick Coetzee from Berkeley, CA, USA",
+        "license": "CC0",
+        "size_kb": 406
+      }
+    ]
+  },
+  "ciie": {
+    "cover": {
+      "file": "/original/ciie-cover.webp",
+      "source": "AI generated (Starteday editorial)",
+      "license": "原创生成",
+      "size_kb": 77
+    },
+    "figs": [
+      {
+        "file": "/original/ciie-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:China International Import Expo in Shanghai - 2018 (N3tWUKt73AeM4c0LuKXVeeEl8HUAqHBk).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:China_International_Import_Expo_in_Shanghai_-_2018_(N3tWUKt73AeM4c0LuKXVeeEl8HUAqHBk).jpg",
+        "artist": "http://government.ru/",
+        "license": "CC BY 4.0",
+        "size_kb": 78
+      },
+      {
+        "file": "/original/ciie-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Port of Shanghai, Yangshan Deep-water Harbour Zone, 02.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Port_of_Shanghai,_Yangshan_Deep-water_Harbour_Zone,_02.jpg",
+        "artist": "The original uploader was Alex Needham at English Wikipedia.",
+        "license": "Public domain",
+        "size_kb": 112
+      }
+    ]
+  }
+}
