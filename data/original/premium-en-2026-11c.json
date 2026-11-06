@@ -1,0 +1,121 @@
+[
+  {
+    "id": "rss-orig-harmony-desktop-2026-11-en",
+    "title": "The Desktop Gets a Second Act: Huawei Puts HarmonyOS and an AI Assistant Inside the Tower",
+    "summary": "On November 5 Huawei launched its first HarmonyOS desktop, the Qingyun HM650 series, pairing the Kirin X90 chip with on-device AI assistants and enterprise-grade management. The more interesting story is not the spec sheet — it is what happens when phones, tablets and desktops finally share one operating system.",
+    "cover": "/original/harmony-desktop-cover.webp",
+    "images": [
+      "/original/harmony-desktop-cover.webp",
+      "/original/harmony-desktop-fig1.webp",
+      "/original/harmony-desktop-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "HarmonyOS",
+      "desktop PC",
+      "AI assistant",
+      "productivity",
+      "enterprise IT"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LB025C3U051191D6.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1793939562413,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Desktop computers have spent the last decade as the least exciting category in consumer tech: faster chips, thinner bezels, the same old workflow. On November 5, Huawei tried to change that storyline with the Qingyun HM650, the company's first desktop running HarmonyOS, the system it spent years refining on phones and tablets.",
+      "The hardware story starts with the Kirin X90 processor working hand in hand with the operating system. Huawei describes the experience in refreshingly concrete terms: a one-gigabyte presentation opens in about a second, and heavy multitasking stays smooth. Rather than chasing raw benchmark numbers, the design leans on system-level resource scheduling — apps launch into an environment that has already been arranged for them.",
+      "The AI assistant is where the real ambition shows. Xiaoyi Work drafts proposals and weekly reports and coordinates tasks across devices, absorbing the most repetitive parts of knowledge work. Xiaoyi Huiji records meetings in a fully local mode, so sensitive conversations never leave the machine. And a deep-research mode uses multiple cooperating agents to produce more reliable answers. Efficiency, privacy, trustworthiness — three qualities companies actually evaluate when they shop for AI tools.",
+      "Security gets its own chapter. The HM650 ships with chip-level disk encryption, controllable data access and encrypted file sharing. More notable is how AI itself is fenced in: an on-device system-level sandbox combined with a device-cloud coordination scheme gives every agent task explicit permission boundaries. What an assistant can read, open or send becomes an auditable process rather than a black box.",
+      "There is also an enterprise edition, and it may matter more than the consumer story. It adds centralized device management, hardened security policies and a dual-space design that cleanly separates a work identity from a personal one on the same machine. IT departments can manage policies for hundreds of machines at once instead of visiting desks one by one.",
+      "The cross-device features that made Huawei phones famous finally reach the desk. Files drag between phone and desktop, half-finished notes continue on the big screen, large transfers move directly between devices over Huawei Share. Anyone who has ever emailed a file to themselves as a primitive transfer protocol knows exactly how much friction disappears.",
+      "Power consumption has entered the sales pitch too: the machine carries a new national energy-efficiency certification, with typical annual usage measured at 73 kWh. Desktops have long been treated as appliances nobody counts, but as office electricity and carbon accounting get itemized, the power column of a procurement spreadsheet is quietly becoming a decision factor.",
+      "The industry-level significance is the route it validates. Instead of optimizing a desktop system inside its existing ecosystem, Huawei imported the distributed architecture it built for mobile: one system base across phone, tablet and desktop means developers adapt an app once and get consistent behavior on all three. That is a genuine structural change, not a marketing line.",
+      "The honest caveats deserve space too. Professional software ecosystems take years to migrate, and heavy users of specialized desktop applications will not switch for nicer handoff features alone. Peripheral compatibility, industry-specific workflows and IT habits all favor the incumbents. The HM650 is best understood as a mature starting point for institutions rather than a pitch to replace every office PC tomorrow.",
+      "Still, the direction it points is one consumers will feel soon. On-device AI assistants, cross-device continuity and system-level security tend to trickle down from institutional products within a product cycle or two. The metric that defines a good desktop may shift from processor model to a simpler question: does it come with an assistant that actually does the work? For the first time in years, that is a question worth asking about a desktop computer."
+    ]
+  },
+  {
+    "id": "rss-orig-oil-membrane-2026-11-en",
+    "title": "Let Crude Oil Filter Itself: The Membrane That Turned a Flaw Into a Function",
+    "summary": "Researchers at KAIST and Georgia Tech report in Nature that an uncoated, inexpensive polyacrylonitrile membrane separates crude oil at room temperature — heavy molecules naturally clog the pores into channels narrower than 2 nanometers, delivering roughly 23 times the throughput of earlier membranes. Simulations suggest refinery energy use could fall by about 31.6 percent.",
+    "cover": "/original/oil-membrane-cover.webp",
+    "images": [
+      "/original/oil-membrane-cover.webp",
+      "/original/oil-membrane-fig1.webp",
+      "/original/oil-membrane-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "membrane separation",
+      "refining",
+      "energy efficiency",
+      "materials science",
+      "Nature"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261103003207.htm",
+    "author": "starteday Editorial",
+    "publishedAt": 1793939502413,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Refineries have performed the same gesture for more than a century: heat. Crude oil is warmed past 350 degrees Celsius, partially vaporized, then condensed in stages to split into gasoline, kerosene and naphtha. Worldwide, crude distillation consumes roughly 1,100 terawatt-hours a year — comparable to the annual output of about 130 large power stations running flat out. A study published in Nature by teams at KAIST and Georgia Tech takes aim at exactly that bill.",
+      "Their answer sounds almost like a joke: an uncoated membrane made of polyacrylonitrile, one of the cheapest and most chemically stable polymers in industrial filtration, separates crude oil at room temperature. The industry consensus had long been that precise molecular separation demands an ultra-thin, expensive specialty coating — and that large-scale coating manufacture inevitably introduces defects, which is a big reason membrane refining never left the lab.",
+      "The turning point happens as oil flows through the pores. Heavy hydrocarbon molecules accumulate along the pore walls and gradually narrow the openings to less than 2 nanometers. Light fractions — naphtha, gasoline, kerosene — slip through those self-built channels quickly while heavier components lag behind. In effect, the crude builds the scaffolding for its own separation. The authors describe it as a new principle: a membrane interacting with a complex mixture spontaneously forms its own separation channels.",
+      "Here is the delightful part: that buildup has a name in every filtration textbook, and it is a dirty word. Fouling degrades performance, forces cleaning and replacement, and has sunk countless membrane projects. In this study, the very same physics becomes the source of selectivity. Turning a defect into a function is the kind of conceptual reversal that rarely survives peer review — this one did.",
+      "The numbers hold up too. The uncoated membrane achieved crude permeation rates about 23 times higher than previous leading designs and ran stably for 28 consecutive days. Longevity matters more than any single flash result: most membrane technologies die not in the first impressive paper but in month six of continuous operation. Ryan Lively of Georgia Tech put it bluntly — low productivity had been the field's core obstacle, and these PAN membranes lift productivity high enough that adoption becomes a serious industrial option.",
+      "The energy arithmetic comes from process simulations: adding a membrane module ahead of existing distillation could cut energy use by about 31.6 percent, carbon dioxide emissions by about 37.6 percent, cooling water demand by about 20.7 percent and operating costs by about 36 percent. The team estimates that rolling the system out across Korea's refining and petrochemical sectors could avoid roughly 10 million tonnes of greenhouse gas emissions a year — the annual output of about 4 million combustion vehicles. These are modeled projections, not measurements from a working refinery, and the distinction matters.",
+      "The architecture is as clever as the chemistry. Nothing needs to be demolished: the membrane operates as a modular pre-treatment stage, separating light fractions at room temperature before the remainder ever reaches the heaters. A retrofit path that reduces the load on existing equipment is far easier to sell to a famously conservative industry than a wholesale replacement of proven infrastructure.",
+      "It is also worth remembering that crude oil is not just fuel. Plastics, packaging, textiles and a long list of everyday goods begin as refinery feedstock, and refining costs ripple into all of their prices. A technology that improves the efficiency of one of the world's most energy-intensive processes is invisible to the consumer and yet shows up in the price of nearly everything on a store shelf.",
+      "The scientific moral generalizes beyond oil. Membrane research spent decades optimizing coatings; the answer here was to remove the coating entirely and let process chemistry design the precision structure by itself. Similar reversals have happened in catalysis and crystallization. The lesson for researchers is uncomfortable and useful: before engineering away a flaw, ask whether it can be hired.",
+      "Next steps are clearly mapped: scale up membrane production, validate long-term reliability, and explore adjacent separations such as pyrolysis oil treatment, solvent recovery in battery manufacturing, pharmaceutical purification and biofuel production. From a Nature paper to an industrial installation there still lie scale-up economics, safety certification and years of pilot data — history is full of laboratory stars that stumbled on that stretch. But the direction is standing on its own: separation without heat, fouling as a feature, cheap materials doing precise work. Three heresies, one coherent story."
+    ]
+  },
+  {
+    "id": "rss-orig-chemo-neuro-2026-11-en",
+    "title": "Installing a Switch on Misfiring Neurons: Chemogenetic Neuromodulation Reaches Its First Human Trial",
+    "summary": "The New England Journal of Medicine has published the first clinical use of chemogenetic neuromodulation in humans. A single gene delivery gives neurons in a targeted brain region an engineered receptor that stays silent until a specific small-molecule drug activates it. Three patients with drug-resistant epilepsy saw monthly seizure frequency drop from 4.33 to 0.33.",
+    "cover": "/original/chemo-neuro-cover.webp",
+    "images": [
+      "/original/chemo-neuro-cover.webp",
+      "/original/chemo-neuro-fig1.webp",
+      "/original/chemo-neuro-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "neuromodulation",
+      "epilepsy",
+      "gene therapy",
+      "NEJM",
+      "clinical research"
+    ],
+    "category": "health",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/05/content_608943.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1793939442413,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "On November 5 the New England Journal of Medicine published a milestone from a Chinese team: the first clinical study of chemogenetic neuromodulation in humans. The work came from Prof. Zhao Guoguang's group at Xuanwu Hospital of Capital Medical University, Prof. Luo Minmin's laboratory at the Chinese Institute for Brain Research, and the biotech company Jianda Jiuzhou. International commentators highlighted the central innovation: it fuses gene therapy with a small-molecule drug, making treatment intensity adjustable on demand — something no existing gene therapy can do.",
+      "To weigh the result, start with the problem. Epilepsy is essentially runaway synchrony: a patch of neural circuitry suddenly fires in concert, hijacking whatever the brain was doing. Roughly a third of patients still have seizures despite properly dosed anti-seizure medication — the definition of drug-resistant epilepsy. For many of them, the remaining option has been resective surgery: permanently removing the offending tissue, an irreversible step constrained by which brain regions can safely be lost.",
+      "Chemogenetic neuromodulation offers a third path — neither cutting nor destroying. Step one: a single gene delivery makes neurons in a targeted region express an artificial receptor that does not exist in nature. Step two: a small-molecule drug designed to bind only that receptor modulates the cells' activity. No drug, receptor silent, neurons carry on; drug taken, the receptor engages and abnormal firing is precisely braked.",
+      "The technique has existed for over two decades as a laboratory workhorse for mapping circuits, but it had never produced direct evidence in humans. In this study three patients with drug-resistant epilepsy received the therapy, and their monthly seizure frequency fell from 4.33 to 0.33. Behind the numbers is everyday life: fewer seizures reopen the possibility of driving, steady employment and independent living — the metrics patients actually care about.",
+      "The headline feature is adjustability. Conventional gene therapy is a one-way door: once cells are modified, the effect persists and cannot be dialed back. Chemogenetics hands the dose, and therefore the intensity of treatment, to the patient and the physician. Intensity can rise during bad weeks and fall during good ones. Reversibility and controllability at the genetic level is a genuine first for the clinic.",
+      "The safety logic is elegant. The engineered receptor responds only to its matched molecule and ignores the body's dense orchestra of native signaling chemicals — orthogonality by design, which cuts off-target risk at the source. Delivery is confined to a specific brain region, so even expressed receptors act only within the circuit that needs regulating. Precision has always been the watchword of neuromodulation; here it is engineered in from the first step.",
+      "The collaboration structure deserves attention too. A clinical hospital supplied the surgical and patient infrastructure, a fundamental research institute supplied receptor design and validation, and a company built the engineering and delivery platform. Translational neuroscience almost never succeeds inside a single institution, and this division of labor may prove as instructive as the data itself.",
+      "Zoom out and the technique occupies a sweet spot among neuromodulation tools. Deep brain stimulation is established for movement disorders but acts indiscriminately, like a loudspeaker for every cell in range. Optogenetics offers exquisite cell-type control but requires implanted light sources. Chemogenetics sits in between: no optics needed, just a pill, while keeping cellular specificity. That combination is what makes clinicians take notice.",
+      "Quieting runaway neurons is only the first application. In principle, any condition addressable by turning a defined population of neurons up or down — movement disorders, addiction, depression, chronic pain, aspects of neurodegeneration — is within the platform's reach. Each new indication will have to re-answer hard questions about delivery safety, receptor stability and long-term follow-up, so this is a decade-scale program, not a quick expansion.",
+      "A sober reading is mandatory: three patients is a tiny sample, and durable safety and efficacy require larger controlled trials, regulatory review and years of observation — including what happens to receptor expression over time and after drug withdrawal. The distance from first-in-human evidence to routine therapy is long and unpaved.",
+      "But the signal is unmistakable. For twenty years chemogenetics was a research instrument, not a treatment; it now has a human result attached to its name. The methodological lesson may outweigh the seizure numbers: therapy for neurological disease can be adjusted like a dimmer switch rather than performed like demolition.",
+      "For the three patients, the technology is concrete daily life; for the millions worldwide living with drug-resistant epilepsy, it is a direction worth following closely. That is the true rhythm of medical breakthroughs — a quiet publication on a Tuesday, decades of tool-building behind it, and decades of possibility still ahead. The open question now: which condition will host the platform's second human trial? Whatever the answer, the clinical chapter of chemogenetics has finally begun."
+    ]
+  }
+]

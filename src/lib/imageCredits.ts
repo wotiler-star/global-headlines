@@ -21,4 +21,13 @@ export const IMAGE_CREDITS: Record<string, ImageCredit> = {
   "/original/6g-prototype-cover.webp": { artist: "Mnalis", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Cell_tower_antenna,_Zagreba%C4%8Dka_cesta.jpg" },
   "/original/6g-prototype-fig1.webp": { artist: "Kernow Skies", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Zoomed_in_shot_of_mobile_phone_mast.jpg" },
   "/original/6g-prototype-fig2.webp": { artist: "Kevin Kandlbinder", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Cell_Tower_in_Stykkish%C3%B3lmur.jpg" },
+  "/original/harmony-desktop-cover.webp": { artist: "Wikimedia Commons user ipasadelaide", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Scientist_working_with_personal_computer,_2013_(Dell_Precision_T3500_Workstation).jpeg" },
+  "/original/harmony-desktop-fig1.webp": { artist: "SankalpSasnur", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:RGB_desktop_computer_setup_with_keyboard_and_monitor.jpg" },
+  "/original/harmony-desktop-fig2.webp": { artist: "Bsmalley", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:A_Programmer%27s_Workstation.JPG" },
+  "/original/oil-membrane-cover.webp": { artist: "Walter Siegmund", license: "CC BY 2.5", url: "https://commons.wikimedia.org/wiki/File:Anacortes_Refinery_31911.JPG" },
+  "/original/oil-membrane-fig1.webp": { artist: "AyyanD", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Oil_refinery,_Port_Dickson.jpg" },
+  "/original/oil-membrane-fig2.webp": { artist: "W.carter", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Blue_hour_fog_over_Preemraff_oil_refinery_by_Brofjorden.jpg" },
+  "/original/chemo-neuro-cover.webp": { artist: "Chris Hope", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:EEG_Recording_Cap.jpg" },
+  "/original/chemo-neuro-fig1.webp": { artist: "Flexagoon", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:EEG_Experiment.jpg" },
+  "/original/chemo-neuro-fig2.webp": { artist: "Laurens R. Krol", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Brain-computer_interface_experiment.jpg" },
 };

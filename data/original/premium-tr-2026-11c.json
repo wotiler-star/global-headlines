@@ -1,0 +1,121 @@
+[
+  {
+    "id": "rss-orig-harmony-desktop-2026-11-tr",
+    "title": "Masaüstü ikinci bir hayat kazandı: Huawei, HarmonyOS ile yapay zekâ asistanını kasanın içine yerleştirdi",
+    "summary": "5 Kasım'da Huawei, HarmonyOS çalıştıran ilk masaüstü bilgisayarı Qingyun HM650 serisini tanıttı; Kirin X90 çipini cihaz üzerinde çalışan yapay zekâ asistanları ve kurumsal yönetimle birleştirdi. Asıl ilgi çekici olan teknik tablo değil: telefon, tablet ve masaüstünün sonunda tek bir işletim sistemini paylaşmasının kullanım biçimini yeniden yazması.",
+    "cover": "/original/harmony-desktop-cover.webp",
+    "images": [
+      "/original/harmony-desktop-cover.webp",
+      "/original/harmony-desktop-fig1.webp",
+      "/original/harmony-desktop-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "HarmonyOS",
+      "masaüstü bilgisayar",
+      "yapay zekâ asistanı",
+      "verimlilik",
+      "kurumsal BT"
+    ],
+    "category": "tech",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.163.com/dy/article/LB025C3U051191D6.html",
+    "author": "starteday Editör",
+    "publishedAt": 1793939562413,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Masaüstü bilgisayarlar son on yılda tüketici teknolojisinin en az heyecan verici kategorisi oldu: daha hızlı çipler, daha ince çerçeveler ve hiç değişmeyen iş akışı. 5 Kasım'da Huawei bu senaryoyu değiştirmeye çalıştı: telefonlarda ve tabletlerde yıllarca cilalanan HarmonyOS'u masaüstüne taşıyan ilk cihaz Qingyun HM650 serisini duyurdu.",
+      "Donanım hikâyesi Kirin X90 çipinin işletim sistemiyle omuz omuza çalışmasıyla başlıyor. Resmî açıklama şaşırtıcı ölçüde somut: bir gigabaytlık bir sunum yaklaşık bir saniyede açılıyor ve ağır çoklu görev akıcı kalıyor. Benchmark rekorları peşinde koşmak yerine tasarım sistem düzeyinde kaynak yönetimine oynuyor; uygulamalar başladıkları anda kendileri için hazır edilmiş bir ortamda çalışıyor.",
+      "Gerçek kahraman yapay zekâ asistanı. Xiaoyi Work öneriler ve haftalık raporlar yazıyor, cihazlar arası görevleri devralıyor ve zihinsel işin en tekrarlayan kısmını emiyor. Xiaoyi Huiji toplantıları tamamen yerel modda kaydediyor; böylece hassas konuşmalar makineden asla çıkmıyor. Ve derin araştırma modu birden çok ajanın iş birliğiyle daha güvenilir yanıtlar üretiyor. Verimlilik, gizlilik, güvenilirlik: bir şirketin yapay zekâ araçlarını seçerken gerçekten baktığı üç ölçüt. Bu üçü tam olarak hedefleniyor.",
+      "Güvenliğin kendi bölümü var. HM650 çip düzeyinde disk şifreleme, veri erişim denetimi ve şifreli dosya paylaşımıyla geliyor. Asıl çarpıcı olan, yapay zekânın kendisinin nasıl çevrelendiği: sistem düzeyinde bir kum havuzu ile cihaz-bulut koordinasyon şeması, her ajan görevi için açık izin sınırları koyuyor. Bir asistanın neyi okuyabileceği veya gönderebileceği siyah kutu olmaktan çıkıp denetlenebilir bir sürece dönüşüyor.",
+      "Ayrıca bir kurumsal sürüm var ve tüketici hikâyesinden daha ağır basıyor olabilir. Merkezi cihaz yönetimi, güçlendirilmiş güvenlik politikaları ve aynı makinede iş kimliğini kişisel kimlikten temiz biçimde ayıran çift alan tasarımı ekliyor. BT departmanı yüzlerce bilgisayarın politikasını tek tek dolaşmadan yönetebiliyor.",
+      "Huawei telefonlarını ünlü yapan cihazlar arası özellikler nihayet masaya ulaştı. Dosyalar telefondan bilgisayara sürükleniyor, yarım kalan notlar büyük ekranda devam ediyor, büyük dosyalar Huawei Share ile doğrudan cihazlar arasında geçiyor. Kendine e-postayla dosya gönderen ilkel bir aktarma protokolü olarak kullandıysa, ne kadar sürtünmenin ortadan kalktığını bilir.",
+      "Enerji tüketimi de satış konuşmasına girdi: cihaz yeni bir enerji verimliliği sertifikası taşıyor; tipik yıllık kullanım 73 kWh olarak ölçülüyor. Masaüstleri uzun süre kimseyle sayılmayan cihazlar olarak görüldü, ama ofisin elektrik faturası ve karbon bilançosu satır satır denetlenmeye başladığında, satın alma belgesindeki güç sütunu sessizce bir karar unsuru haline geliyor.",
+      "Sektör düzeyinde asıl önemli olan doğrulanan rotadır. Huawei, mevcut ekosistem içinde bir masaüstü sistemini iyileştirmek yerine mobil için inşa ettiği dağıtık mimariyi ithal etti: telefon, tablet ve masaüstünün ortak bir tabanı paylaşması, geliştiricinin uygulamayı bir kez uyarlaması ve üç ekranda da tutarlı davranış alması demek. Bu gerçek bir yapısal değişim, pazarlama cümlesi değil.",
+      "Dürüst uyarılara da yer var. Profesyonel yazılım ekosistemlerinin göçü yıllar alır ve son derece özelleşmiş masaüstü uygulamalarına bağımlı kullanıcı, cihazlar arası daha güzel bir süreklilik için değişmez. Çevre birimi uyumluluğu, her sektörün kendi akışları ve BT ekiplerinin alışkanlıkları mevcut güçlerin lehinedir. HM650, yarın ofisteki tüm PC'leri değiştirme teklifi olarak değil, kurumlar için olgun bir başlangıç noktası olarak okumak daha isabetli.",
+      "Yine de işaret edilen yön kısa sürede tüketiciye ulaşacak. Cihaz üzerinde yapay zekâ asistanları, cihazlar arası süreklilik ve sistem düzeyinde güvenlik genelde bir iki nesilde kurumsal ürünlerden geniş kitlelere süzülüyor. İyi bir masaüstünü ölçen çıta işlemci modelinden daha basit bir soruya kayıyor: gerçekten iş yapan bir asistanla mı geliyor? Yıllar sonra ilk kez, bir masaüstü bilgisayara sorulmaya değer bir soru doğdu."
+    ]
+  },
+  {
+    "id": "rss-orig-oil-membrane-2026-11-tr",
+    "title": "Ham petrolün kendi kendini filtrelemesine izin vermek: bir kusuru işleve çeviren membran",
+    "summary": "KAIST ve Georgia Tech araştırmacıları Nature'da, kaplamasız ve ucuz bir poliakrilonitril membranın ham petrolü oda sıcaklığında ayırdığını bildirdi: ağır moleküller gözenekleri tıkayıp 2 nanometrenin altında kanallar oluşturuyor ve akış hızı önceki membranların yaklaşık 23 katına ulaşıyor. Simülasyonlar, rafineri enerji tüketiminin yaklaşık yüzde 31,6 düşebileceğini gösteriyor.",
+    "cover": "/original/oil-membrane-cover.webp",
+    "images": [
+      "/original/oil-membrane-cover.webp",
+      "/original/oil-membrane-fig1.webp",
+      "/original/oil-membrane-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "membranla ayırma",
+      "rafineri",
+      "enerji verimliliği",
+      "malzeme bilimi",
+      "Nature"
+    ],
+    "category": "science",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261103003207.htm",
+    "author": "starteday Editör",
+    "publishedAt": 1793939502413,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Rafineriler yüzyıldan uzun süredir aynı hareketi yapıyor: ısıtmak. Ham petrol 350 derece Celsius'un üzerine çıkarılıyor, kısmen buğulaştırılıyor ve aşamalı yoğuşmayla benzin, kerosen ve naftaya ayrılıyor. Dünyada ham petrol damıtması yılda yaklaşık 1.100 terawatsaat tüketiyor; bu, tam kapasite çalışan yaklaşık 130 büyük santralin yıllık üretimine denk. KAIST ve Georgia Tech ekiplerinin Nature'da yayımladığı bir çalışma tam olarak bu faturayı hedefliyor.",
+      "Cevapları neredeyse şaka gibi duyuluyor: endüstriyel filtrasyonda en ucuz ve en kararlı polimerlerden biri olan poliakrilonitrilden, hiç kaplama taşımayan bir membran, ham petrolü oda sıcaklığında ayırıyor. Sektörün yerleşik görüşü, moleküler düzeyde hassas ayrım için ultra ince ve pahalı özel bir kaplamanın şart olduğuydu; kaplamanın büyük ölçekte üretimi kaçınılmaz olarak kusur getiriyor ve membranlı rafinerinin laboratuvardan çıkamamasının başlıca nedenlerinden biriydi bu.",
+      "Dönüm noktası, petrolün gözeneklerden geçtiği anda yaşanıyor. Ağır hidrokarbon molekülleri gözenek duvarları boyunca birikerek açıklıkları 2 nanometrenin altına daraltıyor. Nafta, benzin ve kerosen gibi hafif fraksiyonlar bu kendiliğinden kurulmuş dar kanallardan hızla geçerken, ağır maddeler belirgin biçimde geride kalıyor. Buna göre petrol, membrandan geçerken kendi ayrımı için gereken kanalları kendi eliyle inşa ediyor. Yazarlar bunu, karmaşık bir karışımla etkileşen bir membranın kendi ayırma kanallarını kendiliğinden oluşturması olarak tanımlayan yeni bir ilke olarak çerçeveliyor.",
+      "Keyifli kısım şimdi başlıyor: bu birikmenin filtrasyon ders kitaplarının hepsinde bir adı var ve bu ad kirlidir. Tıkanma, performansı düşürür, temizlik ve değişim dayatır, sayısız membran projesini batırmıştır. Bu çalışmada ise tamamen aynı fizik seçiciliğin kaynağına dönüşüyor. Bir kusuru işleve çevirmek, akran değerlendirmesini nadiren aşan kavramsal bir tersleme türüdür; bu aşmayı başardı.",
+      "Sayılar da tutuyor. Kaplamasız membran, önceki öncü tasarımlara kıyasla yaklaşık 23 kat ham petrol geçirgenliği elde etti ve 28 gün boyunca aralıksız kararlı çalıştı. Tek başına parlak bir sonuçtan çok uzun ömür tartılır: membran teknolojilerinin çoğu gösterişli ilk makalede değil, kesintisiz çalışmanın altıncı ayında öldü. Georgia Tech'ten Ryan Lively açıkça söyledi: düşük üretkenlik bu alanın çekirdek engeliydi ve PAN membranlar onu, sanayinin benimsemeyi ciddi biçimde düşünmesi gereken düzeye taşıdı.",
+      "Enerji aritmetiği süreç simülasyonlarından geliyor: mevcut damıtmanın önüne bir membran modülü eklemek enerji tüketimini yaklaşık yüzde 31,6, karbondioksit salımını yüzde 37,6, soğutma suyu kullanımını yüzde 20,7 ve işletme maliyetlerini yüzde 36 düşürebilirmiş. Ekip, sistemin Kore'nin rafineri ve petrokimya sektörüne yaygınlaştırılmasıyla yılda yaklaşık 10 milyon ton sera gazı salımından kaçınılabileceğini, bunun da yaklaşık 4 milyon içten yanmalı aracın yıllık salımına eşit olduğunu hesaplıyor. Bunlar model öngörüleridir, çalışan bir rafinerinin ölçümleri değil; ayrım önemlidir.",
+      "Mimari kimya kadar zekice: yıkılacak bir şey yok. Membran, geri kalanı ısıtıcılara varmadan önce hafif fraksiyonları oda sıcaklığında ayıran modüler bir ön işlem aşaması olarak çalışıyor. Mevcut ekipmanın yükünü hafifleten böyle bir tadilat yolu, kanıtlanmış altyapının bütünüyle değiştirilmesinden, ünlü derecede muhafazakâr bu sektöre satmak açısından çok daha kolay.",
+      "Petrolün yalnızca yakıt olmadığını hatırlamakta yarar var. Plastikler, ambalajlar, kumaşlar ve günlük hayattan uzun bir ürün listesi hayatına rafineride başlıyor ve rafineri maliyetleri bu fiyatların tümüne yayılıyor. Dünyanın en çok enerji yiyen endüstriyel süreçlerinden birinin verimliliğini artıran bir teknoloji tüketiciye görünmez; yine de bir raftaki neredeyse her şeyin fiyatında beliriyor.",
+      "Bilimsel ahlak dersi petrolün ötesine uzanıyor. Membran araştırması onlarca yılını kaplama iyileştirmeye harcadı; buradaki cevap, kaplamayı tümüyle kaldırmak ve sürecin kendi kimyasının hassas yapıyı kendisi tasarlamasına izin vermekti. Benzer terslemeler katalizde ve kristalizasyonda da yaşandı. Araştırmacılar için ders rahatsız edici ama faydalı: bir kusuru mühendislikle silmeden önce, onun işe alınabileceğini sor.",
+      "Sonraki adımlar net: üretimi ölçeklemek, uzun vadeli güvenilirliği doğrulamak ve piroliz yağı işlemesi, batarya üretiminde çözücü geri kazanımı, ilaç saflaştırma ve biyoyakıt üretimi gibi komşu ayrımları keşfetmek. Nature makalesinden endüstriyel tesis arasına ölçekleme ekonomisi, güvenlik sertifikasyonu ve yıllarca pilot verisi giriyor. Ama yön kendi ayakları üzerinde duruyor: ısınmadan ayırma, işlevleşen tıkanma, hassas iş yapan ucuz malzeme. Üç sapkınlık, tek bir tutarlı hikâye."
+    ]
+  },
+  {
+    "id": "rss-orig-chemo-neuro-2026-11-tr",
+    "title": "Kontrolünü yitiren nöronlara bir anahtar takmak: kemogenetik nöromodülasyonun ilk insan denemesi",
+    "summary": "The New England Journal of Medicine, kemogenetik nöromodülasyonun insanlardaki ilk klinik kullanımını yayımladı. Tek bir gen aktarımı, hedef beyin bölgesindeki nöronlara yalnızca belirli bir küçük moleküllü ilaç verildiğinde aktifleşen yapay bir reseptör ifade ettiriyor. İlaç dirençli epilepsili üç hastanın aylık nöbet sıklığı 4,33'ten 0,33'e düştü.",
+    "cover": "/original/chemo-neuro-cover.webp",
+    "images": [
+      "/original/chemo-neuro-cover.webp",
+      "/original/chemo-neuro-fig1.webp",
+      "/original/chemo-neuro-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "nöromodülasyon",
+      "epilepsi",
+      "gen tedavisi",
+      "NEJM",
+      "klinik araştırma"
+    ],
+    "category": "health",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/05/content_608943.html",
+    "author": "starteday Editör",
+    "publishedAt": 1793939442413,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "5 Kasım'da The New England Journal of Medicine, bir Çin ekibinden bir dönüm noktası yayımladı: kemogenetik nöromodülasyonun insanlardaki ilk klinik çalışması. İş; Başkent Tıp Üniversitesi Xuanwu Hastanesinden Prof. Zhao Guoguang'ın ekibi, Çin Beyin Araştırmaları Enstitüsünden Prof. Luo Minmin'in laboratuvarı ve Jianda Jiuzhou adlı biyoteknoloji şirketi arasında paylaşıldı. Uluslararası yorumcular merkezi yeniliği şöyle özetliyor: gen tedavisini küçük moleküllü bir ilaçla birleştirip tedavi yoğunluğunu istek üzerine ayarlanabilir hale getirmek; mevcut hiçbir gen tedavisinin yapamadığı şey.",
+      "Sonucu tartmak için problemden başlamak gerek. Epilepsi özünde kontrolden çıkmış senkron bir deşarjdır: sinir devresinin bir parçası aniden hep birlikte ateşlenir ve beynin yaptığı işi ele geçirir. Nöbet önleyici ilaçları doğru kullandığı hâlde nöbeti süren hastaların oranı yaklaşık üçte birdir; bu, ilaç dirençli epilepsinin tanımıdır. Birçoğu için geriye kalan seçenek rezektif cerrahiydi: sorunlu dokuyu kalıcı olarak çıkarmak, güvenle kaybedilebilecek beyin bölgelerinin sınırladığı geri dönüşsüz bir adım.",
+      "Kemogenetik nöromodülasyon üçüncü bir yol önerir: kesmeden, yıkmadan. Birinci adım, tek bir gen aktarımıyla hedef bölgedeki nöronların doğada var olmayan yapay bir reseptör ifade etmesidir. İkinci adım, yalnızca bu reseptöre bağlanacak şekilde tasarlanmış küçük moleküllü bir ilacın hücre etkinliğini düzenlemesidir. İlaç yokken reseptör sessizdir ve nöronlar işine devam eder; ilaç alındığında reseptör devreye girer ve anormal ateşleme hassas biçimde frenlenir.",
+      "Teknik yirmi yılı aşkın süredir devreleri haritalayan bir laboratuvar aracı olarak yaşıyordu ama insanlarda doğrudan kanıt hiç üretmemişti. Bu çalışmada ilaç dirençli epilepsili üç hasta tedaviyi aldı ve aylık nöbet sıklıkları 4,33'ten 0,33'e indi. Sayıların arkasında gündelik hayat var: azalan nöbetler araba kullanma, düzenli istihdam ve bağımsız yaşam ihtimalini yeniden açar; hastanın gerçekten önemsediği ölçütler bunlardır.",
+      "Tacın mücevheri ayarlanabilirlik. Geleneksel gen tedavisi tek yönlü bir kapıdır: hücreler bir kez değiştirildiğinde etki kalıcıdır ve geri sarılamaz. Kemogenetik dozu, dolayısıyla tedavi yoğunluğunu, hasta ve doktorun eline veriyor. Kötü haftalarda artırmak, iyi haftalarda azaltmak mümkün. Gen düzeyinde geri döndürülebilirlik ve denetlenebilirlik klinikte gerçek bir ilk.",
+      "Güvenlik mantığı zarif. Tasarlanan reseptör yalnızca eşleşen molekülüne yanıt veriyor ve vücudun yoğun doğal sinyal orkestrasını yok sayıyor; tasarım gereği ortogonallik, hedef dışı riski kaynağında kesiyor. Aktarım belirli bir beyin bölgesiyle sınırlı, dolayısıyla ifade edilen reseptörler bile yalnızca düzenlenmesi gereken devre içinde iş görüyor. Hassasiyet nöromodülasyonun ezeli anahtar kelimesi; burada ilk adımdan itibaren tasarıma gömülü.",
+      "İş birliği yapısı da dikkat çekiyor. Klinik bir hastane cerrahi ve hasta altyapısını, temel bir araştırma enstitüsü reseptör tasarımını ve doğrulamasını, bir şirket mühendislik ve aktarım platformunu üstlendi. Çeviri sinir bilimi neredeyse hiçbir zaman tek kurum içinde başarmaz; bu iş bölümü, verilerin kendisi kadar öğretici olabilir.",
+      "Uzaktan bakıldığında teknik, nöromodülasyon araçlarının ortasında tatlı bir noktaya oturuyor. Derin beyin stimülasyonu hareket bozukluklarında yerleşiktir ama hücre tipi ayırt etmez; menzilindeki her şeye seslenen bir hoparlör gibidir. Optogenetik hücre tipine göre ince kontrol sunar ama gömülü ışık kaynakları ister. Kemogenetik ortada durur: optik gerekmez, tek bir hap yeter, hücre özgüllüğü korunur. Klinisyenlerin dikkatini çeken kombinasyon budur.",
+      "Saçılan nöronları sessizleştirmek yalnızca ilk duraktır. İlkede, tanımlı bir nöron popülasyonunun etkinliğini yükseltip alçaltarak ele alınabilecek her durum; hareket bozukluklarından bağımlılığa, depresyondan kronik ağrıya kadar platformun menziline girer. Her yeni endikasyon, aktarım güvenliği, reseptör kararlılığı ve uzun vadeli izleme sorularını yeniden yanıtlamak zorunda; bu on yıllık ölçekte bir program, hızlı bir genişleme değil.",
+      "Ağırbaşlı bir okuma zorunlu: üç hasta çok küçük bir örnektir; kalıcı güvenlik ve etkinlik daha büyük kontrollü çalışmalar, düzenleyici inceleme ve reseptör ifadesinin zamanla ve ilaç kesildikten sonra ne olacağı dahil yıllarca gözlem gerektirir. İnsandaki ilk kanıttan rutin tedaviye uzaklık uzun ve asfaltsızdır.",
+      "Ama sinyal açık. Yirmi yıl boyunca kemogenetik bir araştırma aletiydi, tedavi değil; artık adına bir insan sonucu iliştirildi. Metodolojik ders, nöbet sayılarından daha ağır basabilir: nörolojik hastalıkların tedavisi bir yıkım operasyonu gibi yürütülebilir değil, bir ışık kısıcısı gibi ayarlanabilir.",
+      "Üç hasta için teknoloji somut bir gündelik hayat; dünyadaki milyonlarca ilaç dirençli epilepsi hastası için ise yakından izlenmeye değer bir yön. Tıbbî atılımların gerçek ritmi budur: bir salı günü sade bir yayın, arkasında onlarca yıl cilalanmış araç, önünde onlarca yıl olasılık. Açık soru masada: platformun ikinci insan denemesini hangi durum ağırlayacak? Cevap ne olursa olsun, kemogenetiğin klinik bölümü nihayet başladı."
+    ]
+  }
+]

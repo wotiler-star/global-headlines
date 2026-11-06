@@ -1,0 +1,121 @@
+[
+  {
+    "id": "rss-orig-harmony-desktop-2026-11-fr",
+    "title": "Le bureau a une seconde vie : Huawei glisse HarmonyOS et un assistant IA dans la tour",
+    "summary": "Le 5 novembre, Huawei a présenté son premier ordinateur de bureau sous HarmonyOS, la série Qingyun HM650, qui associe la puce Kirin X90 à des assistants IA locaux et à une gestion d'entreprise. L'essentiel n'est pas dans la fiche technique : c'est ce qui se passe quand le téléphone, la tablette et le bureau partagent enfin un même système d'exploitation.",
+    "cover": "/original/harmony-desktop-cover.webp",
+    "images": [
+      "/original/harmony-desktop-cover.webp",
+      "/original/harmony-desktop-fig1.webp",
+      "/original/harmony-desktop-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "HarmonyOS",
+      "PC de bureau",
+      "assistant IA",
+      "productivité",
+      "TI d'entreprise"
+    ],
+    "category": "tech",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LB025C3U051191D6.html",
+    "author": "Rédaction starteday",
+    "publishedAt": 1793939562413,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Depuis dix ans, le PC de bureau est la catégorie la moins palpitante de la tech grand public : des puces plus rapides, des bords d'écran plus fins et le même flux de travail qu'avant. Le 5 novembre, Huawei a tenté de changer ce scénario avec le Qingyun HM650, son premier ordinateur fixe sous HarmonyOS, ce système qu'il a passé des années à peaufiner sur mobiles et tablettes.",
+      "L'histoire matérielle commence avec la puce Kirin X90 travaillant main dans la main avec le système. La description officielle est étonnamment concrète : une présentation d'un gigaoctet s'ouvre en environ une seconde et le multitâche lourd reste fluide. Plutôt que de courir après des records de banc d'essai, le design mise sur la gestion des ressources au niveau du système : les applications démarrent dans un environnement déjà disposé pour elles.",
+      "Le vrai protagoniste, c'est l'assistant IA. Xiaoyi Work rédige des propositions et des rapports hebdomadaires et coordonne les tâches entre appareils, absorbant la partie la plus répétitive du travail intellectuel. Xiaoyi Huiji enregistre les réunions en mode entièrement local, si bien que les échanges sensibles ne quittent jamais la machine. Et un mode de recherche profonde fait coopérer plusieurs agents pour des réponses plus fiables. Efficacité, confidentialité, fiabilité : les trois critères qu'une entreprise regarde vraiment quand elle choisit ses outils d'IA.",
+      "La sécurité a son propre chapitre. Le HM650 arrive avec un chiffrement du disque au niveau de la puce, un contrôle des accès aux données et un partage de fichiers chiffré. Le plus remarquable, c'est la manière dont l'IA elle-même est encadrée : un bac à sable au niveau du système, combiné à un schéma de coordination appareil-nuage, fixe des limites de permissions explicites pour chaque tâche de l'agent. Ce qu'un assistant peut lire ou envoyer cesse d'être une boîte noire pour devenir un processus auditable.",
+      "Il existe aussi une édition entreprise, et elle compte peut-être davantage que l'histoire grand public. Elle ajoute une gestion centralisée des machines, des politiques de sécurité renforcées et une conception à double espace qui sépare proprement l'identité professionnelle de l'identité personnelle sur la même machine. Le service informatique peut administrer des centaines de postes d'un coup, sans passer de bureau en bureau.",
+      "Les fonctions entre appareils qui ont rendu célèbres les téléphones Huawei atteignent enfin le bureau. Les fichiers se glissent du téléphone à l'ordinateur, les notes inachevées continuent sur le grand écran, les gros fichiers passent directement d'un appareil à l'autre via Huawei Share. Qui s'est déjà envoyé un fichier par courriel comme protocole de transfert sait exactement combien de friction disparaît.",
+      "La consommation d'énergie entre dans le discours : la machine porte une nouvelle certification d'efficacité énergétique, avec un usage annuel type mesuré à 73 kWh. Les ordinateurs fixes ont longtemps été traités comme des appareils que personne ne compte, mais quand la facture d'électricité du bureau et le bilan carbone s'auditeront ligne par ligne, la colonne de puissance du bon de commande deviendra discrètement un critère de décision.",
+      "À l'échelle du secteur, ce qui compte, c'est la route validée. Plutôt que d'optimiser un système de bureau dans son écosystème existant, Huawei a importé l'architecture distribuée bâtie pour le mobile : une base commune entre téléphone, tablette et ordinateur fixe signifie que le développeur adapte son application une seule fois et obtient un comportement cohérent sur les trois écrans. C'est un changement structurel, pas une formule de marketing.",
+      "Les avertissements honnêtes ont leur place aussi. Les écosystèmes de logiciels professionnels mettent des années à migrer, et qui dépend d'applications de bureau très spécialisées ne changera pas pour une meilleure continuité entre appareils. La compatibilité des périphériques, les flux propres à chaque secteur et les habitudes des équipes informatiques favorisent les incumbents. Le HM650 se comprend mieux comme un point de départ mature pour les organisations que comme une offre pour remplacer demain tous les PC du bureau.",
+      "Il n'empêche que la direction indiquée touchera bientôt le consommateur. Les assistants IA locaux, la continuité entre appareils et la sécurité au niveau du système descendent généralement des produits institutionnels vers le grand public en une ou deux générations. La règle pour mesurer un bon ordinateur de bureau se déplace du modèle de processeur vers une question plus simple : livré avec un assistant qui travaille vraiment ? Pour la première fois depuis des années, c'est une question qui mérite d'être posée à une tour."
+    ]
+  },
+  {
+    "id": "rss-orig-oil-membrane-2026-11-fr",
+    "title": "Laisser le pétrole brut se filtrer lui-même : la membrane qui a transformé un défaut en fonction",
+    "summary": "Des chercheurs du KAIST et du Georgia Tech rapportent dans Nature qu'une membrane non revêtue en polyacrylonitrile, bon marché et banale, sépare le brut à température ambiante : les molécules lourdes colmatent les pores jusqu'à former des canaux de moins de 2 nanomètres, avec un débit environ 23 fois supérieur à celui des membranes précédentes. Les simulations suggèrent une baisse de la consommation énergétique de raffinage proche de 31,6 pour cent.",
+    "cover": "/original/oil-membrane-cover.webp",
+    "images": [
+      "/original/oil-membrane-cover.webp",
+      "/original/oil-membrane-fig1.webp",
+      "/original/oil-membrane-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "séparation par membrane",
+      "raffinage",
+      "efficacité énergétique",
+      "science des matériaux",
+      "Nature"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261103003207.htm",
+    "author": "Rédaction starteday",
+    "publishedAt": 1793939502413,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Les raffineries répètent le même geste depuis plus d'un siècle : chauffer. Le brut passe 350 degrés Celsius, se vaporise en partie, puis se condense par étapes jusqu'à se séparer en essence, kérosène et naphta. Dans le monde entier, la distillation du brut consomme environ 1 100 térawattheures par an, l'équivalent de la production annuelle d'environ 130 grandes centrales tournant à plein régime. Une étude publiée dans Nature par des équipes du KAIST et du Georgia Tech vise précisément cette facture.",
+      "Leur réponse ressemble presque à une plaisanterie : une membrane sans aucun revêtement, en polyacrylonitrile, l'un des polymères les moins chers et les plus stables de la filtration industrielle, sépare le brut à température ambiante. Le consensus du secteur soutenait qu'une séparation moléculaire précise exige un revêtement spécialisé ultrafin et coûteux, dont la fabrication à grande échelle introduit inévitablement des défauts. C'était l'une des grandes raisons pour lesquelles le raffinage par membrane ne sortait jamais du laboratoire.",
+      "Le tournant se produit quand le brut traverse les pores. Les molécules d'hydrocarbures lourds s'accumulent le long des parois et resserrent les ouvertures à moins de 2 nanomètres. Les fractions légères, naphta, essence et kérosène, traversent vite ces canaux bâtis par elles-mêmes, tandis que les lourdes restent derrière. En pratique, le pétrole construit lui-même l'échafaudage de sa propre séparation. Les auteurs décrivent un principe nouveau : une membrane qui interagit avec un mélange complexe forme spontanément ses propres canaux de séparation.",
+      "Le délicieux, c'est que cette accumulation porte un nom dans tous les manuels de filtration, et c'est un gros mot. Le colmatage dégrade les performances, impose nettoyages et remplacements, et a coulé d'innombrables projets de membranes. Ici, la même physique devient la source de la sélectivité. Transformer un défaut en fonction est le genre de renversement conceptuel qui survit rarement à l'évaluation par les pairs ; celui-ci a survécu.",
+      "Les chiffres tiennent aussi. La membrane non revêtue a atteint des débits de brut environ 23 fois supérieurs à ceux des conceptions leader précédentes et a fonctionné de manière stable pendant 28 jours d'affilée. La longévité pèse plus qu'un résultat éclatant isolé : bien des technologies membranaires ne sont pas mortes dans le premier article spectaculaire mais au sixième mois de fonctionnement continu. Ryan Lively, du Georgia Tech, l'a dit sans détour : la faible productivité était l'obstacle central du domaine, et ces membranes la hissent au point où l'industrie devrait sérieusement envisager l'adoption.",
+      "L'arithmétique énergétique sort de simulations de procédé : ajouter un module membranaire en amont de la distillation existante pourrait réduire la consommation d'énergie d'environ 31,6 pour cent, les émissions de dioxyde de carbone de près de 37,6 pour cent, l'eau de refroidissement de 20,7 pour cent et les coûts d'exploitation de 36 pour cent. L'équipe estime que déployer le système dans le raffinage et la pétrochimie coréens éviterait environ 10 millions de tonnes de gaz à effet de serre par an, soit les émissions annuelles d'environ 4 millions de véhicules thermiques. Ce sont des projections de modèle, pas des mesures d'une raffinerie en marche, et la distinction importe.",
+      "L'architecture est aussi maline que la chimie. Rien à démolir : la membrane opère comme une étape modulaire de prétraitement qui sépare les fractions légères à température ambiante avant que le reste n'atteigne les chauffages. Une voie de rénovation qui allège l'équipement existant se vend bien mieux à une industrie notoirement conservatrice qu'un remplacement complet d'infrastructures éprouvées.",
+      "Rappelons que le brut n'est pas que du carburant. Les plastiques, les emballages, les textiles et une longue liste de produits du quotidien commencent leur vie à la raffinerie, et leurs coûts se propagent à tous ces prix. Une technologie qui améliore l'efficacité de l'un des procédés industriels les plus gourmands en énergie de la planète est invisible pour le consommateur et apparaît pourtant dans le prix de presque tout ce qui est sur une étagère.",
+      "La morale scientifique dépasse le pétrole. La recherche sur les membranes a consacré des décennies à optimiser les revêtements ; la réponse ici fut de retirer entièrement le revêtement et de laisser la chimie du procédé dessiner elle-même la structure de précision. Des renversements semblables ont eu lieu en catalyse et en cristallisation. La leçon pour les chercheurs est inconfortable et utile : avant d'éliminer un défaut par ingénierie, demandez-vous s'il peut être embauché.",
+      "Les prochaines étapes sont tracées : passer à l'échelle de production, valider la fiabilité à long terme et explorer des séparations voisines comme le traitement d'huile de pyrolyse, la récupération de solvants dans la fabrication de batteries, la purification pharmaceutique et la production de biocarburants. D'un article de Nature à une installation industrielle, il reste l'économie du changement d'échelle, la certification de sécurité et des années de données pilotes. Mais la direction tient debout toute seule : séparer sans chaleur, le colmatage comme atout, des matériaux bon marché au travail de précision. Trois hérésies, une histoire cohérente."
+    ]
+  },
+  {
+    "id": "rss-orig-chemo-neuro-2026-11-fr",
+    "title": "Poser un interrupteur sur les neurones qui s'emballent : la neuromodulation chémogénétique arrive à son premier essai humain",
+    "summary": "The New England Journal of Medicine publie la première utilisation clinique de la neuromodulation chémogénétique chez l'humain. Une seule administration de gènes fait exprimer aux neurones d'une région cérébrale cible un récepteur artificiel qui reste silencieux jusqu'à ce qu'un médicament à petite molécule l'active. Trois patients atteints d'épilepsie pharmacorésistante sont passés de 4,33 crises mensuelles à 0,33.",
+    "cover": "/original/chemo-neuro-cover.webp",
+    "images": [
+      "/original/chemo-neuro-cover.webp",
+      "/original/chemo-neuro-fig1.webp",
+      "/original/chemo-neuro-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "neuromodulation",
+      "épilepsie",
+      "thérapie génique",
+      "NEJM",
+      "recherche clinique"
+    ],
+    "category": "health",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/05/content_608943.html",
+    "author": "Rédaction starteday",
+    "publishedAt": 1793939442413,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Le 5 novembre, The New England Journal of Medicine a publié une jalon d'une équipe chinoise : la première étude clinique de neuromodulation chémogénétique chez l'être humain. Le travail réunit l'équipe du professeur Zhao Guoguang de l'hôpital Xuanwu de l'Université médicale de la Capitale, le laboratoire du professeur Luo Minmin de l'Institut chinois de recherche sur le cerveau et la société de biotechnologie Jianda Jiuzhou. Les commentateurs internationaux ont résumé l'innovation centrale : fusionner la thérapie génique et un médicament à petite molécule, pour rendre l'intensité du traitement ajustable à la demande, ce qu'aucune thérapie génique existante ne sait faire.",
+      "Pour peser le résultat, commencez par le problème. L'épilepsie est, au fond, une décharge synchronisée hors de contrôle : une zone du circuit neuronal tire d'un coup à l'unisson et capte ce que le cerveau était en train de faire. Environ un tiers des patients continuent d'avoir des crises malgré une prise correcte des médicaments anti-crises ; c'est la définition de l'épilepsie pharmacorésistante. Pour beaucoup, l'option restante était la chirurgie résective : retirer définitivement le tissu fautif, un geste irréversible limité par les régions cérébrales qu'on peut perdre sans danger.",
+      "La neuromodulation chémogénétique propose une troisième voie, sans couper ni détruire. Premier temps : une seule administration de gènes fait exprimer aux neurones d'une région cible un récepteur artificiel qui n'existe pas dans la nature. Second temps : un médicament à petite molécule conçu pour ne se lier qu'à ce récepteur module l'activité cellulaire. Sans médicament, le récepteur se tait et les neurones font leur vie ; avec le médicament, le récepteur répond et la décharge anormale est freinée avec précision.",
+      "La technique existe depuis plus de vingt ans comme outil de laboratoire pour cartographier les circuits, mais elle n'avait jamais produit de preuve directe chez l'humain. Dans cette étude, trois patients pharmacorésistants ont reçu la thérapie et leur fréquence mensuelle de crises est passée de 4,33 à 0,33. Derrière les chiffres, il y a la vie quotidienne : moins de crises rouvre la possibilité de conduire, de garder un emploi et de vivre de manière indépendante, les mesures qui comptent vraiment pour le patient.",
+      "La pépite, c'est l'ajustabilité. La thérapie génique classique est une porte à sens unique : une fois les cellules modifiées, l'effet persiste et ne se rejoue pas. La chémogénétique remet la dose, donc l'intensité du traitement, entre les mains du patient et du médecin. On peut monter les semaines difficiles et baisser les bonnes. Réversibilité et contrôle au niveau génique : une vraie première en clinique.",
+      "La logique de sécurité est élégante. Le récepteur conçu ne répond qu'à sa molécule partenaire et ignore la dense orchestre des signaux naturels du corps, une orthogonalité de conception qui coupe le risque hors cible à la source. L'administration est confinée à une région cérébrale précise, si bien que même les récepteurs exprimés n'agissent que dans le circuit à réguler. La précision a toujours été le maître-mot de la neuromodulation ; ici, elle est conçue dès la première étape.",
+      "La structure de collaboration mérite aussi l'attention. Un hôpital clinique a fourni l'infrastructure chirurgicale et les patientes et patients, un institut de recherche fondamentale a fourni la conception et la validation du récepteur, et une entreprise a bâti la plateforme d'ingénierie et d'administration. La neuroscience translationnelle réussit presque jamais dans une seule institution, et cette division du travail pourrait se révéler aussi instructive que les données elles-mêmes.",
+      "Vue de loin, la méthode occupe un point idéal entre les outils de neuromodulation. La stimulation cérébrale profonde est établie pour les troubles du mouvement mais agit sans distinguer les types de cellules, comme un haut-parleur pour tout ce qui est à portée. L'optogénétique offre un contrôle fin par type cellulaire mais exige des sources lumineuses implantées. La chémogénétique tient le milieu : pas d'optique, juste un comprimé, tout en gardant la spécificité cellulaire. C'est cette combinaison qui fait lever les cliniciens.",
+      "Faire taire les neurones emballés n'est que la première gare. En principe, toute affection qu'on peut aborder en montant ou en descendant une population neuronale définie, des troubles du mouvement à l'addiction, à la dépression ou à la douleur chronique, entre dans le champ de la plateforme. Chaque nouvelle indication devra répondre à nouveau aux questions difficiles sur la sécurité d'administration, la stabilité du récepteur et le suivi à long terme ; c'est un programme à l'échelle d'une décennie, pas une expansion rapide.",
+      "Une lecture sobre s'impose : trois patientes et patients, c'est un échantillon minuscule, et la sécurité et l'efficacité durables exigent des essais contrôlés plus vastes, une revue réglementaire et des années d'observation, y compris ce que devient l'expression du récepteur au fil du temps et après l'arrêt du médicament. La distance entre la première preuve humaine et le soin courant est longue et non asphaltée.",
+      "Mais le signal est limpide. Pendant vingt ans, la chémogénétique fut un instrument de recherche, pas un traitement ; elle a désormais un résultat humain attaché à son nom. La leçon méthodologique peut peser plus lourd que les chiffres de crises : le traitement des maladies neurologiques peut se régler comme un variateur de lumière et non s'exécuter comme une démolition.",
+      "Pour les trois patients, la technologie est une vie quotidienne concrète ; pour les millions de personnes vivant avec une épilepsie pharmacorésistante, c'est une direction à suivre de près. Tel est le vrai rythme des percées médicales : une publication discrète un mardi, des décennies d'outils polis derrière, et des décennies de possibilités devant. La question ouverte est déjà sur la table : quelle affection accueillera le deuxième essai humain de la plateforme ? Quelle que soit la réponse, le chapitre clinique de la chémogénétique vient de commencer."
+    ]
+  }
+]

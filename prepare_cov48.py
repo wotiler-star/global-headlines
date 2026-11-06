@@ -10,9 +10,9 @@ ROOT = Path(__file__).resolve().parent
 D = ROOT / "data/original"
 FILES = sorted(D.glob("premium-*.json"))
 EXPECTED = {"zh", "en", "ja", "ko", "es", "fr", "pt", "tr"}
-# 每批 3 篇。cov55 起累计 2 批（premium-2026-11.json 与 premium-2026-11b.json），
+# 每批 3 篇。cov56 起累计 3 批（premium-2026-11.json / -b / -c），
 # data/original/ 下所有 premium-*.json 都会被 merge-originals 与 reset 一起保留。
-PER_LOCALE = 6
+PER_LOCALE = 9
 
 BANNED_ZH = [
     "政治", "政府", "选举", "总统", "议会", "国会", "外交", "关税", "制裁", "法案",

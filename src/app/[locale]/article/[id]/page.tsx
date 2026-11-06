@@ -95,17 +95,6 @@ export async function generateMetadata({
   };
 }
 
-// 从正文抽取最具信息量的一句作为引述（确定性，无随机）
-// 防御：存量 articles.json 历史上存在缺 body 的条目（卷内旧数据 / 旧版采集器 / rebuild-mirror），
-// 按 undefined 容忍，避免 pickQuote 抛错把文章页打成 500。
-function pickQuote(body: string[] | undefined): string {
-  const src = (body?.slice(1, 3).join(" ") || body?.join(" ") || "").trim();
-  const parts = src.split(/(?<=[。！？!?])/).map((x) => x.trim()).filter((x) => x.length >= 12);
-  if (parts.length === 0) return "";
-  parts.sort((a, b) => b.length - a.length);
-  return parts[0].slice(0, 120);
-}
-
 export default async function ArticlePage({
   params,
 }: {
@@ -123,7 +112,6 @@ export default async function ArticlePage({
   const videos = article.media === "video"
     ? (await getArticles(loc, "video")).filter((a) => a.id !== article.id).slice(0, 6)
     : [];
-  const quote = article.media === "video" ? "" : pickQuote(article.body);
   // 阅读时长实时估算：数据源 readMinutes 对用户稿是默认值，按正文长度重算更准
   const bodyChars = (article.body || []).join("").length;
   const cjk = loc === "zh" || loc === "ja" || loc === "ko";
@@ -135,19 +123,17 @@ export default async function ArticlePage({
   const baseId = isMultilingual ? articleBaseId(article.id) : article.id;
 
   // 配图内联：不再用独立图集区，而是把 hero 之外的配图按正文均匀分布插入段落之间
-  // 位置确定性计算：第 k 张插在 body 长度的 (k+1)/(n+1) 处段落之后，避开引述位、去重
+  // 位置确定性计算：第 k 张插在 body 长度的 (k+1)/(n+1) 处段落之后，去重
   const inlineFigs = (() => {
     if (article.media === "video") return [] as { at: number; src: string; no: number }[];
     const imgs = (article.images || []).slice(1);
     const len = article.body.length;
     if (!imgs.length || len === 0) return [];
-    const quoteAt = Math.min(1, len - 1);
     const out: { at: number; src: string; no: number }[] = [];
     let prev = -1;
     imgs.forEach((src, k) => {
       let at = Math.round((len * (k + 1)) / (imgs.length + 1)) - 1;
       at = Math.min(Math.max(at, 0), len - 1);
-      if (at === quoteAt && quote) at = Math.min(at + 1, len - 1); // 避免引述块后紧贴配图
       if (at <= prev) at = prev + 1;
       if (at > len - 1) return;
       prev = at;
@@ -269,12 +255,6 @@ export default async function ArticlePage({
             {article.body.map((p, i) => (
               <Fragment key={i}>
                 <RichBlock line={p} />
-                {i === Math.min(1, article.body.length - 1) && quote && (
-                  <div className="art-quote">
-                    <div className="aq-label">QUOTE · 引述</div>
-                    <blockquote>{quote}</blockquote>
-                  </div>
-                )}
                 {figMap.get(i) && (
                   <figure className="art-inline-fig">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -312,16 +292,6 @@ export default async function ArticlePage({
                 ))}
               </ul>
             </section>
-          )}
-          {article.sourceUrl && (
-            <a
-              className="read-original"
-              href={article.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {d.readOriginal} <span aria-hidden>&#8599;</span>
-            </a>
           )}
           <div className="article-tags">
             <span className="tag-label">{d.tagTitle}：</span>

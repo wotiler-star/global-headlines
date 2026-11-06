@@ -1,0 +1,121 @@
+[
+  {
+    "id": "rss-orig-harmony-desktop-2026-11-pt",
+    "title": "O desktop ganha uma segunda vida: Huawei coloca HarmonyOS e um assistente de IA dentro do gabinete",
+    "summary": "Em 5 de novembro a Huawei apresentou seu primeiro computador de mesa com HarmonyOS, a série Qingyun HM650, que une o chip Kirin X90 a assistentes de IA locais e gestão empresarial. O que interessa não está na folha de especificações, e sim no que acontece quando celular, tablet e desktop passam a compartilhar um mesmo sistema operacional.",
+    "cover": "/original/harmony-desktop-cover.webp",
+    "images": [
+      "/original/harmony-desktop-cover.webp",
+      "/original/harmony-desktop-fig1.webp",
+      "/original/harmony-desktop-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "HarmonyOS",
+      "PC de mesa",
+      "assistente de IA",
+      "produtividade",
+      "TI empresarial"
+    ],
+    "category": "tech",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LB025C3U051191D6.html",
+    "author": "Redação starteday",
+    "publishedAt": 1793939562413,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "O PC de mesa passou a última década como a categoria menos empolgante da tecnologia de consumo: chips mais rápidos, molduras mais finas e o mesmo fluxo de trabalho de sempre. Em 5 de novembro, a Huawei tentou mudar esse roteiro com o Qingyun HM650, seu primeiro desktop com HarmonyOS, o sistema que ela passou anos lapidando em celulares e tablets.",
+      "A história de hardware começa no chip Kirin X90 trabalhando de mãos dadas com o sistema. A descrição oficial é surpreendentemente concreta: uma apresentação de um gigabyte abre em cerca de um segundo e o multitrafégo pesado segue fluido. Em vez de perseguir recordes de laboratório, o projeto aposta na gestão de recursos em nível de sistema: os aplicativos iniciam em um ambiente já preparado para eles.",
+      "O verdadeiro protagonista é o assistente de IA. O Xiaoyi Work redige propostas e relatórios semanais e coordena tarefas entre aparelhos, absorvendo a parte mais repetitiva do trabalho intelectual. O Xiaoyi Huiji grava reuniões em um modo totalmente local, de modo que conversas delicadas nunca saem da máquina. E um modo de pesquisa profunda faz vários agentes cooperarem para respostas mais confiáveis. Eficiência, privacidade, confiabilidade: os três critérios que uma empresa realmente olha ao comprar ferramentas de IA.",
+      "A segurança ganha capítulo próprio. O HM650 vem com criptografia de disco em nível de chip, controle de acesso aos dados e compartilhamento de arquivos criptografado. O mais notável é como a própria IA é cercada: uma área isolada em nível de sistema, combinada a um esquema de coordenação aparelho-nuvem, define limites de permissão explícitos para cada tarefa do agente. O que um assistente pode ler ou enviar deixa de ser caixa-preta e vira um processo auditável.",
+      "Também existe uma edição empresarial, e ela pode pesar mais do que a história de consumo. Ela adiciona gestão centralizada de máquinas, políticas de segurança reforçadas e um desenho de espaço duplo que separa com limpeza a identidade de trabalho da pessoal na mesma máquina. O departamento de TI pode administrar centenas de computadores de uma vez, sem visitar mesa por mesa.",
+      "Os recursos entre aparelhos que tornaram famosos os celulares Huawei finalmente chegam à mesa. Arquivos deslizam do celular para o computador, anotações pela metade continuam na tela grande, arquivos pesados passam direto entre aparelhos pelo Huawei Share. Quem já se enviou um arquivo por e-mail como protocolo de transferência sabe exatamente quanta fricção desaparece.",
+      "O consumo de energia entrou no discurso de venda: a máquina traz uma nova certificação de eficiência energética, com uso típico anual medido em 73 kWh. Desktops foram tratados por muito tempo como aparelhos que ninguém conta, mas quando a conta de luz do escritório e o balanço de carbono passam a ser auditados linha por linha, a coluna de potência no pedido de compra vira discretamente um fator de decisão.",
+      "No nível da indústria, o que importa é a rota validada. Em vez de otimizar um sistema de desktop dentro do ecossistema já existente, a Huawei importou a arquitetura distribuída construída para o celular: uma base comum entre celular, tablet e desktop significa que o desenvolvedor adapta o aplicativo uma única vez e obtém comportamento consistente nas três telas. É uma mudança estrutural de verdade, não uma frase de marketing.",
+      "As ressalvas honestas também têm lugar. Ecossistemas de software profissional levam anos para migrar, e quem depende de aplicativos de mesa muito especializados não troca de máquina por uma continuidade mais bonita entre aparelhos. Compatibilidade de periféricos, fluxos próprios de cada setor e hábitos das equipes de TI favorecem os incumbentes. O HM650 se entende melhor como um ponto de partida maduro para organizações do que como uma proposta para substituir amanhã todos os PCs do escritório.",
+      "Mesmo assim, a direção indicada chegará logo ao consumidor. Assistentes de IA locais, continuidade entre aparelhos e segurança em nível de sistema costumam escorrer dos produtos corporativos para o grande público em uma ou duas gerações. A régua para medir um bom desktop se desloca do modelo do processador para uma pergunta mais simples: vem de fábrica com um assistente que trabalha de verdade? Pela primeira vez em anos, é uma pergunta que vale a pena fazer a um computador de mesa."
+    ]
+  },
+  {
+    "id": "rss-orig-oil-membrane-2026-11-pt",
+    "title": "Deixar o petróleo bruto se filtrar sozinho: a membrana que transformou um defeito em função",
+    "summary": "Pesquisadores do KAIST e do Georgia Tech relatam na Nature que uma membrana sem revestimento de poliacrilonitrilo, barata e comum, separa petróleo bruto em temperatura ambiente: moléculas pesadas entopem os poros até formar canais com menos de 2 nanômetros, com vazão cerca de 23 vezes maior que a das membranas anteriores. As simulações sugerem queda de quase 31,6 por cento no consumo de energia do refino.",
+    "cover": "/original/oil-membrane-cover.webp",
+    "images": [
+      "/original/oil-membrane-cover.webp",
+      "/original/oil-membrane-fig1.webp",
+      "/original/oil-membrane-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "separação por membranas",
+      "refino",
+      "eficiência energética",
+      "ciência dos materiais",
+      "Nature"
+    ],
+    "category": "science",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261103003207.htm",
+    "author": "Redação starteday",
+    "publishedAt": 1793939502413,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "As refinarias repetem o mesmo gesto há mais de um século: aquecer. O petróleo bruto passa dos 350 graus Celsius, vaporiza em parte e se condensa em etapas até se separar em gasolina, querosene e nafta. No mundo inteiro, a destilação de petróleo consome cerca de 1.100 terawatts-hora por ano, o equivalente à produção anual de aproximadamente 130 grandes usinas rodando a plena carga. Um estudo publicado na Nature por equipes do KAIST e do Georgia Tech mira exatamente essa conta.",
+      "A resposta deles soa quase como uma piada: uma membrana sem revestimento nenhum, feita de poliacrilonitrilo, um dos polímeros mais baratos e estáveis da filtração industrial, separa o petróleo em temperatura ambiente. O consenso do setor sustentava que separação molecular precisa exige um revestimento especializado ultrafino e caro, cuja fabricação em larga escala inevitavelmente introduz defeitos. Era uma das grandes razões de o refino por membranas nunca sair do laboratório.",
+      "O ponto de virada acontece quando o petróleo atravessa os poros. Moléculas de hidrocarbonetos pesados se acumulam nas paredes e estreitam as aberturas até menos de 2 nanômetros. As frações leves, como nafta, gasolina e querosene, atravessam depressa esses canais construídos por elas mesmas, enquanto as pesadas ficam para trás. Na prática, o petróleo constrói o andaime de sua própria separação. Os autores descrevem um princípio novo: uma membrana que interage com uma mistura complexa forma espontaneamente seus próprios canais de separação.",
+      "O delicioso vem agora: essa acumulação tem nome em todos os livros de filtração, e é uma palavra feia. O entupimento degrada o desempenho, obriga a limpezas e trocas e afundou incontáveis projetos de membranas. Neste estudo, a mesma física vira a fonte da seletividade. Transformar um defeito em função é o tipo de inversão conceitual que raramente sobrevive à revisão por pares; esta sobreviveu.",
+      "Os números acompanham. A membrana sem revestimento alcançou vazões de petróleo cerca de 23 vezes maiores que as dos designs líderes anteriores e operou de forma estável por 28 dias seguidos. A longevidade pesa mais que qualquer resultado brilhante isolado: boa parte das tecnologias de membranas não morreu no primeiro artigo espetacular, mas no sexto mês de operação contínua. Ryan Lively, do Georgia Tech, disse sem rodeios: a baixa produtividade era o obstáculo central da área, e essas membranas a elevam ao ponto em que a indústria deveria considerar seriamente a adoção.",
+      "A aritmética energética sai de simulações de processo: adicionar um módulo de membrana antes da destilação existente poderia cortar o consumo de energia em cerca de 31,6 por cento, as emissões de dióxido de carbono em quase 37,6 por cento, a água de resfriamento em 20,7 por cento e os custos operacionais em 36 por cento. A equipe estima que implantar o sistema no refino e na petroquímica da Coreia evitaria cerca de 10 milhões de toneladas de gases de efeito estufa por ano, o equivalente a cerca de 4 milhões de veículos a combustão. São projeções de modelo, não medições de uma refinaria em funcionamento, e a distinção importa.",
+      "A arquitetura é tão esperta quanto a química. Nada precisa ser demolido: a membrana funciona como uma etapa modular de pré-tratamento que separa as frações leves em temperatura ambiente antes de o restante chegar às caldeiras. Um caminho de reforma que alivia o equipamento existente se vende muito melhor a uma setor notoriamente conservador do que a substituição completa de infraestrutura comprovada.",
+      "Vale lembrar que o petróleo não é só combustível. Plásticos, embalagens, tecidos e uma longa lista de bens do dia a dia começam a vida na refinaria, e os custos do refino se espalham por todos esses preços. Uma tecnologia que melhora a eficiência de um dos processos industriais mais famintos por energia do planeta é invisível para o consumidor e, ainda assim, aparece no preço de quase tudo que está numa prateleira.",
+      "A moral científica vai além do petróleo. A pesquisa em membranas dedicou décadas a otimizar revestimentos; a resposta aqui foi retirar o revestimento por completo e deixar que a química do próprio processo desenhasse a estrutura de precisão. Inversões parecidas aconteceram em catálise e cristalização. A lição para os pesquisadores é desconfortável e útil: antes de eliminar um defeito por engenharia, pergunte-se se ele pode ser contratado.",
+      "Os próximos passos estão traçados: escalar a produção, validar a confiabilidade de longo prazo e explorar separações vizinhas como o tratamento de óleo de pirólise, a recuperação de solventes na fabricação de baterias, a purificação farmacêutica e a produção de biocombustíveis. De um artigo na Nature a uma instalação industrial ficam pelo caminho a economia da escala, a certificação de segurança e anos de dados de piloto. Mas a direção se sustenta sozinha: separação sem calor, entupimento como vantagem, materiais baratos fazendo trabalho preciso. Três heresias, uma história coerente."
+    ]
+  },
+  {
+    "id": "rss-orig-chemo-neuro-2026-11-pt",
+    "title": "Instalar um interruptor nos neurônios desgarrados: a neuromodulação chemogenética chega ao primeiro ensaio em humanos",
+    "summary": "The New England Journal of Medicine publicou o primeiro uso clínico da neuromodulação chemogenética em seres humanos. Uma única entrega genética faz os neurônios de uma região cerebral alvo expressarem um receptor artificial que fica silencioso até um medicamento de molécula pequena ativá-lo. Três pacientes com epilepsia resistente a medicamentos caíram de 4,33 crises mensuais para 0,33.",
+    "cover": "/original/chemo-neuro-cover.webp",
+    "images": [
+      "/original/chemo-neuro-cover.webp",
+      "/original/chemo-neuro-fig1.webp",
+      "/original/chemo-neuro-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "neuromodulação",
+      "epilepsia",
+      "terapia genética",
+      "NEJM",
+      "pesquisa clínica"
+    ],
+    "category": "health",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/05/content_608943.html",
+    "author": "Redação starteday",
+    "publishedAt": 1793939442413,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Em 5 de novembro, o The New England Journal of Medicine publicou um marco de uma equipe chinesa: o primeiro estudo clínico de neuromodulação chemogenética em seres humanos. O trabalho reuniu a equipe do professor Zhao Guoguang do Hospital Xuanwu da Universidade Médica da Capital, o laboratório do professor Luo Minmin do Instituto Chinês de Pesquisa do Cérebro e a empresa de biotecnologia Jianda Jiuzhou. Comentaristas internacionais resumiram a inovação central: fundir terapia genética com um medicamento de molécula pequena, tornando a intensidade do tratamento ajustável sob demanda, algo que nenhuma terapia genética existente consegue fazer.",
+      "Para pesar o resultado, comece pelo problema. A epilepsia é, no fundo, uma descarga sincronizada fora de controle: uma faixa do circuito neuronal dispara de repente em uníssono e sequestra o que o cérebro estava fazendo. Cerca de um terço dos pacientes continua tendo crises mesmo tomando corretamente os medicamentos anticrise; essa é a definição de epilepsia resistente. Para muitos, a opção restante era a cirurgia ressectiva: remover de forma permanente o tecido problemático, um passo irreversível limitado pelas regiões cerebrais que se pode perder com segurança.",
+      "A neuromodulação chemogenética oferece um terceiro caminho, sem cortar e sem destruir. Primeiro passo: uma única entrega genética faz os neurônios de uma região alvo expressarem um receptor artificial que não existe na natureza. Segundo passo: um medicamento de molécula pequena desenhado para se ligar apenas a esse receptor modula a atividade celular. Sem medicamento, o receptor fica em silêncio e os neurônios seguem a vida; com o medicamento, o receptor responde e a descarga anômala freia com precisão.",
+      "A técnica existe há mais de duas décadas como ferramenta de laboratório para mapear circuitos, mas nunca tinha produzido evidência direta em humanos. Neste estudo, três pacientes com epilepsia resistente receberam a terapia e a frequência mensal de crises caiu de 4,33 para 0,33. Atrás dos números há vida cotidiana: menos crises reabrem a possibilidade de dirigir, de manter um emprego e de viver de forma independente, as métricas que importam de verdade ao paciente.",
+      "A joia da coroa é o ajuste. A terapia genética convencional é uma porta de sentido único: uma vez modificadas as células, o efeito persiste e não dá para rebobinar. A chemogenética entrega a dose, e com ela a intensidade do tratamento, nas mãos do paciente e do médico. Dá para subir nas semanas ruins e descer nas boas. Reversibilidade e controle em nível genético é uma primeira vez genuína na clínica.",
+      "A lógica de segurança é elegante. O receptor desenhado responde apenas à sua molécula parceira e ignora a densa orquestra de sinais nativos do corpo, uma ortogonalidade de projeto que corta o risco fora do alvo na fonte. A entrega fica confinada a uma região cerebral específica, de modo que mesmo os receptores expressados atuam apenas dentro do circuito que precisa ser regulado. Precisão sempre foi a palavra-chave da neuromodulação; aqui, ela é projetada desde o primeiro passo.",
+      "A estrutura de colaboração também merece atenção. Um hospital clínico forneceu a infraestrutura cirúrgica e os pacientes, um instituto de pesquisa básica forneceu o desenho e a validação do receptor, e uma empresa construiu a plataforma de engenharia e entrega. A neurociência translacional quase nunca triunfa dentro de uma única instituição, e essa divisão do trabalho pode se revelar tão instrutiva quanto os próprios dados.",
+      "Vista de longe, a técnica ocupa um ponto doce entre as ferramentas de neuromodulação. A estimulação cerebral profunda está consolidada para transtornos do movimento, mas age sem distinguir tipos de célula, como um alto-falante para tudo o que estiver ao alcance. A optogenética oferece controle fino por tipo celular mas exige fontes de luz implantadas. A chemogenética fica no meio: sem óptica, apenas um comprimido, mantendo a especificidade celular. É essa combinação que faz os clínicos prestarem atenção.",
+      "Acalmar neurônios desgarrados é apenas a primeira parada. Em princípio, qualquer condição que se possa tratar subindo ou baixando uma população neuronal definida, dos transtornos do movimento à dependência química, à depressão ou à dor crônica, entra no alcance da plataforma. Cada nova indicação terá de responder de novo perguntas difíceis sobre segurança da entrega, estabilidade do receptor e acompanhamento de longo prazo; é um programa em escala de década, não uma expansão rápida.",
+      "Uma leitura sóbria é obrigatória: três pacientes são uma amostra mínima, e a segurança e a eficácia duradouras exigem ensaios controlados maiores, revisão regulatória e anos de observação, incluindo o que acontece com a expressão do receptor ao longo do tempo e após a retirada do medicamento. A distância entre a primeira evidência em humanos e a terapia rotineira é longa e não pavimentada.",
+      "Mas o sinal é inconfundível. Por vinte anos, a chemogenética foi um instrumento de pesquisa, não um tratamento; agora tem um resultado humano atrelado ao nome. A lição metodológica pode pesar mais que os números de crises: o tratamento das doenças neurológicas pode ser regulado como um dimmer, e não executado como uma demolição.",
+      "Para os três pacientes, a tecnologia é vida diária concreta; para os milhões de pessoas com epilepsia resistente no mundo, é uma direção que vale acompanhar de perto. Esse é o ritmo real das grandes conquistas médicas: uma publicação discreta numa terça-feira, décadas de ferramentas lapidadas por trás e décadas de possibilidades à frente. A pergunta em aberto já está sobre a mesa: qual condição sediará o segundo ensaio humano da plataforma? Seja qual for a resposta, o capítulo clínico da chemogenética acaba de começar."
+    ]
+  }
+]
