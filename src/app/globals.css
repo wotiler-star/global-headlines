@@ -1963,3 +1963,15 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .art-image-credits .aic-label { font-family: var(--font-mn); letter-spacing: 0.12em; color: var(--brand); margin-bottom: 8px; }
 .art-image-credits ul { margin: 0; padding-left: 18px; line-height: 1.9; }
 .art-image-credits a { color: var(--brand); text-decoration: underline; }
+
+/* ---------- 标题快速淡入（替代逐字解码动画，避免非中文语种闪现中文乱码池） ---------- */
+.title-fade-in {
+  animation: titleFadeIn 0.35s ease-out both;
+}
+@keyframes titleFadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .title-fade-in { animation: none; }
+}
