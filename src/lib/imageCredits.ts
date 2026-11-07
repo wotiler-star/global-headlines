@@ -1,5 +1,5 @@
 // Wikimedia Commons 真实照片署名（CC BY / CC BY-SA 要求可见署名）
-// 数据来源：public/original/CREDITS.json；全量重建（含 france-colonial 批次）
+// 数据来源：public/original/CREDITS.json；全量重建，保留历史批次署名
 export type ImageCredit = { artist: string; license: string; url: string };
 
 export const IMAGE_CREDITS: Record<string, ImageCredit> = {
@@ -31,6 +31,24 @@ export const IMAGE_CREDITS: Record<string, ImageCredit> = {
   "/original/chemo-neuro-fig1.webp": { artist: "Flexagoon", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:EEG_Experiment.jpg" },
   "/original/chemo-neuro-fig2.webp": { artist: "Laurens R. Krol", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Brain-computer_interface_experiment.jpg" },
   "/original/france-colonial-cover.webp": { artist: "Desolme, Philippe. Photographe", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Ouvrier_de_la_plantation_Suzannah_en_Cochinchine_%C3%A0_c%C3%B4t%C3%A9_d%27un_h%C3%A9v%C3%A9a_sur_lequel_il_a_pratiqu%C3%A9_la_saign%C3%A9e_(une_encoche_1-3)_-_Philippe_Desolme_-_btv1b101037192.jpg" },
-  "/original/france-colonial-fig1.webp": { artist: "Thure de Thulstrup", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Louisiana_Purchase_New_Orleans_Thure_de_Thulstrup.jpg" },
+  "/original/france-colonial-fig1.webp": { artist: "USCapitol", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Flickr_-_USCapitol_-_Louisiana_Purchase,_1803.jpg" },
   "/original/france-colonial-fig2.webp": { artist: "Jorge Láscar from Australia", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Lascar_Hanoi_Opera_House_(4550405849).jpg" },
+  "/original/cold-atoms-cover.webp": { artist: "Steve Jurvetson", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Bose-Einstein_condensate,_a_cloud_of_super-cooled_Rubidium_atoms_in_a_Laser_trap_on_an_Optical_table_-_In_a_game_of_catch_%26_release,_the_atoms_will_shoot_up_a_30_ft._tall_Atomic_fountain_-_Stanford.jpg" },
+  "/original/cold-atoms-fig1.webp": { artist: "Physics Department, Ateneo de Manila University", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Laser_experiment_-_Photonics_Laboratory_-_Physics_Department_-_Ateneo_de_Manila_University.jpg" },
+  "/original/cold-atoms-fig2.webp": { artist: "Eric Magnan", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:VacuumChamberWindow.JPG" },
+  "/original/ecg-patch-cover.webp": { artist: "K6ka", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:3-Lead_Holter_monitor_placement.jpg" },
+  "/original/ecg-patch-fig1.webp": { artist: "Peterhcharlton", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:12_lead_ECG.jpg" },
+  "/original/ecg-patch-fig2.webp": { artist: "Suyash.dwivedi", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Bare_chest_of_a_old_man_for_ECG_with_probes_(36506).jpg" },
+  "/original/smart-tire-cover.webp": { artist: "Tbatb", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Close-up_of_Front_tire_of_a_Volkswagen_car.jpg" },
+  "/original/smart-tire-fig1.webp": { artist: "Jbobby", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Tire_tread_.jpg" },
+  "/original/smart-tire-fig2.webp": { artist: "tequilamike", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Tire_close_up_(4800801486).jpg" },
+  "/original/ultracold-space-cover.webp": { artist: "Steve Jurvetson", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Bose-Einstein_condensate,_a_cloud_of_super-cooled_Rubidium_atoms_in_a_Laser_trap_on_an_Optical_table_-_In_a_game_of_catch_%26_release,_the_atoms_will_shoot_up_a_30_ft._tall_Atomic_fountain_-_Stanford.jpg" },
+  "/original/ultracold-space-fig1.webp": { artist: "Steve Jurvetson", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Atomic_Fountain.jpg" },
+  "/original/ultracold-space-fig2.webp": { artist: "Idaho National Laboratory", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Laser_Optics_-_Idaho_National_Laboratory.jpg" },
+  "/original/oled-ipad-mini-cover.webp": { artist: "Raimond Spekking", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:IPad_4,_model_A1458-0869.jpg" },
+  "/original/oled-ipad-mini-fig1.webp": { artist: "KK IN HK", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Tablet_computer.jpg" },
+  "/original/oled-ipad-mini-fig2.webp": { artist: "Seasider53", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:IMac_M4_2024_2_(cropped).jpg" },
+  "/original/dino-heme-cover.webp": { artist: "Gary Todd", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Theropod_Skeleton_(36094776020).jpg" },
+  "/original/dino-heme-fig1.webp": { artist: "James St. John", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Tyrannosaurus_rex_(theropod_dinosaur)_(Hell_Creek_Formation,_Upper_Cretaceous%3B_near_Faith,_South_Dakota,_USA)_33.jpg" },
+  "/original/dino-heme-fig2.webp": { artist: "Tadeáš Bednarz", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Scanning_electron_microscope_-_UFCH_JH_(2020)_01.jpg" },
 };

@@ -49,7 +49,7 @@ def get_src(url):
     return src_cache[url]
 
 
-files = sorted(D.glob("premium-2026-11*.json"))
+files = sorted(D.glob("premium-*.json"))
 if SUFFIX:
     files = [f for f in files if SUFFIX in f.name]
 

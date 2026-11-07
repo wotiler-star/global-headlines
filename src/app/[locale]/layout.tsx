@@ -36,10 +36,15 @@ export async function generateMetadata({
     title: { default: d.homeTitle, template: `%s · ${d.siteName}` },
     description: d.homeDesc,
     manifest: "/manifest.webmanifest",
-    // Google Search Console 站点所有权验证（HTML 标记方式）。
-    // Next.js 会输出 <meta name="google-site-verification" content="...">，覆盖全部语种页面。
+    // 站点所有权验证：Google 已固定；Bing / 百度 / Yandex 由环境变量注入，
+    // 拿到各站长平台的验证码后只需在 docker compose 环境里加变量，无需改代码。
     verification: {
       google: "88gJuwAfrMYN7Dj6ClSV7FmUB7M67d543Nb6ejwyB9c",
+      other: {
+        ...(process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : {}),
+        ...(process.env.BAIDU_SITE_VERIFICATION ? { "baidu-site-verification": process.env.BAIDU_SITE_VERIFICATION } : {}),
+        ...(process.env.YANDEX_SITE_VERIFICATION ? { "yandex-verification": process.env.YANDEX_SITE_VERIFICATION } : {}),
+      },
     },
     icons: {
       icon: [

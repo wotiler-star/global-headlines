@@ -291,9 +291,9 @@
       {
         "file": "/original/france-colonial-fig1.webp",
         "source": "Wikimedia Commons",
-        "commons_title": "File:Louisiana Purchase New Orleans Thure de Thulstrup.jpg",
-        "commons_page": "https://commons.wikimedia.org/wiki/File:Louisiana_Purchase_New_Orleans_Thure_de_Thulstrup.jpg",
-        "artist": "Thure de Thulstrup",
+        "commons_title": "File:Flickr - USCapitol - Louisiana Purchase, 1803.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Flickr_-_USCapitol_-_Louisiana_Purchase,_1803.jpg",
+        "artist": "USCapitol",
         "license": "Public domain"
       },
       {
@@ -303,6 +303,192 @@
         "commons_page": "https://commons.wikimedia.org/wiki/File:Lascar_Hanoi_Opera_House_(4550405849).jpg",
         "artist": "Jorge Láscar from Australia",
         "license": "CC BY 2.0"
+      }
+    ]
+  },
+  "cold-atoms": {
+    "cover": {
+      "file": "/original/cold-atoms-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Bose-Einstein condensate, a cloud of super-cooled Rubidium atoms in a Laser trap on an Optical table - In a game of catch & release, the atoms will shoot up a 30 ft. tall Atomic fountain - Stanford.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Bose-Einstein_condensate,_a_cloud_of_super-cooled_Rubidium_atoms_in_a_Laser_trap_on_an_Optical_table_-_In_a_game_of_catch_%26_release,_the_atoms_will_shoot_up_a_30_ft._tall_Atomic_fountain_-_Stanford.jpg",
+      "artist": "Steve Jurvetson",
+      "license": "CC BY 2.0",
+      "size_kb": 300
+    },
+    "figs": [
+      {
+        "file": "/original/cold-atoms-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Laser experiment - Photonics Laboratory - Physics Department - Ateneo de Manila University.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Laser_experiment_-_Photonics_Laboratory_-_Physics_Department_-_Ateneo_de_Manila_University.jpg",
+        "artist": "Physics Department, Ateneo de Manila University",
+        "license": "CC BY 2.0",
+        "size_kb": 102
+      },
+      {
+        "file": "/original/cold-atoms-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:VacuumChamberWindow.JPG",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:VacuumChamberWindow.JPG",
+        "artist": "Eric Magnan",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 97
+      }
+    ]
+  },
+  "ecg-patch": {
+    "cover": {
+      "file": "/original/ecg-patch-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:3-Lead Holter monitor placement.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:3-Lead_Holter_monitor_placement.jpg",
+      "artist": "K6ka",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 87
+    },
+    "figs": [
+      {
+        "file": "/original/ecg-patch-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:12 lead ECG.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:12_lead_ECG.jpg",
+        "artist": "Peterhcharlton",
+        "license": "CC BY 4.0",
+        "size_kb": 119
+      },
+      {
+        "file": "/original/ecg-patch-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Bare chest of a old man for ECG with probes (36506).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Bare_chest_of_a_old_man_for_ECG_with_probes_(36506).jpg",
+        "artist": "Suyash.dwivedi",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 140
+      }
+    ]
+  },
+  "smart-tire": {
+    "cover": {
+      "file": "/original/smart-tire-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Close-up of Front tire of a Volkswagen car.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Close-up_of_Front_tire_of_a_Volkswagen_car.jpg",
+      "artist": "Tbatb",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 65
+    },
+    "figs": [
+      {
+        "file": "/original/smart-tire-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Tire tread .jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Tire_tread_.jpg",
+        "artist": "Jbobby",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 273
+      },
+      {
+        "file": "/original/smart-tire-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Tire close up (4800801486).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Tire_close_up_(4800801486).jpg",
+        "artist": "tequilamike",
+        "license": "CC BY 2.0",
+        "size_kb": 106
+      }
+    ]
+  },
+  "ultracold-space": {
+    "cover": {
+      "file": "/original/ultracold-space-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Bose-Einstein condensate, a cloud of super-cooled Rubidium atoms in a Laser trap on an Optical table - In a game of catch & release, the atoms will shoot up a 30 ft. tall Atomic fountain - Stanford.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Bose-Einstein_condensate,_a_cloud_of_super-cooled_Rubidium_atoms_in_a_Laser_trap_on_an_Optical_table_-_In_a_game_of_catch_%26_release,_the_atoms_will_shoot_up_a_30_ft._tall_Atomic_fountain_-_Stanford.jpg",
+      "artist": "Steve Jurvetson",
+      "license": "CC BY 2.0",
+      "size_kb": 300
+    },
+    "figs": [
+      {
+        "file": "/original/ultracold-space-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Atomic Fountain.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Atomic_Fountain.jpg",
+        "artist": "Steve Jurvetson",
+        "license": "CC BY 2.0",
+        "size_kb": 105
+      },
+      {
+        "file": "/original/ultracold-space-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Laser Optics - Idaho National Laboratory.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Laser_Optics_-_Idaho_National_Laboratory.jpg",
+        "artist": "Idaho National Laboratory",
+        "license": "CC BY 2.0",
+        "size_kb": 109
+      }
+    ]
+  },
+  "oled-ipad-mini": {
+    "cover": {
+      "file": "/original/oled-ipad-mini-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:IPad 4, model A1458-0869.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:IPad_4,_model_A1458-0869.jpg",
+      "artist": "Raimond Spekking",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 28
+    },
+    "figs": [
+      {
+        "file": "/original/oled-ipad-mini-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Tablet computer.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Tablet_computer.jpg",
+        "artist": "KK IN HK",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 57
+      },
+      {
+        "file": "/original/oled-ipad-mini-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:IMac M4 2024 2 (cropped).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:IMac_M4_2024_2_(cropped).jpg",
+        "artist": "Seasider53",
+        "license": "CC BY 4.0",
+        "size_kb": 84
+      }
+    ]
+  },
+  "dino-heme": {
+    "cover": {
+      "file": "/original/dino-heme-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Theropod Skeleton (36094776020).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Theropod_Skeleton_(36094776020).jpg",
+      "artist": "Gary Todd",
+      "license": "CC0",
+      "size_kb": 218
+    },
+    "figs": [
+      {
+        "file": "/original/dino-heme-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Tyrannosaurus rex (theropod dinosaur) (Hell Creek Formation, Upper Cretaceous; near Faith, South Dakota, USA) 33.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Tyrannosaurus_rex_(theropod_dinosaur)_(Hell_Creek_Formation,_Upper_Cretaceous%3B_near_Faith,_South_Dakota,_USA)_33.jpg",
+        "artist": "James St. John",
+        "license": "CC BY 2.0",
+        "size_kb": 159
+      },
+      {
+        "file": "/original/dino-heme-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Scanning electron microscope - UFCH JH (2020) 01.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Scanning_electron_microscope_-_UFCH_JH_(2020)_01.jpg",
+        "artist": "Tadeáš Bednarz",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 119
       }
     ]
   }

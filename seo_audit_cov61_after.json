@@ -1,0 +1,75 @@
+{
+  "robots": "User-Agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: https://starteday.com/sitemap.xml",
+  "robots_has_sitemap": true,
+  "robots_disallow": [
+    "/api/"
+  ],
+  "sitemap_urls": 105,
+  "sitemap_locales": {
+    "zh": 13,
+    "en": 12,
+    "ja": 12,
+    "ko": 12,
+    "es": 12,
+    "fr": 12,
+    "pt": 12,
+    "tr": 12
+  },
+  "sitemap_articles": 97,
+  "sitemap_www": 0,
+  "sitemap_lastmod": 105,
+  "article": {
+    "title": "9.7 皮开尔文：把一团原子冷到几乎不动，人类最低温纪录被改写 · starteday",
+    "description": "11 月 6 日发表于《科学》的成果显示，中国空间站梦天舱超冷原子物理实验柜用全光阱冷却把铷原子云降到 9.7 皮开尔文，比室温低 14 个数量级，并能持续观测 7 秒。真正的关键不只是数字更冷，而是微重力让极弱束缚成为可能——这台太空里的",
+    "robots": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "canonical": "https://starteday.com/zh/article/rss-orig-cold-atoms-2026-11",
+    "hreflang_count": 84,
+    "x_default": true,
+    "og_image": "https://starteday.com/original/cold-atoms-cover.webp",
+    "og_type": "article",
+    "article_published": "2026-11-07T13:08:01.628Z",
+    "article_section": "science",
+    "twitter_card": "summary_large_image",
+    "google_verification": "88gJuwAfrMYN7Dj6ClSV",
+    "bing_verification": null,
+    "yandex_verification": null,
+    "baidu_verification": null,
+    "ld_json_count": 4,
+    "body_in_ssr": true,
+    "credits_in_ssr": true,
+    "img_alt_count": 9
+  },
+  "ld_types": [
+    null,
+    null
+  ],
+  "bots": {
+    "Googlebot": {
+      "bytes": 89184,
+      "body_in_html": true,
+      "status_200_hint": true
+    },
+    "Bingbot": {
+      "bytes": 89184,
+      "body_in_html": true,
+      "status_200_hint": true
+    },
+    "Baiduspider": {
+      "bytes": 89184,
+      "body_in_html": true,
+      "status_200_hint": true
+    },
+    "YandexBot": {
+      "bytes": 89184,
+      "body_in_html": true,
+      "status_200_hint": true
+    },
+    "DuckDuckBot": {
+      "bytes": 89184,
+      "body_in_html": true,
+      "status_200_hint": true
+    }
+  },
+  "home_article_links_ssr": 91,
+  "home_rss_link": true
+}

@@ -10,9 +10,11 @@ ROOT = Path(__file__).resolve().parent
 D = ROOT / "data/original"
 FILES = sorted(D.glob("premium-*.json"))
 EXPECTED = {"zh", "en", "ja", "ko", "es", "fr", "pt", "tr"}
-# 每批 3 篇。cov56 起累计 3 批（premium-2026-11.json / -b / -c），
+# 每批 3 篇。cov61 起累计 4 个批次（premium-2026-11.json / -b / -c / -e），
 # data/original/ 下所有 premium-*.json 都会被 merge-originals 与 reset 一起保留。
-PER_LOCALE = 9
+# 另有 premium-2026-11d.json 是单篇 zh 稿（另一会话添加、暂未上线），故 zh 多 1 篇。
+# 续第五批时：各语种 +3；zh 的额外 +1 视 11d 是否上线而定。
+EXPECT_COUNT = {loc: (13 if loc == "zh" else 12) for loc in EXPECTED}
 
 BANNED_ZH = [
     "政治", "政府", "选举", "总统", "议会", "国会", "外交", "关税", "制裁", "法案",
@@ -32,6 +34,7 @@ seen, by_locale, problems = set(), {}, []
 
 for f in FILES:
     data = json.loads(f.read_text(encoding="utf8"))
+    changed = False
     for i, a in enumerate(data):
         aid = a["id"]
         if aid in seen:
@@ -43,6 +46,7 @@ for f in FILES:
             problems.append(f"非法 locale: {loc} @ {aid}")
         if a.get("publishedAt") in (0, None):
             a["publishedAt"] = now - i * 60000
+            changed = True
         if len(a.get("body") or []) < 5:
             problems.append(f"正文过短: {aid}")
         if len(a.get("images") or []) != 3:
@@ -57,7 +61,9 @@ for f in FILES:
                 break
         if BANNED_EN.search(text):
             problems.append(f"英文敏感词 {BANNED_EN.search(text).group()}: {aid}")
-    f.write_bytes((json.dumps(data, ensure_ascii=False, indent=2) + "\n").encode("utf8"))
+    # 仅在注入时间戳时回写，避免改动其它会话正在编辑的既有批次文件
+    if changed:
+        f.write_bytes((json.dumps(data, ensure_ascii=False, indent=2) + "\n").encode("utf8"))
 
 print("文件数:", len(FILES), "总条数:", len(seen))
 print("按语种:", by_locale)
@@ -65,8 +71,9 @@ missing = EXPECTED - set(by_locale)
 if missing:
     problems.append(f"缺少语种: {missing}")
 for loc in EXPECTED:
-    if by_locale.get(loc) != PER_LOCALE:
-        problems.append(f"{loc} 应有 {PER_LOCALE} 篇，实际 {by_locale.get(loc, 0)}")
+    want = EXPECT_COUNT[loc]
+    if by_locale.get(loc) != want:
+        problems.append(f"{loc} 应有 {want} 篇，实际 {by_locale.get(loc, 0)}")
 
 # 葡语误用的西语词（对所有 pt 批次文件生效）
 for p in D.glob("premium-pt-*.json"):

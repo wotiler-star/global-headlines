@@ -29,6 +29,17 @@ import ArticleRail from "@/components/ArticleRail";
 import ArticleAuthorCard from "@/components/ArticleAuthorCard";
 import ArticlePrevNext from "@/components/ArticlePrevNext";
 
+// CC 许可文本 → 规范许可 URL（Google 图片搜索的 license 字段要求 URL）
+function licenseUrl(lic: string): string | undefined {
+  const sa = /CC BY-SA ([\d.]+)/i.exec(lic);
+  if (sa) return `https://creativecommons.org/licenses/by-sa/${sa[1]}/`;
+  const by = /CC BY ([\d.]+)/i.exec(lic);
+  if (by) return `https://creativecommons.org/licenses/by/${by[1]}/`;
+  if (/CC0/i.test(lic)) return "https://creativecommons.org/publicdomain/zero/1.0/";
+  if (/public domain/i.test(lic)) return "https://creativecommons.org/publicdomain/mark/1.0/";
+  return undefined;
+}
+
 export const dynamic = "force-static";
 
 export async function generateStaticParams() {
@@ -176,7 +187,31 @@ export default async function ArticlePage({
                 mainEntityOfPage: absUrl(loc, `/article/${id}`),
                 articleSection: article.category,
                 keywords: article.tags.join(", "),
+                hasPart: (article.images || []).map((_: string, i: number) => ({
+                  "@id": `${absUrl(loc, `/article/${id}`)}#image${i + 1}`,
+                })),
               },
+              // 图片的 CC 许可与作者身份：Google 图片搜索据此展示「可授权」信息与署名
+              ...(article.images || []).map((p: string, i: number) => {
+                const credit = IMAGE_CREDITS[p];
+                const url = p.startsWith("http") ? p : `${SITE_URL}${p.startsWith("/") ? "" : "/"}${p}`;
+                const node: Record<string, unknown> = {
+                  "@type": "ImageObject",
+                  "@id": `${absUrl(loc, `/article/${id}`)}#image${i + 1}`,
+                  url,
+                  contentUrl: url,
+                  caption: `${article.title} · 配图 ${i + 1}`,
+                };
+                if (credit) {
+                  node.creator = { "@type": "Person", name: credit.artist };
+                  node.creditText = credit.artist;
+                  node.copyrightHolder = { "@type": "Person", name: credit.artist };
+                  node.acquireLicensePage = credit.url;
+                  const lu = licenseUrl(credit.license);
+                  if (lu) node.license = lu;
+                }
+                return node;
+              }),
               {
                 "@type": "BreadcrumbList",
                 itemListElement: [

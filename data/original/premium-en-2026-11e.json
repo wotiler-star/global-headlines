@@ -1,0 +1,135 @@
+[
+  {
+    "id": "rss-orig-ultracold-space-2026-11-en",
+    "title": "A Laboratory Shrunk Into a Fridge, and the Coldest Atoms Ever Made: What 9.7 Picokelvin Actually Took",
+    "summary": "A paper published on November 6 reports a rubidium cloud cooled to 9.7 picokelvin, fourteen orders of magnitude below room temperature, held under observation for seven seconds. The striking part is not the number of zeros. It is why the experiment had to move into orbit, and what it means to compress a twenty-cubic-metre ground rig into a half-tonne cabinet.",
+    "cover": "/original/ultracold-space-cover.webp",
+    "images": [
+      "/original/ultracold-space-cover.webp",
+      "/original/ultracold-space-fig1.webp",
+      "/original/ultracold-space-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "ultracold atoms",
+      "picokelvin",
+      "optical trap",
+      "microgravity",
+      "quantum simulation",
+      "atomic clock"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.cas.cn/yw/202611/t20261106_5123594.shtml",
+    "author": "starteday Editorial",
+    "publishedAt": 1794057642505,
+    "readMinutes": 8,
+    "pinned": 1,
+    "body": [
+      "Put the number back into a human scale first. One picokelvin is a trillionth of a kelvin, so 9.7 picokelvin means this cloud of rubidium atoms sits just that far above the theoretical floor. Room temperature is roughly 300 kelvin. The ratio is too small to visualise, so a better translation is about speed: the atoms are moving so slowly that, for most practical purposes, they are nearly still, and their wave nature begins to dominate.",
+      "Why chase that kind of slowness? Temperature is, at bottom, a measure of how violently a collection of particles jitters. Fast atoms have short de Broglie wavelengths, quantum behaviour averages out, and what you observe is an ordinary gas. Slow them down and the wavelength stretches to scales of hundreds of micrometres; the matter waves of thousands of atoms begin to overlap and act in concert. That emergent, controllable quantum state is what low-temperature physicists are actually after.",
+      "The easiest detail to skip is the phrase seven seconds. Reaching an extreme temperature is hard; holding it long enough to run an experiment is harder. On the ground, gravity pulls cooled atoms downward, so they must be held in a tight trap. A tighter trap raises the achievable temperature floor and shortens the observation window. Microgravity in orbit dissolves that trade-off: atoms can float in an extremely shallow potential, cooling gets more efficient, and the window opens up.",
+      "The technical route also diverges from the mainstream approach abroad. International groups often confine atoms in a microscopic magnetic trap formed on an atom chip and cool them by radio-frequency evaporation. This work uses an all-optical trap, with laser beams serving as the container. Optical traps make multi-beam control more tractable in space, shrug off magnetic interference, and accommodate a wider range of quantum simulation experiments. The price is complexity: beam alignment, frequency stabilisation and vacuum quality all have to stay stable without someone standing next to the apparatus.",
+      "Cooling happens in stages. A magneto-optical trap and optical molasses slow the rubidium vapour first, then a two-stage crossed optical dipole trap takes over. Lowering the light intensity drives evaporative cooling, letting the more energetic atoms escape so the average temperature of those left behind falls. A final non-adiabatic decompression step pushes it lower still. It reads like a recipe, but each parameter window is narrow, and every collision with a stray gas molecule ruins the run, which is why an extremely high vacuum is non-negotiable.",
+      "The engineering half deserves its own paragraph. The ground prototype occupied twenty cubic metres and weighed ten tonnes. The flight version fits in 0.7 cubic metres and half a tonne, roughly shrinking a small room into a household refrigerator. That is not simple miniaturisation: the ultra-high vacuum system, high-power fibre lasers, continuous long-term frequency locking and integrated optical bench all had to be redesigned, then survive launch vibration and years of unattended operation. From the initial study in 2011 to the cabinet reaching orbit in 2022 and this result in 2026, the arc spans fifteen years.",
+      "A fair question: moving the record from 38 picokelvin, set by a German team in 2021, to 9.7 picokelvin changes a table entry and what else? Ask it in reverse. What fits inside an observation window that has stretched from barely catchable to seven seconds? Phase transitions in quantum gases, non-equilibrium dynamics and many-body correlations — phenomena largely handled theoretically until now — can finally be watched frame by frame.",
+      "The applications share a single prerequisite. A colder, more coherent atomic cloud is a core resource for high-precision atomic clocks, and those clocks underpin navigation and time distribution networks. Atom interferometers measure gravity, rotation and acceleration finely enough to support gravimetric mapping and inertial navigation. Quantum simulation lets a controllable cloud stand in for models of the early universe or ultralight dark matter. Very different goals, all waiting on the same thing: get the atoms to sit still.",
+      "One clarification matters. The 9.7 picokelvin figure is an effective temperature, not a thermometer reading. It describes the momentum distribution inferred as the cloud expands, converted into a velocity scale. That is standard practice in ultracold physics, but headline shorthand tends to make it sound as though the entire apparatus was chilled to near absolute zero. Only a tiny cloud of atoms is cold; the hardware around it is not.",
+      "The third law of thermodynamics remains intact: absolute zero can be approached but never reached. So the point of a result like this is never that the finish line arrived, only that the explorable range extended one step downward. Historically, each new temperature regime has produced phenomena nobody predicted in advance. This one changed the environment as well as the temperature, which raises the odds of genuine surprises more than brute-force parameter tuning would.",
+      "It is also an unusual way of doing science. The apparatus stays in orbit, researchers operate it remotely from the ground, the orbital environment supplies one of the experimental conditions, and the data come back for analysis. It is neither purely theoretical nor the kind of bench work where you nudge a mirror between runs — it behaves more like shared space infrastructure. If that model holds up, similar fundamental-physics experiments become much easier to schedule.",
+      "For readers with no interest in quantum gases, the most concrete consequence sits in timing and measurement. Positioning, network synchronisation and grid dispatch all depend on exceptionally stable time references. Every order of magnitude gained in clock precision reshapes the error budget of systems built on top of it. None of that shows up in a shopping cart, which is precisely why it tends to be underrated.",
+      "Seven seconds is still a very short interval, and a single paper is not yet a mature platform. What comes next is repetition, the variety of experiments the cabinet can actually support, and whether microgravity can sustain longer coherence times. The record itself will be broken again; that is close to certain. The more interesting question is what physics can be read out of those seven seconds that cannot be read on the ground.",
+      "So this is better filed under experimental redesign than under records. A different location, a different way of holding atoms, a different optical and vacuum architecture — and only then one more digit after the decimal point. A lot of scientific progress comes not from pushing harder, but from quietly removing a constraint. This time the constraint removed was gravity."
+    ]
+  },
+  {
+    "id": "rss-orig-oled-ipad-mini-2026-11-en",
+    "title": "Launch Day Tells You More Than the Keynote: The OLED iPad Mini Arrives, and 60Hz Is Still the Open Question",
+    "summary": "On November 6 Apple moved several products from preorder to sale: an eighth-generation iPad mini with its first OLED panel, an M6 iMac and refreshed MacBook Pros. Beyond the spec sheet, the decisions that matter are why an 8.5-inch screen still runs at 60Hz, how display audio and IP67 reshaped the chassis, and how shipping windows turn which one to buy into when you get it.",
+    "cover": "/original/oled-ipad-mini-cover.webp",
+    "images": [
+      "/original/oled-ipad-mini-cover.webp",
+      "/original/oled-ipad-mini-fig1.webp",
+      "/original/oled-ipad-mini-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "iPad mini",
+      "OLED",
+      "A20 Pro",
+      "M6 iMac",
+      "consumer tech",
+      "display",
+      "buying guide"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LB35I0HL0511BLFD.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1794057582505,
+    "readMinutes": 8,
+    "pinned": 1,
+    "body": [
+      "A keynote manufactures anticipation; a launch day settles accounts. On November 6 the OLED iPad mini, the M6 iMac and the new MacBook Pro lineup reached Apple's online store and retail shelves, with first preorders arriving at doorsteps. For anyone still undecided, this day is more informative than the announcement: real stock, real configuration trade-offs and the first wave of review criticism all land at once.",
+      "Start with the small tablet. The eighth-generation iPad mini moves to an 8.5-inch OLED panel rated at up to 1,200 nits peak brightness, a two-million-to-one contrast ratio and a minimum brightness of one nit. That last figure is easy to skip and easy to appreciate in practice: reading a few pages in a dark room without the screen burning your eyes is a daily-use improvement, not a benchmark number.",
+      "The A20 Pro and the N1 wireless chip bring Wi-Fi 7 and Bluetooth 6, closing the connectivity gap in the same generational step. The chassis measures 5.4 millimetres and about 255 grams, making it the thinnest and lightest iPad to date, and IP67 dust and water resistance appears on an iPad for the first time. Sealing a compact device is harder than sealing a large one: every millimetre given to a gasket is a millimetre taken from something else.",
+      "The neatest structural trick is the acoustic display, where the screen itself contributes to sound production and the traditional speaker grilles disappear. Fewer openings sounds like a cosmetic footnote, but it shortens the sealing paths and makes IP67 achievable in the first place. This is the kind of engineering that never shows up in a benchmark: two requirements solved by one component instead of by adding two more parts.",
+      "The 12-megapixel front camera has moved to the landscape edge, a correction driven by how people actually take video calls. Hold the tablet upright and the subject drifts to one side; lay it sideways and the framing previously felt wrong. On the long edge, eye contact finally lines up during a horizontal meeting. Support for Apple Pencil Pro and the USB-C Pencil keeps the smallest iPad in the annotation-and-notes role it has always suited.",
+      "The criticism is equally focused: the display still runs at 60Hz with no ProMotion. On a product that already carries OLED, 1,200 nits and optional nano-texture glass, that omission is conspicuous. Anyone used to a high-refresh screen will notice the difference in scrolling immediately; someone mainly reading, marking up documents or watching video may barely register it. This is not a defect so much as a deliberate line drawn through the feature list, and where you stand depends on the work you do with it.",
+      "Nano-texture glass is offered only on the 256GB and 512GB models for an extra hundred dollars. That quietly relocates a decision from the accessories aisle into the configuration page. Previously you bought the tablet and then chose a matte or anti-glare film; now you commit at checkout. Writing feel, glare suppression and optical clarity become a capacity decision rather than a five-minute aftermarket experiment.",
+      "On price, the US lineup starts at 699 dollars for the 128GB Wi-Fi model, with 256GB at 799 and 512GB at 999; cellular begins at 849 and education pricing at 649. The Chinese store lists a starting price of 5,499 yuan. Laid out side by side, the storage gaps move the total more than the display upgrade does, which explains why so many buyers settle on the entry configuration and never look back.",
+      "Also arriving that day: the M6 iMac, the first substantial refresh of the all-in-one since M4, with up to a 12-core CPU and 12-core GPU from 1,499 dollars, and a 14-inch M6 MacBook Pro from 1,999 dollars. The pricier touchscreen PROLED models are listed as well, but several finishes show two-to-three-week shipping estimates online, which produces the odd situation where walking into a store may be faster than waiting for the truck.",
+      "Put the lineup in one table and it resolves into four kinds of buyer. Want the best small screen you can hold in one hand: iPad mini. Need a fixed household desktop: M6 iMac. Want performance without paying for a touch panel: the 14-inch MacBook Pro. Willing to pay a premium for a new form factor and in no hurry: the PROLED machines. This is what a launch day adds — delivery times convert abstract positioning into an actual queue.",
+      "There is a quieter signal in several products landing together: the supply chain rhythm was planned in advance, rather than one delayed component dragging the whole line with it. For shoppers, that removes the main psychological pressure to buy on day one. Consumer electronics never lack a next cycle; what they lack is a clear reason to upgrade now.",
+      "If there is one piece of advice, it is to decide whether you are attracted by the 8.5-inch size or by the OLED panel. The former is genuinely hard to substitute — one-handed reading, small bags, standing on a train. The latter will trickle down to more models eventually. As for 60Hz, spend two minutes scrolling in a store; it settles the question faster than any spec comparison does.",
+      "A launch day is not the end of the story, it is the point where reviews, return rates, resale values and real battery data begin accumulating. Today only specifications and prices are certain. A month from now, the useful certainty arrives: who this machine was actually for. Giving yourself permission to buy later is often the best-value move in a refresh cycle like this one."
+    ]
+  },
+  {
+    "id": "rss-orig-dino-heme-2026-11-en",
+    "title": "Heme After 115 Million Years: One Dinosaur Bone Reopens the Question of What Can Survive",
+    "summary": "Inside the limb bone of a Brazilian theropod, researchers found oval structures roughly 20 micrometres long within vascular canals, along with chemical signals from heme and collagen amino acids. Published in PNAS in early November, the claim drew immediate public scepticism from a specialist. The most interesting read is not the verdict but how the chain of evidence was built, and where it still has gaps.",
+    "cover": "/original/dino-heme-cover.webp",
+    "images": [
+      "/original/dino-heme-cover.webp",
+      "/original/dino-heme-fig1.webp",
+      "/original/dino-heme-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "paleontology",
+      "heme",
+      "fossil",
+      "molecular evidence",
+      "electron microscopy",
+      "hausmannite",
+      "scientific debate"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencenews.org/article/evidence-dinosaur-blood-fossilize",
+    "author": "starteday Editorial",
+    "publishedAt": 1794057522505,
+    "readMinutes": 9,
+    "pinned": 1,
+    "body": [
+      "First, an important boundary: nobody found dinosaur blood, and this is not a prologue to resurrecting anything. What was detected are chemical traces of molecules such as heme, plus microscopic structures whose shape survived after minerals took their place. The cellular components of blood start breaking down within days of death. What can cross a hundred million years is a handful of unusually stable molecular frameworks, together with the information carried by where they were sealed.",
+      "The specimen comes from the Romualdo Formation in north-eastern Brazil, a site famous for exquisitely preserved fish, turtles and pterosaurs but sparse in dinosaur material. It belongs to Aratasaurus museunacionali, a small feathered theropod roughly three metres long that lived around 115 million years ago. The team worked with an exceptionally well-preserved partial hind limb, cut thin cross-sections and examined the bone interior by scanning electron microscopy.",
+      "What they saw sat inside vascular canals — the tiny passages that carried blood vessels in the living animal. That location matters more than the shape does. Had the ovals been scattered across surfaces or cracks, later mineral infiltration would be the obvious explanation. Finding them concentrated in the canals while the surrounding sediment contains none weakens the contamination story considerably. Position is itself a piece of evidence.",
+      "Then comes chemistry. Elemental mapping showed the ellipsoids rich in iron, carbon and nitrogen, matching the composition of heme. Laser-scattering analysis pointed to porphyrins, the ring-shaped organic compounds that precede and derive from heme. The team also separated and identified the contents of a bone extract specifically to exclude porphyrins from plant sources such as chlorophyll. Amino acids associated with collagen turned up as well.",
+      "So why did any of it survive? The paper points to a manganese oxide mineral called hausmannite, found inside the oval structures. It appears to have acted as a time capsule during fossilisation: filling, stabilising and then entombing the residual organic molecules before oxidation and hydrolysis could finish them off. The researchers also suspect rapid burial in sediment, an oxygen-poor setting and a covering microbial mat all helped slow decay at the very beginning.",
+      "That explanation is necessary because paleontology carries a famous cautionary tale. In 1997 two researchers re-examined tiny spheres once celebrated as fossilised red blood cells and showed they were actually pyrite deposited in the bone after death. Minerals growing during fossilisation can mimic living structures with unnerving accuracy. The resulting informal rule was that a blood-cell claim needs both a morphological comparison with living relatives and identifiable biomarkers — looking similar is not enough.",
+      "This study is explicitly answering that rule. The authors emphasise that they supply shape, anatomical location, elemental composition and molecular signals together, and they argue hausmannite did not simply occupy a hollow left behind by decayed tissue, but actively helped stabilise and protect what remained of it. The centre of the argument shifts from resemblance to mechanism, which is a firmer methodological footing than was available two decades ago.",
+      "The disagreement did not disappear, though. A molecular paleontologist not involved in the work said publicly that the images do not yet convince her: red blood cells in living birds and reptiles retain a nucleus and show a distinct bulge, whereas these structures appear concave and smaller than most non-mammalian red blood cells. She praised the stacking of multiple analytical techniques and still called the work an exciting advance.",
+      "That kind of split is healthy, and it marks the boundary of the claim: everything rests on one specimen from one animal. Establishing a general phenomenon rather than an extraordinary outlier requires other teams to reproduce comparable results in equivalent formations and in different museum collections. A single fossil can raise a strong possibility; it cannot carry a general rule on its own.",
+      "Another phrase worth handling carefully is how long biomolecules can last. The assumption being overturned is a textbook default — that hemoglobin-derived molecules could not persist across deep time — not a discovery that these molecules acquired special powers. The accurate formulation is conditional: under a particular combination of minerals and burial conditions, detectable molecular signatures may be retained. The conditions are the subject of the sentence.",
+      "If the pathway holds up, two fields feel it. Molecular paleontology gains a possible line of evidence on blood, metabolism and even activity levels — traits almost impossible to reconstruct from bone shape alone. Astrobiology gains a practical prompt: if fragile biosignatures can endure for over a hundred million years in the right mineral setting, then the choice of which rocks to sample and which molecules to assay in extreme environments should broaden accordingly.",
+      "There is also a very down-to-earth consequence for museum drawers. Collections worldwide hold enormous numbers of fossils that have been numbered, described morphologically and never examined at molecular resolution. They went untested because the default answer was that nothing would be found. Loosen that default and re-screening old specimens becomes unusually good value. The next step may not be a new dig at all, but a different way of reading an old drawer.",
+      "For a general reader, the durable takeaway is not the number 115 million but a habit of judgement. When a startling claim appears, ask how many kinds of evidence support it and whether they are independent; ask whether anyone has proposed an alternative explanation; ask how many specimens were examined. Shape can be forged by minerals, chemical signals can be muddied by contamination, and single findings get revised. Trustworthiness comes from that repeated attempt to poke holes, not from how moving the conclusion sounds.",
+      "So the honest headline here is a question rather than an answer: given the right mineral and the right burial conditions, how much information can a body carry forward to the present? Hausmannite offers a candidate mechanism, heme offers a set of signals other labs can check, and colleagues have supplied several objections still to be closed. The remainder belongs to the next batch of specimens and the next set of instruments."
+    ]
+  }
+]

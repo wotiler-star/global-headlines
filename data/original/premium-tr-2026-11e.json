@@ -1,0 +1,131 @@
+[
+  {
+    "id": "rss-orig-ultracold-space-2026-11-tr",
+    "title": "Ağırlığın kaldırıldığı yerde: 9,7 pikokelvin neden yörüngede ortaya çıktı",
+    "summary": "Bir rubidyum bulutu yörüngede 9,7 pikokelvine indi ve 7 saniye boyunca izlenebildi. Asıl fark lazerin gücünde değil, atomları sıkıca tutma zorunluluğunun ortadan kalkmasında.",
+    "cover": "/original/ultracold-space-cover.webp",
+    "images": [
+      "/original/ultracold-space-cover.webp",
+      "/original/ultracold-space-fig1.webp",
+      "/original/ultracold-space-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "bilim",
+      "kuantum fiziği",
+      "ultrasoğuk atomlar",
+      "mikro yerçekimi",
+      "mühendislik",
+      "pikokelvin"
+    ],
+    "category": "science",
+    "locale": "tr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.cas.cn/yw/202611/t20261106_5123594.shtml",
+    "author": "starteday Editorial",
+    "publishedAt": 1794057642505,
+    "readMinutes": 10,
+    "pinned": 1,
+    "body": [
+      "İki sayı yan yana konunca akıl zorlanıyor: 9,7 pikokelvin ve yaklaşık 300 kelvin, aralarında 14 mertebe var. Ama bu uçurumu asıl ilginç kılan şey sayının kendisi değil, ona ulaşan düzeneğin neden yeryüzünde kurulamadığı.",
+      "Önce mühendislik bilmecesini koyalım ortaya, çünkü fizik ancak ondan sonra anlam kazanıyor. Aynı deneyin yerdeki ilk örneği 20 metreküp hacim ve 10 ton ağırlığındaydı; yörüngedeki hâli 0,7 metreküp ve 0,5 tona sığıyor.",
+      "Hacim yaklaşık otuzda bire, kütle yirmide bire inmiş. Bu, parçaları aynı çizime göre ufaltmak değil; ışığın yolu, vakumun sınırları ve titreşimin dağılımı baştan yeniden düşünülmüş demek.",
+      "Yerdeki prototip neden bu kadar iriydi? Aşırı yüksek vakum, yüksek güçlü fiber lazerler, yıllar süren frekans kararlılığı ve tümleşik optomekaniğin her biri tek bir şeye hizmet ediyor: gürültüyü kısmak. Sessizlik ise yer kaplar.",
+      "2011'de tasarım tartışıldı, 2022'de yörüngeye yerleşti, 2026'da sonuç geldi; aradaki 15 yıl tek bir parlak ana değil, üst üste binmiş binlerce sakin güne harcandı. Zor olan bir kez soğutmak değil, yıllarca kaydırmamaktı.",
+      "Şimdi fiziğe geçelim. Yeryüzünde yerçekimi atomları sürekli aşağı çeker; soğudukça kaçacak halleri kalmayınca onları ancak derin ve dik bir ışık kuyusuyla tutabilirsin. « kaldırılan kısıt » tam olarak bu zorunluluktur: sıkıca kavrama mecburiyeti.",
+      "Yörüngede o mecburiyet kalkınca kuyu neredeyse yok denecek kadar sığ tutulabiliyor. Bulut böyle bir alanda asılı kalıyor, genişliyor, seyrekleşiyor ve aşağı sürüklenmeden daha da soğuyor.",
+      "İşte 7 saniyelik izleme penceresi buradan doğuyor. Yerde soğuk ile süre birbirinin önünü keserdi; ağırlık çekilince ikisi aynı yönde çalışmaya başlıyor.",
+      "Dört adımı « bırakmayı öğrenmek » diye okumak daha doğru: önce magneto-optik tuzakla optik melas sıcak atomları toplar, ardından çapraz iki ışık kuyusu devralır, sonra lazer şiddeti yavaşça düşürülerek buharlaştırma yapılır, en sonunda adyabatik olmayan yayılma bir tur daha soğutur.",
+      "Yerdeki yaygın başka bir yol atom çipi üzerinde mikro manyetik kuyu ve radyofrekans buharlaştırması kullanır. Burada tercih bütünüyle ışığa kaymış; mesele hangisinin daha yeni olduğu değil, hangisinin ağırlıksız ortama uyduğu.",
+      "Bir de ölçünün ne olduğunu ayıralım: söz konusu olan termometre okuması değil, bulutun açılırkenki momentum dağılımından geri çevrilen eşdeğer sıcaklık. 2021'deki 38 pikokelvinlik eski kayıt böylelikle aşılmış oldu.",
+      "Termodinamiğin üçüncü yasası mutlak sıfıra varılamayacağını söyler; dolayısıyla bu eğrinin kıymeti vardığı noktada değil, eğimindedir. Her yeni kayıt bir yaklaşma, hiçbiri bir varış değil.",
+      "Açılan kapılar atom saatleri, kuantum benzetimi, atom girişimli eylemsizlik ölçümü, erken evren ve karanlık madde arayışları ile yerçekimi alanı haritalamasına uzanıyor. Cihazı yukarı taşımak bir sahne değişikliği değildi; yerde hiçbir tekniğin aşamadığı « kaldırılan kısıt » sayesinde fiziksel bir sınırın yerine başka bir çalışma rejimi kondu."
+    ]
+  },
+  {
+    "id": "rss-orig-oled-ipad-mini-2026-11-tr",
+    "title": "Raf günü: 6 Kasım'da satın alma listesi nasıl yeniden sıralandı",
+    "summary": "Üç ürün aynı gün rafa çıktı; asıl bilgi o sabah fiyatlarda, teslim sürelerinde ve yapılandırma satırlarında belirdi. OLED'li iPad mini daha parlak, hâlâ 60 Hz ve nano doku camı artık bir aksesuar değil, bir seçenek kutusu.",
+    "cover": "/original/oled-ipad-mini-cover.webp",
+    "images": [
+      "/original/oled-ipad-mini-cover.webp",
+      "/original/oled-ipad-mini-fig1.webp",
+      "/original/oled-ipad-mini-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "teknoloji",
+      "iPad mini",
+      "OLED",
+      "Apple",
+      "raf günü",
+      "yapılandırma"
+    ],
+    "category": "tech",
+    "locale": "tr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LB35I0HL0511BLFD.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1794057582505,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "« raf günü » denince akla genelde kuyruk gelir; 6 Kasım 2026 sabahı üç ürün birden tezgâha çıktığında ise en kullanışlı cümle tam tersiydi: şimdi almak zorunda değilsin.",
+      "Aynı gün iPad mini'nin sekizinci nesli OLED ile, M6'lı iMac ve yeni MacBook Pro satışa açıldı. Bunu üç ayrı lansman olarak değil, tek bir tedarik zincirinin üç düğümü olarak okumak daha açıklayıcı.",
+      "Sıralamayı heyecana göre değil teslim tarihine göre yapmak gerekiyor, çünkü en dürüst veri o gün mağaza sayfasında yazıyordu: bazı PROLED renkleri için 2 ile 3 hafta arası bekleme süresi. Bütün karar matrisi tek satıra sığıyor.",
+      "Fiyatları önce koyalım ki geri kalanın ölçüsü olsun: ABD'de Wi-Fi modelleri 128, 256 ve 512 GB için 699, 799 ve 999 dolar; hücresel 849'dan, eğitim hattı 649'dan, Çin sitesi ise 5499 yuan'dan başlıyor.",
+      "Ekrana sonra gelelim. 8,5 inç, ilk kez OLED, Super Retina XDR, tepe parlaklığı 1200 nit, kontrast 2.000.000:1 ve alt sınır 1 nit; asıl maharet en parlak değil en karanlık uçta, çünkü gece okumasını değiştiren odur.",
+      "ProMotion yok, ekran 60 Hz'de kalmış. Bunu bir eksik değil « bilinçli bir feda » olarak okumak gerek: bütçe akıcılığa değil, panelin malzemesine, sızdırmazlığa ve inceliğe ayrılmış.",
+      "Fedanın kime dokunduğu da belli: sürekli kaydıran ve oyun oynayan biri her harekette hisseder, okuyup çizen biri neredeyse hiç fark etmez. Yani cihazı değil, önce kendi alışkanlığını sınıflandırmak gerekiyor.",
+      "Yapı tarafında sırayı ters çevirip anlatmak daha iyi: ortada hoparlör deliği yok, çünkü Acoustic Display sesi doğrudan ekrandan üretiyor. Delik kalkınca sınıf IP67 olan ilk iPad mümkün hâle geliyor; 5,4 mm ve yaklaşık 255 g da aynı kararın sonucu.",
+      "12 megapiksellik ön kamera yatay kenara taşınmış; görüntülü konuşmada göz hizasını yakalamak için atılmış küçük ama her gün işe yarayan bir adım.",
+      "Nano dokulu cam yalnızca 256 ve 512 GB'ta var ve 100 dolar ek istiyor. Eskiden sonradan alınan, sökülüp atılabilen bir aksesuardı; şimdi ödeme sayfasındaki bir yapılandırma satırı, yani « geri dönüşü olmayan » bir karar.",
+      "İçeride A20 Pro ve kablosuz N1 çipi, Wi-Fi 7 ile Bluetooth 6 çalışıyor; Apple Pencil Pro da USB-C'li sürüm de destekleniyor. İnce bir çelişki var: kalemi seçebiliyorsun, cam yüzeyi ise kapasiteye bağlanmış.",
+      "Diğer iki hat da tabloyu tamamlıyor: M6'lı iMac en fazla 12 çekirdek CPU ve 12 çekirdek GPU ile 1499 dolardan, 14 inç M6 MacBook Pro 1999 dolardan, dokunmatik PROLED modeller 2899 ve 3399 dolardan başlıyor.",
+      "« raf günü » bir geri sayım değil, bir başlangıç çizgisi. 2 ile 3 haftalık bekleme, aceleyle verilmiş bir kararı erteleme fırsatıdır; beklemek de başlı başına bir satın alma kararı ve çoğu zaman en sakin olanı."
+    ]
+  },
+  {
+    "id": "rss-orig-dino-heme-2026-11-tr",
+    "title": "Müze çekmecesi yeniden açılıyor: 115 milyon yıllık heme iddiası nasıl sınanır",
+    "summary": "Aratasaurus museunacionali'nin arka bacak kemiğinde 20 ila 23 mikrometrelik yapılar, heme B, porfirin ve kollajen amino asitleri bildirildi. Güçlü bir sonuç; tam da bu yüzden 1997'de öğrenilen kural devreye giriyor: biçim tek başına yetmez.",
+    "cover": "/original/dino-heme-cover.webp",
+    "images": [
+      "/original/dino-heme-cover.webp",
+      "/original/dino-heme-fig1.webp",
+      "/original/dino-heme-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "paleontoloji",
+      "moleküler biyoloji",
+      "heme",
+      "fosil",
+      "kanıt",
+      "bilim"
+    ],
+    "category": "science",
+    "locale": "tr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencenews.org/article/evidence-dinosaur-blood-fossilize",
+    "author": "starteday Editorial",
+    "publishedAt": 1794057522505,
+    "readMinutes": 9,
+    "pinned": 1,
+    "body": [
+      "« müze çekmecesi » yıllardır aynı kemikle duruyordu; 2 Kasım 2026'da ona yepyeni bir soru yöneltildi. Dekor değişmedi, değişen şuydu: artık o kemikten ne aranacağını biliyoruz.",
+      "Ölçüyü en başta koymakta fayda var: iddia ne kadar şaşırtıcıysa soru listesi o kadar uzun olmalı. Kaç katmanlı kanıt var, karşı-kanıt aranmış mı, örneğin sınırı nerede bitiyor, itiraz ölçülebilir mi.",
+      "Zemin şu: Brezilya'nın kuzeydoğusunda Romualdo formasyonu, Mina Pedra Branca; 115 milyon yıl öncesinden, tüylü ve yaklaşık 3 metrelik bir teropod olan Aratasaurus museunacionali'nin arka bacak kemiği. Ölçeği başta sabitlemek, içinde görülen şeyin makul boyutunu tartmayı kolaylaştırıyor.",
+      "20 ila 23 mikrometrelik eliptik yapılar damar kanallarının içinde yer alıyor. « Nerede » sorusu « neye benziyor » sorusundan önce gelmeli; konum yanlışsa bütün yorum çöker.",
+      "Aygıtların sırası bir çözünürlük inişi gibi okunabilir: taramalı elektron mikroskobu biçimi veriyor, element haritalaması Fe, C ve N zenginleşmesini gösteriyor, molekül taraması ise heme B, porfirin ve kollajen amino asitlerini ortaya koyuyor.",
+      "Klorofil kirliliğinin özellikle dışlanmış olması en az bulguların kendisi kadar önemli. Çarpıcı bir iddiayı ayakta tutan şey ek kanıt değil, aktif biçimde karşı-kanıt arama alışkanlığıdır.",
+      "Peki bu kadar kırılgan bir şey nasıl kaldı? Hızlı gömülme, düşük oksijen, mikrobiyal örtüler ve manganez oksit hausmannite'in « zaman kapsülü » rolü üst üste binmiş görünüyor. Birkaç koşulun aynı anda tutması gerekmiş; bu, tesadüf hissini azaltıyor, tersine değil.",
+      "1997'nin dersi tam buraya oturuyor: bir zamanlar fosilleşmiş alyuvar sanılan küreciklerin sonradan çökelmiş pirit olduğu anlaşıldı. O günden beri « biçim karşılaştırması artı biyobelirteç » bir kural; kural yerleşince « müze çekmecesi » de yük olmaktan çıkıp kaynağa dönüştü.",
+      "Yıkılan şey moleküllerin doğaüstü bir dayanıklılık kazanması değil, bizim « bu kadar sürede hiçbir iz kalmaz » diyen varsayılan kabulümüzdü. « Varsayılan » dedikleri tam da budur: cevabı baştan verdiği için aramayı gereksiz sayan alışkanlık.",
+      "Ardından gelen itiraz bir kusur değil, bilimin olağan işleyişi. Kuzey Karolina'dan Mary Schweitzer, kuş ve sürüngen alyuvarlarının çekirdekli olduğunu, dolayısıyla çıkıntılı beklendiğini, oysa betimlenen yapıların çukur ve beklenenden ufak kaldığını hatırlattı; ölçülebilir bir sonraki adım, kesin bir ret değil.",
+      "Sınırları da en az bulgu kadar görünür tutmak gerekiyor: tek örnek, tek hayvan, ve heme B DNA değil. Burası « Jurassic Park » değil; molekül dayandı demek, genom ya da canlı bir yeniden kurma demek değil. Çizgiyi çekmek sonucu zayıflatmaz, güvenilir kılar.",
+      "Taşan kısımlar en kalıcı olanlar: moleküler paleobiyoloji metabolizma ve etkinlik düzeyini sorabilir hâle geliyor, astrobiyoloji eski örneklerde ne aranacağına dair bir ipucu kazanıyor, en ucuz ve en çabuk adım ise « müze çekmecesi »nin yeniden taranması.",
+      "Burada bitmiyor, bitmemesi de gerekiyor. Bilim tartışmayla ilerler, tek bir makaleyle kapanmaz; bundan sonra « mucize » diye başlayan bir başlık gördüğümüzde bakılacak ilk yer yöntemin kaç katmanı olduğu olmalı."
+    ]
+  }
+]

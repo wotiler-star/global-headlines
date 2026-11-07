@@ -1,0 +1,128 @@
+[
+  {
+    "id": "rss-orig-ultracold-space-2026-11-fr",
+    "title": "9,7 picokelvins en orbite : l'étrange paradoxe d'un froid que l'on ne peut pas serrer",
+    "summary": "Un gaz quantique de rubidium a été amené à 9,7 picokelvins dans un laboratoire en orbite, quatorze ordres de grandeur sous la température ambiante, et il est resté observable sept secondes. Le résultat tient moins à un exploit de réfrigération qu'à « une contrainte que l'on retire » : sans pesanteur, on peut relâcher l'étreinte du piège au lieu de la durcir. Reste que le vrai tour de force est d'avoir fait tenir vingt mètres cubes de prototype dans 0,7 mètre cube.",
+    "cover": "/original/ultracold-space-cover.webp",
+    "images": [
+      "/original/ultracold-space-cover.webp",
+      "/original/ultracold-space-fig1.webp",
+      "/original/ultracold-space-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "science",
+      "physique quantique",
+      "atomes ultrafroids",
+      "micropesanteur",
+      "optique",
+      "orbite"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.cas.cn/yw/202611/t20261106_5123594.shtml",
+    "author": "starteday Editorial",
+    "publishedAt": 1794057642505,
+    "readMinutes": 9,
+    "pinned": 1,
+    "body": [
+      "Le paradoxe mérite d'être posé avant les chiffres : pour refroidir davantage des atomes, il faut les retenir moins fort. Un piège profond les confine mais les agite, un piège doux les laisse calmes mais les laisse aussi tomber dès qu'ils pèsent. Toute l'affaire tient dans cette tension entre deux exigences qui, au sol, semblent incompatibles.",
+      "Ce que l'on appelle température ici n'est pas une lecture de thermomètre, c'est la largeur de la distribution des vitesses. Un gaz est dit froid quand ses atomes se ressemblent trop dans leur lenteur pour qu'on les distingue. La valeur est donc effective, une manière de décrire un désordre plutôt qu'une sensation de froid.",
+      "Sur Terre, la gravité tranche le débat en faveur du piège profond : sans lui, l'échantillon quitte la zone d'observation en un clin d'œil. On compense en durcissant la lumière ou les champs, et ce durcissement remet exactement l'agitation qu'on cherchait à supprimer. On tourne en rond, non par maladresse, mais parce qu'une contrainte extérieure dicte le compromis.",
+      "L'orbite ne rajoute rien, elle enlève : la micropesanteur est « une contrainte que l'on retire ». Le poids cessant de plaquer les atomes au fond du dispositif, un puits de potentiel presque inexistant suffit encore à les garder là où il faut. Relâcher l'étreinte devient alors la condition même du froid, et non un accident qu'on tolère.",
+      "De là découlent les sept secondes d'observation continue, peut-être le résultat le plus utile de l'expérience. Au sol, on raisonne sur des fractions de seconde avant que l'échantillon ne se disperse ; ici s'ouvre une fenêtre où des phénomènes lents deviennent enfin mesurables. Le temps gagné est le vrai bénéfice, davantage que la décimale affichée.",
+      "Le choix d'un confinement entièrement optique mérite d'être lu comme une prise de position. La voie la plus répandue au sol utilise des micro-pièges magnétiques gravés sur puce à atomes, puis une évaporation par radiofréquence ; ce travail mise sur la lumière seule, sans surfaces aimantées à proximité. Ce n'est pas une querelle de vocabulaire : moins il y a de matière près du gaz, moins il y a d'occasions de le perturber.",
+      "La chaîne de refroidissement elle-même procède par relais, et l'ordre importe moins que la logique. Un piège magnéto-optique puis une mélasse optique cassent l'agitation initiale ; deux pièges croisés prennent le relais ; on abaisse ensuite l'intensité lumineuse pour évaporer les atomes les plus rapides ; une diffusion non adiabatique finit le travail. Chaque étape ne fait que rendre la suivante possible.",
+      "Le dernier geste est le plus délicat, parce qu'on y retire de l'énergie à un système déjà presque immobile. Manipuler la forme du puits sans le secouer demande une douceur extrême : la moindre secousse restitue d'un coup tout ce qui avait été gagné. C'est souvent là, dans le réglage final, que se joue l'écart entre le repère de 38 picokelvins obtenu au sol en 2021 et les 9,7 d'aujourd'hui, quatorze ordres de grandeur sous les quelque 300 kelvins d'une pièce ordinaire.",
+      "On parle beaucoup de la température et trop peu du volume. Le prototype terrestre occupait environ 20 mètres cubes pour 10 tonnes ; l'instrument en orbite tient dans 0,7 mètre cube et environ 500 kilogrammes. Réduire un montage d'un facteur proche de trente n'est pas une opération de rangement, c'est refaire chaque pièce pour qu'elle fonctionne sans qu'on puisse jamais rouvrir le capot.",
+      "Derrière cette compacité se cachent des exigences peu photogéniques : un vide extrême maintenu des années, des lasers à fibre de forte puissance, une stabilisation de fréquence qui ne dérive pas, une optomécanique intégrée capable d'encaisser le lancement puis les cycles thermiques. La difficulté n'est pas d'atteindre la performance une fois en salle propre, c'est de la garder seule, loin de toute main, pendant des milliers de jours.",
+      "Le calendrier donne le ton : l'idée est examinée en 2011, le matériel rejoint l'orbite en 2022, l'article paraît dans Science le 6 novembre 2026. Quinze ans, dont une large part consacrée non pas à l'intuition mais à la patience et aux essais qui ne se voient pas. Dans ce type d'expérience, la durée est un instrument de mesure comme un autre.",
+      "Les retombées se devinent : simulation quantique, horloges atomiques plus fines, interférométrie atomique pour l'inertie et le champ de gravité, modèles de l'Univers primordial et de la matière noire. Le troisième principe de la thermodynamique reste pourtant intact : le zéro absolu ne s'atteint pas, et aucun picokelvin n'y contrevient. Ce que l'on repousse n'est pas une fin, c'est une asymptote, avec un peu plus de place pour observer avant que le gaz ne se défasse."
+    ]
+  },
+  {
+    "id": "rss-orig-oled-ipad-mini-2026-11-fr",
+    "title": "« Le jour de la mise en vente » : ce que la boutique apprend que la scène taisait",
+    "summary": "Le 6 novembre 2026, l'iPad mini de huitième génération passe à l'OLED en même temps qu'arrivent l'iMac M6 et le nouveau MacBook Pro. « Le jour de la mise en vente » dévoile surtout des délais, des finitions et une grille de prix, loin du récit lisse de la présentation. Un OLED somptueux y cohabite avec du 60 Hz assumé, et certains coloris affichent déjà deux à trois semaines d'attente : autant de raisons de commander par disponibilité plutôt que par empressement.",
+    "cover": "/original/oled-ipad-mini-cover.webp",
+    "images": [
+      "/original/oled-ipad-mini-cover.webp",
+      "/original/oled-ipad-mini-fig1.webp",
+      "/original/oled-ipad-mini-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "technologie",
+      "iPad mini",
+      "OLED",
+      "Apple",
+      "écran",
+      "achat"
+    ],
+    "category": "tech",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LB35I0HL0511BLFD.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1794057582505,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Une présentation raconte une intention, « le jour de la mise en vente » publie un inventaire. D'un côté des phrases choisies, de l'autre des finitions, des capacités, des prix et des délais qui ne négocient pas. Pour qui veut comprendre un appareil, la page de la boutique est plus honnête que la scène.",
+      "Commençons par le plus contre-intuitif : sur cet iPad mini, l'étanchéité IP67 et le son venu de l'écran ne font qu'un. Sceller un boîtier impose de supprimer les ouvertures, et supprimer celles des haut-parleurs impose de transformer la vitre en émetteur grâce au système Acoustic Display. Le son n'est donc pas une fantaisie ajoutée, c'est la conséquence directe d'un trou en moins.",
+      "Que l'ensemble tienne encore dans 5,4 millimètres et quelque 255 grammes mérite qu'on s'y arrête. La finesse n'a rien d'un exploit isolé : elle survit à l'ajout d'une batterie, de joints et d'une dalle qui vibre pour produire du son. Lire la fiche technique, ici, c'est voir combien de fonctions se disputent le même millimètre.",
+      "Le panneau lui-même arrive après, et ses chiffres sont connus : Super Retina XDR de 8,5 pouces, 1200 nits en pointe, contraste de 2 000 000:1, et surtout un plancher de 1 nit. Ce dernier nombre est celui qui compte le soir, quand on lit sans éblouissement ; le pic, lui, sert surtout aux vitrines.",
+      "Restent les 60 Hz, sans ProMotion, et il faut les traiter pour ce qu'ils sont : « un compromis assumé », pas une étourderie. Le budget est allé au matériau de la dalle, au scellé et à l'épaisseur plutôt qu'à la fluidité du balayage. Un produit qui renonce à quelque chose d'aussi visible dit assez clairement ce qu'il veut qu'on regarde.",
+      "Le verre nanotexturé change la nature même du choix. Proposé moyennant 100 dollars de plus et seulement sur les versions 256 et 512 Go, il cesse d'être un accessoire acheté après coup pour devenir une case cochée au moment de la commande. On ne décide plus d'un complément, on décide d'une configuration, et cette décision-là ne se reprend pas.",
+      "L'intérieur suit sans faire de bruit : puce A20 Pro, puce N1 pour le sans-fil, Wi-Fi 7 et Bluetooth 6. La caméra frontale de 12 mégapixels passe en orientation paysage, et l'Apple Pencil Pro coexiste avec sa variante USB-C. Rien de tout cela ne déclenche l'achat, mais tout cela mérite une vérification avant de conclure que le reste tient debout.",
+      "La grille des prix raconte une hiérarchie plus sûrement qu'un discours. Aux États-Unis, l'iPad mini démarre à 699 dollars en 128 Go, puis 799 et 999 en 256 et 512 Go ; le modèle cellulaire part de 849, le prix éducation de 649, et la boutique chinoise annonce 5499 yuans. L'entrée de gamme rassure, mais la version que presque tout le monde finit par vouloir se situe au milieu.",
+      "Les deux autres gammes se lisent avec la même distance. L'iMac M6, jusqu'à 12 cœurs CPU et 12 cœurs GPU, commence à 1499 dollars ; le MacBook Pro de 14 pouces à M6 démarre à 1999 ; les modèles tactiles PROLED s'affichent à 2899 et 3399 selon la configuration. Puissance installée, transport, écran tactile : trois usages, une seule date, aucun arbitrage commun.",
+      "Le meilleur critère pour ordonner ses achats n'est pas l'envie mais le calendrier : certains coloris affichent déjà deux à trois semaines de délai. On prend d'abord ce qui est là, on laisse pour plus tard ce qui impose d'attendre, et l'on profite au passage de cette attente pour vérifier qu'on le voulait vraiment.",
+      "Et l'on peut tout à fait acheter plus tard, il faut même le dire sans gêne. « Le jour de la mise en vente » est celui où l'information est la plus complète, non celui où elle expire ; la nanotexture et les finitions se jugent mieux l'appareil en main que sur une image. Attendre n'est pas hésiter, c'est la manière la moins coûteuse de ne pas se tromper.",
+      "Au fond, la vraie question du 6 novembre n'est pas de savoir si l'on achète, mais de savoir à quoi l'on accepte de mettre le prix : au scellé, à la dalle, à la fréquence ou à la disponibilité. Une fois cette hiérarchie claire, la liste de la boutique cesse d'être une pression pour devenir un simple outil de tri."
+    ]
+  },
+  {
+    "id": "rss-orig-dino-heme-2026-11-fr",
+    "title": "Hème B dans un os de 115 millions d'années : « le tiroir du musée » et la chaîne des preuves",
+    "summary": "Paru dans PNAS le 2 novembre 2026, l'examen d'un os de patte arrière d'Aratasaurus museunacionali, petit théropode à plumes d'environ trois mètres vieux de 115 millions d'années, révèle des structures ovales de 20 à 23 micromètres dans des canaux vasculaires. L'équipe de Kliti Grice, à l'université Curtin, y voit de l'hème B, des porphyrines et des acides aminés du collagène, en écartant la chlorophylle. Le plus fécond n'est pas la promesse de sang conservé, mais « le tiroir du musée » : des spécimens anciens à réexaminer, et une objection de Mary Schweitzer qui rappelle qu'une seule pièce ne fait pas une règle.",
+    "cover": "/original/dino-heme-cover.webp",
+    "images": [
+      "/original/dino-heme-cover.webp",
+      "/original/dino-heme-fig1.webp",
+      "/original/dino-heme-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "science",
+      "paléontologie",
+      "biologie moléculaire",
+      "fossiles",
+      "géochimie",
+      "PNAS"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencenews.org/article/evidence-dinosaur-blood-fossilize",
+    "author": "starteday Editorial",
+    "publishedAt": 1794057522505,
+    "readMinutes": 9,
+    "pinned": 1,
+    "body": [
+      "L'image la plus juste n'est pas le dinosaure, c'est « le tiroir du musée » : un os rangé depuis des décennies, étiqueté, un peu oublié, que l'on ressort parce qu'un nouvel instrument permet enfin de lui poser une autre question. La découverte ne vient pas d'une expédition spectaculaire mais d'un regard neuf sur du matériel déjà là. C'est souvent ainsi que la paléontologie avance.",
+      "Le spécimen vient de Mina Pedra Branca, dans la formation Romualdo du nord-est du Brésil : Aratasaurus museunacionali, théropode à plumes d'environ trois mètres, 115 millions d'années, un os de la patte arrière. En microscopie électronique à balayage, à l'intérieur de canaux vasculaires, apparaissent des structures ovales de 20 à 23 micromètres. Une forme qui évoque un globule rouge, rien de plus pour l'instant.",
+      "Plutôt que de garder la réserve pour la fin, commençons par elle. Mary Schweitzer rappelle que les globules rouges des oiseaux et des reptiles gardent un noyau, donc un renflement central, alors que ces structures paraissent déprimées et un peu trop petites. Tout provient en outre d'un seul échantillon, donc d'un seul animal. L'objection ne démolit rien : elle donne au résultat ses dimensions exactes.",
+      "Un spécimen unique autorise à dire que quelque chose s'est produit là, et non à énoncer une règle pour une espèce ou pour une époque. Généraliser à partir d'un seul cas est le raccourci le plus coûteux de la discipline. Écrire la portée à côté du résultat n'est pas de la tiédeur, c'est de la précision.",
+      "Reprenons maintenant la chaîne, en commençant par son maillon le plus faible : la ressemblance. En 1997, des sphères prises pour des globules rouges fossiles se révélèrent être de la pyrite déposée bien plus tard, et de cette méprise sortit une règle devenue d'usage : une forme ne suffit jamais, il faut une signature biomoléculaire indépendante. C'est précisément pour cela que l'article ne s'appuie pas sur l'image seule.",
+      "Vient ensuite la cartographie élémentaire : fer, carbone et azote se concentrent là où se trouvent les structures, une association qui cadre mal avec un simple remplissage minéral. La chimie ne nomme pas encore la molécule, mais elle referme déjà le champ des explications faciles. Chaque mesure ne fait que rendre la suivante plus exigeante.",
+      "Le troisième maillon met des noms : hème B, porphyrines, acides aminés du collagène. Aussi décisif est ce qui est écarté, la chlorophylle, car une trace d'origine végétale aurait donné un signal voisin sans rien devoir à l'animal. Distinguer l'empreinte de la contamination compte ici autant que la trouver.",
+      "Reste à expliquer la survie, et la réponse n'a rien de miraculeux. L'hausmannite, oxyde de manganèse, joue le rôle de capsule temporelle en isolant les restes, aidée par un enfouissement rapide, un milieu pauvre en oxygène et des tapis microbiens. Ce qui est exceptionnel, ce n'est pas que les molécules aient gagné des super-pouvoirs, c'est qu'une fenêtre de conservation très étroite se soit ouverte.",
+      "Il faut donc situer exactement ce qui vacille : ce n'est pas la molécule qui devient invincible, c'est « une hypothèse par défaut », l'idée commode qu'à cette échelle de temps aucune trace organique originale ne peut subsister. Quand un présupposé tombe, la science ne gagne pas un prodige, elle gagne une question qu'elle n'osait plus formuler.",
+      "Séparons aussi l'agitation du résultat : il ne s'agit pas d'ADN conservé et ce n'est pas « Jurassic Park ». Un film projette une résurrection, un article aligne des signaux et des contrôles ; confondre les deux rend service à personne. La prudence n'éteint pas l'intérêt, elle le rend défendable.",
+      "La controverse, ici, est le fonctionnement normal de la méthode et non un incident de courtoisie. Une objection bien construite force à affiner les mesures, à chercher un contre-essai, à peser chaque mot ; le texte qui en sort est plus solide que celui qu'on aurait publié sans réplique. Mieux vaut lire la discussion comme une pièce de la preuve que comme du bruit autour d'elle.",
+      "Le durable tient moins à cet os qu'au geste qu'il suggère : rouvrir « le tiroir du musée », repasser au microscope et au spectromètre des pièces rangées depuis longtemps. En sortent une paléobiologie moléculaire capable d'interroger métabolisme et niveau d'activité, et une astrobiologie qui apprend quelles signatures chercher dans des matériaux très anciens. Face à l'extraordinaire, l'habitude utile reste la même : compter les maillons, exiger le contrôle, compter les spécimens, et ne croire qu'ensuite."
+    ]
+  }
+]

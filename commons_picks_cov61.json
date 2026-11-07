@@ -1,0 +1,51 @@
+{
+  "picks": {
+    "cold-atoms-cover.webp": "Bose-Einstein condensate, a cloud of super-cooled Rubidium atoms in a Laser trap on an Optical table - In a game of catch & release, the atoms will shoot up a 30 ft. tall Atomic fountain - Stanford.jpg",
+    "cold-atoms-fig1.webp": "Laser experiment - Photonics Laboratory - Physics Department - Ateneo de Manila University.jpg",
+    "cold-atoms-fig2.webp": "VacuumChamberWindow.JPG",
+    "ecg-patch-cover.webp": "3-Lead Holter monitor placement.jpg",
+    "ecg-patch-fig1.webp": "12 lead ECG.jpg",
+    "ecg-patch-fig2.webp": "Bare chest of a old man for ECG with probes (36506).jpg",
+    "smart-tire-cover.webp": "Close-up of Front tire of a Volkswagen car.jpg",
+    "smart-tire-fig1.webp": "Tire tread .jpg",
+    "smart-tire-fig2.webp": "Tire close up (4800801486).jpg"
+  },
+  "info": {
+    "Bose-Einstein condensate, a cloud of super-cooled Rubidium atoms in a Laser trap on an Optical table - In a game of catch & release, the atoms will shoot up a 30 ft. tall Atomic fountain - Stanford.jpg": {
+      "license": "CC BY 2.0", "artist": "Steve Jurvetson",
+      "url": "https://commons.wikimedia.org/wiki/File:Bose-Einstein_condensate,_a_cloud_of_super-cooled_Rubidium_atoms_in_a_Laser_trap_on_an_Optical_table_-_In_a_game_of_catch_%26_release,_the_atoms_will_shoot_up_a_30_ft._tall_Atomic_fountain_-_Stanford.jpg"
+    },
+    "Laser experiment - Photonics Laboratory - Physics Department - Ateneo de Manila University.jpg": {
+      "license": "CC BY 2.0", "artist": "Physics Department, Ateneo de Manila University",
+      "url": "https://commons.wikimedia.org/wiki/File:Laser_experiment_-_Photonics_Laboratory_-_Physics_Department_-_Ateneo_de_Manila_University.jpg"
+    },
+    "VacuumChamberWindow.JPG": {
+      "license": "CC BY-SA 3.0", "artist": "Eric Magnan",
+      "url": "https://commons.wikimedia.org/wiki/File:VacuumChamberWindow.JPG"
+    },
+    "3-Lead Holter monitor placement.jpg": {
+      "license": "CC BY-SA 4.0", "artist": "K6ka",
+      "url": "https://commons.wikimedia.org/wiki/File:3-Lead_Holter_monitor_placement.jpg"
+    },
+    "12 lead ECG.jpg": {
+      "license": "CC BY 4.0", "artist": "Peterhcharlton",
+      "url": "https://commons.wikimedia.org/wiki/File:12_lead_ECG.jpg"
+    },
+    "Bare chest of a old man for ECG with probes (36506).jpg": {
+      "license": "CC BY-SA 4.0", "artist": "Suyash.dwivedi",
+      "url": "https://commons.wikimedia.org/wiki/File:Bare_chest_of_a_old_man_for_ECG_with_probes_(36506).jpg"
+    },
+    "Close-up of Front tire of a Volkswagen car.jpg": {
+      "license": "CC BY-SA 4.0", "artist": "Tbatb",
+      "url": "https://commons.wikimedia.org/wiki/File:Close-up_of_Front_tire_of_a_Volkswagen_car.jpg"
+    },
+    "Tire tread .jpg": {
+      "license": "CC BY-SA 3.0", "artist": "Jbobby",
+      "url": "https://commons.wikimedia.org/wiki/File:Tire_tread_.jpg"
+    },
+    "Tire close up (4800801486).jpg": {
+      "license": "CC BY 2.0", "artist": "tequilamike",
+      "url": "https://commons.wikimedia.org/wiki/File:Tire_close_up_(4800801486).jpg"
+    }
+  }
+}
