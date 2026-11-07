@@ -277,5 +277,33 @@
         "size_kb": 37
       }
     ]
+  },
+  "france-colonial": {
+    "cover": {
+      "file": "/original/france-colonial-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Ouvrier de la plantation Suzannah en Cochinchine à côté d'un hévéa sur lequel il a pratiqué la saignée (une encoche 1-3) - Philippe Desolme - btv1b101037192.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Ouvrier_de_la_plantation_Suzannah_en_Cochinchine_%C3%A0_c%C3%B4t%C3%A9_d%27un_h%C3%A9v%C3%A9a_sur_lequel_il_a_pratiqu%C3%A9_la_saign%C3%A9e_(une_encoche_1-3)_-_Philippe_Desolme_-_btv1b101037192.jpg",
+      "artist": "Desolme, Philippe. Photographe",
+      "license": "Public domain"
+    },
+    "figs": [
+      {
+        "file": "/original/france-colonial-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Louisiana Purchase New Orleans Thure de Thulstrup.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Louisiana_Purchase_New_Orleans_Thure_de_Thulstrup.jpg",
+        "artist": "Thure de Thulstrup",
+        "license": "Public domain"
+      },
+      {
+        "file": "/original/france-colonial-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Lascar Hanoi Opera House (4550405849).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Lascar_Hanoi_Opera_House_(4550405849).jpg",
+        "artist": "Jorge Láscar from Australia",
+        "license": "CC BY 2.0"
+      }
+    ]
   }
 }

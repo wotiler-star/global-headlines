@@ -1,5 +1,5 @@
 // Wikimedia Commons 真实照片署名（CC BY / CC BY-SA 要求可见署名）
-// 数据来源：public/original/CREDITS.json；cov55 起由 build_images_cov55.py 全量重建
+// 数据来源：public/original/CREDITS.json；全量重建（含 france-colonial 批次）
 export type ImageCredit = { artist: string; license: string; url: string };
 
 export const IMAGE_CREDITS: Record<string, ImageCredit> = {
@@ -30,4 +30,7 @@ export const IMAGE_CREDITS: Record<string, ImageCredit> = {
   "/original/chemo-neuro-cover.webp": { artist: "Chris Hope", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:EEG_Recording_Cap.jpg" },
   "/original/chemo-neuro-fig1.webp": { artist: "Flexagoon", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:EEG_Experiment.jpg" },
   "/original/chemo-neuro-fig2.webp": { artist: "Laurens R. Krol", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Brain-computer_interface_experiment.jpg" },
+  "/original/france-colonial-cover.webp": { artist: "Desolme, Philippe. Photographe", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Ouvrier_de_la_plantation_Suzannah_en_Cochinchine_%C3%A0_c%C3%B4t%C3%A9_d%27un_h%C3%A9v%C3%A9a_sur_lequel_il_a_pratiqu%C3%A9_la_saign%C3%A9e_(une_encoche_1-3)_-_Philippe_Desolme_-_btv1b101037192.jpg" },
+  "/original/france-colonial-fig1.webp": { artist: "Thure de Thulstrup", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File:Louisiana_Purchase_New_Orleans_Thure_de_Thulstrup.jpg" },
+  "/original/france-colonial-fig2.webp": { artist: "Jorge Láscar from Australia", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Lascar_Hanoi_Opera_House_(4550405849).jpg" },
 };
