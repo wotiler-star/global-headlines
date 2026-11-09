@@ -24,9 +24,11 @@ import type { Metadata } from "next";
 //    故只声明「本语种 hreflang + x-default 指向自身」，不做 68 变体互链（避免错误 hreflang）。
 // 2) generateStaticParams / sitemap / 文章 chip 三处统一用 indexableTags 判定，
 //    集合一致 → 零 thin content 页、构建页数可控（<= TAG_MAX_PER_LOCALE * 8）。
-//    dynamicParams=true 仅作兜底：Next 构建时 generateStaticParams 与页面渲染可能在
-//    不同 worker（模块缓存不共享），万一数据微漂移导致某 chip 的 slug 未被预生成，
-//    仍可按需渲染；load() 只认 indexableTags，不在集合内的 slug 直接 404。
+//    dynamicParams=true 兜底 + load() 用全量索引查询：sitemap 里的 slug 在运行期
+//    数据漂移后可能跌破 TAG_MIN_ARTICLES（如 RSS 源临时减少），若 load() 也用
+//    indexableTags 过滤会造成「sitemap 收录但 404」的死链。故页面渲染放宽为
+//    全量 buildTagIndex 内存在即渲染（1-2 条的页面远好于 404）；仍不在全量索引
+//    的 slug 才 404（从未进 sitemap，无 SEO 损害）。
 export const dynamic = "force-static";
 export const dynamicParams = true;
 
@@ -40,9 +42,10 @@ export async function generateStaticParams() {
 }
 
 async function load(locale: Locale, slug: string): Promise<{ entry: TagEntry; index: TagEntry[] } | null> {
-  const index = indexableTags(buildTagIndex(await getArticles(locale)));
-  const entry = index.find((e) => e.slug === slug);
-  return entry ? { entry, index } : null;
+  // 全量索引兜底（含 <TAG_MIN_ARTICLES 的标签）：保证 sitemap 收录的 slug 永不 404
+  const full = buildTagIndex(await getArticles(locale));
+  const entry = full.find((e) => e.slug === slug);
+  return entry ? { entry, index: full } : null;
 }
 
 export async function generateMetadata({
