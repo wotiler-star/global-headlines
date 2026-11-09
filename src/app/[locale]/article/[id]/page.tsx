@@ -8,7 +8,7 @@ import { ogImageFor } from "@/lib/og";
 import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
 import { homeHref, articleHref, categoryHref } from "@/lib/paths";
-import { buildTagIndex, tagHrefIfIndexed } from "@/lib/tags";
+import { buildTagIndex, loadTagSourceArticles, tagHrefIfIndexed } from "@/lib/tags";
 import CategoryNav from "@/components/CategoryNav";
 import RelatedPanel from "@/components/RelatedPanel";
 import ReadHistoryTracker from "@/components/ReadHistoryTracker";
@@ -126,9 +126,11 @@ export default async function ArticlePage({
   const og = ogImageFor(article.cover || (article.images || [])[0], article.title);
   const related = await getRelated(loc, article);
   // cov63 内链优化：文章页需要 (a) 标签静态页 slug 索引 (b) 同栏目文章列表。
-  // getArticles 有 10min 模块级缓存，与 generateStaticParams 共用同一份数据，slug 一致。
+  // tagIndex 必须与标签页 generateStaticParams / sitemap 用同一份**稳定**数据源
+  // （loadTagSourceArticles 只读 data/original/*.json，不联网）——getArticles 的 RSS
+  // 部分按 worker 漂移，曾导致 chip 指向的静态页实际 prerender 为 404。
   const allInLocale = await getArticles(loc);
-  const tagIndex = buildTagIndex(allInLocale);
+  const tagIndex = buildTagIndex(loadTagSourceArticles(loc));
   const sameCategory = allInLocale
     .filter((a) => a.id !== article.id && a.category === article.category && a.media !== "video")
     .slice(0, 8);

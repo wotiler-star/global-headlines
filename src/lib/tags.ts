@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { Locale } from "@/i18n/config";
 import type { Article } from "@/data/news";
 
@@ -90,6 +92,49 @@ export function indexableTags(index: TagEntry[]): TagEntry[] {
 
 export function findTagEntry(index: TagEntry[], slug: string): TagEntry | undefined {
   return index.find((e) => e.slug === slug);
+}
+
+// ---------------------------------------------------------------------------
+// 稳定标签数据源（cov63c 修复）：只读 data/original/*.json。
+//
+// 为什么不能用 getArticles()：标签索引要求 generateStaticParams、页面渲染、sitemap、
+// 文章 chip 四处数据**完全一致**，否则会 prerender 出 404 页（sitemap 收录但线上 404）。
+// 而 getArticles 的 RSS 部分在 build 期按 worker 联网拉取（data/articles.json 被
+// .dockerignore 的 data/* 排除、不进镜像），params worker 与渲染 worker 各拉各的、
+// 结果漂移 —— 实测导致 /zh/tag/消费电子 预渲染为 404。
+// data/original/*.json 是 git 跟踪文件（.dockerignore 明确保留 data/original/），
+// 进镜像、不联网，任何 worker 在任何阶段读到的都是同一份 → 零漂移、零死链。
+// ---------------------------------------------------------------------------
+const _tagSrcCache = new Map<string, Article[]>();
+
+export function loadTagSourceArticles(locale: Locale): Article[] {
+  const hit = _tagSrcCache.get(locale);
+  if (hit) return hit;
+  const out: Article[] = [];
+  try {
+    const dir = path.join(process.cwd(), "data", "original");
+    for (const f of fs.readdirSync(dir)) {
+      if (!f.endsWith(".json")) continue;
+      let arr: unknown;
+      try {
+        arr = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
+      } catch {
+        continue; // 单个文件损坏不影响整体
+      }
+      const list = Array.isArray(arr)
+        ? arr
+        : ((arr as { articles?: Article[] })?.articles ?? []);
+      for (const a of list as Article[]) {
+        if ((a?.locale || "zh") === locale && Array.isArray(a?.tags) && a.tags.length) {
+          out.push(a);
+        }
+      }
+    }
+  } catch {
+    // 目录不存在（极端环境）：返回空，标签页降级为空集而不是 500
+  }
+  _tagSrcCache.set(locale, out);
+  return out;
 }
 
 export function tagHref(locale: Locale, slug: string): string {

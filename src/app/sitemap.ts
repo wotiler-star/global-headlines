@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales, categories, Locale } from "@/i18n/config";
 import { getArticles } from "@/data/newsSource";
 import { absUrl, buildSitemapAlternates, buildSitemapArticleAlternates } from "@/lib/site";
-import { buildTagIndex, indexableTags } from "@/lib/tags";
+import { buildTagIndex, indexableTags, loadTagSourceArticles } from "@/lib/tags";
 
 export const dynamic = "force-static";
 
@@ -54,7 +54,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // cov63：静态标签聚合页。仅收录「优质标签」（>=3 篇、每语种前 40），
     // 与 generateStaticParams 用同一份索引派生，slug 一致、无死链。
     // 标签无跨语种对应版本，故不声明 alternates.languages（避免错误 hreflang）。
-    for (const e of indexableTags(buildTagIndex(allInLocale))) {
+    // 数据源用 loadTagSourceArticles（稳定原创稿）：sitemap 与 build 渲染必须零漂移，
+    // getArticles 的 RSS 部分按 worker 联网拉取，两侧不一致曾导致 prerender 出 404 页。
+    for (const e of indexableTags(buildTagIndex(loadTagSourceArticles(loc)))) {
       const ts = e.articles[0]?.publishedAt;
       urls.push({
         url: absUrl(loc, `/tag/${e.slug}`),

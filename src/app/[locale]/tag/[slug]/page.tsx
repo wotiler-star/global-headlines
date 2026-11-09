@@ -1,10 +1,10 @@
 import { isLocale, Locale, locales, localeMeta, ogLocale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
-import { getArticles } from "@/data/newsSource";
 import { absUrl } from "@/lib/site";
 import {
   buildTagIndex,
   indexableTags,
+  loadTagSourceArticles,
   tagHref,
   type TagEntry,
 } from "@/lib/tags";
@@ -35,16 +35,26 @@ export const dynamicParams = true;
 export async function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
   for (const l of locales) {
-    const index = buildTagIndex(await getArticles(l));
+    // 稳定数据源（见 lib/tags.ts loadTagSourceArticles）：params 与渲染必须同一份数据
+    const index = buildTagIndex(loadTagSourceArticles(l));
     for (const e of indexableTags(index)) params.push({ locale: l, slug: e.slug });
   }
   return params;
 }
 
 async function load(locale: Locale, slug: string): Promise<{ entry: TagEntry; index: TagEntry[] } | null> {
-  // 全量索引兜底（含 <TAG_MIN_ARTICLES 的标签）：保证 sitemap 收录的 slug 永不 404
-  const full = buildTagIndex(await getArticles(locale));
-  const entry = full.find((e) => e.slug === slug);
+  // 稳定数据源 + 全量索引兜底（含 <TAG_MIN_ARTICLES 的标签）：
+  // 保证 sitemap 收录的 slug 永不 404（数据零漂移，全量索引即最终真相）
+  const full = buildTagIndex(loadTagSourceArticles(locale));
+  // Next 对非 ASCII slug 预渲染时可能把 URL-encoded 形式传进 params（实测 build 期如此），
+  // 而索引里的 slug 是 decode 后的原文 → 必须两种形式都比对，否则中文标签页全部 404。
+  let dec = slug;
+  try {
+    dec = decodeURIComponent(slug);
+  } catch {
+    /* 已是原文 */
+  }
+  const entry = full.find((e) => e.slug === slug || e.slug === dec);
   return entry ? { entry, index: full } : null;
 }
 
@@ -60,7 +70,8 @@ export async function generateMetadata({
   if (!found) return {};
   const d = getDict(loc);
   const tag = found.entry.tag;
-  const url = absUrl(loc, `/tag/${slug}`);
+  // canonical 一律用索引里的真 slug（非 encoded），与 sitemap 完全一致
+  const url = absUrl(loc, `/tag/${found.entry.slug}`);
   const pageTitle = `${tag} · ${d.siteName}`;
   return {
     title: tag,
@@ -99,9 +110,9 @@ export default async function TagPage({
   const { entry, index } = found;
   const articles = entry.articles.slice(0, 60);
   const homeUrl = absUrl(loc, "");
-  const tagUrl = absUrl(loc, `/tag/${slug}`);
+  const tagUrl = absUrl(loc, `/tag/${entry.slug}`);
   // 内链枢纽：互链其他优质标签（排除自身），把权重在标签层扩散
-  const siblingTags = index.filter((e) => e.slug !== slug).slice(0, 16);
+  const siblingTags = index.filter((e) => e.slug !== entry.slug).slice(0, 16);
 
   return (
     <div className="container">
