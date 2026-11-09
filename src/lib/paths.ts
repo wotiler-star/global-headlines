@@ -24,6 +24,10 @@ export function categoryHref(locale: Locale, cat: string, query?: string): strin
   return query ? `${base}?${query}` : base;
 }
 
+// cov63：标签页 /<locale>/tag/<slug> 的 href 由 lib/tags.ts 的 tagHref 统一提供。
+// swapLocale 遇到 /tag/xxx 会走默认分支回落到目标语种首页——这正是刻意的：
+// tag 文本各语种不同、无跨语种对应版本，保留 slug 会指向不存在的标签页。
+
 // Swap the locale segment of an existing in-app path. Accepts logical routes
 // (/zh), clean explicit paths, or legacy /index.html forms; always returns the
 // clean canonical target. RSS article ids are per-language, so switching from

@@ -8,6 +8,7 @@ import { ogImageFor } from "@/lib/og";
 import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
 import { homeHref, articleHref, categoryHref } from "@/lib/paths";
+import { buildTagIndex, tagHrefIfIndexed } from "@/lib/tags";
 import CategoryNav from "@/components/CategoryNav";
 import RelatedPanel from "@/components/RelatedPanel";
 import ReadHistoryTracker from "@/components/ReadHistoryTracker";
@@ -29,6 +30,7 @@ import CommentSection from "@/components/CommentSection";
 import ArticleRail from "@/components/ArticleRail";
 import ArticleAuthorCard from "@/components/ArticleAuthorCard";
 import ArticlePrevNext from "@/components/ArticlePrevNext";
+import MoreInCategory from "@/components/MoreInCategory";
 
 // CC 许可文本 → 规范许可 URL（Google 图片搜索的 license 字段要求 URL）
 function licenseUrl(lic: string): string | undefined {
@@ -123,6 +125,13 @@ export default async function ArticlePage({
   const d = getDict(loc);
   const og = ogImageFor(article.cover || (article.images || [])[0], article.title);
   const related = await getRelated(loc, article);
+  // cov63 内链优化：文章页需要 (a) 标签静态页 slug 索引 (b) 同栏目文章列表。
+  // getArticles 有 10min 模块级缓存，与 generateStaticParams 共用同一份数据，slug 一致。
+  const allInLocale = await getArticles(loc);
+  const tagIndex = buildTagIndex(allInLocale);
+  const sameCategory = allInLocale
+    .filter((a) => a.id !== article.id && a.category === article.category && a.media !== "video")
+    .slice(0, 8);
   const videos = article.media === "video"
     ? (await getArticles(loc, "video")).filter((a) => a.id !== article.id).slice(0, 6)
     : [];
@@ -130,7 +139,6 @@ export default async function ArticlePage({
   const bodyChars = (article.body || []).join("").length;
   const cjk = loc === "zh" || loc === "ja" || loc === "ko";
   const readMin = Math.max(1, Math.round(cjk ? bodyChars / 400 : bodyChars / 1000));
-  const signalId = "SIGNAL_" + article.id.replace(/[^a-zA-Z0-9]/g, "").slice(-6).toUpperCase();
   // 原创稿每个主题都有 8 份独立撰写的本地化版本；head 里已声明完整 hreflang 互链，
   // 这里再给出可见内链，帮助爬虫发现与用户主动切换（hreflang 之外的第二重信号）。
   const isMultilingual = article.id.startsWith("rss-orig-");
@@ -238,11 +246,13 @@ export default async function ArticlePage({
         <article className="article">
           <ReadingProgress />
           <nav className="art-crumb" aria-label="breadcrumb">
-            <Link href={homeHref(loc)}>HOME</Link>
+            <Link href={homeHref(loc)}>{d.siteName}</Link>
             <span className="sep">/</span>
             <Link href={categoryHref(loc, article.category)}>{d.categories[article.category]}</Link>
             <span className="sep">/</span>
-            <span className="sig">{signalId}</span>
+            <span className="sig" title={article.title}>
+              {article.title.length > 42 ? `${article.title.slice(0, 42)}…` : article.title}
+            </span>
           </nav>
           <div className="art-kicker">// {d.categories[article.category]} · SIGNAL STRONG</div>
           <DecodeTitle text={article.title} className="article-title" />
@@ -335,32 +345,47 @@ export default async function ArticlePage({
           )}
           <div className="article-tags">
             <span className="tag-label">{d.tagTitle}：</span>
-            {article.tags.map((t, i) => (
-              <a key={i} className="tag-chip" href={`${homeHref(loc)}?tag=${encodeURIComponent(t)}`}>
-                {t}
-              </a>
-            ))}
+            {article.tags.map((t, i) => {
+              // cov63：命中标签索引 → 静态聚合页（可索引、传递权重）；
+              // 未命中（低频标签，避免 thin content）→ 保留 ?tag= 首页筛选，零死链、不破坏功能。
+              const href = tagHrefIfIndexed(loc, t, tagIndex)
+                ?? `${homeHref(loc)}?tag=${encodeURIComponent(t)}`;
+              return (
+                <Link key={i} className="tag-chip" href={href}>
+                  {t}
+                </Link>
+              );
+            })}
           </div>
-          {isMultilingual && (
-            <nav className="art-lang-versions" aria-label="其他语言版本">
-              <div className="alv-label">READ IN · 其他语言版本</div>
-              <div className="alv-links">
-                {locales.map((l) => (
-                  <Link
-                    key={l}
-                    href={articleHref(l, articleVersionId(baseId, l))}
-                    hrefLang={localeMeta[l].hreflang}
-                    aria-current={l === loc ? "page" : undefined}
-                    className={`alv-link${l === loc ? " current" : ""}`}
-                  >
-                    {localeMeta[l].name}
-                  </Link>
-                ))}
-              </div>
-            </nav>
-          )}
+          {/* cov63：8 语种可见内链扩到「全部文章」。
+              原创稿(rss-orig-*)有 8 份独立本地化版本 → 链接对应语种文章页；
+              其余稿的 id 按语种生成、跨语种文章链接会 404 → 改链对应语种的
+              同栏目静态页（全部预渲染、可索引、带 hreflang），既扩内链又零死链。 */}
+          <nav className="art-lang-versions" aria-label={d.navLanguage}>
+            <div className="alv-label">
+              {isMultilingual ? "READ IN" : "BROWSE"} · {d.navLanguage}
+            </div>
+            <div className="alv-links">
+              {locales.map((l) => (
+                <Link
+                  key={l}
+                  href={isMultilingual
+                    ? articleHref(l, articleVersionId(baseId, l))
+                    : categoryHref(l, article.category)}
+                  hrefLang={localeMeta[l].hreflang}
+                  aria-current={l === loc ? "page" : undefined}
+                  className={`alv-link${l === loc ? " current" : ""}`}
+                >
+                  {localeMeta[l].name}
+                </Link>
+              ))}
+            </div>
+          </nav>
         </article>
-        <ArticlePrevNext locale={loc} currentId={article.id} />
+        <ArticlePrevNext locale={loc} currentId={article.id} category={article.category} />
+        {/* cov63：同栏目确定性内链（文章 → 同栏目文章 / 栏目页），与 RelatedPanel 的
+            语义相关推荐互补，缩短抓取深度并强化主题聚类。 */}
+        <MoreInCategory locale={loc} category={article.category} articles={sameCategory} />
         <CommentSection locale={loc} articleId={article.id} category={article.category} />
         {!article.media || article.media !== "video" ? (
           <RelatedPanel articles={related} />

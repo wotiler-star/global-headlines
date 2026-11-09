@@ -2,7 +2,9 @@ import { isLocale, Locale, locales, categories, isCategory, Category, ogLocale }
 import { getDict } from "@/i18n/dictionaries";
 import { getArticles } from "@/data/newsSource";
 import { absUrl, buildAlternates } from "@/lib/site";
+import { homeHref, categoryHref } from "@/lib/paths";
 import NewsCard from "@/components/NewsCard";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -76,9 +78,15 @@ export default async function CategoryPage({
   // cov62：数据源「按分类查询」对部分栏目（如 world）返回空，但全量流已含各栏目文章
   // （首页 SectionedFeed 即按 category 过滤全量流）。故取全量流后按 category 过滤，
   // 保证栏目页有真实内容、可被 Google 正常收录。视频文章在全量流中已打 category:"video"。
-  const articles = (await getArticles(loc)).filter((a) => a.category === c).slice(0, 60);
+  const allInLocale = await getArticles(loc);
+  const articles = allInLocale.filter((a) => a.category === c).slice(0, 60);
   const homeUrl = absUrl(loc, "");
   const catUrl = absUrl(loc, `/category/${c}`);
+  // cov63 内链枢纽：互链同语种其他「有内容」栏目（空栏目页无内容，链过去只是 thin 页）。
+  const catsWithContent = new Set(allInLocale.map((a) => a.category));
+  const siblingCats = categories.filter(
+    (x) => x !== "recommend" && x !== c && catsWithContent.has(x),
+  );
 
   return (
     <div className="container">
@@ -86,6 +94,14 @@ export default async function CategoryPage({
         <h1 className="cat-page-title">{catName}</h1>
         <p className="cat-page-sub">{d.homeDesc}</p>
       </div>
+
+      {/* cov63：可见面包屑（原先只有 JSON-LD）——给用户与爬虫一条明确的
+          首页 → 栏目 的可见内链，补足层级信号，也让每个栏目页反向链回首页。 */}
+      <nav className="cat-crumb" aria-label="breadcrumb">
+        <Link href={homeHref(loc)}>{d.siteName}</Link>
+        <span className="sep">/</span>
+        <span className="cur">{catName}</span>
+      </nav>
 
       {/* ItemList：栏目信息流是可索引列表页，显式标注前 20 条文章（position + url + name），
           帮助 Google 理解列表结构、提升收录与潜在富结果。 */}
@@ -129,6 +145,21 @@ export default async function CategoryPage({
             <NewsCard key={a.id} article={{ ...a, locale: loc }} />
           ))}
         </div>
+      )}
+
+      {/* cov63：栏目层内链枢纽。原先栏目页之间没有任何链接，只有客户端 CategoryNav
+          从首页链进来；这里让每个栏目页互链其他有内容的栏目，形成同层级权重环。 */}
+      {siblingCats.length > 0 && (
+        <nav className="cat-hub" aria-label={d.navCategories}>
+          <div className="ch-label">EXPLORE · {d.navCategories}</div>
+          <div className="ch-links">
+            {siblingCats.map((x) => (
+              <Link key={x} href={categoryHref(loc, x)} className="ch-link">
+                {d.categories[x]}
+              </Link>
+            ))}
+          </div>
+        </nav>
       )}
     </div>
   );

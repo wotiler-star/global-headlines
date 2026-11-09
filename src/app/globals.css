@@ -1357,6 +1357,36 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
   .home-section-grid .card-meta { font-size: 11px; gap: 8px; flex-wrap: wrap; }
 }
 
+/* ===== 内链优化（cov63）===== */
+/* 栏目页 / 标签页 可见面包屑 */
+.cat-crumb { font-family: var(--font-mn); font-size: 11px; letter-spacing: 0.08em; color: var(--ink-3); margin: 12px 0 4px; }
+.cat-crumb a { color: var(--ink-2); text-decoration: none; }
+.cat-crumb a:hover { color: var(--brand); }
+.cat-crumb .sep { color: var(--line); margin: 0 6px; }
+.cat-crumb .cur { color: var(--brand); }
+
+/* 栏目层内链枢纽：其他栏目 pill */
+.cat-hub, .tag-hub { border-top: 1px solid var(--line); margin: 28px 0 8px; padding-top: 16px; }
+.ch-label, .th-label { font-family: var(--font-mn); font-size: 10px; letter-spacing: 0.2em; color: var(--brand); margin-bottom: 10px; }
+.ch-links, .th-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.ch-link, .th-link { font-size: 12px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); text-decoration: none; transition: .15s; }
+.ch-link:hover, .th-link:hover { border-color: var(--brand); color: var(--brand); background: rgba(255,178,36,0.08); }
+.ch-link:focus-visible, .th-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+/* 文章页「同栏目更多」内链块 */
+.more-in-cat { border-top: 1px solid var(--line); margin: 26px 0 8px; padding-top: 16px; }
+.mic-label { font-family: var(--font-mn); font-size: 10px; letter-spacing: 0.2em; color: var(--brand); margin-bottom: 10px; }
+.mic-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 16px; }
+.mic-list li { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+.mic-list li::before { content: "›"; color: var(--line); margin-right: 8px; }
+.mic-list a { color: var(--ink-2); text-decoration: none; }
+.mic-list a:hover { color: var(--brand); }
+.mic-all { display: inline-block; margin-top: 12px; font-size: 12px; color: var(--brand); text-decoration: none; }
+.mic-all:hover { text-decoration: underline; }
+@media (max-width: 640px) {
+  .mic-list { grid-template-columns: 1fr; }
+}
+
 /* 超窄屏（小手机）进一步收敛 */
 @media (max-width: 480px) {
   .home-section-head h2 { font-size: 16px; }

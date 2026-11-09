@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales, categories, Locale } from "@/i18n/config";
 import { getArticles } from "@/data/newsSource";
 import { absUrl, buildSitemapAlternates, buildSitemapArticleAlternates } from "@/lib/site";
+import { buildTagIndex, indexableTags } from "@/lib/tags";
 
 export const dynamic = "force-static";
 
@@ -35,7 +36,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // cov62：静态栏目页（recommend 即首页，不重复收录）。
     // 仅收录「该语种确有内容」的栏目：空栏目无内容，提交到 sitemap 反而触发 Google
     // 对「thin/soft-404」URL 的负面信号；空栏目仍保留静态页（内部导航可达），只是不进 sitemap。
-    const catsWithContent = new Set((await getArticles(loc)).map((a) => a.category));
+    const allInLocale = await getArticles(loc);
+    const catsWithContent = new Set(allInLocale.map((a) => a.category));
     for (const c of categories) {
       if (c === "recommend") continue;
       if (!catsWithContent.has(c)) continue;
@@ -46,6 +48,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "daily",
         priority: 0.7,
         alternates: { languages: alts.languages },
+      });
+    }
+
+    // cov63：静态标签聚合页。仅收录「优质标签」（>=3 篇、每语种前 40），
+    // 与 generateStaticParams 用同一份索引派生，slug 一致、无死链。
+    // 标签无跨语种对应版本，故不声明 alternates.languages（避免错误 hreflang）。
+    for (const e of indexableTags(buildTagIndex(allInLocale))) {
+      const ts = e.articles[0]?.publishedAt;
+      urls.push({
+        url: absUrl(loc, `/tag/${e.slug}`),
+        lastModified: ts ? new Date(ts) : latest,
+        changeFrequency: "weekly",
+        priority: 0.6,
       });
     }
 
