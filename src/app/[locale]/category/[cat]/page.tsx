@@ -73,7 +73,10 @@ export default async function CategoryPage({
 
   const d = getDict(loc);
   const catName = d.categories[c];
-  const articles = (await getArticles(loc, c)).slice(0, 60);
+  // cov62：数据源「按分类查询」对部分栏目（如 world）返回空，但全量流已含各栏目文章
+  // （首页 SectionedFeed 即按 category 过滤全量流）。故取全量流后按 category 过滤，
+  // 保证栏目页有真实内容、可被 Google 正常收录。视频文章在全量流中已打 category:"video"。
+  const articles = (await getArticles(loc)).filter((a) => a.category === c).slice(0, 60);
   const homeUrl = absUrl(loc, "");
   const catUrl = absUrl(loc, `/category/${c}`);
 
