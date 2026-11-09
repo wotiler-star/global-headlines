@@ -32,9 +32,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: { languages: home.languages },
     });
 
-    // cov62：静态栏目页（recommend 即首页，不重复收录）
+    // cov62：静态栏目页（recommend 即首页，不重复收录）。
+    // 仅收录「该语种确有内容」的栏目：空栏目无内容，提交到 sitemap 反而触发 Google
+    // 对「thin/soft-404」URL 的负面信号；空栏目仍保留静态页（内部导航可达），只是不进 sitemap。
+    const catsWithContent = new Set((await getArticles(loc)).map((a) => a.category));
     for (const c of categories) {
       if (c === "recommend") continue;
+      if (!catsWithContent.has(c)) continue;
       const alts = buildSitemapAlternates(loc, `/category/${c}`);
       urls.push({
         url: absUrl(loc, `/category/${c}`),

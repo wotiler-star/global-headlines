@@ -122,7 +122,7 @@ export default async function CategoryPage({
       />
 
       {articles.length === 0 ? (
-        <div className="empty">{d.notFoundDesc}</div>
+        <div className="empty">{d.feedEnd}</div>
       ) : (
         <div className="home-section-grid cat-feed">
           {articles.map((a) => (
