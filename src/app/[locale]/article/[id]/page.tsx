@@ -4,6 +4,7 @@ import { getDict } from "@/i18n/dictionaries";
 import { getArticle, getRelated, getArticles } from "@/data/newsSource";
 import { formatRelativeTime } from "@/data/news";
 import { absUrl, buildArticleAlternates, SITE_URL, articleBaseId, articleVersionId } from "@/lib/site";
+import { ogImageFor } from "@/lib/og";
 import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
 import { homeHref, articleHref } from "@/lib/paths";
@@ -70,6 +71,7 @@ export async function generateMetadata({
   const alts = buildArticleAlternates(loc, id);
   const url = absUrl(loc, `/article/${id}`);
   const iso = new Date(article.publishedAt).toISOString();
+  const og = ogImageFor(article.cover || (article.images || [])[0], article.title);
   return {
     title: article.title,
     description: article.summary,
@@ -85,7 +87,7 @@ export async function generateMetadata({
     openGraph: {
       title: article.title,
       description: article.summary,
-      images: [{ url: article.cover || (article.images || [])[0] }],
+      images: [og],
       type: "article",
       url,
       locale: ogLocale[loc],
@@ -101,7 +103,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: article.title,
       description: article.summary,
-      images: [article.cover || (article.images || [])[0]],
+      images: [og.url],
     },
   };
 }
@@ -119,6 +121,7 @@ export default async function ArticlePage({
   if (!article) notFound();
 
   const d = getDict(loc);
+  const og = ogImageFor(article.cover || (article.images || [])[0], article.title);
   const related = await getRelated(loc, article);
   const videos = article.media === "video"
     ? (await getArticles(loc, "video")).filter((a) => a.id !== article.id).slice(0, 6)
@@ -171,9 +174,10 @@ export default async function ArticlePage({
                 inLanguage: localeMeta[loc].hreflang,
                 isAccessibleForFree: true,
                 wordCount: bodyChars,
-                image: (article.images || []).map((p: string) =>
+                // 首项为 1.91:1 社交分享图，Google 新闻/图片结果可选多比例
+                image: [og.url, ...(article.images || []).map((p: string) =>
                   p.startsWith("http") ? p : `${SITE_URL}${p.startsWith("/") ? "" : "/"}${p}`
-                ),
+                )],
                 datePublished: new Date(article.publishedAt).toISOString(),
                 dateModified: new Date(article.publishedAt).toISOString(),
                 author: { "@type": "Person", name: article.author || article.source },
@@ -182,9 +186,10 @@ export default async function ArticlePage({
                   "@id": `${SITE_URL}/#organization`,
                   name: d.siteName,
                   url: absUrl(loc, ""),
-                  logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.svg` },
+                  logo: { "@type": "ImageObject", url: `${SITE_URL}/icons/icon-512.png`, width: 512, height: 512 },
                 },
-                mainEntityOfPage: absUrl(loc, `/article/${id}`),
+                mainEntityOfPage: { "@type": "WebPage", "@id": absUrl(loc, `/article/${id}`) },
+                isPartOf: { "@id": `${SITE_URL}/#website` },
                 articleSection: article.category,
                 keywords: article.tags.join(", "),
                 hasPart: (article.images || []).map((_: string, i: number) => ({

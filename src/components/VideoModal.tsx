@@ -116,7 +116,7 @@ function VideoModalInner({
             // 无可用嵌入源时退化为大图 + 播放角标
             <div className="vm-fallback">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={article.images[0]} alt={article.title} />
+              <img src={article.images[0]} alt={article.title} width={1200} height={800} />
               <span className="play-badge" aria-hidden>
                 ▶
               </span>
@@ -147,7 +147,7 @@ function VideoModalInner({
                 >
                   <div className="vm-rel-thumb">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={v.images[0]} alt={v.title} loading="lazy" />
+                    <img src={v.images[0]} alt={v.title} width={1200} height={800} loading="lazy" />
                     <span className="play-badge sm" aria-hidden>
                       ▶
                     </span>

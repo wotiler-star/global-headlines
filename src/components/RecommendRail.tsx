@@ -81,7 +81,7 @@ export default function RecommendRail({
         <div className="side-card" key={a.id}>
           <Link href={articleHref(a.locale, a.id)} className="thumb">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={a.images[0]} alt={a.title} loading="lazy" />
+            <img src={a.images[0]} alt={a.title} width={1200} height={800} loading="lazy" />
           </Link>
           <Link href={articleHref(a.locale, a.id)} className="sc-title">
             {a.title}

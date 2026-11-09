@@ -1,0 +1,131 @@
+[
+  {
+    "id": "rss-orig-solar-flare-field-2026-11-pt",
+    "title": "Afinal deu para medir: o campo magnético do Sol enfraquece durante uma erupção",
+    "summary": "O que acontece com o campo magnético da baixa atmosfera solar durante uma explosão era um ponto cego. Um telescópio construído em torno de uma única linha do infravermelho médio contornou a falha do diagnóstico clássico e registrou uma queda nítida numa erupção X1.5.",
+    "cover": "/original/solar-flare-field-cover.webp",
+    "images": [
+      "/original/solar-flare-field-cover.webp",
+      "/original/solar-flare-field-fig1.webp",
+      "/original/solar-flare-field-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "erupção solar",
+      "campo magnético",
+      "infravermelho médio",
+      "desdobramento Zeeman",
+      "clima espacial",
+      "espectroscopia"
+    ],
+    "category": "science",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://paper.sciencenet.cn/htmlpaper/2026/11/2026118134052958157753.shtm",
+    "author": "Redação starteday",
+    "publishedAt": 1794188962261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Uma erupção solar é a liberação de energia mais violenta que ocorre na atmosfera do Sol. Em poucos minutos, partículas são aceleradas e a radiação dispara, dos raios X duros às micro-ondas, enquanto o ambiente próximo da Terra também é sacudido. No entanto, o campo magnético que provoca toda essa explosão guardava o seu segredo mais bem escondido: ninguém sabia o que ele fazia, exatamente naqueles minutos, nas camadas baixas da atmosfera.",
+      "Não era falta de interesse. O método habitual lê o sinal de polarização do espectro solar e depois inverte um modelo de transferência radiativa para deduzir a intensidade do campo. O problema é que a própria erupção deforma o perfil das linhas que se quer medir, de modo que as premissas do modelo desabam e a inversão perde precisão ou simplesmente falha.",
+      "Há ainda um obstáculo muito terreno. A erupção evolui depressa, portanto as exposições precisam ser curtíssimas; com exposições tão curtas o sinal enfraquece e a razão sinal-ruído e a precisão caem juntas. O intervalo mais interessante era justamente o mais difícil de resolver, um vazio que a física solar arrastava há décadas.",
+      "O novo trabalho segue outro caminho. Em vez de desembaraçar polarização e modelo, mede diretamente a distância com que o campo separa os componentes de uma linha espectral, o desdobramento Zeeman. Quanto mais intenso o campo, mais se afastam esses componentes, e essa separação é uma grandeza mensurável sem precisar supor de antemão como é a atmosfera.",
+      "O segredo está em escolher bem a linha. O desdobramento cresce com o quadrado do comprimento de onda, de modo que ao avançar para comprimentos maiores uma separação mínima é amplificada. A equipe escolheu uma linha de magnésio no infravermelho médio, perto de 12,32 micrômetros, e elevou uma distância antes perdida no ruído a uma escala mensurável: a precisão passou da ordem de cem gauss para menos de dez, um ganho de uma ordem de grandeza.",
+      "Para manter ao mesmo tempo alta resolução espectral e capacidade de imagem, usou-se um espectrógrafo infravermelho por transformada de Fourier, instalado num planalto seco a cerca de quatro mil metros de altitude, longe do vapor de água que absorve essa radiação. Esses detalhes de engenharia, pouco vistosos, decidem se alguns minutos de dados viram descoberta ou apenas ruído.",
+      "O resultado veio de uma erupção da classe X1.5: durante a fase impulsiva, a intensidade do campo sob as fitas da erupção diminuiu de forma apreciável. A equipe não parou em «vimos». Simulou toda a evolução espectral com um modelo atmosférico dinâmico, e só quando simulação e observação coincidiram considerou a conclusão fechada.",
+      "Por que motivo um enfraquecimento merece um artigo? Porque uma erupção é, no fundo, liberação de energia magnética. Se o campo decai de fato no instante mais violento, então se observou pela primeira vez o rastro da energia sendo retirada da sua reserva. A pergunta sobre para onde vai essa energia deixa de ser inferência teórica e passa a ser uma quantidade acompanhável minuto a minuto.",
+      "Daí saem restrições novas para várias discussões antigas: por que a cromosfera e a coroa estão muito mais quentes que a fotosfera, como a energia magnética se acumula antes de se liberar de uma vez, e se existe uma realimentação dinâmica entre a coroa e as camadas baixas. Argumentos antes decididos pela coerência interna dos modelos têm agora um limite observacional a satisfazer.",
+      "A extensão mais tangível para o cotidiano é a previsão do clima espacial. Erupções fortes perturbam a ionosfera, afetam as comunicações em ondas curtas e a precisão do posicionamento, e acrescentam risco aos equipamentos em órbita. O difícil nunca foi saber se haveria erupção, mas quão forte ela ficaria e como evoluiria; diagnosticar quantitativamente o campo fornece uma entrada que faltava.",
+      "Convém manter a cautela. É um único evento medido numa única linha, muito longe de uma conclusão estatística. O mecanismo do enfraquecimento, sua repetição em erupções de outras classes e o destino da energia liberada exigem mais casos e reprodução independente. Que um revisor tenha descrito a observação como inédita é um elogio e, ao mesmo tempo, um lembrete de que se está no ponto de partida.",
+      "Talvez o mais duradouro seja a virada de método. Quando um campo fica décadas bloqueado por um limite de medição, a solução nem sempre é construir um instrumento maior; às vezes basta trocar o comprimento de onda e a grandeza observada para contornar o problema. Com essa janela para o infravermelho médio, perguntas que se sabia formular mas não medir voltam a entrar na fila.",
+      "Entre «o campo mudou» e «como mudou, quanto mudou e para onde foi a energia» há toda uma capacidade de medição. Aqui se deu apenas o primeiro passo, mas alguns minutos de caos foram enfim escritos como uma curva com escalas."
+    ]
+  },
+  {
+    "id": "rss-orig-gut-nad-precursor-2026-11-pt",
+    "title": "Antes de repor NAD+, talvez seja melhor perguntar o que as bactérias do intestino produzem",
+    "summary": "Uma molécula secretada por bactérias comensais é captada pelas células do intestino, convertida em NAD+ e empurra a reparação do epitélio, por uma via que não é a dos precursores habituais. O achado muda a pergunta: talvez importe menos o que engolimos e mais o que se fabrica aqui dentro.",
+    "cover": "/original/gut-nad-precursor-cover.webp",
+    "images": [
+      "/original/gut-nad-precursor-cover.webp",
+      "/original/gut-nad-precursor-fig1.webp",
+      "/original/gut-nad-precursor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "NAD+",
+      "microbiota intestinal",
+      "células-tronco intestinais",
+      "SIRT1",
+      "reparação epitelial",
+      "cometabolismo"
+    ],
+    "category": "health",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.ebiotrade.com/newsf/2026-11/20261108082228952.htm",
+    "author": "Redação starteday",
+    "publishedAt": 1794188902261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "O NAD+ é uma das coenzimas mais ocupadas da célula. Participa do metabolismo energético, do reparo de danos no DNA e da atividade das desacetilases. Como seu nível cai com a idade e com a inflamação crônica, «devolver o NAD+» virou uma das narrativas de saúde mais insistentes dos últimos anos, com ácido nicotínico, nicotinamida, NR e NMN se revezando nas prateleiras.",
+      "Essa narrativa repousa sobre um pressuposto: o hospedeiro processa o precursor por conta própria. Os manuais descrevem três grandes vias para manter o pool de NAD+: a síntese de novo, a via de Preiss-Handler e a via de salvamento cuja enzima limitante é a NAMPT. Quase todos os precursores comerciais acabam na fila dessa última porta.",
+      "O novo estudo formulou uma pergunta raramente feita de frente: será que os micróbios que vivem no intestino também fornecem precursores de NAD+ ao hospedeiro? A resposta é sim, e a molécula era justamente uma cuja identidade vinha sendo lida errado: a N-metilnicotinamida com o metilo ligado ao nitrogênio amídico, que os autores chamam de N-MNA.",
+      "Há um detalhe químico fácil de deixar passar. A N-MNA é um isômero estrutural da conhecida N1-MNA, diferindo só na posição do grupo metilo, e durante anos foi despachada como produto de degradação da nicotinamida. A cromatografia líquida acoplada à espectrometria de massas separou as duas e revelou que várias espécies comensais secretam em quantidade esse suposto resíduo.",
+      "Quem produz não é coadjuvante. Bactérias comensais bem estudadas aparecem na lista; experimentos de colonização em animais livres de germes confirmaram a geração dentro do intestino, e ao reduzir a microbiota com antibióticos a N-MNA fecal despencou. A cadeia de origem se fecha: não chega com a comida, é fabricada pelas bactérias.",
+      "A comparação clínica é ainda mais sugestiva. Em amostras de pessoas com doença inflamatória intestinal, a N-MNA aparecia claramente baixa, e os valores baixos acompanhavam a elevação de calprotectina e a perda de diversidade microbiana. É correlação, é claro, mas sugere uma hipótese natural: será que a reparação epitelial lenta vem em parte da escassez nessa linha de suprimento?",
+      "Para mostrar que a molécula não apenas passa, recorreu-se à marcação com isótopos estáveis. A N-MNA marcada foi captada depressa por moscas-das-frutas, camundongos e células epiteliais intestinais humanas, entrando no ciclo redox do NAD+. Células não epiteliais também a aproveitaram, o que aponta para um precursor de uso amplo, e não uma curiosidade local.",
+      "O que fez os especialistas em metabolismo se endireitarem na cadeira foi a atribuição da via. Tanto o bloqueio genético quanto o farmacológico apontaram o mesmo: a N-MNA segue por Preiss-Handler e não depende da via de salvamento da NAMPT. Ou seja, contorna o gargalo onde se amontoam os suplementos e que costuma estreitar com a idade, reabastecendo o pool por uma porta lateral.",
+      "As evidências funcionais se encaixam. Ativado o eixo NAD+–SIRT1, as células-tronco intestinais proliferaram mais, os organoides cresceram maiores e aumentaram as células marcadas com Lgr5. Num modelo de colite, a suplementação trouxe reparação epitelial observável e benefício de sobrevivência. Molécula, célula e tecido ficaram ligados passo a passo.",
+      "A molécula tem ainda uma segunda identidade: cede um grupo metilo às células do hospedeiro. Fornecer ao mesmo tempo NAD+ e metilo significa pisar em duas linhas, o metabolismo energético e a regulação epigenética. Chamá-la de mediadora de regeneração do cometabolismo entre micróbios e hospedeiro é mais exato do que chamá-la de mais um precursor.",
+      "O aviso mais útil ao leitor comum é resistir a transformar isso numa lista de compras. O artigo mostra mecanismos e modelos animais; dose eficaz em humanos, segurança de longo prazo e a possibilidade de elevar de forma estável a N-MNA intestinal com dieta ou probióticos seguem em aberto. Traduzir um paper de mecanística em recomendação de produto pula mais de um ensaio clínico.",
+      "Mas a forma de perguntar muda de fato. Costumamos imaginar o metabolismo como uma fábrica que o hospedeiro toca sozinho, com matéria-prima trazida de fora. Este trabalho lembra que ao lado vivem colaboradores que fornecem substrato, editam moléculas e às vezes decidem se uma via está bem alimentada. Antes de perguntar o que acrescentar, vale perguntar quem está fabricando por nós.",
+      "As questões que restam já estão nítidas: quais padrões alimentares sustentam os produtores de N-MNA, quanto da relação entre disbiose e reparação lenta passa por essa via, e se a molécula pode virar marcador mensurável de saúde. O que foi respondido é só o prólogo; o valor está justamente no que continua sem resposta."
+    ]
+  },
+  {
+    "id": "rss-orig-long-livephoto-2026-11-pt",
+    "title": "Dobrar uma Live Photo de 3 para 6 segundos foi a melhoria mais honesta do lançamento",
+    "summary": "Uma série de gama média dobrou a duração das fotos vivas, levou a teleobjetiva periscópica a toda a linha e acrescentou gestos mínimos, como conectar-se ao wifi fotografando o cartaz. Nenhum número deslumbra, mas juntos mostram para onde a concorrência realmente se mudou.",
+    "cover": "/original/long-livephoto-cover.webp",
+    "images": [
+      "/original/long-livephoto-cover.webp",
+      "/original/long-livephoto-fig1.webp",
+      "/original/long-livephoto-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Live Photo",
+      "teleobjetiva periscópica",
+      "fotografia móvel",
+      "design de interação",
+      "gama média",
+      "eletrônica de consumo"
+    ],
+    "category": "tech",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://news.qq.com/rain/a/20261108A0BQ2Z00",
+    "author": "Redação starteday",
+    "publishedAt": 1794188842261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "A nova série de gama média apresentada em 9 de novembro concentrou quase todo o esforço de pré-lançamento na câmera. O chamariz é uma Live Photo 4K em todas as distâncias focais cuja captura passa de cerca de 3 segundos para 6, acompanhada de uma teleobjetiva periscópica em todos os modelos. Nenhum dos números espanta, mas lado a lado eles dizem muito sobre o momento.",
+      "Comecemos pelo tempo. Uma foto fixa disputa o instante em que o obturador dispara; uma foto viva disputa o curto trecho ao redor dele. O que fica guardado não é uma imagem, e sim o que está prestes a acontecer e o que acabou de acontecer: apagar as velas, erguer o copo, o pulo de um animal. O quadro que se queria costuma estar meio segundo antes do reflexo.",
+      "Passar de 3 para 6 segundos não é só aumentar o buffer. O sensor precisa despejar dados continuamente a mais vazão, a estabilização tem de se sustentar por um intervalo maior, a codificação e a gravação precisam terminar sem aquecimento nem perda de quadros, e a galeria deve ajudar a escolher um fotograma útil dentro de um clipe mais longo. Se qualquer elo falhar, a função vira dessas que existem mas ninguém usa.",
+      "Ainda mais sutil é «todas as distâncias focais». As fotos vivas costumavam ficar confinadas à câmera principal e voltavam a ser estáticas assim que se mudava para a teleobjetiva. Sustentar captura longa também no telefoto exige alinhar exposição, balanço de branco e sincronização entre várias câmeras: o que se testa é a coerência do sistema de imagem, não o brilho de uma lente.",
+      "Falemos agora do periscópio que desce de categoria. A óptica dobrada que desvia a luz com um prisma foi, durante anos, uma das peças mais caras, mais volumosas e mais rentáveis em marketing de um topo de linha. Vê-la como equipamento de série numa gama média costuma significar duas coisas: módulos e algoritmos já ganharam escala para caber na planilha de custos, e acabou a época em que uma só teleobjetiva fazia a diferença.",
+      "Para quem compra é ótima notícia, embora escolher fique mais difícil. Quando a teleobjetiva deixa de ser fronteira, a experiência passa a ser separada pelo que nunca entra na ficha: se em pouca luz o telefoto volta sorrateiramente a um recorte da câmera principal, se o clipe exportado sobrevive às redes sociais como algo além de um loop borrado, quanto armazenamento consomem seis segundos, quanto aguenta o aparelho após uma rajada.",
+      "A pré-venda trazia ainda uma função menor: fotografe o cartaz do wifi de um café e a conexão se completa, eliminando o ritual de copiar uma senha longa e conferir caractere por caractere. Uma tecla dedicada reduz a contabilidade a um passo, lendo valor, data e categoria de um recibo e sincronizando tudo. Nenhuma exibe modelos generativos; as duas comprimem uma tarefa chata de sete passos em um só.",
+      "Vale isolá-las porque representam outro julgamento de produto. A expressão mais ruidosa dos últimos dois anos foi colocar modelos grandes no aparelho, e ainda assim o que se usa sem parar costuma ser o que não exige acordar assistente, formular frase nem esperar geração: apontar, pressionar, pronto. A medida da inteligência desliza da complexidade da tarefa para a quantidade de gestos eliminados.",
+      "Acabamento e calendário também informam. Três cores de inspiração confeiteira foram apresentadas abertamente em chave de vestuário, o lançamento ficou logo antes de um grande período comercial, e um relógio e um tablet abriram reservas ao mesmo tempo. Um celular de gama média já não é a versão barata de um topo de linha: disputa gosto, momento de troca e a porta de entrada de um conjunto de aparelhos que se carrega. A ficha é só o ingresso.",
+      "A lista de configurações deixa ver também renúncias. Uma variante aposta numa tela plana compacta com bateria acima de sete mil miliamperes-hora e outra num painel maior e plataforma diferente. Dentro de uma mesma série, começa-se a separar por pegada e autonomia, e não por uma escada simples de modelo padrão contra Pro, o que se parece mais com o desacordo real sobre como se usa um telefone.",
+      "Cabe uma ressalva: entre a pré-venda e o produto na loja há sempre distância. Especificações da teleobjetiva, duração real e a forma exata das funções de IA devem ser confirmadas na apresentação e nas unidades de análise; além disso, as janelas de reserva são feitas para fabricar urgência. Além da ficha, vale esperar as primeiras medições de telefoto em baixa luz, exportação de clipes e autonomia.",
+      "Se eu tivesse de escolher uma só melhoria como emblema da indústria atual, escolheria esses três segundos a mais. Não inventam necessidade nova; apenas admitem que o que alguém quer guardar ao apertar o obturador nunca foi um instante, e sim um pedaço de vida que ainda não terminou. A tecnologia enfim começou a se desenhar em torno desse fato.",
+      "A passagem da corrida por mais megapixels para a disputa de quem tira uma hesitação de cada foto é silenciosa e mais honesta. Não promete mudar o mundo, só que um gesto repetido dezenas de vezes ao dia fique um pouco mais curto e um pouco mais confiável. E quase toda tecnologia que as pessoas mantêm começa exatamente aí."
+    ]
+  }
+]

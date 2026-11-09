@@ -1,0 +1,130 @@
+[
+  {
+    "id": "rss-orig-altermagnet-2026-11-es",
+    "title": "Los libros de texto van a necesitar un capítulo nuevo: científicos confirman un tercer tipo de magnetismo",
+    "summary": "Durante casi noventa años la física admitió solo dos clases de magnetismo. Con rayos X de polarización circular en el sincrotrón europeo de Grenoble, un equipo dirigido por SLAC encontró dentro del telururo de manganeso la pieza que faltaba —la quiralidad— y convirtió el altermagnetismo en un hecho experimental.",
+    "cover": "/original/altermagnet-cover.webp",
+    "images": [
+      "/original/altermagnet-cover.webp",
+      "/original/altermagnet-fig1.webp",
+      "/original/altermagnet-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "altermagnetismo",
+      "tercer tipo de magnetismo",
+      "SLAC",
+      "espintrónica",
+      "telururo de manganeso",
+      "materiales cuánticos"
+    ],
+    "category": "science",
+    "locale": "es",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261104012256.htm",
+    "author": "Redacción starteday",
+    "publishedAt": 1794114219056,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Hay frases en los manuales de física que llevan tanto tiempo ahí que nadie las discute. Una de ellas dice que los materiales magnéticos se dividen en dos familias: los ferromagnéticos, cuyos espines electrónicos apuntan todos hacia el mismo lado y producen el campo que todos conocemos por el nombre de imán, y los antiferromagnéticos, reconocidos en 1933, donde los espines vecinos se alternan hacia arriba y hacia abajo, se anulan y dejan el material aparentemente sin magnetismo. Ese esquema de dos cajas gobernó la disciplina casi noventa años.",
+      "Ahora un equipo liderado por el Laboratorio Nacional de Aceleradores SLAC, del Departamento de Energía de Estados Unidos, junto con la Instalación Europea de Radiación Sincrotrón (ESRF) de Grenoble, ha publicado lo que describe como una confirmación experimental robusta de que existe una tercera clase. El trabajo aparece en Science y bautiza el fenómeno como altermagnetismo. Daniel Jost, uno de los responsables, lo resume así: en los últimos años se acumularon observaciones que no encajaban en ninguna de las dos cajas, y por fin hay una prueba que las ordena.",
+      "El material protagonista es el telururo de manganeso, MnTe, un compuesto que durante décadas estuvo cómodamente archivado como antiferromagnético. Según las reglas antiguas, sus espines deberían alternarse y sumar cero. Sin embargo, mostraba una habilidad que se consideraba exclusiva de los imanes: transportar corrientes de espín, es decir, mover información usando la orientación del espín electrónico en lugar de la carga eléctrica. Durante años, esa contradicción se trató como una rareza de laboratorio.",
+      "La pista decisiva fue la quiralidad, una palabra que describe objetos que no se pueden superponer a su imagen en el espejo, como una escalera de caracol o el hilo de un tornillo: la mano izquierda no entra en el guante de la derecha. La hipótesis del equipo era que la estructura magnética del MnTe esconde exactamente ese tipo de asimetría, y que ese giro invisible es la firma que separa a un altermagneto de un antiferromagneto corriente.",
+      "Para comprobarlo llevaron la muestra a la línea de luz ID32 del ESRF y la bombardearon con rayos X de polarización circular. El truco es elegante: un material quiral dispersa de forma distinta la luz polarizada a izquierda y a derecha, mientras que un material no quiral las trata por igual. El equipo encontró una señal quiral clara justo donde un antiferromagneto convencional no debería mostrar ninguna.",
+      "No fue una medición de última hora. El primer experimento se completó en 2024 y se repitió a comienzos de 2025 con resultados idénticos, algo que los autores consideran esencial para que la conclusión se sostenga. Rachel Nickel, coautora y responsable del diseño y la operación del experimento en el ESRF, calificó de asombrosa la velocidad con la que se confirmaron los modelos teóricos que se habían ido acumulando.",
+      "¿Qué tiene de especial la tercera clase? La respuesta está en la geometría de la red cristalina. Un altermagneto también alterna espines y tampoco tiene magnetización neta, pero la red que rodea a los espines que apuntan hacia arriba está girada respecto a la que rodea a los que apuntan hacia abajo. Ese giro sutil rompe una simetría, cambia el comportamiento de los electrones y permite reunir las ventajas de las dos familias anteriores en un solo material.",
+      "Ahí está el interés de ingeniería. Los ferromagnetos son frágiles frente a los campos externos: basta un imán de bolsillo para alterar bits en un dispositivo cercano. Los antiferromagnetos son tan silenciosos que resultan difíciles de leer y poco útiles para empujar corrientes de espín. El altermagneto combina estabilidad con la capacidad de generar corrientes polarizadas en espín, que es justo lo que hace falta para extraer información.",
+      "La lista de aplicaciones suena a plano de la próxima generación de computación: memorias más avanzadas, centros de datos con menor consumo y tecnologías cuánticas que dependen del espín y no de la carga. La espintrónica, ese campo que lleva años intentando construir hardware con la orientación del espín electrónico, gana un espacio de diseño que hasta ahora solo existía en el papel.",
+      "Conviene, eso sí, poner un freno al entusiasmo. El artículo confirma que este comportamiento magnético es real, no que haya un chip a la vuelta de la esquina. SLAC lo dice con claridad: no se ha demostrado ningún dispositivo práctico, y el siguiente paso es aprender a influir y controlar los estados altermagnéticos con luz y con electricidad.",
+      "Un detalle que merece atención: parte de la financiación vino de la Oficina de Ciencia del Departamento de Energía estadounidense, pero las mediciones decisivas de rayos X ocurrieron en suelo europeo. Una colaboración que cruzó el Atlántico terminó devolviendo a su casilla correcta un material que llevaba décadas mal clasificado.",
+      "Si imaginamos el magnetismo como una tabla, durante noventa años tuvo dos filas. Hoy se añade una tercera con bastante seguridad. Para casi todo el mundo no cambiará nada mañana, pero para quien estudia cómo fluyen la información y la energía dentro de la materia, esa fila extra significa un paisaje entero donde empezar a construir."
+    ]
+  },
+  {
+    "id": "rss-orig-mol-motor-2026-11-es",
+    "title": "Redujeron el tornillo de Arquímedes a una sola molécula: un motor que gira con corriente eléctrica",
+    "summary": "Una molécula orgánica en forma de hélice cuelga entre dos electrodos de oro sujeta por átomos de azufre. Al pasar corriente, los electrones le entregan su momento angular y la hacen girar como una turbina; al invertir el voltaje, cambia el sentido. Lo más extraño: mientras gira, su conductividad se multiplica hasta por cien.",
+    "cover": "/original/mol-motor-cover.webp",
+    "images": [
+      "/original/mol-motor-cover.webp",
+      "/original/mol-motor-fig1.webp",
+      "/original/mol-motor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "motor molecular",
+      "tornillo de Arquímedes",
+      "molécula única",
+      "nanoelectrónica",
+      "heliceno",
+      "Nature"
+    ],
+    "category": "tech",
+    "locale": "es",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.zmescience.com/science/physics/archimedes-screw-molecular-motor",
+    "author": "Redacción starteday",
+    "publishedAt": 1794114159056,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Hace más de dos mil años, Arquímedes ideó una máquina con forma de tornillo que sube agua al girar una espiral dentro de un cilindro. Hoy un equipo internacional ha llevado ese mismo principio hasta su límite físico: la pieza móvil de su motor es una sola molécula. En lugar de bombear agua, los electrones recorren la espiral y ponen a girar la molécula entera.",
+      "El trabajo se publicó en Nature el 1 de noviembre de 2026 y se presenta como el primer motor molecular impulsado por corriente eléctrica, unido de forma rígida a dos electrodos metálicos y con un sentido de giro controlable. Ya en 2011 se habían construido motores moleculares eléctricos, pero aquellos descansaban sobre una superficie y había que empujarlos con la punta de un microscopio de efecto túnel.",
+      "La molécula espiral tiene nombre: heliceno. Sus extremos llevan átomos de azufre, y el azufre se une con fuerza al oro, lo que permite suspender una única molécula como un puente minúsculo entre dos puntas de oro afiladas hasta dimensiones atómicas. El diseño químico salió del grupo dirigido por Michael Pittelkow en la Universidad de Copenhague.",
+      "Quien montó la molécula y la vio moverse fue el equipo de Oren Tal y Anil Kumar Singh en el Instituto Weizmann de Ciencias, en Israel. Colocaron moléculas individuales entre dos puntas de oro y estiraron o comprimieron la unión modificando la separación. Todo el montaje se enfrió a 4,2 kelvin, apenas cuatro grados por encima del cero absoluto, para que el movimiento térmico no borrara la señal.",
+      "El mecanismo resulta casi intuitivo: al circular por la espiral, los electrones ceden su momento angular a la molécula y ejercen una fuerza de torsión que la hace girar, igual que una corriente de aire hace girar una turbina. Que gire en un sentido o en el otro depende de si la hélice es dextrógira o levógira.",
+      "Lo importante es el control. Por encima de cierto umbral de voltaje, el movimiento pasa de saltos discretos a rotación continua; si se invierte la polaridad, se invierte también el sentido. Dicho de otro modo: la dirección no está fijada de antemano, se marca con electricidad, igual que se regula el caudal de una tubería.",
+      "Pero el hallazgo que llamó la atención fue otro, y llegó por sorpresa: mientras gira, la molécula conduce la electricidad mucho mejor que en reposo, hasta cien veces más. En reposo tiende a instalarse en ciertas configuraciones; la rotación la arrastra por las geometrías en las que el transporte de carga resulta más fácil.",
+      "Un grupo de la Universidad de Augsburgo dirigido por Fabian Pauly, con los doctorandos Léon Martin y Yuta Ito, ejecutó simulaciones de mecánica cuántica en el supercomputador LiCCA para precisar el mecanismo. Martin lo explicó de forma muy gráfica: justo las posiciones que la molécula evita cuando está quieta son las que mejor conducen, y solo la rotación las hace accesibles.",
+      "El marco teórico se completó con Per Hedegård, del Instituto Niels Bohr, y Jing-Tao Lü, de la Universidad Huazhong de Ciencia y Tecnología. Cálculo y experimento coincidieron: la molécula pasa de la rotación a saltos a la rotación continua, y la corriente se dispara al mismo tiempo.",
+      "El equipo añadió un control que refuerza la conclusión: una molécula recta comparable no mostró ni la señal eléctrica cíclica característica ni el salto de conductividad. Eso apunta directamente al movimiento de la espiral, y no a algún efecto secundario, como origen del aumento.",
+      "Comparado con el enfoque de hace una década, la diferencia mayor es que este diseño se basta a sí mismo. Los motores antiguos necesitaban la punta de un microscopio que los empujara; este cuelga dentro de un circuito vivo, donde los electrones a la vez impulsan el giro y sirven de lectura para los científicos. Se comporta más como un actuador diminuto que podría insertarse en un circuito.",
+      "Las perspectivas suenan seductoras: interruptores electrónicos a escala molecular, dispositivos que aprovechen el espín del electrón, incluso sistemas microscópicos capaces de manipular fluidos. Y, de paso, ofrece una ventana nueva para observar cómo se entrelazan movimiento y señal eléctrica en el mundo atómico.",
+      "El giro más elegante del experimento es conceptual: la electricidad hace moverse a la materia y ese movimiento, a su vez, controla la electricidad. Probablemente Arquímedes nunca imaginó que su tornillo para subir agua volvería a girar dos milenios después entre dos puntas de oro, con el tamaño de una sola molécula."
+    ]
+  },
+  {
+    "id": "rss-orig-phage-2026-11-es",
+    "title": "Convertir virus en medicamento contra superbacterias: llega la primera guía internacional de fagoterapia",
+    "summary": "La resistencia a los antibióticos vuelve intratables algunas infecciones. Un equipo liderado por la sociedad alemana de enfermedades infecciosas, con veinte organizaciones profesionales y dieciocho expertos internacionales, publicó en Nature Medicine la primera guía clínica coordinada para la fagoterapia personalizada.",
+    "cover": "/original/phage-cover.webp",
+    "images": [
+      "/original/phage-cover.webp",
+      "/original/phage-fig1.webp",
+      "/original/phage-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "fagoterapia",
+      "bacteriófagos",
+      "resistencia a antibióticos",
+      "guía clínica",
+      "superbacterias",
+      "Nature Medicine"
+    ],
+    "category": "health",
+    "locale": "es",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261102202828.htm",
+    "author": "Redacción starteday",
+    "publishedAt": 1794114099056,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Estamos acostumbrados a pensar en los virus como enemigos, pero hay una clase de virus que se dedica a cazar bacterias. Se llaman bacteriófagos, o fagos para abreviar, y pueden adherirse a una bacteria concreta y reventarla sin tocar las células humanas. A medida que los antibióticos pierden terreno frente a las llamadas superbacterias, la ciencia intenta rearmar a ese enemigo antiguo como herramienta terapéutica.",
+      "En 2026, un equipo internacional liderado por la Sociedad Alemana de Enfermedades Infecciosas publicó la primera guía clínica coordinada para la fagoterapia personalizada. El documento de consenso, aparecido en Nature Medicine, entrega a este tratamiento largamente experimental una hoja de ruta para entrar en hospitales y consultas.",
+      "El peso de la guía no es retórico: reunió a veinte organizaciones profesionales, dieciocho expertos internacionales —incluidos representantes de agencias reguladoras— y dos asociaciones de pacientes. Juntos redactaron más de sesenta recomendaciones sobre cómo seleccionar, probar, fabricar, administrar y vigilar los fagos, además de infraestructura de laboratorio, control de calidad, documentación del tratamiento y prioridades de investigación.",
+      "¿Por qué ahora? Porque la resistencia antimicrobiana está volviendo obstinadas a las infecciones en todo el mundo. Algunas bacterias han construido defensas contra los fármacos habituales y a los médicos les quedan menos opciones eficaces. Los fagos resultan interesantes precisamente por su precisión: suelen atacar una especie, incluso una cepa concreta, en lugar de arrasar como hacen los antibióticos de amplio espectro.",
+      "Esa precisión, sin embargo, crea un rompecabezas. Un fago que mata una cepa puede no hacer nada contra otra, así que antes de empezar el tratamiento los especialistas deben confirmar que el virus candidato es capaz de matar la cepa que causa la infección de ese paciente concreto. Ese emparejamiento debe hacerse lo más rápido posible, porque la sensibilidad de una bacteria puede cambiar durante el curso de la infección.",
+      "La guía no propone la fagoterapia como atención rutinaria. Pide evaluar a cada paciente y recurrir a ella solo cuando las circunstancias lo justifiquen. Esa honestidad importa: los ensayos controlados todavía no han aportado evidencia suficiente sobre su fiabilidad real. La comunidad investigadora coincide en que los fagos bien fabricados y administrados parecen seguros, pero demostrar la eficacia exige estudios más amplios.",
+      "Los resultados iniciales son genuinamente alentadores. En una serie belga de cien personas, el 77 % mejoró clínicamente y el 61 % dejó de mostrar la bacteria objetivo en las pruebas. Los autores advierten, no obstante, que los estudios observacionales no pueden probar que la mejoría se debiera a los fagos.",
+      "Algunos hospitales ya lo usan de verdad. El Centro Médico Universitario de Fráncfort informa que desde febrero de 2026 ha tratado con éxito a diez pacientes dentro de su programa de fagos basado en la guía, dirigido a patógenos como Pseudomonas aeruginosa y Staphylococcus aureus, ambos notoriamente difíciles de manejar.",
+      "La administración revela el lado personalizado: según la infección y el paciente, los fagos pueden darse por vía intravenosa, por inhalación, como aerosol nasal o mediante un hidrogel estéril. Esa flexibilidad es la que permite que una terapia pase del papel a la cabecera del enfermo.",
+      "Sostener el sistema requiere una red que coordine. La guía destaca PhageNET DZIF, plataforma establecida y coordinada por Annika Claßen, como centro de intercambio de experiencia científica y clínica. Sentar en la misma mesa a microbiología, medicina clínica, farmacia, fabricación y regulación es la única forma de ver a la vez las posibilidades y los límites.",
+      "La infraestructura de apoyo también cuenta: los casos deben documentarse de forma sistemática y registrarse, los métodos de prueba entre laboratorios deben ser coherentes y la competencia técnica debe evaluarse periódicamente para que los resultados sean fiables y comparables. Como resumió el doctor Würstle, la guía ofrece a médicos, farmacéuticos y reguladores un marco común para llevar la fagoterapia a la práctica de forma segura y responsable.",
+      "El documento no está grabado en piedra. Elaborado bajo la AWMF, la asociación de sociedades científicas médicas alemanas, mediante un proceso de consenso estructurado, tiene validez desde el 5 de enero de 2026 hasta el 29 de junio de 2030, con revisión anual por parte del comité responsable.",
+      "Para los muchos pacientes atrapados en infecciones que los antibióticos habituales no controlan, los fagos quizá no sean una cura milagrosa, pero podrían ser una opción más que conviene tener. Convertir virus en medicamento, la versión moderna de una idea vieja, se está armando poco a poco: de casos dispersos a un sistema en el que se pueda confiar."
+    ]
+  }
+]

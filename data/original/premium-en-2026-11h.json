@@ -1,0 +1,131 @@
+[
+  {
+    "id": "rss-orig-solar-flare-field-2026-11-en",
+    "title": "For the first time, scientists watched the Sun's magnetic field weaken mid-eruption",
+    "summary": "What happens to the magnetic field in the lower solar atmosphere during a flare was long a blind spot. A telescope built around a single mid-infrared line sidestepped the failure of conventional diagnostics and measured a clear drop in field strength during an X1.5 event.",
+    "cover": "/original/solar-flare-field-cover.webp",
+    "images": [
+      "/original/solar-flare-field-cover.webp",
+      "/original/solar-flare-field-fig1.webp",
+      "/original/solar-flare-field-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "solar flare",
+      "magnetic field",
+      "mid-infrared",
+      "Zeeman splitting",
+      "space weather",
+      "spectroscopy"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://paper.sciencenet.cn/htmlpaper/2026/11/2026118134052958157753.shtm",
+    "author": "starteday Editorial",
+    "publishedAt": 1794188962261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "A solar flare is the most violent energy release in the solar atmosphere. Within a few minutes, particles are accelerated and radiation surges from hard X-rays to microwaves, while the near-Earth environment is disturbed. Yet the field that drives the whole event has kept one of its best secrets: nobody could say what the magnetic field in the lower atmosphere actually does during those minutes.",
+      "The omission was not from lack of interest. The standard approach reads polarization signatures in the solar spectrum, then inverts a radiative-transfer model to infer field strength. A flare distorts the very line profiles being measured, so the model's assumptions collapse and the inversion becomes unreliable or simply fails.",
+      "A second obstacle is brutally practical. Flares evolve fast, so exposures must be short; short exposures mean weak signal, and both signal-to-noise and precision fall apart. The interval most worth watching was precisely the interval nobody could resolve, leaving a persistent gap in solar physics.",
+      "The new work takes a different route. Instead of untangling polarization from model assumptions, the team measured the distance by which a magnetic field splits a spectral line, the Zeeman separation. A stronger field pushes the components further apart, and that spacing is a directly measurable quantity that requires no prior picture of the atmosphere.",
+      "The choice of line is the trick. Zeeman splitting grows with the square of wavelength, so moving to longer wavelengths magnifies the separation. A magnesium line near 12.32 micrometres lifted a barely visible gap into a measurable one, improving field precision from the order of a hundred gauss to better than ten gauss, a full order of magnitude.",
+      "To keep both high spectral resolution and imaging, the instrument used an infrared Fourier-transform spectrograph, sited on a dry plateau roughly four kilometres above sea level to limit the water vapour that absorbs mid-infrared light. Such engineering details decide whether a few minutes of data are a discovery or just noise.",
+      "The result came from an X1.5 flare: during the impulsive phase, field strength beneath the flare ribbons dropped measurably. The team did not stop at seeing it. They simulated the spectral evolution with a flare atmospheric model, and the match between simulation and observation is what makes the claim hold.",
+      "Why does a decrease deserve a paper? Because a flare is, at bottom, the release of magnetic energy. If the field genuinely weakens at the most violent moment, that is the first direct trace of energy being withdrawn from the magnetic reservoir. The question of where the energy goes shifts from theoretical inference to something that can be tracked minute by minute.",
+      "Several long-running debates gain a new constraint from here: why the chromosphere and corona are so much hotter than the photosphere, how magnetic energy accumulates before it is released, and whether the corona and lower atmosphere feed back on one another dynamically. Arguments that previously rested on self-consistent models now have an observational boundary to satisfy.",
+      "The most tangible extension is space-weather forecasting. Strong flares disturb the ionosphere, affect shortwave communication and navigation accuracy, and add risk for equipment in orbit. The hard part has never been whether an eruption will occur, but how strong it becomes and how it evolves; a quantitative diagnosis of field evolution supplies an input that was missing.",
+      "Restraint is warranted. This is a single event on a single line, far from a statistical conclusion. The mechanism behind the weakening, whether it recurs across flare classes, and how the released energy is partitioned all need more events and independent reproduction. A reviewer called this class of observation a first, which is both praise and a reminder that the work sits at a starting point.",
+      "Perhaps the more durable lesson is methodological. When a field has been blocked by a measurement limit for decades, the answer is not always a bigger instrument; sometimes it is a different wavelength and a different observable that walks around the problem. With this mid-infrared window open, questions that were askable but unmeasurable can be queued up again.",
+      "From the field changed to how it changed, by how much, and where the energy went, there is an entire measurement capability in between. Only the first step has been taken, but a few minutes of chaos have finally been written down as a curve with tick marks."
+    ]
+  },
+  {
+    "id": "rss-orig-gut-nad-precursor-2026-11-en",
+    "title": "After years of NAD+ supplements, the better question may be what your gut microbes make",
+    "summary": "A small molecule secreted by gut bacteria is taken up by intestinal cells, converted into NAD+ and drives epithelial repair, using a pathway the familiar supplements do not use. The finding reframes the story: what matters may be less what you swallow than what is manufactured inside you.",
+    "cover": "/original/gut-nad-precursor-cover.webp",
+    "images": [
+      "/original/gut-nad-precursor-cover.webp",
+      "/original/gut-nad-precursor-fig1.webp",
+      "/original/gut-nad-precursor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "NAD+",
+      "gut microbiota",
+      "intestinal stem cells",
+      "SIRT1",
+      "epithelial repair",
+      "co-metabolism"
+    ],
+    "category": "health",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.ebiotrade.com/newsf/2026-11/20261108082228952.htm",
+    "author": "starteday Editorial",
+    "publishedAt": 1794188902261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "NAD+ is one of the busiest coenzymes in the cell. Energy metabolism, DNA damage repair and the activity of deacetylases all depend on it. Because levels decline with age and chronic inflammation, restoring NAD+ has become one of the noisiest health narratives around, with nicotinic acid, nicotinamide, NR and NMN taking turns on the shelf.",
+      "That narrative rests on an assumption: the host processes the precursor alone. Textbooks describe three ways to maintain the NAD+ pool, de novo synthesis, the Preiss-Handler route, and the salvage pathway whose rate-limiting enzyme is NAMPT. Almost every commercial precursor ends up queuing at that salvage doorway.",
+      "The new study asked a question rarely put so directly: could the microbes living in the gut also supply NAD+ precursors to the host? They can, and the molecule they supply is one whose identity had been misread: N-methylnicotinamide with the methyl on the amide nitrogen, which the authors call N-MNA.",
+      "The chemistry is easy to skim past. N-MNA is a structural isomer of the familiar N1-MNA, differing only in where the methyl sits, and it had often been dismissed as a breakdown product of nicotinamide. Liquid chromatography with tandem mass spectrometry separated the two, revealing that several commensal species secrete this supposed waste product in quantity.",
+      "The producers are not marginal players. Several well-studied commensals appear on the list; colonization experiments in germ-free animals confirmed that it is generated inside the gut; and depleting the microbiota with antibiotics sent faecal N-MNA sharply down. The source chain closes: it arrives from the microbes, not from the diet.",
+      "The clinical comparison is more suggestive still. In samples from people with inflammatory bowel disease, N-MNA was markedly lower, and low values tracked with elevated calprotectin and reduced microbial diversity. That is correlation, not causation, but it invites an obvious hypothesis: could impaired repair be partly a shortage on this supply line?",
+      "To show the molecule is not merely passing through, the team used stable-isotope tracing. Labelled N-MNA was rapidly taken up by fruit flies, mice and human intestinal epithelial cells and entered the NAD+ redox cycle. Non-epithelial cells used it too, so this is a precursor available across tissues rather than a local curiosity.",
+      "What made metabolologists sit up was the pathway assignment. Both genetic knockout and pharmacological blockade pointed the same way: N-MNA feeds through Preiss-Handler and does not depend on the NAMPT salvage route. It therefore bypasses the bottleneck crowded with supplements and often narrowed with age, refilling the pool through a side door.",
+      "The functional evidence lines up as well. With the NAD+ to SIRT1 axis engaged, intestinal stem cells proliferated more, organoids grew larger, and Lgr5-marked stem cells increased. In a colitis model, supplementation produced observable epithelial repair and a survival benefit. Molecule, cell and tissue were connected step by step.",
+      "The molecule carries a second identity: it donates a methyl group to host cells. Supplying both NAD+ and methyl means it sits at once on energy metabolism and on epigenetic regulation. Calling it a regeneration mediator of host-microbe co-metabolism fits better than calling it just another precursor.",
+      "The most useful takeaway for a general reader is to resist turning this into a shopping list. The work is mechanistic and animal-based; effective human dose, long-term safety, and whether diet or probiotics can reliably raise intestinal N-MNA remain open. Converting a mechanism paper into a product recommendation skips more than one trial.",
+      "It does, however, change the question. We tend to picture metabolism as a factory the host runs alone, with raw materials delivered from outside. This study is a reminder that collaborators live next door, supplying feedstock, editing molecules, and sometimes deciding whether a pathway is well fed. Before asking what to add, it may be worth asking who is making it for you.",
+      "The open questions are now crisp: which dietary patterns sustain high N-MNA producers, how much of the link between dysbiosis and slow repair runs through this route, and whether the molecule can become a measurable health marker. The answered part is only the opening; the value lies in what remains unanswered."
+    ]
+  },
+  {
+    "id": "rss-orig-long-livephoto-2026-11-en",
+    "title": "Doubling a live photo from three seconds to six is the most honest upgrade in a phone launch",
+    "summary": "A mid-range series doubled its live-photo duration, made a periscope telephoto standard across the lineup, and added small tricks like connecting to Wi-Fi by photographing the sign. None of it tops a spec sheet, but together it shows where phone competition has actually moved.",
+    "cover": "/original/long-livephoto-cover.webp",
+    "images": [
+      "/original/long-livephoto-cover.webp",
+      "/original/long-livephoto-fig1.webp",
+      "/original/long-livephoto-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "live photo",
+      "periscope telephoto",
+      "mobile imaging",
+      "interaction design",
+      "mid-range phones",
+      "consumer electronics"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://news.qq.com/rain/a/20261108A0BQ2Z00",
+    "author": "starteday Editorial",
+    "publishedAt": 1794188842261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "The mid-range series unveiled on November 9 spent most of its teaser budget on imaging. The headline claim is a full-focal-length 4K live photo whose capture window doubles from roughly three seconds to six, paired with a periscope telephoto camera across the entire lineup. Neither number is startling; together they are rather revealing.",
+      "Start with the longer window. A still photo competes on the instant the shutter fires; a live photo competes on the slice of time around it. What it records is not the frame but the part just before and just after, because the frame people actually want is often half a second earlier than their reflex.",
+      "Doubling three seconds to six sounds like a bigger buffer, but it is a chain of engineering bills. The sensor must stream a higher bitrate continuously, stabilization has to hold over a longer interval, encoding and writing must finish without heat or dropped frames, and the gallery has to help someone pick a usable frame out of a longer clip. Skimp on any link and the feature becomes available but unused.",
+      "The phrase full focal length is subtler. Live photos have usually been confined to the main camera, reverting to a still as soon as you switch to telephoto. Supporting long captures at telephoto means exposure, white balance and timing must be aligned across cameras, which tests the consistency of an imaging system rather than the brightness of one lens.",
+      "Then there is the periscope moving down-market. The folded optics that bounce light through a prism were once among the most expensive, space-hungry and marketable parts of a flagship. Their appearance as standard equipment in a mid-range line usually signals two things: modules and algorithms have scaled enough to fit the cost sheet, and the era when one telephoto lens separated a flagship is nearly over.",
+      "That is good for buyers and harder for choosing. When telephoto stops being a dividing line, experience is separated by things that never reach the spec sheet: whether the telephoto quietly falls back to a main-camera crop in low light, whether exported clips survive social platforms as something other than a blurry loop, how much storage six seconds consumes, and how long the body holds up after a burst.",
+      "One smaller feature in the teaser deserves attention: photograph the Wi-Fi sign on a cafe wall and the connection completes, removing the ritual of copying a long password and checking it character by character. A dedicated key turns bookkeeping into one step as well, reading the amount, date and category off a receipt and syncing them. Neither showcases generative models; each compresses a fiddly task from seven steps to one.",
+      "They are worth isolating because they represent a different product judgement. The loudest phrase of the past two years was putting large models on devices, yet what gets used repeatedly is usually what needs no wake word, no phrasing and no waiting: point, press, done. The measure of intelligence is drifting from how complex a task can be to how many small actions disappear.",
+      "Finish and timing carry information too. Three soft, dessert-toned colours were framed explicitly as wardrobe choices, the launch sits just before a major sales period, and a watch and tablet opened for reservation alongside it. A mid-range phone is no longer a discounted flagship; it competes on taste, on upgrade timing, and on being the entry point to a set of carried devices. Specs are merely the ticket in.",
+      "The configuration list reveals trade-offs as well. One variant keeps a compact flat screen with a battery above seven thousand milliamp-hours, while another moves to a larger panel and a different platform. A single series now splits by feel and endurance rather than arranging specifications on a simple standard-versus-Pro ladder, which is closer to how people actually disagree about phones.",
+      "A caveat: teaser information and retail hardware are never identical. Telephoto specifications, capture duration and the exact shape of the AI features all need confirming at launch and in review units; preorder windows are also designed to manufacture urgency. Beyond the spec sheet, it is worth waiting for early tests of low-light telephoto, clip export and battery life.",
+      "If one upgrade stands for the current state of the industry, I would pick those extra three seconds. It invents no new need; it simply admits that what someone hopes to keep when pressing the shutter was never an instant, but a short piece of life not yet finished. The technology has finally begun designing around that fact.",
+      "The shift from who has more megapixels to who removes one hesitation per photograph is quiet, and more honest. It promises nothing about changing the world, only that a movement repeated dozens of times a day gets shorter and more reliable, which is where most technology that people actually keep tends to begin."
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "rss-orig-altermagnet-2026-11-tr",
+    "title": "Ders kitapları yeni bir bölüm daha gerektirebilir: bilim insanları üçüncü bir manyetizma türünü doğruladı",
+    "summary": "Fizik neredeyse doksan yıl boyunca yalnızca iki manyetizma sınıfı tanıdı. SLAC'ın yönettiği bir ekip, Grenoble'daki Avrupa sinkrotronunda dairesel polarize X ışınları kullanarak manganez tellürün içinde eksik parçayı — kiraliteyi — buldu ve altermanyetizmayı deneysel bir gerçeğe dönüştürdü.",
+    "cover": "/original/altermagnet-cover.webp",
+    "images": [
+      "/original/altermagnet-cover.webp",
+      "/original/altermagnet-fig1.webp",
+      "/original/altermagnet-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "altermanyetizma",
+      "üçüncü manyetizma türü",
+      "SLAC",
+      "spintronik",
+      "manganez tellür",
+      "kuantum malzemeler"
+    ],
+    "category": "science",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261104012256.htm",
+    "author": "starteday Editör",
+    "publishedAt": 1794114219056,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Fizik kitaplarında o kadar eski cümleler vardır ki artık kimse tartışmaz. Bunlardan biri, manyetik malzemelerin iki aileye ayrıldığını söyler: elektron spinlerinin hepsinin aynı yöne baktığı ve herkesin mıknatıs dediği alanı üreten ferromanyetikler ile 1933'te kabul edilen, komşu spinlerin bir yukarı bir aşağı dönüşümlü biçimde birbirini götürdüğü ve malzemeyi görünüşte manyetizmasız bıraktığı antiferromanyetikler. Bu iki kutulu şema, alana yaklaşık doksan yıl boyunca hükmetti.",
+      "Şimdi ABD Enerji Bakanlığı'na bağlı SLAC Ulusal Hızlandırıcı Laboratuvarı'nın öncülüğündeki bir ekip, Grenoble'daki Avrupa Sinkrotron Radyasyon Tesisi (ESRF) ile birlikte üçüncü bir sınıfın varlığını sağlam deneysel kanıtlarla doğruladığını duyurdu. Science dergisinde yayımlanan çalışma, olguya altermanyetizma adını veriyor. Ekibin sorumlularından Daniel Jost durumu şöyle özetliyor: son yıllarda iki kutudan hiçbirine sığmayan gözlemler birikti ve nihayet hepsini yerli yerine oturtan bir kanıt ortaya çıktı.",
+      "Hikâyenin merkezindeki malzeme manganez tellür, yani MnTe; onlarca yıl boyunca rahatça antiferromanyetik çekmecesine konmuş bir bileşik. Eski kurallara göre spinlerinin dönüşümlü olması ve toplamda sıfıra eşitlenmesi gerekirdi. Oysa yalnızca mıknatıslara özgü sayılan bir yetenek sergiliyordu: spin akımlarını taşımak, yani bilgiyi elektrik yükü yerine elektron spininin yönelimiyle hareket ettirmek. Yıllarca bu çelişki bir laboratuvar tuhaflığı olarak geçiştirildi.",
+      "Belirleyici ipucu kiraliteydi. Bu sözcük, ayna görüntüsüyle üst üste oturmayan nesneleri anlatır; sarmal bir merdiven ya da bir vidanın dişi gibi: sol el sağ eldivene girmez. Ekibin varsayımı, MnTe'nin manyetik yapısının tam da bu tür bir asimetriyi sakladığı ve bu görünmez burulmanın bir altermıknatısı sıradan bir antiferromıknatıstan ayıran imza olduğuydu.",
+      "Bunu sınamak için numuneyi ESRF'deki ID32 ışık hattına götürüp dairesel polarize X ışınlarıyla bombaladılar. Yöntem zarif: kiral bir malzeme sola ve sağa polarize ışığı farklı saçar, kiral olmayan bir malzeme ise ikisine aynı davranır. Ekip, geleneksel bir antiferromıknatısın hiçbir şey göstermemesi gereken yerde net bir kiral sinyal yakaladı.",
+      "Bu, son dakikada yapılmış bir ölçüm değildi. İlk deney 2024'te tamamlandı ve 2025'in başında aynı sonuçla yinelendi; yazarlara göre sonucun ayakta kalması için bir yılı aşan bu tekrar şart. ESRF'de deneyin tasarımından yürütülmesine kadar sorumlu olan ortak yazar Rachel Nickel, biriken kuramsal modellerin doğrulanma hızını hayret verici bulduğunu söyledi.",
+      "Peki üçüncü sınıfı özel kılan ne? Yanıt kristal kafesin geometrisinde. Bir altermıknatıs da spinleri dönüşümlü tutar ve net manyetizması yoktur; ancak yukarı bakan spinleri çevreleyen kafes, aşağı bakanları çevreleyen kafese göre döndürülmüştür. Bu ince burulma bir simetriyi kırar, elektronların davranışını değiştirir ve iki eski ailenin avantajlarını tek malzemede birleştirmeye izin verir.",
+      "Mühendislik açısından çekicilik tam burada. Ferromıknatıslar dış alanlara karşı kırılgandır: cebinizdeki bir mıknatıs yakındaki bir cihazdaki bitleri ters çevirmeye yeter. Antiferromıknatıslar ise o kadar sessizdir ki okunmaları zordur ve spin akımlarını sürmekte zayıftır. Altermıknatıs, kararlılığı bilgi çıkarmak için gereken spin polarize akımları üretebilme yeteneğiyle birleştirir.",
+      "Uygulama listesi bir sonraki hesaplama kuşağının planı gibi okunuyor: daha gelişmiş bellekler, daha az enerji tüketen veri merkezleri ve yükten çok spine dayanan kuantum teknolojileri. Elektron spininden donanım kurmaya yıllardır uğraşan spintronik alanı, şimdiye dek yalnızca kâğıt üzerinde var olan yeni bir tasarım alanı kazanıyor.",
+      "Yine de coşkuyu biraz frenlemek gerek. Makale bu manyetik davranışın gerçek olduğunu doğruluyor; köşedeki bir çipin hazır olduğunu değil. SLAC bunu açıkça söylüyor: işleyen bir cihaz gösterilmedi ve sıradaki adım, altermanyetik durumları ışıkla ve elektrikle etkilemeyi, denetlemeyi öğrenmek.",
+      "Dikkate değer bir ayrıntı: finansmanın bir bölümü ABD Enerji Bakanlığı Bilim Ofisi'nden geldi, ama belirleyici X ışını ölçümleri Avrupa topraklarında yapıldı. Atlas Okyanusu'nu aşan bir işbirliği, onlarca yıl yanlış sınıflandırılmış bir malzemeyi sonunda ait olduğu kutuya koydu.",
+      "Manyetizmayı bir tablo olarak düşünürsek, doksan yıl boyunca iki satırı vardı. Bugün üçüncü satır büyük bir güvenle eklendi. Çoğu insan için yarın hiçbir şey değişmeyecek; ama bilginin ve enerjinin maddede nasıl aktığını inceleyenler için o fazladan satır, inşa edilecek bambaşka bir alan anlamına geliyor."
+    ]
+  },
+  {
+    "id": "rss-orig-mol-motor-2026-11-tr",
+    "title": "Arşimet'in vidasını tek bir moleküle küçülttüler: elektrik akımıyla dönen bir motor",
+    "summary": "Sarmal biçimli bir organik molekül, kükürt atomlarıyla iki altın elektrot arasına asılıyor. Akım geçtiğinde elektronlar açısal momentumlarını moleküle devrediyor ve onu bir türbin gibi döndürüyor; gerilim ters çevrilince yön de değişiyor. En şaşırtıcısı: dönerken iletkenliği yüz kata kadar artıyor.",
+    "cover": "/original/mol-motor-cover.webp",
+    "images": [
+      "/original/mol-motor-cover.webp",
+      "/original/mol-motor-fig1.webp",
+      "/original/mol-motor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "moleküler motor",
+      "Arşimet vidası",
+      "tek molekül",
+      "nanoelektronik",
+      "helisen",
+      "Nature"
+    ],
+    "category": "tech",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.zmescience.com/science/physics/archimedes-screw-molecular-motor",
+    "author": "starteday Editör",
+    "publishedAt": 1794114159056,
+    "readMinutes": 4,
+    "pinned": 1,
+    "body": [
+      "İki bin yıldan fazla bir süre önce Arşimet, bir spiral çevirerek suyu yukarı taşıyan vida biçiminde bir makine tasarladı. Bugün uluslararası bir ekip aynı ilkeyi fiziksel sınırına taşıdı: motorlarının hareketli parçası tek bir molekül. Su pompalamak yerine elektronlar spiral boyunca ilerliyor ve molekülün kendisini döndürüyor.",
+      "Çalışma 1 Kasım 2026'da Nature dergisinde yayımlandı ve elektrik akımıyla çalışan, iki metal elektroda katı biçimde bağlı, dönüş yönü denetlenebilen ilk moleküler motor olarak sunuldu. Elektrikle çalışan moleküler motorlar 2011'de de yapılmıştı; ama onlar bir yüzeyin üzerinde duruyor ve taramalı tünelleme mikroskobunun ucuyla dürtülmeleri gerekiyordu.",
+      "Sarmal molekülün bir adı var: helisen. Uçlarında kükürt atomları taşıyor ve kükürt altına sıkıca bağlanır; bu da tek bir molekülün, atomik boyutlara kadar bilenmiş iki altın uç arasında minicik bir köprü gibi asılmasını sağlıyor. Kimyasal tasarım Kopenhag Üniversitesi'nde Michael Pittelkow'un yönettiği gruptan çıktı.",
+      "Molekülü yerleştirip hareketini izleyen ekip, İsrail'deki Weizmann Bilim Enstitüsü'nde Oren Tal ve Anil Kumar Singh'in yönetimindeydi. Tek tek molekülleri iki altın uç arasındaki birleşime yerleştirdiler, aralığı değiştirerek düzeneği gerdiler ya da sıkıştırdılar. Düzeneğin tümü, ısıl hareketin sinyali silmemesi için mutlak sıfırın yalnızca 4,2 kelvin üzerine kadar soğutuldu.",
+      "Mekanizma neredeyse sezgisel: elektronlar spiral boyunca akarken açısal momentumlarını moleküle devrediyor ve onu döndüren bir burulma kuvveti uyguluyor; tıpkı bir hava akımının türbini döndürmesi gibi. Molekülün bir yöne mi öbür yöne mi döneceği, helisinin sağ ya da sol elli olmasına bağlı.",
+      "Asıl önemli olan denetim. Belirli bir gerilim eşiğinin üzerinde hareket, kesikli sıçramalardan sürekli dönüşe geçiyor; kutuplar ters çevrilince yön de tersine dönüyor. Başka bir deyişle yön sabit değil, elektrikle ayarlanıyor; tıpkı bir borudaki debinin ayarlanması gibi.",
+      "Ama dikkatleri çeken bulgu başkaydı ve beklenmedik biçimde geldi: molekül dönerken elektriği durduğu hâlden çok daha iyi iletiyor, hem de yüz kata kadar. Dururken belirli konumlara yerleşmeye eğilimli; dönüş onu yük taşımanın en kolay olduğu geometrilerden geçiriyor.",
+      "Augsburg Üniversitesi'nde Fabian Pauly'nin yönettiği bir grup, doktora öğrencileri Léon Martin ve Yuta Ito ile birlikte LiCCA süper bilgisayarında kuantum mekaniksel benzetimler yaparak mekanizmayı netleştirdi. Martin bunu çok canlı anlattı: molekülün dururken kaçındığı konumlar tam da en iyi ileten konumlar ve yalnızca dönüş onları erişilebilir kılıyor.",
+      "Kuramsal çerçeve, Niels Bohr Enstitüsü'nden Per Hedegård ve Huazhong Bilim ve Teknoloji Üniversitesi'nden Jing-Tao Lü ile tamamlandı. Hesap ve deney örtüştü: molekül gerçekten kesikli dönüşten sürekli dönüşe geçiyor ve akım da onunla birlikte fırlıyor.",
+      "Ekip sonucu güçlendiren bir denetim de ekledi: benzer düz bir molekül ne karakteristik döngüsel elektrik sinyalini ne de iletkenlikteki büyük sıçramayı gösterdi. Bu, artışın kaynağının bir yan etki değil, spiralin hareketinin kendisi olduğuna işaret ediyor.",
+      "On yıl önceki yaklaşımla karşılaştırıldığında en büyük fark, bu tasarımın kendi kendine yetmesi. Eski motorları itmek için bir mikroskop ucu gerekiyordu; bu ise canlı bir devrenin içinde asılı duruyor ve elektronlar hem dönüşü sürüyor hem de bilim insanları için okuma sağlıyor. Bir devreye yerleştirilebilecek minik bir eyleyici gibi davranıyor.",
+      "Olasılıklar baştan çıkarıcı: moleküler ölçekte elektronik anahtarlar, elektron spininden yararlanan aygıtlar, hatta sıvıları yönetebilen mikroskobik sistemler. Ve bunun yanında, hareket ile elektrik sinyalinin atomik ölçekte nasıl iç içe geçtiğini görmek için yeni bir pencere.",
+      "Deneyin en zarif burulması kavramsal: elektrik maddeyi hareket ettiriyor, o hareket de elektriği denetliyor. Arşimet, su çıkaran vidasının iki bin yıl sonra iki altın uç arasında, tek bir molekül boyutunda yeniden döneceğini herhâlde hayal etmemişti."
+    ]
+  },
+  {
+    "id": "rss-orig-phage-2026-11-tr",
+    "title": "Virüsleri süper bakterilere karşı ilaca dönüştürmek: ilk uluslararası faj tedavisi kılavuzu yayımlandı",
+    "summary": "Antibiyotik direnci bazı enfeksiyonları tedavi edilemez hâle getiriyor. Almanya'nın enfeksiyon hastalıkları derneğinin öncülüğünde yirmi meslek örgütü ve on sekiz uluslararası uzmandan oluşan bir ekip, Nature Medicine'da kişiye özel faj tedavisi için ilk eşgüdümlü klinik çerçeveyi yayımladı.",
+    "cover": "/original/phage-cover.webp",
+    "images": [
+      "/original/phage-cover.webp",
+      "/original/phage-fig1.webp",
+      "/original/phage-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "faj tedavisi",
+      "bakteriyofajlar",
+      "antibiyotik direnci",
+      "klinik kılavuz",
+      "süper bakteriler",
+      "Nature Medicine"
+    ],
+    "category": "health",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261102202828.htm",
+    "author": "starteday Editör",
+    "publishedAt": 1794114099056,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Virüsleri düşman olarak görmeye alışkınız; oysa bir virüs sınıfı doğası gereği bakterileri avlar. Bunlara bakteriyofaj, kısaca faj deniyor; belirli bir bakteriye tutunup onu patlatabiliyor, insan hücrelerine ise hiç dokunmuyor. Antibiyotikler süper bakteri denilen mikroplara karşı zemin kaybederken bilim, bu kadim düşmanı yeni bir tedavi aracı olarak yeniden silahlandırmaya çalışıyor.",
+      "2026'da Almanya Enfeksiyon Hastalıkları Derneği'nin öncülüğündeki uluslararası bir ekip, kişiye özel faj tedavisi için ilk eşgüdümlü klinik kılavuzu yayımladı. Nature Medicine'da çıkan bu uzlaşı belgesi, uzun süredir deneysel olan tedaviye hastanelere ve polikliniklere girmesi için bir yol haritası veriyor.",
+      "Kılavuzun ağırlığı sözde değil: yirmi meslek örgütünü, düzenleyici kurum temsilcileri dahil on sekiz uluslararası uzmanı ve iki hasta savunuculuğu derneğini bir araya getirdi. Birlikte, fajların nasıl seçileceği, test edileceği, üretileceği, uygulanacağı ve izleneceğinin yanı sıra laboratuvar altyapısı, kalite kontrolü, tedavi belgelenmesi ve araştırma öncelikleri üzerine altmıştan fazla öneri yazdılar.",
+      "Neden şimdi? Çünkü antimikrobiyal direnç, enfeksiyonları dünya çapında inatçı hâle getiriyor. Bazı bakteriler yaygın ilaçlara karşı savunma geliştirdi ve hekimlerin elinde daha az etkili seçenek kalıyor. Fajlar tam da kesinlikleri nedeniyle ilgi çekiyor: geniş spektrumlu antibiyotikler gibi her yeri vurmak yerine genellikle tek bir türe, hatta tek bir suşa saldırıyorlar.",
+      "Ancak bu kesinlik bir bilmece yaratıyor. Bir suşu öldüren faj, bir başkasına hiçbir şey yapmayabilir; bu yüzden tedaviye başlamadan önce uzmanların, aday virüsün o hastanın enfeksiyonuna yol açan suşu gerçekten öldürebildiğini doğrulaması gerekiyor. Bu eşleştirme olabildiğince hızlı yapılmalı, çünkü bir bakterinin duyarlılığı enfeksiyon sırasında değişebiliyor.",
+      "Kılavuz faj tedavisini rutin bakım olarak önermiyor. Her hastanın değerlendirilmesini ve yalnızca koşullar haklı kıldığında başvurulmasını istiyor. Bu dürüstlük önemli: kontrollü çalışmalar henüz gerçek güvenilirliğine dair yeterli kanıt sunmadı. Araştırma topluluğu, doğru üretilip doğru uygulanan fajların güvenli göründüğünde birleşiyor; ama etkililiği kanıtlamak daha büyük çalışmalar gerektiriyor.",
+      "İlk sonuçlar gerçekten umut verici. Yüz kişilik Belçika serisinde hastaların yüzde 77'si klinik olarak iyileşti, yüzde 61'inde testlerde hedef bakteri artık görülmedi. Yazarlar yine de gözlemsel çalışmaların iyileşmenin fajlardan geldiğini kanıtlayamayacağı uyarısını yapıyor.",
+      "Bazı hastaneler bunu gerçekten kullanıyor. Frankfurt Üniversite Tıp Merkezi, Şubat 2026'dan bu yana kılavuza dayalı faj programında on hastanın başarıyla tedavi edildiğini bildiriyor; hedefler arasında yönetilmesi zorluğuyla bilinen Pseudomonas aeruginosa ve Staphylococcus aureus var.",
+      "Uygulama biçimi kişiye özel yanı ortaya koyuyor: enfeksiyona ve hastaya göre fajlar damar yoluyla, soluma yoluyla, burun spreyi olarak ya da steril bir hidrojel içinde verilebiliyor. Bir tedaviyi kâğıttan hasta başına taşıyan şey bu esneklik.",
+      "Sistemi ayakta tutmak bir eşgüdüm ağı gerektiriyor. Kılavuz, Annika Claßen tarafından kurulan ve koordine edilen PhageNET DZIF platformunu bilimsel ve klinik deneyim alışverişinin merkezi olarak öne çıkarıyor. Mikrobiyoloji, klinik tıp, eczacılık, üretim ve düzenlemeyi aynı masaya oturtmak, olanaklarla sınırları aynı anda görmenin tek yolu.",
+      "Destek altyapısı da önemli: vakalar sistematik biçimde belgelenmeli ve kayıtlara geçirilmeli, laboratuvarlar arası test yöntemleri tutarlı olmalı ve yetkinlik düzenli olarak değerlendirilmeli ki sonuçlar güvenilir ve karşılaştırılabilir olsun. Dr. Würstle'ın özetlediği gibi kılavuz, hekimlere, eczacılara ve düzenleyicilere faj tedavisini güvenli ve sorumlu biçimde uygulamaya taşımaları için ortak bir çerçeve sunuyor.",
+      "Belge taşa kazınmış değil. Almanya Tıbbi Bilim Dernekleri Birliği AWMF çatısı altında yapılandırılmış bir uzlaşı süreciyle hazırlandı; 5 Ocak 2026'dan 29 Haziran 2030'a kadar geçerli ve sorumlu komite tarafından her yıl gözden geçiriliyor.",
+      "Yaygın antibiyotiklerin denetleyemediği enfeksiyonlarla sıkışıp kalan pek çok hasta için fajlar belki mucize bir tedavi değil, ama elde bulunması iyi olacak bir seçenek olabilir. Virüsleri yeniden ilaca dönüştürmek, eski bir fikrin modern sürümü, dağınık vakalardan güvenilebilecek bir sisteme doğru yavaş yavaş kuruluyor."
+    ]
+  }
+]

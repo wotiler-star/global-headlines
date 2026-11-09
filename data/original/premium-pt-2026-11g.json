@@ -1,0 +1,130 @@
+[
+  {
+    "id": "rss-orig-altermagnet-2026-11-pt",
+    "title": "Os livros didáticos vão precisar de um capítulo novo: cientistas confirmam um terceiro tipo de magnetismo",
+    "summary": "Durante quase noventa anos, a física reconheceu apenas duas famílias de materiais magnéticos. Com raios X de polarização circular no síncrotron europeu de Grenoble, uma equipe liderada pelo SLAC encontrou no telureto de manganês a peça que faltava — a quiralidade — e transformou o altermagnetismo em fato experimental.",
+    "cover": "/original/altermagnet-cover.webp",
+    "images": [
+      "/original/altermagnet-cover.webp",
+      "/original/altermagnet-fig1.webp",
+      "/original/altermagnet-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "altermagnetismo",
+      "terceiro tipo de magnetismo",
+      "SLAC",
+      "spintrônica",
+      "telureto de manganês",
+      "materiais quânticos"
+    ],
+    "category": "science",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261104012256.htm",
+    "author": "Redação starteday",
+    "publishedAt": 1794114219056,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Existem frases nos livros de física que estão lá há tanto tempo que ninguém mais as questiona. Uma delas diz que os materiais magnéticos se dividem em duas famílias: os ferromagnéticos, cujos spins eletrônicos apontam todos para o mesmo lado e produzem o campo que todo mundo chama de ímã, e os antiferromagnéticos, reconhecidos em 1933, em que spins vizinhos se alternam para cima e para baixo, se anulam e deixam o material aparentemente sem magnetismo. Esse esquema de duas caixas governou a área por quase noventa anos.",
+      "Agora uma equipe liderada pelo Laboratório Nacional de Aceleradores SLAC, do Departamento de Energia dos Estados Unidos, em parceria com a Instalação Europeia de Radiação Síncrotron (ESRF) de Grenoble, publicou o que descreve como uma confirmação experimental robusta de que existe uma terceira classe. O trabalho saiu na Science e batizou o fenômeno de altermagnetismo. Daniel Jost, um dos responsáveis, resume assim: nos últimos anos acumularam-se observações que não cabiam em nenhuma das duas caixas, e finalmente há uma prova que as organiza.",
+      "O material no centro da história é o telureto de manganês, MnTe, composto arquivado por décadas como antiferromagnético. Pelas regras antigas, seus spins deveriam alternar e somar zero. No entanto, ele exibia uma habilidade considerada exclusiva dos ímãs: transportar correntes de spin, ou seja, mover informação usando a orientação do spin do elétron em vez da carga elétrica. Durante anos, essa contradição foi tratada como curiosidade de laboratório.",
+      "A pista decisiva foi a quiralidade, palavra que descreve objetos que não se sobrepõem à própria imagem no espelho, como uma escada em caracol ou a rosca de um parafuso: a mão esquerda não entra na luva da direita. A hipótese da equipe era que a estrutura magnética do MnTe esconde exatamente esse tipo de assimetria, e que esse giro invisível é a assinatura que separa um altermagneto de um antiferromagneto comum.",
+      "Para verificar, levaram a amostra à linha de luz ID32 do ESRF e a bombardearam com raios X de polarização circular. O truque é elegante: um material quiral espalha de forma diferente a luz polarizada à esquerda e à direita, enquanto um material não quiral trata as duas igualmente. A equipe captou um sinal quiral nítido justamente onde um antiferromagneto convencional não deveria mostrar nada.",
+      "Não foi uma medição de última hora. O primeiro experimento foi concluído em 2024 e repetido no início de 2025 com resultados idênticos, algo que os autores consideram essencial para que a conclusão se sustente. Rachel Nickel, coautora responsável por projetar e operar o experimento no ESRF, classificou como impressionante a velocidade com que os modelos teóricos acumulados foram confirmados.",
+      "O que a terceira classe tem de especial? A resposta está na geometria da rede cristalina. Um altermagneto também alterna spins e não tem magnetização líquida, mas a rede que cerca os spins que apontam para cima está girada em relação à que cerca os que apontam para baixo. Esse giro sutil quebra uma simetria, muda o comportamento dos elétrons e permite reunir num único material as vantagens das duas famílias anteriores.",
+      "É aí que entra o interesse da engenharia. Os ferromagnetos são frágeis diante de campos externos: basta um ímã de bolso para inverter bits num aparelho próximo. Os antiferromagnetos são tão silenciosos que se leem mal e empurram pouco as correntes de spin. O altermagneto combina estabilidade com a capacidade de gerar correntes polarizadas em spin, exatamente o que falta para extrair informação.",
+      "A lista de aplicações soa como um plano para a próxima geração de computação: memórias mais avançadas, centros de dados com menor consumo e tecnologias quânticas que dependem do spin em vez da carga. A spintrônica, área que tenta há anos construir hardware com a orientação do spin do elétron, ganha um espaço de projeto que até agora só existia no papel.",
+      "Convém, porém, segurar o entusiasmo. O artigo confirma que esse comportamento magnético é real, não que exista um chip na esquina. O SLAC diz com clareza: nenhum dispositivo prático foi demonstrado, e o próximo passo é aprender a influenciar e controlar os estados altermagnéticos com luz e eletricidade.",
+      "Um detalhe merece atenção: parte do financiamento veio do Escritório de Ciência do Departamento de Energia americano, mas as medições decisivas de raios X ocorreram em solo europeu. Uma colaboração que cruzou o Atlântico acabou devolvendo à caixa correta um material mal classificado há décadas.",
+      "Se imaginarmos o magnetismo como uma tabela, ela teve duas linhas por noventa anos. Hoje uma terceira foi acrescentada com bastante segurança. Para a maioria das pessoas nada muda amanhã, mas para quem estuda como informação e energia fluem dentro da matéria, essa linha extra significa uma paisagem inteira onde começar a construir."
+    ]
+  },
+  {
+    "id": "rss-orig-mol-motor-2026-11-pt",
+    "title": "Reduziram o parafuso de Arquimedes a uma única molécula: um motor que gira com corrente elétrica",
+    "summary": "Uma molécula orgânica em forma de hélice fica suspensa entre dois eletrodos de ouro, presa por átomos de enxofre. Quando a corrente passa, os elétrons entregam seu momento angular e a fazem girar como uma turbina; inverter a tensão inverte o sentido. O mais estranho: ao girar, sua condutividade pode crescer cem vezes.",
+    "cover": "/original/mol-motor-cover.webp",
+    "images": [
+      "/original/mol-motor-cover.webp",
+      "/original/mol-motor-fig1.webp",
+      "/original/mol-motor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "motor molecular",
+      "parafuso de Arquimedes",
+      "molécula única",
+      "nanoeletrônica",
+      "heliceno",
+      "Nature"
+    ],
+    "category": "tech",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.zmescience.com/science/physics/archimedes-screw-molecular-motor",
+    "author": "Redação starteday",
+    "publishedAt": 1794114159056,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Há mais de dois mil anos, Arquimedes imaginou uma máquina em forma de parafuso que sobe água ao girar uma espiral. Uma equipe internacional acaba de levar esse mesmo princípio ao seu limite físico: a peça móvel do motor é uma única molécula. Em vez de bombear água, os elétrons percorrem a espiral e colocam a própria molécula a girar.",
+      "O trabalho foi publicado na Nature em 1º de novembro de 2026 e é apresentado como o primeiro motor molecular movido por corrente elétrica, ligado rigidamente a dois eletrodos metálicos e com sentido de rotação controlável. Motores moleculares elétricos já existiam desde 2011, mas ficavam apoiados sobre uma superfície e precisavam ser empurrados pela ponta de um microscópio de varredura por tunelamento.",
+      "A molécula em espiral tem nome: heliceno. Suas extremidades carregam átomos de enxofre, e o enxofre se liga com força ao ouro, o que permite suspender uma única molécula como uma ponte minúscula entre duas pontas de ouro afinadas até dimensões atômicas. O desenho químico saiu do grupo liderado por Michael Pittelkow, na Universidade de Copenhague.",
+      "Quem montou a molécula e a viu se mover foi a equipe de Oren Tal e Anil Kumar Singh, no Instituto Weizmann de Ciências, em Israel. Eles colocaram moléculas individuais entre duas pontas de ouro e esticaram ou comprimiram a junção alterando a separação. Todo o conjunto foi resfriado a 4,2 kelvins, apenas quatro graus acima do zero absoluto, para que a agitação térmica não apagasse o sinal.",
+      "O mecanismo é quase intuitivo: ao circular pela espiral, os elétrons cedem seu momento angular à molécula e exercem um torque que a faz girar, como uma corrente de ar faz girar uma turbina. O sentido depende de a hélice ser destrógira ou levógira.",
+      "O importante é o controle. Acima de certo limiar de tensão, o movimento passa de saltos discretos para rotação contínua; invertendo a polaridade, inverte-se o sentido. Em outras palavras, a direção não é fixa: ela é ajustada pela eletricidade, como se regula a vazão de um cano.",
+      "Mas a descoberta que chamou a atenção veio de surpresa: enquanto gira, a molécula conduz eletricidade muito melhor do que em repouso, até cem vezes mais. Parada, ela tende a se acomodar em certas configurações; a rotação a arrasta pelas geometrias em que o transporte de carga é mais fácil.",
+      "Um grupo da Universidade de Augsburgo liderado por Fabian Pauly, com os doutorandos Léon Martin e Yuta Ito, rodou simulações de mecânica quântica no supercomputador LiCCA para precisar o mecanismo. Martin explicou de forma bem direta: são justamente as posições que a molécula evita quando está parada que conduzem melhor, e só a rotação as torna acessíveis.",
+      "O quadro teórico foi completado por Per Hedegård, do Instituto Niels Bohr, e Jing-Tao Lü, da Universidade Huazhong de Ciência e Tecnologia. Cálculo e experimento concordaram: a molécula passa mesmo da rotação em saltos para a contínua, e a corrente dispara junto.",
+      "A equipe acrescentou um controle que reforça a conclusão: uma molécula reta comparável não mostrou nem o sinal elétrico cíclico característico nem o salto de condutividade. Isso aponta o movimento da espiral, e não algum efeito secundário, como origem do aumento.",
+      "Comparado à abordagem de uma década atrás, a diferença maior é que este projeto se basta. Os motores antigos precisavam da ponta de um microscópio para empurrá-los; este fica pendurado dentro de um circuito vivo, onde os elétrons ao mesmo tempo impulsionam o giro e servem de leitura para os cientistas. Comporta-se mais como um atuador minúsculo que poderia entrar num circuito.",
+      "As perspectivas soam sedutoras: interruptores eletrônicos em escala molecular, dispositivos que aproveitem o spin do elétron, até sistemas microscópicos capazes de manipular fluidos. E, de quebra, uma janela nova para observar como movimento e sinal elétrico se entrelaçam no mundo atômico.",
+      "A reviravolta mais elegante do experimento é conceitual: a eletricidade faz a matéria se mover, e esse movimento, por sua vez, controla a eletricidade. Arquimedes provavelmente nunca imaginou que seu parafuso de subir água voltaria a girar dois milênios depois entre duas pontas de ouro, do tamanho de uma única molécula."
+    ]
+  },
+  {
+    "id": "rss-orig-phage-2026-11-pt",
+    "title": "Transformar vírus em remédio contra superbactérias: saem as primeiras diretrizes internacionais de fagoterapia",
+    "summary": "A resistência aos antibióticos torna algumas infecções intratáveis. Uma equipe liderada pela sociedade alemã de doenças infecciosas, com vinte organizações profissionais e dezoito especialistas internacionais, publicou na Nature Medicine o primeiro quadro clínico coordenado para a fagoterapia personalizada.",
+    "cover": "/original/phage-cover.webp",
+    "images": [
+      "/original/phage-cover.webp",
+      "/original/phage-fig1.webp",
+      "/original/phage-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "fagoterapia",
+      "bacteriófagos",
+      "resistência aos antibióticos",
+      "diretrizes clínicas",
+      "superbactérias",
+      "Nature Medicine"
+    ],
+    "category": "health",
+    "locale": "pt",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261102202828.htm",
+    "author": "Redação starteday",
+    "publishedAt": 1794114099056,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Estamos acostumados a pensar nos vírus como inimigos, mas existe uma classe de vírus que caça bactérias por natureza. São os bacteriófagos, ou fagos, capazes de se prender a uma bactéria específica e estourá-la sem tocar nas células humanas. À medida que os antibióticos perdem terreno diante das chamadas superbactérias, a ciência tenta rearmar esse inimigo antigo como ferramenta terapêutica.",
+      "Em 2026, uma equipe internacional liderada pela Sociedade Alemã de Doenças Infecciosas publicou as primeiras diretrizes clínicas coordenadas para a fagoterapia personalizada. O documento de consenso, saído na Nature Medicine, entrega a esse tratamento há muito experimental um roteiro para entrar em hospitais e consultórios.",
+      "O peso da diretriz não é retórico: reuniu vinte organizações profissionais, dezoito especialistas internacionais — incluindo representantes de agências reguladoras — e duas associações de pacientes. Juntos escreveram mais de sessenta recomendações sobre como selecionar, testar, fabricar, administrar e monitorar os fagos, além de infraestrutura de laboratório, controle de qualidade, documentação do tratamento e prioridades de pesquisa.",
+      "Por que agora? Porque a resistência antimicrobiana está tornando as infecções teimosas no mundo inteiro. Algumas bactérias construíram defesas contra os medicamentos comuns e os médicos ficam com menos opções eficazes. Os fagos interessam justamente pela precisão: costumam atacar uma espécie, às vezes uma linhagem específica, em vez de arrasar tudo como fazem os antibióticos de amplo espectro.",
+      "Essa precisão, porém, cria um quebra-cabeça. Um fago que mata uma linhagem pode não fazer nada contra outra, então antes de começar o tratamento os especialistas precisam confirmar que o vírus candidato é capaz de matar a linhagem responsável pela infecção daquele paciente. Esse pareamento deve ser feito o mais rápido possível, porque a sensibilidade de uma bactéria pode mudar ao longo da infecção.",
+      "As diretrizes não propõem a fagoterapia como cuidado de rotina. Pedem avaliar cada paciente e recorrer a ela apenas quando as circunstâncias justificarem. Essa honestidade importa: os ensaios controlados ainda não trouxeram evidência suficiente sobre sua confiabilidade real. A comunidade científica concorda que fagos bem fabricados e bem administrados parecem seguros, mas provar eficácia exige estudos maiores.",
+      "Os resultados iniciais são genuinamente animadores. Numa série belga de cem pessoas, 77% melhoraram clinicamente e 61% deixaram de apresentar a bactéria-alvo nos testes. Os autores alertam, contudo, que estudos observacionais não conseguem provar que a melhora veio dos fagos.",
+      "Alguns hospitais já usam de verdade. O Centro Médico Universitário de Frankfurt relata que, desde fevereiro de 2026, dez pacientes foram tratados com sucesso em seu programa de fagos baseado nas diretrizes, voltado a patógenos como Pseudomonas aeruginosa e Staphylococcus aureus, ambos notoriamente difíceis de controlar.",
+      "A administração revela o lado personalizado: conforme a infecção e o paciente, os fagos podem ser dados por via intravenosa, por inalação, como spray nasal ou num hidrogel estéril. Essa flexibilidade é o que permite a uma terapia sair do papel e chegar ao leito.",
+      "Sustentar o sistema exige uma rede de coordenação. A diretriz destaca a PhageNET DZIF, plataforma criada e coordenada por Annika Claßen, como centro de troca de experiência científica e clínica. Sentar à mesma mesa microbiologia, medicina clínica, farmácia, fabricação e regulação é a única maneira de ver ao mesmo tempo as possibilidades e os limites.",
+      "A infraestrutura de apoio também conta: os casos precisam ser documentados de forma sistemática e registrados, os métodos de teste entre laboratórios devem ser coerentes e a competência técnica deve ser avaliada periodicamente para que os resultados sejam confiáveis e comparáveis. Como resumiu o doutor Würstle, as diretrizes dão a médicos, farmacêuticos e reguladores um marco comum para levar a fagoterapia à prática de modo seguro e responsável.",
+      "O texto não está gravado em pedra. Elaborado sob a AWMF, a associação das sociedades científicas médicas alemãs, por um processo de consenso estruturado, vale de 5 de janeiro de 2026 a 29 de junho de 2030, com revisão anual pelo comitê responsável.",
+      "Para os muitos pacientes presos em infecções que os antibióticos comuns não controlam, os fagos talvez não sejam cura milagrosa, mas podem ser mais uma opção a ter. Transformar vírus em remédio, a versão moderna de uma ideia antiga, vai sendo montada aos poucos: de casos dispersos a um sistema em que se possa confiar."
+    ]
+  }
+]

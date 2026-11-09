@@ -1,0 +1,131 @@
+[
+  {
+    "id": "rss-orig-solar-flare-field-2026-11-es",
+    "title": "Por fin se pudo medir: el campo magnético del Sol se debilita durante una erupción",
+    "summary": "Qué ocurre con el campo magnético de la atmósfera baja solar durante una fulguración era un punto ciego. Un telescopio construido en torno a una sola línea del infrarrojo medio esquivó el fallo del diagnóstico clásico y registró un descenso claro en una erupción X1.5.",
+    "cover": "/original/solar-flare-field-cover.webp",
+    "images": [
+      "/original/solar-flare-field-cover.webp",
+      "/original/solar-flare-field-fig1.webp",
+      "/original/solar-flare-field-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "fulguración solar",
+      "campo magnético",
+      "infrarrojo medio",
+      "desdoblamiento Zeeman",
+      "meteorología espacial",
+      "espectroscopía"
+    ],
+    "category": "science",
+    "locale": "es",
+    "source": "starteday Original",
+    "sourceUrl": "https://paper.sciencenet.cn/htmlpaper/2026/11/2026118134052958157753.shtm",
+    "author": "Redacción starteday",
+    "publishedAt": 1794188962261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Una fulguración solar es la liberación de energía más violenta que se produce en la atmósfera del Sol. En apenas unos minutos se aceleran partículas y la radiación se dispara desde los rayos X duros hasta las microondas, con efectos que llegan al entorno cercano a la Tierra. Sin embargo, el campo magnético que provoca todo ese estallido guardaba su secreto mejor custodiado: nadie sabía qué hacía, justo en esos minutos, en las capas bajas de la atmósfera.",
+      "No era falta de interés. El método habitual lee la señal de polarización del espectro solar y después invierte un modelo de transferencia radiativa para deducir la intensidad del campo. El problema es que la propia fulguración deforma el perfil de las líneas que se pretenden medir, de modo que los supuestos del modelo se desmoronan y la inversión pierde precisión o directamente falla.",
+      "Hay además un obstáculo muy terrenal. La erupción evoluciona con rapidez, así que las exposiciones tienen que ser brevísimas; con exposiciones tan cortas la señal se debilita y la relación señal-ruido y la precisión caen a la vez. El intervalo más interesante era precisamente el más difícil de resolver, un hueco que la física solar arrastraba desde hacía décadas.",
+      "El trabajo nuevo toma otro camino. En lugar de desenredar polarización y modelo, mide directamente la distancia a la que el campo separa los componentes de una línea espectral, el desdoblamiento Zeeman. Cuanto más intenso es el campo, más se apartan esos componentes, y esa separación es una magnitud medible sin necesidad de suponer de antemano cómo es la atmósfera.",
+      "La clave está en elegir bien la línea. El desdoblamiento crece con el cuadrado de la longitud de onda, de modo que al desplazarse a longitudes mayores una separación mínima se amplifica. El equipo eligió una línea de magnesio en el infrarrojo medio, cerca de 12,32 micrómetros, y elevó una distancia antes perdida en el ruido hasta una escala medible: la precisión pasó del orden de cien gauss a menos de diez, una mejora de un orden de magnitud.",
+      "Para conservar a la vez alta resolución espectral y capacidad de imagen se empleó un espectrógrafo infrarrojo de transformada de Fourier, instalado en una meseta seca a unos cuatro mil metros de altitud, lejos del vapor de agua que absorbe esta radiación. Esos detalles de ingeniería, tan poco lucidos, deciden si unos pocos minutos de datos son un descubrimiento o solo ruido.",
+      "El resultado llegó con una fulguración de clase X1.5: durante la fase impulsiva, la intensidad del campo bajo las cintas de la erupción disminuyó de forma apreciable. El equipo no se conformó con haberlo visto. Simuló la evolución espectral completa con un modelo atmosférico dinámico, y solo cuando simulación y observación coincidieron dio por cerrada la conclusión.",
+      "¿Por qué merece un artículo que algo se debilite? Porque una fulguración es, en esencia, liberación de energía magnética. Si el campo decae de verdad en el instante más violento, entonces se ha observado por primera vez el rastro de la energía al ser retirada de su reserva. La pregunta sobre adónde va esa energía deja de ser una inferencia teórica y se convierte en una cantidad que puede seguirse minuto a minuto.",
+      "De ahí salen restricciones nuevas para varias discusiones antiguas: por qué la cromosfera y la corona están mucho más calientes que la fotosfera, cómo se acumula la energía magnética antes de liberarse de golpe, y si existe una realimentación dinámica entre la corona y las capas bajas. Argumentos que antes se dirimían con modelos autoconsistentes tienen ahora un límite observacional que deben satisfacer.",
+      "La extensión más tangible para la vida cotidiana es la predicción del clima espacial. Las fulguraciones intensas perturban la ionosfera, afectan a las comunicaciones de onda corta y a la precisión del posicionamiento, y añaden riesgo a los equipos en órbita. Lo difícil nunca fue averiguar si habrá erupción, sino cuán fuerte será y cómo evolucionará; diagnosticar cuantitativamente el campo aporta una entrada que faltaba.",
+      "Conviene mantener la cautela. Es una sola erupción medida en una sola línea, muy lejos de una conclusión estadística. El mecanismo del debilitamiento, su repetición en fulguraciones de otras clases y el reparto de la energía liberada exigen más eventos y reproducción independiente. Que un revisor describiera la observación como algo inédito es un elogio y, a la vez, un recordatorio de que esto es un punto de partida.",
+      "Quizá lo más duradero sea el giro metodológico. Cuando un campo lleva décadas bloqueado por un límite de medida, la solución no siempre es construir un instrumento más grande; a veces basta cambiar de longitud de onda y de magnitud observable para rodear el problema. Con esta ventana al infrarrojo medio, las preguntas que se podían formular pero no medir vuelven a ponerse en cola.",
+      "Entre «el campo cambió» y «cómo cambió, cuánto y adónde fue la energía» media toda una capacidad de medición. Aquí se ha dado apenas el primer paso, pero unos minutos de caos han quedado por fin escritos como una curva con escalas."
+    ]
+  },
+  {
+    "id": "rss-orig-gut-nad-precursor-2026-11-es",
+    "title": "Antes de comprar NAD+, conviene preguntar qué fabrican las bacterias del intestino",
+    "summary": "Una molécula secretada por bacterias comensales es captada por las células intestinales, se convierte en NAD+ y empuja la reparación del epitelio, además por una vía que no usan los precursores habituales. El hallazgo cambia la pregunta: quizá importe menos lo que tragamos que lo que se produce dentro.",
+    "cover": "/original/gut-nad-precursor-cover.webp",
+    "images": [
+      "/original/gut-nad-precursor-cover.webp",
+      "/original/gut-nad-precursor-fig1.webp",
+      "/original/gut-nad-precursor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "NAD+",
+      "microbiota intestinal",
+      "células madre intestinales",
+      "SIRT1",
+      "reparación epitelial",
+      "cometabolismo"
+    ],
+    "category": "health",
+    "locale": "es",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.ebiotrade.com/newsf/2026-11/20261108082228952.htm",
+    "author": "Redacción starteday",
+    "publishedAt": 1794188902261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "El NAD+ es una de las coenzimas más ocupadas de la célula. Interviene en el metabolismo energético, en la reparación del daño del ADN y en la actividad de las desacetilasas. Como su nivel desciende con la edad y con la inflamación crónica, devolver el NAD+ se ha convertido en uno de los relatos de salud más insistentes de los últimos años, con ácido nicotínico, nicotinamida, NR y NMN turnándose en los estantes.",
+      "Ese relato descansa sobre un supuesto: que el huésped procesa el precursor por su cuenta. Los manuales describen tres grandes vías para mantener el pool de NAD+: la síntesis de novo, la ruta de Preiss-Handler y la vía de rescate cuya enzima limitante es NAMPT. Casi todos los precursores comerciales acaban haciendo cola en esa última puerta.",
+      "El estudio nuevo formuló una pregunta que rara vez se plantea de frente: ¿podrían los microbios que viven en el intestino estar suministrando también precursores de NAD+ al huésped? La respuesta es sí, y la molécula resultante era una cuya identidad se había leído mal: N-metilnicotinamida con el metilo sobre el nitrógeno amídico, a la que los autores llaman N-MNA.",
+      "Hay un detalle químico fácil de pasar por alto. La N-MNA es un isómero estructural de la conocida N1-MNA: se diferencian solo en la posición del grupo metilo, y durante años se la había despachado como un producto de degradación de la nicotinamida. La cromatografía líquida acoplada a espectrometría de masas separó ambas y reveló que varias especies comensales secretan en cantidad ese supuesto desecho.",
+      "Quienes la producen no son actores marginales. En la lista aparecen bacterias comensales bien estudiadas; los experimentos de colonización en animales libres de gérmenes confirmaron que se genera dentro del intestino, y al reducir la microbiota con antibióticos la N-MNA fecal cayó en picado. La cadena de origen queda cerrada: no llega con la comida, la fabrican las bacterias.",
+      "La comparación clínica resulta aún más sugerente. En muestras de personas con enfermedad inflamatoria intestinal, la N-MNA aparecía claramente baja, y los valores bajos acompañaban a la elevación de calprotectina y a la pérdida de diversidad microbiana. Es una correlación, desde luego, pero invita a una hipótesis natural: ¿podría la reparación epitelial lenta deberse en parte a la escasez de esta línea de suministro?",
+      "Para demostrar que la molécula no se limita a pasar de largo se recurrió al marcaje con isótopos estables. La N-MNA marcada fue captada con rapidez por moscas de la fruta, ratones y células epiteliales intestinales humanas, y entró en el ciclo redox del NAD+. También la aprovecharon células no epiteliales, lo que apunta a un precursor de uso amplio y no a una curiosidad local.",
+      "Lo que hizo incorporarse a los especialistas en metabolismo fue la asignación de la ruta. Tanto el bloqueo genético como el farmacológico señalaron lo mismo: la N-MNA circula por Preiss-Handler y no depende de la vía de rescate de NAMPT. Esquiva por tanto el cuello de botella donde se agolpan los suplementos y que suele estrecharse con la edad, y repone el pool por una puerta lateral.",
+      "Las pruebas funcionales encajan. Activado el eje NAD+–SIRT1, proliferaron más las células madre intestinales, los organoides crecieron mayores y aumentaron las células marcadas con Lgr5. En un modelo de colitis, el suplemento produjo una reparación epitelial observable y un beneficio en supervivencia. Molécula, célula y tejido quedaron enlazados paso a paso.",
+      "La molécula tiene además una segunda identidad: cede un grupo metilo a las células del huésped. Aportar a la vez NAD+ y metilo significa pisar dos líneas, el metabolismo energético y la regulación epigenética. Llamarla mediadora de regeneración del cometabolismo entre microbios y huésped resulta más exacto que llamarla un precursor más.",
+      "La advertencia más útil para el lector general es resistirse a convertir esto en una lista de la compra. El artículo presenta mecanismos y modelos animales; la dosis eficaz en humanos, la seguridad a largo plazo y la posibilidad de elevar de forma estable la N-MNA intestinal con dieta o probióticos siguen abiertas. Traducir un paper de mecanística en una recomendación de producto se salta más de un ensayo clínico.",
+      "Pero sí cambia la forma de preguntar. Tendemos a imaginar el metabolismo como una fábrica que el huésped gestiona en solitario, con materia prima traída de fuera. Este trabajo recuerda que al lado viven colaboradores que aportan sustrato, editan moléculas y a veces deciden si una ruta está bien alimentada. Antes de preguntar qué añadir, merece la pena preguntar quién lo está fabricando por nosotros.",
+      "Las cuestiones que quedan ya están nítidas: qué patrones dietéticos sostienen a los productores de N-MNA, cuánto de la relación entre disbiosis y reparación lenta pasa por esta vía, y si la molécula puede convertirse en un marcador medible de salud. Lo respondido es solo el comienzo; el valor está en lo que sigue sin respuesta."
+    ]
+  },
+  {
+    "id": "rss-orig-long-livephoto-2026-11-es",
+    "title": "Duplicar una Live Photo de 3 a 6 segundos es la mejora más honesta de este lanzamiento",
+    "summary": "Una serie de gama media ha doblado la duración de sus fotos vivas, ha extendido el teleobjetivo periscópico a toda la gama y ha añadido gestos mínimos como conectarse al wifi fotografiando el cartel. Ningún número deslumbra, pero juntos muestran hacia dónde se ha movido de verdad la competencia.",
+    "cover": "/original/long-livephoto-cover.webp",
+    "images": [
+      "/original/long-livephoto-cover.webp",
+      "/original/long-livephoto-fig1.webp",
+      "/original/long-livephoto-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Live Photo",
+      "teleobjetivo periscópico",
+      "fotografía móvil",
+      "diseño de interacción",
+      "gama media",
+      "electrónica de consumo"
+    ],
+    "category": "tech",
+    "locale": "es",
+    "source": "starteday Original",
+    "sourceUrl": "https://news.qq.com/rain/a/20261108A0BQ2Z00",
+    "author": "Redacción starteday",
+    "publishedAt": 1794188842261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "La nueva serie de gama media presentada el 9 de noviembre concentró casi todo su esfuerzo de promoción en la cámara. El reclamo es una Live Photo 4K en todas las distancias focales cuya captura pasa de unos 3 segundos a 6, acompañada de un teleobjetivo periscópico en todos los modelos. Ninguna de las dos cifras asombra; puestas juntas, en cambio, dicen mucho del momento.",
+      "Empecemos por el tiempo. Una foto fija compite en el instante en que se pulsa el disparador; una foto viva compite en el fragmento de tiempo que lo rodea. Lo que guarda no es una imagen, sino lo que está a punto de ocurrir y lo que acaba de ocurrir: soplar las velas, levantar la copa, el salto de una mascota. El fotograma que uno quería suele estar medio segundo antes del reflejo.",
+      "Pasar de 3 a 6 segundos no es solo agrandar el búfer. El sensor debe entregar datos de forma continua a más caudal, la estabilización tiene que sostenerse durante un intervalo más largo, la codificación y la escritura han de terminar sin calentamiento ni pérdida de fotogramas, y la galería debe ayudar a elegir un fotograma útil dentro de un clip más extenso. Si cualquier eslabón flojea, la función pasa a ser de esas que están disponibles pero nadie usa.",
+      "Más sutil aún es lo de «todas las distancias focales». Las fotos vivas solían quedar confinadas a la cámara principal y volvían a ser estáticas en cuanto se cambiaba al teleobjetivo. Sostener una captura larga también en telefoto exige alinear exposición, balance de blancos y sincronización entre varias cámaras: lo que se pone a prueba es la coherencia del sistema de imagen, no el brillo de una lente.",
+      "Hablemos ahora del periscopio que baja de categoría. La óptica plegada que desvía la luz con un prisma fue durante años una de las piezas más caras, más voluminosas y más rentables en marketing de un buque insignia. Que aparezca como equipamiento de serie en una gama media suele significar dos cosas: los módulos y los algoritmos ya escalan lo bastante para caber en la hoja de costes, y se acaba la época en que un solo teleobjetivo marcaba la diferencia.",
+      "Para quien compra es una buena noticia, aunque elegir se vuelve más difícil. Cuando el teleobjetivo deja de ser frontera, la experiencia la separan detalles que nunca aparecen en la ficha: si en poca luz la telefoto vuelve sigilosamente a un recorte de la cámara principal, si el clip exportado sobrevive a las redes sociales como algo más que un bucle borroso, cuánto almacenamiento consumen seis segundos o cuánto aguanta el cuerpo tras una ráfaga.",
+      "En la preventa había además una función más pequeña: fotografía el cartel del wifi de una cafetería y la conexión se completa, suprimiendo el ritual de copiar una contraseña larga y verificarla carácter por carácter. Una tecla dedicada reduce la contabilidad a un paso, leyendo importe, fecha y categoría de un recibo y sincronizándolos. Ninguna presume de modelos generativos; ambas comprimen una gestión engorrosa de siete pasos a uno.",
+      "Conviene detenerse en ellas porque representan otro criterio de producto. La expresión más ruidosa de los últimos dos años fue meter modelos grandes en el dispositivo, y sin embargo lo que se usa una y otra vez suele ser lo que no exige despertar al asistente, formular una frase ni esperar una generación: apuntar, pulsar, listo. La medida de la inteligencia se desplaza de cuán compleja es la tarea a cuántos gestos desaparecen.",
+      "El acabado y el calendario también informan. Tres colores de inspiración repostera se presentaron abiertamente en clave de vestuario, el lanzamiento se colocó justo antes de una gran campaña comercial y un reloj y una tableta abrieron reservas a la vez. Un móvil de gama media ya no es la versión barata de un insignia: compite por el gusto, por el momento de renovación y por ser la puerta de entrada a un conjunto de dispositivos que se llevan encima. La ficha técnica es solo la entrada.",
+      "La lista de configuraciones deja ver también renuncias. Una variante apuesta por una pantalla plana compacta con una batería por encima de los siete mil miliamperios hora y otra por un panel mayor y una plataforma distinta. Dentro de una misma serie se empieza a separar por tacto y por autonomía, y no por una escalera simple de modelo estándar frente a Pro, lo cual se parece más al desacuerdo real sobre cómo se usa un teléfono.",
+      "Cabe una salvedad: entre la preventa y el producto de tienda siempre hay distancia. Las especificaciones del teleobjetivo, la duración real y la forma concreta de las funciones de IA deben confirmarse en la presentación y en las unidades de análisis; además, las ventanas de reserva están diseñadas para fabricar urgencia. Más allá de la ficha, vale la pena esperar las primeras mediciones de telefoto con poca luz, exportación de clips y autonomía.",
+      "Si tuviera que elegir una sola mejora que represente a la industria actual, escogería esos tres segundos añadidos. No inventa una necesidad nueva; se limita a admitir que lo que alguien quiere conservar al pulsar el disparador nunca fue un instante, sino un trozo de vida que todavía no ha terminado. La tecnología ha empezado, por fin, a diseñarse alrededor de ese hecho.",
+      "El giro que va de competir por quién tiene más megapíxeles a competir por quitar una duda en cada foto es silencioso y más honesto. No promete cambiar el mundo; promete que un gesto repetido decenas de veces al día sea un poco más corto y un poco más fiable. Y casi toda la tecnología que la gente conserva empieza exactamente ahí."
+    ]
+  }
+]

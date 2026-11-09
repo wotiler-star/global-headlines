@@ -1,0 +1,130 @@
+[
+  {
+    "id": "rss-orig-altermagnet-2026-11-fr",
+    "title": "Les manuels scolaires vont devoir ajouter un chapitre : des scientifiques confirment un troisième type de magnétisme",
+    "summary": "Pendant près de quatre-vingt-dix ans, la physique n'a reconnu que deux familles d'aimants. Grâce à des rayons X à polarisation circulaire au synchrotron européen de Grenoble, une équipe pilotée par le SLAC a trouvé dans le tellurure de manganèse la pièce manquante — la chiralité — et fait de l'altér magnétisme une réalité expérimentale.",
+    "cover": "/original/altermagnet-cover.webp",
+    "images": [
+      "/original/altermagnet-cover.webp",
+      "/original/altermagnet-fig1.webp",
+      "/original/altermagnet-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "altér magnétisme",
+      "troisième type de magnétisme",
+      "SLAC",
+      "spintronique",
+      "tellurure de manganèse",
+      "matériaux quantiques"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261104012256.htm",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794114219056,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Il y a dans les manuels de physique des phrases si anciennes que plus personne ne les discute. L'une d'elles affirme que les matériaux magnétiques se rangent en deux familles : les ferromagnétiques, dont les spins électroniques pointent tous dans la même direction et produisent le champ que tout le monde appelle un aimant, et les antiferromagnétiques, admis en 1933, où les spins voisins alternent vers le haut et vers le bas, s'annulent et laissent le matériau apparemment sans magnétisme. Ce classement en deux cases a tenu près de quatre-vingt-dix ans.",
+      "Aujourd'hui, une équipe dirigée par le Laboratoire national d'accélérateurs SLAC, rattaché au département de l'Énergie des États-Unis, associée au Synchrotron européen de Grenoble (ESRF), publie ce qu'elle présente comme une confirmation expérimentale solide d'une troisième catégorie. Le travail paraît dans Science et baptise le phénomène « altér magnétisme ». Daniel Jost, l'un des responsables, résume la situation simplement : ces dernières années, les observations qui n'entraient dans aucune des deux cases se sont accumulées, et voilà enfin une preuve qui les remet en ordre.",
+      "Le matériau au cœur de l'histoire est le tellurure de manganèse, MnTe, composé rangé pendant des décennies dans le tiroir des antiferromagnétiques. Selon les règles anciennes, ses spins devaient alterner et s'annuler. Or il manifestait une aptitude considérée comme réservée aux aimants : transporter des courants de spin, c'est-à-dire déplacer de l'information par l'orientation du spin électronique plutôt que par la charge électrique. Pendant des années, cette contradiction est restée une curiosité de laboratoire.",
+      "L'indice décisif porte un nom : la chiralité. Le mot décrit les objets qui ne se superposent pas à leur image dans un miroir, comme un escalier en colimaçon ou le filetage d'une vis — la main gauche n'entre pas dans le gant droit. L'hypothèse de l'équipe était que la structure magnétique du MnTe dissimule exactement ce type d'asymétrie, et que cette torsion invisible constitue la signature qui distingue un altér aimant d'un antiferromagnétique ordinaire.",
+      "Pour le vérifier, les chercheurs ont amené l'échantillon sur la ligne de lumière ID32 de l'ESRF et l'ont bombardé de rayons X à polarisation circulaire. L'astuce est élégante : un matériau chiral diffuse différemment la lumière polarisée à gauche et à droite, alors qu'un matériau non chiral les traite de la même façon. L'équipe a capté un signal chiral net, précisément là où un antiferromagnétique conventionnel ne devrait rien montrer.",
+      "Il ne s'agit pas d'une mesure de dernière minute. La première expérience a été menée en 2024, puis répétée début 2025 avec des résultats identiques — un détail que les auteurs jugent essentiel pour que la conclusion tienne. Rachel Nickel, coautrice chargée de concevoir et d'exploiter l'expérience à l'ESRF, a qualifié de stupéfiante la vitesse à laquelle les modèles théoriques accumulés ont été confirmés.",
+      "Qu'a donc de particulier cette troisième famille ? La réponse tient à la géométrie du réseau cristallin. Un altér aimant alterne lui aussi les spins et n'a pas d'aimantation nette, mais le réseau qui entoure les spins « vers le haut » est pivoté par rapport à celui qui entoure les spins « vers le bas ». Cette rotation infime brise une symétrie, modifie le comportement des électrons et permet de réunir dans un même matériau les avantages des deux familles précédentes.",
+      "C'est là tout l'intérêt pour l'ingénierie. Les ferromagnétiques sont fragiles face aux champs extérieurs : un aimant de poche suffit à retourner des bits dans un appareil voisin. Les antiferromagnétiques sont si discrets qu'ils se lisent mal et poussent peu les courants de spin. L'altér aimant combine la stabilité et la capacité à produire des courants polarisés en spin, exactement ce qu'il faut pour extraire de l'information.",
+      "La liste des applications ressemble à un plan pour la prochaine génération d'informatique : mémoires plus performantes, centres de données moins gourmands, technologies quantiques appuyées sur le spin plutôt que sur la charge. La spintronique, ce domaine qui cherche depuis des années à construire du matériel avec l'orientation du spin électronique, gagne un espace de conception qui n'existait jusqu'ici que sur le papier.",
+      "Il faut néanmoins tempérer l'enthousiasme. L'article confirme que ce comportement magnétique est réel, pas qu'une puce soit disponible à court terme. Le SLAC le dit clairement : aucun dispositif pratique n'a été démontré, et la prochaine étape consiste à apprendre à influencer et contrôler les états altér magnétiques par la lumière et l'électricité.",
+      "Un détail mérite l'attention : une partie du financement provient du bureau des sciences du département de l'Énergie américain, mais les mesures décisives aux rayons X ont eu lieu sur le sol européen. Une collaboration transatlantique a finalement remis à sa bonne case un matériau mal classé depuis des décennies.",
+      "Si l'on se représente le magnétisme comme un tableau, il comptait deux lignes pendant quatre-vingt-dix ans. Aujourd'hui, une troisième a été ajoutée avec une belle assurance. Pour la plupart des gens, rien ne changera demain ; mais pour celles et ceux qui étudient la façon dont l'information et l'énergie circulent dans la matière, cette ligne supplémentaire ouvre tout un paysage à construire."
+    ]
+  },
+  {
+    "id": "rss-orig-mol-motor-2026-11-fr",
+    "title": "Ils ont réduit la vis d'Archimède à une seule molécule : un moteur qui tourne grâce au courant électrique",
+    "summary": "Une molécule organique en forme d'hélice est suspendue entre deux électrodes d'or par des atomes de soufre. Quand le courant passe, les électrons lui cèdent leur moment angulaire et la font tourner comme une turbine ; inverser la tension inverse le sens. Le plus étrange : en tournant, sa conductivité peut être multipliée par cent.",
+    "cover": "/original/mol-motor-cover.webp",
+    "images": [
+      "/original/mol-motor-cover.webp",
+      "/original/mol-motor-fig1.webp",
+      "/original/mol-motor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "moteur moléculaire",
+      "vis d'Archimède",
+      "molécule unique",
+      "nanoélectronique",
+      "helicène",
+      "Nature"
+    ],
+    "category": "tech",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.zmescience.com/science/physics/archimedes-screw-molecular-motor",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794114159056,
+    "readMinutes": 5,
+    "pinned": 1,
+    "body": [
+      "Il y a plus de deux mille ans, Archimède imaginait une machine en forme de vis qui fait monter l'eau en faisant tourner une spirale. Une équipe internationale vient de pousser ce principe jusqu'à sa limite physique : la pièce mobile de son moteur est une seule molécule. Au lieu de pomper de l'eau, les électrons parcourent la spirale et mettent la molécule elle-même en rotation.",
+      "Le travail a été publié dans Nature le 1er novembre 2026 et se présente comme le premier moteur moléculaire entraîné par un courant électrique, relié rigidement à deux électrodes métalliques et tournant dans un sens contrôlable. Des moteurs moléculaires électriques existaient déjà en 2011, mais ils reposaient sur une surface et devaient être poussés par la pointe d'un microscope à effet tunnel.",
+      "La molécule en spirale porte un nom : helicène. Ses extrémités portent des atomes de soufre, et le soufre s'accroche fermement à l'or, ce qui permet de suspendre une molécule unique comme un minuscule pont entre deux pointes d'or affinées jusqu'à l'échelle atomique. Le dessin chimique vient du groupe dirigé par Michael Pittelkow à l'université de Copenhague.",
+      "Ce sont Oren Tal et Anil Kumar Singh, à l'Institut Weizmann des sciences en Israël, qui ont monté la molécule et l'ont vue bouger. Ils ont placé des molécules individuelles entre deux pointes d'or et ont étiré ou comprimé la jonction en modifiant l'écartement. L'ensemble était refroidi à 4,2 kelvins, à peine quatre degrés au-dessus du zéro absolu, pour que l'agitation thermique n'efface pas le signal.",
+      "Le mécanisme est presque intuitif : en circulant le long de la spirale, les électrons cèdent leur moment angulaire à la molécule et exercent un couple qui la fait tourner, comme un courant d'air fait tourner une turbine. Le sens de rotation dépend de l'hélicité de la molécule, droite ou gauche.",
+      "L'essentiel, c'est le contrôle. Au-delà d'un certain seuil de tension, le mouvement passe de sauts discrets à une rotation continue ; si l'on inverse la polarité, le sens s'inverse aussi. Autrement dit, la direction n'est pas figée : elle se règle à l'électricité, comme on règle le débit d'une canalisation.",
+      "Mais la découverte qui a retenu l'attention est venue par surprise : en tournant, la molécule conduit bien mieux l'électricité qu'au repos, jusqu'à cent fois mieux. Au repos, elle s'installe volontiers dans certaines configurations ; la rotation l'entraîne à travers les géométries où le transport de charge est le plus facile.",
+      "Un groupe de l'université d'Augsbourg dirigé par Fabian Pauly, avec les doctorants Léon Martin et Yuta Ito, a mené des simulations de mécanique quantique sur le supercalculateur LiCCA pour préciser le mécanisme. Martin l'explique de façon très parlante : ce sont précisément les positions que la molécule évite au repos qui conduisent le mieux, et seule la rotation les rend accessibles.",
+      "Le cadre théorique a été complété par Per Hedegård, de l'institut Niels Bohr, et Jing-Tao Lü, de l'université Huazhong des sciences et technologies. Calcul et expérience se sont accordés : la molécule passe bien de sauts à une rotation continue, et le courant bondit en même temps.",
+      "L'équipe a ajouté un témoin qui renforce la conclusion : une molécule droite comparable n'a montré ni le signal électrique cyclique caractéristique, ni le saut de conductivité. Cela désigne le mouvement de la spirale elle-même, et non un effet secondaire, comme origine de l'augmentation.",
+      "Par rapport à l'approche vieille d'une décennie, la grande différence est que ce dispositif se suffit à lui-même. Les anciens moteurs avaient besoin de la pointe d'un microscope pour les pousser ; celui-ci est suspendu dans un circuit vivant, où les électrons entraînent la rotation et servent en même temps de lecture aux chercheurs. Il se comporte davantage comme un actionneur minuscule que l'on pourrait insérer dans un circuit.",
+      "Les perspectives ont de quoi séduire : interrupteurs électroniques à l'échelle moléculaire, dispositifs exploitant le spin de l'électron, voire systèmes microscopiques capables de manipuler des fluides. Et, au passage, une nouvelle fenêtre pour observer comment mouvement et signal électrique s'entremêlent à l'échelle atomique.",
+      "La plus belle torsion de l'expérience est conceptuelle : l'électricité fait bouger la matière, et ce mouvement contrôle à son tour l'électricité. Archimède n'imaginait sans doute pas que sa vis à monter l'eau tournerait de nouveau, deux millénaires plus tard, entre deux pointes d'or, à la taille d'une seule molécule."
+    ]
+  },
+  {
+    "id": "rss-orig-phage-2026-11-fr",
+    "title": "Transformer des virus en médicament contre les superbactéries : les premières recommandations internationales de phagothérapie",
+    "summary": "La résistance aux antibiotiques rend certaines infections impossibles à traiter. Une équipe pilotée par la société allemande des maladies infectieuses, avec vingt organisations professionnelles et dix-huit experts internationaux, publie dans Nature Medicine le premier cadre clinique coordonné pour la phagothérapie personnalisée.",
+    "cover": "/original/phage-cover.webp",
+    "images": [
+      "/original/phage-cover.webp",
+      "/original/phage-fig1.webp",
+      "/original/phage-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "phagothérapie",
+      "bactériophages",
+      "résistance aux antibiotiques",
+      "recommandations cliniques",
+      "superbactéries",
+      "Nature Medicine"
+    ],
+    "category": "health",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261102202828.htm",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794114099056,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Nous avons l'habitude de penser aux virus comme à des ennemis, mais une catégorie de virus s'attaque naturellement aux bactéries. On les appelle bactériophages, ou phages en abrégé, et ils peuvent se fixer sur une bactérie précise et la faire éclater sans toucher aux cellules humaines. À mesure que les antibiotiques perdent du terrain face aux superbactéries, la science cherche à réarmer cet ennemi ancien en outil thérapeutique.",
+      "En 2026, une équipe internationale pilotée par la Société allemande des maladies infectieuses a publié les premières recommandations cliniques coordonnées pour la phagothérapie personnalisée. Ce consensus, paru dans Nature Medicine, donne à ce traitement longtemps expérimental une feuille de route pour entrer à l'hôpital et en consultation.",
+      "Le poids du document n'est pas rhétorique : il réunit vingt organisations professionnelles, dix-huit experts internationaux — dont des représentants d'agences de régulation — et deux associations de patients. Ensemble, ils ont rédigé plus de soixante recommandations sur la sélection, les tests, la fabrication, l'administration et la surveillance des phages, ainsi que sur l'infrastructure de laboratoire, le contrôle qualité, la documentation des traitements et les priorités de recherche.",
+      "Pourquoi maintenant ? Parce que la résistance antimicrobienne rend les infections tenaces partout dans le monde. Certaines bactéries ont bâti des défenses contre les médicaments courants et les médecins disposent de moins en moins d'options efficaces. Les phages intéressent précisément par leur précision : ils attaquent en général une espèce, voire une souche, au lieu de tout ravager comme le font les antibiotiques à large spectre.",
+      "Cette précision crée pourtant une difficulté. Un phage qui tue une souche peut n'avoir aucun effet sur une autre. Avant de commencer, les spécialistes doivent donc confirmer que le virus candidat est capable de tuer la souche responsable de l'infection de ce patient-là. Cet appariement doit se faire le plus vite possible, car la sensibilité d'une bactérie peut évoluer au fil de l'infection.",
+      "Les recommandations ne font pas de la phagothérapie un soin courant. Elles demandent d'évaluer chaque patient et d'y recourir seulement lorsque les circonstances le justifient. Cette honnêteté compte : les essais contrôlés n'ont pas encore fourni de preuves suffisantes sur sa fiabilité réelle. La communauté scientifique s'accorde à dire que des phages bien fabriqués et bien administrés semblent sûrs, mais démontrer l'efficacité demande des études plus vastes.",
+      "Les premiers résultats sont réellement encourageants. Dans une série belge de cent patients, 77 % se sont améliorés cliniquement et 61 % ne présentaient plus la bactérie ciblée lors des tests. Les auteurs rappellent toutefois qu'une étude observationnelle ne peut pas prouver que l'amélioration vient des phages.",
+      "Certains hôpitaux l'utilisent déjà pour de vrai. Le centre médical universitaire de Francfort indique que, depuis février 2026, dix patients ont été traités avec succès dans son programme de phages fondé sur ces recommandations, visant notamment Pseudomonas aeruginosa et Staphylococcus aureus, deux pathogènes particulièrement difficiles à maîtriser.",
+      "L'administration révèle le versant personnalisé : selon l'infection et le patient, les phages peuvent être donnés par voie intraveineuse, par inhalation, en spray nasal ou dans un hydrogel stérile. Cette souplesse est ce qui permet à une thérapie de passer de l'article scientifique au chevet du malade.",
+      "Tenir l'ensemble demande un réseau de coordination. Le document met en avant PhageNET DZIF, plateforme créée et coordonnée par Annika Claßen, comme lieu d'échange d'expérience scientifique et clinique. Asseoir à la même table microbiologie, médecine clinique, pharmacie, fabrication et régulation est la seule manière de voir à la fois les possibilités et les limites.",
+      "L'infrastructure de soutien compte aussi : les cas doivent être documentés de manière systématique et versés à des registres, les méthodes d'analyse doivent être cohérentes d'un laboratoire à l'autre, et les compétences évaluées régulièrement pour que les résultats soient fiables et comparables. Comme le résume le docteur Würstle, ces recommandations donnent aux médecins, aux pharmaciens et aux régulateurs un cadre commun pour faire entrer la phagothérapie dans la pratique de façon sûre et responsable.",
+      "Le texte n'est pas gravé dans le marbre. Élaboré sous l'égide de l'AWMF, l'association des sociétés scientifiques médicales allemandes, selon un processus de consensus structuré, il est valable du 5 janvier 2026 au 29 juin 2030, avec une révision annuelle par le comité responsable.",
+      "Pour les nombreux patients enfermés dans des infections que les antibiotiques courants ne contrôlent pas, les phages ne seront peut-être pas un remède miracle, mais ils pourraient être une option de plus. Transformer des virus en médicament, version moderne d'une idée ancienne, se construit peu à peu : de cas dispersés à un système auquel on peut se fier."
+    ]
+  }
+]

@@ -31,11 +31,9 @@ export async function generateMetadata({
   const q = (sp.q || "").trim();
   const alts = buildAlternates(loc, "/search");
   if (!q) {
-    // 落地页：可索引 + 完整 hreflang 集群 + 本地化描述（与首页区分）。
-    // title 不带 siteName：layout 的 title.template 会自动追加「 · {siteName}」，
-    // 若这里再拼一次会变成「搜索结果 · starteday · starteday」双品牌。
+    // 落地页：可索引 + 完整 hreflang 集群 + 本地化描述（与首页区分）
     return {
-      title: d.searchResults,
+      title: `${d.searchResults} · ${d.siteName}`,
       description: FAQ[loc].landingDesc,
       alternates: { canonical: alts.canonical, languages: alts.languages },
       robots: { index: true, follow: true },

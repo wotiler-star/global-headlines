@@ -127,7 +127,9 @@ export default async function LocaleLayout({
                   url: absUrl(loc, ""),
                   logo: {
                     "@type": "ImageObject",
-                    url: `${SITE_URL}/icon.svg`,
+                    url: `${SITE_URL}/icons/icon-512.png`,
+                    width: 512,
+                    height: 512,
                   },
                 },
               ],

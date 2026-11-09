@@ -26,6 +26,8 @@ const FR24: Record<RssCat, string> = {
   finance: "https://www.france24.com/fr/economie/rss",
   sports: "https://www.france24.com/fr/sport/rss",
   entertainment: "https://www.france24.com/fr/culture/rss",
+  game: "https://www.france24.com/fr/rss",
+  crossborder: "https://www.france24.com/fr/economie/rss",
   health: "https://www.france24.com/fr/rss",
   science: "https://www.france24.com/fr/environnement/rss",
   culture: "https://www.france24.com/fr/culture/rss",

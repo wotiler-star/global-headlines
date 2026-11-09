@@ -24,7 +24,7 @@ export default function RelatedPanel({
           <Link key={a.id} href={articleHref(a.locale, a.id)} className="related-card">
             <div className="thumb">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={a.images[0]} alt={a.title} loading="lazy" />
+              <img src={a.images[0]} alt={a.title} width={1200} height={800} loading="lazy" />
             </div>
             <div className="rc-title">{a.title}</div>
           </Link>

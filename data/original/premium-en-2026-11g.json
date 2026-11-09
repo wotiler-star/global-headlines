@@ -1,0 +1,130 @@
+[
+  {
+    "id": "rss-orig-altermagnet-2026-11-en",
+    "title": "Textbooks may need a new chapter: scientists confirm a third type of magnetism",
+    "summary": "For nearly 90 years physics recognized just two kinds of magnetism. Using specialized X-rays at a European facility, a SLAC-led team found the missing piece called chirality inside manganese telluride, turning altermagnetism from a theory into an experimentally confirmed reality.",
+    "cover": "/original/altermagnet-cover.webp",
+    "images": [
+      "/original/altermagnet-cover.webp",
+      "/original/altermagnet-fig1.webp",
+      "/original/altermagnet-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "altermagnetism",
+      "magnetism",
+      "SLAC",
+      "spintronics",
+      "manganese telluride",
+      "quantum materials"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261104012256.htm",
+    "author": "starteday Editorial",
+    "publishedAt": 1794114219056,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "For almost a century, physics textbooks have drawn a clean line: materials are either ferromagnetic, where electron spins all point the same way and produce a familiar magnetic field, or antiferromagnetic, where neighboring spins cancel out and the material shows no overall magnetization. That two-box framework held for nearly ninety years.",
+      "Now a team led by the US Department of Energy's SLAC National Accelerator Laboratory, working with the European Synchrotron Radiation Facility in France, has published what it calls conclusive evidence for a third kind. Reported in Science, the work gives the name altermagnetism to a magnetic phase that had existed mostly in theory until now.",
+      "The material at the center of the story is manganese telluride, or MnTe. For decades it sat comfortably in the antiferromagnet drawer. Under the old rules its spins should alternate up-down-up-down and sum to zero. Yet it also displayed a trait long considered ferromagnetic: the ability to carry spin currents, moving information through electron spin rather than electric charge.",
+      "The decisive clue was chirality. Think of the handedness of a spiral staircase or a screw, something that cannot be superimposed on its mirror image. The researchers hypothesized that MnTe hides exactly this kind of asymmetry in its magnetic structure, and that this twist is the signature separating altermagnets from ordinary antiferromagnets.",
+      "To test it, they took the sample to the ID32 beamline at ESRF and hit it with circularly polarized X-rays. The trick is elegant: a chiral material scatters left- and right-handed polarized light differently, while a non-chiral one treats them the same. The team found a clear chiral signal where a conventional antiferromagnet should show none.",
+      "This was not a last-minute measurement. Lead author Daniel Jost noted the first experiment finished in 2024 and was repeated in early 2025 with identical results. That kind of reproduction across more than a year is what lets a claim stand. Co-author Rachel Nickel, who helped design and run the experiment at ESRF, called the speed of confirmation remarkable.",
+      "So what makes the third type special? The geometry of the crystal. An altermagnet still has alternating spins and no net magnetization, but the lattice surrounding the up spins is rotated relative to the lattice around the down spins. That subtle twist breaks a symmetry and changes how electrons behave, marrying the advantages of both older classes.",
+      "That is precisely why engineers are interested. Ferromagnets are easily disturbed by outside magnetic fields, while antiferromagnets are so quiet they are hard to read and poor at driving spin currents. An altermagnet combines stability with the ability to generate the spin-polarized currents needed to extract information.",
+      "The application list reads like a blueprint for the next generation of computing: advanced memory, more energy-efficient data centers, and quantum technologies that lean on spin rather than charge. Spintronics, the field that wants to build hardware from electron spin, gains a new design space.",
+      "A dose of realism is warranted. The paper confirms that this magnetic behavior is real, not that a working device is around the corner. SLAC is clear that practical machines have not been demonstrated, and the next step is learning to control altermagnetic states with light and electricity.",
+      "The work was partly supported by the DOE Office of Science, and the crucial X-ray measurements happened on European soil. A collaboration across the Atlantic ended up moving a material misclassified for decades back to where it belongs.",
+      "If you picture magnetism as a table, it had two rows for ninety years. Today a third row has been added with some confidence. For most people nothing changes tomorrow, but for scientists studying how information and energy flow through matter, that extra row means a whole new landscape to build in."
+    ]
+  },
+  {
+    "id": "rss-orig-mol-motor-2026-11-en",
+    "title": "They shrank Archimedes' screw to a single molecule: a motor driven by electric current",
+    "summary": "A spiral-shaped organic molecule hangs between two gold electrodes through sulfur atoms. When current flows, electrons hand their angular momentum to the molecule and spin it like a turbine; reversing the voltage flips the direction. Strangest of all, while spinning its conductivity rises by as much as 100 times.",
+    "cover": "/original/mol-motor-cover.webp",
+    "images": [
+      "/original/mol-motor-cover.webp",
+      "/original/mol-motor-fig1.webp",
+      "/original/mol-motor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "molecular motor",
+      "Archimedes screw",
+      "single molecule",
+      "nanoelectronics",
+      "helicene",
+      "Nature"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.zmescience.com/science/physics/archimedes-screw-molecular-motor",
+    "author": "starteday Editorial",
+    "publishedAt": 1794114159056,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "More than two thousand years ago, Archimedes devised a screw-shaped machine that lifts water by rotating a spiral. Today an international team has pushed that same principle to its limit: the moving part of their motor is a single molecule. Instead of pumping water, electrons travel through the spiral and set the molecule itself turning.",
+      "The work was published in Nature on 1 November 2026. It is described as the first molecular motor driven by electric current, rigidly connected to two metal electrodes, and rotating in a controllable direction. Electrically driven molecular motors appeared as early as 2011, but those sat on a surface and had to be nudged by the tip of a scanning tunneling microscope.",
+      "The helix goes by the name helicene. Sulfur atoms sit at its ends, and sulfur bonds tightly to gold. That property lets researchers string a single molecule, like a minute bridge, between two atomic-scale gold tips. The design work came from a chemistry group at the University of Copenhagen under Michael Pittelkow.",
+      "Mounting the molecule and watching it move fell to Oren Tal and Anil Kumar Singh, researchers at Israel's Weizmann Institute of Science. They positioned individual molecules across a junction formed by two gold tips, then stretched or squeezed the device by altering the gap. The apparatus ran at just 4.2 degrees above absolute zero.",
+      "The mechanism is almost intuitive: as electrons flow along the spiral, they hand their angular momentum to the molecule, exerting a twisting force that drives rotation, much like a stream of air spins a turbine. Whether the molecule turns one way or the other depends on whether its thread is right- or left-handed.",
+      "The control is what matters. Above a certain voltage threshold, motion shifts from stepwise jumping to continuous rotation; reverse the polarity and the direction reverses too. In other words, the direction is not fixed, it is dialed in with electricity.",
+      "But the finding that grabbed headlines was a surprise: while rotating, the molecule conducts electricity far better than at rest, rising by as much as a hundredfold. At rest the molecule tends to sit in certain configurations; rotation carries it through the geometries where conduction is easiest.",
+      "To pin down the mechanism, Fabian Pauly's group at the University of Augsburg, together with doctoral researchers Léon Martin and Yuta Ito, ran quantum-mechanical simulations on the LiCCA supercomputer. Martin described it well: the spots the molecule steers clear of while idle are exactly the ones that carry current most easily, and rotation is what unlocks them.",
+      "The theoretical framework was completed with Per Hedegård of the Niels Bohr Institute and Jing-Tao Lü of Huazhong University of Science and Technology. Calculation and experiment agreed: the molecule does transition from stepwise to continuous rotation, and the current surges with it.",
+      "The team also ran a control: a comparable straight molecule showed neither the characteristic cyclic electrical signal nor the dramatic conductivity jump. That points to the spiral's motion itself, not some other side effect, as the source of the boost.",
+      "Compared with the decade-old approach, the biggest difference is that this design is self-contained. Old motors needed a microscope tip to push them; this one hangs directly inside a live circuit, where electrons both drive the spin and get read by scientists. It behaves more like a tiny actuator that could drop into a circuit.",
+      "The prospects sound seductive: molecular-scale electronic switches, devices that exploit electron spin, even microscopic systems that manipulate fluids, could grow out of machines like this. It also gives scientists a new window onto how motion and electrical signals intertwine at the atomic scale.",
+      "The neat twist of the experiment is this: electricity makes matter move, and that motion in turn controls the electricity. Archimedes probably never imagined that his water-lifting screw would, two millennia later, spin again between two gold tips at the size of a single molecule."
+    ]
+  },
+  {
+    "id": "rss-orig-phage-2026-11-en",
+    "title": "Turning viruses into medicine against superbugs: the first international phage therapy guidelines arrive",
+    "summary": "Antibiotic resistance is making some infections harder to treat. Now a team led by Germany's infectious disease society, with 20 professional organizations and 18 international experts, has published the first coordinated clinical guidelines for personalized phage therapy in Nature Medicine, giving this virus-kills-bacteria approach a safe framework to enter clinics.",
+    "cover": "/original/phage-cover.webp",
+    "images": [
+      "/original/phage-cover.webp",
+      "/original/phage-fig1.webp",
+      "/original/phage-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "phage therapy",
+      "superbugs",
+      "antibiotic resistance",
+      "Nature Medicine",
+      "personalized medicine",
+      "bacterial infection"
+    ],
+    "category": "health",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261102202828.htm",
+    "author": "starteday Editorial",
+    "publishedAt": 1794114099056,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "We are used to thinking of viruses as enemies, but a class of viruses preys naturally on bacteria. They are called bacteriophages, usually shortened to phages, and they can lock onto and burst specific bacteria while leaving human cells entirely alone. As antibiotics lose their grip on so-called superbugs, scientists are trying to re-arm this ancient enemy as a new tool against infection.",
+      "During 2026, the first coordinated set of clinical guidelines for personalized bacteriophage therapy appeared, assembled by an international group headed by Germany's infectious disease society. The consensus statement, published in Nature Medicine, gives this long-experimental treatment a roadmap for reaching hospitals and clinics.",
+      "The guideline carries real weight: it brought together 20 professional organizations, 18 international experts including representatives of regulatory agencies, and two patient advocacy organizations. Together they wrote more than 60 recommendations covering how phages are selected, tested, manufactured, administered and monitored, plus laboratory infrastructure, quality control, treatment documentation and research priorities.",
+      "Why now? Because antibiotic resistance is making infections stubborn worldwide. Some bacteria have built defenses against common drugs, and doctors are left with fewer effective options. Phages are interesting precisely because of their precision: they usually attack one species, even one strain, rather than carpet-bombing like broad-spectrum antibiotics.",
+      "But that precision creates a puzzle. A phage that kills one strain may do nothing to another. So before treatment begins, specialists must confirm that the candidate virus can actually kill the strain causing this patient's infection. The matching process, called a phage match, should happen as fast as possible, because a bacterium's susceptibility can shift during an infection.",
+      "The guidelines do not recommend phage therapy as routine care. They call for evaluating each patient and using it only when the circumstances justify it. The honesty is important: controlled trials have not yet supplied enough evidence to show how reliable it really is. Researchers broadly agree that properly made and given phages appear safe, but proving efficacy still needs larger studies.",
+      "Early results are genuinely encouraging. In a Belgian case series of 100 people, 77 percent improved clinically and 61 percent no longer showed the targeted bacteria in tests. The authors caution, though, that observational studies cannot prove the improvement came from the phages.",
+      "Some hospitals already use it in practice. Since February 2026, Frankfurt University Medical Center says ten patients have gone through its guideline-based phage program with success, aimed at pathogens such as Pseudomonas aeruginosa and Staphylococcus aureus, both notoriously hard to manage.",
+      "Delivery shows the personalized side: depending on the infection and the patient, phages can be given intravenously, by inhalation, as a nasal spray, or through a sterile hydrogel. That flexibility is what lets a therapy move from a paper to a bedside.",
+      "Holding the system together takes a coordinating network. The guideline highlights PhageNET DZIF, a platform established and coordinated by Annika Claßen, as a hub for exchanging scientific and clinical experience. Pulling microbiology, clinical medicine, pharmacy, manufacturing and regulation to one table is how you see both the possibilities and the limits.",
+      "The supporting infrastructure matters too: cases must be documented systematically and entered into registries, testing methods across labs must be consistent, and proficiency must be assessed regularly so results are reliable and comparable. As Dr. Würstle put it, the guideline gives physicians, pharmacists and regulators a common framework for bringing phage therapy safely and responsibly into practice.",
+      "The guideline is not fixed forever. Shaped under the AWMF, the German umbrella of scientific medical societies, through a structured consensus process, it stays valid from 5 January 2026 until 29 June 2030, with the responsible committee reviewing it every year.",
+      "For the many patients stuck with infections that routine antibiotics cannot control, phages may not be a miracle cure, but they could be another option worth having. Turning viruses back into medicine, the modern version of an old idea, is slowly being assembled from scattered cases into a system people can trust."
+    ]
+  }
+]

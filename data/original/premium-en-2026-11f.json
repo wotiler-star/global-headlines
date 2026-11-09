@@ -1,0 +1,91 @@
+[
+  {
+    "id": "rss-orig-oled-ipad-mini-2026-11-en",
+    "title": "Launch Day Tells You More Than the Keynote: The OLED iPad Mini Arrives, and 60Hz Is Still the Open Question",
+    "summary": "On November 6 Apple moved several products from preorder to sale: an eighth-generation iPad mini with its first OLED panel, an M6 iMac and refreshed MacBook Pros. Beyond the spec sheet, the decisions that matter are why an 8.5-inch screen still runs at 60Hz, how display audio and IP67 reshaped the chassis, and how shipping windows turn which one to buy into when you get it.",
+    "cover": "/original/oled-ipad-mini-cover.webp",
+    "images": [
+      "/original/oled-ipad-mini-cover.webp",
+      "/original/oled-ipad-mini-fig1.webp",
+      "/original/oled-ipad-mini-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "iPad mini",
+      "OLED",
+      "A20 Pro",
+      "M6 iMac",
+      "consumer tech",
+      "display",
+      "buying guide"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LB35I0HL0511BLFD.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1794058938024,
+    "readMinutes": 8,
+    "pinned": 1,
+    "body": [
+      "A keynote manufactures anticipation; a launch day settles accounts. On November 6 the OLED iPad mini, the M6 iMac and the new MacBook Pro lineup reached Apple's online store and retail shelves, with first preorders arriving at doorsteps. For anyone still undecided, this day is more informative than the announcement: real stock, real configuration trade-offs and the first wave of review criticism all land at once.",
+      "Start with the small tablet. The eighth-generation iPad mini moves to an 8.5-inch OLED panel rated at up to 1,200 nits peak brightness, a two-million-to-one contrast ratio and a minimum brightness of one nit. That last figure is easy to skip and easy to appreciate in practice: reading a few pages in a dark room without the screen burning your eyes is a daily-use improvement, not a benchmark number.",
+      "The A20 Pro and the N1 wireless chip bring Wi-Fi 7 and Bluetooth 6, closing the connectivity gap in the same generational step. The chassis measures 5.4 millimetres and about 255 grams, making it the thinnest and lightest iPad to date, and IP67 dust and water resistance appears on an iPad for the first time. Sealing a compact device is harder than sealing a large one: every millimetre given to a gasket is a millimetre taken from something else.",
+      "The neatest structural trick is the acoustic display, where the screen itself contributes to sound production and the traditional speaker grilles disappear. Fewer openings sounds like a cosmetic footnote, but it shortens the sealing paths and makes IP67 achievable in the first place. This is the kind of engineering that never shows up in a benchmark: two requirements solved by one component instead of by adding two more parts.",
+      "The 12-megapixel front camera has moved to the landscape edge, a correction driven by how people actually take video calls. Hold the tablet upright and the subject drifts to one side; lay it sideways and the framing previously felt wrong. On the long edge, eye contact finally lines up during a horizontal meeting. Support for Apple Pencil Pro and the USB-C Pencil keeps the smallest iPad in the annotation-and-notes role it has always suited.",
+      "The criticism is equally focused: the display still runs at 60Hz with no ProMotion. On a product that already carries OLED, 1,200 nits and optional nano-texture glass, that omission is conspicuous. Anyone used to a high-refresh screen will notice the difference in scrolling immediately; someone mainly reading, marking up documents or watching video may barely register it. This is not a defect so much as a deliberate line drawn through the feature list, and where you stand depends on the work you do with it.",
+      "Nano-texture glass is offered only on the 256GB and 512GB models for an extra hundred dollars. That quietly relocates a decision from the accessories aisle into the configuration page. Previously you bought the tablet and then chose a matte or anti-glare film; now you commit at checkout. Writing feel, glare suppression and optical clarity become a capacity decision rather than a five-minute aftermarket experiment.",
+      "On price, the US lineup starts at 699 dollars for the 128GB Wi-Fi model, with 256GB at 799 and 512GB at 999; cellular begins at 849 and education pricing at 649. The Chinese store lists a starting price of 5,499 yuan. Laid out side by side, the storage gaps move the total more than the display upgrade does, which explains why so many buyers settle on the entry configuration and never look back.",
+      "Also arriving that day: the M6 iMac, the first substantial refresh of the all-in-one since M4, with up to a 12-core CPU and 12-core GPU from 1,499 dollars, and a 14-inch M6 MacBook Pro from 1,999 dollars. The pricier touchscreen PROLED models are listed as well, but several finishes show two-to-three-week shipping estimates online, which produces the odd situation where walking into a store may be faster than waiting for the truck.",
+      "Put the lineup in one table and it resolves into four kinds of buyer. Want the best small screen you can hold in one hand: iPad mini. Need a fixed household desktop: M6 iMac. Want performance without paying for a touch panel: the 14-inch MacBook Pro. Willing to pay a premium for a new form factor and in no hurry: the PROLED machines. This is what a launch day adds — delivery times convert abstract positioning into an actual queue.",
+      "There is a quieter signal in several products landing together: the supply chain rhythm was planned in advance, rather than one delayed component dragging the whole line with it. For shoppers, that removes the main psychological pressure to buy on day one. Consumer electronics never lack a next cycle; what they lack is a clear reason to upgrade now.",
+      "If there is one piece of advice, it is to decide whether you are attracted by the 8.5-inch size or by the OLED panel. The former is genuinely hard to substitute — one-handed reading, small bags, standing on a train. The latter will trickle down to more models eventually. As for 60Hz, spend two minutes scrolling in a store; it settles the question faster than any spec comparison does.",
+      "A launch day is not the end of the story, it is the point where reviews, return rates, resale values and real battery data begin accumulating. Today only specifications and prices are certain. A month from now, the useful certainty arrives: who this machine was actually for. Giving yourself permission to buy later is often the best-value move in a refresh cycle like this one."
+    ]
+  },
+  {
+    "id": "rss-orig-dino-heme-2026-11-en",
+    "title": "Heme After 115 Million Years: One Dinosaur Bone Reopens the Question of What Can Survive",
+    "summary": "Inside the limb bone of a Brazilian theropod, researchers found oval structures roughly 20 micrometres long within vascular canals, along with chemical signals from heme and collagen amino acids. Published in PNAS in early November, the claim drew immediate public scepticism from a specialist. The most interesting read is not the verdict but how the chain of evidence was built, and where it still has gaps.",
+    "cover": "/original/dino-heme-cover.webp",
+    "images": [
+      "/original/dino-heme-cover.webp",
+      "/original/dino-heme-fig1.webp",
+      "/original/dino-heme-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "paleontology",
+      "heme",
+      "fossil",
+      "molecular evidence",
+      "electron microscopy",
+      "hausmannite",
+      "scientific debate"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencenews.org/article/evidence-dinosaur-blood-fossilize",
+    "author": "starteday Editorial",
+    "publishedAt": 1794058878024,
+    "readMinutes": 9,
+    "pinned": 1,
+    "body": [
+      "First, an important boundary: nobody found dinosaur blood, and this is not a prologue to resurrecting anything. What was detected are chemical traces of molecules such as heme, plus microscopic structures whose shape survived after minerals took their place. The cellular components of blood start breaking down within days of death. What can cross a hundred million years is a handful of unusually stable molecular frameworks, together with the information carried by where they were sealed.",
+      "The specimen comes from the Romualdo Formation in north-eastern Brazil, a site famous for exquisitely preserved fish, turtles and pterosaurs but sparse in dinosaur material. It belongs to Aratasaurus museunacionali, a small feathered theropod roughly three metres long that lived around 115 million years ago. The team worked with an exceptionally well-preserved partial hind limb, cut thin cross-sections and examined the bone interior by scanning electron microscopy.",
+      "What they saw sat inside vascular canals — the tiny passages that carried blood vessels in the living animal. That location matters more than the shape does. Had the ovals been scattered across surfaces or cracks, later mineral infiltration would be the obvious explanation. Finding them concentrated in the canals while the surrounding sediment contains none weakens the contamination story considerably. Position is itself a piece of evidence.",
+      "Then comes chemistry. Elemental mapping showed the ellipsoids rich in iron, carbon and nitrogen, matching the composition of heme. Laser-scattering analysis pointed to porphyrins, the ring-shaped organic compounds that precede and derive from heme. The team also separated and identified the contents of a bone extract specifically to exclude porphyrins from plant sources such as chlorophyll. Amino acids associated with collagen turned up as well.",
+      "So why did any of it survive? The paper points to a manganese oxide mineral called hausmannite, found inside the oval structures. It appears to have acted as a time capsule during fossilisation: filling, stabilising and then entombing the residual organic molecules before oxidation and hydrolysis could finish them off. The researchers also suspect rapid burial in sediment, an oxygen-poor setting and a covering microbial mat all helped slow decay at the very beginning.",
+      "That explanation is necessary because paleontology carries a famous cautionary tale. In 1997 two researchers re-examined tiny spheres once celebrated as fossilised red blood cells and showed they were actually pyrite deposited in the bone after death. Minerals growing during fossilisation can mimic living structures with unnerving accuracy. The resulting informal rule was that a blood-cell claim needs both a morphological comparison with living relatives and identifiable biomarkers — looking similar is not enough.",
+      "This study is explicitly answering that rule. The authors emphasise that they supply shape, anatomical location, elemental composition and molecular signals together, and they argue hausmannite did not simply occupy a hollow left behind by decayed tissue, but actively helped stabilise and protect what remained of it. The centre of the argument shifts from resemblance to mechanism, which is a firmer methodological footing than was available two decades ago.",
+      "The disagreement did not disappear, though. A molecular paleontologist not involved in the work said publicly that the images do not yet convince her: red blood cells in living birds and reptiles retain a nucleus and show a distinct bulge, whereas these structures appear concave and smaller than most non-mammalian red blood cells. She praised the stacking of multiple analytical techniques and still called the work an exciting advance.",
+      "That kind of split is healthy, and it marks the boundary of the claim: everything rests on one specimen from one animal. Establishing a general phenomenon rather than an extraordinary outlier requires other teams to reproduce comparable results in equivalent formations and in different museum collections. A single fossil can raise a strong possibility; it cannot carry a general rule on its own.",
+      "Another phrase worth handling carefully is how long biomolecules can last. The assumption being overturned is a textbook default — that hemoglobin-derived molecules could not persist across deep time — not a discovery that these molecules acquired special powers. The accurate formulation is conditional: under a particular combination of minerals and burial conditions, detectable molecular signatures may be retained. The conditions are the subject of the sentence.",
+      "If the pathway holds up, two fields feel it. Molecular paleontology gains a possible line of evidence on blood, metabolism and even activity levels — traits almost impossible to reconstruct from bone shape alone. Astrobiology gains a practical prompt: if fragile biosignatures can endure for over a hundred million years in the right mineral setting, then the choice of which rocks to sample and which molecules to assay in extreme environments should broaden accordingly.",
+      "There is also a very down-to-earth consequence for museum drawers. Collections worldwide hold enormous numbers of fossils that have been numbered, described morphologically and never examined at molecular resolution. They went untested because the default answer was that nothing would be found. Loosen that default and re-screening old specimens becomes unusually good value. The next step may not be a new dig at all, but a different way of reading an old drawer.",
+      "For a general reader, the durable takeaway is not the number 115 million but a habit of judgement. When a startling claim appears, ask how many kinds of evidence support it and whether they are independent; ask whether anyone has proposed an alternative explanation; ask how many specimens were examined. Shape can be forged by minerals, chemical signals can be muddied by contamination, and single findings get revised. Trustworthiness comes from that repeated attempt to poke holes, not from how moving the conclusion sounds.",
+      "So the honest headline here is a question rather than an answer: given the right mineral and the right burial conditions, how much information can a body carry forward to the present? Hausmannite offers a candidate mechanism, heme offers a set of signals other labs can check, and colleagues have supplied several objections still to be closed. The remainder belongs to the next batch of specimens and the next set of instruments."
+    ]
+  }
+]

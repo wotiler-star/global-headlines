@@ -41,6 +41,8 @@ export default function EditorPicks({ locale }: { locale: Locale }) {
               src={(a.images && a.images[0]) || ""}
               alt={a.title}
               loading="lazy"
+              width={1200}
+              height={800}
             />
             <span className="pick-title">{a.title}</span>
           </Link>

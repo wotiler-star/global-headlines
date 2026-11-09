@@ -1,0 +1,131 @@
+[
+  {
+    "id": "rss-orig-solar-flare-field-2026-11-fr",
+    "title": "Pour la première fois, on a vu le champ magnétique du Soleil faiblir pendant une éruption",
+    "summary": "Ce que devient le champ magnétique de la basse atmosphère solaire durant une éruption était resté un angle mort. Un télescope bâti autour d'une seule raie de l'infrarouge moyen a contourné la panne du diagnostic classique et mesuré une baisse nette lors d'une éruption X1.5.",
+    "cover": "/original/solar-flare-field-cover.webp",
+    "images": [
+      "/original/solar-flare-field-cover.webp",
+      "/original/solar-flare-field-fig1.webp",
+      "/original/solar-flare-field-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "éruption solaire",
+      "champ magnétique",
+      "infrarouge moyen",
+      "dédoublement Zeeman",
+      "météorologie spatiale",
+      "spectroscopie"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://paper.sciencenet.cn/htmlpaper/2026/11/2026118134052958157753.shtm",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794188962261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Une éruption solaire est la libération d'énergie la plus violente qui se produise dans l'atmosphère du Soleil. En quelques minutes, des particules sont accélérées et le rayonnement monte en flèche, des rayons X durs aux micro-ondes, tandis que l'environnement proche de la Terre est bousculé. Pourtant, le champ magnétique qui déclenche tout gardait son secret le mieux gardé : personne ne savait ce qu'il faisait, précisément pendant ces minutes-là, dans les couches basses.",
+      "Ce n'était pas faute d'intérêt. La méthode habituelle lit la polarisation du spectre solaire, puis inverse un modèle de transfert radiatif pour en déduire l'intensité du champ. Le problème, c'est que l'éruption déforme le profil même des raies que l'on cherche à mesurer : les hypothèses du modèle s'effondrent, l'inversion perd sa précision ou devient carrément inutilisable.",
+      "S'ajoute un obstacle très concret. L'éruption évolue vite, il faut donc des poses extrêmement courtes ; qui dit pose courte dit signal faible, et le rapport signal-sur-bruit comme la précision chutent ensemble. L'intervalle le plus intéressant était justement le plus difficile à résoudre, un vide que la physique solaire traînait depuis des décennies.",
+      "Le nouveau travail emprunte une autre voie. Au lieu de démêler polarisation et modèle, il mesure directement l'écart que le champ impose entre les composantes d'une raie spectrale, le dédoublement Zeeman. Plus le champ est intense, plus ces composantes s'éloignent, et cet écart est une grandeur mesurable sans présupposer à l'avance l'état de l'atmosphère.",
+      "Tout tient au choix de la raie. Le dédoublement croît comme le carré de la longueur d'onde : en allant vers le lointain, un écart minuscule se trouve amplifié. L'équipe a retenu une raie du magnésium située vers 12,32 micromètres, dans l'infrarouge moyen, portant une séparation jusque-là noyée dans le bruit à une échelle mesurable. La précision passe de l'ordre de la centaine de gauss à moins de dix, soit un facteur dix.",
+      "Pour conserver à la fois une haute résolution spectrale et l'imagerie, l'instrument utilise un spectrographe infrarouge à transformée de Fourier, installé sur un plateau sec à près de quatre mille mètres d'altitude afin de réduire la vapeur d'eau qui absorbe ce rayonnement. Ces détails d'ingénierie, peu spectaculaires, décident si quelques minutes de données deviennent une découverte ou du bruit.",
+      "Le résultat vient d'une éruption de classe X1.5 : pendant la phase impulsionnelle, l'intensité du champ sous les rubans de l'éruption a nettement diminué. L'équipe ne s'est pas arrêtée à l'observation. Elle a simulé l'évolution spectrale complète avec un modèle atmosphérique dynamique, et ce n'est qu'après l'accord entre simulation et mesures que la conclusion a été arrêtée.",
+      "Pourquoi un affaiblissement mérite-t-il un article ? Parce qu'une éruption est, au fond, une libération d'énergie magnétique. Si le champ décline réellement à l'instant le plus violent, on tient la première trace directe de l'énergie retirée de son réservoir. La question « où passe l'énergie » quitte le terrain de l'inférence théorique pour devenir une grandeur suivable minute par minute.",
+      "Plusieurs débats anciens y gagnent une contrainte nouvelle : pourquoi la chromosphère et la couronne sont-elles bien plus chaudes que la photosphère, comment l'énergie magnétique s'accumule-t-elle avant de se libérer d'un coup, existe-t-il une rétroaction dynamique entre la couronne et les couches basses. Là où l'on en appelait à la cohérence interne des modèles, il existe désormais une limite observationnelle à respecter.",
+      "Le prolongement le plus tangible concerne la prévision de la météorologie spatiale. Les fortes éruptions perturbent l'ionosphère, affectent les communications en ondes courtes et la précision du positionnement, et ajoutent des risques aux équipements en orbite. La difficulté n'a jamais été de savoir si une éruption aurait lieu, mais quelle ampleur elle prendrait : un diagnostic quantitatif du champ fournit une entrée qui manquait.",
+      "La prudence reste de mise. Il s'agit d'un seul événement sur une seule raie, bien loin d'une conclusion statistique. Le mécanisme de l'affaiblissement, sa généralité selon la classe des éruptions et la répartition de l'énergie libérée demandent d'autres cas et une reproduction indépendante. Qu'un relecteur qualifie l'observation d'inédite est un compliment, mais aussi un rappel : on se trouve à un point de départ.",
+      "Ce qui durera le plus est peut-être le changement de méthode. Lorsqu'un domaine reste bloqué des décennies par une limite de mesure, la réponse n'est pas toujours un instrument plus grand ; parfois, changer de longueur d'onde et de grandeur à mesurer permet de contourner l'obstacle. Avec cette fenêtre ouverte sur l'infrarouge moyen, les questions que l'on savait poser sans pouvoir y répondre reviennent dans la file d'attente.",
+      "Entre « le champ a changé » et « comment, de combien, et où l'énergie est-elle passée », il y a toute une capacité de mesure. Un premier pas vient d'être franchi, mais quelques minutes de chaos ont enfin été couchées sur une courbe graduée."
+    ]
+  },
+  {
+    "id": "rss-orig-gut-nad-precursor-2026-11-fr",
+    "title": "Et si la vraie question sur le NAD+ était ce que fabriquent nos bactéries intestinales ?",
+    "summary": "Une molécule sécrétée par des bactéries commensales est absorbée par les cellules de l'intestin, convertie en NAD+ et stimule la réparation de l'épithélium, par une voie que n'empruntent pas les précurseurs habituels. Le résultat déplace la question : moins ce que l'on avale que ce qui est produit au dedans.",
+    "cover": "/original/gut-nad-precursor-cover.webp",
+    "images": [
+      "/original/gut-nad-precursor-cover.webp",
+      "/original/gut-nad-precursor-fig1.webp",
+      "/original/gut-nad-precursor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "NAD+",
+      "microbiote intestinal",
+      "cellules souches intestinales",
+      "SIRT1",
+      "réparation épithéliale",
+      "cométabolisme"
+    ],
+    "category": "health",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.ebiotrade.com/newsf/2026-11/20261108082228952.htm",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794188902261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Le NAD+ est l'une des coenzymes les plus occupées de la cellule. Métabolisme énergétique, réparation des dommages de l'ADN, activité des désacétylases : presque tout passe par elle. Comme son taux décline avec l'âge et l'inflammation chronique, « restaurer le NAD+ » est devenu l'un des récits de santé les plus insistants, avec l'acide nicotinique, le nicotinamide, le NR et le NMN qui se succèdent en rayon.",
+      "Ce récit repose sur un présupposé : l'hôte traite le précurseur lui-même. Les manuels décrivent trois grandes voies pour maintenir le pool de NAD+, la synthèse de novo, la voie de Preiss-Handler et la voie de sauvetage dont l'enzyme limitante est NAMPT. La quasi-totalité des précurseurs commercialisés finissent à la porte de cette dernière.",
+      "L'étude nouvelle pose une question rarement formulée aussi frontalement : les microbes qui vivent dans l'intestin fournissent-ils eux aussi des précurseurs de NAD+ à l'hôte ? La réponse est oui, et la molécule en question était justement une dont l'identité avait été mal lue : la N-méthylnicotinamide portant son méthyle sur l'azote amidique, que les auteurs appellent N-MNA.",
+      "Le détail chimique est facile à manquer. La N-MNA est un isomère de structure de la N1-MNA bien connue, à une seule position du groupe méthyle près ; on l'avait longtemps rangée parmi les déchets de la dégradation du nicotinamide. La chromatographie liquide couplée à la spectrométrie de masse a séparé les deux et révélé que plusieurs espèces commensales sécrètent en abondance ce prétendu déchet.",
+      "Les producteurs ne sont pas des figurants. Plusieurs bactéries commensales bien étudiées figurent sur la liste ; des expériences de colonisation chez des animaux axéniques ont confirmé la production dans l'intestin, et la réduction du microbiote par antibiotiques a fait chuter la N-MNA fécale. La chaîne d'origine se referme : elle ne vient pas de l'assiette, elle est fabriquée sur place.",
+      "Le volet clinique est plus suggestif encore. Dans des échantillons de personnes atteintes de maladie inflammatoire chronique de l'intestin, la N-MNA était nettement plus basse, et cette baisse accompagnait une élévation de la calprotectine et une perte de diversité microbienne. Ce n'est qu'une corrélation, bien sûr, mais elle suggère une hypothèse naturelle : une réparation épithéliale lente viendrait-elle en partie d'un approvisionnement déficient ?",
+      "Pour prouver que la molécule ne fait pas que passer, l'équipe a utilisé un marquage isotopique stable. La N-MNA marquée a été rapidement captée par des drosophiles, des souris et des cellules épithéliales intestinales humaines, puis intégrée au cycle d'oxydoréduction du NAD+. Des cellules non épithéliales l'exploitent aussi : c'est un précurseur largement utilisable, non une curiosité locale.",
+      "Ce qui a fait se redresser les spécialistes du métabolisme, c'est l'attribution de la voie. Inactivation génétique et blocage pharmacologique désignent la même conclusion : la N-MNA emprunte Preiss-Handler et ne dépend pas de la voie de sauvetage NAMPT. Elle contourne donc le goulet d'étranglement où se pressent les compléments et qui tend à se resserrer avec l'âge, réalimentant le pool par une porte latérale.",
+      "Les preuves fonctionnelles s'alignent. Une fois l'axe NAD+–SIRT1 activé, les cellules souches intestinales prolifèrent davantage, les organoïdes grossissent et les cellules marquées Lgr5 augmentent. Dans un modèle de colite, la supplémentation a apporté une réparation épithéliale observable et un bénéfice de survie. Molécule, cellule, tissu : la chaîne se noue maille après maille.",
+      "La molécule a une seconde identité : elle cède aussi un groupe méthyle aux cellules de l'hôte. Fournir à la fois du NAD+ et du méthyle, c'est poser un pied dans le métabolisme énergétique et l'autre dans la régulation épigénétique. Parler de médiateur de régénération issu du cométabolisme entre microbes et hôte est plus juste que parler d'un précurseur de plus.",
+      "La mise en garde la plus utile pour le lecteur est de ne pas transformer cela en liste de courses. L'article présente des mécanismes et des modèles animaux ; dose efficace chez l'humain, sécurité à long terme, capacité de l'alimentation ou des probiotiques à élever durablement la N-MNA intestinale restent ouvertes. Passer d'un article de mécanistique à un conseil d'achat saute plusieurs essais cliniques.",
+      "Mais la manière de poser la question change réellement. Nous imaginons volontiers le métabolisme comme une usine que l'hôte gère seul, avec des matières premières livrées du dehors. Ce travail rappelle qu'à côté vivent des collaborateurs qui fournissent le substrat, modifient les molécules et décident parfois si une voie est correctement alimentée. Avant « quoi ajouter », il devient pertinent de demander « qui le fabrique pour nous ».",
+      "Les questions à poursuivre sont désormais claires : quels profils alimentaires soutiennent les forts producteurs de N-MNA, quelle part du lien entre dysbiose et réparation lente passe par cette voie, et peut-on en faire un marqueur de santé mesurable. Ce qui est répondu n'est qu'un prologue ; la valeur se trouve plutôt du côté de ce qui reste sans réponse."
+    ]
+  },
+  {
+    "id": "rss-orig-long-livephoto-2026-11-fr",
+    "title": "Passer une Live Photo de 3 à 6 secondes : l'amélioration la plus honnête du lancement",
+    "summary": "Une série de milieu de gamme a doublé la durée de ses photos vivantes, généralisé le téléobjectif périscopique et ajouté de petits gestes comme se connecter au wifi en photographiant l'affichette. Aucun chiffre n'éblouit, mais l'ensemble montre où la concurrence s'est vraiment déplacée.",
+    "cover": "/original/long-livephoto-cover.webp",
+    "images": [
+      "/original/long-livephoto-cover.webp",
+      "/original/long-livephoto-fig1.webp",
+      "/original/long-livephoto-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Live Photo",
+      "téléobjectif périscopique",
+      "photographie mobile",
+      "design d'interaction",
+      "milieu de gamme",
+      "électronique grand public"
+    ],
+    "category": "tech",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://news.qq.com/rain/a/20261108A0BQ2Z00",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794188842261,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "La nouvelle série de milieu de gamme dévoilée le 9 novembre a concentré presque tout son effort de pré-lancement sur l'image. L'argument vedette est une Live Photo 4K sur toutes les focales dont la capture passe d'environ 3 secondes à 6, avec un téléobjectif périscopique sur tous les modèles. Aucun de ces chiffres ne renverse, mais mis côte à côte ils en disent long sur l'époque.",
+      "Commençons par la durée. Une photo fixe se joue à l'instant du déclenchement ; une photo vivante se joue dans le court fragment qui l'entoure. Ce qu'elle conserve n'est pas une image, mais ce qui va arriver et ce qui vient à peine de finir : souffler les bougies, lever un verre, le bond d'un animal. La vue que l'on voulait se trouve souvent une demi-seconde avant le réflexe.",
+      "Passer de 3 à 6 secondes ne revient pas à agrandir une mémoire tampon. Le capteur doit débiter en continu à un débit supérieur, la stabilisation tenir sur un intervalle plus long, l'encodage et l'écriture s'achever sans chauffe ni perte d'images, et la galerie aider à choisir une vue utilisable dans un clip plus long. Qu'un seul maillon faiblisse et la fonction devient de celles qui existent mais qu'on n'utilise pas.",
+      "Plus subtil encore, « toutes les focales ». Les photos vivantes étaient le plus souvent cantonnées au capteur principal et redevenaient fixes dès le passage au téléobjectif. Soutenir une capture longue en télé impose d'aligner exposition, balance des blancs et synchronisation entre plusieurs caméras : c'est la cohérence du système d'imagerie qui est éprouvée, non l'éclat d'une optique.",
+      "Venons-en au périscope qui descend en gamme. L'optique repliée qui dévie la lumière par un prisme fut longtemps, dans un vaisseau amiral, la pièce la plus chère, la plus encombrante et la plus vendeuse. La voir en équipement de série sur un milieu de gamme signifie deux choses : modules et algorithmes ont atteint l'échelle qui tient dans une feuille de coûts, et l'époque où un seul téléobjectif faisait la différence touche à sa fin.",
+      "Bonne nouvelle pour l'acheteur, mais le choix devient plus difficile. Quand le téléobjectif cesse d'être une frontière, l'expérience se joue sur ce qui n'apparaît jamais dans la fiche : le télé repasse-t-il discrètement à un recadrage du capteur principal en basse lumière, le clip exporté survit-il aux réseaux autrement qu'en boucle floue, combien de stockage consomment six secondes, combien de temps le boîtier tient-il après une rafale.",
+      "La prévente contenait aussi une fonction plus modeste : photographier l'affichette wifi d'un café et la connexion s'établit, supprimant le rituel du long mot de passe recopié caractère par caractère. Une touche dédiée réduit la comptabilité à un geste, en lisant montant, date et catégorie d'un ticket avant synchronisation. Aucune ne fait étalage de modèles génératifs ; toutes deux ramènent une corvée de sept étapes à une seule.",
+      "Elles méritent qu'on s'y attarde parce qu'elles incarnent un autre jugement de produit. L'expression la plus bruyante des deux dernières années fut d'embarquer de grands modèles dans l'appareil, et pourtant ce qu'on utilise sans cesse est souvent ce qui n'exige ni réveil, ni formulation, ni attente de génération : viser, appuyer, terminé. La mesure de l'intelligence glisse de la complexité de la tâche au nombre de gestes supprimés.",
+      "La finition et le calendrier sont également parlants. Trois coloris d'inspiration pâtissière ont été présentés ouvertement dans un registre vestimentaire, le lancement se place juste avant une grande période commerciale, et une montre ainsi qu'une tablette ont ouvert leurs réservations en même temps. Un téléphone de milieu de gamme n'est plus la version soldée d'un amiral : il se dispute le goût, le moment du renouvellement et la porte d'entrée d'un ensemble d'objets portés. La fiche n'est qu'un billet d'entrée.",
+      "La liste des configurations laisse voir des arbitrages. Une variante garde un écran plat compact avec une batterie dépassant sept mille milliampères-heure, une autre choisit une dalle plus grande et une plate-forme différente. Au sein d'une même série, on commence à séparer selon la prise en main et l'autonomie plutôt que selon une simple échelle standard contre Pro, ce qui ressemble davantage au désaccord réel sur l'usage d'un téléphone.",
+      "Une réserve s'impose : entre la prévente et le produit en magasin, l'écart existe toujours. Spécifications du téléobjectif, durée réelle et forme exacte des fonctions d'IA restent à confirmer lors de la présentation et sur les unités de test ; les fenêtres de réservation sont d'ailleurs conçues pour fabriquer de l'empressement. Au-delà de la fiche, mieux vaut attendre les premières mesures du télé en basse lumière, de l'export des clips et de l'autonomie.",
+      "S'il fallait retenir une seule amélioration comme emblème de l'industrie actuelle, je choisirais ces trois secondes gagnées. Elles n'inventent aucun besoin nouveau ; elles admettent simplement que ce qu'on espère garder en appuyant sur le déclencheur n'a jamais été un instant, mais un petit morceau de vie pas encore achevé. La technologie commence enfin à se concevoir autour de ce fait.",
+      "Le passage d'une course aux mégapixels à celui qui retire une hésitation à chaque photo est discret, et plus honnête. Il ne promet pas de changer le monde, seulement qu'un geste répété des dizaines de fois par jour devienne un peu plus court, un peu plus sûr. Et presque toutes les technologies que les gens gardent commencent exactement là."
+    ]
+  }
+]

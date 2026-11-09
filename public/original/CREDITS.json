@@ -399,46 +399,15 @@
       }
     ]
   },
-  "ultracold-space": {
-    "cover": {
-      "file": "/original/ultracold-space-cover.webp",
-      "source": "Wikimedia Commons",
-      "commons_title": "File:Bose-Einstein condensate, a cloud of super-cooled Rubidium atoms in a Laser trap on an Optical table - In a game of catch & release, the atoms will shoot up a 30 ft. tall Atomic fountain - Stanford.jpg",
-      "commons_page": "https://commons.wikimedia.org/wiki/File:Bose-Einstein_condensate,_a_cloud_of_super-cooled_Rubidium_atoms_in_a_Laser_trap_on_an_Optical_table_-_In_a_game_of_catch_%26_release,_the_atoms_will_shoot_up_a_30_ft._tall_Atomic_fountain_-_Stanford.jpg",
-      "artist": "Steve Jurvetson",
-      "license": "CC BY 2.0",
-      "size_kb": 300
-    },
-    "figs": [
-      {
-        "file": "/original/ultracold-space-fig1.webp",
-        "source": "Wikimedia Commons",
-        "commons_title": "File:Atomic Fountain.jpg",
-        "commons_page": "https://commons.wikimedia.org/wiki/File:Atomic_Fountain.jpg",
-        "artist": "Steve Jurvetson",
-        "license": "CC BY 2.0",
-        "size_kb": 105
-      },
-      {
-        "file": "/original/ultracold-space-fig2.webp",
-        "source": "Wikimedia Commons",
-        "commons_title": "File:Laser Optics - Idaho National Laboratory.jpg",
-        "commons_page": "https://commons.wikimedia.org/wiki/File:Laser_Optics_-_Idaho_National_Laboratory.jpg",
-        "artist": "Idaho National Laboratory",
-        "license": "CC BY 2.0",
-        "size_kb": 109
-      }
-    ]
-  },
   "oled-ipad-mini": {
     "cover": {
       "file": "/original/oled-ipad-mini-cover.webp",
       "source": "Wikimedia Commons",
-      "commons_title": "File:IPad 4, model A1458-0869.jpg",
-      "commons_page": "https://commons.wikimedia.org/wiki/File:IPad_4,_model_A1458-0869.jpg",
-      "artist": "Raimond Spekking",
-      "license": "CC BY-SA 4.0",
-      "size_kb": 28
+      "commons_title": "File:Sony Tablet S.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Sony_Tablet_S.jpg",
+      "artist": "Caesar Wong",
+      "license": "CC BY-SA 3.0",
+      "size_kb": 53
     },
     "figs": [
       {
@@ -489,6 +458,285 @@
         "artist": "Tadeáš Bednarz",
         "license": "CC BY-SA 4.0",
         "size_kb": 119
+      }
+    ]
+  },
+  "altermagnet": {
+    "cover": {
+      "file": "/original/altermagnet-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:ESRF img 0852.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:ESRF_img_0852.jpg",
+      "artist": "Rama",
+      "license": "CC BY-SA 2.0 fr",
+      "size_kb": 205
+    },
+    "figs": [
+      {
+        "file": "/original/altermagnet-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Metal shavings around bar magnet (close-up).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Metal_shavings_around_bar_magnet_(close-up).jpg",
+        "artist": "Maciej J. Mrowinski",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 97
+      },
+      {
+        "file": "/original/altermagnet-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:18th July 2011 no. 2 (5951207301).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:18th_July_2011_no._2_(5951207301).jpg",
+        "artist": "CLS Research Office from Saskatoon, Canada",
+        "license": "CC BY-SA 2.0",
+        "size_kb": 68
+      }
+    ]
+  },
+  "mol-motor": {
+    "cover": {
+      "file": "/original/mol-motor-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Scanning probe microscope (12507590134).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Scanning_probe_microscope_(12507590134).jpg",
+      "artist": "Oak Ridge National Laboratory",
+      "license": "CC BY 2.0",
+      "size_kb": 128
+    },
+    "figs": [
+      {
+        "file": "/original/mol-motor-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:First STM.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:First_STM.jpg",
+        "artist": "J Brew",
+        "license": "CC BY-SA 2.0",
+        "size_kb": 121
+      },
+      {
+        "file": "/original/mol-motor-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Spin Polarized Scanning Tunneling Microscope ANL.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Spin_Polarized_Scanning_Tunneling_Microscope_ANL.jpg",
+        "artist": "Argonne National Laboratory's Flickr page",
+        "license": "CC BY-SA 2.0",
+        "size_kb": 113
+      }
+    ]
+  },
+  "phage": {
+    "cover": {
+      "file": "/original/phage-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Enterobacteria phage T2 transmission electron micrograph.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Enterobacteria_phage_T2_transmission_electron_micrograph.jpg",
+      "artist": "SnaxMikn",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 203
+    },
+    "figs": [
+      {
+        "file": "/original/phage-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Bacteriophages.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Bacteriophages.jpg",
+        "artist": "Dr Graham Beards",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 391
+      },
+      {
+        "file": "/original/phage-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Antimicrobial susceptibility testing (AST) result of Leuconostoc.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Antimicrobial_susceptibility_testing_(AST)_result_of_Leuconostoc.jpg",
+        "artist": "Ajay Kumar Chaurasiya",
+        "license": "CC0",
+        "size_kb": 49
+      }
+    ]
+  },
+  "solar-flare-field": {
+    "cover": {
+      "file": "/original/solar-flare-field-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:The Sun by the Atmospheric Imaging Assembly of NASA's Solar Dynamics Observatory - 20100819.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg",
+      "artist": "NASA/SDO (AIA)",
+      "license": "Public domain",
+      "size_kb": 237
+    },
+    "figs": [
+      {
+        "file": "/original/solar-flare-field-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:McMath-Pierce Solar Telescope with starfield.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:McMath-Pierce_Solar_Telescope_with_starfield.jpg",
+        "artist": "KPNO/NOIRLab/NSF/AURA/B. Tafreshi",
+        "license": "CC BY 4.0",
+        "size_kb": 245
+      },
+      {
+        "file": "/original/solar-flare-field-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Big Bear Solar Observatory domes.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Big_Bear_Solar_Observatory_domes.jpg",
+        "artist": "Z22",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 227
+      }
+    ]
+  },
+  "gut-nad-precursor": {
+    "cover": {
+      "file": "/original/gut-nad-precursor-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Colon, low mag.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Colon,_low_mag.jpg",
+      "artist": "CoRus13",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 330
+    },
+    "figs": [
+      {
+        "file": "/original/gut-nad-precursor-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Bioreactor for cell culture in the laboratory.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Bioreactor_for_cell_culture_in_the_laboratory.jpg",
+        "artist": "Habin Zhang",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 131
+      },
+      {
+        "file": "/original/gut-nad-precursor-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Drosophila melanogaster laboratory culture-vial.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Drosophila_melanogaster_laboratory_culture-vial.jpg",
+        "artist": "Masur",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 99
+      }
+    ]
+  },
+  "long-livephoto": {
+    "cover": {
+      "file": "/original/long-livephoto-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:SZ 深圳 Shenzhen 龍華 Longhua 深圳美術館 Shenzhen Art Museum lady taking photo with smartphone May 2024 R12S 02.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E9%BE%8D%E8%8F%AF_Longhua_%E6%B7%B1%E5%9C%B3%E7%BE%8E%E8%A1%93%E9%A4%A8_Shenzhen_Art_Museum_lady_taking_photo_with_smartphone_May_2024_R12S_02.jpg",
+      "artist": "TANNMY NAISZE Wanguo",
+      "license": "CC0",
+      "size_kb": 53
+    },
+    "figs": [
+      {
+        "file": "/original/long-livephoto-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:SAMSUNG Galaxy S22 Ultra REAR CAMERA MODULES.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:SAMSUNG_Galaxy_S22_Ultra_REAR_CAMERA_MODULES.jpg",
+        "artist": "Dinkun Chen",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 118
+      },
+      {
+        "file": "/original/long-livephoto-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Woman holding mobile phone with laptop and colorful pencils on table.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Woman_holding_mobile_phone_with_laptop_and_colorful_pencils_on_table.jpg",
+        "artist": "Chris Adamus",
+        "license": "CC0",
+        "size_kb": 147
+      }
+    ]
+  },
+  "webnovel-authors-global": {
+    "cover": {
+      "file": "/original/webnovel-authors-global-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Aerial view of woman using computer laptop and a smartphone on wooden table (40640189245).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_woman_using_computer_laptop_and_a_smartphone_on_wooden_table_(40640189245).jpg",
+      "artist": "Rawpixel Ltd",
+      "license": "CC BY 2.0",
+      "size_kb": 216
+    },
+    "figs": [
+      {
+        "file": "/original/webnovel-authors-global-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Hands are typing on a laptop keyboard while a clock rests next to the device.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Hands_are_typing_on_a_laptop_keyboard_while_a_clock_rests_next_to_the_device.jpg",
+        "artist": "Shixart1985",
+        "license": "CC BY 2.0",
+        "size_kb": 113
+      },
+      {
+        "file": "/original/webnovel-authors-global-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Books and Bookshelves in Mansueto Library.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Books_and_Bookshelves_in_Mansueto_Library.jpg",
+        "artist": "Micheal Kaluba",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 153
+      }
+    ]
+  },
+  "ai-comic-drama-export": {
+    "cover": {
+      "file": "/original/ai-comic-drama-export-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Young woman using a smartphone in the gym.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Young_woman_using_a_smartphone_in_the_gym.jpg",
+      "artist": "Shixart1985",
+      "license": "CC BY 2.0",
+      "size_kb": 39
+    },
+    "figs": [
+      {
+        "file": "/original/ai-comic-drama-export-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Field Production Lighting and Camera Rig 2.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Field_Production_Lighting_and_Camera_Rig_2.jpg",
+        "artist": "Tessa Bury",
+        "license": "CC BY 4.0",
+        "size_kb": 169
+      },
+      {
+        "file": "/original/ai-comic-drama-export-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:The Odyssey (2026 film) IMAX 70 mm film reels.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:The_Odyssey_(2026_film)_IMAX_70_mm_film_reels.jpg",
+        "artist": "WMrapids",
+        "license": "CC0",
+        "size_kb": 220
+      }
+    ]
+  },
+  "short-drama-rankings": {
+    "cover": {
+      "file": "/original/short-drama-rankings-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:UConn National Championship Trophies 2010 original.JPG",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:UConn_National_Championship_Trophies_2010_original.JPG",
+      "artist": "Sphilbrick",
+      "license": "CC BY-SA 3.0",
+      "size_kb": 150
+    },
+    "figs": [
+      {
+        "file": "/original/short-drama-rankings-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:DSC 6202 Audience members hold up smartphones to capture a live event screens glowing in the dim venue.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:DSC_6202_Audience_members_hold_up_smartphones_to_capture_a_live_event_screens_glowing_in_the_dim_venue.jpg",
+        "artist": "PattayaPatrol",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 62
+      },
+      {
+        "file": "/original/short-drama-rankings-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:The Earth seen from Apollo 17.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg",
+        "artist": "NASA/Apollo 17 crew; taken by either Harrison Sc…",
+        "license": "Public domain",
+        "size_kb": 231
       }
     ]
   }

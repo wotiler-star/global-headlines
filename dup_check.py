@@ -84,8 +84,11 @@ for f in files:
             if lang == "zh":
                 proper = any(p in h for p in ["医院", "研究所", "大学", "公司", "实验室"])
                 has_digit = bool(re.search(r"\d", h))
-                # 专名与含数字的统计事实句均为不可改写命中，跳过
-                if proper or has_digit:
+                # 纯拉丁字母/连字符的学术专名（代谢通路、基因、蛋白、型号，如
+                # Preiss-Handler、NAMPT、Lgr5）不是中文措辞抄袭，与中文机构专名同样豁免。
+                # 否则 12 字滑窗会把 "reiss-handle" 这类子串误判为需改写的连续重合。
+                latin_proper = bool(re.fullmatch(r"[a-z0-9\-']+", h))
+                if proper or has_digit or latin_proper:
                     continue
             real.append(h)
         total_hits += len(hits)

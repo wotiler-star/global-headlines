@@ -61,9 +61,12 @@ function NewsCardImpl({
 
   // 首屏第一张卡片的图是 LCP 候选：用 eager + 高优先级，避免 lazy 拖慢首屏；
   // 其余卡片保持 lazy + async 解码。
+  // 所有原创配图均为 1200×800：显式固有尺寸让浏览器在图片解码前就能算出宽高比，
+  // 消除信息流滚动时的布局偏移（CLS / Core Web Vitals）。CSS 用 object-fit:cover 覆盖实际显示尺寸。
+  const dims = { width: 1200, height: 800 } as const;
   const imgProps = priority
-    ? ({ loading: "eager" as const, fetchPriority: "high" as const })
-    : ({ loading: "lazy" as const, decoding: "async" as const });
+    ? ({ ...dims, loading: "eager" as const, fetchPriority: "high" as const })
+    : ({ ...dims, loading: "lazy" as const, decoding: "async" as const });
 
   // 视频卡：点击在信息流内直接起播浮层（参考信息流），而非跳转详情页。
   const onVideoClick = isVideo && vm
@@ -92,7 +95,7 @@ function NewsCardImpl({
               <Link prefetch={false} href={href} key={i} onClick={onVideoClick}>
                 <div className="thumb">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt={article.title} {...(i === 0 ? imgProps : { loading: "lazy" as const, decoding: "async" as const })} />
+                  <img src={src} alt={article.title} {...(i === 0 ? imgProps : { ...dims, loading: "lazy" as const, decoding: "async" as const })} />
                   {i === 0 && <BookmarkButton id={article.id} category={article.category} className="bm-on-card" />}
                 </div>
               </Link>

@@ -52,23 +52,51 @@ export function rankRelated(article: Article, pool: Article[], n = 6): Article[]
     })
     .sort((x, y) => y.score - x.score);
 
+  // cov62：内容去重。同一张封面在推荐位并排出现，或在同一侧栏里出现同题稿（同源同事件分两批发），
+  // 视觉上就是"图片重复"，必须挡掉。
+  const titleToks = (a: Article) => new Set(tokenize(a.title || ""));
+  const coverOf = (a: Article) => a.cover || (a.images && a.images[0]) || "";
+  const nearDupTitle = (x: Set<string>, y: Set<string>) => {
+    if (!x.size || !y.size) return false;
+    let inter = 0;
+    for (const t of x) if (y.has(t)) inter++;
+    return inter / Math.min(x.size, y.size) >= 0.6;
+  };
+  const selfTitle = titleToks(article);
+  const selfCover = coverOf(article);
+
+  const picked: Article[] = [];
+  const pickedTitles: Set<string>[] = [];
+  const pickedCovers = new Set<string>(selfCover ? [selfCover] : []);
+
+  const accept = (a: Article) => {
+    const cv = coverOf(a);
+    if (cv && pickedCovers.has(cv)) return false;
+    const tt = titleToks(a);
+    if (nearDupTitle(tt, selfTitle)) return false;
+    for (const p of pickedTitles) if (nearDupTitle(tt, p)) return false;
+    if (cv) pickedCovers.add(cv);
+    pickedTitles.push(tt);
+    picked.push(a);
+    return true;
+  };
+
   // 同来源最多 2 条（多样性），不足再用后续高分补齐
-  const out: Article[] = [];
   const bySrc = new Map<string, number>();
   for (const s of scored) {
+    if (!accept(s.a)) continue;
     const k = s.a.source || "";
     const c = bySrc.get(k) || 0;
-    if (k && c >= 2) continue;
-    bySrc.set(k, c + 1);
-    out.push(s.a);
-    if (out.length >= n) break;
-  }
-  if (out.length < n) {
-    for (const s of scored) {
-      if (out.some((x) => x.id === s.a.id)) continue;
-      out.push(s.a);
-      if (out.length >= n) break;
+    if (k && c >= 2) {
+      // 回滚刚接受的这条，交给后面的候选
+      picked.pop();
+      pickedTitles.pop();
+      const cv = coverOf(s.a);
+      if (cv) pickedCovers.delete(cv);
+      continue;
     }
+    bySrc.set(k, c + 1);
+    if (picked.length >= n) break;
   }
-  return out;
+  return picked.slice(0, n);
 }
