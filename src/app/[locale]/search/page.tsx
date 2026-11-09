@@ -33,7 +33,7 @@ export async function generateMetadata({
   if (!q) {
     // 落地页：可索引 + 完整 hreflang 集群 + 本地化描述（与首页区分）
     return {
-      title: `${d.searchResults} · ${d.siteName}`,
+      title: d.searchResults,
       description: FAQ[loc].landingDesc,
       alternates: { canonical: alts.canonical, languages: alts.languages },
       robots: { index: true, follow: true },
