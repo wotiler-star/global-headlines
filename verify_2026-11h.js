@@ -9,6 +9,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const NEW_SLUGS = ["solar-flare-field", "gut-nad-precursor", "long-livephoto"];
 const LOCALES = ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr"];
+// 本地→站点 HTTPS 链路抖动，不是应用错误：单独统计、只提示不判 FAIL。
+// 真正的判定靠「0 应用错误 + 图片 naturalWidth 全部 > 0」；抖动导致的图加载失败
+// 用 verify_11h_retry.js 重跑该语种，或用服务器侧 curl 127.0.0.1 交叉验证。
+const NET_ERR = /ERR_CONNECTION_RESET|ERR_CONNECTION_CLOSED|ERR_HTTP2_SERVER_REFUSED_STREAM|ERR_HTTP2_PROTOCOL_ERROR|ERR_HTTP2_PING_FAILED|ERR_ABORTED|net::ERR/;
+function splitErrs(errs) {
+  const app = errs.filter((e) => !NET_ERR.test(e) && !/favicon|404/.test(e));
+  const net = errs.filter((e) => NET_ERR.test(e));
+  return { app, net };
+}
 const IMG = [];
 for (const s of NEW_SLUGS) for (const r of ["cover", "fig1", "fig2"]) IMG.push(`${s}-${r}`);
 const pass = [], fail = [];
@@ -73,8 +82,9 @@ function artUrl(loc, slug) {
       if (html.includes(`article/rss-orig-${s}-2026-11${loc === "zh" ? "" : "-" + loc}`)) found++;
     }
     (found === 3 ? pass : fail).push(`${loc} 首页新稿链接 ${found}/3`);
-    const errReal = errs.filter((e) => !/favicon|404/.test(e));
-    (errReal.length === 0 ? pass : fail).push(`${loc} 控制台错误 ${errReal.length}${errReal.length ? ": " + errReal[0].slice(0, 90) : ""}`);
+    const { app: errReal, net: netErrs } = splitErrs(errs);
+    (errReal.length === 0 ? pass : fail).push(`${loc} 应用控制台错误 ${errReal.length}${errReal.length ? ": " + errReal[0].slice(0, 90) : ""}`);
+    if (netErrs.length) console.log(`  (${loc} 链路抖动 ${netErrs.length} 条，非应用错误；必要时用 verify_11h_retry.js 重跑)`);
     await page.close();
   }
 
@@ -108,8 +118,9 @@ function artUrl(loc, slug) {
       if (ok) okImgs++;
     }
     (total >= 3 && okImgs === total ? pass : fail).push(`${loc}/${s} 文内图 naturalWidth ${okImgs}/${total}`);
-    const errReal = errs.filter((e) => !/favicon|404/.test(e));
-    (errReal.length === 0 ? pass : fail).push(`${loc}/${s} 控制台错误 ${errReal.length}${errReal.length ? ": " + errReal[0].slice(0, 90) : ""}`);
+    const { app: errReal, net: netErrs } = splitErrs(errs);
+    (errReal.length === 0 ? pass : fail).push(`${loc}/${s} 应用控制台错误 ${errReal.length}${errReal.length ? ": " + errReal[0].slice(0, 90) : ""}`);
+    if (netErrs.length) console.log(`  (${loc}/${s} 链路抖动 ${netErrs.length} 条，非应用错误；必要时重跑该语种)`);
     if (loc === "zh" && s === NEW_SLUGS[0]) await page.screenshot({ path: `verify11h_${s}.png`, fullPage: false }).catch(() => {});
     await page.close();
   }

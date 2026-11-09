@@ -99,6 +99,8 @@ const CAT_COLORS: Record<string, string> = {
   finance: "#3ddc97",
   sports: "#ff7a59",
   entertainment: "#c792ea",
+  game: "#00c2a8",
+  crossborder: "#ff9f43",
   health: "#f06ea9",
   science: "#7ee787",
   video: "#ff5c8a",
