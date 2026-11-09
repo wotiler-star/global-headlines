@@ -3,15 +3,17 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { Locale } from "@/i18n/config";
+import { Locale, isCategory } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { homeHref } from "@/lib/paths";
+import { homeHref, categoryHref } from "@/lib/paths";
 
 export default function BottomNav({ locale }: { locale: Locale }) {
   const pathname = usePathname() || homeHref(locale);
   const sp = useSearchParams();
-  const cat = sp.get("cat");
+  // cov62：同时识别静态栏目路径 /<locale>/category/<cat>，否则栏目页底部导航不亮
+  const m = /^\/(?:[a-z]{2})\/category\/([^/]+)/.exec(pathname || "");
+  const cat = (m && isCategory(m[1])) ? m[1] : (sp.get("cat") || null);
   const d = getDict(locale);
   const [openLang, setOpenLang] = useState(false);
 
@@ -28,7 +30,7 @@ export default function BottomNav({ locale }: { locale: Locale }) {
         <span className="bn-icon">🏠</span>
         <span className="bn-label">{d.navHome}</span>
       </Link>
-      <Link href={`${base}?cat=video`} className={`bn-item${isVideo ? " active" : ""}`}>
+      <Link href={categoryHref(locale, "video")} className={`bn-item${isVideo ? " active" : ""}`}>
         <span className="bn-icon">▶</span>
         <span className="bn-label">{d.navVideo}</span>
       </Link>
@@ -36,7 +38,7 @@ export default function BottomNav({ locale }: { locale: Locale }) {
         <span className="bn-icon">♥</span>
         <span className="bn-label">{d.navBookmarks}</span>
       </Link>
-      <Link href={`${base}?cat=world`} className={`bn-item${isCat ? " active" : ""}`}>
+      <Link href={categoryHref(locale, "world")} className={`bn-item${isCat ? " active" : ""}`}>
         <span className="bn-icon">☰</span>
         <span className="bn-label">{d.navCategories}</span>
       </Link>

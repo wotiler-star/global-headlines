@@ -1292,6 +1292,12 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .home-section-grid .feed-card { background: transparent; border: none; border-bottom: 1px solid var(--line); border-radius: 0; padding: 16px 0; transition: .15s; }
 .home-section-grid .feed-card:hover { border-color: var(--line); box-shadow: none; }
 
+/* 静态栏目落地页（cov62） */
+.cat-page-head { margin: 18px 0 8px; padding-bottom: 12px; border-bottom: 2px solid var(--brand); }
+.cat-page-title { margin: 0; font-size: 22px; font-weight: 800; font-family: var(--font-gk); }
+.cat-page-sub { margin: 6px 0 0; font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+.cat-feed { margin-top: 4px; }
+
 /* 热榜 / 热门讨论：真实评论热度 */
 .trending-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
 .trending-item:last-child { border-bottom: none; }

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { locales, defaultLocale, isLocale } from "./i18n/config";
+import { locales, defaultLocale, isLocale, isCategory } from "./i18n/config";
 import { acceptLanguageToLocale, countryToLocale } from "./i18n/geoLocale";
 
 const PUBLIC = /\.[^/]+$/; // 静态资源后缀
@@ -58,6 +58,25 @@ export function middleware(req: NextRequest) {
 
   if (PUBLIC.test(pathname) || pathname.startsWith("/_next") || pathname.startsWith("/api")) {
     return;
+  }
+
+  // cov62：旧版栏目页 /<locale>?cat=<x> 被 Google 判为首页重复内容、长期「已发现未收录」。
+  // 现改为静态栏目页 /<locale>/category/<x>，这里把已爬取的 ?cat= 参数 URL 301 过去，
+  // 并清掉其它参数（栏目落地页为静态，不消费查询串）。必须放在语种前缀早返回之前，
+  // 否则 /zh?cat=world 会被「显式带语种前缀不重定向」规则漏掉。
+  const catParam = req.nextUrl.searchParams.get("cat");
+  if (
+    catParam &&
+    isCategory(catParam) &&
+    catParam !== "recommend" &&
+    !pathname.includes("/category/")
+  ) {
+    const localeSeg = locales.find((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
+    const locale = pathname === "/" ? defaultLocale : localeSeg ?? defaultLocale;
+    const url = req.nextUrl.clone();
+    url.pathname = `/${locale}/category/${catParam}`;
+    url.search = "";
+    return NextResponse.redirect(url, { status: 301 });
   }
 
   // 显式带语种前缀的路径：绝对不重定向。

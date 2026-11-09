@@ -2,7 +2,7 @@
 // Canonical form carries NO trailing slash: /zh and /zh/article/x serve 200
 // directly (verified). Legacy /index.html links still resolve through the
 // middleware 307 strip (kept as a safety net for old bookmarks/SEO).
-import { Locale } from "@/i18n/config";
+import { Locale, isCategory } from "@/i18n/config";
 
 export function homeHref(locale: Locale): string {
   return `/${locale}`;
@@ -12,11 +12,15 @@ export function articleHref(locale: Locale, id: string): string {
   return `/${locale}/article/${id}`;
 }
 
+// cov62：分类页改为静态 URL /<locale>/category/<cat>，替代原先的 /<locale>?cat=<cat>。
+// 原因：?cat= 参数页的 canonical 指向语言首页，被 Google 判为重复内容，42 个栏目页
+// 长期「已发现-尚未编入索引」。静态路径拥有独立 canonical + 68 hreflang + ItemList 结构
+// 化数据，可被正常收录。recommend 仍指回首页（它本身不是独立栏目）。
 export function categoryHref(locale: Locale, cat: string, query?: string): string {
-  const base = `/${locale}`;
   if (cat && cat !== "recommend") {
-    return query ? `${base}?cat=${cat}&${query}` : `${base}?cat=${cat}`;
+    return query ? `/${locale}/category/${cat}?${query}` : `/${locale}/category/${cat}`;
   }
+  const base = `/${locale}`;
   return query ? `${base}?${query}` : base;
 }
 
@@ -27,8 +31,14 @@ export function categoryHref(locale: Locale, cat: string, query?: string): strin
 export function swapLocale(pathname: string, next: Locale, query?: string): string {
   const cleaned = pathname.replace(/index\.html$/, "").replace(/\/+$/, "");
   const seg = cleaned.split("/").filter(Boolean);
-  const isRssArticle = seg[1] === "article" && seg[2] && seg[2].indexOf("rss-") === 0;
-  const target =
-    isRssArticle || !(seg[1] === "article" && seg[2]) ? `/${next}` : `/${next}/article/${seg[2]}`;
+  let target: string;
+  if (seg[1] === "article" && seg[2]) {
+    // RSS 文章 id 按语言生成，跨语言切换回落到目标语言首页而非 404
+    target = seg[2].indexOf("rss-") === 0 ? `/${next}` : `/${next}/article/${seg[2]}`;
+  } else if (seg[1] === "category" && seg[2] && isCategory(seg[2])) {
+    target = `/${next}/category/${seg[2]}`;
+  } else {
+    target = `/${next}`;
+  }
   return query ? `${target}?${query}` : target;
 }

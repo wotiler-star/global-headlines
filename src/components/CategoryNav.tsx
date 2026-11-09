@@ -22,11 +22,18 @@ export default function CategoryNav({
   const d = getDict(locale);
   const catParam = sp.get("cat");
   const isFollowing = sp.get("view") === "following";
+  // cov62：静态栏目页 /<locale>/category/<cat> 也作为高亮依据，否则点进栏目后导航不亮
+  const pathCat = (() => {
+    const m = /^\/(?:[a-z]{2})\/category\/([^/]+)/.exec(pathname || "");
+    return m && isCategory(m[1]) ? m[1] : null;
+  })();
   const current: Category = active && isCategory(active)
     ? active
-    : catParam && isCategory(catParam)
-      ? catParam
-      : "recommend";
+    : pathCat && isCategory(pathCat)
+      ? pathCat
+      : catParam && isCategory(catParam)
+        ? catParam
+        : "recommend";
   const cats = categories;
   // 切分类时保留当前搜索词与标签，避免「搜索后点分类丢词」。
   const keep = [

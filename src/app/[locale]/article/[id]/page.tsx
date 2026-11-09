@@ -7,7 +7,7 @@ import { absUrl, buildArticleAlternates, SITE_URL, articleBaseId, articleVersion
 import { ogImageFor } from "@/lib/og";
 import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
-import { homeHref, articleHref } from "@/lib/paths";
+import { homeHref, articleHref, categoryHref } from "@/lib/paths";
 import CategoryNav from "@/components/CategoryNav";
 import RelatedPanel from "@/components/RelatedPanel";
 import ReadHistoryTracker from "@/components/ReadHistoryTracker";
@@ -221,7 +221,7 @@ export default async function ArticlePage({
                 "@type": "BreadcrumbList",
                 itemListElement: [
                   { "@type": "ListItem", position: 1, name: d.siteName, item: absUrl(loc, "") },
-                  { "@type": "ListItem", position: 2, name: d.categories[article.category], item: absUrl(loc, `/?cat=${article.category}`) },
+                  { "@type": "ListItem", position: 2, name: d.categories[article.category], item: absUrl(loc, `/category/${article.category}`) },
                   { "@type": "ListItem", position: 3, name: article.title, item: absUrl(loc, `/article/${id}`) },
                 ],
               },
@@ -240,7 +240,7 @@ export default async function ArticlePage({
           <nav className="art-crumb" aria-label="breadcrumb">
             <Link href={homeHref(loc)}>HOME</Link>
             <span className="sep">/</span>
-            <span>{d.categories[article.category]}</span>
+            <Link href={categoryHref(loc, article.category)}>{d.categories[article.category]}</Link>
             <span className="sep">/</span>
             <span className="sig">{signalId}</span>
           </nav>

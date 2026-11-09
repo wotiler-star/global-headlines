@@ -5,9 +5,9 @@ import { absUrl, buildSitemapAlternates, buildSitemapArticleAlternates } from "@
 
 export const dynamic = "force-static";
 
-// cov47：sitemap 只收录「canonical 指向自身」的 URL。
-// 分类页 /?cat=... 的 canonical 指向语言首页，收录它们会产生大量重复内容信号，
-// 因此从 sitemap 移除；Google 仍可通过首页导航发现这些栏目。
+// cov62：sitemap 收录「canonical 指向自身」的 URL（首页 / 文章 / 静态栏目页）。
+// 旧版 /?cat=... 参数页的 canonical 指向语言首页，属重复内容信号曾被排除；
+// 现改为静态栏目页 /<locale>/category/<cat>，拥有独立 canonical，正常收录。
 // lastModified 改用文章真实发布时间，避免每次构建都把全部 URL 标成「刚更新」。
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const urls: MetadataRoute.Sitemap = [];
@@ -31,6 +31,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
       alternates: { languages: home.languages },
     });
+
+    // cov62：静态栏目页（recommend 即首页，不重复收录）
+    for (const c of categories) {
+      if (c === "recommend") continue;
+      const alts = buildSitemapAlternates(loc, `/category/${c}`);
+      urls.push({
+        url: absUrl(loc, `/category/${c}`),
+        lastModified: latest,
+        changeFrequency: "daily",
+        priority: 0.7,
+        alternates: { languages: alts.languages },
+      });
+    }
 
     for (const [id, ts] of articleTimes) {
       const alts = buildSitemapArticleAlternates(loc, id);
