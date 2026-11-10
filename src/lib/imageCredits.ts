@@ -76,7 +76,7 @@ export const IMAGE_CREDITS: Record<string, ImageCredit> = {
   "/original/short-drama-rankings-fig1.webp": { artist: "PattayaPatrol", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File%3ADSC_6202_Audience_members_hold_up_smartphones_to_capture_a_live_event_screens_glowing_in_the_dim_venue.jpg" },
   "/original/short-drama-rankings-fig2.webp": { artist: "NASA/Apollo 17 crew; taken by either Harrison Sc…", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File%3AThe_Earth_seen_from_Apollo_17.jpg" },
   "/original/china-ai-export-1.webp": { artist: "Henrysz", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File%3ARobotic_Arm_Polishing_Guitars_at_Martin_Guitar_Factory.jpg" },
-  "/original/china-ai-export-2.webp": { artist: "Michael Rivera", license: "CC0", url: "https://commons.wikimedia.org/wiki/File%3AAmazon_Fulfillment_Center%2C_Ocala.jpg" },
+  "/original/china-ai-export-2.webp": { artist: "Techwords", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File%3AOcado_warehouse_bots.jpg" },
   "/original/china-ai-export-3.webp": { artist: "James R. Tourtellotte", license: "Public domain", url: "https://commons.wikimedia.org/wiki/File%3AAerial_photograph_of_the_Port_of_Miami_Container_Port.jpg" },
   "/original/china-games-export-1.webp": { artist: "Exilexi", license: "CC0", url: "https://commons.wikimedia.org/wiki/File%3ALCS_Summer_Split_2017_in_Paris.jpg" },
   "/original/china-games-export-2.webp": { artist: "Asanagi", license: "CC0", url: "https://commons.wikimedia.org/wiki/File%3ATakadanobaba%20Game%20Center%20Mikado%20ground%20floor%202019-02-24.jpg" },
