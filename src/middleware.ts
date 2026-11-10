@@ -56,6 +56,29 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  // cov65：非法栏目参数直接返回规范 404，不让请求进入 Next 渲染。
+  // category 页是 force-static + dynamicParams=false；对未预生成的 [cat]，
+  // Next 会在 responseGenerator 内部抛 NoFallbackError 来实现 404（对外确为 404，
+  // 但会持续污染 error 日志，并让爬虫反复占用渲染 worker）。
+  // 白名单与 category/page.tsx 的 generateStaticParams 完全一致：
+  // categories 去掉 recommend（recommend 即语言首页，不建独立栏目页）。
+  // 必须放在 PUBLIC 早返回之前，否则 /zh/category/wp-login.php 这类带点探测会漏过。
+  const catPath = /^\/([^/]+)\/category\/([^/]+)\/?$/.exec(pathname);
+  if (catPath && isLocale(catPath[1])) {
+    let slug = catPath[2];
+    try {
+      slug = decodeURIComponent(slug);
+    } catch {
+      /* 非法百分号编码 → 必然不命中白名单 */
+    }
+    if (!isCategory(slug) || slug === "recommend") {
+      return new NextResponse(null, {
+        status: 404,
+        headers: { "Cache-Control": "public, max-age=3600" },
+      });
+    }
+  }
+
   if (PUBLIC.test(pathname) || pathname.startsWith("/_next") || pathname.startsWith("/api")) {
     return;
   }

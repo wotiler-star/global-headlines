@@ -1,7 +1,7 @@
 import { locales, localeMeta, ogLocale, Locale, isLocale } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { getDict } from "@/i18n/dictionaries";
-import { buildAlternates, absUrl, SITE_URL } from "@/lib/site";
+import { absUrl, SITE_URL } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
@@ -34,7 +34,6 @@ export async function generateMetadata({
   if (!isLocale(locale)) return {};
   const loc = locale as Locale;
   const d = getDict(loc);
-  const alts = buildAlternates(loc, "");
   return {
     metadataBase: new URL(SITE_URL),
     title: { default: d.homeTitle, template: `%s · ${d.siteName}` },
@@ -57,10 +56,12 @@ export async function generateMetadata({
       ],
       apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     },
-    alternates: {
-      canonical: alts.canonical,
-      languages: alts.languages,
-    },
+    // cov65：hreflang 一律由各页面按自身真实路径声明（buildAlternates(loc, path)）。
+    // layout 无法感知子路由，若在此注入 buildAlternates(loc, "")，Next 会把「指向各语种
+    // 首页」的 68 个变体浅合并进页面 metadata（page 不能清除父级 languages），
+    // 使 /tag/<slug> 这类无跨语种对应版本的页面带上错误 hreflang。
+    // 这里只保留 canonical 兜底；page 级同名键会覆盖它。
+    alternates: { canonical: absUrl(loc, "") },
     openGraph: {
       siteName: d.siteName,
       locale: ogLocale[loc],
