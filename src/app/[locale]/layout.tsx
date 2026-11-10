@@ -1,4 +1,5 @@
-import { locales, localeMeta, ogLocale, Locale } from "@/i18n/config";
+import { locales, localeMeta, ogLocale, Locale, isLocale } from "@/i18n/config";
+import { notFound } from "next/navigation";
 import { getDict } from "@/i18n/dictionaries";
 import { buildAlternates, absUrl, SITE_URL } from "@/lib/site";
 import Header from "@/components/Header";
@@ -28,6 +29,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  // 未知路径（/ads.txt 等）被 [locale] 段误当语种，localeMeta[loc] 为 undefined → 500。
+  // 返回空 metadata + 组件体 notFound()，统一输出规范 404。
+  if (!isLocale(locale)) return {};
   const loc = locale as Locale;
   const d = getDict(loc);
   const alts = buildAlternates(loc, "");
@@ -86,6 +90,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  if (!isLocale(locale)) notFound();
   const loc = locale as Locale;
   const meta = localeMeta[loc];
   const d = getDict(loc);

@@ -27,7 +27,8 @@ export async function generateMetadata({
   const c = citeCopy[loc];
   const alts = buildAlternates(loc, "/about");
   return {
-    title: c.title,
+    // 词典 title 已含品牌名，layout 有 title.template；absolute 避免重复拼接
+    title: { absolute: c.title },
     description: c.desc,
     alternates: { canonical: alts.canonical, languages: alts.languages },
     openGraph: {
