@@ -1,6 +1,6 @@
 import { isLocale, Locale, locales, localeMeta, ogLocale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
-import { absUrl } from "@/lib/site";
+import { absUrl, SITE_URL } from "@/lib/site";
 import {
   buildTagIndex,
   indexableTags,
@@ -114,6 +114,17 @@ export default async function TagPage({
   // 内链枢纽：互链其他优质标签（排除自身），把权重在标签层扩散
   const siblingTags = index.filter((e) => e.slug !== entry.slug).slice(0, 16);
 
+  // GEO 实体档案：全部取自文章数据，不编造百科定义。
+  const dates = entry.articles
+    .map((a) => Number(a.publishedAt || 0))
+    .filter((t) => Number.isFinite(t) && t > 0)
+    .sort((x, y) => x - y);
+  const day = (t: number) => new Date(t).toISOString().slice(0, 10);
+  const firstDate = dates.length ? day(dates[0]) : "—";
+  const latestDate = dates.length ? day(dates[dates.length - 1]) : "—";
+  const sectionCount = new Set(entry.articles.map((a) => a.category)).size;
+  const entityDesc = `${entry.tag}：starteday 共 ${entry.articles.length} 篇原创报道，首次 ${firstDate}，最新 ${latestDate}，涉及 ${sectionCount} 个栏目。`;
+
   return (
     <div className="container">
       <div className="cat-page-head">
@@ -127,12 +138,28 @@ export default async function TagPage({
         <span className="cur">{entry.tag}</span>
       </nav>
 
+      {/* GEO 实体档案：把标签从「文章列表」升级为可引用的实体入口。
+          统计全部来自文章数据；JSON-LD 的 CollectionPage / Thing 在下方。 */}
+      <section className="entity-card" aria-label="Entity profile">
+        <div className="ec-label">ENTITY PROFILE · 实体档案</div>
+        <dl className="cite-facts">
+          <div><dt>Entity</dt><dd>{entry.tag}</dd></div>
+          <div><dt>Original articles</dt><dd>{entry.articles.length}</dd></div>
+          <div><dt>First / Latest</dt><dd>{firstDate} — {latestDate}</dd></div>
+          <div><dt>Sections</dt><dd>{sectionCount}</dd></div>
+        </dl>
+        <p className="ec-note">
+          {entityDesc} <Link href={`/${loc}/about`}>引用与许可 ↗</Link>
+        </p>
+      </section>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ItemList",
+            "@id": `${tagUrl}#itemlist`,
             numberOfItems: Math.min(articles.length, 20),
             itemListElement: articles.slice(0, 20).map((a, i) => ({
               "@type": "ListItem",
@@ -152,6 +179,42 @@ export default async function TagPage({
             itemListElement: [
               { "@type": "ListItem", position: 1, name: d.siteName, item: homeUrl },
               { "@type": "ListItem", position: 2, name: entry.tag, item: tagUrl },
+            ],
+          }),
+        }}
+      />
+
+      {/* GEO：实体落地页结构化数据。Thing 声明实体身份，subjectOf 指向本站报道，
+          CollectionPage 把「档案页」与「文章列表」区分开；与上方 ItemList 并存。 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "CollectionPage",
+                "@id": `${tagUrl}#webpage`,
+                url: tagUrl,
+                name: `${entry.tag} · starteday 实体档案`,
+                description: entityDesc,
+                inLanguage: localeMeta[loc].hreflang,
+                isPartOf: { "@id": `${SITE_URL}/#website` },
+                about: { "@id": `${tagUrl}#entity` },
+                hasPart: { "@id": `${tagUrl}#itemlist` },
+              },
+              {
+                "@type": "Thing",
+                "@id": `${tagUrl}#entity`,
+                name: entry.tag,
+                description: entityDesc,
+                url: tagUrl,
+                subjectOf: articles.slice(0, 20).map((a) => ({
+                  "@type": "CreativeWork",
+                  url: absUrl(loc, `/article/${a.id}`),
+                  name: a.title,
+                })),
+              },
             ],
           }),
         }}

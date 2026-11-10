@@ -202,6 +202,27 @@ export default async function ArticlePage({
                 isPartOf: { "@id": `${SITE_URL}/#website` },
                 articleSection: article.category,
                 keywords: article.tags.join(", "),
+                // GEO：语音助手 / AI 摘取入口。选择器对应页面真实 DOM：
+                // DecodeTitle → .article-title，导读正文 → .art-lead p。
+                speakable: {
+                  "@type": "SpeakableSpecification",
+                  cssSelector: [".article-title", ".art-lead p"],
+                },
+                // GEO：把核心论断声明为 Claim（不是 ClaimReview）。
+                // ClaimReview 是事实核查专用，要求被核查的公开声明 + rating + 核查资质，
+                // 普通原创稿误用属结构化数据滥用；Claim 只标注「本文主张什么」，
+                // text 与可见导读逐字一致，citation 指向原始报道。
+                mainEntity: {
+                  "@type": "Claim",
+                  "@id": `${absUrl(loc, `/article/${id}`)}#claim`,
+                  text: article.summary,
+                  ...(article.sourceUrl
+                    ? { citation: { "@type": "CreativeWork", url: article.sourceUrl } }
+                    : {}),
+                },
+                // 实体标注：让引擎把标签识别为本文讨论的实体，而非普通关键词
+                about: { "@type": "Thing", name: article.tags[0] || article.category },
+                mentions: article.tags.map((t: string) => ({ "@type": "Thing", name: t })),
                 // 引用关系机器可读（外链优化）：把原始报道标为 citation / isBasedOn，
                 // 让搜索引擎区分「原创改写」与「转载聚合」，同时给出可追溯来源。
                 ...(article.sourceUrl ? {
@@ -307,7 +328,7 @@ export default async function ArticlePage({
           {article.media !== "video" && (
             <div className="art-caption">SOURCE · {article.source}</div>
           )}
-          <div className="art-lead">
+          <div className="art-lead" id="claim">
             <div className="al-label">LEAD · 导读</div>
             <p>{article.summary}</p>
           </div>

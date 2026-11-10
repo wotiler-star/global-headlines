@@ -5,6 +5,8 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { locales } from "@/i18n/config";
+import { buildTagIndex, indexableTags, loadTagSourceArticles } from "@/lib/tags";
+import { loadTopics, topicHref } from "@/lib/topics";
 
 const SITE_URL = (process.env.SITE_URL || "https://starteday.com").replace(/\/$/, "");
 const SITE_NAME = "starteday";
@@ -65,6 +67,36 @@ const SITE_FACTS = `- 名称：starteday（八语种统一，不翻译）；规�
 - 使用许可：非商业引用与摘录欢迎，须注明来源与原文链接；整篇转载或商业使用请先联系编辑部
 - 内容边界：选题避开政治、军事、宗教、种族与儿童相关议题
 - 纠错与授权：事实错误、署名遗漏或授权请求见各语种「关于与引用」页的联系与纠错一节`;
+
+// GEO 实体索引：以「主题实体」为主（29 个稳定 slug × 8 语种，完整 hreflang），
+// 标签实体为辅（与 sitemap / generateStaticParams 同一判定，slug 不会漂移成死链）。
+function buildEntityIndex(): string {
+  const lines: string[] = [];
+  for (const t of loadTopics()) {
+    const day = t.publishedAt ? new Date(t.publishedAt).toISOString().slice(0, 10) : "—";
+    lines.push(
+      `- [${t.slug}](${SITE_URL}${topicHref(locales[0], t.slug)}): ${t.count} 个语种版本 · ${day} · ${t.category} · 主题实体档案`,
+    );
+  }
+  for (const l of locales) {
+    const idx = buildTagIndex(loadTagSourceArticles(l));
+    for (const e of indexableTags(idx).slice(0, 3)) {
+      lines.push(
+        `- [${l} · #${flat(e.tag)}](${SITE_URL}/${l}/tag/${encodeURIComponent(e.slug)}): ${e.articles.length} 篇原创报道 · 标签实体档案`,
+      );
+    }
+  }
+  return lines.join("\n") || "- （暂无实体档案）";
+}
+
+// 请求时生成，避免模块加载期固化成常量导致新批次上线后索引陈旧。
+function entitySection(): string {
+  return `## 实体与话题档案（可引用入口）
+
+每个主题档案页声明 \`Thing\` / \`CollectionPage\` / \`ItemList\` 结构化数据，列出同一主题在 8 个语种的独立原创稿、发布日期与栏目；标签档案页另给出报道统计。
+
+${buildEntityIndex()}`;
+}
 
 export function buildNewsSitemap(): string {
   const cutoff = Date.now() - WINDOW_HOURS * 3600 * 1000;
@@ -133,6 +165,8 @@ ${locales.map((l) => `- [${l} 关于与引用](${SITE_URL}/${l}/about)`).join("\
 - [Sitemap](${SITE_URL}/sitemap.xml)
 - [Google News Sitemap](${SITE_URL}/news-sitemap.xml)
 
+${entitySection()}
+
 ## 最新文章
 
 ${latest}
@@ -165,6 +199,8 @@ export function buildLlmsFullTxt(): string {
 ## 站点事实（可直接引用）
 
 ${SITE_FACTS}
+
+${entitySection()}
 
 ## 全部文章（${all.length} 篇）
 

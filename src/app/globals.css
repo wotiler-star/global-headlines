@@ -2076,6 +2076,25 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .cite-faq > div { padding: 13px 0; border-bottom: 1px solid var(--line); }
 .cite-faq dt { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
 .cite-faq dd { margin: 0; font-size: 14px; line-height: 1.8; color: var(--ink-2); }
+/* GEO：tag 页升级后的实体档案卡 */
+.entity-card { background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px 10px; margin: 0 0 20px; }
+.ec-label { font-size: 11px; letter-spacing: 0.12em; color: var(--brand); margin-bottom: 12px; font-family: var(--font-mn); }
+.entity-card .cite-facts { margin-bottom: 8px; }
+.entity-card .cite-facts > div { background: var(--bg); }
+.ec-note { font-size: 13px; line-height: 1.7; color: var(--ink-2); margin: 4px 0 6px; }
+.ec-note a { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; }
+/* GEO：主题实体档案页 */
+.topic-page { max-width: 860px; margin: 0 auto; padding: 22px 0 44px; }
+.tp-label { font-size: 11px; letter-spacing: 0.12em; color: var(--brand); margin-bottom: 10px; font-family: var(--font-mn); }
+.topic-page h1 { font-size: 27px; line-height: 1.4; color: var(--ink); margin: 0 0 10px; }
+.tp-desc { font-size: 15px; line-height: 1.8; color: var(--ink-2); margin: 0 0 20px; }
+.tp-versions h2 { font-size: 17px; color: var(--ink); margin: 22px 0 10px; }
+.tp-list { list-style: none; padding: 0; margin: 0 0 18px; }
+.tp-list li { display: flex; gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.tp-loc { flex: 0 0 30px; font-size: 11px; letter-spacing: 0.08em; color: var(--brand); text-transform: uppercase; font-family: var(--font-mn); }
+.tp-list a { font-size: 14px; line-height: 1.6; color: var(--ink); text-decoration: none; }
+.tp-list a:hover { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) { .topic-page h1 { font-size: 22px; } }
 .cite-links { display: flex; flex-wrap: wrap; gap: 8px 18px; padding-left: 18px; margin: 0 0 16px; }
 .cite-links li { font-size: 14px; color: var(--ink-2); }
 .cite-foot { font-size: 12px; color: var(--ink-3); margin: 24px 0 0; text-align: center; font-family: var(--font-mn); }
