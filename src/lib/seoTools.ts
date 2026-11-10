@@ -103,9 +103,16 @@ export function buildLlmsTxt(): string {
 
 ${homeLinks}
 
+## 关于与引用规范
+
+引用、转载或用于研究时，请先阅读各语种的关于页：其中给出规范引用格式、图片许可与署名政策、纠错渠道，是稳定的可引用入口。
+
+${locales.map((l) => `- [${l} 关于与引用](${SITE_URL}/${l}/about)`).join("\n")}
+
 ## 订阅与站点地图
 
 - [RSS](${SITE_URL}/rss.xml)
+- [Atom](${SITE_URL}/atom.xml)
 - [Sitemap](${SITE_URL}/sitemap.xml)
 - [Google News Sitemap](${SITE_URL}/news-sitemap.xml)
 

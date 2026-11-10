@@ -33,6 +33,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: { languages: home.languages },
     });
 
+    // 可引用资产页（外链优化）：稳定、可被引用的关于/引用规范页。
+    // 独立 canonical + 8 语种 hreflang，优先级低于首页但高于标签聚合页。
+    const aboutAlts = buildSitemapAlternates(loc, "/about");
+    urls.push({
+      url: absUrl(loc, "/about"),
+      lastModified: latest,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: aboutAlts.languages },
+    });
+
     // cov62：静态栏目页（recommend 即首页，不重复收录）。
     // 仅收录「该语种确有内容」的栏目：空栏目无内容，提交到 sitemap 反而触发 Google
     // 对「thin/soft-404」URL 的负面信号；空栏目仍保留静态页（内部导航可达），只是不进 sitemap。

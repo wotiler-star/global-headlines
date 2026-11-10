@@ -124,12 +124,25 @@ export default async function LocaleLayout({
                   "@type": "Organization",
                   "@id": `${SITE_URL}/#organization`,
                   name: d.siteName,
-                  url: absUrl(loc, ""),
+                  url: SITE_URL,
                   logo: {
                     "@type": "ImageObject",
                     url: `${SITE_URL}/icons/icon-512.png`,
                     width: 512,
                     height: 512,
+                  },
+                  // 实体归属信号（外链优化）：把机器可读入口与编辑规范页绑定到本站实体，
+                  // 让搜索引擎在外部引用时能正确归并到同一个发布者。
+                  sameAs: [`${SITE_URL}/llms.txt`, `${SITE_URL}/rss.xml`, `${SITE_URL}/atom.xml`],
+                  publishingPrinciples: `${SITE_URL}/${loc}/about`,
+                  ethicsPolicy: `${SITE_URL}/${loc}/about`,
+                  correctionsPolicy: `${SITE_URL}/${loc}/about`,
+                  knowsAbout: ["technology", "business", "science", "culture", "consumer", "health"],
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    contactType: "editorial",
+                    url: `${SITE_URL}/${loc}/about`,
+                    availableLanguage: ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr"],
                   },
                 },
               ],
@@ -147,6 +160,13 @@ export default async function LocaleLayout({
           type="application/rss+xml"
           title="starteday RSS"
           href={`${SITE_URL}/rss.xml`}
+        />
+        {/* Atom 是第二个标准订阅入口，供聚合器/阅读器自动发现 */}
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="starteday Atom"
+          href={`${SITE_URL}/atom.xml`}
         />
         <script
           dangerouslySetInnerHTML={{

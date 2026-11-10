@@ -202,6 +202,15 @@ export default async function ArticlePage({
                 isPartOf: { "@id": `${SITE_URL}/#website` },
                 articleSection: article.category,
                 keywords: article.tags.join(", "),
+                // 引用关系机器可读（外链优化）：把原始报道标为 citation / isBasedOn，
+                // 让搜索引擎区分「原创改写」与「转载聚合」，同时给出可追溯来源。
+                ...(article.sourceUrl ? {
+                  citation: { "@type": "CreativeWork", url: article.sourceUrl, name: "Original reporting" },
+                  isBasedOn: { "@type": "CreativeWork", url: article.sourceUrl },
+                  creditText: `Original reporting: ${article.sourceUrl}`,
+                } : {}),
+                // 内容许可与引用规范指向可引用资产页
+                usageInfo: `${SITE_URL}/${loc}/about`,
                 hasPart: (article.images || []).map((_: string, i: number) => ({
                   "@id": `${absUrl(loc, `/article/${id}`)}#image${i + 1}`,
                 })),
@@ -344,6 +353,21 @@ export default async function ArticlePage({
                 ))}
               </ul>
             </section>
+          )}
+          {/* 可见的原始报道引用：对人可追溯，对爬虫是明确的 citation 信号。
+              第三方来源统一 nofollow，避免把本站权重无谓传递给外部域，
+              同时声明非背书；Commons 署名链接仍为 follow（CC 署名要求）。 */}
+          {article.sourceUrl && /^https?:\/\//i.test(article.sourceUrl) && (
+            <p className="art-source-link">
+              <span>Original reporting / 原始报道：</span>
+              <a
+                href={article.sourceUrl}
+                target="_blank"
+                rel="nofollow noopener noreferrer citation"
+              >
+                {(() => { try { return new URL(article.sourceUrl).hostname; } catch { return article.sourceUrl; } })()} ↗
+              </a>
+            </p>
           )}
           <div className="article-tags">
             <span className="tag-label">{d.tagTitle}：</span>
