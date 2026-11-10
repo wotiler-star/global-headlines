@@ -18,7 +18,7 @@ export default function Footer({ locale }: { locale: Locale }) {
         <span className="footer-tagline">{d.tagline}</span>
       </div>
       <div className="footer-meta">
-        <Link href={`/${locale}/about`} className="rss-link" title={c.desc}>{c.citeTitle}</Link>
+        <Link href={`/${locale}/about`} className="rss-link" title={c.desc}>{c.sections.citeTitle}</Link>
         <span> · </span>
         <a href={`${SITE_URL}/${locale}/rss.xml`} className="rss-link">📰 RSS</a>
         <a href={`${SITE_URL}/atom.xml`} className="rss-link">Atom</a>
