@@ -84,7 +84,8 @@ print("COMMIT:", commit["sha"])
 
 # --- 4. verify ---
 final = api("GET", "/commits/main")
-print("TREE_MATCH:", final["tree"]["sha"] == new_tree["sha"])
+print("TIP:", final["sha"])
+print("TREE_MATCH:", final["commit"]["tree"]["sha"] == new_tree["sha"])
 chk = api("GET", "/git/trees/" + final["tree"]["sha"] + "?recursive=1")
 rmap = {t["path"]: t["sha"] for t in chk["tree"] if t["type"] == "blob"}
 bad = [p for p in ADD if rmap.get(p.replace("\\", "/")) != blob_sha(p)]
