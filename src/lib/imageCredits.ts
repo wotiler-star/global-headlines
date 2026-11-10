@@ -81,8 +81,6 @@ export const IMAGE_CREDITS: Record<string, ImageCredit> = {
   "/original/china-games-export-1.webp": { artist: "Exilexi", license: "CC0", url: "https://commons.wikimedia.org/wiki/File%3ALCS_Summer_Split_2017_in_Paris.jpg" },
   "/original/china-games-export-2.webp": { artist: "Asanagi", license: "CC0", url: "https://commons.wikimedia.org/wiki/File%3ATakadanobaba%20Game%20Center%20Mikado%20ground%20floor%202019-02-24.jpg" },
   "/original/china-games-export-3.webp": { artist: "Syced", license: "CC0", url: "https://commons.wikimedia.org/wiki/File%3AFlame_on_sire_booth_at_Tokyo_Game_Show_2026.jpg" },
-  "/original/china-webnovel-global-1.webp": { artist: "Awikimate", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File%3ARosetta_Stone_-_front_face_-_corrected_image.jpg" },
-  "/original/china-webnovel-global-2.webp": { artist: "Blaizemaster", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File%3AComic_book_page_1_tem..jpg" },
   "/original/china-webnovel-global-3.webp": { artist: "Pelajanela", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File%3AA_bookstore_in_Denver%2C_Colorado.jpg" },
   "/original/photonic-memristor-cover.webp": { artist: "Idaho National Laboratory", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File%3ALaser_Optics_-_Idaho_National_Laboratory.jpg" },
   "/original/photonic-memristor-fig1.webp": { artist: "Tourbillon", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File%3ALaser_with_amplifier.JPG" },

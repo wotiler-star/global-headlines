@@ -804,34 +804,15 @@
   },
   "china-webnovel-global": {
     "cover": {
-      "file": "/original/china-webnovel-global-1.webp",
+      "file": "/original/china-webnovel-global-3.webp",
       "source": "Wikimedia Commons",
-      "commons_title": "File:Rosetta_Stone_-_front_face_-_corrected_image.jpg",
-      "commons_page": "https://commons.wikimedia.org/wiki/File%3ARosetta_Stone_-_front_face_-_corrected_image.jpg",
-      "artist": "Awikimate",
+      "commons_title": "File:A_bookstore_in_Denver,_Colorado.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AA_bookstore_in_Denver%2C_Colorado.jpg",
+      "artist": "Pelajanela",
       "license": "CC BY-SA 4.0",
-      "size_kb": 281
+      "size_kb": 142
     },
-    "figs": [
-      {
-        "file": "/original/china-webnovel-global-2.webp",
-        "source": "Wikimedia Commons",
-        "commons_title": "File:Comic_book_page_1_tem..jpg",
-        "commons_page": "https://commons.wikimedia.org/wiki/File%3AComic_book_page_1_tem..jpg",
-        "artist": "Blaizemaster",
-        "license": "CC BY-SA 4.0",
-        "size_kb": 20
-      },
-      {
-        "file": "/original/china-webnovel-global-3.webp",
-        "source": "Wikimedia Commons",
-        "commons_title": "File:A_bookstore_in_Denver,_Colorado.jpg",
-        "commons_page": "https://commons.wikimedia.org/wiki/File%3AA_bookstore_in_Denver%2C_Colorado.jpg",
-        "artist": "Pelajanela",
-        "license": "CC BY-SA 4.0",
-        "size_kb": 142
-      }
-    ]
+    "figs": []
   },
   "photonic-memristor": {
     "cover": {
