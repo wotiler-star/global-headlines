@@ -9,7 +9,6 @@ import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
 import { homeHref, articleHref, categoryHref } from "@/lib/paths";
 import { buildTagIndex, loadTagSourceArticles, tagHrefIfIndexed } from "@/lib/tags";
-import { topicSlug, findTopic, topicHref } from "@/lib/topics";
 import CategoryNav from "@/components/CategoryNav";
 import RelatedPanel from "@/components/RelatedPanel";
 import ReadHistoryTracker from "@/components/ReadHistoryTracker";
@@ -132,17 +131,6 @@ export default async function ArticlePage({
   // 部分按 worker 漂移，曾导致 chip 指向的静态页实际 prerender 为 404。
   const allInLocale = await getArticles(loc);
   const tagIndex = buildTagIndex(loadTagSourceArticles(loc));
-  // 正文 contextual 实体链接：把文章自带标签中「已有索引聚合页」的那些，
-  // 作为实体短语→内链映射；只有真实出现在正文里的才会在首遇处被链（RichLine 内判定），
-  // 跨整篇去重、每篇上限 3 条，零死链、不堆砌。
-  const entityMap = new Map<string, string>();
-  for (const t of article.tags) {
-    // 有索引聚合页用 /tag/<slug>（实体枢纽），否则退到 ?tag= 筛选页（footer 同款兜底），
-    // 保证每条 tag 都能在正文首遇处被链、零死链；命中索引页时自动升级为更丰富的实体页。
-    const href = tagHrefIfIndexed(loc, t, tagIndex) ?? `${homeHref(loc)}?tag=${encodeURIComponent(t)}`;
-    entityMap.set(t, href);
-  }
-  const usedEntities = new Set<string>();
   const sameCategory = allInLocale
     .filter((a) => a.id !== article.id && a.category === article.category && a.media !== "video")
     .slice(0, 8);
@@ -157,9 +145,6 @@ export default async function ArticlePage({
   // 这里再给出可见内链，帮助爬虫发现与用户主动切换（hreflang 之外的第二重信号）。
   const isMultilingual = article.id.startsWith("rss-orig-");
   const baseId = isMultilingual ? articleBaseId(article.id) : article.id;
-  // 实体中心内链：把原创稿链到「主题实体档案页」（8 语种稳定 entity carrier，
-  // 含 CollectionPage + Thing）。仅当主题真实存在时才渲染，零死链。
-  const topicEntry = findTopic(topicSlug(article.id));
 
   // 配图内联：不再用独立图集区，而是把 hero 之外的配图按正文均匀分布插入段落之间
   // 位置确定性计算：第 k 张插在 body 长度的 (k+1)/(n+1) 处段落之后，去重
@@ -207,7 +192,7 @@ export default async function ArticlePage({
                 dateModified: new Date(article.publishedAt).toISOString(),
                 author: { "@type": "Person", name: article.author || article.source },
                 publisher: {
-                  "@type": "NewsMediaOrganization",
+                  "@type": "Organization",
                   "@id": `${SITE_URL}/#organization`,
                   name: d.siteName,
                   url: absUrl(loc, ""),
@@ -217,27 +202,6 @@ export default async function ArticlePage({
                 isPartOf: { "@id": `${SITE_URL}/#website` },
                 articleSection: article.category,
                 keywords: article.tags.join(", "),
-                // GEO：语音助手 / AI 摘取入口。选择器对应页面真实 DOM：
-                // DecodeTitle → .article-title，导读正文 → .art-lead p。
-                speakable: {
-                  "@type": "SpeakableSpecification",
-                  cssSelector: [".article-title", ".art-lead p"],
-                },
-                // GEO：把核心论断声明为 Claim（不是 ClaimReview）。
-                // ClaimReview 是事实核查专用，要求被核查的公开声明 + rating + 核查资质，
-                // 普通原创稿误用属结构化数据滥用；Claim 只标注「本文主张什么」，
-                // text 与可见导读逐字一致，citation 指向原始报道。
-                mainEntity: {
-                  "@type": "Claim",
-                  "@id": `${absUrl(loc, `/article/${id}`)}#claim`,
-                  text: article.summary,
-                  ...(article.sourceUrl
-                    ? { citation: { "@type": "CreativeWork", url: article.sourceUrl } }
-                    : {}),
-                },
-                // 实体标注：让引擎把标签识别为本文讨论的实体，而非普通关键词
-                about: { "@type": "Thing", name: article.tags[0] || article.category },
-                mentions: article.tags.map((t: string) => ({ "@type": "Thing", name: t })),
                 // 引用关系机器可读（外链优化）：把原始报道标为 citation / isBasedOn，
                 // 让搜索引擎区分「原创改写」与「转载聚合」，同时给出可追溯来源。
                 ...(article.sourceUrl ? {
@@ -343,7 +307,7 @@ export default async function ArticlePage({
           {article.media !== "video" && (
             <div className="art-caption">SOURCE · {article.source}</div>
           )}
-          <div className="art-lead" id="claim">
+          <div className="art-lead">
             <div className="al-label">LEAD · 导读</div>
             <p>{article.summary}</p>
           </div>
@@ -351,7 +315,7 @@ export default async function ArticlePage({
           <div className="article-body">
             {article.body.map((p, i) => (
               <Fragment key={i}>
-                <RichBlock line={p} entities={entityMap} used={usedEntities} />
+                <RichBlock line={p} />
                 {figMap.get(i) && (
                   <figure className="art-inline-fig">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -419,19 +383,6 @@ export default async function ArticlePage({
               );
             })}
           </div>
-          {/* 实体中心内链：原创稿 → 主题实体档案页（CollectionPage+Thing），
-              强化主题聚类与实体权威，同时利好传统 SEO 与 GEO；主题不存在则不渲染。 */}
-          {topicEntry && (
-            <div className="art-topic-archive">
-              <Link href={topicHref(loc, topicEntry.slug)} hrefLang={localeMeta[loc].hreflang}>
-                <span className="ata-label">主题档案</span>
-                <span className="ata-title">
-                  {topicEntry.articles[loc]?.title ?? topicEntry.articles.zh?.title ?? topicEntry.slug}
-                </span>
-                <span className="ata-arrow" aria-hidden="true">↗</span>
-              </Link>
-            </div>
-          )}
           {/* cov63：8 语种可见内链扩到「全部文章」。
               原创稿(rss-orig-*)有 8 份独立本地化版本 → 链接对应语种文章页；
               其余稿的 id 按语种生成、跨语种文章链接会 404 → 改链对应语种的

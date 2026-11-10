@@ -127,13 +127,9 @@ export default async function LocaleLayout({
                   },
                 },
                 {
-                  "@type": "NewsMediaOrganization",
+                  "@type": "Organization",
                   "@id": `${SITE_URL}/#organization`,
                   name: d.siteName,
-                  // GEO / 新闻知识图谱：明确本站是新闻发布者实体，
-                  // 让 Google 新闻与 AI 引擎按 NewsMediaOrganization 解析发布者权威。
-                  areaServed: "Worldwide",
-                  availableLanguage: locales,
                   url: SITE_URL,
                   logo: {
                     "@type": "ImageObject",

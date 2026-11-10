@@ -3,7 +3,6 @@ import { locales, categories, Locale } from "@/i18n/config";
 import { getArticles } from "@/data/newsSource";
 import { absUrl, buildSitemapAlternates, buildSitemapArticleAlternates } from "@/lib/site";
 import { buildTagIndex, indexableTags, loadTagSourceArticles } from "@/lib/tags";
-import { loadTopics } from "@/lib/topics";
 
 export const dynamic = "force-static";
 
@@ -44,19 +43,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
       alternates: { languages: aboutAlts.languages },
     });
-
-    // GEO 主题实体档案页：一个 slug 对应 8 语种同一主题，hreflang 真正对称，
-    // 数据源与 generateStaticParams 同为 loadTopics()，零死链。
-    for (const t of loadTopics()) {
-      const topicAlts = buildSitemapAlternates(loc, `/topic/${t.slug}`);
-      urls.push({
-        url: absUrl(loc, `/topic/${t.slug}`),
-        lastModified: t.publishedAt ? new Date(t.publishedAt) : latest,
-        changeFrequency: "monthly",
-        priority: 0.7,
-        alternates: { languages: topicAlts.languages },
-      });
-    }
 
     // cov62：静态栏目页（recommend 即首页，不重复收录）。
     // 仅收录「该语种确有内容」的栏目：空栏目无内容，提交到 sitemap 反而触发 Google
