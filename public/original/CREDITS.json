@@ -739,5 +739,191 @@
         "size_kb": 231
       }
     ]
+  },
+  "china-ai-export": {
+    "cover": {
+      "file": "/original/china-ai-export-1.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Robotic_Arm_Polishing_Guitars_at_Martin_Guitar_Factory.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ARobotic_Arm_Polishing_Guitars_at_Martin_Guitar_Factory.jpg",
+      "artist": "Henrysz",
+      "license": "CC BY 4.0",
+      "size_kb": 66
+    },
+    "figs": [
+      {
+        "file": "/original/china-ai-export-2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Amazon_Fulfillment_Center,_Ocala.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AAmazon_Fulfillment_Center%2C_Ocala.jpg",
+        "artist": "Michael Rivera",
+        "license": "CC0",
+        "size_kb": 100
+      },
+      {
+        "file": "/original/china-ai-export-3.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Aerial_photograph_of_the_Port_of_Miami_Container_Port.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AAerial_photograph_of_the_Port_of_Miami_Container_Port.jpg",
+        "artist": "James R. Tourtellotte",
+        "license": "Public domain",
+        "size_kb": 146
+      }
+    ]
+  },
+  "china-games-export": {
+    "cover": {
+      "file": "/original/china-games-export-1.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:LCS_Summer_Split_2017_in_Paris.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ALCS_Summer_Split_2017_in_Paris.jpg",
+      "artist": "Exilexi",
+      "license": "CC0",
+      "size_kb": 164
+    },
+    "figs": [
+      {
+        "file": "/original/china-games-export-2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Takadanobaba Game Center Mikado ground floor 2019-02-24.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3ATakadanobaba%20Game%20Center%20Mikado%20ground%20floor%202019-02-24.jpg",
+        "artist": "Asanagi",
+        "license": "CC0",
+        "size_kb": 135
+      },
+      {
+        "file": "/original/china-games-export-3.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Flame_on_sire_booth_at_Tokyo_Game_Show_2026.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AFlame_on_sire_booth_at_Tokyo_Game_Show_2026.jpg",
+        "artist": "Syced",
+        "license": "CC0",
+        "size_kb": 58
+      }
+    ]
+  },
+  "china-webnovel-global": {
+    "cover": {
+      "file": "/original/china-webnovel-global-1.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Rosetta_Stone_-_front_face_-_corrected_image.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ARosetta_Stone_-_front_face_-_corrected_image.jpg",
+      "artist": "Awikimate",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 281
+    },
+    "figs": [
+      {
+        "file": "/original/china-webnovel-global-2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Comic_book_page_1_tem..jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AComic_book_page_1_tem..jpg",
+        "artist": "Blaizemaster",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 20
+      },
+      {
+        "file": "/original/china-webnovel-global-3.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:A_bookstore_in_Denver,_Colorado.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AA_bookstore_in_Denver%2C_Colorado.jpg",
+        "artist": "Pelajanela",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 142
+      }
+    ]
+  },
+  "photonic-memristor": {
+    "cover": {
+      "file": "/original/photonic-memristor-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Laser Optics - Idaho National Laboratory.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Laser_Optics_-_Idaho_National_Laboratory.jpg",
+      "artist": "Idaho National Laboratory",
+      "license": "CC BY 2.0",
+      "size_kb": 109
+    },
+    "figs": [
+      {
+        "file": "/original/photonic-memristor-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Laser with amplifier.JPG",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Laser_with_amplifier.JPG",
+        "artist": "Tourbillon",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 88
+      },
+      {
+        "file": "/original/photonic-memristor-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Checking Laser's optics (noirlab- u3s0196).tiff",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Checking_Laser%27s_optics_(noirlab-_u3s0196).tiff",
+        "artist": "International Gemini Observatory/NOIRLab/NSF/AURA/Manuel Par…",
+        "license": "CC BY 4.0",
+        "size_kb": 128
+      }
+    ]
+  },
+  "lipid-chain-aging": {
+    "cover": {
+      "file": "/original/lipid-chain-aging-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Preparing fresh carrots for a healthy meal in a rustic kitchen setting.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Preparing_fresh_carrots_for_a_healthy_meal_in_a_rustic_kitchen_setting.jpg",
+      "artist": "Shixart1985",
+      "license": "CC BY 2.0",
+      "size_kb": 96
+    },
+    "figs": [
+      {
+        "file": "/original/lipid-chain-aging-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Drosophila melanogaster Proboscis.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Drosophila_melanogaster_Proboscis.jpg",
+        "artist": "Sanjay Acharya",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 32
+      },
+      {
+        "file": "/original/lipid-chain-aging-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Lab mouse mg 3263.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Lab_mouse_mg_3263.jpg",
+        "artist": "Rama",
+        "license": "CC BY-SA 2.0 fr",
+        "size_kb": 103
+      }
+    ]
+  },
+  "hotel-content-economy": {
+    "cover": {
+      "file": "/original/hotel-content-economy-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Hotel room interior at hotel Radisson Blu Oulu.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Hotel_room_interior_at_hotel_Radisson_Blu_Oulu.jpg",
+      "artist": "JIP",
+      "license": "CC BY-SA 3.0",
+      "size_kb": 97
+    },
+    "figs": [
+      {
+        "file": "/original/hotel-content-economy-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Lobby of The Clyde Hotel, Albuquerque.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Lobby_of_The_Clyde_Hotel,_Albuquerque.jpg",
+        "artist": "Kenneth C. Zirkel",
+        "license": "CC BY 4.0",
+        "size_kb": 190
+      },
+      {
+        "file": "/original/hotel-content-economy-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Restaurant room of Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Restaurant_room_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+        "artist": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 143
+      }
+    ]
   }
 }

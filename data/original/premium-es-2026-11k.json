@@ -1,0 +1,133 @@
+[
+  {
+    "id": "rss-orig-photonic-memristor-2026-11k-es",
+    "title": "Un chip fotónico que recuerda: la memoria se escribió en el material, no se pegó encima",
+    "summary": "Un artículo en Nature Photonics describe un memristor totalmente óptico fabricado implantando iones de oxígeno en niobato de litio de película delgada. Ocho estados distinguibles, conmutación de femtojulios y retención sin alimentación. El avance silencioso no es un material nuevo, sino la decisión de no añadir ninguna capa.",
+    "cover": "/original/photonic-memristor-cover.webp",
+    "images": [
+      "/original/photonic-memristor-cover.webp",
+      "/original/photonic-memristor-fig1.webp",
+      "/original/photonic-memristor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "memristor fotónico",
+      "niobato de litio",
+      "fotónica integrada",
+      "cómputo en memoria",
+      "implantación iónica",
+      "microanillo resonante"
+    ],
+    "category": "science",
+    "locale": "es",
+    "source": "starteday Original",
+    "sourceUrl": "https://phy.sdu.edu.cn/info/1059/8637.htm",
+    "author": "Redacción starteday",
+    "publishedAt": 1794283744102,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Si se pregunta qué le falta aún a la computación óptica, la respuesta rara vez es la velocidad. La luz multiplica matrices a un ritmo asombroso; lo que no consigue es conservar el resultado. Los pesos hay que ir a buscarlos a la electrónica, convertirlos, reescribirlos y mantenerlos cuando se corta la corriente. Cada conversión se come la latencia y la energía que la etapa óptica acababa de ahorrar.",
+      "De ahí el memristor fotónico: un dispositivo cuyo estado óptico se escribe, se lee y se conserva sin electricidad. El campo ha producido muchos candidatos —materiales de cambio de fase, medios magneto-ópticos, películas ferroeléctricas, capas de atrapamiento de carga—, pero casi todos comparten un inconveniente: hay que adherirlos a una plataforma de guías de onda.",
+      "Adherir significa un paso más de crecimiento, otro de unión o transferencia y una interfaz adicional. Cada interfaz añade pérdidas, baja el rendimiento de fabricación y vuelve impredecible la deriva a largo plazo. Peor aún: la mayoría de estos flujos encajan mal en una línea CMOS estándar, de modo que un dispositivo impecable en el laboratorio sigue siendo un dispositivo de laboratorio. El cuello de botella no es la física, sino la compatibilidad del proceso.",
+      "El niobato de litio de película delgada, o TFLN, ocupa el extremo opuesto: una plataforma madura, con gran coeficiente electro-óptico, ventana de transparencia amplia, bajas pérdidas de propagación, moduladores que ya funcionan a voltajes compatibles con CMOS y fabricación establecida a escala de oblea. Solo le falta una cosa: memoria óptica no volátil intrínseca. La plataforma es excelente; simplemente olvida.",
+      "El equipo optó por no adherir nada. Implantó iones de oxígeno de 500 keV en un microanillo de TFLN de corte z de 900 nm, con una dosis de 8×10¹³ iones/cm² y una inclinación de 7° respecto de la normal para suprimir la canalización. La dosis se ajustó a una ventana estrecha: modificación suficiente, sin elevar la absorción en la banda C de telecomunicaciones. Medido después, el factor Q apenas pasó de 9,47×10⁵ a 9,01×10⁵ y las pérdidas de propagación de 0,408 a 0,455 dB/cm.",
+      "La separación espacial es el truco completo. La espectroscopía de fotoelectrones resuelta en profundidad muestra solo el pico de oxígeno reticular a 530,3 eV hasta 400 nm; el pico de oxígeno dopante a 531,9 eV aparece únicamente por debajo de 500 nm. Los espectros de niobio, en cambio, contienen Nb⁵⁺ y Nb⁴⁺ en todo el recorrido, este último procedente de defectos de desplazamiento. Defectos arriba, dopantes abajo, separados en el espacio. Raman confirma además que la posición del modo de 585 cm⁻¹ no se mueve: la red sobrevivió.",
+      "Dos longitudes de onda se reparten el trabajo. Un pulso de 450 nm arranca electrones de los sitios dopantes, deja huecos y los electrones quedan atrapados en defectos asociados al niobio; la separación de carga crea un campo interno que, mediante el efecto electro-óptico del propio niobato, modifica el índice de refracción. La resonancia se desplaza unos 0,155 nm hacia el rojo y se queda ahí. Con 1064 nm los portadores se recombinan, el campo desaparece y la resonancia vuelve unos −0,162 nm hacia el azul. El cambio de índice efectivo ronda ±2,4×10⁻⁴.",
+      "La absorción transitoria de femtosegundo afina el mecanismo: a 0,19 ps aparecen tres bandas en 2,54, 1,59 y 1,14 eV, asignadas a polarones de hueco, ligados y libres. La vía rápida de recombinación se cierra en unos 100 fs; la lenta se asienta en una meseta larga, y esa meseta es la memoria. Los autores sostienen que el límite de velocidad lo fija la generación y el decaimiento de polarones en la red, no el pulso óptico, así que aún queda margen para acelerar.",
+      "El experimento de control es de una sencillez admirable. Un microanillo de TFLN sin implantar, bajo la misma iluminación, no muestra conmutación memristiva alguna. Esa sola comparación separa una función realmente inducida por la implantación de una deriva térmica corriente y ahorra buena parte de la discusión.",
+      "El rendimiento se concreta en cifras: ocho estados no volátiles distinguibles, equivalentes a 3 bits; escritura estable con pulsos de 20 µs y respuesta incluso en el régimen de 800 ns; linealidad de R² = 99,1 % y 99,2 % tras 100 ciclos de escritura y borrado por estado; y un arreglo monolítico de 10×28 cuyo comportamiento de programación y borrado se mantiene uniforme en todo el chip.",
+      "En el artículo conviven dos energías de conmutación, 74 fJ y 525 fJ por estado, y conviene entender la diferencia. La menor usa un criterio de discriminación de 2× entre niveles adyacentes; la mayor adopta un margen conservador de 5× con una separación mínima del 1,5 %. Para quien construye un sistema, la cifra honesta es 525 fJ. Un dispositivo de memoria no se juzga por lo poco que gasta bajo el criterio más laxo, sino por si ocho estados siguen siendo separables entre el ruido real de fabricación.",
+      "La retención también recibió una objeción externa. Extrapolar una curva de 100 horas a una década invita a la réplica de los revisores, así que el equipo añadió remediciones intermitentes con cinco semanas de intervalo y repitió las pruebas a 55 °C y 85 °C, cerca de donde semejante componente se sentaría junto a un láser. Los estados aguantaron más de 100 horas y 10⁶ ciclos sin degradación apreciable. Para una pieza destinada a vivir al lado de una fuente de calor, ese conjunto de experimentos convence más que una sola curva limpia a temperatura ambiente.",
+      "Poner la memoria en el mismo dado cambia algo más que la lista de componentes. Un microanillo cuyo punto de resonancia queda fijado de forma no volátil a una longitud de onda, sobreviviendo al corte de corriente, es justo lo que las matrices fotónicas grandes necesitan para su configuración estática. En TFLN ya existen moduladores, elementos no lineales y guías de baja pérdida: dejan de tener que coserse a un segundo sistema de materiales. El artículo lo llama una ruta homogénea hacia redes neuronales fotónicas a gran escala, y la palabra que pesa es homogénea.",
+      "Lo que falta está igual de claro. Solo se caracterizaron dispositivos discretos; no se construyó una red completa de cómputo en memoria totalmente óptica. La operación puramente óptica no puede reutilizar la arquitectura de direccionamiento madura de la memoria electrónica, y llevar la luz de escritura de 450 nm a cada celda del arreglo es un problema real de empaquetado. Una separación del 1,5 % entre niveles exige mucha uniformidad en un arreglo grande. Completa la pieza que faltaba, sí, pero se parece más a una entrada que a una meta."
+    ]
+  },
+  {
+    "id": "rss-orig-lipid-chain-aging-2026-11k-es",
+    "title": "Envejecer quizá no añade nada: solo estira en silencio una cadena molecular",
+    "summary": "Un estudio lipidómico entre especies encuentra que las cadenas largas se acumulan y las cortas se agotan desde los gusanos hasta las personas, y que la restricción dietética devuelve la distribución completa en corazón de ratón. Lo llamativo no es el titular sobre comer menos, sino la distancia entre lo que funcionó en células y lo que funcionó en un organismo vivo.",
+    "cover": "/original/lipid-chain-aging-cover.webp",
+    "images": [
+      "/original/lipid-chain-aging-cover.webp",
+      "/original/lipid-chain-aging-fig1.webp",
+      "/original/lipid-chain-aging-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "biomarcador de envejecimiento",
+      "lipidómica",
+      "longitud de acilo",
+      "restricción dietética",
+      "Plb1",
+      "conservación entre especies"
+    ],
+    "category": "health",
+    "locale": "es",
+    "source": "starteday Original",
+    "sourceUrl": "https://finance.sina.com.cn/roll/2026-11-10/doc-iniyexvn9504121.shtml",
+    "author": "Redacción starteday",
+    "publishedAt": 1794283684102,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Buscar biomarcadores de envejecimiento tiene un ritmo conocido: se elige una molécula, se observa si sube o baja con la edad y se discute si es causa o simple testigo. Daño en el ADN, telómeros, inflamación crónica, proteostasis: todo eso ya se ha revisado. El nuevo trabajo cambia la pregunta. ¿Y si la señal no fuera una molécula que aumenta, sino una distribución entera que se desliza de lado?",
+      "La distribución en cuestión es la de las cadenas acilo de los lípidos. Un glicerofosfolípido consiste, grosso modo, en una cabeza polar y dos colas hidrofóbicas; el número de carbonos y de dobles enlaces de esas colas fija el grosor de la membrana, su fluidez y la comodidad con que trabajan las proteínas incrustadas. Dos sistemas enzimáticos gobiernan la longitud: la familia ELOVL alarga y la beta-oxidación acorta. Nadie había cartografiado de forma sistemática cómo cambia la longitud con la edad entre tejidos y entre especies.",
+      "El grupo obtuvo lipidomas por UPLC-HRMS y, y aquí está la clave metodológica, tradujo una impresión visual en un estadístico. Para cada clase de lípido calculó la correlación de Pearson entre el total de carbonos de la cadena acilo y el cambio en veces asociado a la edad, y aplicó un test de Wilcoxon de una muestra para decidir si el tejido muestra un desplazamiento global. El resultado es una lectura reutilizable: no «parece más largo», sino un número comparable entre conjuntos de datos y, más adelante, entre intervenciones.",
+      "La mitad más contraintuitiva del hallazgo no es la acumulación, sino el agotamiento. En 9 de 16 conjuntos de datos de envejecimiento, más de la mitad de las clases lipídicas que se alargaron perdieron al mismo tiempo especies de cadena corta y media; el punto de inflexión se concentra alrededor de C18. La remodelación lipídica del envejecimiento se parece más a una redistribución que a un simple amontonamiento de moléculas largas. El número de dobles enlaces sube además junto con la longitud, de modo que el equilibrio global de insaturación se conserva en gran medida: parece una reescritura con dirección, no un deterioro aleatorio.",
+      "La conservación entre especies está documentada con densidad. Seis de diez tejidos de ratón muestran alargamiento global significativo: corazón, hígado, riñón, bazo, gastrocnemio y grasa parda. Los gusanos C. elegans y las moscas Drosophila envejecidas siguen la misma tendencia. En personas, una cohorte de músculo esquelético que compara 20–30 con 65–80 años y una cohorte de biopsias cardíacas que compara hombres y mujeres jóvenes y mayores muestran ambas alargamiento asociado a la edad, sin diferencias apreciables por sexo.",
+      "Una pista que suele pasarse por alto apunta más allá del reloj: en una cohorte de progresión de cardiopatía, la asociación positiva entre longitud de cadena y edad se refuerza cuando la miocardiopatía hipertrófica avanza del grado 1 al 2. Sugiere que el indicador acompaña también el daño patológico del órgano, no solo el tiempo cronológico. El artículo, con prudencia, lo deja en correlación y no lo ofrece como prueba diagnóstica.",
+      "Entonces, ¿pueden las intervenciones clásicas revertirlo? El equipo comparó células cultivadas, animales vivos y una cohorte humana, y las respuestas se separaron. La rapamicina acortó las cadenas globalmente en cardiomiocitos HL-1, pero administrada de forma intermitente a ratones vivos movió solo unas pocas subclases. Cuatro días de ejercicio de alta intensidad, una hora diaria, en mujeres posmenopáusicas ajustaron únicamente la longitud en ésteres de colesterol y triglicéridos.",
+      "La restricción dietética, al 60 % de la ingesta ad libitum, fue la única intervención que en las condiciones ensayadas acortó de manera estable todo el lipidoma, y lo hizo en el corazón de ratonas tanto jóvenes como viejas. Los titulares lo redujeron a «comer menos sí funciona», lo cual es direccionalmente cierto pero aplana lo más útil del trabajo. La lección real es la distancia entre in vitro e in vivo: un candidato convincente en una línea celular puede tener un efecto mucho más estrecho en un organismo.",
+      "Por la misma lógica, que el ejercicio «perdiera» no debe leerse como que el ejercicio no sirve. El brazo humano duró cuatro días y midió un endpoint ómico muy estrecho; el artículo declara explícitamente que no se evaluó el ejercicio a largo plazo y que el resultado no menoscaba el valor sanitario ya establecido de la actividad física. Un resultado negativo en un endpoint y un veredicto sobre un hábito de vida son afirmaciones de niveles distintos, y marcar el límite con esa claridad vuelve el estudio más fiable, no menos.",
+      "En el lado mecanístico, el trabajo aterriza en Plb1, que codifica la fosfolipasa B. En cepas de ratón BXD de diversidad genética, la expresión muscular de Plb1 se correlaciona negativamente con la longevidad. La aleatorización mendeliana en humanos vincula una expresión alta de PLB1 predicha genéticamente con un índice de fragilidad mayor, sin asociación significativa con insuficiencia cardíaca. En gusanos, siete de nueve ortólogos pudieron someterse a ARNi y los siete extendieron la vida; reducir F36A2.9 acortó las cadenas globalmente, y suplementar ácidos grasos de cadena larga C18:1, C20:1 o C22:1 anuló la ganancia de longevidad, que además depende de daf-16 y skn-1. Aquí la cadena causal sí se cierra.",
+      "Ese diana desplaza la mirada. La mayor parte de la investigación sobre lípidos y envejecimiento ha observado el extremo de la síntesis, sobre todo las elongasas ELOVL. Plb1 pertenece al lado del desmontaje y el reciclaje: beta-oxidación, ciclo de Lands, fosfolipasas. Una distribución la fijan tanto la producción como la retirada, así que vigilar solo un extremo deja sin escribir la mitad de la ecuación.",
+      "El estudio desmonta además la simplificación tentadora de «cuanto más corto, mejor». Reducir elo-3, otra elongasa, no acortó globalmente la cardiolipina ni los lípidos BMP asociados a mitocondrias y lisosomas como sí lo hacía elo-1, y acortó la vida en lugar de alargarla. Las simulaciones de dinámica molecular corrigen también la hipótesis inicial: en membranas artificiales de un solo componente, las cadenas más largas engrosan la bicapa, pero una membrana real es una mezcla compleja y, aun con un 25 % de lípidos alargados, los parámetros físicos globales cambian poco. Los autores sospechan microentornos locales, interferencia con proteínas de membrana y mayor susceptibilidad a la peroxidación lipídica, antes que una membrana que de pronto se vuelve rígida.",
+      "Los límites merecen la última palabra. La cuantificación es relativa entre grupos, no abundancia absoluta; la evidencia causal descansa sobre todo en gusanos; el tejido humano solo sostiene correlaciones y no hay ensayo de intervención; y la aleatorización mendeliana usó eQTL de sangre completa como sustituto de la expresión en el órgano diana. Nada de esto es una recomendación dietética, y la longitud de los ácidos grasos de la comida no equivale a la longitud del lipidoma tisular. Lo que queda es mejor que un consejo: un endpoint ómico cuantificable, para que la búsqueda de miméticos de la restricción dietética tenga por fin algo que medir."
+    ]
+  },
+  {
+    "id": "rss-orig-hotel-content-economy-2026-11k-es",
+    "title": "Los hoteles empezaron a enseñarte la habitación antes de que la buscaras",
+    "summary": "Un informe del sector reescribe cómo se decide una estancia: 402.500 millones de reproducciones de vídeos de alojamiento y 67.700 millones de búsquedas relacionadas en un año. Cuando la experiencia no cabe en una ficha técnica, el vídeo corto y la emisión en directo se convierten en su sustituto. Lo que cambió no es un canal más, sino quién controla el descubrimiento y qué se mide.",
+    "cover": "/original/hotel-content-economy-cover.webp",
+    "images": [
+      "/original/hotel-content-economy-cover.webp",
+      "/original/hotel-content-economy-fig1.webp",
+      "/original/hotel-content-economy-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "digitalización hotelera",
+      "gestión de contenidos",
+      "vídeo corto",
+      "economía de la experiencia",
+      "revalorización de activos",
+      "consumo turístico"
+    ],
+    "category": "business",
+    "locale": "es",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LBBVH8EI0514BTAB.html",
+    "author": "Redacción starteday",
+    "publishedAt": 1794283624102,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Lo más difícil de reservar una habitación nunca fue comparar precios, sino imaginar cómo se estará allí. Tarifa, superficie, tipo de cama, desayuno incluido, distancia a la estación: todo eso se alinea en una tabla y se compara. Pero la luz del patio a las siete de la mañana, el tono con que recepción entrega la llave, el olor al final del pasillo no caben en ninguna columna.",
+      "El alojamiento es un bien de experiencia en el sentido literal: no se puede inspeccionar del todo antes de comprar ni devolver después. Esa grieta de información ha estado entre el huésped y el operador desde siempre. La marca, las estrellas y las reseñas tapan una parte, pero son resúmenes de segunda mano, de grano grueso: dos establecimientos con las mismas estrellas y puntuaciones parecidas pueden resultar lugares por completo distintos.",
+      "Un informe difundido el 6 de noviembre pone cifras al desplazamiento. Un estudio de tendencias de gestión digital del sector hotelero, elaborado por una asociación turística, un centro universitario de recursos culturales y una plataforma de servicios de vida diaria, cita dos datos: en el último año los usuarios vieron más de 402.500 millones de vídeos de viajes y alojamiento y realizaron 67.700 millones de búsquedas relacionadas. La primera mide atención; la segunda, intención. La que dice que la cadena de decisión se ha movido es la segunda.",
+      "El informe ordena el cambio en tres transiciones: de ampliar capacidad nueva a mejorar los activos existentes, del alojamiento básico a la experiencia profunda y de la búsqueda en estantería al descubrimiento por contenidos. Las tres son la misma historia a distinta escala. La oferta ya no escasea; escasea la capacidad de que un espacio existente se entienda bien y se elija repetidamente. La competencia pasa de quién construyó más nuevo a quién se deja leer mejor.",
+      "De ahí la frase más citada: de que la persona busque la habitación a que la habitación busque a la persona. Antes el usuario llegaba con el destino decidido, tecleaba ciudad, fechas y presupuesto y filtraba línea a línea. Ahora el contenido aparece primero en el flujo —un patio, una bandeja de desayuno, unas palabras sin guion del dueño— y el viajero va después a averiguar dónde era. El descubrimiento se desplaza de la consulta activa al alcance activo.",
+      "Ese desplazamiento importa más a los alojamientos pequeños que a las cadenas. En una estantería, la visibilidad se compra en buena medida: los grupos tienen presupuesto, programas de fidelización y términos de marca propios. En un flujo de contenidos, un espacio real bien filmado y un detalle memorable pueden comprar una exposición comparable. El informe lo llama una oportunidad equitativa de ser visto; es optimista, pero la dirección existe.",
+      "El vídeo encaja con los bienes de experiencia porque entrega por adelantado una parte de lo que no se puede describir. Atmósfera del espacio, detalle del servicio, qué hacer en los alrededores, clips grabados por los propios huéspedes: todo se percibe antes del check-in. El viajero no solo gana inspiración, también juzga mejor si un tipo de habitación o un paquete le conviene. El operador pasa de esperar a ser buscado a conectar él mismo con clientes potenciales. Solo cuando baja la incertidumbre baja la fricción de conversión.",
+      "Nada de eso significa que baste con rodar bonito. El informe insiste en la normativa y la honestidad como suelo y en el contenido real como instrumento, por una razón práctica: en los bienes de experiencia, la distancia entre expectativa y realidad se liquida de inmediato. Cuanto más sube el filtro la promesa, más concreta es la decepción el día de llegada y más rápido se convierte en una reseña mala con foto. La primera disciplina de la gestión de contenidos es, sencillamente, no engañar.",
+      "Una cadena del informe merece despiece: despertar interés, convertir, añadir valor, retener. Dividir una impresión en cuatro tramos es una forma de negarse a puntuar el contenido solo por la facturación del día. El vicepresidente de la asociación turística lo dice más llano: convertir el tráfico en valor de experiencia perceptible, pasar de vender habitaciones a entregar experiencias, de perseguir el dividendo de audiencia a cultivar activos duraderos y de subir los ingresos de un solo establecimiento a construir valor compartido con el ecosistema.",
+      "La unidad de medida cambia con ello. RevPAR, ocupación y tarifa media describen transacciones de una sola vez. En cuanto entra la retención en la cuenta, la repetición de estancias, el peso de los huéspedes habituales y el número de personas a las que se puede llegar de nuevo sin comprar publicidad se vuelven indicadores a vigilar. El director del centro universitario va más lejos: la gestión de contenidos no es un canal de venta añadido, sino una reestructuración sistemática de cómo el sector crea valor.",
+      "Otro informe de inversión turística publicado la misma semana lo confirma desde el capital. El índice de inversión en activos fijos turísticos subió un 4,2 % interanual en los tres primeros trimestres, pero el peso de los proyectos nuevos de gran tamaño cayó mientras crecían la reforma del parque existente y la innovación de contenidos. La preferencia se movió de recursos más capital a operación más contenido, con más peso del flujo de caja, la capacidad de gestión y retornos verificables. Que el dinero deje de apilarse en edificios nuevos justo cuando el contenido se vuelve la nueva puerta de entrada son dos caras del mismo ajuste.",
+      "Llevado a la operación, la consecuencia más concreta es adelantar la gestión. Si el contenido debe mostrar una experiencia real, aquello que merece filmarse y contarse tiene que estar diseñado en el espacio y en el flujo de servicio antes de la apertura, no improvisado después por el equipo de mercadotecnia. La advertencia del informe contra construir mucho y operar poco va exactamente de orden: primero una experiencia que merezca registrarse, después un contenido que merezca circular.",
+      "También llegan dependencias nuevas. Entregar la puerta de entrada a una plataforma implica aceptar vaivenes del algoritmo, cambios de reglas, precios de emisión en directo que presionan la tarifa normal y la pregunta más difícil de quién es dueño de los datos del huésped. Que la habitación busque a la persona ahorra el coste de encontrar clientes; el precio es que una parte de la relación queda depositada en un sistema ajeno. Que la retención se convierta de verdad en activo propio es el escollo que los eslóganes tapan con más facilidad.",
+      "Así que la pregunta que deja este informe no es si hay que hacer vídeos cortos, sino con qué se sostiene después de ser visto. El contenido resuelve la entrada; el producto y la operación resuelven el regreso. Si solo se arregla la primera mitad, el tráfico llega rápido y se va igual de rápido."
+    ]
+  }
+]

@@ -1,0 +1,133 @@
+[
+  {
+    "id": "rss-orig-photonic-memristor-2026-11k-en",
+    "title": "A Photonic Chip That Remembers: The Memory Was Built Into the Material, Not Glued On",
+    "summary": "A Nature Photonics paper reports an all-optical memristor made by implanting oxygen ions into ordinary thin-film lithium niobate. Eight distinct states, femtojoule switching, no power needed to hold them. The quiet breakthrough is not a new material but the decision to stop adding layers.",
+    "cover": "/original/photonic-memristor-cover.webp",
+    "images": [
+      "/original/photonic-memristor-cover.webp",
+      "/original/photonic-memristor-fig1.webp",
+      "/original/photonic-memristor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "photonic memristor",
+      "thin-film lithium niobate",
+      "integrated photonics",
+      "in-memory computing",
+      "ion implantation",
+      "microring resonator"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://phy.sdu.edu.cn/info/1059/8637.htm",
+    "author": "starteday Editorial",
+    "publishedAt": 1794283744102,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Ask what optical computing still lacks and the answer is rarely throughput. Light can multiply matrices at staggering speed; what it cannot easily do is keep the result. Weights have to be fetched from electronics, converted, written back, and held when the power goes off. Every conversion spends the latency and energy the optical stage just saved.",
+      "That is the job of a photonic memristor: a device whose optical state can be written, read and retained without electricity. The field has produced plenty of candidates — phase-change compounds, magneto-optic media, ferroelectric films, charge-trapping layers — but nearly all of them share one awkward property. They have to be attached to a waveguide platform.",
+      "Attaching means another growth step, another bond or transfer, another interface. Each interface adds loss, lowers yield and introduces long-term drift. Worse, most of these process flows do not sit comfortably inside a standard CMOS line, so a beautiful laboratory device stays a laboratory device. Scaling is blocked less by physics than by process compatibility.",
+      "Thin-film lithium niobate, or TFLN, is the opposite case: a mature platform with a large electro-optic coefficient, a wide transparency window, low propagation loss, modulators that already run at CMOS-compatible voltages, and established wafer-scale fabrication. Its one missing feature is intrinsic nonvolatile optical memory. The platform is excellent; it simply forgets.",
+      "The team behind this work chose not to attach anything. They implanted 500 keV oxygen ions into a 900 nm z-cut TFLN microring at a dose of 8×10¹³ ions/cm², tilted 7° off the surface normal to suppress channelling. The dose sits in a narrow window: enough modification to matter, not enough to raise absorption in the telecom C-band. Measured afterwards, the Q factor slipped only from 9.47×10⁵ to 9.01×10⁵ and propagation loss from 0.408 to 0.455 dB/cm.",
+      "Spatial separation is the whole trick. Depth-resolved X-ray photoelectron spectroscopy shows only the lattice-oxygen peak at 530.3 eV down to 400 nm; the dopant-oxygen peak at 531.9 eV appears only below 500 nm. Niobium spectra, meanwhile, contain both Nb⁵⁺ and Nb⁴⁺ throughout, the latter coming from displacement defects. Defects sit shallow, dopants sit deep, and Raman spectra confirm the crystal framework survived.",
+      "Two wavelengths then divide the labour. A 450 nm pulse excites electrons out of oxygen dopant sites, leaving holes; electrons are trapped at niobium-related defects, charge separation builds an internal field, and the field changes the refractive index through lithium niobate's own electro-optic effect. The resonance shifts about 0.155 nm and stays there. A 1064 nm pulse recombines the carriers, the field collapses, and the resonance moves back by roughly −0.162 nm. Effective index changes land near ±2.4×10⁻⁴.",
+      "Femtosecond transient absorption resolves the mechanism further: at 0.19 ps three bands appear at 2.54, 1.59 and 1.14 eV, assigned to hole, bound and free polarons. A fast recombination channel closes in about 100 fs; a slow channel settles onto a long plateau, and that plateau is the memory. The authors argue the speed ceiling is set by polaron generation and decay in the lattice, not by the optical pulse — which leaves room to go faster.",
+      "The control experiment is admirably plain. An unimplanted TFLN microring under identical illumination shows no memristive switching at all. That single comparison separates a real implant-induced function from ordinary thermal drift, and saves a great deal of argument.",
+      "Performance resolves into concrete numbers: eight distinguishable nonvolatile states, equivalent to 3 bits; stable writing with 20 µs pulses and responses down to the 800 ns scale; linearity of R² = 99.1% and 99.2% across 100 write-erase cycles per state; and a monolithic 10×28 array whose programming and erasing behave consistently across the die.",
+      "Two switching energies appear in the paper, 74 fJ and 525 fJ per state, and the difference is worth understanding. The smaller figure uses a 2× discrimination margin; the larger uses a conservative 5× margin with a minimum 1.5% spacing between adjacent levels. For anyone building a system, 525 fJ is the more honest number. A memory device is judged not by how little energy it needs under the loosest criterion, but by whether eight states remain separable amid real manufacturing noise.",
+      "Retention drew a challenge too. Extrapolating a 100-hour curve to a decade invites a reviewer objection, so the team added intermittent re-measurements five weeks apart and repeated the hold tests at 55°C and 85°C, close to where such a component would sit next to a laser. States still survived beyond 100 hours and 10⁶ cycles. For a part destined to live beside a heat source, that set of experiments argues harder than one clean room-temperature line.",
+      "Keeping the memory on the same die changes more than a bill of materials. A microring whose resonance stays pinned to a wavelength even after power loss, is exactly what large photonic matrices need for static configuration. Modulators, nonlinear elements and low-loss waveguides already exist on TFLN; they no longer need to be stitched to a second material system. The paper calls this a homogeneous route toward large-scale photonic neural networks, and the operative word is homogeneous.",
+      "What remains undone is equally clear. Only discrete devices were characterised; no complete all-optical in-memory computing network was built. All-optical operation cannot reuse the mature addressing architecture of electronic memory, and delivering 450 nm write light to every cell in an array is a genuine packaging problem. A 1.5% gap between adjacent levels makes uniformity across a large array demanding. Filling in the memory element is an important step, but it reads more like an entry ticket than a finish line."
+    ]
+  },
+  {
+    "id": "rss-orig-lipid-chain-aging-2026-11k-en",
+    "title": "Ageing May Not Add Something New — It May Just Stretch a Molecular Chain",
+    "summary": "A cross-species lipidomics study finds that long acyl chains accumulate while short ones are depleted from worms to humans, and that dietary restriction can pull the whole distribution back in mouse heart. The striking part is not the dieting headline but the gap between what worked in cells and what worked in living animals.",
+    "cover": "/original/lipid-chain-aging-cover.webp",
+    "images": [
+      "/original/lipid-chain-aging-cover.webp",
+      "/original/lipid-chain-aging-fig1.webp",
+      "/original/lipid-chain-aging-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "ageing biomarker",
+      "lipidomics",
+      "acyl chain length",
+      "dietary restriction",
+      "Plb1",
+      "cross-species"
+    ],
+    "category": "health",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://finance.sina.com.cn/roll/2026-11-10/doc-iniyexvn9504121.shtml",
+    "author": "starteday Editorial",
+    "publishedAt": 1794283684102,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "The search for ageing biomarkers has a familiar rhythm: pick a molecule, watch it rise or fall with age, then argue about whether it causes anything or merely reports damage. DNA lesions, telomeres, inflammation, proteostasis — all have been worked over. A new study in Nature Aging asks a different question: what if the signal is not one molecule going up, but an entire distribution quietly sliding sideways?",
+      "The distribution in question belongs to lipid acyl chains. A glycerophospholipid is roughly a polar head plus two hydrophobic tails, and the number of carbons and double bonds in those tails sets membrane thickness, fluidity and how comfortably embedded proteins do their jobs. Two enzyme systems govern the length: ELOVL family elongases extend chains, beta-oxidation shortens them. Until now, nobody had mapped how chain length shifts with age across tissues and species in a systematic way.",
+      "The group used UPLC-HRMS lipidomics and, crucially, turned a visual impression into a statistic. For each lipid class they computed the Pearson correlation between total acyl-chain carbon count and the fold change with age, then used a one-sample Wilcoxon test to ask whether a tissue shows a global shift. The result is a reusable readout: not 'this looks longer', but a number that can be compared across datasets and, later, across interventions.",
+      "The counterintuitive half of the finding is depletion, not accumulation. In 9 of 16 ageing datasets, more than half of the lipid classes that lengthened also lost short- and medium-chain species; the inflection clusters around C18. Ageing lipid remodelling looks like a redistribution rather than a simple pile-up of long molecules. Double-bond counts rise alongside chain length, so overall unsaturation balance is largely preserved — the pattern reads as directed rewriting, not random decay.",
+      "Conservation is documented densely. Six of ten mouse tissues show statistically significant global lengthening, including heart, liver, kidney, spleen, gastrocnemius and brown fat. Ageing C. elegans and Drosophila show the same trend. In humans, skeletal muscle cohorts comparing 20–30 with 65–80 year olds, and heart biopsy cohorts spanning younger and older men and women, both show age-associated lengthening, consistent across sexes.",
+      "One easily missed clue points beyond the clock itself: in a heart disease progression cohort, the positive association between chain length and age strengthens as hypertrophic cardiomyopathy worsens from grade 1 to grade 2. That hints the readout tracks pathological organ damage as well as chronological ageing, though the paper carefully leaves it at correlation and does not offer a diagnostic test.",
+      "So can the classic anti-ageing interventions reverse it? The team ran comparisons in cultured cells, living animals and a human cohort, and the answers came apart. Rapamycin shortened chains globally in HL-1 cardiac cells but, given intermittently to living mice, moved only a few lipid subclasses. Four days of one-hour daily high-intensity exercise in postmenopausal women adjusted chain length only in cholesteryl esters and triglycerides.",
+      "Dietary restriction — 60% of ad libitum intake — was the only intervention under the tested conditions that reliably shortened chains across the whole lipidome, in the hearts of both young and old female mice. Headlines reduced this to 'eating less really does slow ageing', which is directionally fair but flattens the most useful part of the work. The real lesson is the in-vitro versus in-vivo gap: a candidate that looks convincing in a cell line may do something far narrower in an organism.",
+      "By the same logic, 'exercise lost' must not be read as 'exercise does not help'. The human arm lasted four days and measured one narrow omics endpoint; the paper explicitly states that long-term exercise was not assessed and that the result does not diminish exercise's established health value. A negative result on one endpoint and a verdict on a lifestyle are different claims at different levels, and stating the boundary that clearly makes the study more trustworthy, not less.",
+      "Mechanistically, the work lands on Plb1, which encodes phospholipase B. In BXD genetically diverse mouse strains, muscle Plb1 expression correlates negatively with lifespan. Human Mendelian randomisation links genetically predicted higher PLB1 expression to a higher frailty index, with no significant association to heart failure. In worms, seven of nine orthologues were amenable to RNAi and all seven extended lifespan; knocking down F36A2.9 shortened chains globally, and supplementing C18:1, C20:1 or C22:1 long-chain fatty acids abolished the longevity gain, which depends on daf-16 and skn-1. Here the causal chain actually closes.",
+      "That target moves the field's gaze. Most ageing lipid work has watched the synthesis end, especially ELOVL elongases. Plb1 belongs to the disassembly and recycling side — beta-oxidation, Lands cycle, phospholipases. A distribution is set by both production and removal, so watching only one end leaves half the equation unwritten.",
+      "The study also dismantles the tempting slogan that shorter is always better. Knocking down elo-3, another elongase, did not globally shorten cardiolipin or BMP species the way elo-1 knockdown did, and it shortened lifespan instead. Molecular dynamics simulations revise the mechanism too: in single-component artificial membranes, longer chains do thicken the bilayer, but real membranes are complex mixtures, and even 25% chain elongation changes bulk physical parameters only modestly. The authors suspect local microenvironments, disrupted membrane-associated proteins and greater susceptibility to lipid peroxidation, rather than a membrane that suddenly goes rigid.",
+      "The limits deserve the last word. Quantification is relative between groups, not absolute abundance; causal evidence rests largely on worms; human tissue supports correlation only, with no intervention trial; and Mendelian randomisation used whole-blood eQTL as a proxy for gene expression in the target organ. None of this is a dietary recommendation — and the chain length of fat in food is not the chain length of lipids in tissue. What the work leaves behind is better than advice: a quantitative omics endpoint, so that screening for dietary-restriction mimetics finally has something measurable to aim at."
+    ]
+  },
+  {
+    "id": "rss-orig-hotel-content-economy-2026-11k-en",
+    "title": "Hotels Now Show You the Room Before You Search for It",
+    "summary": "An industry report reframes how lodging decisions get made: 402.5 billion views of travel-and-stay videos and 67.7 billion related searches in a single year. When an experience cannot fit into a filterable spec sheet, short video and live tours become its stand-in. What changed is not just a sales channel but who controls discovery and what gets counted.",
+    "cover": "/original/hotel-content-economy-cover.webp",
+    "images": [
+      "/original/hotel-content-economy-cover.webp",
+      "/original/hotel-content-economy-fig1.webp",
+      "/original/hotel-content-economy-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "hotel digitalisation",
+      "content operations",
+      "short video",
+      "experience economy",
+      "asset optimisation",
+      "travel retail"
+    ],
+    "category": "business",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LBBVH8EI0514BTAB.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1794283624102,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "The hardest part of booking a room has never been comparing prices. It is imagining what being there will feel like. Rate, floor area, bed type, breakfast, distance to the station — all of that lines up neatly in a results table. The light in the courtyard at seven in the morning, the way a receptionist hands over a key card, the smell at the end of a corridor: none of it has a column.",
+      "Lodging is an experience good in the textbook sense: you cannot fully inspect it before buying, and you cannot return it afterwards. That information gap has sat between guest and operator for as long as the industry has existed. Ratings, star classifications and reviews fill part of it, but they are second-hand summaries at coarse resolution — two properties with the same stars and similar scores can feel nothing alike.",
+      "A report released on 6 November puts numbers on the shift. A hotel-industry digitalisation study, produced jointly by a tourism association, a university cultural-resources centre and a lifestyle services platform, cites a companion dataset: over the past year users watched travel-and-stay videos more than 402.5 billion times and ran 67.7 billion related searches. The first figure measures attention; the second measures intent. The 67.7 billion is the one that says the decision chain has moved.",
+      "The report frames the change as three transitions: from expanding new capacity to improving existing assets, from basic accommodation to deeper experience, and from shelf-style search to content-led discovery. All three are the same story told at different scales. Supply is no longer scarce; what is scarce is the ability to have an existing space understood correctly and chosen repeatedly. Competition moves from who built newest to who is most legible.",
+      "Hence the phrase that travelled furthest from the report: from guest-finds-room to room-finds-guest. Previously a user arrived with a destination already in mind, typed city, dates and budget, and filtered a result page row by row. Now content appears in a feed first — a courtyard, a breakfast tray, a few unscripted words from an owner — and the traveller goes looking for where it is afterwards. Discovery shifts from active retrieval to active reach.",
+      "That shift matters more to small independent properties than to chains. On a shelf, visibility is largely purchasable: groups have budgets, loyalty programmes and branded search terms. In a feed, a clearly filmed real space and one memorable detail can earn comparable exposure. The report calls this an equal chance to be seen, which is optimistic, but the direction is real.",
+      "Video fits experience goods because it delivers part of what cannot be described in advance. Spatial atmosphere, service detail, the neighbourhood, guest-shot clips — all become perceivable before check-in. Travellers get ideas and, more usefully, a better sense of whether a room type or package actually suits them. Operators move from waiting to be searched to reaching potential guests directly. Lower decision uncertainty is what reduces friction at conversion.",
+      "None of which means 'make it look pretty'. The report keeps returning to honesty and authenticity as the floor, for a practical reason: expectation gaps on experience goods are settled immediately. The more filters inflate the promise, the more specific the disappointment on arrival, and the faster it turns into a photographed bad review. The first discipline of content operations is simply not to mislead.",
+      "One chain in the report deserves unpacking: seed interest, convert, add value, retain. Splitting a single impression into four stages is a way of refusing to score content by same-day transaction value alone. A tourism association vice-chair puts it more plainly: turn traffic into experience value guests can actually feel, move from selling rooms to delivering experiences, from chasing traffic dividends to building durable assets, from single-property revenue to shared ecosystem value.",
+      "The unit of measurement changes with it. RevPAR, occupancy and average daily rate all describe one-off transactions. Once retention is counted, repeat stays, the share of returning guests and the number of people a property can reach again without buying an ad become metrics to watch. A university cultural-resources director goes further: content operations are not one more sales channel but a systematic restructuring of how value is created in the industry.",
+      "A second report released the same week corroborates this from the capital side. Fixed-asset investment sentiment in tourism rose 4.2% year on year over the first three quarters, yet the share of new heavy-asset projects fell while renovation of existing stock and content innovation rose. Investor preference moved from resources plus capital toward operations plus content, with more weight on cash flow, operating capability and verifiable returns. Money stops piling into new buildings just as content becomes the new discovery entrance — two faces of one adjustment.",
+      "Operationally, the most concrete consequence is that operations move upstream. If content is supposed to show real experience, then something worth filming and worth talking about has to be designed into the space and the service flow before opening, not patched in afterwards by a marketing team. The report's warning against heavy construction and light operations is exactly about sequence: first an experience worth recording, then content worth spreading.",
+      "New dependencies arrive with it. Hand the entrance to a platform and you inherit algorithm swings, rule changes, live-stream price anchors pressing on normal room rates, and the harder question of who owns the guest data. Room-finds-guest saves the cost of finding guests; the price is that part of the relationship is stored in somebody else's system. Whether retention becomes an asset the property actually holds is the part most easily buried under slogans.",
+      "So the question this report leaves behind is not whether to make short videos. It is what happens after you are seen. Content solves the entrance; product and operations solve the return. Fix only the first half and traffic arrives quickly and leaves just as fast."
+    ]
+  }
+]

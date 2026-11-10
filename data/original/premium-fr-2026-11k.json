@@ -1,0 +1,133 @@
+[
+  {
+    "id": "rss-orig-photonic-memristor-2026-11k-fr",
+    "title": "Une puce photonique qui se souvient : la mémoire est dans le matériau, pas collée dessus",
+    "summary": "Un article de Nature Photonics décrit un memristor entièrement optique obtenu en implantant des ions oxygène dans du niobate de lithium en film mince. Huit états distincts, commutation à l'échelle du femtojoule, rétention sans alimentation. La vraie avancée n'est pas un matériau nouveau, mais le choix de ne rien ajouter.",
+    "cover": "/original/photonic-memristor-cover.webp",
+    "images": [
+      "/original/photonic-memristor-cover.webp",
+      "/original/photonic-memristor-fig1.webp",
+      "/original/photonic-memristor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "memristor photonique",
+      "niobate de lithium",
+      "photonique intégrée",
+      "calcul en mémoire",
+      "implantation ionique",
+      "micro-anneau résonnant"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://phy.sdu.edu.cn/info/1059/8637.htm",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794283744102,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Demandez ce qui manque encore au calcul optique : la réponse est rarement la vitesse. La lumière multiplie des matrices à une cadence prodigieuse ; ce qu'elle ne sait pas faire, c'est garder le résultat. Il faut aller chercher les poids dans l'électronique, les convertir, les réécrire et les maintenir une fois l'alimentation coupée. Chaque conversion consomme la latence et l'énergie que l'étage optique venait d'économiser.",
+      "D'où le memristor photonique : un composant dont l'état optique s'écrit, se lit et se conserve sans courant. Le domaine a produit quantité de candidats — matériaux à changement de phase, milieux magnéto-optiques, films ferroélectriques, couches à piège de charges — mais presque tous partagent le même obstacle : il faut les rapporter sur une plateforme de guides d'ondes.",
+      "Rapporter, c'est une étape de croissance de plus, une étape de collage ou de transfert de plus, une interface de plus. Chaque interface ajoute des pertes, dégrade le rendement de fabrication et rend la dérive à long terme imprévisible. Plus ennuyeux encore : la plupart de ces procédés s'accordent mal avec une ligne CMOS standard, si bien qu'un composant irréprochable en laboratoire reste un composant de laboratoire. Le goulet d'étranglement est moins la physique que la compatibilité des procédés.",
+      "Le niobate de lithium en film mince, ou TFLN, occupe la position inverse : une plateforme mature, fort coefficient électro-optique, large fenêtre de transparence, faibles pertes de propagation, modulateurs fonctionnant déjà à des tensions compatibles CMOS, et une fabrication établie à l'échelle de la plaquette. Il ne lui manque qu'une chose : une mémoire optique non volatile intrinsèque. La plateforme est excellente ; elle oublie simplement tout.",
+      "L'équipe a choisi de ne rien rapporter. Elle a implanté des ions oxygène de 500 keV dans un micro-anneau TFLN de coupe z de 900 nm, à la dose de 8×10¹³ ions/cm², avec une inclinaison de 7° par rapport à la normale pour supprimer la canalisation. La dose se cale dans une fenêtre étroite : assez de modification pour être utile, pas assez pour relever l'absorption dans la bande C des télécoms. Mesuré ensuite, le facteur Q n'est passé que de 9,47×10⁵ à 9,01×10⁵ et les pertes de propagation de 0,408 à 0,455 dB/cm.",
+      "La séparation spatiale est toute l'astuce. La spectroscopie de photoélectrons résolue en profondeur ne montre, à 400 nm, que le pic d'oxygène du réseau à 530,3 eV ; le pic d'oxygène dopant à 531,9 eV n'apparaît qu'en dessous de 500 nm. Les spectres du niobium, eux, contiennent partout Nb⁵⁺ et Nb⁴⁺, ce dernier venant des défauts de déplacement. Défauts en haut, dopants en bas, séparés dans l'espace. Raman confirme que la position du mode à 585 cm⁻¹ ne bouge pas : la charpente cristalline a survécu.",
+      "Deux longueurs d'onde se partagent alors le travail. Une impulsion à 450 nm arrache des électrons aux sites dopants, laisse des trous, et les électrons se font piéger dans des défauts liés au niobium ; la séparation de charge crée un champ interne qui, via l'effet électro-optique du niobate lui-même, modifie l'indice de réfraction. La résonance se décale d'environ 0,155 nm vers le rouge et y reste. À 1064 nm, les porteurs se recombinent, le champ s'effondre et la résonance revient d'environ −0,162 nm vers le bleu. La variation d'indice effectif avoisine ±2,4×10⁻⁴.",
+      "L'absorption transitoire femtoseconde affine le mécanisme : à 0,19 ps apparaissent trois bandes à 2,54, 1,59 et 1,14 eV, attribuées aux polarons de trou, liés et libres. La voie rapide de recombinaison se ferme en environ 100 fs ; la voie lente se stabilise sur un long plateau, et c'est ce plateau qui porte la mémoire. Les auteurs estiment que la limite de vitesse tient à la génération et à la décroissance des polarons dans le réseau, non à l'impulsion optique : il reste donc de la marge.",
+      "L'expérience de contrôle est d'une simplicité exemplaire. Un micro-anneau TFLN non implanté, sous le même éclairement, ne présente aucune commutation memristive. Cette seule comparaison distingue une fonction réellement induite par l'implantation d'une dérive thermique ordinaire, et règle d'avance une bonne part de la discussion.",
+      "Les performances se ramènent à des chiffres concrets : huit états non volatils distinguables, soit 3 bits ; écriture stable avec des impulsions de 20 µs et réponse jusque dans le régime des 800 ns ; linéarité de R² = 99,1 % et 99,2 % après 100 cycles d'écriture-effacement par état ; et un réseau monolithique de 10×28 dont la programmation et l'effacement restent homogènes sur toute la puce.",
+      "L'article fait coexister deux énergies de commutation, 74 fJ et 525 fJ par état, et l'écart mérite d'être compris. La plus basse retient un critère de discrimination de 2× entre niveaux adjacents ; la plus haute adopte une marge prudente de 5× avec un espacement minimal de 1,5 %. Pour qui construit un système, le chiffre honnête est 525 fJ. Un composant de mémoire ne se juge pas à son économie sous le critère le plus laxiste, mais à sa capacité à garder huit états séparables dans le bruit réel d'une production.",
+      "La rétention a elle aussi essuyé une objection. Extrapoler une courbe de 100 heures à dix ans appelle la critique des relecteurs ; l'équipe a donc ajouté des remesures espacées de cinq semaines et repris les essais à 55 °C et 85 °C, près de l'endroit où un tel composant voisinerait avec un laser. Les états ont tenu plus de 100 heures et 10⁶ cycles sans dégradation notable. Pour une pièce appelée à vivre à côté d'une source de chaleur, cet ensemble d'essais convainc davantage qu'une seule courbe impeccable à température ambiante.",
+      "Loger la mémoire sur la même puce change plus qu'une nomenclature. Un micro-anneau dont le point de résonance est épinglé de façon non volatile à une longueur d'onde, et qui survit à la coupure de courant, correspond exactement au besoin de configuration statique des grandes matrices photoniques. Modulateurs, éléments non linéaires et guides à faibles pertes existent déjà sur TFLN : ils n'ont plus à être cousus à un second système de matériaux. L'article parle de voie homogène vers les réseaux de neurones photoniques à grande échelle, et le mot qui porte est homogène.",
+      "Ce qui reste à faire est tout aussi net. Seuls des composants discrets ont été caractérisés ; aucun réseau complet de calcul en mémoire entièrement optique n'a été monté. Le fonctionnement tout optique ne peut réutiliser l'architecture d'adressage éprouvée de la mémoire électronique, et amener la lumière d'écriture à 450 nm jusqu'à chaque cellule du réseau est un vrai problème de boîtier. Un espacement de 1,5 % entre niveaux exige beaucoup d'uniformité à grande échelle. Combler la brique de mémoire est une étape importante, mais elle ressemble plus à un ticket d'entrée qu'à une ligne d'arrivée."
+    ]
+  },
+  {
+    "id": "rss-orig-lipid-chain-aging-2026-11k-fr",
+    "title": "Vieillir n'ajoute peut-être rien : une chaîne moléculaire s'allonge simplement en silence",
+    "summary": "Une étude lipidomique inter-espèces montre que les chaînes longues s'accumulent et les courtes s'épuisent du ver à l'humain, et que la restriction alimentaire ramène toute la distribution dans le cœur de la souris. Le plus intéressant n'est pas le titre sur « moins manger », mais l'écart entre ce qui marche en cellules et ce qui marche chez un animal vivant.",
+    "cover": "/original/lipid-chain-aging-cover.webp",
+    "images": [
+      "/original/lipid-chain-aging-cover.webp",
+      "/original/lipid-chain-aging-fig1.webp",
+      "/original/lipid-chain-aging-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "biomarqueur du vieillissement",
+      "lipidomique",
+      "longueur d'acyle",
+      "restriction alimentaire",
+      "Plb1",
+      "conservation inter-espèces"
+    ],
+    "category": "health",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://finance.sina.com.cn/roll/2026-11-10/doc-iniyexvn9504121.shtml",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794283684102,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "La quête de biomarqueurs du vieillissement a un rythme familier : on choisit une molécule, on regarde si elle monte ou descend avec l'âge, puis on discute pour savoir si elle est cause ou simple témoin. Lésions de l'ADN, télomères, inflammation chronique, protéostase : tout a déjà été retourné. Le nouveau travail change la question. Et si le signal n'était pas une molécule qui augmente, mais une distribution entière qui glisse latéralement ?",
+      "La distribution en cause est celle des chaînes acyle des lipides. Un glycérophospholipide se résume à une tête polaire et deux queues hydrophobes ; le nombre de carbones et de doubles liaisons de ces queues fixe l'épaisseur de la membrane, sa fluidité et l'aisance avec laquelle les protéines qui y sont insérées travaillent. Deux systèmes enzymatiques régissent la longueur : la famille ELOVL allonge, la bêta-oxydation raccourcit. Personne n'avait cartographié systématiquement l'évolution de cette longueur avec l'âge, sur plusieurs tissus et plusieurs espèces.",
+      "L'équipe a obtenu des lipidomes par UPLC-HRMS et, c'est la clé méthodologique, traduit une impression visuelle en statistique. Pour chaque classe de lipides, elle calcule la corrélation de Pearson entre le nombre total de carbones de la chaîne acyle et le facteur de changement lié à l'âge, puis utilise un test de Wilcoxon sur un échantillon pour décider si le tissu présente un déplacement global. On obtient une lecture réutilisable : non pas « cela semble plus long », mais un nombre comparable entre jeux de données et, plus tard, entre interventions.",
+      "La moitié la plus contre-intuitive de la découverte n'est pas l'accumulation, mais l'épuisement. Dans 9 des 16 jeux de données de vieillissement, plus de la moitié des classes lipidiques allongées ont simultanément perdu leurs espèces à chaîne courte et moyenne ; le point d'inflexion se concentre autour de C18. Le remodelage lipidique lié à l'âge ressemble davantage à une redistribution qu'à un simple empilement de longues molécules. Le nombre de doubles liaisons augmente lui aussi avec la longueur, si bien que l'équilibre global d'insaturation est largement préservé : cela évoque une réécriture orientée, non une dégradation au hasard.",
+      "La conservation inter-espèces est documentée avec densité. Six des dix tissus de souris montrent un allongement global significatif : cœur, foie, rein, rate, gastrocnémien et graisse brune. Les vers C. elegans et les drosophiles âgés suivent la même tendance. Chez l'humain, une cohorte de muscle squelettique comparant 20–30 et 65–80 ans et une cohorte de biopsies cardiaques comparant hommes et femmes jeunes et âgés montrent toutes deux un allongement associé à l'âge, sans différence notable selon le sexe.",
+      "Un indice souvent négligé pointe au-delà de l'horloge : dans une cohorte de progression de cardiopathie, l'association positive entre longueur de chaîne et âge se renforce quand la cardiomyopathie hypertrophique passe du grade 1 au grade 2. Cela suggère que l'indicateur accompagne aussi l'atteinte pathologique de l'organe, et pas seulement le temps calendaire. L'article s'en tient prudemment à la corrélation et ne le propose pas comme outil de diagnostic.",
+      "Alors, les interventions classiques peuvent-elles l'inverser ? L'équipe a comparé cellules cultivées, animaux vivants et cohorte humaine, et les réponses se sont séparées. La rapamycine a raccourci les chaînes globalement dans des cardiomyocytes HL-1, mais administrée par intermittence à des souris vivantes elle n'a déplacé que quelques sous-classes. Quatre jours d'exercice à haute intensité, une heure par jour, chez des femmes ménopausées n'ont ajusté que la longueur des esters de cholestérol et des triglycérides.",
+      "La restriction alimentaire, à 60 % de l'apport à volonté, a été la seule intervention qui, dans les conditions testées, a raccourci stablement l'ensemble du lipidome, dans le cœur de souris femelles jeunes comme âgées. Les titres ont résumé cela en « manger moins marche vraiment », ce qui est directionnellement juste mais aplatit le plus utile de l'étude. La vraie leçon est l'écart entre in vitro et in vivo : un candidat convaincant sur une lignée cellulaire peut avoir un effet bien plus étroit dans un organisme.",
+      "Par la même logique, « l'exercice a perdu » ne doit pas se lire « l'exercice ne sert à rien ». Le volet humain a duré quatre jours et mesuré un critère omique très étroit ; l'article précise explicitement que l'exercice à long terme n'a pas été évalué et que ce résultat ne remet pas en cause le bénéfice sanitaire établi de l'activité physique. Un résultat négatif sur un critère et un verdict sur un mode de vie sont des affirmations de niveaux différents, et tracer la frontière aussi clairement rend l'étude plus fiable, non moins.",
+      "Côté mécanisme, le travail aboutit à Plb1, qui code la phospholipase B. Chez les souches de souris BXD à diversité génétique, l'expression musculaire de Plb1 est corrélée négativement à la durée de vie. La randomisation mendélienne chez l'humain relie une expression élevée de PLB1 prédite génétiquement à un indice de fragilité accru, sans association significative avec l'insuffisance cardiaque. Chez le ver, sept des neuf orthologues ont pu être soumis à ARNi et les sept ont allongé la vie ; réduire F36A2.9 a raccourci les chaînes globalement, et supplémenter en acides gras à longue chaîne C18:1, C20:1 ou C22:1 a annulé le gain de longévité, lequel dépend de plus de daf-16 et skn-1. Ici la chaîne causale se referme vraiment.",
+      "Cette cible déplace le regard. L'essentiel de la recherche sur lipides et vieillissement a observé le versant synthèse, surtout les élongases ELOVL. Plb1 appartient au versant démontage et recyclage : bêta-oxydation, cycle de Lands, phospholipases. Une distribution se règle autant par la production que par le retrait ; n'en surveiller qu'un bout laisse la moitié de l'équation non écrite.",
+      "L'étude démonte aussi la simplification séduisante « plus c'est court, mieux c'est ». Réduire elo-3, une autre élongase, n'a pas raccourci globalement la cardiolipine ni les lipides BMP liés aux mitochondries et aux lysosomes comme le faisait elo-1, et a raccourci la vie au lieu de l'allonger. Les simulations de dynamique moléculaire corrigent également l'hypothèse de départ : dans une membrane artificielle à un seul composant, les chaînes plus longues épaississent la bicouche, mais une membrane réelle est un mélange complexe et, même avec 25 % de lipides allongés, les paramètres physiques d'ensemble varient peu. Les auteurs soupçonnent des micro-environnements locaux, une interférence avec les protéines membranaires et une plus grande sensibilité à la peroxydation lipidique, plutôt qu'une membrane devenue soudain rigide.",
+      "Les limites méritent le dernier mot. La quantification est relative entre groupes, pas une abondance absolue ; la preuve causale repose surtout sur le ver ; les tissus humains ne soutiennent qu'une corrélation et il n'existe pas d'essai d'intervention ; la randomisation mendélienne a utilisé des eQTL de sang total comme substitut de l'expression dans l'organe cible. Rien de tout cela n'est un conseil alimentaire, et la longueur des acides gras du repas n'équivaut pas à celle du lipidome tissulaire. Ce qui reste est mieux qu'un conseil : un critère omique quantifiable, pour que la recherche de mimétiques de la restriction alimentaire ait enfin quelque chose à mesurer."
+    ]
+  },
+  {
+    "id": "rss-orig-hotel-content-economy-2026-11k-fr",
+    "title": "Les hôtels ont commencé à vous montrer la chambre avant que vous la cherchiez",
+    "summary": "Un rapport sectoriel redessine la décision d'hébergement : 402,5 milliards de vues de vidéos de voyage et 67,7 milliards de recherches associées en un an. Quand l'expérience ne tient pas dans une fiche technique, la vidéo courte et le direct deviennent son substitut. Ce qui change n'est pas un canal de plus, mais qui contrôle la découverte et quelle unité on mesure.",
+    "cover": "/original/hotel-content-economy-cover.webp",
+    "images": [
+      "/original/hotel-content-economy-cover.webp",
+      "/original/hotel-content-economy-fig1.webp",
+      "/original/hotel-content-economy-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "numérisation hôtelière",
+      "gestion des contenus",
+      "vidéo courte",
+      "économie de l'expérience",
+      "valorisation du parc existant",
+      "consommation touristique"
+    ],
+    "category": "business",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LBBVH8EI0514BTAB.html",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794283624102,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Le plus difficile, lorsqu'on réserve une chambre, n'a jamais été de comparer les prix : c'est d'imaginer ce que l'on ressentira sur place. Tarif, surface, type de lit, petit-déjeuner compris, distance à la gare s'alignent dans un tableau. Mais la lumière dans la cour à sept heures du matin, le ton avec lequel la réception tend la carte, l'odeur au bout du couloir n'entrent dans aucune colonne.",
+      "L'hébergement est un bien d'expérience au sens strict : on ne peut ni l'inspecter entièrement avant l'achat ni le rendre après. Cette faille d'information s'est toujours tenue entre le client et l'exploitant. La marque, les étoiles et les avis en comblent une part, mais ce sont des résumés de seconde main, à gros grain : deux établissements aux étoiles et aux notes comparables peuvent être des lieux radicalement différents.",
+      "Un rapport publié le 6 novembre met des chiffres sur le déplacement. Une étude sur les tendances numériques du secteur hôtelier, menée par une association touristique, un centre universitaire de ressources culturelles et une plateforme de services du quotidien, avance deux données : sur un an, les utilisateurs ont regardé plus de 402,5 milliards de vidéos liées au voyage et à l'hébergement, et effectué 67,7 milliards de recherches associées. La première mesure l'attention, la seconde l'intention. C'est la seconde qui dit que la chaîne de décision a bougé.",
+      "Le rapport ordonne le changement en trois transitions : de l'extension de capacités neuves à l'amélioration des actifs existants, de l'hébergement de base à l'expérience approfondie, de la recherche en rayon à la découverte par les contenus. Ce sont trois échelles d'une même histoire. L'offre ne manque plus ; ce qui manque, c'est la capacité d'un espace déjà là à être compris correctement et choisi à nouveau. La compétition passe de qui a construit le plus neuf à qui se laisse le mieux lire.",
+      "D'où la formule la plus reprise : de « la personne cherche la chambre » à « la chambre cherche la personne ». Hier, l'utilisateur arrivait avec une destination décidée, saisissait ville, dates et budget, puis filtrait les résultats ligne à ligne. Aujourd'hui le contenu apparaît d'abord dans le flux — une cour, un plateau de petit-déjeuner, quelques mots sans script du propriétaire — et le voyageur remonte ensuite jusqu'au lieu. La découverte passe de la requête active à la portée active.",
+      "Ce glissement compte davantage pour les petits hébergements que pour les chaînes. Sur un rayon, la visibilité s'achète largement : les groupes ont budget, programme de fidélité et termes de marque. Dans un flux, un espace réel bien filmé et un détail mémorable peuvent obtenir une exposition comparable. Le rapport parle d'une chance égale d'être vu : c'est optimiste, mais la direction est réelle.",
+      "La vidéo convient aux biens d'expérience parce qu'elle livre à l'avance une part de l'indescriptible. Ambiance du lieu, détail du service, ce qu'il y a à faire autour, plans tournés par les clients eux-mêmes : tout devient perceptible avant l'arrivée. Le voyageur y gagne des idées et, plus utilement, juge mieux si un type de chambre ou une offre lui convient. L'exploitant passe de l'attente d'être cherché à la prise de contact directe. C'est seulement quand l'incertitude baisse que la friction de conversion baisse.",
+      "Rien de tout cela ne signifie qu'il suffise de filmer joliment. Le rapport revient sans cesse sur la règle et l'honnêteté comme plancher, et sur le contenu réel comme moyen, pour une raison très pratique : sur un bien d'expérience, l'écart entre promesse et réalité se règle immédiatement. Plus le filtre gonfle l'attente, plus la déception du jour d'arrivée est précise, et plus vite elle devient un avis négatif illustré, qui revient plus vite qu'une publicité. La première discipline de la gestion des contenus est simplement de ne pas tromper.",
+      "Une chaîne du rapport mérite d'être démontée : susciter l'intérêt, convertir, ajouter de la valeur, fidéliser. Découper une impression en quatre temps, c'est refuser de noter le contenu sur le seul chiffre d'affaires du jour. Le vice-président de l'association touristique le dit plus crûment : transformer le trafic en valeur d'expérience perceptible, passer de la vente de chambres à la délivrance d'expériences, de la course au dividende d'audience à la culture d'actifs durables, de la hausse des recettes d'un seul établissement à une construction partagée avec l'écosystème.",
+      "L'unité de mesure change avec lui. RevPAR, taux d'occupation et prix moyen décrivent des transactions uniques. Dès que la fidélisation entre dans le compte, les séjours répétés, la part de clients habituels et le nombre de personnes que l'on peut toucher à nouveau sans acheter de publicité deviennent des indicateurs à suivre. Le directeur du centre universitaire va plus loin : la gestion des contenus n'est pas un canal de vente supplémentaire, mais une restructuration systémique de la façon dont le secteur crée de la valeur.",
+      "Un autre rapport d'investissement touristique, paru la même semaine, le confirme côté capital. L'indice d'investissement en actifs fixes touristiques a progressé de 4,2 % sur un an sur les trois premiers trimestres, mais le poids des projets neufs lourds a reculé tandis que montaient la rénovation du parc existant et l'innovation de contenus. La préférence est passée de ressources plus capital à exploitation plus contenu, avec davantage de poids donné au flux de trésorerie, à la capacité d'exploitation et à des retours vérifiables. Que l'argent cesse de s'empiler dans des bâtiments neufs juste quand le contenu devient la nouvelle porte d'entrée, ce sont deux faces du même ajustement.",
+      "Sur le terrain, la conséquence la plus concrète est d'avancer l'exploitation. Si le contenu doit montrer une expérience réelle, ce qui mérite d'être filmé et raconté doit être dessiné dans l'espace et dans le parcours de service avant l'ouverture, et non rafistolé ensuite par l'équipe marketing. La mise en garde du rapport contre le « beaucoup construit, peu exploité » porte exactement sur l'ordre : d'abord une expérience qui vaille d'être enregistrée, ensuite un contenu qui vaille d'être diffusé.",
+      "De nouvelles dépendances arrivent avec elle. Confier l'entrée à une plateforme, c'est accepter les à-coups de l'algorithme, les changements de règles, les prix du direct qui pèsent sur le tarif normal, et la question plus ardue de la propriété des données clients. Que la chambre cherche la personne économise le coût de trouver des clients ; le prix est qu'une part de la relation est déposée dans le système d'autrui. Faire de la fidélisation un actif réellement propre est l'obstacle que les slogans recouvrent le plus facilement.",
+      "La question que laisse ce rapport n'est donc pas de savoir s'il faut faire des vidéos courtes, mais avec quoi l'on tient après avoir été vu. Le contenu résout l'entrée ; le produit et l'exploitation résolvent le retour. Si l'on ne répare que la première moitié, le trafic arrive vite et repart tout aussi vite."
+    ]
+  }
+]
