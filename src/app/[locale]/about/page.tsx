@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, Locale, locales, ogLocale } from "@/i18n/config";
 import { citeCopy } from "@/i18n/citePage";
+import { faqCopy } from "@/i18n/faqQuestions";
 import { absUrl, buildAlternates, SITE_URL } from "@/lib/site";
 import CiteCopyButton from "@/components/CiteCopyButton";
 
@@ -82,6 +83,17 @@ export default async function AboutPage({
 }`;
   const citeShort = `(starteday, ${today.slice(0, 4)})`;
 
+  // GEO：FAQ 的「答案」全部复用本页已本地化的段落，与可见正文逐字一致，
+  // 避免结构化数据与页面内容不一致（Google/AI 引擎会据此判为误导性标记）。
+  const fq = faqCopy[loc];
+  const faq = [
+    { q: fq.questions[0], a: c.desc },
+    { q: fq.questions[1], a: s.whatBody[0] },
+    { q: fq.questions[2], a: s.creditBody[0] },
+    { q: fq.questions[3], a: s.licenseBody },
+    { q: fq.questions[4], a: s.contactBody },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -122,6 +134,7 @@ export default async function AboutPage({
         // 实体归属信号：让搜索引擎把外部引用归到本站实体
         sameAs: [
           `${SITE_URL}/llms.txt`,
+          `${SITE_URL}/llms-full.txt`,
           `${SITE_URL}/rss.xml`,
         ],
         publishingPrinciples: canonical,
@@ -135,6 +148,21 @@ export default async function AboutPage({
           url: canonical,
           availableLanguage: ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr"],
         },
+      },
+      // GEO：把「网站是什么 / 能不能转载 / 图片怎么署名」写成可被引擎摘取的问答。
+      // 答案与本页可见 FAQ 区块同源，逐字一致。
+      {
+        "@type": "FAQPage",
+        "@id": `${canonical}#faq`,
+        url: `${canonical}#faq`,
+        name: fq.title,
+        inLanguage: ogLocale[loc].replace("_", "-"),
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        mainEntity: faq.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
       },
     ],
   };
@@ -209,6 +237,18 @@ export default async function AboutPage({
           <p>{s.contactBody}</p>
         </section>
 
+        <section className="cite-sec" id="faq">
+          <h2>{fq.title}</h2>
+          <dl className="cite-faq">
+            {faq.map((item, i) => (
+              <div key={i}>
+                <dt>{item.q}</dt>
+                <dd>{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
         <section className="cite-sec" id="facts">
           <h2>{s.factsTitle}</h2>
           <dl className="cite-facts">
@@ -230,6 +270,8 @@ export default async function AboutPage({
             <li><a href="/sitemap.xml">sitemap.xml</a></li>
             <li><a href="/news-sitemap.xml">news-sitemap.xml</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>
+            <li><a href="/llms-full.txt">llms-full.txt</a></li>
+            <li><a href="/humans.txt">humans.txt</a></li>
           </ul>
         </section>
 
