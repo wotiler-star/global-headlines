@@ -152,7 +152,7 @@ export default async function LocaleLayout({
                     "@type": "ContactPoint",
                     contactType: "editorial",
                     url: `${SITE_URL}/${loc}/about`,
-                    availableLanguage: ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr"],
+                    availableLanguage: locales,
                   },
                 },
               ],

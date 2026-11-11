@@ -13,6 +13,10 @@ const I18N: Record<Locale, { title: string; amount: string; from: string; to: st
   fr: { title: "Devises", amount: "Montant", from: "De", to: "Vers", swap: "Inverser", note: "taux statiques", approx: "indicatif" },
   pt: { title: "Moedas", amount: "Valor", from: "De", to: "Para", swap: "Trocar", note: "taxas fixas", approx: "apenas referência" },
   tr: { title: "Döviz", amount: "Tutar", from: "Kaynak", to: "Hedef", swap: "Değiştir", note: "sabit kurlar", approx: "yalnızca referans" },
+  ru: { title: "Валюта", amount: "Сумма", from: "Из", to: "В", swap: "Поменять", note: "фикс. курсы", approx: "только справочно" },
+  ar: { title: "العملات", amount: "المبلغ", from: "من", to: "إلى", swap: "تبديل", note: "أسعار ثابتة", approx: "للاسترشاد فقط" },
+  hi: { title: "मुद्रा", amount: "राशि", from: "से", to: "तक", swap: "स्वैप", note: "स्थिर दरें", approx: "केवल संकेत" },
+  id: { title: "Mata Uang", amount: "Jumlah", from: "Dari", to: "Ke", swap: "Tukar", note: "kurs statis", approx: "hanya perkiraan" },
 };
 
 export default function CurrencyConverter({ locale }: { locale: Locale }) {

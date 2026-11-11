@@ -26,6 +26,10 @@ const VIDEO_QUERY: Record<Locale, string> = {
   fr: "technologie nature espace documentaire",
   pt: "tecnologia natureza espaço documentário",
   tr: "teknoloji doğa uzay belgesel",
+  ru: "технологии природа космос документальный",
+  ar: "تكنولوجيا طبيعة فضاء وثائقي",
+  hi: "तकनीक प्रकृति अंतरिक्ष डॉक्यूमेंट्री",
+  id: "teknologi alam luar angkasa dokumenter",
 };
 
 // YouTube 检索语言（relevanceLanguage）

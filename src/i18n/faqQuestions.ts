@@ -90,4 +90,44 @@ export const faqCopy: Record<Locale, FaqCopy> = {
       "Bir olgu hatasını ya da eksik atfı nasıl bildiririm?",
     ],
   },
+  ru: {
+    title: "Часто задаваемые вопросы",
+    questions: [
+      "Что такое starteday?",
+      "Являются ли статьи переводами или краткими изложениями?",
+      "Можно ли использовать изображения повторно и как их указывать?",
+      "Можно ли переиздать статью целиком или использовать её в коммерческих целях?",
+      "Как сообщить о фактической ошибке или пропущенном указании источника?",
+    ],
+  },
+  ar: {
+    title: "الأسئلة الشائعة",
+    questions: [
+      "ما هو starteday؟",
+      "هل المقالات مترجمة أم ملخّصة؟",
+      "هل يمكنني إعادة استخدام الصور، وكيف أذكر مصدرها؟",
+      "هل يمكنني إعادة نشر مقال كامل أو استخدامه تجارياً؟",
+      "كيف أبلغ عن خطأ وقائعي أو عن إغفال ذكر المصدر؟",
+    ],
+  },
+  hi: {
+    title: "अक्सर पूछे जाने वाले प्रश्न",
+    questions: [
+      "starteday क्या है?",
+      "क्या लेख अनुवाद या सारांश हैं?",
+      "क्या मैं चित्रों का पुनः उपयोग कर सकता हूँ, और उनका श्रेय कैसे दूँ?",
+      "क्या मैं पूरा लेख पुनः प्रकाशित कर सकता हूँ या उसका व्यावसायिक उपयोग कर सकता हूँ?",
+      "तथ्यात्मक त्रुटि या छूटे हुए श्रेय की सूचना मैं कैसे दूँ?",
+    ],
+  },
+  id: {
+    title: "Pertanyaan yang sering diajukan",
+    questions: [
+      "Apa itu starteday?",
+      "Apakah artikelnya terjemahan atau ringkasan?",
+      "Bisakah saya menggunakan ulang gambar, dan bagaimana sebaiknya mengutipnya?",
+      "Bisakah saya menerbitkan ulang artikel secara penuh atau menggunakannya untuk tujuan komersial?",
+      "Bagaimana cara melaporkan kesalahan faktual atau kredit yang terlewat?",
+    ],
+  },
 };

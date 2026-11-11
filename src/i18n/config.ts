@@ -1,5 +1,5 @@
 // 多语言配置：子目录路由策略（/zh /en /ja ...），每个语言版本独立 URL
-export const locales = ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr"] as const;
+export const locales = ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr", "ru", "ar", "hi", "id"] as const;
 export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = "zh";
@@ -16,6 +16,10 @@ export const localeMeta: Record<
   fr: { name: "Français", englishName: "French", dir: "ltr", hreflang: "fr-FR" },
   pt: { name: "Português", englishName: "Portuguese", dir: "ltr", hreflang: "pt-PT" },
   tr: { name: "Türkçe", englishName: "Turkish", dir: "ltr", hreflang: "tr-TR" },
+  ru: { name: "Русский", englishName: "Russian", dir: "ltr", hreflang: "ru-RU" },
+  ar: { name: "العربية", englishName: "Arabic", dir: "rtl", hreflang: "ar" },
+  hi: { name: "हिन्दी", englishName: "Hindi", dir: "ltr", hreflang: "hi-IN" },
+  id: { name: "Bahasa Indonesia", englishName: "Indonesian", dir: "ltr", hreflang: "id-ID" },
 };
 
 // SEO：每个语言的地区化 hreflang 变体。同一个 URL 面向多个国家/地区声明，
@@ -30,12 +34,17 @@ export const localeRegions: Record<Locale, string[]> = {
   fr: ["fr-FR", "fr-CA", "fr-BE", "fr-CH", "fr-LU", "fr-MC", "fr-SN", "fr-CI", "fr-CM", "fr-MA", "fr-DZ", "fr-TN", "fr-MG"],
   pt: ["pt-PT", "pt-BR", "pt-AO", "pt-MZ", "pt-GW", "pt-CV", "pt-ST", "pt-TL"],
   tr: ["tr-TR", "tr-CY"],
+  ru: ["ru-RU", "ru-BY", "ru-KZ", "ru-KG", "ru-TJ", "ru-TM"],
+  ar: ["ar", "ar-SA", "ar-EG", "ar-AE", "ar-MA", "ar-DZ", "ar-TN", "ar-LY", "ar-JO", "ar-SY", "ar-IQ", "ar-KW", "ar-QA", "ar-BH", "ar-OM", "ar-LB", "ar-YE", "ar-PS", "ar-SD", "ar-MR"],
+  hi: ["hi-IN"],
+  id: ["id-ID"],
 };
 
 // OG 使用的 locale 格式（下划线，如 zh_CN），Open Graph 协议要求
 export const ogLocale: Record<Locale, string> = {
   zh: "zh_CN", en: "en_US", ja: "ja_JP", ko: "ko_KR",
   es: "es_ES", fr: "fr_FR", pt: "pt_PT", tr: "tr_TR",
+  ru: "ru_RU", ar: "ar_AR", hi: "hi_IN", id: "id_ID",
 };
 
 // 资讯分类（key 稳定，标签走字典）

@@ -15,13 +15,21 @@ const GROUPS: { codes: string; locale: Locale }[] = [
   { codes: "CN TW HK MO SG", locale: "zh" },
   { codes: "JP", locale: "ja" },
   { codes: "KR", locale: "ko" },
+  // 俄语及前苏联俄语通用地区
+  { codes: "RU BY KZ KG TJ TM AM AZ GE MD", locale: "ru" },
   { codes: "ES MX AR CO CL PE VE EC UY PY BO CR PA DO GT HN NI SV CU PR GQ", locale: "es" },
-  // 法语欧洲 + 法语非洲/印度洋 + 马格里布（法语通用）
-  { codes: "FR BE LU MC SN CI ML BF NE TD CG CD CM CF GA GN BJ TG MG KM DJ RW BI SC MU MA DZ TN", locale: "fr" },
+  // 法语欧洲 + 法语非洲/印度洋（马格里布阿拉伯国家已划入 ar）
+  { codes: "FR BE LU MC SN CI ML BF NE TD CG CD CM CF GA GN BJ TG MG KM DJ RW BI SC MU", locale: "fr" },
   { codes: "PT BR AO MZ GW CV ST TL", locale: "pt" },
   { codes: "TR", locale: "tr" },
-  // 英语官方/通用语国家
-  { codes: "US GB AU CA NZ IE ZA NG KE GH UG TZ ZM ZW BW NA MW SS SD ET ER SO IN PK BD LK NP MY PH FJ PG SB VU JM TT BB BS BZ GY LC GD VC AG KN DM MT AE QA KW BH OM SA JO LB IL", locale: "en" },
+  // 阿拉伯语国家（从 en/fr 组迁出；IL 以色列保留 en，希伯来语未支持）
+  { codes: "SA AE QA KW BH OM JO LB EG IQ SY YE LY MA DZ TN SD PS MR", locale: "ar" },
+  // 印度（印地语）
+  { codes: "IN", locale: "hi" },
+  // 印度尼西亚
+  { codes: "ID", locale: "id" },
+  // 英语官方/通用语国家（已移除分配给 ru/ar/hi/id 的地区）
+  { codes: "US GB AU CA NZ IE ZA NG KE GH UG TZ ZM ZW BW NA MW SS ET ER SO PK BD LK NP MY PH FJ PG SB VU JM TT BB BS BZ GY LC GD VC AG KN DM MT IL", locale: "en" },
 ];
 
 // 德语/意语/荷语/北欧/东欧/中亚/东南亚非英语国家：站点暂不支持 → 回落 en。

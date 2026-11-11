@@ -71,6 +71,8 @@ export default async function AboutPage({
     zh: "starteday 编辑部", en: "starteday Editorial", ja: "starteday 編集部",
     ko: "starteday 편집부", es: "Redacción starteday", fr: "Rédaction starteday",
     pt: "Redação starteday", tr: "starteday Editör",
+    ru: "Редакция starteday", ar: "تحرير starteday",
+    hi: "starteday संपादन", id: "Redaksi starteday",
   };
   const author = byline[loc];
   const citeStandard = `${author}. (${today}). ${c.h1}. starteday. ${canonical}`;
@@ -148,7 +150,7 @@ export default async function AboutPage({
           "@type": "ContactPoint",
           contactType: "editorial",
           url: canonical,
-          availableLanguage: ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr"],
+          availableLanguage: locales,
         },
       },
       // GEO：把「网站是什么 / 能不能转载 / 图片怎么署名」写成可被引擎摘取的问答。

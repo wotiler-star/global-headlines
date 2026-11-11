@@ -37,6 +37,10 @@ const COPY: Record<Locale, Copy> = {
   fr: { auto: (l) => `Passage à ${l} selon votre région`, undo: "Annuler", suggest: (l) => `${l} est recommandé pour votre région. Changer ?`, switchTo: "Changer", keep: "Rester ici" },
   pt: { auto: (l) => `Alterado para ${l} com base na sua região`, undo: "Desfazer", suggest: (l) => `${l} é recomendado para sua região. Mudar?`, switchTo: "Mudar", keep: "Manter atual" },
   tr: { auto: (l) => `Bölgenize göre ${l} diline geçildi`, undo: "Geri al", suggest: (l) => `Bölgeniz için ${l} öneriliyor. Geçilsin mi?`, switchTo: "Geç", keep: "Burada kal" },
+  ru: { auto: (l) => `Переключено на ${l} по вашему региону`, undo: "Отменить", suggest: (l) => `${l} рекомендуется для вашего региона. Переключить?`, switchTo: "Переключить", keep: "Остаться здесь" },
+  ar: { auto: (l) => `تم التبديل إلى ${l} بناءً على منطقتك`, undo: "تراجع", suggest: (l) => `${l} موصى به لمنطقتك. تبديل؟`, switchTo: "تبديل", keep: "البقاء هنا" },
+  hi: { auto: (l) => `आपके क्षेत्र के आधार पर ${l} में बदला गया`, undo: "पूर्ववत करें", suggest: (l) => `आपके क्षेत्र के लिए ${l} अनुशंसित है। बदलें?`, switchTo: "बदलें", keep: "यहीं रहें" },
+  id: { auto: (l) => `Beralih ke ${l} berdasarkan wilayah Anda`, undo: "Urungkan", suggest: (l) => `${l} disarankan untuk wilayah Anda. Beralih?`, switchTo: "Beralih", keep: "Tetap di sini" },
 };
 
 function readCookie(name: string): string | undefined {

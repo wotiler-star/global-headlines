@@ -1,0 +1,365 @@
+[
+  {
+    "id": "rss-orig-6g-prototype-2026-11-id",
+    "title": "6G Keluar dari Lab dengan Bandwidth Empat Kali Lipat — dan Jaringan yang Bisa Merasakan",
+    "summary": "Di Shanghai Import Expo pada 5 November, Qualcomm menampilkan prototipe terminal 6G pertama yang selaras dengan 3GPP di luar laboratorium, diuji pada 400 MHz downlink dibandingkan 100 MHz di era 5G. Sinyal yang lebih berarti datang dari sistem di sekitarnya: komunikasi, sensing, dan compute dibangun sebagai satu mesin.",
+    "cover": "/original/6g-prototype-cover.webp",
+    "images": [
+      "/original/6g-prototype-cover.webp",
+      "/original/6g-prototype-fig1.webp",
+      "/original/6g-prototype-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "6G",
+      "sensing dan komunikasi terintegrasi",
+      "prototipe",
+      "jaringan non-terestrial",
+      "infrastruktur"
+    ],
+    "category": "tech",
+    "locale": "id",
+    "source": "starteday 原创",
+    "sourceUrl": "https://www.cnfin.com/gs-lb/detail/20261105/4491393_1.html",
+    "author": "starteday 编辑部",
+    "publishedAt": 1793890291423,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Objek paling tidak ramah konsumen yang dipajang saat China International Import Expo ke-9 dibuka di Shanghai pada 5 November adalah peralatan uji yang jauh lebih besar dari ponsel. Prototipe terminal 6G Qualcomm, yang disebut sebagai yang pertama cocok dengan definisi 3GPP terbaru, sebelumnya terutama tinggal di laboratorium; ini adalah penampilan fisik publik pertamanya di pameran besar. Prototipe dan produk biasanya dipisahkan oleh bertahun-tahun, jadi bacaan yang berguna bukan bahwa peluncuran sudah dekat, melainkan bahwa fase verifikasi telah menghasilkan sesuatu yang siap dipajang di stand oleh produsan dan dibiarkan rantai pasokan memeriksanya.",
+      "Angka yang dikutip semua orang adalah bandwidth: perangkat ini diuji pada 400 MHz downlink, berbanding 100 MHz di era 5G. Lebih penting dari kelipatannya adalah apa yang dilakukan hardware. Ini bukan konsep mock-up: ia telah digunakan dalam pengujian teknis bersama dan verifikasi interoperabilitas dengan mitra industri termasuk China Mobile dan ZTE. Dalam komunikasi, membuat satu kotak bicara dengan kotak vendor lain adalah milestone yang lebih sulit dan informatif dibandingkan angka puncak yang dicatat secara terpisah, karena mengungkap ambiguitas yang ditinggalkan spesifikasi tertulis.",
+      "Yonggang Li, direktur pemasaran teknis Qualcomm China, memberikan pembacaan yang berlandaskan sejarah: menilai dari pengalaman 5G, prototipe uji besar seperti ini akhirnya menjadi chipset dan produk. Peralatan generasi pertama hampir selalu berupa kabinet dan kabel sebelum dikompres ke silikon baseband dan modul. Keberatan yang dipajang oleh itu bukti tahap rekayasa awal, bukan hambatan deployment — meski tidak mengatakan apa-apa tentang jadwal komersial, yang masih bergantung pada keputusan standar dan spektrum yang belum disepakati.",
+      "Mengurangi 6G menjadi data lebih cepat akan melewatkan perubahan substansial lebih lanjut. Di Light of Internet expo di Wuzhen, sistem prototipe 6G end-to-end menggabungkan komunikasi, sensing, dan computing dalam satu setup dan mendemonstrasikan kendali jarak jauh mesin konstruksi hampir seribu kilometer jauhnya. Transmisi hanyalah satu fungsi di antara beberapa: sistem secara bersamaan mengukur lingkungannya dan mengalokasikan compute. Link yang harus mengirimkan perintah pada momen pasti, sambil terus mengetahui kondisi channel dan mesin di ujung lain, adalah masalah rekayasa yang berbeda dari yang hanya harus memindahkan stream video dengan cepat.",
+      "Ketua GSMA menegaskan perbedaan itu dengan jelas: perbedaan terbesar antara 6G dan 5G adalah sensing. Jaringan masa depan tidak hanya harus membawa informasi tapi melacak objek di ruang fisik secara real-time dan menggunakan AI untuk mendiagnosis, memperbaiki, dan mengoptimalkan dirinya sendiri. Base station berhenti menjadi pipa pasif dan menjadi node pengukur. Pemframasan ulang itu menjelaskan mengapa industri terus mendeskripsikan 6G sebagai dirancang untuk era AI: inferensi semakin terbagi di device, edge, dan cloud, dan jaringan diminta berpartisipasi dalam penjadwalan, bukan hanya mengangkut traffic hasilnya.",
+      "Cakupan adalah separuh lain dari cerita. Zhang Huiqiang, direktur uji 6G di konsorsium riset Zhongguancun, menunjuk ke jaringan terintegrasi space–air–ground yang bisa menjaga gurun, wilayah pegunungan terpencil, lautan, dan langit tetap terhubung. Kepadatan base-station darat dibatasi oleh ekonomi dan geografi, sehingga melipat lapisan non-terrestrial ke satu arsitektur menjawab apakah koneksi ada sama sekali, bukan seberapa cepatnya. Untuk audiens terdistribusi global, itu mungkin lebih penting dari puncak rate perkotaan manapun. Video 3D real-time tanpa kaca duduk di ujung lawan, mendorong bandwidth, latency, dan koordinasi compute sekaligus — aplikasi yang tidak bisa diselesaikan hanya dengan membuat handset lebih powerful.",
+      "Beberapa 'first' lain di lantai pameran yang sama mengisi sisi fisik rantai itu. Kabinet immersion-cooled debut publik, menunjuk pada masalah panas di data center AI; SK hynix mempresentasikan matriks memori yang mencakup server, data-center, dan endpoint mobile di latar belakang kenaikan harga memori yang berkelanjutan hingga 2026; kendaraan listrik tanpa sopir tanpa stir atau pedal, dan mesin turn-mill high-speed debut Asia-nya, menunjukkan tarikan yang sama menuju penempatan kemampuan dekat pengguna di sisi konsumen dan industri. Sebelum jaringan bisa compute lebih cepat, ia harus dipasok daya, pendingin, dan storage.",
+      "Tidak ada artinya 6G sudah tiba. Standar belum selesai, spektrum dan form factor terminal masih dibahas, 400 MHz adalah kondisi uji bukan kecepatan yang akan dilihat orang segera, dan pekerjaan interoperabilitas adalah satu link awal dalam rantai panjang. Nilai prototipe publik adalah memindahkan argumen dari slide ke hardware terukur: spesifikasi bisa didiskusikan tanpa akhir, tapi akhirnya device harus connect, menghasilkan angka, dan interwork dengan peralatan orang lain. Begitu sensing, compute, dan komunikasi divalidasi bersama dalam mesin yang sama, definisi generasi berikutnya bergeser dari berapa gigabit yang dibawa ke seberapa banyak penilaian yang bisa diambil untuk orang yang menggunakannya."
+    ]
+  },
+  {
+    "id": "rss-orig-ai-comic-drama-export-2026-11i-id",
+    "title": "100 Premiere per Hari: Drama Komik AI Tiongkok Mengubah Produksi Menjadi Lini Perakitan",
+    "summary": "Pasar micro-drama luar negeri diperkirakan sekitar 6 miliar dolar pada 2026, dengan drama komik AI menyumbang sekitar 4 miliar dan tumbuh hampir 390 persen. Perusahaan Tiongkok menguasai sekitar sembilan persepuluh dari porsi itu. Biaya turun ke sekitar 350 yuan per menit dan siklus dari 90 hari menjadi 10, sehingga keuntungannya ada pada throughput bukan keberuntungan.",
+    "cover": "/original/ai-comic-drama-export-cover.webp",
+    "images": [
+      "/original/ai-comic-drama-export-cover.webp",
+      "/original/ai-comic-drama-export-fig1.webp",
+      "/original/ai-comic-drama-export-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "drama komik AI",
+      "drama pendek",
+      "produksi konten",
+      "video vertikal",
+      "lokalisasi",
+      "streaming"
+    ],
+    "category": "entertainment",
+    "locale": "id",
+    "source": "starteday Original",
+    "sourceUrl": "http://data.lmtw.com/IPTVsj/202611/259696.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1794192044502,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Sekitar 100 drama pendek baru diluncurkan di pasar luar negeri setiap hari. Ini kedengarannya seperti hiperbole siaran pers sampai Anda menyamakan angka dari beberapa pelacak industri dan penyiar. Saat Anda tidur, seratus seri vertikal melintasi zona waktu mencari langganan dan pendapatan iklan.",
+      "Ukuran hadiah kini terukur. Pasar micro-drama luar negeri diproyeksikan sekitar 6 miliar dolar untuk 2026, dan drama komik AI saja menyumbang hampir 4 miliar, naik hampir 390 persen tahun ke tahun. Bagian yang lebih mengungkapkan adalah pembagiannya: perusahaan Tiongkok merebut sekitar sembilan persepuluh dari porsi itu.",
+      "Tabel liga mendukungnya. Dari 100 drama pendek luar negeri teratas Oktober, 82 didanai firma Tiongkok, dan sembilan dari sepuluh aplikasi penghasil tertinggi adalah Tiongkok. Tiga teratas di kedua unduhan dan pendapatan berasal dari klaster produk yang sama, menyisakan satu kursi untuk yang lain.",
+      "Penjelasannya kurang romantis dari angkanya. Produksi dipecah menjadi langkah-langkah. Satu menit layar jadi kini biayanya sekitar 350 yuan, siklus terkompresi dari 90 hari jadi 10, dan dubbing serta adaptasi otomatis memotong biaya lokalisasi sekitar 80 persen. Studio di Hangzhou dan Shanghai memasukkan naskah dan mengeluarkan episode dengan ketertiban seperti pabrik.",
+      "Belum lama ini syuting luar negeri berarti kru, lokasi, dan pemeran lokal, di mana satu keterlambatan saja menghabiskan minggu. Kini layar hijau dan model menyediakan wajah, latar, gerak bibir, dan banyak trek bahasa di jalur yang sama. Begitu biaya percobaan gagal runtuh, pemeran lemah bisa diganti oleh yang berikutnya.",
+      "Itu mengubah logika komersial. Taruhan lama adalah satu hit. Taruhan baru adalah yield portofolio: rilis seratus judul, biarkan segelintir yang meledak, dan seluruh daftar tetap menutupi biayanya. Konten berperilaku kurang seperti kerajinan dan lebih seperti jalur manufaktur dengan tingkat cacat, yang merupakan deskripsi tidak glamour tapi akurat dari ekspansi ini.",
+      "Pemain baru bergerak lebih cepat dari yang sudah mapan. PineDrama, diluncurkan Januari oleh ByteDance, melewati 100 juta unduhan dalam sembilan bulan dan memegang sekitar 7 juta pengguna aktif harian. Kunlun Wanwei melaporkan pendapatan kuartal ketiga 3,578 miliar yuan, dengan lini drama pendek AI-nya mendekati 100 juta dolar tagihan bulanan pada September.",
+      "Sisi audiens, sekitar 150 juta orang aktif di drama komik AI luar negeri. Tapi uang tidak merata. Amerika Utara punya pengguna lebih sedikit tapi belanja per kepala jauh lebih tinggi; Asia Tenggara menyuplai volume dan pertumbuhan, dengan tier gratis merebut pasar sebelum kebiasaan terbentuk; Eropa memusatkan sebagian besar pendapatan di satu atau dua aplikasi terdepan.",
+      "Genre harus disusun per wilayah. Gelombang awal mengandalkan satu templat miliarder dan romansa manis, yang merupakan pintasan bukan strategi. Sekarang audiens Amerika Utara condong ke supernatural dan family-dynasty hooks, Asia Tenggara ke underdog dan alur keluarga, Eropa ke suspense dan period settings. Emotional beat bergerak; casing-nya tidak.",
+      "Sudah ada tanda oversupply. Kutipan per menit terus melorot, sementara vendor tooling dan compute terlihat lebih stabil dari studio yang membeli dari mereka. Estimasi industri menempatkan titik impas pada jumlah putar substansial, dan mayoritas besar judul baru tidak pernah memulihkan biaya dalam enam bulan.",
+      "Itu menempatkan garis pembagi nyata di tempat selain kecepatan generasi. Model menangani gambar dan bahasa; pacing, tension karakter, dan francais yang bertahan musim kedua tetap bergantung pada manusia. Begitu efisiensi meratakan barrier masuk, kompetisi kembali ke bagian pekerjaan paling tidak bisa diotomatisasi.",
+      "Mungkin cara paling bersih membaca momen ini adalah sebagai eksperimen industri. Ritme vertikal, payment cliffhanger, dan model beli iklan diekspor utuh, lalu dibalut dengan wajah dan idiom lokal. Rangka tetap di tempat sementara kulit berubah. 6 miliar dolar adalah benchmark tahun ini; tahun depan kemungkinan akan lebih tinggi lagi."
+    ]
+  },
+  {
+    "id": "rss-orig-ai-shopping-agent-2026-11l-id",
+    "title": "Festival Belanja yang Berhenti Mempublikasikan Skornya",
+    "summary": "Hal paling aneh dari penjualan terbesar tahun ini bukan permintaan lemah melainkan angka headline yang hilang. Volume gelombang pertama tumbuh 2,4%, kupon cross-store menghilang, layanan dan compute muncul sebagai barang standar, dan asisten belanja AI mencapai 300 juta pengguna bulanan sambil mempertahankan hanya 3% dari mereka pada hari ke-tigapuluh. Dibaca bersama, angka-angka itu mengatakan lebih dari rekor apapun.",
+    "cover": "/original/ai-shopping-agent-cover.webp",
+    "images": [
+      "/original/ai-shopping-agent-cover.webp",
+      "/original/ai-shopping-agent-fig1.webp",
+      "/original/ai-shopping-agent-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Double 11",
+      "asisten belanja AI",
+      "konsumsi jasa",
+      "retensi",
+      "ritel instan",
+      "efisiensi"
+    ],
+    "category": "business",
+    "locale": "id",
+    "source": "starteday Original",
+    "sourceUrl": "https://news.qq.com/rain/a/20261111A05DJ000",
+    "author": "starteday Editorial",
+    "publishedAt": 1794372409198,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Delapan belas tahun tanggal ini tiba dengan penghitung yang tidak pernah berhenti naik. Tahun ini hal paling mencolok dalam laporan adalah ketidakhadiran satu angka. Tidak ada banner rekor, tidak ada refresh per jam, tidak ada total kemenangan. Festival yang dibangun pada pengumuman ukurannya sendiri tiba-tiba memutuskan bahwa ukuran tidak lagi menjadi poinnya.",
+      "Mulai dari aritmatika. Pelacakan pihak ketiga menempatkan volume marketplace gelombang pertama pada 1,0263 triliun yuan, naik 2,4% year on year; setahun sebelumnya jendela yang sama tumbuh 14,2%. Analis menempatkan siklus penuh di antara 3% dan 6%. Penjualan ritel secara keseluruhan naik 1,1% di tiga kuartal pertama dan ritel online 4,4%. Tidak ada yang menggambarkan satu platform kalah; itu menggambarkan kurva yang mengubah kemiringan.",
+      "Aturannya bergerak lebih terlihat dari totalnya. Ambang batas cross-store yang berjalan lama dipensiunkan mendukung diskon instan resmi. Pre-order deposit memberikan pengiriman stok ready dengan proteksi harga tiga puluh hari. Platform video pendek mendorong potongan per-item langsung. Jendela diskon benar-benar memanjang sebulan, tapi pesanan tersebar di seluruhnya alih-alih menumpuk di satu malam, dan biaya memutuskan turun.",
+      "Ada logika tidak memuaskan di balik pengurangan itu. Begitu pembeli berhenti mengasumsikan ini adalah hari termurah tahunan, teka-teki kupon yang rumit berhenti menjadi alat konversi dan menjadi hambatan konversi. Ketika pertumbuhan pengguna baru datar, persaingan bergeser dari mengakuisisi orang ke membiarkan pelanggan tetap ragu sekali lagi. Penyederhanaan di sini bukan kemurahan hati; itu penghapusan gesekan.",
+      "Penambahan yang lebih menarik adalah bentuk raknya. Layanan memasuki jalur transaksi utama untuk pertama kalinya bukan menggantung di pesanan fisik sebagai pemikiran belakangan. Pembersihan, perawatan rumah, dan instalasi dipecah menjadi unit yang bisa dipesan, menghasilkan 150 juta pesanan layanan di setengah pertama saja, dengan layanan domestik naik lebih dari 240%. Barang furnitur dan kamar mandi mulai meng-bundle pengiriman, unboxing, dan pemasangan ke dalam transaksi itu sendiri.",
+      "Kemudian datang barang tanpa bentuk fisik. Token model dan paket compute dilist sebagai item standar untuk pertama kalinya, dan satu livestream menjual hampir 100.000 kartu keanggotaan dalam setengah jam, mewakili sekitar dua triliun token penggunaan. Dari barang diskon ke layanan ke compute mentah: tidak ada yang menggambar rencana asli 2009 bisa menggambarkan garis itu.",
+      "Di sisi pembeli, asisten terlihat seperti pintu depan baru telah terbuka. Satu melewati 300 juta monthly active users; yang lain melaporkan mendekati 80 juta. Survei menemukan hampir 80% pembeli berkonsultasi AI sebelum memesan, dan pengaruh AI pada keputusan pembelian melampaui iklan konvensional untuk pertama kalinya, 43,7% lawan 42,6%. Di kertas, titik masuk sudah berganti tangan.",
+      "Kemudian angka retensi datang: di bawah 15% pada hari ketujuh, sekitar 3% pada hari ketigapuluh. Mencoba sekali dan membangun kebiasaan berbeda satu order of magnitude. Kebanyakan orang memperlakukan asisten sebagai tombol baru yang tersedia selama penjualan, bukan sebagai tempat setiap pembelian dimulai. Lonjakan rasa ingin tahu besar bukan posisi terpasang.",
+      "Batasan yang lebih keras adalah setiap asisten hanya melihat katalognya sendiri. Helper yang bisa mencari satu gudang tidak bisa menjawab pertanyaan paling sederhana pembeli, yaitu apakah barang yang sama lebih murah di tempat lain sepenuhnya. Perbandingan cerdas hari ini berarti pencarian lebih cepat di dalam walled garden, dan merobohkan tembok itu persis langkah yang tidak ada platform yang mau ambil.",
+      "Jadi bacaan saya adalah ini lapisan enhancement antara kotak pencarian dan rak, bukan gateway transaksi baru. Itu menghemat waktu membolak-balik halaman dan mendekode diskon. Itu tidak bisa menyerap risiko memilih buruk, membayar berlebih, atau gagal mengembalikan item. Selama risiko itu tetap pada orang, gateway tetap di tempatnya.",
+      "Sisi merchant adalah di mana perubahan sudah konkret. Tool single-purpose untuk copy dan chat pelanggan dijahit ke dalam stack kontinu yang mencakup seleksi, listing, bidding, routing inventaris, dan after-sales. Yang dikompresi adalah biaya operasi, bukan permintaan yang hilang. Mengira tool biaya sebagai mesin pendapatan adalah kesalahan paling mudah siklus ini.",
+      "Platform berhenti mempublikasikan angka penjualan final dan sekarang melaporkan pembeli aktif, tingkat ulang, dan retensi. Itu tanda kematangan, dan juga jebak kecil: ketika laju pertumbuhan lebih lambat secara seragam direlabel sebagai pertumbuhan kualitas lebih tinggi, metrik berubah tapi pertanyaan tidak hilang. Balap efisiensi hanya dimenangkan jika pembeli benar-benar membuang uang lebih sedikit.",
+      "Delapan belas tahun kemudian, promosi keras berubah menjadi stres test tahunan barang, fulfillment, layanan, dan agen informasi. Halaman tanpa angka headline adalah yang akhirnya menampilkan seluruh kertas ujian: siapa yang membuat memilih lebih sederhana mendapatkan pesanan ulang berikutnya."
+    ]
+  },
+  {
+    "id": "rss-orig-altermagnet-2026-11-id",
+    "title": "Buku teks mungkin memerlukan bab baru: ilmuwan mengonfirmasi jenis magnetisme ketiga",
+    "summary": "Selama hampir 90 tahun, fisika hanya mengakui dua jenis magnetisme. Menggunakan sinar-X khusus di fasilitas Eropa, tim yang dipimpin SLAC menemukan potongan yang hilang yang disebut kiralitas di dalam mangan tellurida, mengubah altermagnetisme dari teori menjadi realitas yang dikonfirmasi secara eksperimental.",
+    "cover": "/original/altermagnet-cover.webp",
+    "images": [
+      "/original/altermagnet-cover.webp",
+      "/original/altermagnet-fig1.webp",
+      "/original/altermagnet-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "altermagnetisme",
+      "magnetisme",
+      "SLAC",
+      "spintronik",
+      "mangan tellurida",
+      "bahan kuantum"
+    ],
+    "category": "science",
+    "locale": "id",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/11/261104012256.htm",
+    "author": "starteday Editorial",
+    "publishedAt": 1794114219056,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Selama hampir satu abad, buku teks fisika telah menarik garis yang jelas: material bersifat ferromagnetik, di mana spin elektron semuanya menunjuk ke arah yang sama dan menghasilkan medan magnet yang familiar, atau antiferromagnetik, di mana spin tetangga saling membatalkan dan material tidak menunjukkan magnetisasi keseluruhan. Kerangka dua-kotak itu bertahan selama hampir sembilan puluh tahun.",
+      "Sekarang tim yang dipimpin oleh Laboratorium Percepatan Nasional SLAC Departemen Energi AS, bekerja sama dengan European Synchrotron Radiation Facility di Prancis, telah menerbitkan apa yang disebut bukti konklusif untuk jenis ketiga. Dilaporkan di Science, karya tersebut memberi nama altermagnetisme pada fase magnetik yang hingga saat ini sebagian besar hanya ada dalam teori.",
+      "Material di pusat cerita adalah mangan tellurida, atau MnTe. Selama puluhan tahun ia nyaman berada di laci antiferromagnet. Menurut aturan lama, spinnya seharusnya bergantian atas-bawah-atas-bawah dan menjumlahkan nol. Namun ia juga menampilkan sifat yang lama dianggap ferromagnetik: kemampuan membawa arus spin, memindahkan informasi melalui spin elektron bukan muatan listrik.",
+      "Petunjuk yang menentukan adalah kiralitas. Bayangkan tangan tangga spiral atau sekrup, sesuatu yang tidak dapat ditumpangkan pada bayangan cerminnya. Para peneliti berhipotesis bahwa MnTe menyembunyikan asimetri jenis ini persis dalam struktur magnetiknya, dan bahwa belitan itulah tanda yang memisahkan altermagnet dari antiferromagnet biasa.",
+      "Untuk mengujinya, mereka membawa sampel ke beamline ID32 di ESRF dan menyinari dengan sinar-X berpolarisasi sirkular. Triknya elegan: material kiral memantulkan cahaya berpolarisasi kiri dan kanan secara berbeda, sedangkan material non-kiral memperlakukannya sama. Tim menemukan sinyal kiral yang jelas di mana antiferromagnet konvensional seharusnya tidak menunjukkan apa pun.",
+      "Ini bukan pengukuran menit terakhir. Penulis utama Daniel Jost mencatat eksperimen pertama selesai pada 2024 dan diulang awal 2025 dengan hasil identik. Reproduksi seperti itu selama lebih dari setahun yang membuat klaim dapat bertahan. Ko-penulis Rachel Nickel, yang membantu merancang dan menjalankan eksperimen di ESRF, menyebut kecepatan konfirmasi itu luar biasa.",
+      "Lalu apa yang membuat jenis ketiga ini istimewa? Geometri kristal. Sebuah altermagnet tetap memiliki spin bergantian dan tidak ada magnetisasi bersih, tetapi kisi yang mengelilingi spin atas berputar relatif terhadap kisi di sekitar spin bawah. Belitan halus itu memecahkan simetri dan mengubah perilaku elektron, menggabungkan keuntungan kedua kelas lama.",
+      "Itulah mengapa para insinyur tertarik. Ferromagnetik mudah terganggu oleh medan magnet eksternal, sedangkan antiferromagnetik begitu diam sehingga sulit dibaca dan buruk dalam menggerakkan arus spin. Sebuah altermagnet menggabungkan stabilitas dengan kemampuan menghasilkan arus terpolarisasi spin yang dibutuhkan untuk mengekstrak informasi.",
+      "Daftar aplikasinya seperti cetak biru untuk generasi komputasi berikutnya: memori canggih, pusat data lebih hemat energi, dan teknologi kuantum yang mengandalkan spin bukan muatan. Spintronik, bidang yang ingin membangun perangkat keras dari spin elektron, mendapatkan ruang desain baru.",
+      "Sejumlah realisme diperlukan. Makalah ini mengonfirmasi perilaku magnetik ini nyata, bukan bahwa perangkat yang berfungsi sudah di depan mata. SLAC jelas bahwa mesin praktis belum ditunjukkan, dan langkah selanjutnya adalah belajar mengendalikan keadaan altermagnetik dengan cahaya dan listrik.",
+      "Pekerjaan ini didukung sebagian oleh Kantor Sains DOE, dan pengukuran sinar-X krusial terjadi di tanah Eropa. Kolaborasi di seberang Atlantik akhirnya memindahkan material yang salah diklasifikasikan selama puluhan tahun kembali ke tempatnya.",
+      "Jika Anda membayangkan magnetisme sebagai tabel, ia memiliki dua baris selama sembilan puluh tahun. Hari ini baris ketiga ditambahkan dengan kepercayaan tertentu. Bagi kebanyakan orang tidak ada yang berubah besok, tetapi bagi ilmuwan yang mempelajari bagaimana informasi dan energi mengalir melalui materi, baris tambahan itu berarti lanskap baru yang penuh untuk dibangun."
+    ]
+  },
+  {
+    "id": "rss-orig-car-ai-box-2026-11-id",
+    "title": "Model 35-miliar-parameter di mobil: mengapa offline penting",
+    "summary": "AI Box PATEO, diumumkan pada 3 November, menjalankan pengenalan ucapan dan model mixture-of-experts 35B secara lokal di NVIDIA DRIVE AGX Thor. Ini bukan soal asisten yang lebih cerdas, melainkan asisten yang diam di terowongan.",
+    "cover": "/original/car-ai-cover.webp",
+    "images": [
+      "/original/car-ai-cover.webp",
+      "/original/car-ai-fig1.webp",
+      "/original/car-ai-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "AI di mobil",
+      "inferensi offline",
+      "kokpit cerdas",
+      "komputasi edge",
+      "MoE"
+    ],
+    "category": "tech",
+    "locale": "id",
+    "source": "starteday Original",
+    "sourceUrl": "https://cherumbu.com/auto/pateo-nvidia-and-bytedance-just-redefined-what-a-cars-voice-assistant-can-actually-do-cherumbu-news",
+    "author": "starteday Editorial",
+    "publishedAt": 1793877598368,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Siapa pun yang pernah menggunakan asisten suara saat mengemudi kenal momen itu: mobil memasuki terowongan, parkir bawah tanah, atau jalan pegunungan, sinyal hilang, dan asisten yang menjawab satu detik lalu menjadi diam. Tidak ada daftar fitur yang selamat dari kegagalan itu. AI Box PATEO, diumumkan pada 3 November 2026, ditujukan tepat pada masalah nyata namun tidak glamour ini.",
+      "Daripada mengganti kontroler utama kendaraan yang sudah ada, desain menambahkan unit komputasi modular di sampingnya, dibangun di atas NVIDIA DRIVE AGX Thor. Keputusan ini sebobot model itu sendiri: pabrikan mobil tidak perlu merancang ulang seluruh arsitektur listrik untuk upgrade AI, dan program yang sudah jauh dalam pengembangan tetap bisa mengadopsinya.",
+      "Dua beban kerja berjalan di dalam kotak: model Nemotron 3.5 ASR NVIDIA untuk pengenalan ucapan real-time, dan model bahasa Doubao ByteDance untuk pemahaman dan penalaran kontekstual, sistem mixture-of-experts dengan total sekitar 35 miliar parameter. Ucapan masuk, makna keluar, seluruh loop tertutup di dalam kabin dan tidak memerlukan koneksi seluler.",
+      "Memasukkan 35 miliar parameter ke dalam mobil bukan hanya masalah komputasi puncak. DRIVE AGX Thor menawarkan hingga 1.000 INT8 TOPS dan bandwidth memori 273 GB/s, dan PATEO secara eksplisit menyoroti yang terakhir: saat percakapan berkembang, cache key-value memperluas, sehingga bandwidth, bukan TOPS, yang pertama kali terbatas. Chip dengan skor benchmark bagus tapi bandwidth lemah mulai lag di tengah kalimat, tepat saat pengemudi berhenti mempercayainya.",
+      "Arsitektur mixture-of-experts di sini bukan hiasan. Alih-alih mengaktifkan setiap parameter untuk setiap permintaan, input diarahkan ke subset kecil yang terspesialisasi, mengurangi komputasi per-kueri sambil mempertahankan kedalaman ekspresif model padat yang jika tidak akan memerlukan server. Untuk kabin yang harus mengontrol daya dan panas, aktivasi sesuai permintaan lebih dekat dengan realitas rekayasa daripada menumpuk throughput mentah.",
+      "Offline tidak berarti menolak cloud. Deskripsi yang lebih akurat adalah lapisan: wake-up, pengenalan, kontrol kabin, dan penalaran dasar tetap lokal, sementara pembaruan model, refresh software, dan layanan lanjutan tetap terhubung. Jaringan menjadi peningkatan, bukan saklar on-off. Memisahkan ketersediaan dari kualitas sinyal lebih penting daripada perdebatan apakah model lokal atau cloud lebih cerdas.",
+      "Platform AI Agent menggabungkan input mikrofon, frame kamera menghadap pengemudi, dan data sensor kendaraan menjadi gambar langsung kabin. Ia bisa mendeteksi tanda awal kelelahan dan menawarkan mengatur ventilasi atau memulai pemijat kursi tanpa menunggu perintah; sensor kualitas udara bisa menutup jendela dan beralih ke resirkulasi saat polusi naik. Lapisan Sentinel lebih lanjut memperluas kesadaran di luar kabin, menandai potensi masalah parkir, banjir di dekatnya, atau risiko kebakaran tanpa aplikasi terpisah. Pengguna juga bisa membiarkan asisten belajar kebiasaan iklim dan rute di profil lokal yang tidak pernah meninggalkan mobil.",
+      "Validasi komersial datang dari pembuat kendaraan energi baru yang telah mengeluarkan nominasi produksi massal untuk program generasi berikutnya yang menargetkan Q2 2027, dengan mitra tidak disebutkan namanya. PATEO juga mengembangkan model penagihan berbasis token untuk komputasi di kendaraan, memperlakukan kotak sebagai titik masuk untuk pendapatan layanan berulang, bukan bagian sekali pakai. Risikonya fisik: inferensi berkelanjutan berarti daya dan panas di kabin yang bisa terbakar di bawah matahari, dan biaya mengalir langsung ke harga kendaraan. Bagi pengemudi, standarnya sederhana. Bisakah Anda menyelesaikan kalimat di terowongan? Itulah pertanyaan yang dijawab peluncuran ini."
+    ]
+  },
+  {
+    "id": "rss-orig-chemo-neuro-2026-11-id",
+    "title": "Memasang Saklar pada Neuron yang Misfire: Neuromodulasi Kemogenetik Mencapai Uji Manusia Pertamanya",
+    "summary": "New England Journal of Medicine telah menerbitkan penggunaan klinis pertama neuromodulasi kemogenetik pada manusia. Pengiriman gen tunggal memberikan neuron di wilayah otak yang ditargetkan reseptor rekayasa yang diam hingga obat molekul kecil spesifik mengaktifkannya. Tiga pasien epilepsi resisten obat mengalami penurunan frekuensi kejang bulanan dari 4.33 menjadi 0.33.",
+    "cover": "/original/chemo-neuro-cover.webp",
+    "images": [
+      "/original/chemo-neuro-cover.webp",
+      "/original/chemo-neuro-fig1.webp",
+      "/original/chemo-neuro-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "neuromodulasi",
+      "epilepsi",
+      "terapi gen",
+      "NEJM",
+      "penelitian klinis"
+    ],
+    "category": "health",
+    "locale": "id",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/05/content_608943.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1793939442413,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Pada 5 November, New England Journal of Medicine menerbitkan tonggak sejarah dari tim Tiongkok: studi klinis pertama neuromodulasi kemogenetik pada manusia. Pekerjaan tersebut berasal dari kelompok Prof. Zhao Guoguang di Rumah Sakit Xuanwu Universitas Medis Capital, laboratorium Prof. Luo Minmin di Institut Penelitian Otak Tiongkok, dan perusahaan bioteknologi Jianda Jiuzhou. Komentator internasional menyoroti inovasi utamanya: ia menggabungkan terapi gen dengan obat molekul kecil, membuat intensitas perawatan dapat disesuaikan sesuai kebutuhan — hal yang tidak dapat dilakukan terapi gen yang ada saat ini.",
+      "Untuk menilai hasilnya, mulailah dengan masalahnya. Epilepsi pada dasarnya adalah sinkronisasi yang tak terkendali: sejumlah sirkuit saraf tiba-tiba beraktivitas serentak, menguasai apa pun yang sedang dilakukan otak. Sekitar sepertiga pasien tetap mengalami kejang meskipun sudah menerima obat anti-kejang dengan dosis yang tepat — definisi epilepsi resisten obat. Bagi banyak dari mereka, satu-satunya pilihan yang tersisa adalah operasi resektif: menghilangkan jaringan yang bermasalah secara permanen, langkah tidak dapat dibatalkan yang dibatasi oleh wilayah otak yang dapat dihapus dengan aman.",
+      "Neuromodulasi kemogenetik menawarkan jalur ketiga — tidak memotong maupun menghancurkan. Langkah pertama: pengiriman gen tunggal membuat neuron di wilayah target mengekspresikan reseptor buatan yang tidak ada di alam. Langkah kedua: obat molekul kecil yang dirancang hanya mengikat reseptor tersebut memodulasi aktivitas sel. Tanpa obat, reseptor diam, neuron berjalan seperti biasa; setelah obat diminum, reseptor aktif dan penembakan abnormal dihentikan secara presisi.",
+      "Teknik ini telah ada lebih dari dua dekade sebagai alat andalan laboratorium untuk memetakan sirkuit, tetapi belum pernah menghasilkan bukti langsung pada manusia. Dalam studi ini tiga pasien epilepsi resisten obat menerima terapi, dan frekuensi kejang bulanan mereka turun dari 4.33 menjadi 0.33. Di balik angka-angka itu adalah kehidupan sehari-hari: kejang yang lebih sedikit membuka kemungkinan mengemudi, pekerjaan stabil, dan hidup mandiri — metrik yang benar-benar diperhatikan pasien.",
+      "Fitur utamanya adalah keteraturan. Terapi gen konvensional adalah pintu satu arah: begitu sel dimodifikasi, efeknya bertahan dan tidak bisa dikurangi. Kemogenetik menyerahkan dosis, dan dengan demikian intensitas perawatan, kepada pasien dan dokter. Intensitas bisa naik pada minggu-minggu buruk dan turun pada minggu-minggu baik. Dapat dibalik dan dikendalikan pada tingkat genetik adalah hal pertama yang nyata di klinik.",
+      "Logika keamanannya elegan. Reseptor yang direkayasa hanya merespons molekul pasangannya dan mengabaikan orkestra padat sinyal alami tubuh — ortogonalitas oleh desain, yang memotong risiko off-target di sumbernya. Pengiriman dibatasi pada wilayah otak tertentu, sehingga reseptor yang diekspresikan pun hanya beraksi di dalam sirkuit yang perlu diatur. Presisi selalu menjadi kata kunci neuromodulasi; di sini presisi dirancang sejak langkah pertama.",
+      "Struktur kolaborasi juga patut diperhatikan. Rumah sakit klinis menyediakan infrastruktur bedah dan pasien, institusi penelitian fundamental menyediakan desain dan validasi reseptor, dan sebuah perusahaan membangun platform rekayasa dan pengiriman. Sains translasi saraf hampir tidak pernah berhasil di dalam satu institusi saja, dan pembagian kerja ini mungkin terbukti se-instruktif data itu sendiri.",
+      "Jika dilihat secara luas, teknik ini menempati posisi ideal di antara alat neuromodulasi. Stimulasi otak dalam sudah mapan untuk gangguan gerak tetapi bertindak tanpa diskriminasi, seperti speaker keras untuk setiap sel di jangkauan. Optogenetik menawarkan kontrol tipe sel yang sangat halus tetapi memerlukan sumber cahaya yang ditanam. Kemogenetik berada di tengah: tidak memerlukan optik, cukup pil, sambil mempertahankan spesifisitas seluler. Kombinasi itulah yang membuat para klinisi memperhatikannya.",
+      "Menenangkan neuron yang berlari kencang hanyalah aplikasi pertama. Secara prinsip, kondisi apa pun yang dapat diatasi dengan menaikkan atau menurunkan populasi neuron yang terdefinisi — gangguan gerak, kecanduan, depresi, nyeri kronis, aspek neurodegenerasi — berada dalam jangkauan platform ini. Setiap indikasi baru harus menjawab kembali pertanyaan sulit tentang keamanan pengiriman, stabilitas reseptor, dan follow-up jangka panjang, sehingga ini adalah program skala dekade, bukan ekspansi cepat.",
+      "Pembacaan yang realistis wajib: tiga pasien adalah sampel sangat kecil, dan keamanan serta efektivitas yang tahan lama memerlukan uji terkontrol skala lebih besar, tinjauan regulatori, dan pengamatan bertahun-tahun — termasuk apa yang terjadi pada ekspresi reseptor seiring waktu dan setelah penghentian obat. Jarak dari bukti first-in-human ke terapi rutin jauh dan belum tertata.",
+      "Namun sinyalnya jelas. Selama dua puluh tahun kemogenetik hanyalah instrumen penelitian, bukan perawatan; kini ia memiliki hasil manusia yang melekat pada namanya. Pelajaran metodologisnya mungkin lebih berat dari angka kejang: terapi untuk penyakit saraf dapat diatur seperti saklar dimmer, bukan dilakukan seperti pembongkaran.",
+      "Bagi ketiga pasien, teknologi ini adalah kehidupan sehari-hari yang nyata; bagi jutaan orang di dunia yang hidup dengan epilepsi resisten obat, ini adalah arah yang layak diikuti dekat. Itulah ritme sebenarnya dari terobosan medis — publikasi sunyi pada hari Selasa, desain alat selama desain dekade di belakangnya, dan dekade kemungkinan masih di depan. Pertanyaan terbuka sekarang: kondisi apa yang akan menjadi uji manusia kedua platform ini? Apapun jawabannya, bab klinis kemogenetik akhirnya telah dimulai."
+    ]
+  },
+  {
+    "id": "rss-orig-china-ai-export-2026-11j-id",
+    "title": "Eksportir China Baru Saja Mengubah Pitch Mereka: Dari Mengirim Barang ke Mengirim Kemampuan",
+    "summary": "Tiga sinyal dari lanskap lintas batas China minggu ini: AliExpress membuka agen operasi AI-nya ke semua penjual, SHEIN berkomitmen EUR 500 juta untuk gudang mega di Polandia, dan Seedance milik ByteDance kini memperoleh lebih dari separuh pendapatannya dari luar negeri.",
+    "cover": "/original/china-ai-export-1.webp",
+    "images": [
+      "/original/china-ai-export-1.webp",
+      "/original/china-ai-export-2.webp",
+      "/original/china-ai-export-3.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "lintas batas",
+      "agen AI",
+      "SHEIN",
+      "Seedance",
+      "rantai pasokan"
+    ],
+    "category": "crossborder",
+    "locale": "id",
+    "source": "starteday editorial",
+    "sourceUrl": "https://www.alizila.com/",
+    "author": "starteday",
+    "publishedAt": 1794282409764,
+    "readMinutes": 7,
+    "pinned": 0,
+    "body": [
+      "Tiga cerita mendarat di dunia lintas batas minggu ini. Sendirian, mereka tampak tidak berkaitan. Dibaca bersama, mereka berirama: perusahaan-perusahaan China yang pergi ke luar negeri diam-diam bergeser dari menjual produk ke menjual kemampuan menjalankan bisnis. Satu mengotomatisasi pekerjaan sibuk pedagang. Satu menanam gudang di halaman belakang Eropa. Satu menjual model video AI-nya ke separuh dunia. Mari kita bahas satu per satu.",
+      "Pertama, AliExpress meluncurkan agen AI-nya ke semua orang. Kembali ke September, ia menguji agen operasi cerdas 'satu orang, satu negara' di beberapa pasar pertumbuhan; bulan ini ia menjadi sepenuhnya langsung untuk semua penjual. Agen tersebut menangani tiga pekerjaan rumah secara otomatis: menerjemahkan dan memoles daftar produk untuk bahasa lokal, mendaftarkan toko ke kampanye platform, dan mencocokkan rute logistik yang tepat.",
+      "Sebelumnya, satu operator harus mengelola tiga set bahasa, promosi, dan aturan pengiriman untuk Korea, Brasil, dan Eropa. Sekarang agen tersebut menyerap beban berulang itu. Bukti ada di papan skor Double 11: pada hari pertama di luar negeri, nilai transaksi Brand+ naik lebih dari 200% tahun ke tahun, dan penetrasi pesanan bermerek melampaui 50%.",
+      "Volume bermerek pasar UE naik 181%, sedangkan AS dan Korea masing-masing tumbuh lebih dari 4 kali lipat dan Brasil melipatgandakan. Pada Oktober AliExpress mengatakan akan mendorong kemampuan AI ini ke lebih banyak pasar. Singkatnya, ia tidak menjual barang; ia menjual otot operasional untuk menjalankan toko lintas batas.",
+      "Kedua, SHEIN menuangkan 500 juta euro ke Polandia. Pada 4 November perusahaan mengatakan akan memperluas hub logistik Eropa-nya dekat Wroclaw pada 2026; dengan pengeluaran sebelumnya, investasi kumulatifnya di Polandia mencapai 1 miliar euro. Itu adalah potongan terbesar tunggal dari rencana 3 miliar euro Eropa-nya.",
+      "Skuatnya menakjubkan. Pada 4 November situs-situs di Polandia sudah mempekerjakan sekitar 8.000 orang, dengan 2.000 lagi direkrut sebelum akhir tahun, melampaui 10.000. Lebih dari 6.500 robot miliknya sendiri digunakan. SHEIN sudah mengoperasikan 20 gudang di Polandia total sekitar 1 juta meter persegi. Beberapa pembeli Eropa kini menerima pesanan dalam dua hari.",
+      "Dari 'pengiriman udara paket' ke 'stok diparkir di sebelah', SHEIN menjual fulfillment: ia memampatkan pengiriman Eropa dari pos lintas batas menjadi 48 jam lokal. Buku mainannya hanyalah disiplin rantai pasokan domestiknya, disalin ke tanah asing.",
+      "Ketiga, Seedance milik ByteDance memperoleh separuh uangnya dari luar negeri. Pada 3 November, dikonfirmasi oleh sekuritas China dan media Shanghai, porsi pendapatan luar negeri model generasi video ByteDance, Seedance, mencapai 50%, dengan pendapatan luar negeri naik hampir 5 kali lipat dalam setengah tahun. Luar negeri kini secara harfiah menjadi separuh bisnis model tersebut.",
+      "Ia juga menjual di dalam negeri: berdasarkan penggunaan token dan pendapatan, Tencent berada di tiga besar klien China dan Bilibili masuk sepuluh besar, dengan perusahaan internet besar membeli dalam skala besar. Apa yang membuka lonjakan luar negeri adalah penghapusan rintangan hak cipta. Pada Februari, Seedance 2.0 mendapat peringatan dari asosiasi film AS karena menghasilkan karakter terkenal; tim kemudian memperketat filter dan lisensi hak, dan barulah luar negeri terbuka.",
+      "Susun ketiganya dan logikanya langsung jelas. AliExpress menjual kemampuan operasional, mengotomatisasi pengulangan pedagang. SHEIN menjual fulfillment, mendorong pengiriman Eropa ke dalam 48 jam. ByteDance menjual kreativitas, mengubah generasi video menjadi produk yang menghasilkan uang di luar negeri dengan sendirinya.",
+      "Benang merah mereka: mengemas pengetahuan digital yang diasah selama sebulan dekade di dalam negeri menjadi produk, infrastruktur, dan layanan yang berjalan independen di luar negeri. Ekspor dulu berarti memindahkan barang China ke rak asing; sekarang berarti menanamkan kemampuan digital China ke mesin bisnis asing. Ketiga cerita ini hanyalah tiga gema dari titik balik yang sama.",
+      "Bagi siapa pun dalam perdagangan lintas batas sinyalnya jelas: dividen berikutnya bukan soal siapa menjual gadget lebih murah, tapi siapa yang membiarkan mitra luar negeri menggunakan kemampuannya. Barang adalah pendapatan sekali; kemampuan adalah langganan. Minggu ini ekspor China diam-diam mengganti mesinnya."
+    ]
+  },
+  {
+    "id": "rss-orig-china-games-export-2026-11j-id",
+    "title": "Game buatan China menghasilkan $18.5B di luar negeri tahun lalu, dan pemain yang membayar ada di AS, Jepang, dan Korea",
+    "summary": "Game buatan sendiri China kini memperoleh lebih dari $18.5B per tahun di luar negeri, dengan penerbit China menguasai 42% pendapatan mobile global top-100. Tencent, miHoYo, dan lainnya mengekspor konten, operasi, dan UA sebagai paket.",
+    "cover": "/original/china-games-export-1.webp",
+    "images": [
+      "/original/china-games-export-1.webp",
+      "/original/china-games-export-2.webp",
+      "/original/china-games-export-3.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "ekspor game",
+      "game mobile",
+      "miHoYo",
+      "Tencent",
+      "pangsa global"
+    ],
+    "category": "game",
+    "locale": "id",
+    "source": "starteday editorial",
+    "sourceUrl": "https://newzoo.com/insights/",
+    "author": "starteday",
+    "publishedAt": 1794282349764,
+    "readMinutes": 8,
+    "pinned": 0,
+    "body": [
+      "Mari mulai dari judulnya. Laporan tahunan dari asosiasi penerbit game China menempatkan pendapatan luar negeri aktual game online buatan China di atas $18.5 billion, tertahan di situ selama bertahun-tahun setelah pertama kali menembus garis $10 billion. Itu lebih besar dari industri film banyak negara.",
+      "Banyak yang mengira game China menyerbu Asia Tenggara terlebih dahulu. Fakta sebaliknya. Pengeluaran nyata berada di pasar matang: Amerika Serikat saja menyumbang lebih dari 31% pendapatan luar negeri, Jepang lebih dari 17%, Korea mendekati 9%. Sisanya adalah Eropa, Amerika Latin, dan pembeli besar di wilayah Teluk.",
+      "Musim laporan keuangan terbaru memperkuat hal ini. Pada kuartal ketiga, pendapatan luar negeri dari game buatan sendiri mencapai $5.772 billion, naik 15.6% tahun ke tahun; separuh pertama mencatat $12.372 billion, naik 30.22%. Pendapatan domestik di Q3 sekitar 13 miliar yuan, naik hanya 5.1%. Berdampingan, luar negeri tetap menjadi mesin terkuat industri.",
+      "Pangsa itu semakin tajam: di antara 100 penerbit game mobile global teratas berdasarkan pendapatan, perusahaan China naik dari 35% menjadi 42%. Jadi, untuk setiap sekitar $10 yang dibelanjakan pada game mobile di dunia, lebih dari $4 masuk ke kantong perusahaan China. Ini bukan mencari sisa; ini adalah kemenangan langsung.",
+      "Salah satu berita terbesar minggu ini: studio TiMi milik Tencent, dengan lisensi dan pengawasan Capcom, meluncurkan server global Monster Hunter: Travel. Pra-pendaftaran melewati 15 juta sebelum peluncuran, dan begitu hadir game itu memikat pemain Jepang.",
+      "Pada 31 Oktober game itu menduduki peringkat dua di App Store Japan top-grossing dan peringkat satu di Taiwan, memuncaki kedua free chart; top-grossing Hong Kong ke posisi satu dan free chart Korea juga ke posisi satu. Kombinasi 'tim China mengelola IP nasional Jepang' membalik skenario dan menanam game buatan China di kandang raksasa konsol.",
+      "Dua bulan depan akan memenuhi kalender si otaku. Pada 26 November Blue Protocol: Star Resonance milik Mochi membuka beta; pada 4 Desember life-sim Stardust Valley milik miHoYo diluncurkan; pada 14 Desember Silver City milik Happy Elements hadir global dengan Unreal Engine 5 dan lebih dari 15 juta pra-pendaftaran global.",
+      "Dan lagi: pada 5 November miHoYo mengumumkan judul IP Honkai baru, Honkai: Nexus Anima, dengan uji coba ketiga pada 25 November dan peluncuran penuh di musim semi 2027, tepat pada ulang tahun ke-15 IP tersebut. Judul urban-plus-monster-catching ini juga melanggar aturan lama industri, menghapus nilai individual dan menurunkan batas gacha, jelas bertujuan mengubah formula.",
+      "Grafik pendapatan mobile global Oktober mengejutkan. Honor of Kings mempertahankan puncak sekitar $1.066 billion, tidak mengejutkan; yang mengejutkan adalah siapa yang mengikuti. Whiteout Survival menempati posisi kedua sekitar $758 million, judul strategi berusia hampir tiga tahun dengan kurva pendapatan hampir datar. Posisi ketiga adalah Romantic Restaurant milik Lemon Micro.",
+      "Peringkat penerbitlah yang sebenarnya: Lemon Micro nomor dua global, Point Interactive nomor tiga, Tencent nomor empat. Puzzle 'merge plus story' Lemon Micro memikat jumlah besar wanita Eropa dan Amerika dan terus tumbuh selama empat tahun. Point Interactive, lewat Whiteout Survival dan Dream Star Kingdom, berkembang di jalur strategi dan kasual dengan pendapatan luar negeri kumulatif yang besar.",
+      "Satu catatan lucu lagi. Crazy Water World milik 37 Interactive naik daun lewat iklan AI-drama yang konyol dan memukau, ada rakit di laut, pria botak gemuk, lelucon tembus dinding yang diejek penonton namun tak bisa berhenti menonton. Di luar negeri performanya lebih baik: setelah peluncuran Agustus ia memuncaki free chart App Store di Jepang, Korea, dan Taiwan pada hari pertama; pada September pertumbuhan pendapatan luar negerinya memimpin dunia, dengan Jepang, Korea, dan Taiwan bersama-sama menyumbang lebih dari 80% pendapatan luar negeri, dan luar negeri kini 60% dari pendapatan global game tersebut.",
+      "Jadi berhenti membayangkan game luar negeri sebagai pencari devisa niche. $18.5 billion, pangsa global 42%, dan IP nasional dibangun kembali di tanah airnya: game China diam-diam memaketkan konten, operasi, dan akuisisi pengguna dalam satu bundel dan menutupi ponsel dunia."
+    ]
+  },
+  {
+    "id": "rss-orig-china-webnovel-global-2026-11j-id",
+    "title": "Pembaca Barat mengejar novel 'kultivasi' Tiongkok hingga lewat jam 3 pagi, mengeluarkan $5.64B per tahun, dan 530.000 di antaranya kini menulis karya mereka sendiri",
+    "summary": "Pendapatan novel web Tiongkok di luar negeri mencapai RMB 5,64 miliar pada 2025 dengan hampir 200 juta pengguna aktif di luar negeri. Terjemahan AI memecah hambatan, komik AI melonjak, dan 530 ribu penulis asing mulai menulis cerita mereka sendiri.",
+    "cover": "/original/china-webnovel-global-3.webp",
+    "images": [
+      "/original/china-webnovel-global-3.webp"
+    ],
+    "imageCount": 1,
+    "tags": [
+      "novel web",
+      "WebNovel",
+      "terjemahan AI",
+      "komik AI",
+      "penulis luar negeri"
+    ],
+    "category": "culture",
+    "locale": "id",
+    "source": "starteday editorial",
+    "sourceUrl": "https://www.199it.com/",
+    "author": "starteday",
+    "publishedAt": 1794282289764,
+    "readMinutes": 8,
+    "pinned": 0,
+    "body": [
+      "Pada puncak Wuzhen tanggal 4 November, Laporan Perkembangan Internet China 2026 memberikan angka pasti: pada 2025 pendapatan luar negeri novel web Tiongkok mencapai 5,64 miliar yuan, naik 11,2% tahun ke tahun, dengan hampir 200 juta pengguna aktif di luar negeri di lebih dari 200 negara dan wilayah. Ini bukan lagi sisi pinggir.",
+      "Beberapa angka lain menunjukkan bobotnya. Novel web Tiongkok telah mengekspor lebih dari 130.000 judul ke luar negeri, dengan sekitar 250 juta pengguna terdaftar di luar negeri dan pengguna berbayar melebihi 100 juta. Xianxia, kultivasi, dan cerita urban paling disukai; beberapa judul andalan bahkan menghasilkan lebih banyak di luar negeri dibandingkan di dalam negeri. Pembaca asing benar-benar mengeluarkan uang nyata untuk mengikuti.",
+      "Jika Anda masih mengira novel web Tiongkok hanya berkembang di Asia Tenggara, Anda ketinggalan. Di antara sepuluh pasar teratas WebNovel berdasarkan pertumbuhan pengguna aktif bulanan, Amerika Latin menduduki sembilan posisi; pertumbuhan aktif bulanan Brasil mencapai 779%, dan basis pengguna AS tumbuh 91% tahun ke tahun. Amerika Latin adalah 'tabungan tersembunyi' ronde ini.",
+      "Dari mana uang itu datang? Berlangganan stabil di pasar matang seperti AS, Jepang, dan Korea di satu sisi, dan belanja masif di wilayah Teluk di Arab Saudi dan Uni Emirat Arab di sisi lain, di mana pembaca membeli tanah virtual atau peralatan tanpa segan mengeluarkan ratusan ribu dollar. Perhitungan industri menempatkan pengguna berbayar di luar negeri melebihi 100 juta, didorong oleh ritme 'hanya satu bab lagi'.",
+      "Siksa lama mengikuti seri bukanlah jeda-jeda; melainkan menunggu terjemahan. Terjemahan manusia untuk satu buku memakan waktu setengah tahun dan pembaca lupa alur cerita. Mesin mengambil alih. Hingga akhir Juni 2026, katalog terjemahan AI WebNovel melebihi 30.000 judul.",
+      "Hanya dalam setengah tahun pertama tahun ini, konten terjemahan AI menyumbang 40% pendapatan novel platform, dan judul bahasa minoritas tumbuh 160% tahun ke tahun. Sepanjang industri, ekspor terjemahan melebihi 13.600 judul pada 2025, dengan skala multibahasa 3,5 kali lipat dari 2024. Terjemahan, untuk pertama kalinya, tidak lagi menjadi hambatan.",
+      "Pergeseran terbesar tahun ini adalah novel web tidak lagi hanya dibaca. Pengguna aktif mini-drama AI di luar negeri melebihi 150 juta; sekitar 10 perusahaan Tiongkok membangun platform drama pendek di luar negeri, dan selusin aplikasi ekspor membuka saluran mini-drama AI khusus. Di antara sepuluh aplikasi drama pendek berbayar teratas di luar negeri, perusahaan Tiongkok menduduki sembilan kursi. Teks berubah menjadi gambar.",
+      "Angkanya lebih tegas: pasar micro-drama luar negeri 2026 diproyeksikan mencapai $6 miliar, dengan mini-drama AI berpotensi menembus $4 miliar, naik sekitar 390% dari 2025, dan perusahaan Tiongkok menguasai lebih dari 90% pangsa pasar. Ekspor novel web diam-diam telah menumbuhkan kaki kedua berupa 'teks ditambah video'.",
+      "Menjual buku dan adaptasi tetap dihitung sebagai 'menjual barang.' Langkah yang memperdalam bisnis adalah mengajarkan keterampilan menulis itu sendiri. Kunjungan kumulatif WebNovel mendekati 400 juta, dan platform ini telah membimbing hampir 530.000 penulis di seluruh dunia serta lebih dari 820.000 karya asli, termasuk 538 judul andalan yang melebihi 10 juta bacaan.",
+      "Orang-orang ini tidak hadir untuk menerjemahkan cerita Tiongkok; mereka menulis cerita lokal menggunakan metode novel web berupa pembaruan harian, bab pembuka (hook), dan menyesuaikan alur cerita berdasarkan umpan balik pembaca. Dari 'Tiongkok menulis, asing membaca' ke 'asing menulis, dunia membaca' adalah lompatan paling tajam dalam ekspor novel web.",
+      "Pada separuh pertama 2026, pendapatan lisensi adaptasi IP naik 126% tahun ke tahun, dan pasar adaptasi IP mencapai 367,61 miliar yuan. Hidup satu buku kini menjauh melampaui beberapa koin langganan. Lebih dari 260 judul mendapatkan edisi fisik dengan penjualan kumulatif melebihi 9,11 juta eksemplar.",
+      "The King's Avatar bermitra dengan pariwisata Swiss dalam rencana '25 tahun, bertemu di Zurich', dan lebih dari 10.000 pengunjung mengikuti rute protagonis. Dao Gui Yi Xian masuk ke Universal Studios Singapura, dengan antrian pembukaan wahana bertemanya memanjang ratusan meter. Gunung Changbai tetap penuh sepanjang tahun berkat Tomb Notes. Satu buku bisa melahirkan delapan cara untuk belanja."
+    ]
+  }
+]

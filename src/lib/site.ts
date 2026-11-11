@@ -59,7 +59,7 @@ export function buildSitemapAlternates(locale: Locale, path = "") {
 // 原创稿（rss-orig-*）每个主题都有 8 份独立撰写的本地化版本：
 // 中文用基础 id，其余语种为 <baseId>-<lang>。非原创稿仍按「跨语言共享 id」处理。
 export function articleBaseId(id: string) {
-  const m = /^(.*)-(en|ja|ko|es|fr|pt|tr)$/.exec(id);
+  const m = /^(.*)-(en|ja|ko|es|fr|pt|tr|ru|ar|hi|id)$/.exec(id);
   return m ? m[1] : id;
 }
 
