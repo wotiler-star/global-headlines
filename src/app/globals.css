@@ -685,6 +685,26 @@ mark, .hl {
   padding: 4px 12px;
 }
 .tag-chip:hover { color: var(--on-brand); background: var(--brand); }
+/* 实体中心内链：文章 → 主题实体档案页 */
+.art-topic-archive { margin-top: 10px; }
+.art-topic-archive a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--brand);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.art-topic-archive a:hover { color: var(--on-brand); background: var(--brand); border-color: var(--brand); }
+.ata-label { font-weight: 600; }
+.ata-title { color: var(--ink-2); }
+.art-topic-archive a:hover .ata-title { color: var(--on-brand); }
+.ata-arrow { font-size: 12px; }
 
 /* ---------- 关注按钮 ---------- */
 .follow-btn {

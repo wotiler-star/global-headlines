@@ -9,6 +9,7 @@ import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
 import { homeHref, articleHref, categoryHref } from "@/lib/paths";
 import { buildTagIndex, loadTagSourceArticles, tagHrefIfIndexed } from "@/lib/tags";
+import { topicSlug, findTopic, topicHref } from "@/lib/topics";
 import CategoryNav from "@/components/CategoryNav";
 import RelatedPanel from "@/components/RelatedPanel";
 import ReadHistoryTracker from "@/components/ReadHistoryTracker";
@@ -145,6 +146,9 @@ export default async function ArticlePage({
   // 这里再给出可见内链，帮助爬虫发现与用户主动切换（hreflang 之外的第二重信号）。
   const isMultilingual = article.id.startsWith("rss-orig-");
   const baseId = isMultilingual ? articleBaseId(article.id) : article.id;
+  // 实体中心内链：把原创稿链到「主题实体档案页」（8 语种稳定 entity carrier，
+  // 含 CollectionPage + Thing）。仅当主题真实存在时才渲染，零死链。
+  const topicEntry = findTopic(topicSlug(article.id));
 
   // 配图内联：不再用独立图集区，而是把 hero 之外的配图按正文均匀分布插入段落之间
   // 位置确定性计算：第 k 张插在 body 长度的 (k+1)/(n+1) 处段落之后，去重
@@ -404,6 +408,19 @@ export default async function ArticlePage({
               );
             })}
           </div>
+          {/* 实体中心内链：原创稿 → 主题实体档案页（CollectionPage+Thing），
+              强化主题聚类与实体权威，同时利好传统 SEO 与 GEO；主题不存在则不渲染。 */}
+          {topicEntry && (
+            <div className="art-topic-archive">
+              <Link href={topicHref(loc, topicEntry.slug)} hrefLang={localeMeta[loc].hreflang}>
+                <span className="ata-label">主题档案</span>
+                <span className="ata-title">
+                  {topicEntry.articles[loc]?.title ?? topicEntry.articles.zh?.title ?? topicEntry.slug}
+                </span>
+                <span className="ata-arrow" aria-hidden="true">↗</span>
+              </Link>
+            </div>
+          )}
           {/* cov63：8 语种可见内链扩到「全部文章」。
               原创稿(rss-orig-*)有 8 份独立本地化版本 → 链接对应语种文章页；
               其余稿的 id 按语种生成、跨语种文章链接会 404 → 改链对应语种的
