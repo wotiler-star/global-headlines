@@ -906,5 +906,98 @@
         "size_kb": 143
       }
     ]
+  },
+  "ai-shopping-agent": {
+    "cover": {
+      "file": "/original/ai-shopping-agent-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:UPS worker unloads boxes from semi trailer truck onto conveyor belt.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:UPS_worker_unloads_boxes_from_semi_trailer_truck_onto_conveyor_belt.jpg",
+      "artist": "U.S. Department of Agriculture",
+      "license": "Public domain",
+      "size_kb": 123
+    },
+    "figs": [
+      {
+        "file": "/original/ai-shopping-agent-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Christmas parcels delivery van in Brisbane, Australia, 2023.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Christmas_parcels_delivery_van_in_Brisbane,_Australia,_2023.jpg",
+        "artist": "Kgbo",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 241
+      },
+      {
+        "file": "/original/ai-shopping-agent-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Fresh produce shelves in L Intermarche supermarket in Quebec City.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Fresh_produce_shelves_in_L_Intermarche_supermarket_in_Quebec_City.jpg",
+        "artist": "Wilfredor",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 335
+      }
+    ]
+  },
+  "perovskite-ai-screening": {
+    "cover": {
+      "file": "/original/perovskite-ai-screening-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Solar farm at Krishnapuram Tatipudi Water Works aerial view 01.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Solar_farm_at_Krishnapuram_Tatipudi_Water_Works_aerial_view_01.jpg",
+      "artist": "Saiphani02",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 240
+    },
+    "figs": [
+      {
+        "file": "/original/perovskite-ai-screening-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Field of Solar Panels near Ogwell.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Field_of_Solar_Panels_near_Ogwell.jpg",
+        "artist": "Partonez",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 239
+      },
+      {
+        "file": "/original/perovskite-ai-screening-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Rooftop Solar at Northampton Airport (11353930316).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Rooftop_Solar_at_Northampton_Airport_(11353930316).jpg",
+        "artist": "MassDOT",
+        "license": "Public domain",
+        "size_kb": 239
+      }
+    ]
+  },
+  "slow-dopamine-taste": {
+    "cover": {
+      "file": "/original/slow-dopamine-taste-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Hands prepare black coffee on a wooden table in a cozy kitchen setting.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Hands_prepare_black_coffee_on_a_wooden_table_in_a_cozy_kitchen_setting.jpg",
+      "artist": "Shixart1985",
+      "license": "CC BY 2.0",
+      "size_kb": 50
+    },
+    "figs": [
+      {
+        "file": "/original/slow-dopamine-taste-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:A black espresso machine sits on a wooden table, with a clear glass cup filled with freshly brewed coffee.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:A_black_espresso_machine_sits_on_a_wooden_table,_with_a_clear_glass_cup_filled_with_freshly_brewed_coffee.jpg",
+        "artist": "Shixart1985",
+        "license": "CC BY 2.0",
+        "size_kb": 44
+      },
+      {
+        "file": "/original/slow-dopamine-taste-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Lab mouse mg 3263.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Lab_mouse_mg_3263.jpg",
+        "artist": "Rama",
+        "license": "CC BY-SA 2.0 fr",
+        "size_kb": 103
+      }
+    ]
   }
 }

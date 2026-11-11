@@ -1,0 +1,131 @@
+[
+  {
+    "id": "rss-orig-ai-shopping-agent-2026-11l-fr",
+    "title": "La campagne de soldes qui a cessé d'afficher son chiffre",
+    "summary": "Le plus étrange cette année n'est pas une demande atone, c'est l'absence du nombre vedette. Le premier segment n'a progressé que de 2,4 %, les remises cumulées ont disparu, services et capacité de calcul sont entrés au catalogue, et un assistant d'achat a atteint trois cents millions d'utilisateurs tout en n'en gardant que 3 % au bout d'un mois. Mis bout à bout, ces chiffres en disent plus long qu'un record.",
+    "cover": "/original/ai-shopping-agent-cover.webp",
+    "images": [
+      "/original/ai-shopping-agent-cover.webp",
+      "/original/ai-shopping-agent-fig1.webp",
+      "/original/ai-shopping-agent-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "grande campagne",
+      "assistant d'achat IA",
+      "consommation de services",
+      "rétention",
+      "livraison immédiate",
+      "efficacité"
+    ],
+    "category": "business",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://news.qq.com/rain/a/20261111A05DJ000",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794372409198,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Pendant dix-huit ans, cette date est arrivée avec un compteur qui ne cessait de monter. Dans les bilans de cette année, ce qui saute aux yeux c'est justement ce qui manque : ni banderole de record, ni courbe rafraîchie chaque heure. Une fête née pour annoncer sa propre taille a décidé que la taille n'était plus la question.",
+      "Commençons par l'arithmétique. Un relevé externe place le volume du premier segment à un peu plus de mille milliards de yuans, en hausse de 2,4 % sur un an ; la même fenêtre avait progressé de 14,2 % l'an dernier. Les prévisions sur le cycle complet vont de 3 % à 6 %. Sur la même période, le commerce de détail a pris 1,1 % et la vente en ligne 4,4 %. Rien de tout cela ne décrit la chute d'une plateforme : cela décrit une courbe qui change de pente.",
+      "Les règles ont bougé plus nettement que les totaux. Les conditions qui obligeaient à cumuler des achats entre boutiques ont été retirées au profit de remises directes par article. Les acomptes de réservation ont cédé la place à l'expédition immédiate avec garantie de prix de trente jours. La période de promotion s'est même étendue à un mois, mais les commandes se sont étalées au lieu de s'empiler en une nuit, et le coût de la décision a baissé.",
+      "Derrière cette soustraction, il y a une logique peu flatteuse. Quand personne ne tient plus pour acquis que ce jour est le moins cher, un casse-tête de bons d'achat cesse d'être un levier de conversion et devient une marche qui la bloque. Une fois le vivier de nouveaux clients à plat, l'enjeu n'est plus d'attirer du monde mais d'éviter une hésitation de trop à l'habitué. Simplifier n'est pas de la générosité, c'est retirer des frottements.",
+      "La vraie marge de croissance a changé la forme du rayon. Les services sont entrés pour la première fois dans le chemin principal de la transaction, au lieu de pendre après une commande d'objet comme un accessoire. Ménage, maintenance et pose ont été découpés en unités commandables : cent cinquante millions de commandes de services dès la première moitié, et un chiffre d'affaires des tâches domestiques multiplié par plus de deux. Meubles et équipements de salle de bains intègrent désormais livraison, montage et installation dans l'achat lui-même.",
+      "Puis sont arrivés des biens sans corps. Des crédits d'usage de modèles et de la capacité de calcul ont été listés comme articles standards, et une émission en direct a écoulé près de cent mille cartes en une demi-heure, soit environ deux mille milliards de jetons. De l'objet soldé au service, puis à la capacité de calcul : personne, au point de départ il y a dix-huit ans, n'aurait tracé cette ligne.",
+      "Côté acheteur, on aurait cru la porte déjà déplacée. Un assistant a dépassé trois cents millions d'utilisateurs mensuels, un autre approche les quatre-vingts millions. Près de huit personnes sur dix consulteraient une IA avant de payer, et son influence sur la décision a pour la première fois dépassé la publicité, 43,7 % contre 42,6 %. Sur le papier, l'entrée avait déjà changé de camp.",
+      "Puis arrivent les chiffres de fidélisation : moins de 15 % à sept jours, environ 3 % à trente. Essayer une fois et en faire une habitude sont séparés d'un ordre de grandeur. Pour la plupart, l'outil reste un bouton curieux disponible pendant la campagne, non le lieu où chaque achat commence. Un pic de curiosité n'atteste pas une position installée.",
+      "La contrainte la plus profonde est que chaque assistant ne voit que le catalogue de sa propre maison. Un outil qui ne fouille qu'un entrepôt ne peut répondre à la question la plus simple de l'acheteur : le même article est-il moins cher ailleurs. La comparaison dite intelligente est surtout une recherche plus rapide à l'intérieur d'un jardin clos ; et abattre la clôture est précisément le geste qu'aucune plateforme ne veut prendre d'elle-même.",
+      "Je le lis donc comme une couche de renfort coincée entre le champ de recherche et le rayon, non comme une nouvelle porte de transaction. Elle épargne les pages à feuilleter et les remises à déchiffrer. Elle n'absorbe pas le risque de se tromper, de payer trop cher ou de ne pas pouvoir retourner. Tant que ce risque reste du côté de la personne, la porte ne bouge pas.",
+      "Le changement déjà tangible est du côté du vendeur. Les outils isolés pour rédiger des fiches ou répondre aux questions se cousent en un flux continu qui va de la sélection et de la mise en ligne aux enchères publicitaires, à la répartition des stocks et à l'après-vente. Ce qui se comprime, c'est le coût d'exploitation, non une demande qui aurait disparu. Prendre un outil d'économie pour un moteur de revenus est l'erreur la plus fréquente de ce cycle.",
+      "Renoncer au chiffre d'affaires final pour publier acheteurs actifs, rachats et rétention est un signe de maturité, et aussi un petit piège : quand un ralentissement est rebaptisé en bloc croissance de meilleure qualité, l'indicateur change mais la question demeure. Une course à l'efficacité ne se gagne que si l'acheteur gaspille réellement moins d'argent.",
+      "Dix-huit ans plus tard, une campagne qui rivalisait de volume sonore est devenue un test de charge annuel pour le produit, la logistique, les services et les agents qui lisent l'information à notre place. La page sans chiffre en titre est celle qui montre toute la copie : celui qui simplifie le choix obtient le prochain rachat."
+    ]
+  },
+  {
+    "id": "rss-orig-perovskite-ai-screening-2026-11l-fr",
+    "title": "Le critère de sélection qui a enfin demandé si une molécule était fabriquable",
+    "summary": "Les molécules d'interface des cellules à pérovskite se cherchaient à coups d'essais, car alignement des niveaux, accroche au substrat, synthèse et tenue au traitement en solution tirent en sens contraires. Un nouveau cadre réunit huit descripteurs en un classement unique et fait entrer la faisabilité synthétique dès le premier tour. L'une des trois retenues atteint 27,2 % de rendement et garde environ 95 % après deux mille heures. Le notable n'est pas la vitesse du modèle, c'est que le critère admet l'existence d'une paillasse.",
+    "cover": "/original/perovskite-ai-screening-cover.webp",
+    "images": [
+      "/original/perovskite-ai-screening-cover.webp",
+      "/original/perovskite-ai-screening-fig1.webp",
+      "/original/perovskite-ai-screening-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "pérovskite",
+      "monocouche auto-assemblée",
+      "criblage à haut débit",
+      "matériau d'interface",
+      "rendement de conversion",
+      "faisabilité synthétique"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.cas.cn/cm/202611/t20261111_5123999.shtml",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794372349198,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "La découverte de matériaux se vend souvent comme une affaire de vitesse : déployer assez de candidats, faire tourner un modèle assez rapide, et le bon surgirait de lui-même. Ce qui bloque réellement les molécules d'interface de la pérovskite n'est pas le manque de candidats, c'est que les exigences se contredisent.",
+      "Une monocouche auto-assemblée se glisse entre l'électrode transparente et la pérovskite pour extraire les trous proprement. Ses niveaux d'énergie doivent s'aligner, son ancrage au substrat doit tenir, les molécules ne doivent pas s'empiler n'importe comment, la voie de synthèse doit être praticable, et l'ensemble doit survivre au traitement en solution qui suit. Briller sur un seul point ne prouve rien, alors que l'essai classique ne permet d'en soigner qu'un ou deux à la fois.",
+      "Le plus gênant tenait à l'évaluation. Le criblage calculatoire met volontiers en haut ce qui se calcule le plus facilement, niveaux ou énergie de réorganisation du trou, et laisse la difficulté de synthèse au chimiste qui se heurtera au banc. Résultat : un classement plein de molécules qu'on ne sait pas faire, ou pas faire pures. Entre calculer juste et fabriquer vraiment, il existe un tronçon dont personne ne s'occupe.",
+      "Ce cadre ramène ce tronçon au premier tour. L'équipe a extrait 308 fragments fonctionnels de dérivés du carbazole présents dans une bibliothèque publique, soit plus de quatre-vingt-dix mille combinaisons possibles, a retenu 24 fragments pour un assemblage modulaire, construit trois cents candidats, puis réduit à 124 par un filtre de niveaux.",
+      "Le geste décisif vient ensuite. Faisabilité synthétique, niveaux moléculaires, énergie de réorganisation du trou, aromaticité et teneur en hétéroatomes, huit descripteurs au total, entrent ensemble dans un classement unique. Autrement dit, une molécule ne se juge plus seulement sur son comportement dans un modèle idéal, mais sur le fait qu'on puisse la construire de façon fiable. Le criblage passe d'un exercice de physique à un exercice d'ingénierie.",
+      "Huit descripteurs ressemble à un empilement de paramètres ; le vrai travail consiste à donner un poids à des objectifs qui se battent. Aligner les niveaux complique souvent la synthèse ; un squelette aromatique rigide gagne en stabilité ce qu'il perd en solubilité. Chercher un optimum unique n'aurait jamais marché. Ce que renvoie le classement, c'est un jeu de compromis acceptables et, surtout, vérifiables par l'expérience.",
+      "La validation est nette. Trois molécules bien classées ont été synthétisées, et l'ordre des performances mesurées sur les dispositifs a suivi l'ordre des notes des huit descripteurs. Pour un cadre de criblage, cela pèse plus qu'un record ponctuel : cela suggère une capacité prédictive transposable, plutôt qu'un coup de chance isolé.",
+      "Les chiffres suivent. La mieux classée atteint 27,2 % de rendement de conversion photovoltaïque. Plus éloquente encore, la tenue dans le temps : à 65 degrés, sous éclairement continu et suivi du point de puissance maximale, le dispositif conserve environ 95 % de son rendement initial après deux mille heures. Rendement et durée debout ensemble, voilà ce qui franchit la première porte entre l'article et la ligne de production.",
+      "Ces deux mille heures doivent être lues à leur place. Ce n'est pas l'équivalent de vingt-cinq ans dehors, et la conversion entre vieillissement accéléré et conditions réelles garde son incertitude. Mais cela transforme une vieille inquiétude, la couche d'interface lâche-t-elle en premier, en une observation dotée d'une courbe plutôt qu'en une conjecture.",
+      "Pour moi, la portée méthodologique dépasse le dispositif. Ici le modèle ne remplace pas le chimiste : il comprime savoir expert, calcul massif et contraintes d'expérience dans une seule règle de notation. Ce qui est intelligent dans le criblage intelligent, c'est de savoir quels coûts comptabiliser avant de commencer à optimiser.",
+      "Le cadre est modulaire : changer la bibliothèque de fragments et le jeu de descripteurs permettrait en principe de le transposer à une autre famille de matériaux d'interface. Cela vaut mieux que livrer une molécule précise. Au-delà du photovoltaïque, tout problème d'interface qui doit concilier performance et fabricabilité retrouve le même tiraillement multicritère.",
+      "Les limites sont réelles. Une bibliothèque publique fixe le plafond de l'espace exploré, les poids gardent une part de jugement empirique, et trois molécules vérifiées ne font pas un grand échantillon. Un cadre peut réduire la zone à essayer, il ne garantit pas que l'optimum se trouve dans la zone conservée.",
+      "Ajouter une colonne de faisabilité synthétique ressemble à un ajout mineur. C'est en fait un changement de posture de la science des matériaux computationnelle : passer de la poursuite de l'optimum dans le modèle à la reconnaissance des contraintes de la paillasse. Les quatre-vingt-dix mille combinaisons, si grandioses soient-elles, sont le moins intéressant. L'important est qu'à la fin trois tubes à essai aient vraiment été portés sous la lampe."
+    ]
+  },
+  {
+    "id": "rss-orig-slow-dopamine-taste-2026-11l-fr",
+    "title": "Pourquoi la troisième tasse de café noir devient meilleure : le cerveau note après coup",
+    "summary": "Une étude parue dans Nature sépare la dopamine en un système rapide et un système lent, puis demande si la préférence pour un goût se fixe à la première gorgée ou s'apprend ensuite, quand les nutriments arrivent. La réponse désigne une voie lente entre intestin et cerveau, capable d'installer une préférence même sans calories. Aimer cesse d'être un verdict sensoriel pour devenir une trace d'apprentissage.",
+    "cover": "/original/slow-dopamine-taste-cover.webp",
+    "images": [
+      "/original/slow-dopamine-taste-cover.webp",
+      "/original/slow-dopamine-taste-fig1.webp",
+      "/original/slow-dopamine-taste-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "dopamine",
+      "axe intestin-cerveau",
+      "préférence gustative",
+      "apprentissage par récompense",
+      "amygdale",
+      "neurosciences"
+    ],
+    "category": "health",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LBEJUEVO0514R9P4.html",
+    "author": "Rédaction starteday",
+    "publishedAt": 1794372289198,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Presque tout le monde grimace au premier café noir. Beaucoup de ces mêmes personnes finissent par ne plus pouvoir commencer la journée sans lui, et parlent très sérieusement d'une douceur en fin de bouche. Les explications courantes placent le changement à l'entrée : la langue s'habitue à l'amertume, ou la caféine devient une habitude. Le nouveau travail déplace la caméra bien après que la tasse est posée.",
+      "La dopamine sert de raccourci pour la récompense, mais ce qu'on mesure depuis des décennies, c'est la voie rapide. Voir un aliment aimé, goûter du sucre, et le signal monte en quelques secondes. Cela explique le vouloir ; cela n'explique pas comment on en vient à aimer peu à peu ce qu'on repoussait d'abord.",
+      "L'équipe s'intéressait à une autre voie, plus lente. Une fois les nutriments dans le tube digestif, des capteurs y lisent sucres et lipides et transmettent la nouvelle au cerveau, avec une réponse qui dure plusieurs minutes. Cette échelle est trop longue pour être ressentie comme une récompense, et juste assez longue pour relier une prise alimentaire à ses conséquences.",
+      "Le plus habile dans le protocole est d'avoir séparé goûter et recevoir. De l'eau sucrée ou un liquide proche d'un milk-shake a été introduit directement dans l'estomac de la souris, court-circuitant la bouche, pendant qu'on enregistrait la dopamine cérébrale. Un signal fort et soutenu est apparu vers l'amygdale basolatérale : il répondait aux calories livrées, non au goût.",
+      "Viennent ensuite les tests de causalité. Bloquer cette voie, et les animaux mangent normalement mais perdent la capacité d'associer une saveur nouvelle à l'obtention de calories : le repas a lieu, la leçon non. L'expérience inverse est plus parlante encore. Faire goûter une saveur sans calories, puis activer artificiellement la même voie, et l'animal se met à préférer cette saveur vide, elle aussi.",
+      "Autrement dit, une préférence peut s'installer à partir de rien. Ce que le cerveau semble réclamer n'est pas une nutrition réelle, mais un reçu ultérieur attestant que la dernière prise valait la peine d'être répétée. Le goût n'est que l'étiquette collée sur ce reçu ; l'étiquette ne porte aucune valeur, la valeur s'ajoute après.",
+      "Beaucoup d'expériences ordinaires s'éclairent. L'amer, l'astringent ou l'acide devient aimable après quelques rencontres. Le même dessert est jugé autrement après un repas copieux. Et une première gorgée décevante n'est presque jamais le verdict final. La langue rapporte le présent, le cerveau tient la comptabilité du résultat.",
+      "Le même travail présente des images cérébrales humaines avec un motif comparable. Là, prudence : une ressemblance d'images ne prouve pas un mécanisme identique, et une voie que l'on bloque et active avec précision chez l'animal ne peut encore qu'être inférée indirectement chez l'humain. La direction, du moins, n'est pas arrêtée par la barrière de l'espèce.",
+      "Redéfinir le goût comme un apprentissage déplace l'endroit où agir. Si la préférence s'enseigne peu à peu, le levier pour modifier une alimentation n'est peut-être pas de mieux parfumer les plats, mais de rendre le retour d'information sur ce qui s'est passé après l'ingestion plus clair, plus rapide et moins bruyant.",
+      "Cela ajoute aussi une question au vieux débat sur les édulcorants sans calories. Quand le signal gustatif est durablement découplé du reçu énergétique, ce système d'apprentissage se trouve-t-il entraîné sur une corrélation fausse ? Les données actuelles ne tranchent pas, mais la question est désormais bien plus précise que celle de la nocivité.",
+      "Précisons-le : l'étude ne fournit aucun régime ni aucune recette utilisable, et ne démontre pas que la volonté puisse réécrire cette voie. Elle signale une échelle de temps jusque-là négligée : à côté du vouloir de l'ordre de la seconde, il existe un apprendre de l'ordre de la minute.",
+      "La méthode a ses angles aussi. Infuser dans l'estomac est un repas radicalement simplifié. Dans un vrai repas, goût, odeur, texture et compagnie émettent des signaux en même temps, et il reste une bonne distance entre ces expériences et la complexité du comportement alimentaire humain.",
+      "L'histoire de ce café amer mérite donc d'être réécrite. Ce ne sont pas les papilles qu'on a domptées. Après chaque tasse, le corps a glissé en silence un mot au cerveau et, quand les mots se sont accumulés, l'amertume s'est retrouvée inscrite comme digne d'être répétée. Aimer n'a jamais été un pur jugement des sens : c'est une conclusion bâtie à coups de règlements après coup."
+    ]
+  }
+]

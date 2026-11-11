@@ -1,0 +1,131 @@
+[
+  {
+    "id": "rss-orig-ai-shopping-agent-2026-11l-en",
+    "title": "The shopping festival that stopped publishing its score",
+    "summary": "The strangest thing about this year's biggest sale was not weak demand but the missing headline number. First-wave volume grew 2.4%, cross-store coupons disappeared, services and compute appeared as standard goods, and an AI shopping assistant reached 300 million monthly users while keeping just 3% of them at day thirty. Read together, those figures say more than any record ever did.",
+    "cover": "/original/ai-shopping-agent-cover.webp",
+    "images": [
+      "/original/ai-shopping-agent-cover.webp",
+      "/original/ai-shopping-agent-fig1.webp",
+      "/original/ai-shopping-agent-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Double 11",
+      "AI shopping assistant",
+      "service consumption",
+      "retention",
+      "instant retail",
+      "efficiency"
+    ],
+    "category": "business",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://news.qq.com/rain/a/20261111A05DJ000",
+    "author": "starteday Editorial",
+    "publishedAt": 1794372409198,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "For eighteen years this date arrived with a counter that never stopped climbing. This year the most conspicuous thing in the reports was the absence of one. No record banners, no hourly refresh, no triumphant total. A festival built on announcing its own size suddenly decided that size was no longer the point.",
+      "Start with the arithmetic. Third-party tracking put first-wave marketplace volume at 1.0263 trillion yuan, up 2.4% year on year; a year earlier the same window had grown 14.2%. Analysts put the full cycle somewhere between 3% and 6%. Retail sales overall rose 1.1% in the first three quarters and online retail 4.4%. None of that describes a single platform losing; it describes a curve changing slope.",
+      "The rules moved more visibly than the totals. Long-running cross-store thresholds were retired in favour of official instant discounts. Deposit pre-sales gave way to in-stock shipping with thirty-day price protection. Short-video platforms pushed straight per-item cuts. The discount window actually stretched to a month, but orders spread across it instead of piling onto one night, and the cost of deciding went down.",
+      "There is an unflattering logic behind that subtraction. Once shoppers stop assuming this is the cheapest day of the year, an elaborate coupon puzzle stops being a conversion tool and becomes a conversion obstacle. When new-user growth flattens, the contest shifts from acquiring people to letting regulars hesitate one less time. Simplification here is not generosity; it is friction removal.",
+      "The more interesting addition is the shape of the shelf. Services entered the main transaction path for the first time rather than hanging off a physical order as an afterthought. Cleaning, home maintenance and installation were broken into orderable units, producing 150 million service orders in the first half alone, with domestic services up more than 240%. Furniture and bathroom goods began bundling delivery, unboxing and fitting into the transaction itself.",
+      "Then came goods with no physical form. Model tokens and compute packages were listed as standard items for the first time, and one livestream sold nearly 100,000 membership cards in half an hour, representing roughly two trillion tokens of usage. From discounted goods to services to raw compute: nobody drawing the original plan in 2009 could have sketched that line.",
+      "On the shopper side, assistants looked like a new front door had opened. One passed 300 million monthly active users; another reported close to 80 million. A survey found nearly 80% of buyers consult an AI before ordering, and AI influence on purchase decisions edged past conventional advertising for the first time, 43.7% against 42.6%. On paper, the entry point had already changed hands.",
+      "Then the retention numbers arrive: under 15% at seven days, about 3% at thirty. Trying something once and building a habit are an order of magnitude apart. Most people treat the assistant as a novel button available during a sale, not as the place every purchase begins. A large curiosity spike is not an installed position.",
+      "The harder constraint is that every assistant sees only its own catalogue. A helper that can search one warehouse cannot answer the plainest question a shopper has, which is whether the same thing is cheaper somewhere else entirely. Smart comparison today mostly means faster search inside a walled garden, and taking the wall down is precisely the step no platform is eager to take.",
+      "So my reading is that this is an enhancement layer between the search box and the shelf, not a new transaction gateway. It saves the time spent flipping pages and decoding discounts. It cannot absorb the risk of choosing badly, overpaying, or failing to return an item. While that risk stays with the person, the gateway stays where it was.",
+      "The merchant side is where the change is already concrete. Single-purpose tools for copy and customer chat are being stitched into a continuous stack spanning selection, listing, bidding, inventory routing and after-sales. What it compresses is operating cost, not missing demand. Mistaking a cost tool for a revenue engine is the easiest error of this cycle.",
+      "Platforms stopped publishing final sales figures and now report active buyers, repeat rates and retention instead. That is a sign of maturity, and also a small trap: when a slower growth rate is uniformly re-labelled as higher-quality growth, the metric changes but the question does not disappear. An efficiency race is only won if shoppers genuinely waste less money.",
+      "Eighteen years on, a loud promotion has turned into an annual stress test of goods, fulfilment, services and information agents. The page with no headline number is the one that finally shows the whole exam paper: whoever makes choosing simpler earns the next repeat order."
+    ]
+  },
+  {
+    "id": "rss-orig-perovskite-ai-screening-2026-11l-en",
+    "title": "The screening rule that finally asked whether a molecule can be made",
+    "summary": "Interface molecules for perovskite cells have long been found by trial and error, because energy alignment, surface binding, synthetic access and solution processing pull against each other. A new framework folds eight descriptors into one ranking and lets synthesizability score from the very first round. One of its three top picks reached 27.2% conversion efficiency and held about 95% of that after 2,000 hours. The notable part is not that the model is fast, but that the criteria now admit the laboratory exists.",
+    "cover": "/original/perovskite-ai-screening-cover.webp",
+    "images": [
+      "/original/perovskite-ai-screening-cover.webp",
+      "/original/perovskite-ai-screening-fig1.webp",
+      "/original/perovskite-ai-screening-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "perovskite",
+      "self-assembled monolayer",
+      "high-throughput screening",
+      "interface material",
+      "conversion efficiency",
+      "synthesizability"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.cas.cn/cm/202611/t20261111_5123999.shtml",
+    "author": "starteday Editorial",
+    "publishedAt": 1794372349198,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Materials discovery is usually sold as a speed problem. Spread enough candidate structures in front of a fast enough model, the story goes, and the good one will surface by itself. What actually blocks interface molecules for perovskite cells is not a shortage of candidates; it is that the requirements contradict one another.",
+      "A self-assembled monolayer sits between the transparent electrode and the perovskite, tasked with pulling holes out cleanly. Its energy levels must align, its anchoring to the substrate must hold, the molecules must not stack into a mess, the synthesis has to be walkable, and the whole thing must survive the solution processing that follows. Excelling at any one of these proves nothing, yet a conventional trial can only optimise one or two at a time.",
+      "The evaluation scheme was the deeper problem. Computational screens tend to rank whatever is easiest to calculate, such as energy levels or hole reorganisation energy, and leave synthetic difficulty for a chemist to discover at the bench. The result is a leaderboard full of molecules that cannot be made, or cannot be made pure. Between accurate calculation and a real flask there is a stretch nobody owns.",
+      "This framework pulls that stretch into round one. The team extracted 308 functional fragments from carbazole derivatives in a public compound library, spanning more than 90,000 possible combinations, chose 24 fragments for modular assembly, built 300 candidate molecules, and used an energy-level filter to keep 124.",
+      "The decisive move came next. Synthesizability, molecular energy levels, hole reorganisation energy, aromaticity and heteroatom content, eight descriptors in all, were folded into a single ranking. A molecule was no longer judged only on its behaviour inside an ideal model but on whether it could be built reliably. That turns screening from a physics exercise into an engineering one.",
+      "Eight descriptors sounds like parameter piling, but the real work is assigning weights to goals that fight each other. Level alignment often trades off against ease of synthesis; a rigid aromatic core buys stability at the cost of solubility. Optimising a single number was never going to work. What the ranking returns is a set of acceptable compromises, and crucially, ones an experiment can check.",
+      "The validation is tidy. Three high-ranked molecules were synthesised, and the measured device performance followed the same order as the eight-descriptor scores. For a screening framework that matters more than any single record: it suggests the scoring carries transferable predictive power rather than having got lucky once.",
+      "In performance terms, the top molecule reached 27.2% power conversion efficiency. The more telling figure is durability: under 65 degrees Celsius, continuous illumination and maximum power point tracking, the device retained roughly 95% of its initial efficiency after 2,000 hours. Efficiency and lifetime standing together is what gets a result past the first gate between a paper and a production line.",
+      "That 2,000 hours needs to be read in the right frame. It is not equivalent to twenty-five years outdoors; accelerated ageing and real weathering still require a conversion that carries uncertainty. What it does is turn a long-standing worry about whether the interface layer fails first from speculation into a measured curve.",
+      "For me the methodological point outweighs the device. The model does not replace the chemist here. It compresses expert knowledge, high-throughput calculation and experimental constraints into one scoring rule. The intelligent part of intelligent screening is knowing which costs to price before anyone starts optimising.",
+      "Because the framework is modular, a different fragment library and a different descriptor set could in principle be dropped in for another class of interface materials. That is worth more than any single molecule it delivered. Beyond photovoltaics, any interface problem that must juggle performance with manufacturability runs into the same multi-objective tug of war.",
+      "The limits are real. A public library defines the ceiling of the search space, the weights still carry a degree of empirical judgement, and three verified molecules is not a large sample. A framework can shrink the area that has to be tried; it cannot guarantee the optimum lies inside the area it kept.",
+      "Adding synthesizability to a scorecard looks like one extra column. In practice it is a change of posture for computational materials work: from pursuing the optimum inside a model to admitting the constraints on a bench. The grand-sounding 90,000 combinations are the least interesting part. What matters is that three test tubes actually made it under the lamp."
+    ]
+  },
+  {
+    "id": "rss-orig-slow-dopamine-taste-2026-11l-en",
+    "title": "Why the third cup of black coffee tastes better: the brain files its review later",
+    "summary": "A Nature study separates dopamine into a fast system and a slow one, then asks whether flavour preference is fixed at the first sip or taught afterwards by what arrives in the gut. The answer points to a delayed gut-to-brain pathway that can install a preference even when a taste carries no calories at all. Liking something stops being a sensory verdict and becomes a learning record.",
+    "cover": "/original/slow-dopamine-taste-cover.webp",
+    "images": [
+      "/original/slow-dopamine-taste-cover.webp",
+      "/original/slow-dopamine-taste-fig1.webp",
+      "/original/slow-dopamine-taste-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "dopamine",
+      "gut-brain axis",
+      "flavour preference",
+      "reward learning",
+      "amygdala",
+      "neuroscience"
+    ],
+    "category": "health",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LBEJUEVO0514R9P4.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1794372289198,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Almost everyone winces at a first cup of black coffee. Plenty of those people eventually cannot start a morning without it, and will earnestly describe a sweetness in the finish. The usual explanations put the change at the entrance: the tongue adapts to bitterness, or the caffeine simply becomes a habit. A new study moves the camera to long after the cup is put down.",
+      "Dopamine is shorthand for reward, but the version measured for decades is the fast one. See a favourite food, taste sugar, and a signal arrives within seconds. That explains wanting. It does not explain how a person slowly comes to like something they initially disliked.",
+      "The team were interested in a slower route. Once nutrients enter the digestive tract, sensors there register sugars and fats and send word back to the brain, producing a response that lasts minutes. That timescale is too long to feel like a reward and just long enough to link an episode of eating with its consequences.",
+      "The cleverest part of the design is that it separates tasting from receiving. Sugar water or a milkshake-like liquid was delivered straight into the stomach of a mouse, bypassing the mouth, while brain dopamine was recorded. A strong, sustained signal appeared in the basolateral amygdala. It was answering to delivered calories, not to flavour.",
+      "Then came the causal tests. Block that pathway and the animals still ate normally, but lost the ability to connect a novel taste with getting calories: the meal happened, the lesson did not. The reverse experiment is more striking. Let a mouse taste something with no calories, artificially activate the same pathway, and it develops a preference for that empty flavour anyway.",
+      "Preference, in other words, can be installed from nothing. What the brain seems to require is not actual nutrition but a later receipt saying that the last intake was worth repeating. Flavour is merely the label stuck to that receipt; the label carries no value on its own, the value is added afterwards.",
+      "A lot of ordinary experience suddenly makes sense. Bitter, astringent or sour things become pleasant only after several encounters. The same dessert is judged differently after a large meal. A bad first sip is almost never the final verdict. The tongue reports the present; the brain keeps the accounts.",
+      "Human brain imaging in the same work showed a comparable pattern. That step deserves caution. Similar images do not prove an identical mechanism, and a pathway that can be precisely blocked and switched on in an animal can only be inferred indirectly in people. Still, the direction survives the species boundary.",
+      "Recasting taste as learning widens the space for intervention. If preference is taught gradually, the lever for changing a diet may not be making food taste better but making the feedback about what happened after ingestion clearer, faster and less noisy.",
+      "It also gives the long argument about non-caloric sweeteners a sharper question. When a taste signal is repeatedly uncoupled from a caloric receipt, does this learning system get trained on the wrong correlation? The current data cannot answer that, but the question is now far more specific than whether a sweetener is harmful.",
+      "To be clear, the study offers no ready diet plan or recipe, and it does not show that a person can will this pathway into a different shape. What it does is mark a timescale that was mostly ignored: alongside wanting on the order of seconds, there is learning on the order of minutes.",
+      "The methods have edges too. Infusing into the stomach is a radically simplified meal. Real eating delivers taste, smell, texture and social context all at once, and there is a considerable distance between these experiments and the complexity of how people eat.",
+      "So the story of that bitter coffee probably needs rewriting. The taste buds were not tamed. After every cup the body quietly filed a note with the brain, and once enough notes had accumulated, bitterness was recorded as worthwhile. Liking was never purely a judgement of the senses; it is a conclusion built up from receipts."
+    ]
+  }
+]
