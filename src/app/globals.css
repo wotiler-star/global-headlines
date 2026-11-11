@@ -705,6 +705,15 @@ mark, .hl {
 .ata-title { color: var(--ink-2); }
 .art-topic-archive a:hover .ata-title { color: var(--on-brand); }
 .ata-arrow { font-size: 12px; }
+/* 正文内 contextual 实体链接（SEO 主题聚类，非导航色） */
+.art-entity-link {
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+.art-entity-link:hover { color: var(--on-brand); background: var(--brand); text-decoration-style: solid; }
 
 /* ---------- 关注按钮 ---------- */
 .follow-btn {

@@ -132,6 +132,17 @@ export default async function ArticlePage({
   // 部分按 worker 漂移，曾导致 chip 指向的静态页实际 prerender 为 404。
   const allInLocale = await getArticles(loc);
   const tagIndex = buildTagIndex(loadTagSourceArticles(loc));
+  // 正文 contextual 实体链接：把文章自带标签中「已有索引聚合页」的那些，
+  // 作为实体短语→内链映射；只有真实出现在正文里的才会在首遇处被链（RichLine 内判定），
+  // 跨整篇去重、每篇上限 3 条，零死链、不堆砌。
+  const entityMap = new Map<string, string>();
+  for (const t of article.tags) {
+    // 有索引聚合页用 /tag/<slug>（实体枢纽），否则退到 ?tag= 筛选页（footer 同款兜底），
+    // 保证每条 tag 都能在正文首遇处被链、零死链；命中索引页时自动升级为更丰富的实体页。
+    const href = tagHrefIfIndexed(loc, t, tagIndex) ?? `${homeHref(loc)}?tag=${encodeURIComponent(t)}`;
+    entityMap.set(t, href);
+  }
+  const usedEntities = new Set<string>();
   const sameCategory = allInLocale
     .filter((a) => a.id !== article.id && a.category === article.category && a.media !== "video")
     .slice(0, 8);
@@ -340,7 +351,7 @@ export default async function ArticlePage({
           <div className="article-body">
             {article.body.map((p, i) => (
               <Fragment key={i}>
-                <RichBlock line={p} />
+                <RichBlock line={p} entities={entityMap} used={usedEntities} />
                 {figMap.get(i) && (
                   <figure className="art-inline-fig">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
