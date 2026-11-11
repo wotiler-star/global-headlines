@@ -192,7 +192,7 @@ export default async function ArticlePage({
                 dateModified: new Date(article.publishedAt).toISOString(),
                 author: { "@type": "Person", name: article.author || article.source },
                 publisher: {
-                  "@type": "Organization",
+                  "@type": "NewsMediaOrganization",
                   "@id": `${SITE_URL}/#organization`,
                   name: d.siteName,
                   url: absUrl(loc, ""),

@@ -121,9 +121,11 @@ export default async function AboutPage({
         },
       },
       {
-        "@type": "Organization",
+        "@type": "NewsMediaOrganization",
         "@id": `${SITE_URL}/#organization`,
         name: "starteday",
+        areaServed: "Worldwide",
+        availableLanguage: locales,
         url: SITE_URL,
         logo: {
           "@type": "ImageObject",
