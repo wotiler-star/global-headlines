@@ -2,7 +2,7 @@
 // 独立模块，不并入庞大的 dictionaries.ts：避免为新增页面改动 8 份大字典、
 // 触发所有 Record<Locale> 结构的连锁补全要求。
 // 语种清单仍以 config.ts 的 locales 为单一真相源，这里用 Record<Locale, ...> 强制补全。
-import type { Locale } from "./config";
+import { withEnFallback, type Locale, type NewLocale } from "./config";
 
 export type CiteCopy = {
   title: string;
@@ -33,7 +33,7 @@ export type CiteCopy = {
 
 const SITE = "starteday.com";
 
-export const citeCopy: Record<Locale, CiteCopy> = {
+const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
   zh: {
     title: "关于与引用 · starteday",
     desc: "starteday 的编辑准则、图片许可与署名政策、可复制的规范引用格式。转载、引用或做研究时请按本页格式标注来源。",
@@ -503,3 +503,5 @@ export const citeCopy: Record<Locale, CiteCopy> = {
     footerNote: "Halaman ini adalah titik masuk permanen yang stabil untuk dikutip; tautkan secara langsung.",
   },
 };
+
+export const citeCopy = withEnFallback(citeCopyRaw);

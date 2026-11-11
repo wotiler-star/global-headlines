@@ -1,4 +1,4 @@
-import { Locale, locales, Category, categories } from "@/i18n/config";
+import { Locale, locales, Category, categories, withEnFallback, type NewLocale } from "@/i18n/config";
 
 export type Article = {
   id: string; // locale-neutral: `${category}-${conceptId}`
@@ -23,9 +23,9 @@ export type Article = {
   sourceUrl?: string; // 原文链接（RSS / API 采集时填充）
 };
 
-type Concept = { id: string; category: Category; t: Record<Locale, string> };
+type Concept = { id: string; category: Category; t: Partial<Record<Locale, string>> };
 
-const titleTpl: Record<Locale, string[]> = {
+const titleTplRaw: Record<Exclude<Locale, NewLocale>, string[]> = {
   zh: [
     "{topic}迎来重大突破",
     "{topic}成为行业新焦点",
@@ -100,7 +100,7 @@ const titleTpl: Record<Locale, string[]> = {
   ],
 };
 
-const summaryTpl: Record<Locale, string[]> = {
+const summaryTplRaw: Record<Exclude<Locale, NewLocale>, string[]> = {
   zh: [
     "据{topic}相关报道，{source}透露，近期该领域出现多项关键进展，引发业界高度关注。",
     "{source}发布最新分析称，{topic}正加速渗透各行各业，未来影响值得持续追踪。",
@@ -151,7 +151,7 @@ const summaryTpl: Record<Locale, string[]> = {
   ],
 };
 
-const bodyExtra: Record<Locale, string[]> = {
+const bodyExtraRaw: Record<Exclude<Locale, NewLocale>, string[]> = {
   zh: [
     "多位专家在接受采访时表示，{topic}的演进速度超出预期，相关投入也在持续增加。",
     "从全球范围看，不同地区在{topic}上的布局各有侧重，合作与竞争并存。",
@@ -214,7 +214,7 @@ const bodyExtra: Record<Locale, string[]> = {
   ],
 };
 
-const sources: Record<Locale, string[]> = {
+const sourcesRaw: Record<Exclude<Locale, NewLocale>, string[]> = {
   zh: ["环球时报", "新华社", "财新网", "36氪", "钛媒体"],
   en: ["Global Wire", "Daily Chronicle", "Tech Observer", "World Pulse", "The Mercury"],
   ja: ["朝日通信", "日経デジタル", "共同ニュース", "週刊科学"],
@@ -321,7 +321,7 @@ const DAY = 24 * 60;
 
 function buildArticle(concept: Concept, locale: Locale): Article {
   const seed = hash(`${concept.id}-${locale}`);
-  const topic = concept.t[locale];
+  const topic = concept.t[locale] ?? concept.t.en ?? concept.t.zh ?? "";
   const srcList = sources[locale];
   const source = srcList[seed % srcList.length];
   const title = titleTpl[locale][seed % titleTpl[locale].length].replace("{topic}", topic);
@@ -352,7 +352,7 @@ function buildArticle(concept: Concept, locale: Locale): Article {
 
 function buildVideo(concept: Concept, locale: Locale): Article {
   const seed = hash(`${concept.id}-${locale}-v`);
-  const topic = concept.t[locale];
+  const topic = concept.t[locale] ?? concept.t.en ?? concept.t.zh ?? "";
   const srcList = sources[locale];
   const source = srcList[seed % srcList.length];
   const title = titleTpl[locale][seed % titleTpl[locale].length].replace("{topic}", topic);
@@ -453,3 +453,9 @@ export function formatRelativeTime(locale: Locale, ts: number, t: {
   if (diffMin < DAY) return t.agoHours(Math.floor(diffMin / 60));
   return t.agoDays(Math.floor(diffMin / DAY));
 }
+
+// ms/fil/vi/th/my 暂以英文 UI 回退（文章内容单独翻译）
+export const titleTpl = withEnFallback(titleTplRaw);
+export const summaryTpl = withEnFallback(summaryTplRaw);
+export const bodyExtra = withEnFallback(bodyExtraRaw);
+export const sources = withEnFallback(sourcesRaw);

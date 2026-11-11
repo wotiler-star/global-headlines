@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Locale, localeMeta, isLocale } from "@/i18n/config";
+import { Locale, localeMeta, isLocale, withEnFallback, type NewLocale } from "@/i18n/config";
 
 // ---------------------------------------------------------------------------
 // 按访客 IP 自动切换语种（客户端异步，不阻塞首屏）。
@@ -28,7 +28,7 @@ type Copy = {
   keep: string;
 };
 
-const COPY: Record<Locale, Copy> = {
+const COPYRaw: Record<Exclude<Locale, NewLocale>, Copy> = {
   zh: { auto: (l) => `已根据您所在地区切换到 ${l}`, undo: "撤销", suggest: (l) => `您所在地区建议使用 ${l}，是否切换？`, switchTo: "切换", keep: "保持当前" },
   en: { auto: (l) => `Switched to ${l} based on your region`, undo: "Undo", suggest: (l) => `${l} is recommended for your region. Switch?`, switchTo: "Switch", keep: "Stay here" },
   ja: { auto: (l) => `地域に基づき ${l} に切り替えました`, undo: "元に戻す", suggest: (l) => `お住まいの地域では ${l} がおすすめです。切り替えますか？`, switchTo: "切り替える", keep: "このまま" },
@@ -42,6 +42,8 @@ const COPY: Record<Locale, Copy> = {
   hi: { auto: (l) => `आपके क्षेत्र के आधार पर ${l} में बदला गया`, undo: "पूर्ववत करें", suggest: (l) => `आपके क्षेत्र के लिए ${l} अनुशंसित है। बदलें?`, switchTo: "बदलें", keep: "यहीं रहें" },
   id: { auto: (l) => `Beralih ke ${l} berdasarkan wilayah Anda`, undo: "Urungkan", suggest: (l) => `${l} disarankan untuk wilayah Anda. Beralih?`, switchTo: "Beralih", keep: "Tetap di sini" },
 };
+
+const COPY = withEnFallback(COPYRaw);
 
 function readCookie(name: string): string | undefined {
   try {

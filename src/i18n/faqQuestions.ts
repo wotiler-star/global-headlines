@@ -2,14 +2,14 @@
 // 答案不在这里：全部复用 citePage.ts 已本地化的 desc / whatBody / creditBody /
 // licenseBody / contactBody，避免两套答案口径漂移，也减少翻译量。
 // 新增语种时 Record<Locale, ...> 会强制补全（语种清单以 config.ts 为准）。
-import type { Locale } from "./config";
+import { withEnFallback, type Locale, type NewLocale } from "./config";
 
 export type FaqCopy = {
   title: string;
   questions: [string, string, string, string, string];
 };
 
-export const faqCopy: Record<Locale, FaqCopy> = {
+const faqCopyRaw: Record<Exclude<Locale, NewLocale>, FaqCopy> = {
   zh: {
     title: "常见问题",
     questions: [
@@ -131,3 +131,5 @@ export const faqCopy: Record<Locale, FaqCopy> = {
     ],
   },
 };
+
+export const faqCopy = withEnFallback(faqCopyRaw);

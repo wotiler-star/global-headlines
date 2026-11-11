@@ -1,14 +1,11 @@
-import { Locale } from "./config";
+import { Locale, withEnFallback, type NewLocale } from "./config";
 
 // 搜索落地页（bare /search）可见 FAQ + FAQPage 结构化数据文案。
 // 独立模块，避免污染巨型字典；8 语种各 4 问，内容与搜索/站点能力真实对应
 //（Google FAQ 政策要求 Q&A 必须在页面可见，schema 与 DOM 必须一致）。
 export type FaqItem = { q: string; a: string };
 
-export const FAQ: Record<
-  Locale,
-  { title: string; landingDesc: string; items: FaqItem[] }
-> = {
+const FAQRaw: Record<Exclude<Locale, NewLocale>, { title: string; landingDesc: string; items: FaqItem[] }> = {
   zh: {
     title: "常见问题",
     landingDesc:
@@ -286,3 +283,5 @@ export const FAQ: Record<
     ],
   },
 };
+
+export const FAQ = withEnFallback(FAQRaw);

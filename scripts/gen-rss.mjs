@@ -24,7 +24,9 @@ function readLocales() {
     const src = readFileSync(join(ROOT, "src", "i18n", "config.ts"), "utf8");
     const m = src.match(/export const locales\s*=\s*\[([^\]]+)\]/);
     if (!m) throw new Error("locales 声明未找到");
-    const list = [...m[1].matchAll(/["']([a-z]{2})["']/g)].map((x) => x[1]);
+    // 注意：语种码长度不一（zh/en... 2 位，fil 为 ISO 639-2 的 3 位），必须匹配 2~3 位，
+    // 否则 fil 会被静默漏掉（线上 fil/rss.xml 长期 404）。
+    const list = [...m[1].matchAll(/["']([a-z]{2,3})["']/g)].map((x) => x[1]);
     if (list.length < 2) throw new Error("locales 过短");
     return list;
   } catch (e) {

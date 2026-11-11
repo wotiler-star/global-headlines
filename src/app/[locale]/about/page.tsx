@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { isLocale, Locale, locales, ogLocale } from "@/i18n/config";
+import { isLocale, Locale, locales, ogLocale, withEnFallback, type NewLocale } from "@/i18n/config";
 import { citeCopy } from "@/i18n/citePage";
 import { faqCopy } from "@/i18n/faqQuestions";
 import { absUrl, buildAlternates, SITE_URL } from "@/lib/site";
@@ -67,13 +67,14 @@ export default async function AboutPage({
 
   // 可复制的规范引用示例（都指向本页，形成自引用回链）
   // 署名按语种本地化，避免在英文/日文页面里混入中文「编辑部」。
-  const byline: Record<Locale, string> = {
+  const bylineRaw: Record<Exclude<Locale, NewLocale>, string> = {
     zh: "starteday 编辑部", en: "starteday Editorial", ja: "starteday 編集部",
     ko: "starteday 편집부", es: "Redacción starteday", fr: "Rédaction starteday",
     pt: "Redação starteday", tr: "starteday Editör",
     ru: "Редакция starteday", ar: "تحرير starteday",
     hi: "starteday संपादन", id: "Redaksi starteday",
   };
+  const byline = withEnFallback(bylineRaw);
   const author = byline[loc];
   const citeStandard = `${author}. (${today}). ${c.h1}. starteday. ${canonical}`;
   const citeBib = `@misc{starteday_about_${today.replace(/-/g, "")},

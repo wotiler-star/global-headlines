@@ -1,4 +1,4 @@
-import { Locale, Category } from "./config";
+import { Locale, Category, NewLocale, withEnFallback } from "./config";
 
 export type Dict = {
   siteName: string;
@@ -262,7 +262,7 @@ export type Dict = {
   adminCancel: string;
 };
 
-const dict: Record<Locale, Dict> = {
+const dictRaw: Record<Exclude<Locale, NewLocale>, Dict> = {
   zh: {
     siteName: "starteday",
     tagline: "从这里，开始每一天",
@@ -3528,6 +3528,9 @@ const dict: Record<Locale, Dict> = {
     },
   },
 };
+
+// ms/fil/vi/th/my 暂以英文 UI 回退（文章内容单独翻译）
+const dict: Record<Locale, Dict> = withEnFallback(dictRaw);
 
 export function getDict(locale: Locale): Dict {
   return dict[locale];
