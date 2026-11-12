@@ -5,7 +5,7 @@ import { Locale, isLocale } from "./config";
 //
 // 设计原则：
 //  1) 官方/通用语言优先；多官方语言国家取覆盖人口最多或国际通用度最高的语种。
-//  2) 站点支持 17 个语种，未覆盖地区回落到 en（国际通用语），不强塞中文。
+//  2) 站点支持 19 个语种，未覆盖地区回落到 en（国际通用语），不强塞中文。
 //  3) 只用于「首次访客建议语种」；用户手动选择（cookie）与显式 /xx/ URL 永远优先。
 //  4) 站点无国家专属内容，所以同一语种下所有地区共享同一 URL，地区差异仅体现在
 //     hreflang 地区变体（config.ts localeRegions）与自动切换建议。
@@ -38,8 +38,12 @@ const GROUPS: { codes: string; locale: Locale }[] = [
   { codes: "TH", locale: "th" },
   // 缅甸（缅甸语）
   { codes: "MM", locale: "my" },
-  // 英语官方/通用语国家（已移除分配给 ru/ar/hi/id/ms/fil/vi/th/my 的地区）
-  { codes: "US GB AU CA NZ IE ZA NG KE GH UG TZ ZM ZW BW NA MW SS ET ER SO PK BD LK NP FJ PG SB VU JM TT BB BS BZ GY LC GD VC AG KN DM MT IL", locale: "en" },
+  // 孟加拉（孟加拉语）
+  { codes: "BD", locale: "bn" },
+  // 巴基斯坦（乌尔都语，RTL）
+  { codes: "PK", locale: "ur" },
+  // 英语官方/通用语国家（已移除分配给 ru/ar/hi/id/ms/fil/vi/th/my/bn/ur 的地区）
+  { codes: "US GB AU CA NZ IE ZA NG KE GH UG TZ ZM ZW BW NA MW SS ET ER SO LK NP FJ PG SB VU JM TT BB BS BZ GY LC GD VC AG KN DM MT IL", locale: "en" },
 ];
 
 // 德语/意语/荷语/北欧/东欧/中亚/东南亚非英语国家：站点暂不支持 → 回落 en。
