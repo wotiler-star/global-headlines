@@ -31,9 +31,15 @@ export async function generateMetadata({
   const t = findTopic(slug);
   if (!t) return {};
   const a = t.articles[loc] || t.articles.zh;
-  const title = a ? `${a.title} · 8 语种主题档案` : `${t.slug} · 主题档案`;
-  const desc = a?.summary || `${t.slug}：starteday 的 8 语种原创报道档案。`;
-  const alts = buildAlternates(loc, topicHref(loc, t.slug).replace(`/${loc}`, ""));
+  const title = a ? `${a.title} · ${t.count} 语种主题档案` : `${t.slug} · 主题档案`;
+  const desc = a?.summary || `${t.slug}：starteday 的 ${t.count} 语种原创报道档案。`;
+  // 只对本主题真实有内容的语种声明 hreflang：其余 slug 页面虽预渲染出 200，
+  // 但内容是 zh 兜底，声明为独立语言版本会形成跨语种重复信号。
+  const alts = buildAlternates(
+    loc,
+    topicHref(loc, t.slug).replace(`/${loc}`, ""),
+    locales.filter((l) => l === loc || !!t.articles[l])
+  );
   return {
     title,
     description: desc,
@@ -155,7 +161,7 @@ export default async function TopicPage({
         </section>
 
         <section className="tp-versions" aria-label="Language versions">
-          <h2>8 语种版本 · Language versions</h2>
+          <h2>{versions.length} 语种版本 · Language versions</h2>
           <ol className="tp-list">
             {versions.map((v) => (
               <li key={v.l}>

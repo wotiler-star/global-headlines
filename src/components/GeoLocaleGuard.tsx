@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Locale, localeMeta, isLocale, withEnFallback, type NewLocale } from "@/i18n/config";
+import { Locale, localeMeta, isLocale } from "@/i18n/config";
 
 // ---------------------------------------------------------------------------
 // 按访客 IP 自动切换语种（客户端异步，不阻塞首屏）。
@@ -28,7 +28,7 @@ type Copy = {
   keep: string;
 };
 
-const COPYRaw: Record<Exclude<Locale, NewLocale>, Copy> = {
+const COPY: Record<Locale, Copy> = {
   zh: { auto: (l) => `已根据您所在地区切换到 ${l}`, undo: "撤销", suggest: (l) => `您所在地区建议使用 ${l}，是否切换？`, switchTo: "切换", keep: "保持当前" },
   en: { auto: (l) => `Switched to ${l} based on your region`, undo: "Undo", suggest: (l) => `${l} is recommended for your region. Switch?`, switchTo: "Switch", keep: "Stay here" },
   ja: { auto: (l) => `地域に基づき ${l} に切り替えました`, undo: "元に戻す", suggest: (l) => `お住まいの地域では ${l} がおすすめです。切り替えますか？`, switchTo: "切り替える", keep: "このまま" },
@@ -37,13 +37,7 @@ const COPYRaw: Record<Exclude<Locale, NewLocale>, Copy> = {
   fr: { auto: (l) => `Passage à ${l} selon votre région`, undo: "Annuler", suggest: (l) => `${l} est recommandé pour votre région. Changer ?`, switchTo: "Changer", keep: "Rester ici" },
   pt: { auto: (l) => `Alterado para ${l} com base na sua região`, undo: "Desfazer", suggest: (l) => `${l} é recomendado para sua região. Mudar?`, switchTo: "Mudar", keep: "Manter atual" },
   tr: { auto: (l) => `Bölgenize göre ${l} diline geçildi`, undo: "Geri al", suggest: (l) => `Bölgeniz için ${l} öneriliyor. Geçilsin mi?`, switchTo: "Geç", keep: "Burada kal" },
-  ru: { auto: (l) => `Переключено на ${l} по вашему региону`, undo: "Отменить", suggest: (l) => `${l} рекомендуется для вашего региона. Переключить?`, switchTo: "Переключить", keep: "Остаться здесь" },
-  ar: { auto: (l) => `تم التبديل إلى ${l} بناءً على منطقتك`, undo: "تراجع", suggest: (l) => `${l} موصى به لمنطقتك. تبديل؟`, switchTo: "تبديل", keep: "البقاء هنا" },
-  hi: { auto: (l) => `आपके क्षेत्र के आधार पर ${l} में बदला गया`, undo: "पूर्ववत करें", suggest: (l) => `आपके क्षेत्र के लिए ${l} अनुशंसित है। बदलें?`, switchTo: "बदलें", keep: "यहीं रहें" },
-  id: { auto: (l) => `Beralih ke ${l} berdasarkan wilayah Anda`, undo: "Urungkan", suggest: (l) => `${l} disarankan untuk wilayah Anda. Beralih?`, switchTo: "Beralih", keep: "Tetap di sini" },
 };
-
-const COPY = withEnFallback(COPYRaw);
 
 function readCookie(name: string): string | undefined {
   try {

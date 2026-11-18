@@ -15,6 +15,9 @@ function remember(locale: string) {
 
 export default function LanguageSwitcher({ locale }: { locale: Locale }) {
   const pathname = usePathname() || `/${locale}`;
+  // 这是导航控件，不是语言版本声明：文章页的 alternate 由 head <link rel=alternate>
+  // 与正文真实版本链接给出。给这些锚点挂 hrefLang 会与 head 的 hreflang 指向冲突
+  // （文章页上同一语言码同时指向首页与文章页），故刻意不声明。
   return (
     <nav className="lang-switcher" aria-label="Language">
       {locales.map((l) => {
@@ -23,7 +26,6 @@ export default function LanguageSwitcher({ locale }: { locale: Locale }) {
           <Link
             key={l}
             href={href}
-            hrefLang={localeMeta[l].hreflang}
             className={l === locale ? "active" : ""}
             onClick={() => remember(l)}
           >

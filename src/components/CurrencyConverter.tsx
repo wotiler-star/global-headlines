@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Locale, withEnFallback, type NewLocale } from "@/i18n/config";
+import { Locale } from "@/i18n/config";
 import { CURRENCIES, convert, currencyName, currencySymbol } from "@/lib/fx";
 
-const I18NRaw: Record<Exclude<Locale, NewLocale>, { title: string; amount: string; from: string; to: string; swap: string; note: string; approx: string }> = {
+const I18N: Record<Locale, { title: string; amount: string; from: string; to: string; swap: string; note: string; approx: string }> = {
   zh: { title: "货币兑换", amount: "金额", from: "从", to: "到", swap: "互换", note: "静态汇率", approx: "仅供参考" },
   en: { title: "Currency", amount: "Amount", from: "From", to: "To", swap: "Swap", note: "static rates", approx: "indicative only" },
   ja: { title: "通貨換算", amount: "金額", from: "元", to: "先", swap: "入替", note: "静的レート", approx: "目安" },
@@ -13,13 +13,7 @@ const I18NRaw: Record<Exclude<Locale, NewLocale>, { title: string; amount: strin
   fr: { title: "Devises", amount: "Montant", from: "De", to: "Vers", swap: "Inverser", note: "taux statiques", approx: "indicatif" },
   pt: { title: "Moedas", amount: "Valor", from: "De", to: "Para", swap: "Trocar", note: "taxas fixas", approx: "apenas referência" },
   tr: { title: "Döviz", amount: "Tutar", from: "Kaynak", to: "Hedef", swap: "Değiştir", note: "sabit kurlar", approx: "yalnızca referans" },
-  ru: { title: "Валюта", amount: "Сумма", from: "Из", to: "В", swap: "Поменять", note: "фикс. курсы", approx: "только справочно" },
-  ar: { title: "العملات", amount: "المبلغ", from: "من", to: "إلى", swap: "تبديل", note: "أسعار ثابتة", approx: "للاسترشاد فقط" },
-  hi: { title: "मुद्रा", amount: "राशि", from: "से", to: "तक", swap: "स्वैप", note: "स्थिर दरें", approx: "केवल संकेत" },
-  id: { title: "Mata Uang", amount: "Jumlah", from: "Dari", to: "Ke", swap: "Tukar", note: "kurs statis", approx: "hanya perkiraan" },
 };
-
-const I18N = withEnFallback(I18NRaw);
 
 export default function CurrencyConverter({ locale }: { locale: Locale }) {
   const t = I18N[locale] || I18N.en;

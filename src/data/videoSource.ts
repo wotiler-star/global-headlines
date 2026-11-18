@@ -1,4 +1,4 @@
-import { Locale, withEnFallback, type NewLocale } from "@/i18n/config";
+import { Locale } from "@/i18n/config";
 import { Article } from "@/data/news";
 import * as mock from "@/data/news";
 
@@ -17,7 +17,7 @@ const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const BILIBILI_COOKIE = process.env.BILIBILI_COOKIE; // 可选，提升 B 站命中率
 
 // 各语言的检索词（用该语言，保证标题/描述本地化）
-const VIDEO_QUERY_RAW: Record<Exclude<Locale, NewLocale>, string> = {
+const VIDEO_QUERY: Record<Locale, string> = {
   zh: "科技 自然 太空 纪录片",
   en: "technology nature space documentary",
   ja: "テクノロジー 自然 宇宙 ドキュメンタリー",
@@ -26,14 +26,7 @@ const VIDEO_QUERY_RAW: Record<Exclude<Locale, NewLocale>, string> = {
   fr: "technologie nature espace documentaire",
   pt: "tecnologia natureza espaço documentário",
   tr: "teknoloji doğa uzay belgesel",
-  ru: "технологии природа космос документальный",
-  ar: "تكنولوجيا طبيعة فضاء وثائقي",
-  hi: "तकनीक प्रकृति अंतरिक्ष डॉक्यूमेंट्री",
-  id: "teknologi alam luar angkasa dokumenter",
 };
-
-// ms/fil/vi/th/my 暂以英文检索词回退
-const VIDEO_QUERY = withEnFallback(VIDEO_QUERY_RAW);
 
 // YouTube 检索语言（relevanceLanguage）
 const YT_LANG: Partial<Record<Locale, string>> = {
@@ -43,7 +36,6 @@ const YT_LANG: Partial<Record<Locale, string>> = {
   ko: "ko",
   es: "es",
   fr: "fr",
-  ms: "ms", fil: "fil", vi: "vi", th: "th", my: "my",
 };
 
 const TTL = 10 * 60 * 1000; // 构建期内缓存，避免重复消耗配额

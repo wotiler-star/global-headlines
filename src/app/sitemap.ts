@@ -4,6 +4,9 @@ import { getArticles } from "@/data/newsSource";
 import { absUrl, buildSitemapAlternates, buildSitemapArticleAlternates } from "@/lib/site";
 import { buildTagIndex, indexableTags, loadTagSourceArticles } from "@/lib/tags";
 import { loadTopics } from "@/lib/topics";
+import { articleBaseId } from "@/lib/site";
+import { isCloneLocale } from "@/lib/translationSeo";
+import { articleVersionMap } from "@/lib/articleVersions";
 
 export const dynamic = "force-static";
 
@@ -19,9 +22,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const home = buildSitemapAlternates(loc, "");
 
     const articleTimes = new Map<string, number>();
-    for (const a of await getArticles(loc)) articleTimes.set(a.id, a.publishedAt || 0);
+    const articleObjs = new Map<string, { id: string; title: string; summary: string }>();
+    // 克隆语种的英文复读判定：预加载英文版标题/摘要映射（仅 clone 语种需要）。
+    // 译文补齐后标题改变 → 不再命中 → URL 自动回到 sitemap。
+    const enTitleSummary = isCloneLocale(loc)
+      ? new Map((await getArticles("en" as Locale)).map((a) => [articleBaseId(a.id), `${a.title}||${a.summary}`]))
+      : null;
+    const isClone = (id: string, title: string, summary: string): boolean => {
+      if (!enTitleSummary || !id.startsWith("rss-orig-")) return false;
+      return enTitleSummary.get(articleBaseId(id)) === `${title}||${summary}`;
+    };
+    for (const a of await getArticles(loc)) {
+      articleTimes.set(a.id, a.publishedAt || 0);
+      articleObjs.set(a.id, a);
+    }
     for (const c of categories) {
-      for (const a of await getArticles(loc, c)) articleTimes.set(a.id, a.publishedAt || 0);
+      for (const a of await getArticles(loc, c)) {
+        articleTimes.set(a.id, a.publishedAt || 0);
+        articleObjs.set(a.id, a);
+      }
     }
     const times = [...articleTimes.values()].filter(Boolean);
     const latest = times.length ? new Date(Math.max(...times)) : undefined;
@@ -35,7 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
 
     // 可引用资产页（外链优化）：稳定、可被引用的关于/引用规范页。
-    // 独立 canonical + 8 语种 hreflang，优先级低于首页但高于标签聚合页。
+    // 独立 canonical + 22 语种 hreflang，优先级低于首页但高于标签聚合页。
     const aboutAlts = buildSitemapAlternates(loc, "/about");
     urls.push({
       url: absUrl(loc, "/about"),
@@ -45,7 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: { languages: aboutAlts.languages },
     });
 
-    // GEO 主题实体档案页：一个 slug 对应 8 语种同一主题，hreflang 真正对称，
+    // GEO 主题实体档案页：一个 slug 对应 22 语种同一主题，hreflang 按真实版本对称声明，
     // 数据源与 generateStaticParams 同为 loadTopics()，零死链。
     for (const t of loadTopics()) {
       const topicAlts = buildSitemapAlternates(loc, `/topic/${t.slug}`);
@@ -92,7 +111,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     for (const [id, ts] of articleTimes) {
-      const alts = buildSitemapArticleAlternates(loc, id);
+      const obj = articleObjs.get(id);
+      if (obj && isClone(id, obj.title, obj.summary)) continue; // 未翻译的英文复读页不进 sitemap
+      // hreflang 只列真实存在（且应索引）的语种版本，避免 Google 抓到大量 404 alternate。
+      const alts = buildSitemapArticleAlternates(loc, id, articleVersionMap(id));
       urls.push({
         url: absUrl(loc, `/article/${id}`),
         lastModified: ts ? new Date(ts) : latest,

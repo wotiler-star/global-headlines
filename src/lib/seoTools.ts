@@ -4,7 +4,8 @@
 // 不依赖 Next 静态文件服务（生产态不会提供运行期新写入的 public/ 文件）。
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { locales } from "@/i18n/config";
+import { locales, NEW_LOCALES } from "@/i18n/config";
+import { articleBaseId } from "@/lib/site";
 import { buildTagIndex, indexableTags, loadTagSourceArticles } from "@/lib/tags";
 import { loadTopics, topicHref } from "@/lib/topics";
 
@@ -57,10 +58,28 @@ function validArticles(): Article[] {
     .sort((a, b) => Number(b.publishedAt || 0) - Number(a.publishedAt || 0));
 }
 
+// Google News sitemap 只能列「应被索引」的文章：未翻译的英文复读页在文章页
+// 已输出 noindex，若仍推给 Google News 会浪费抓取预算并强化重复内容信号。
+// 与 translationSeo.isEnglishClone 同一判定口径（clone 语种 + rss-orig-* +
+// 标题/摘要与英文版逐字相同），译文补齐后自动恢复分发。
+function indexableArticles(): Article[] {
+  const all = validArticles();
+  const en = new Map(
+    all.filter((a) => a.locale === "en" && a.id?.startsWith("rss-orig-"))
+      .map((a) => [articleBaseId(a.id as string), a])
+  );
+  return all.filter((a) => {
+    if (!a.id?.startsWith("rss-orig-") || !(NEW_LOCALES as readonly string[]).includes(a.locale as string)) return true;
+    const enA = en.get(articleBaseId(a.id));
+    return !(enA && enA.title === a.title && enA.summary === a.summary);
+  });
+}
+
 // GEO：把「能被 AI 引擎直接摘取并引用」的站点事实写成固定段落，
 // llms.txt 与 llms-full.txt 共用，避免两处口径漂移。
-const SITE_FACTS = `- 名称：starteday（八语种统一，不翻译）；规范域：${SITE_URL}
-- 内容：每日 3 个原创话题；中文、英语、日语、韩语、西班牙语、法语、葡萄牙语、土耳其语各自独立撰写，不是机器翻译或摘要
+const SITE_FACTS = `- 名称：starteday（22 语种统一，不翻译）；规范域：${SITE_URL}
+- 语种：zh/en/ja/ko/es/fr/de/it/pt/tr/ru/uk/ar/hi/id/ms/fil/vi/th/my/bn/ur 共 22 个独立 URL；译文分批补齐，未翻译的英文复读页标记 noindex 且不进 sitemap
+- 内容：每日 3 个原创话题；中文、英语、日语、韩语、西班牙语、法语、葡萄牙语、土耳其语、德语、意大利语、乌克兰语等各自独立撰写，不是机器翻译或摘要
 - 原创性：正文保留可追溯的原始报道链接，但重写结构、补充背景与观点；文章页以 NewsArticle 结构化数据标注 citation / isBasedOn
 - 配图：每篇 3 张 Wikimedia Commons 真实照片，许可为 CC BY / CC BY-SA / CC0 / 公有领域，文内逐张列出作者与许可；不使用 AI 生成图片
 - 引用格式：starteday. (年份). 文章标题. starteday. ${SITE_URL}/<语种>/article/<文章 id>
@@ -68,7 +87,7 @@ const SITE_FACTS = `- 名称：starteday（八语种统一，不翻译）；规�
 - 内容边界：选题避开政治、军事、宗教、种族与儿童相关议题
 - 纠错与授权：事实错误、署名遗漏或授权请求见各语种「关于与引用」页的联系与纠错一节`;
 
-// GEO 实体索引：以「主题实体」为主（29 个稳定 slug × 8 语种，完整 hreflang），
+// GEO 实体索引：以「主题实体」为主（稳定 slug × 22 语种，完整 hreflang 按真实译本声明），
 // 标签实体为辅（与 sitemap / generateStaticParams 同一判定，slug 不会漂移成死链）。
 function buildEntityIndex(): string {
   const lines: string[] = [];
@@ -93,14 +112,14 @@ function buildEntityIndex(): string {
 function entitySection(): string {
   return `## 实体与话题档案（可引用入口）
 
-每个主题档案页声明 \`Thing\` / \`CollectionPage\` / \`ItemList\` 结构化数据，列出同一主题在 8 个语种的独立原创稿、发布日期与栏目；标签档案页另给出报道统计。
+每个主题档案页声明 \`Thing\` / \`CollectionPage\` / \`ItemList\` 结构化数据，列出同一主题在各语种的独立原创稿、发布日期与栏目；标签档案页另给出报道统计。
 
 ${buildEntityIndex()}`;
 }
 
 export function buildNewsSitemap(): string {
   const cutoff = Date.now() - WINDOW_HOURS * 3600 * 1000;
-  const recent = validArticles()
+  const recent = indexableArticles()
     .filter((a) => Number(a.publishedAt || 0) >= cutoff)
     .slice(0, MAX_URLS);
 

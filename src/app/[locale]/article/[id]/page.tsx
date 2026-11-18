@@ -3,7 +3,9 @@ import { isLocale, Locale, locales, categories, ogLocale, localeMeta } from "@/i
 import { getDict } from "@/i18n/dictionaries";
 import { getArticle, getRelated, getArticles } from "@/data/newsSource";
 import { formatRelativeTime } from "@/data/news";
-import { absUrl, buildArticleAlternates, SITE_URL, articleBaseId, articleVersionId } from "@/lib/site";
+import { absUrl, buildArticleAlternates, SITE_URL, articleBaseId } from "@/lib/site";
+import { articleVersionMap } from "@/lib/articleVersions";
+import { isEnglishClone } from "@/lib/translationSeo";
 import { ogImageFor } from "@/lib/og";
 import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
@@ -71,7 +73,14 @@ export async function generateMetadata({
   const loc = locale as Locale;
   const article = await getArticle(loc, id);
   if (!article) return {};
-  const alts = buildArticleAlternates(loc, id);
+  // 未翻译的克隆语种文章（英文复读）不进索引：与英文版逐字比对判定。
+  // 译文补齐后标题/摘要变化，自动恢复 index，无需改代码。
+  const enForSeo = await getArticle("en" as Locale, `${articleBaseId(id)}-en`);
+  const noindex = isEnglishClone(article, enForSeo);
+  // hreflang 只声明真实存在、且应被索引的语种版本（22 语种分批补齐，旧版无条件
+  // 声明全部语种，导致约 1/3 alternate 指向 404 或 noindex 页）。
+  const versions = articleVersionMap(id);
+  const alts = buildArticleAlternates(loc, id, versions);
   const url = absUrl(loc, `/article/${id}`);
   const iso = new Date(article.publishedAt).toISOString();
   const og = ogImageFor(article.cover || (article.images || [])[0], article.title);
@@ -81,7 +90,7 @@ export async function generateMetadata({
     alternates: { canonical: alts.canonical, languages: alts.languages },
     // 允许大图预览与完整摘要，提升搜索结果/社交卡片展示
     robots: {
-      index: true,
+      index: !noindex,
       follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -94,7 +103,7 @@ export async function generateMetadata({
       type: "article",
       url,
       locale: ogLocale[loc],
-      alternateLocale: locales.filter((l) => l !== loc).map((l) => ogLocale[l]),
+      alternateLocale: [...versions.keys()].filter((l) => l !== loc).map((l) => ogLocale[l]),
       siteName: getDict(loc).siteName,
       publishedTime: iso,
       modifiedTime: iso,
@@ -153,10 +162,10 @@ export default async function ArticlePage({
   const bodyChars = (article.body || []).join("").length;
   const cjk = loc === "zh" || loc === "ja" || loc === "ko";
   const readMin = Math.max(1, Math.round(cjk ? bodyChars / 400 : bodyChars / 1000));
-  // 原创稿每个主题都有 8 份独立撰写的本地化版本；head 里已声明完整 hreflang 互链，
-  // 这里再给出可见内链，帮助爬虫发现与用户主动切换（hreflang 之外的第二重信号）。
-  const isMultilingual = article.id.startsWith("rss-orig-");
-  const baseId = isMultilingual ? articleBaseId(article.id) : article.id;
+  // 可见语言链接与 head 的 hreflang 共用同一份「真实存在的版本」映射，零 404。
+  // 数据文件缺失导致映射为空时退回 BROWSE（链同栏目静态页），不制造死链。
+  const versions = articleVersionMap(article.id);
+  const isMultilingual = versions.size > 0;
   // 实体中心内链：把原创稿链到「主题实体档案页」（8 语种稳定 entity carrier，
   // 含 CollectionPage + Thing）。仅当主题真实存在时才渲染，零死链。
   const topicEntry = findTopic(topicSlug(article.id));
@@ -432,28 +441,36 @@ export default async function ArticlePage({
               </Link>
             </div>
           )}
-          {/* cov63：8 语种可见内链扩到「全部文章」。
-              原创稿(rss-orig-*)有 8 份独立本地化版本 → 链接对应语种文章页；
-              其余稿的 id 按语种生成、跨语种文章链接会 404 → 改链对应语种的
-              同栏目静态页（全部预渲染、可索引、带 hreflang），既扩内链又零死链。 */}
+          {/* 可见语言内链与 head hreflang 共用 versions：只链真实存在且应索引的文章页。
+              非原创稿（或版本数据不可用时）链同栏目静态页，且不声明 hrefLang——
+              栏目页不是文章的语言版本，此前给它挂 hrefLang 属错误信号。 */}
           <nav className="art-lang-versions" aria-label={d.navLanguage}>
             <div className="alv-label">
               {isMultilingual ? "READ IN" : "BROWSE"} · {d.navLanguage}
             </div>
             <div className="alv-links">
-              {locales.map((l) => (
-                <Link
-                  key={l}
-                  href={isMultilingual
-                    ? articleHref(l, articleVersionId(baseId, l))
-                    : categoryHref(l, article.category)}
-                  hrefLang={localeMeta[l].hreflang}
-                  aria-current={l === loc ? "page" : undefined}
-                  className={`alv-link${l === loc ? " current" : ""}`}
-                >
-                  {localeMeta[l].name}
-                </Link>
-              ))}
+              {isMultilingual
+                ? [...versions.entries()].map(([l, aid]) => (
+                    <Link
+                      key={l}
+                      href={articleHref(l, aid)}
+                      hrefLang={localeMeta[l].hreflang}
+                      aria-current={l === loc ? "page" : undefined}
+                      className={`alv-link${l === loc ? " current" : ""}`}
+                    >
+                      {localeMeta[l].name}
+                    </Link>
+                  ))
+                : locales.map((l) => (
+                    <Link
+                      key={l}
+                      href={categoryHref(l, article.category)}
+                      aria-current={l === loc ? "page" : undefined}
+                      className={`alv-link${l === loc ? " current" : ""}`}
+                    >
+                      {localeMeta[l].name}
+                    </Link>
+                  ))}
             </div>
           </nav>
         </article>

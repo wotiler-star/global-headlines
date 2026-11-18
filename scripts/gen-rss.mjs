@@ -19,7 +19,7 @@ const SITE_NAME = "starteday";
 // cov42：语种清单从 i18n 单一真相源读取。此前这里硬编码 6 个语种，
 // 站点却是 8 语种，导致 /pt/rss.xml 与 /tr/rss.xml 长期 404（数据其实各有 40/130 篇）。
 function readLocales() {
-  const fallback = ["zh", "en", "ja", "ko", "es", "fr", "pt", "tr"];
+  const fallback = ["zh", "en", "ja", "ko", "es", "fr", "de", "it", "pt", "tr", "ru", "uk", "ar", "hi", "id", "ms", "fil", "vi", "th", "my", "bn", "ur"];
   try {
     const src = readFileSync(join(ROOT, "src", "i18n", "config.ts"), "utf8");
     const m = src.match(/export const locales\s*=\s*\[([^\]]+)\]/);
@@ -35,6 +35,28 @@ function readLocales() {
   }
 }
 const LOCALES = readLocales();
+
+// 克隆语种的英文复读稿与 en 版 100% 重复，文章页已输出 noindex；
+// 继续喂给 RSS 聚合器只会放大重复内容信号，订阅者也读到英文而非本语种。
+function readCloneLocales() {
+  try {
+    const src = readFileSync(join(ROOT, "src", "i18n", "config.ts"), "utf8");
+    const m = src.match(/export const NEW_LOCALES\s*=\s*\[([^\]]+)\]/);
+    if (!m) return [];
+    return [...m[1].matchAll(/["']([a-z]{2,3})["']/g)].map((x) => x[1]);
+  } catch {
+    return [];
+  }
+}
+const CLONE_LOCALES = new Set(readCloneLocales());
+const LOCALE_SUFFIX = new RegExp(`-(${LOCALES.join("|")})$`);
+const baseId = (id = "") => String(id).replace(LOCALE_SUFFIX, "");
+
+function isEnglishClone(a, enMap) {
+  if (!CLONE_LOCALES.has(a.locale) || !String(a.id || "").startsWith("rss-orig-")) return false;
+  const en = enMap.get(baseId(a.id));
+  return !!en && en.title === a.title && en.summary === a.summary;
+}
 
 function escapeXml(s = "") {
   return String(s)
@@ -121,6 +143,10 @@ if (!Array.isArray(articles) || articles.length === 0) {
   console.log("[rss] 无文章数据，跳过");
   process.exit(0);
 }
+const enOriginals = new Map(
+  articles.filter((a) => a.locale === "en" && String(a.id || "").startsWith("rss-orig-"))
+    .map((a) => [baseId(a.id), a])
+);
 
 mkdirSync(PUB, { recursive: true });
 
@@ -129,7 +155,7 @@ for (const loc of LOCALES) {
   const feedUrl = `${SITE_URL}/${loc}/rss.xml`;
   const siteLink = `${SITE_URL}/${loc}`;
   const items = articles
-    .filter((a) => a && a.locale === loc && a.title && a.id)
+    .filter((a) => a && a.locale === loc && a.title && a.id && !isEnglishClone(a, enOriginals))
     .sort((a, b) => (b.publishedAt || 0) - (a.publishedAt || 0))
     .slice(0, MAX_ITEMS)
     .map((a) => ({
