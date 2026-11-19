@@ -1,6 +1,7 @@
 import { isLocale, Locale, locales, localeMeta, ogLocale } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { absUrl, SITE_URL } from "@/lib/site";
+import { entityKeywordMeta } from "@/lib/seoKeywords";
 import {
   buildTagIndex,
   indexableTags,
@@ -72,10 +73,13 @@ export async function generateMetadata({
   const tag = found.entry.tag;
   // canonical 一律用索引里的真 slug（非 encoded），与 sitemap 完全一致
   const url = absUrl(loc, `/tag/${found.entry.slug}`);
-  const pageTitle = `${tag} · ${d.siteName}`;
+  // 关键词优化：标签实体页用本地化自然句式做 description，替换原来「标签 · 首页描述」的拼接。
+  const kw = entityKeywordMeta(loc, tag, "tag");
+  const pageTitle = `${kw.title} · ${d.siteName}`;
   return {
-    title: tag,
-    description: `${tag} · ${d.homeDesc}`,
+    title: kw.title,
+    description: kw.description,
+    keywords: kw.keywords,
     alternates: {
       canonical: url,
       // 仅本语种 + x-default（标签无跨语种对应版本，刻意不做 68 变体）
@@ -84,7 +88,7 @@ export async function generateMetadata({
     robots: { index: true, follow: true },
     openGraph: {
       title: pageTitle,
-      description: `${tag} · ${d.homeDesc}`,
+      description: kw.description,
       url,
       siteName: d.siteName,
       locale: ogLocale[loc],

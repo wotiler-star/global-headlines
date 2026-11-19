@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, Locale, locales, localeMeta, ogLocale } from "@/i18n/config";
 import { absUrl, buildAlternates, SITE_URL } from "@/lib/site";
+import { entityKeywordMeta } from "@/lib/seoKeywords";
 import { findTopic, loadTopics, topicHref } from "@/lib/topics";
 import { homeHref } from "@/lib/paths";
 
@@ -32,7 +33,10 @@ export async function generateMetadata({
   if (!t) return {};
   const a = t.articles[loc] || t.articles.zh;
   const title = a ? `${a.title} · ${t.count} 语种主题档案` : `${t.slug} · 主题档案`;
-  const desc = a?.summary || `${t.slug}：starteday 的 ${t.count} 语种原创报道档案。`;
+  // 关键词优化：实体名用本地化主题标题，description 用自然句式兜底；实际有摘要时仍优先用真实摘要。
+  const entityName = a?.title || t.slug;
+  const kw = entityKeywordMeta(loc, entityName, "topic");
+  const desc = a?.summary || kw.description;
   // 只对本主题真实有内容的语种声明 hreflang：其余 slug 页面虽预渲染出 200，
   // 但内容是 zh 兜底，声明为独立语言版本会形成跨语种重复信号。
   const alts = buildAlternates(
@@ -43,6 +47,7 @@ export async function generateMetadata({
   return {
     title,
     description: desc,
+    keywords: kw.keywords,
     alternates: { canonical: alts.canonical, languages: alts.languages },
     robots: { index: true, follow: true },
     openGraph: {

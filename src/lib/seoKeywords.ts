@@ -424,6 +424,144 @@ const DESCRIPTION_TEMPLATE: Record<Locale, string> = {
   ur: "starteday پر اصل {primary} پڑھیں — {s1} سے {s2} تک، آپ کی زبان میں۔",
 };
 
+// ---------------------------------------------------------------------------
+// Entity (tag / topic) page meta. Each locale gets one natural sentence per
+// kind with a single {entity} placeholder, plus a short generic keyword
+// suffix appended after the entity name in the `keywords` meta. The brand
+// "starteday" stays untranslated in every variant.
+// ---------------------------------------------------------------------------
+
+/** Natural, localized description templates for tag and topic entity pages. */
+const ENTITY_DESCRIPTION_TEMPLATE: Record<Locale, { tag: string; topic: string }> = {
+  zh: {
+    tag: "在 starteday 阅读关于{entity}的原创报道，多语言视角带你看懂全球资讯。",
+    topic: "{entity}专题：starteday 原创多语言报道，汇集全球独立资讯。",
+  },
+  "zh-Hant": {
+    tag: "在 starteday 閱讀關於{entity}的原創報道，多語言視角帶你看懂全球資訊。",
+    topic: "{entity}專題：starteday 原創多語言報道，匯集全球獨立資訊。",
+  },
+  en: {
+    tag: "Explore original reporting on {entity} at starteday — multilingual coverage across technology, science and more.",
+    topic: "{entity}: original multilingual coverage on starteday, with independent reporting in every language.",
+  },
+  ja: {
+    tag: "starteday では{entity}に関するオリジナル記事をお届け。多言語で世界を読み解きます。",
+    topic: "{entity}の特集：starteday のオリジナル多言語カバレッジで、あらゆる言語の独立報道を。",
+  },
+  ko: {
+    tag: "starteday에서 {entity}에 대한 오리지널 기사를 만나보세요. 다국어로 세계를 읽습니다.",
+    topic: "{entity} 주제: starteday의 오리지널 다국어 보도, 모든 언어의 독립 기사.",
+  },
+  es: {
+    tag: "Descubre reportajes originales sobre {entity} en starteday: cobertura multilingüe de tecnología, ciencia y más.",
+    topic: "{entity}: cobertura original multilingüe en starteday, con periodismo independiente en cada idioma.",
+  },
+  fr: {
+    tag: "Découvrez des reportages originaux sur {entity} sur starteday : une couverture multilingue de la technologie aux sciences.",
+    topic: "{entity} : une couverture originale multilingue sur starteday, avec un journalisme indépendant dans chaque langue.",
+  },
+  de: {
+    tag: "Entdecken Sie originale Berichte über {entity} auf starteday – mehrsprachige Berichterstattung zu Technik, Wissenschaft und mehr.",
+    topic: "{entity}: originale mehrsprachige Berichterstattung auf starteday, mit unabhängigem Journalismus in jeder Sprache.",
+  },
+  it: {
+    tag: "Scopri reportage originali su {entity} su starteday: copertura multilingue dalla tecnologia alla scienza e oltre.",
+    topic: "{entity}: copertura originale multilingue su starteday, con giornalismo indipendente in ogni lingua.",
+  },
+  pt: {
+    tag: "Descubra reportagens originais sobre {entity} no starteday: cobertura multilíngue de tecnologia, ciência e mais.",
+    topic: "{entity}: cobertura original multilíngue no starteday, com jornalismo independente em cada idioma.",
+  },
+  tr: {
+    tag: "starteday'de {entity} hakkında özgün haberleri keşfedin: teknoloji, bilim ve daha fazlasını çok dilli takip edin.",
+    topic: "{entity}: starteday'de özgün çok dilli kapsam, her dilde bağımsız habercilik.",
+  },
+  ru: {
+    tag: "Читайте оригинальные материалы о {entity} на starteday: многоязычный обзор технологий, науки и не только.",
+    topic: "{entity}: оригинальные многоязычные материалы на starteday с независимой журналистикой на каждом языке.",
+  },
+  uk: {
+    tag: "Читайте оригінальні матеріали про {entity} на starteday: багатомовний огляд технологій, науки та іншого.",
+    topic: "{entity}: оригінальні багатомовні матеріали на starteday з незалежною журналістикою кожною мовою.",
+  },
+  ar: {
+    tag: "استكشف تقارير أصلية عن {entity} على starteday — تغطية متعددة اللغات تشمل التكنولوجيا والعلوم والمزيد.",
+    topic: "{entity}: تغطية أصلية متعددة اللغات على starteday، بصحافة مستقلة بكل لغة.",
+  },
+  hi: {
+    tag: "starteday पर {entity} की मौलिक रिपोर्ट पढ़ें — प्रौद्योगिकी, विज्ञान और भी बहुत कुछ की बहुभाषी कवरेज।",
+    topic: "{entity}: starteday पर मौलिक बहुभाषी कवरेज, हर भाषा में स्वतंत्र पत्रकारिता।",
+  },
+  id: {
+    tag: "Baca liputan orisinal tentang {entity} di starteday — cakupan multibahasa mulai dari teknologi, sains, dan lainnya.",
+    topic: "{entity}: cakupan orisinal multibahasa di starteday, dengan jurnalisme independen dalam setiap bahasa.",
+  },
+  ms: {
+    tag: "Baca liputan asli tentang {entity} di starteday — liputan pelbagai bahasa daripada teknologi, sains dan banyak lagi.",
+    topic: "{entity}: liputan asli pelbagai bahasa di starteday, dengan kewartawanan bebas dalam setiap bahasa.",
+  },
+  fil: {
+    tag: "Basahin ang orihinal na ulat tungkol sa {entity} sa starteday — multilingual na saklaw mula teknolohiya, agham, at higit pa.",
+    topic: "{entity}: orihinal na multilingual na saklaw sa starteday, may malayang pamamahayag sa bawat wika.",
+  },
+  vi: {
+    tag: "Đọc các bài viết nguyên bản về {entity} trên starteday — phủ sóng đa ngôn ngữ từ công nghệ, khoa học và hơn thế nữa.",
+    topic: "{entity}: bản tin nguyên bản đa ngôn ngữ trên starteday, với báo chí độc lập bằng mọi ngôn ngữ.",
+  },
+  th: {
+    tag: "อ่านรายงานต้นฉบับเกี่ยวกับ {entity} บน starteday — ข่าวหลายภาษาตั้งแต่เทคโนโลยี วิทยาศาสตร์ และอื่น ๆ",
+    topic: "{entity}: ข่าวต้นฉบับหลายภาษาบน starteday พร้อมสื่อมวลชนอิสระในทุกภาษา",
+  },
+  my: {
+    tag: "starteday တွင် {entity} အကြောင်း မူရင်းသတင်းများ ဖတ်ရှုပါ — နည်းပညာ၊ သိပ္ပံနှင့် အခြားအကြောင်းအရာများကို ဘာသာစုံဖြင့်။",
+    topic: "{entity}: starteday တွင် မူရင်း ဘာသာစုံ သတင်းဖော်ပြချက်၊ ဘာသာတိုင်းဖြင့် လွတ်လပ်သော သတင်းစာပေ။",
+  },
+  bn: {
+    tag: "starteday-এ {entity} সম্পর্কে মৌলিক প্রতিবেদন পড়ুন — প্রযুক্তি, বিজ্ঞান এবং আরও অনেক কিছুর বহুভাষিক কভারেজ।",
+    topic: "{entity}: starteday-এ মৌলিক বহুভাষিক কভারেজ, প্রতিটি ভাষায় স্বাধীন সাংবাদিকতা।",
+  },
+  ur: {
+    tag: "starteday پر {entity} کے بارے میں اصل رپورٹس پڑھیں — ٹیکنالوجی، سائنس اور بہت کچھ کا کثیر لسانی احاطہ۔",
+    topic: "{entity}: starteday پر اصل کثیر لسانی کوریج، ہر زبان میں آزاد صحافت۔",
+  },
+};
+
+/** Short localized generic keywords appended after the entity name. */
+const ENTITY_KEYWORD_SUFFIX: Record<Locale, string> = {
+  zh: "原创报道, 多语言资讯, starteday",
+  "zh-Hant": "原創報道, 多語言資訊, starteday",
+  en: "original news, multilingual coverage, starteday",
+  ja: "オリジナル記事, 多言語カバレッジ, starteday",
+  ko: "오리지널 기사, 다국어 보도, starteday",
+  es: "noticias originales, cobertura multilingüe, starteday",
+  fr: "reportages originaux, couverture multilingue, starteday",
+  de: "Originalberichte, mehrsprachige Berichterstattung, starteday",
+  it: "reportage originali, copertura multilingue, starteday",
+  pt: "reportagens originais, cobertura multilíngue, starteday",
+  tr: "özgün haberler, çok dilli kapsam, starteday",
+  ru: "оригинальные материалы, многоязычное освещение, starteday",
+  uk: "оригінальні матеріали, багатомовне висвітлення, starteday",
+  ar: "تقارير أصلية, تغطية متعددة اللغات, starteday",
+  hi: "मौलिक समाचार, बहुभाषी कवरेज, starteday",
+  id: "berita orisinal, cakupan multibahasa, starteday",
+  ms: "berita asli, liputan pelbagai bahasa, starteday",
+  fil: "orihinal na balita, multilingual na saklaw, starteday",
+  vi: "tin nguyên bản, phủ sóng đa ngôn ngữ, starteday",
+  th: "ข่าวต้นฉบับ, ข่าวหลายภาษา, starteday",
+  my: "မူရင်းသတင်း, ဘာသာစုံ ဖော်ပြချက်, starteday",
+  bn: "মৌলিক সংবাদ, বহুভাষিক কভারেজ, starteday",
+  ur: "اصل خبریں, کثیر لسانی کوریج, starteday",
+};
+
+/** Keep a title within a sane length without cutting mid-word when possible. */
+function clampTitle(value: string, max = 60): string {
+  if (value.length <= max) return value;
+  const cut = value.lastIndexOf(" ", max - 1);
+  const safe = cut > max * 0.6 ? value.slice(0, cut) : value.slice(0, max - 1);
+  return `${safe.trimEnd()}…`;
+}
+
 /** Keep a meta description within a sane length without cutting mid-word when possible. */
 function clampDescription(value: string, max = 154): string {
   if (value.length <= max) return value;
@@ -472,5 +610,34 @@ export function categoryKeywordMeta(
     title: primary,
     description,
     keywords: [primary, ...secondary].join(","),
+  };
+}
+
+/**
+ * Build natural, localized SEO meta for a tag or topic entity page.
+ *
+ * The returned `title` is only the entity name — the layout's title.template
+ * appends " · starteday", and the brand suffix is intentionally not repeated
+ * here (same lesson as `categoryKeywordMeta`). Never throws.
+ */
+export function entityKeywordMeta(
+  loc: Locale,
+  entityName: string,
+  kind: "tag" | "topic",
+): { title: string; description: string; keywords: string } {
+  // Coerce defensively so odd inputs (undefined, empty-ish strings, CJK,
+  // Arabic) can never throw regardless of the caller.
+  const name = typeof entityName === "string" ? entityName : String(entityName ?? "");
+
+  const templates = ENTITY_DESCRIPTION_TEMPLATE[loc] ?? ENTITY_DESCRIPTION_TEMPLATE.en;
+  const template = kind === "topic" ? templates.topic : templates.tag;
+  // split/join instead of replace() so a "$" inside the entity name is never
+  // interpreted as a replacement pattern.
+  const description = clampDescription(template.split("{entity}").join(name));
+
+  return {
+    title: clampTitle(name),
+    description,
+    keywords: `${name},${ENTITY_KEYWORD_SUFFIX[loc] ?? ENTITY_KEYWORD_SUFFIX.en}`,
   };
 }
