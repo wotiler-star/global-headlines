@@ -1,0 +1,131 @@
+[
+  {
+    "id": "rss-orig-water-grown-ir-sensor-2026-11m-en",
+    "title": "Growing the sensor onto the circuit: a flexible chip that brings infrared imaging back to the water bath",
+    "summary": "Infrared detectors have long been built in two pieces: a light-sensitive layer made in one place, a readout circuit made in another, and a delicate alignment step to marry them. A team in Wuhan instead lets lead sulfide crystals grow directly on a finished flexible transistor array, in room-temperature water. The result is a 64 by 64 imager that resolves the veins of a maple leaf, and a question the paper cannot answer: does a route that works in a beaker also work for a decade?",
+    "cover": "/original/water-grown-ir-sensor-cover.webp",
+    "images": [
+      "/original/water-grown-ir-sensor-cover.webp",
+      "/original/water-grown-ir-sensor-fig1.webp",
+      "/original/water-grown-ir-sensor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "infrared imaging",
+      "lead sulfide",
+      "flexible electronics",
+      "aqueous growth",
+      "photodetector",
+      "in-situ integration"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LC0K6U0805329TW8.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1794995221604,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "The hardest part of building an infrared camera is seldom the sensing. A photosensitive layer turns invisible light into current; a readout circuit walks through that current pixel by pixel and turns it into an image. For decades these two jobs have been done apart. The material is grown on one substrate, the circuit is etched on another wafer, and the two are then aligned, bonded and packaged with a precision that makes the whole assembly expensive. A single pixel out of register degrades the picture. That is why the promise of doing both jobs in one step is so attractive.",
+      "The group led by Tang Jiang at Huazhong University of Science and Technology proposes folding those steps into one. Their reasoning is almost plain: if a lead sulfide film can be grown at low temperature from an aqueous solution, why not grow it on a flexible thin-film transistor array that already exists? The crystal forms where the circuit already sits, so the alignment problem disappears at its source. The work, published in Nature, carries the chain from raw material all the way to a working array.",
+      "Room temperature and water are the operative words. Lead sulfide is a solid performer in the near infrared, but high-quality films have historically required vacuum evaporation, elevated temperatures, or synthesis in toxic organic solvents. Those conditions are harsh and sit badly with plastic substrates. Water-based growth is gentle and simple, and sits naturally beside the idea of roll-to-roll printing. Its weakness is the same as its virtue: crystals form quickly in water and tend to come out rough and defect-ridden.",
+      "The team's contribution is controlling that crystallization. They coaxed a uniform quasi-single-crystal lead sulfide film to form on the flexible transistor surface, then built a lead sulfide homojunction photodiode on the same platform. A homojunction uses one material on both sides of the junction, doped differently, so the interface carries fewer defects than a heterojunction and the dark current stays low. That detail decides whether the image read from the array is clean or noisy.",
+      "The array is 64 by 64 pixels. That number is unremarkable in a commercial infrared camera, but it means something different in a device that combines flexibility, water processing and in-situ growth. The flexible thin-film-transistor backplane is itself a mature, mass-produced platform. Each pixel is switched by its own transistor, and a matching readout system handles addressing and signal extraction. This is not a hand-built laboratory curiosity so much as a validation mounted on an existing production logic. It also means the experiment inherits the backplane's process discipline instead of inventing a new one from scratch.",
+      "The demonstration is easy to grasp. A maple-leaf stencil is placed in front of the array, infrared light is shone through it, the lead sulfide diodes convert the transmitted light into current, the transistors switch pixel by pixel, and the terminal displays the result as a 256-level grayscale image. The veins of the leaf come through clearly. Choosing a maple leaf is a romantic touch, but also a sound test pattern: fine branching structures are exactly what expose crosstalk between neighbouring pixels.",
+      "The same paper carries a second thread. A group spanning the Institute of Chemical Materials at the China Academy of Engineering Physics, Hubei University and Zhejiang University, publishing in Nature Synthesis, used a hydrogel confinement system to decouple precursor solvation from lattice formation. That separation sidesteps the old incompatibility between water and perovskite synthesis, yielding dense, high-quality perovskite thick films. These were blade-coated onto a 256 by 256 transistor backplane to make a direct-conversion X-ray flat-panel detector, with 126-micron pixels across an active area of 3.2 by 3.2 centimetres.",
+      "The second line matters because of dose. The detector still images clearly at 30 microgray of air dose, and a thick absorbing layer keeps resolution close to the pixel limit while holding crosstalk down. For medical imaging and industrial non-destructive testing, the direction is almost obvious: a lower dose with the same clarity. That means the accumulated risk of repeated scans moves down, and it opens a route to faster inspection. Few improvements in imaging are as quietly valuable as that trade. Industrial inspectors, in particular, care less about a headline resolution figure than about how little radiation a scan quietly delivers.",
+      "Put the two results side by side and the common ground is louder than the differences. Both challenge the same inherited division of labour: that the light-sensitive material and the readout circuit must be manufactured separately. That division had a reason, because materials often demanded high heat and high vacuum while circuits could not tolerate them. Once crystal growth can be moved into room-temperature water, a boundary that held for decades begins to loosen. What was treated as a fixed technological constraint is being reframed as a design choice.",
+      "This, to my mind, is where the real weight of the work lies. If material and circuit can be integrated on a single flexible backplane, the shape of infrared sensing changes. It becomes a thin sheet that can be stuck to a curved surface, embedded into a structure that needs to stay light, or produced in a print-like flow. Sensing stops being a box you bolt on and starts being a layer you apply. The application is no longer locked inside a rigid, heavy and expensive package.",
+      "Still, the caveat deserves its own paragraph. There are orders of magnitude between 64 by 64 and commercial resolution. Uniformity of a flexible film, long-term stability, and attack by moisture and oxygen are not settled by this paper. An aqueous route that can grow a film on a circuit has not thereby shown it can grow one that lasts a decade. Stability data is usually the final gate between a flexible device and a production line. Uniformity across a large panel is also a different problem from making one good small device.",
+      "Lead sulfide brings its own old problems: the environmental compliance of lead, the drift of dark current with temperature, and the degree of compatibility with complementary metal-oxide-semiconductor readout. None of these is closed by one elegant image. Choosing a mature mass-produced transistor backplane as the landing point shows that manufacturability entered the design brief, which is welcome. Yet laboratory yield and line yield remain far apart. A paper is free to show its best device; a production line is not.",
+      "So my judgement is that this is a validation of a route, not the launch of a product. It proves that an infrared layer can be grown directly on flexible circuitry and that the readout chain can be made to run. It has not proved that the route can beat existing approaches simultaneously on cost, lifetime and resolution. Whether a process from beside the water bath can move into a factory will depend on who first stacks pixel count and stability together."
+    ]
+  },
+  {
+    "id": "rss-orig-cold-longevity-pathway-2026-11m-en",
+    "title": "A worm, a cofactor and a cold room: the metabolism behind a longer life",
+    "summary": "Moderate cold extends the life of adult nematodes, and a team in Cologne has traced why. A stable intermediate called BH2 accumulates, feeds a fragile cofactor called BH4, and switches on a pathway that keeps proteins folded in distant tissues. Knock down the enzyme and the benefit fades. The chain is elegant and complete; the leap from a millimetre-long worm to a person is the part nobody has earned yet.",
+    "cover": "/original/cold-longevity-pathway-cover.webp",
+    "images": [
+      "/original/cold-longevity-pathway-cover.webp",
+      "/original/cold-longevity-pathway-fig1.webp",
+      "/original/cold-longevity-pathway-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "healthy ageing",
+      "metabolic pathway",
+      "BH4",
+      "proteostasis",
+      "C. elegans",
+      "cold adaptation"
+    ],
+    "category": "health",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://news.qq.com/rain/a/20261118A04NTA00",
+    "author": "starteday Editorial",
+    "publishedAt": 1794995161604,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Longevity is a field that never lacks plausible advice. Wear less, eat less, expose yourself to cold: each has its advocates and its critics. The trouble is that most such claims stop at observation. People in some region live long and the region happens to be cool; a treatment makes cells more resilient but nobody can say which step does the work. Where the mechanism is empty, the conclusion easily turns into a belief. The appeal of a single causal story is obvious, and that is exactly why it has to be handled carefully.",
+      "A team at the University of Cologne set out to fill in that mechanism. They chose Caenorhabditis elegans, a millimetre-long roundworm with a lifespan of weeks, and treated temperature as the single variable, watching the phenomenon first and then asking why at each turn. The result appears in Nature. A worm is not a person, but its conserved pathways often offer leads for human biology.",
+      "The design is simple. Wild-type worms develop to adulthood at 20 degrees Celsius, then are moved to 15, 20 or 25 degrees. On the fifth day of adulthood, metabolites are measured. That detail, changing temperature only after adulthood, matters: it separates the effect of cold from development and looks purely at how an adult animal adapts. It is the kind of control that makes a later causal claim possible. A design that cannot separate these effects would only ever deliver a correlation.",
+      "In the results, several metabolites rose in the 15-degree group, and one stood out: dihydrobiopterin, or BH2. The researchers did not stop at naming a molecule that went up. They asked where it came from. Under cold, the key enzyme that makes BH2, GTP cyclohydrolase I, known in the worm as CAT-4, increased in abundance, and its messenger RNA rose with it. Cold was promoting transcription, and transcription was driving enzyme production. It is a small but decisive change in the question being asked.",
+      "BH2 has no biological activity of its own, and that is the key to the whole chain. It is an intermediate in the synthesis of tetrahydrobiopterin, BH4, and behaves like a stable reservoir. BH4 is a cofactor for many enzymatic reactions but is chemically fragile and readily oxidised. BH2 is more robust, and when needed it can be converted into active BH4 through a salvage pathway, with dihydrofolate reductase, or DHFR-1, doing the conversion. Without that distinction, the list of rising metabolites would be a pile of names pointing nowhere.",
+      "The logic resembles a buffer design. Store an unstable active molecule in a stable intermediate form, then activate it on site when required. In the 15-degree environment, worm BH4 levels rose modestly and lifespan followed. The caution in that wording is worth keeping: a modest rise, not a surge; lifespan followed, not produced by BH4 alone. Biological causal chains rarely arrive with dramatic numbers. They accumulate, instead, from small shifts sustained over time. A reservoir that can be tapped locally is a design principle, not a one-off chemical curiosity.",
+      "What nails the hypothesis is the reverse test. The team suppressed cat-4 during adulthood with RNA interference, lowering CAT-4 production. Worm BH4 fell, and the lifespan extension delivered by the cold weakened markedly. That step is decisive. It moves the story from a correlation in which cold, BH2, BH4 and longevity appear together to a causal claim in which removing a middle link makes the effect disappear.",
+      "The paper also sketches a wider implication. The pathway does not merely extend lifespan; it suppresses the aggregation of harmful proteins associated with disease during ageing and helps maintain protein homeostasis in distal tissues. The phrase distal tissue is revealing. A signal switched on in muscle may influence how other parts of the body manage their proteins. Such cross-tissue effects are among the hardest and most absorbing questions in ageing research. None of that proves a mechanism on its own, but it sets the boundaries a future explanation will have to respect.",
+      "In people, the counterpart of CAT-4 is GCH1, the enzyme that catalyses the first and rate-limiting step of BH2 synthesis. That correspondence invites speculation about human health. It is also exactly where a brake is needed. A shared rate-limiting enzyme does not mean shared regulation, still less that a person who chills out will live longer. Worms and people are separated by hundreds of millions of years of evolution, and the experimental settings are not remotely comparable. The honest response is curiosity with the claim kept firmly at worm scale.",
+      "The researchers themselves name what remains open: it is still unclear in which tissues CAT-4 acts. Where a signal comes from, where it goes, and through which receptor it reaches distant tissue, any missing link leaves the mechanism a sketch. That is the honest shape of basic research. It offers a testable next step rather than a health tip to copy at breakfast. The map has a route drawn on it, and several blank squares. Naming the unknown is not a weakness of the paper; it is the part that lets somebody else continue.",
+      "I prefer to read the study as a demonstration of method. It does not hunt for a single longevity gene. It threads temperature, a metabolite, a rate-limiting enzyme, a cofactor and protein homeostasis into one intervenable chain, then pushes back on it with RNA interference. That complete loop, from phenomenon to mechanism and back to intervention, is worth more than another report that some factor correlates with a long life. Science often advances less by finding an answer than by learning which question can actually be put to a test.",
+      "For a non-specialist, the useful takeaway is probably not wear less. It is understanding that cold stimulation is not mysticism. Moderate environmental challenge does trigger conserved stress and metabolic pathways, and those pathways touch ageing and protein quality control. But the temperature, the duration and the people for whom it works are questions for population studies, not for pasting worm data onto yourself. The honest position sits between dismissal and imitation. Enthusiasm should wait for that evidence.",
+      "The right way to read the paper, then, is as a starting point. The chain, cold to CAT-4 to BH2 to BH4 to protein homeostasis, has been sketched. The next questions are whether it holds in mammals, where the acting tissue sits, and how wide the window is. A line that survives those checks would change how we talk about cold and ageing; one that does not would still have taught us how to ask. Until then, the more reliable lesson is that science explains why far more slowly than it tells us what to do."
+    ]
+  },
+  {
+    "id": "rss-orig-lidar-price-floor-2026-11m-en",
+    "title": "LiDAR at 130,000 yuan: when advanced driving aids stop being a luxury badge",
+    "summary": "A Volkswagen sedan now puts a 192-channel laser scanner and a 420-teraflop chip into a car listed under 140,000 yuan. That is not another spec-sheet stunt: it is the first production vehicle on a shared architecture, which is how hardware once reserved for the 200,000-to-300,000 bracket falls into the lower bracket. Add a buyback promise and the competition shifts from who prices lowest to who dares underwrite the resale value.",
+    "cover": "/original/lidar-price-floor-cover.webp",
+    "images": [
+      "/original/lidar-price-floor-cover.webp",
+      "/original/lidar-price-floor-fig1.webp",
+      "/original/lidar-price-floor-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "LiDAR",
+      "driver assistance",
+      "vehicle architecture",
+      "resale value",
+      "price compression",
+      "EV market"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LC18R31T05199NPP.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1794995101604,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "A pattern has been hard to miss in the car market recently. Equipment treated as a premium badge one year appears on a cheap car the next. Laser scanning was the clearest case. It was once a marker of cars above 300,000 yuan. Now it is being fitted to a model whose entry price is under 100,000. That single fact is worth pausing over. It says less about one company's generosity than about how fast a component can slide down the price ladder once its architecture is shared.",
+      "The SAIC Volkswagen ID. ERA 5X went on sale recently, four versions carrying a limited-time price of 99,900 to 139,900 yuan. The top Ultra version, at 139,900, carries a 192-channel laser scanner and a Horizon Journey 6H chip delivering 420 teraflops, supporting navigation assistance in cities and on highways as well as parking-space-to-parking-space functions. Two years ago that bundle would have carried a very different tag. The price alone would be unremarkable; the sensor and the compute stacked into it are not.",
+      "More telling is what the car is. It is the first production vehicle built on Volkswagen's CMP and CEA architecture. Architecture comes before the individual model, which means the cost of platform sharing has already been diluted to the point where a lower price is possible. Getting advanced assistance down to this bracket is not a loss leader. It is the result of underlying structure, supply chain and software reuse pulling the per-car cost down together.",
+      "The entry version does not rely on a stripped-down excuse either. The 99,900 Pro version comes standard with a 4-nanometre automotive-grade chip, the Doubao large model 2.0, and a heat pump for climate control. The heat pump matters in cold northern winters, where it changes the range a driver actually gets. Putting it in the entry trim suggests the maker knows buyers care about real-world behaviour more than a peak figure on a sheet. That choice says the specification was written around use, not around a headline.",
+      "Space and safety figures are aimed at the same practical buyer. The wheelbase is 2,815 millimetres, cabin utilisation is quoted at 87.3 percent, and a two-level boot offers 394 to 1,815 litres plus 158 litres of underfloor storage. The body uses an 83 percent high-strength-steel cage, and seven airbags are standard across the range. None of this is startling, but it is concrete: it answers the unglamorous question of whether everyone fits and everything loads. Concrete figures are harder to argue with than adjectives.",
+      "The part I find most interesting is the buyback. Subject to agreed conditions, the company promises to repurchase at 80 percent of the purchase price after two years and 70 percent after three. On the 139,900 Ultra, that implies roughly 111,900 yuan after two years. The target is clear enough: uncertainty about what an electric car will be worth later is a genuine reason for a buyer to hesitate. It is a small line in a launch release aimed at a very large doubt.",
+      "Writing a resale value into an official promise is the maker absorbing part of a future risk on the buyer's behalf. It is cleverer than a straight discount, and riskier. Clever because it speaks to the real question of what the car is worth in three years. Risky because the buyback carries conditions, and the right to interpret them sits with the seller. Once volume, vehicle condition or policy wording becomes disputed, the promise can thin out. A guarantee whose value depends on fine print is only as strong as the clarity of that print.",
+      "So my judgement is that the buyback is worth welcoming but should not be read as a guaranteed floor. Read the conditions before signing. Mileage caps, accident history, servicing requirements and the repurchase window are all plausible grounds for refusal. For a buyer, the fine print in black and white matters more than the attractive number on a launch slide. A promise whose terms are unclear is a starting point for negotiation, not a safety net.",
+      "Set the car against a larger backdrop and the shape of the competition changes. The old contest was more equipment for the same money. The new one adds a second demand: as hardware moves down, the anxiety about what happens after purchase must also be answered. The first tests the supply chain. The second tests the maker's confidence in its own product life cycle. Willingness to underwrite resale is, in a sense, a vote of confidence cast by the company in its own car.",
+      "Hardware and experience still sit apart, of course. A 192-channel scanner and 420 teraflops describe a ceiling, not a result. A ceiling is useful to know, but it is not the same thing as a lived experience. Whether city navigation assistance is pleasant to use depends on how quickly algorithms improve, how efficiently data closes the loop, and how often the driver must take over. Demonstration clips always look smooth. Real underground garages, with their light, pedestrians and odd parking bays, are the actual test.",
+      "An easily overlooked issue comes next. Once advanced assistance reaches this price bracket, the population of users and the range of situations widen sharply. The system meets more driving habits and more demanding roads, and the pressure on its safety boundary rises. Technology moving downmarket is welcome, but it asks for more than fitting sensors. User education, clear statements of functional limits and a shared understanding of responsibility have to move with it. The responsibility question, in particular, tends to arrive after the first surprising incident rather than before it.",
+      "From an industry angle, Volkswagen using its architecture to push assistance into this bracket reads as a joint-venture brand shifting from following to competing on scale. If the move works, the pressure passes directly to brands whose margins lean on an assistance premium. A scanner at this price is not an ending. It is a signal that the entry ticket to this contest is being raised for everyone. Scale can absorb a price cut in a way that a thin margin cannot.",
+      "For an ordinary buyer the conclusion is simple. Getting a car with a laser scanner at this price was hard to imagine a few years ago and deserves a serious look. But the presence of a scanner is not a reason to ignore the software, the service network or the buyback terms. A specifications sheet tells you the hardware ceiling. The test drive and the contract tell you what the car is actually worth. In a market this noisy, the willingness to read the small print is itself a form of value."
+    ]
+  }
+]

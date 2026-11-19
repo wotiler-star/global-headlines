@@ -5,7 +5,7 @@ import { Locale, isLocale } from "./config";
 //
 // 设计原则：
 //  1) 官方/通用语言优先；多官方语言国家取覆盖人口最多或国际通用度最高的语种。
-//  2) 站点仅支持 8 个语种，未覆盖地区回落到 en（国际通用语），不强塞中文。
+//  2) 站点支持 22 个语种，未覆盖地区回落到 en（国际通用语），不强塞中文。
 //  3) 只用于「首次访客建议语种」；用户手动选择（cookie）与显式 /xx/ URL 永远优先。
 //  4) 站点无国家专属内容，所以同一语种下所有地区共享同一 URL，地区差异仅体现在
 //     hreflang 地区变体（config.ts localeRegions）与自动切换建议。
@@ -15,16 +15,44 @@ const GROUPS: { codes: string; locale: Locale }[] = [
   { codes: "CN TW HK MO SG", locale: "zh" },
   { codes: "JP", locale: "ja" },
   { codes: "KR", locale: "ko" },
+  // 俄语及前苏联俄语通用地区
+  { codes: "RU BY KZ KG TJ TM AM AZ GE MD", locale: "ru" },
+  // 乌克兰（乌克兰语）
+  { codes: "UA", locale: "uk" },
   { codes: "ES MX AR CO CL PE VE EC UY PY BO CR PA DO GT HN NI SV CU PR GQ", locale: "es" },
-  // 法语欧洲 + 法语非洲/印度洋 + 马格里布（法语通用）
-  { codes: "FR BE LU MC SN CI ML BF NE TD CG CD CM CF GA GN BJ TG MG KM DJ RW BI SC MU MA DZ TN", locale: "fr" },
+  // 法语欧洲 + 法语非洲/印度洋（马格里布阿拉伯国家已划入 ar）
+  { codes: "FR BE LU MC SN CI ML BF NE TD CG CD CM CF GA GN BJ TG MG KM DJ RW BI SC MU", locale: "fr" },
+  // 德语区（DE/AT/CH/LI），瑞士/比利时/卢森堡多语但以国家主语种归属，用户可手动切换
+  { codes: "DE AT CH LI", locale: "de" },
+  // 意大利语区（IT/SM/VA），CH 已归德语组
+  { codes: "IT SM VA", locale: "it" },
   { codes: "PT BR AO MZ GW CV ST TL", locale: "pt" },
   { codes: "TR", locale: "tr" },
-  // 英语官方/通用语国家
-  { codes: "US GB AU CA NZ IE ZA NG KE GH UG TZ ZM ZW BW NA MW SS SD ET ER SO IN PK BD LK NP MY PH FJ PG SB VU JM TT BB BS BZ GY LC GD VC AG KN DM MT AE QA KW BH OM SA JO LB IL", locale: "en" },
+  // 阿拉伯语国家（从 en/fr 组迁出；IL 以色列保留 en，希伯来语未支持）
+  { codes: "SA AE QA KW BH OM JO LB EG IQ SY YE LY MA DZ TN SD PS MR", locale: "ar" },
+  // 印度（印地语）
+  { codes: "IN", locale: "hi" },
+  // 印度尼西亚
+  { codes: "ID", locale: "id" },
+  // 马来西亚（马来语）
+  { codes: "MY", locale: "ms" },
+  // 菲律宾（菲律宾语/他加禄语）
+  { codes: "PH", locale: "fil" },
+  // 越南（越南语）
+  { codes: "VN", locale: "vi" },
+  // 泰国（泰语）
+  { codes: "TH", locale: "th" },
+  // 缅甸（缅甸语）
+  { codes: "MM", locale: "my" },
+  // 孟加拉（孟加拉语）
+  { codes: "BD", locale: "bn" },
+  // 巴基斯坦（乌尔都语，RTL）
+  { codes: "PK", locale: "ur" },
+  // 英语官方/通用语国家（已移除分配给 ru/ar/hi/id/ms/fil/vi/th/my/bn/ur 的地区）
+  { codes: "US GB AU CA NZ IE ZA NG KE GH UG TZ ZM ZW BW NA MW SS ET ER SO LK NP FJ PG SB VU JM TT BB BS BZ GY LC GD VC AG KN DM MT IL", locale: "en" },
 ];
 
-// 德语/意语/荷语/北欧/东欧/中亚/东南亚非英语国家：站点暂不支持 → 回落 en。
+// 荷语/北欧/其他东欧/中亚非俄语/东南亚非英语国家：站点暂不支持 → 回落 en。
 // 显式说明以免后续误以为漏配；兜底逻辑见 countryToLocale。
 
 const COUNTRY_LOCALE: Record<string, Locale> = {};
@@ -79,6 +107,7 @@ export function countryToDisplayLocale(country?: string | null): string {
     GB: "en-GB", AU: "en-AU", CA: "en-CA", IN: "en-IN", US: "en-US",
     TW: "zh-TW", HK: "zh-HK", SG: "zh-SG", CN: "zh-CN",
     FR: "fr-FR", BE: "fr-BE", JP: "ja-JP", KR: "ko-KR", TR: "tr-TR",
+    DE: "de-DE", AT: "de-AT", CH: "de-CH", IT: "it-IT", UA: "uk-UA",
   };
   return map[c] || loc;
 }

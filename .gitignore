@@ -74,3 +74,30 @@ reset-cov44-kept.json
 seo_audit_cov47*.json
 gsc_verification_cov46.json
 commons_picks_cov48.json
+
+# 部署期生成产物（gen-rss 在构建/部署时重写，不入库）
+/public/rss.xml
+/public/*/rss.xml
+
+# 编辑管线临时与原始素材（不入库）
+__pycache__/
+*.tgz
+brand_real*/
+contact_*.png
+verify1*.png
+data/original/_bak_*/
+_tp*.json
+_local_md5.txt
+_server_md5.txt
+_pull_list.txt
+_push_list_1111.txt
+_deploy_sync_list.txt
+_audit_final.txt
+_threeway_detail.txt
+_threeway_groups.json
+_manual_src.json
+or_test_err.txt
+_probe_*.mjs
+_dump_manual_src.mjs
+_diff_report.mjs
+_tt2.mjs

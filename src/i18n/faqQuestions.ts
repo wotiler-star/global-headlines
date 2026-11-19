@@ -2,14 +2,14 @@
 // 答案不在这里：全部复用 citePage.ts 已本地化的 desc / whatBody / creditBody /
 // licenseBody / contactBody，避免两套答案口径漂移，也减少翻译量。
 // 新增语种时 Record<Locale, ...> 会强制补全（语种清单以 config.ts 为准）。
-import type { Locale } from "./config";
+import { withEnFallback, type Locale, type NewLocale } from "./config";
 
 export type FaqCopy = {
   title: string;
   questions: [string, string, string, string, string];
 };
 
-export const faqCopy: Record<Locale, FaqCopy> = {
+const faqCopyRaw: Record<Exclude<Locale, NewLocale>, FaqCopy> = {
   zh: {
     title: "常见问题",
     questions: [
@@ -70,6 +70,26 @@ export const faqCopy: Record<Locale, FaqCopy> = {
       "Comment signaler une erreur factuelle ou un crédit manquant ?",
     ],
   },
+  de: {
+    title: "Häufig gestellte Fragen",
+    questions: [
+      "Was ist starteday?",
+      "Sind die Artikel Übersetzungen oder Zusammenfassungen?",
+      "Darf ich die Bilder wiederverwenden und wie muss ich sie nennen?",
+      "Darf ich einen ganzen Artikel nachdrucken oder ihn kommerziell nutzen?",
+      "Wie melde ich einen sachlichen Fehler oder eine fehlende Quellenangabe?",
+    ],
+  },
+  it: {
+    title: "Domande frequenti",
+    questions: [
+      "Che cos'è starteday?",
+      "Gli articoli sono traduzioni o riassunti?",
+      "Posso riutilizzare le immagini e come devo citarle?",
+      "Posso ripubblicare un articolo completo o usarlo a scopi commerciali?",
+      "Come segnalo un errore fattuale o una citazione mancante?",
+    ],
+  },
   pt: {
     title: "Perguntas frequentes",
     questions: [
@@ -90,4 +110,56 @@ export const faqCopy: Record<Locale, FaqCopy> = {
       "Bir olgu hatasını ya da eksik atfı nasıl bildiririm?",
     ],
   },
+  ru: {
+    title: "Часто задаваемые вопросы",
+    questions: [
+      "Что такое starteday?",
+      "Являются ли статьи переводами или краткими изложениями?",
+      "Можно ли использовать изображения повторно и как их указывать?",
+      "Можно ли переиздать статью целиком или использовать её в коммерческих целях?",
+      "Как сообщить о фактической ошибке или пропущенном указании источника?",
+    ],
+  },
+  uk: {
+    title: "Часті запитання",
+    questions: [
+      "Що таке starteday?",
+      "Чи є статті перекладами чи стислими викладами?",
+      "Чи можна повторно використовувати зображення і як їх зазначати?",
+      "Чи можна передрукувати статтю повністю або використати її в комерційних цілях?",
+      "Як повідомити про фактичну помилку або пропущене джерело?",
+    ],
+  },
+  ar: {
+    title: "الأسئلة الشائعة",
+    questions: [
+      "ما هو starteday؟",
+      "هل المقالات مترجمة أم ملخّصة؟",
+      "هل يمكنني إعادة استخدام الصور، وكيف أذكر مصدرها؟",
+      "هل يمكنني إعادة نشر مقال كامل أو استخدامه تجارياً؟",
+      "كيف أبلغ عن خطأ وقائعي أو عن إغفال ذكر المصدر؟",
+    ],
+  },
+  hi: {
+    title: "अक्सर पूछे जाने वाले प्रश्न",
+    questions: [
+      "starteday क्या है?",
+      "क्या लेख अनुवाद या सारांश हैं?",
+      "क्या मैं चित्रों का पुनः उपयोग कर सकता हूँ, और उनका श्रेय कैसे दूँ?",
+      "क्या मैं पूरा लेख पुनः प्रकाशित कर सकता हूँ या उसका व्यावसायिक उपयोग कर सकता हूँ?",
+      "तथ्यात्मक त्रुटि या छूटे हुए श्रेय की सूचना मैं कैसे दूँ?",
+    ],
+  },
+  id: {
+    title: "Pertanyaan yang sering diajukan",
+    questions: [
+      "Apa itu starteday?",
+      "Apakah artikelnya terjemahan atau ringkasan?",
+      "Bisakah saya menggunakan ulang gambar, dan bagaimana sebaiknya mengutipnya?",
+      "Bisakah saya menerbitkan ulang artikel secara penuh atau menggunakannya untuk tujuan komersial?",
+      "Bagaimana cara melaporkan kesalahan faktual atau kredit yang terlewat?",
+    ],
+  },
 };
+
+export const faqCopy = withEnFallback(faqCopyRaw);

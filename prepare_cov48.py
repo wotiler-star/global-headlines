@@ -17,8 +17,10 @@ EXPECTED = {"zh", "en", "ja", "ko", "es", "fr", "pt", "tr"}
 # 11h 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 21 / 其余 20（累计 161 条）。
 # 11i 由并行会话新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 24 / 其余 23（累计 185 条）。
 # 11j 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 27 / 其余 26（累计 209 条）。
-# 11k 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 30 / 其余 29（累计 233 条）。续下一批(l)时：33/32。
-EXPECT_COUNT = {loc: (30 if loc == "zh" else 29) for loc in EXPECTED}
+# 11k 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 30 / 其余 29（累计 233 条）。
+# 11l 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 33 / 其余 32（累计 257 条）。
+# 11m 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 36 / 其余 35（累计 281 条）。
+EXPECT_COUNT = {loc: (36 if loc == "zh" else 35) for loc in EXPECTED}
 
 # 变音符号下限（%）：防止非英语稿被 ASCII 化（2026-11-08 11g 首轮 es 0.65%/fr 0.03%/pt 0.01%/tr 0.32%）
 DIACRITIC_FLOOR = {"es": 1.2, "fr": 1.2, "pt": 1.8, "tr": 6.0}
@@ -53,8 +55,12 @@ for f in FILES:
         seen.add(aid)
         loc = a.get("locale")
         by_locale[loc] = by_locale.get(loc, 0) + 1
-        if loc not in EXPECTED:
-            problems.append(f"非法 locale: {loc} @ {aid}")
+        # 22 语种架构下，data/original 还含 ru/ar/hi/id/de/it/uk 与 7 个克隆语种子文件。
+        # 这些非本管线（8 语种原创批次）职责的文件只保留 id 唯一性检查，不跑质量门禁，
+        # 否则克隆语种共享封面会被误报「封面重复」，it 稿的 minor 等外来词会误报敏感词。
+        in_scope = loc in EXPECTED
+        if not in_scope:
+            continue
         # 同语种同题（slug 相同）
         m = re.match(r"rss-orig-(.+?)-2026-\d\d[a-z]?(-[a-z]{2})?$", aid)
         slug = m.group(1) if m else aid

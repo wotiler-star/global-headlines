@@ -1,14 +1,11 @@
-import { Locale } from "./config";
+import { Locale, withEnFallback, type NewLocale } from "./config";
 
 // 搜索落地页（bare /search）可见 FAQ + FAQPage 结构化数据文案。
 // 独立模块，避免污染巨型字典；8 语种各 4 问，内容与搜索/站点能力真实对应
 //（Google FAQ 政策要求 Q&A 必须在页面可见，schema 与 DOM 必须一致）。
 export type FaqItem = { q: string; a: string };
 
-export const FAQ: Record<
-  Locale,
-  { title: string; landingDesc: string; items: FaqItem[] }
-> = {
+const FAQRaw: Record<Exclude<Locale, NewLocale>, { title: string; landingDesc: string; items: FaqItem[] }> = {
   zh: {
     title: "常见问题",
     landingDesc:
@@ -147,6 +144,52 @@ export const FAQ: Record<
       },
     ],
   },
+  de: {
+    title: "Häufig gestellte Fragen",
+    landingDesc:
+      "Durchsuche globale Nachrichten zu Technologie, Finanzen, Welt und Sport in mehreren Sprachen auf starteday; filtere nach Kategorie und sortiere nach Relevanz oder Aktualität.",
+    items: [
+      {
+        q: "Wie suche ich Nachrichten auf starteday?",
+        a: "Gib ein Stichwort in das Suchfeld oben auf der Seite ein und drücke Enter, um passende Ergebnisse aus mehrsprachigen Quellen weltweit zu erhalten.",
+      },
+      {
+        q: "Welche Sprachen unterstützt starteday?",
+        a: "Wir bieten acht Sprachausgaben: Vereinfachtes Chinesisch, Englisch, Japanisch, Koreanisch, Spanisch, Französisch, Portugiesisch und Türkisch.",
+      },
+      {
+        q: "Woher stammen die Inhalte der Suche?",
+        a: "Wir bündeln vielfältige globale Quellen und ergänzen Redaktionsauswahl und eigene Recherchen; jeder Beitrag nennt Quelle und Veröffentlichungszeit.",
+      },
+      {
+        q: "Kann ich nach Kategorie oder Stichwort filtern?",
+        a: "Ja. Auf der Suchergebnisseite kannst du zwischen Kategorien wechseln und nach Relevanz oder Neuheit sortieren; die Startseite bietet eine Kategorienavigation.",
+      },
+    ],
+  },
+  it: {
+    title: "Domande frequenti",
+    landingDesc:
+      "Cerca su starteday notizie globali su tecnologia, finanza, mondo e sport in più lingue; filtra per categoria e ordina per rilevanza o recentività.",
+    items: [
+      {
+        q: "Come cerco le notizie su starteday?",
+        a: "Digita una parola chiave nella casella di ricerca in alto alla pagina e premi Invio per ottenere risultati pertinenti da fonti multilingue di tutto il mondo.",
+      },
+      {
+        q: "Quali lingue supporta starteday?",
+        a: "Offriamo otto edizioni linguistiche: cinese semplificato, inglese, giapponese, coreano, spagnolo, francese, portoghese e turco.",
+      },
+      {
+        q: "Da dove provengono i contenuti della ricerca?",
+        a: "Raccogliamo diverse fonti globali e aggiungiamo le scelte della redazione e reportage originali, ciascuno con fonte e ora di pubblicazione.",
+      },
+      {
+        q: "Posso filtrare per categoria o parola chiave?",
+        a: "Sì. La pagina dei risultati consente di cambiare categoria e ordinare per rilevanza o novità, e la home page offre la navigazione per categorie.",
+      },
+    ],
+  },
   pt: {
     title: "Perguntas frequentes",
     landingDesc:
@@ -193,4 +236,121 @@ export const FAQ: Record<
       },
     ],
   },
+  ru: {
+    title: "Часто задаваемые вопросы",
+    landingDesc:
+      "Ищите глобальные новости о технологиях, финансах, мире и спорте на нескольких языках в starteday; фильтруйте по категориям и сортируйте по релевантности или новизне.",
+    items: [
+      {
+        q: "Как искать новости в starteday?",
+        a: "Введите ключевое слово в строку поиска вверху страницы и нажмите Enter, чтобы получить связанные результаты из многоязычных источников по всему миру.",
+      },
+      {
+        q: "Какие языки поддерживает starteday?",
+        a: "Мы предлагаем восемь языковых версий: упрощённый китайский, английский, японский, корейский, испанский, французский, португальский и турецкий.",
+      },
+      {
+        q: "Откуда берётся содержимое результатов поиска?",
+        a: "Мы агрегируем разнообразные мировые источники и добавляем подборки редакции и оригинальные материалы; для каждой записи указаны источник и время публикации.",
+      },
+      {
+        q: "Можно ли фильтровать по категории или ключевому слову?",
+        a: "Да. Страница результатов позволяет переключаться между категориями и сортировать по релевантности или новизне, а на главной есть навигация по категориям.",
+      },
+    ],
+  },
+  uk: {
+    title: "Часті запитання",
+    landingDesc:
+      "Шукайте в starteday глобальні новини про технології, фінанси, світ і спорт кількома мовами; фільтруйте за категоріями та сортуйте за релевантністю чи новизною.",
+    items: [
+      {
+        q: "Як шукати новини в starteday?",
+        a: "Введіть ключове слово в поле пошуку угорі сторінки й натисніть Enter, щоб отримати пов'язані результати з багатомовних джерел усього світу.",
+      },
+      {
+        q: "Які мови підтримує starteday?",
+        a: "Ми пропонуємо вісім мовних версій: спрощена китайська, англійська, японська, корейська, іспанська, французька, португальська та турецька.",
+      },
+      {
+        q: "Звідки походить вміст результатів пошуку?",
+        a: "Ми збираємо різноманітні світові джерела й додаємо добірки редакції та оригінальні матеріали; для кожного запису вказано джерело й час публікації.",
+      },
+      {
+        q: "Чи можна фільтрувати за категорією чи ключовим словом?",
+        a: "Так. Сторінка результатів дає змогу перемикати категорії та сортувати за релевантністю чи новизною, а на головній сторінці є навігація за категоріями.",
+      },
+    ],
+  },
+  ar: {
+    title: "الأسئلة الشائعة",
+    landingDesc:
+      "ابحث في starteday عن أخبار التقنية والتمويل والعالم والرياضة بعدة لغات؛ صفِّ حسب التصنيف ورتّب حسب الصلة أو الحداثة.",
+    items: [
+      {
+        q: "كيف أبحث عن الأخبار في starteday؟",
+        a: "اكتب كلمة مفتاحية في مربع البحث أعلى الصفحة واضغط Enter للحصول على نتائج ذات صلة من مصادر متعددة اللغات حول العالم.",
+      },
+      {
+        q: "ما اللغات التي يدعمها starteday؟",
+        a: "نقدّم ثماني نسخ لغوية: الصينية المبسطة، الإنجليزية، اليابانية، الكورية، الإسبانية، الفرنسية، البرتغالية والتركية.",
+      },
+      {
+        q: "من أين يأتي محتوى البحث؟",
+        a: "نجمع مصادر عالمية متنوعة ونضيف اختيارات المحررين وتقارير أصلية، مع ذكر المصدر ووقت النشر لكل عنصر.",
+      },
+      {
+        q: "هل يمكنني التصفية حسب التصنيف أو الكلمة المفتاحية؟",
+        a: "نعم. تتيح صفحة النتائج تبديل التصنيفات والترتيب حسب الصلة أو الأحدث، وتوفر الصفحة الرئيسية تنقلاً حسب التصنيف.",
+      },
+    ],
+  },
+  hi: {
+    title: "अक्सर पूछे जाने वाले प्रश्न",
+    landingDesc:
+      "starteday पर कई भाषाओं में वैश्विक तकनीक, वित्त, विश्व और खेल समाचार खोजें; श्रेणी के अनुसार फ़िल्टर करें और प्रासंगिकता या नवीनता के अनुसार क्रमबद्ध करें।",
+    items: [
+      {
+        q: "मैं starteday पर समाचार कैसे खोजूँ?",
+        a: "पृष्ठ के शीर्ष पर खोज बॉक्स में कोई कीवर्ड लिखें और Enter दबाएँ, जिससे दुनिया भर के बहुभाषी स्रोतों से संबंधित परिणाम मिलेंगे।",
+      },
+      {
+        q: "starteday किन भाषाओं का समर्थन करता है?",
+        a: "हम आठ भाषा संस्करण प्रदान करते हैं: सरलीकृत चीनी, अंग्रेज़ी, जापानी, कोरियाई, स्पेनिश, फ़्रेंच, पुर्तगाली और तुर्की।",
+      },
+      {
+        q: "खोज की सामग्री कहाँ से आती है?",
+        a: "हम विविध वैश्विक स्रोतों को एकत्र करते हैं और संपादकों की पसंद व मौलिक रिपोर्टिंग जोड़ते हैं, जिसमें प्रत्येक आइटम का स्रोत और प्रकाशन समय दर्शाया जाता है।",
+      },
+      {
+        q: "क्या मैं श्रेणी या कीवर्ड के अनुसार फ़िल्टर कर सकता हूँ?",
+        a: "हाँ। परिणाम पृष्ठ पर श्रेणियाँ बदलने और प्रासंगिकता या नवीनतम के अनुसार क्रमबद्ध करने की सुविधा है, और होम पृष्ठ पर श्रेणी नेविगेशन उपलब्ध है।",
+      },
+    ],
+  },
+  id: {
+    title: "Pertanyaan yang sering diajukan",
+    landingDesc:
+      "Cari berita global tentang teknologi, keuangan, dunia, dan olahraga dalam beberapa bahasa di starteday; filter berdasarkan kategori dan urutkan menurut relevansi atau terbaru.",
+    items: [
+      {
+        q: "Bagaimana cara mencari berita di starteday?",
+        a: "Ketik kata kunci ke dalam kotak pencarian di bagian atas halaman dan tekan Enter untuk mendapatkan hasil terkait dari sumber multibahasa di seluruh dunia.",
+      },
+      {
+        q: "Bahasa apa saja yang didukung starteday?",
+        a: "Kami menyediakan delapan edisi bahasa: Mandarin Sederhana, Inggris, Jepang, Korea, Spanyol, Prancis, Portugis, dan Turki.",
+      },
+      {
+        q: "Dari mana konten pencarian berasal?",
+        a: "Kami mengagregasi berbagai sumber global dan menambahkan pilihan editor serta laporan asli, dengan setiap item mencantumkan sumber dan waktu terbitnya.",
+      },
+      {
+        q: "Apakah saya bisa memfilter berdasarkan kategori atau kata kunci?",
+        a: "Ya. Halaman hasil memungkinkan Anda mengganti kategori dan mengurutkan menurut relevansi atau terbaru, serta beranda menyediakan navigasi kategori.",
+      },
+    ],
+  },
 };
+
+export const FAQ = withEnFallback(FAQRaw);
