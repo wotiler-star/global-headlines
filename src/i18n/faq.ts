@@ -17,7 +17,7 @@ const FAQRaw: Record<Exclude<Locale, NewLocale>, { title: string; landingDesc: s
       },
       {
         q: "starteday 支持哪些语言？",
-        a: "提供简体中文、English、日本語、한국어、Español、Français、Português、Türkçe 共 8 种语言版本。",
+        a: "提供简体中文、繁體中文、English、日本語、한국어、Español、Français、Português、Türkçe 等多种语言版本。",
       },
       {
         q: "搜索结果的内容来自哪里？",
@@ -26,6 +26,29 @@ const FAQRaw: Record<Exclude<Locale, NewLocale>, { title: string; landingDesc: s
       {
         q: "能否按分类或关键词筛选？",
         a: "可以。搜索结果页支持综合/分类切换与相关度/最新排序，首页也提供分类导航。",
+      },
+    ],
+  },
+  "zh-Hant": {
+    title: "常見問題",
+    landingDesc:
+      "在 starteday 搜索全球科技、財經、國際、體育等多語言資訊，按分類與最新排序篩選結果。",
+    items: [
+      {
+        q: "如何在 starteday 上搜索新聞？",
+        a: "在頁面頂部搜索框輸入關鍵詞並回車，即可獲得來自全球多語言來源的相關結果。",
+      },
+      {
+        q: "starteday 支持哪些語言？",
+        a: "提供簡體中文、繁體中文、English、日本語、한국어、Español、Français、Português、Türkçe 等多種語言版本。",
+      },
+      {
+        q: "搜索結果的內容來自哪裡？",
+        a: "我們聚合全球多元來源，並提供編輯精選與原創深度報道，每條均標註來源與發佈時間。",
+      },
+      {
+        q: "能否按分類或關鍵詞篩選？",
+        a: "可以。搜索結果頁支持綜合/分類切換與相關度/最新排序，首頁也提供分類導航。",
       },
     ],
   },

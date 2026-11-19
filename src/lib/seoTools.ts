@@ -77,9 +77,9 @@ function indexableArticles(): Article[] {
 
 // GEO：把「能被 AI 引擎直接摘取并引用」的站点事实写成固定段落，
 // llms.txt 与 llms-full.txt 共用，避免两处口径漂移。
-const SITE_FACTS = `- 名称：starteday（22 语种统一，不翻译）；规范域：${SITE_URL}
-- 语种：zh/en/ja/ko/es/fr/de/it/pt/tr/ru/uk/ar/hi/id/ms/fil/vi/th/my/bn/ur 共 22 个独立 URL；译文分批补齐，未翻译的英文复读页标记 noindex 且不进 sitemap
-- 内容：每日 3 个原创话题；中文、英语、日语、韩语、西班牙语、法语、葡萄牙语、土耳其语、德语、意大利语、乌克兰语等各自独立撰写，不是机器翻译或摘要
+const SITE_FACTS = `- 名称：starteday（23 语种统一，不翻译）；规范域：${SITE_URL}
+- 语种：zh/zh-Hant/en/ja/ko/es/fr/de/it/pt/tr/ru/uk/ar/hi/id/ms/fil/vi/th/my/bn/ur 共 23 个独立 URL（zh=简体中文、zh-Hant=繁體中文）；译文分批补齐，未翻译的英文复读页标记 noindex 且不进 sitemap
+- 内容：每日 3 个原创话题；简体中文、繁體中文、英语、日语、韩语、西班牙语、法语、葡萄牙语、土耳其语、德语、意大利语、乌克兰语等各自独立撰写，不是机器翻译或摘要
 - 原创性：正文保留可追溯的原始报道链接，但重写结构、补充背景与观点；文章页以 NewsArticle 结构化数据标注 citation / isBasedOn
 - 配图：每篇 3 张 Wikimedia Commons 真实照片，许可为 CC BY / CC BY-SA / CC0 / 公有领域，文内逐张列出作者与许可；不使用 AI 生成图片
 - 引用格式：starteday. (年份). 文章标题. starteday. ${SITE_URL}/<语种>/article/<文章 id>
@@ -87,7 +87,7 @@ const SITE_FACTS = `- 名称：starteday（22 语种统一，不翻译）；规�
 - 内容边界：选题避开政治、军事、宗教、种族与儿童相关议题
 - 纠错与授权：事实错误、署名遗漏或授权请求见各语种「关于与引用」页的联系与纠错一节`;
 
-// GEO 实体索引：以「主题实体」为主（稳定 slug × 22 语种，完整 hreflang 按真实译本声明），
+// GEO 实体索引：以「主题实体」为主（稳定 slug × 23 语种，完整 hreflang 按真实译本声明），
 // 标签实体为辅（与 sitemap / generateStaticParams 同一判定，slug 不会漂移成死链）。
 function buildEntityIndex(): string {
   const lines: string[] = [];
@@ -159,7 +159,7 @@ export function buildLlmsTxt(): string {
 
   return `# ${SITE_NAME}
 
-> starteday 是一个覆盖中文、英语、日语、韩语、西班牙语、法语、葡萄牙语、土耳其语的原创科技与科学资讯站。所有文章为独立撰写的原创稿件，配图来自 Wikimedia Commons 并在文内标注作者与许可。
+> starteday 是一个覆盖简体中文、繁體中文、英语、日语、韩语、西班牙语、法语、葡萄牙语、土耳其语等多种语言的原创科技与科学资讯站。所有文章为独立撰写的原创稿件，配图来自 Wikimedia Commons 并在文内标注作者与许可。
 
 ## 站点事实（可直接引用）
 

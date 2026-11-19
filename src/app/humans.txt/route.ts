@@ -8,17 +8,17 @@ export const dynamic = "force-static";
 export function GET() {
   const txt = `/* humans.txt — starteday.com */
 /* TEAM */
-  Editorial desk: starteday (8 languages: zh, en, ja, ko, es, fr, pt, tr)
+  Editorial desk: starteday (23 languages: zh, zh-Hant, en, ja, ko, es, fr, de, it, pt, tr, ru, uk, ar, hi, id, ms, fil, vi, th, my, bn, ur)
   Contact / corrections / citation policy: see /<locale>/about on this site.
 
 /* SITE */
   Standards: HTML5, CSS3, RSS 2.0, Atom 1.0, schema.org JSON-LD, llms.txt
-  Languages: Chinese, English, Japanese, Korean, Spanish, French, Portuguese, Turkish
+  Languages: Simplified Chinese, Traditional Chinese, English, Japanese, Korean, Spanish, French, German, Italian, Portuguese, Turkish, Russian, Ukrainian, Arabic, Hindi, Indonesian, Malay, Filipino, Vietnamese, Thai, Burmese, Bengali, Urdu
   Content: original reporting and curated science/technology news with source attribution
   Images: Wikimedia Commons, author and license credited on each article and on /<locale>/about
 
 /* REFERENCE ASSETS */
-  About & citation guide: ${SITE_URL}/zh/about (and /en/about, /ja/about, /ko/about, /es/about, /fr/about, /pt/about, /tr/about)
+  About & citation guide: ${SITE_URL}/zh/about (and /zh-Hant/about, /en/about, /ja/about, /ko/about, /es/about, /fr/about, /pt/about, /tr/about and others)
   llms.txt: ${SITE_URL}/llms.txt
   Sitemap: ${SITE_URL}/sitemap.xml
   Google News sitemap: ${SITE_URL}/news-sitemap.xml

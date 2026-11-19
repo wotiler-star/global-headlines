@@ -33,13 +33,14 @@ export type TopicEntry = {
 /** rss-orig-photonic-memristor-2026-11k-en → photonic-memristor */
 export function topicSlug(id: string): string {
   return id
-    .replace(/-(en|ja|ko|es|fr|pt|tr)$/, "")
+    .replace(/-(en|ja|ko|es|fr|de|it|pt|tr|ru|uk|ar|hi|id|ms|fil|vi|th|my|bn|ur|zh-Hant)$/, "")
     .replace(/^rss-orig-/, "")
     .replace(/-2026-11[a-z]?$/, "");
 }
 
 function topicBatch(id: string): string {
-  const m = /-2026-11([a-z]?)(?:-[a-z]{2})?$/.exec(id);
+  // 语种后缀可能是 2~3 位小写（en/fil）或 zh-Hant（带连字符+大写 H）
+  const m = /-2026-11([a-z]?)(?:-(?:zh-Hant|[a-z]{2,3}))?$/.exec(id);
   return m ? `2026-11${m[1]}` : "archive";
 }
 

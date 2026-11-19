@@ -6,6 +6,7 @@ import { CURRENCIES, convert, currencyName, currencySymbol } from "@/lib/fx";
 
 const I18NRaw: Record<Exclude<Locale, NewLocale>, { title: string; amount: string; from: string; to: string; swap: string; note: string; approx: string }> = {
   zh: { title: "货币兑换", amount: "金额", from: "从", to: "到", swap: "互换", note: "静态汇率", approx: "仅供参考" },
+  "zh-Hant": { title: "貨幣兌換", amount: "金額", from: "從", to: "到", swap: "互換", note: "靜態匯率", approx: "僅供參考" },
   en: { title: "Currency", amount: "Amount", from: "From", to: "To", swap: "Swap", note: "static rates", approx: "indicative only" },
   ja: { title: "通貨換算", amount: "金額", from: "元", to: "先", swap: "入替", note: "静的レート", approx: "目安" },
   ko: { title: "환율 계산", amount: "금액", from: "보내는", to: "받는", swap: "교환", note: "고정 환율", approx: "참고용" },

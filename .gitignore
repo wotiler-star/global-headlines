@@ -101,3 +101,9 @@ _probe_*.mjs
 _dump_manual_src.mjs
 _diff_report.mjs
 _tt2.mjs
+
+# GitHub API push temp (plaintext PAT - never commit)
+.ghpush/
+_*_ts.txt
+*_sheet.jpg
+_tmp*/

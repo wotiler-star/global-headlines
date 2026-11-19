@@ -68,7 +68,8 @@ export default async function AboutPage({
   // 可复制的规范引用示例（都指向本页，形成自引用回链）
   // 署名按语种本地化，避免在英文/日文页面里混入中文「编辑部」。
   const bylineRaw: Record<Exclude<Locale, NewLocale>, string> = {
-    zh: "starteday 编辑部", en: "starteday Editorial", ja: "starteday 編集部",
+    zh: "starteday 编辑部",
+    "zh-Hant": "starteday 編輯部", en: "starteday Editorial", ja: "starteday 編集部",
     ko: "starteday 편집부", es: "Redacción starteday", fr: "Rédaction starteday",
     pt: "Redação starteday", tr: "starteday Editör",
     ru: "Редакция starteday", ar: "تحرير starteday",

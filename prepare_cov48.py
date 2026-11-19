@@ -20,7 +20,11 @@ EXPECTED = {"zh", "en", "ja", "ko", "es", "fr", "pt", "tr"}
 # 11k 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 30 / 其余 29（累计 233 条）。
 # 11l 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 33 / 其余 32（累计 257 条）。
 # 11m 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 36 / 其余 35（累计 281 条）。
-EXPECT_COUNT = {loc: (36 if loc == "zh" else 35) for loc in EXPECTED}
+# 11n 新增 3 主题 × 8 语种 = 24 条：各语种 +3 → zh 39 / 其余 38（累计 305 条，8 语种口径）。
+# 11o 新增 5 主题 × 8 语种 = 40 条：各语种 +5 → zh 44 / 其余 43（累计 345 条，8 语种口径）。
+EXPECT_COUNT = {loc: (51 if loc == "zh" else 43) for loc in EXPECTED}
+# 2026-11p：新增 7 篇纯中文 APEC 专题稿（premium-2026-11p.json），仅 zh 增量 +7（44→51），
+# 其余 7 个原创语种不变。属 11d 单篇 zh 稿同类特例，不参与 8 语种批次配对。
 
 # 变音符号下限（%）：防止非英语稿被 ASCII 化（2026-11-08 11g 首轮 es 0.65%/fr 0.03%/pt 0.01%/tr 0.32%）
 DIACRITIC_FLOOR = {"es": 1.2, "fr": 1.2, "pt": 1.8, "tr": 6.0}
@@ -81,8 +85,10 @@ for f in FILES:
             changed = True
         if len(a.get("body") or []) < 5:
             problems.append(f"正文过短: {aid}")
-        if len(a.get("images") or []) != 3:
-            problems.append(f"图片数不为 3: {aid}")
+        # 图片数须与 imageCount 自洽：正常批次 3 张；11j 删图批次 imageCount=1/images=1 也合法。
+        expected_imgs = a.get("imageCount") or 3
+        if len(a.get("images") or []) != expected_imgs:
+            problems.append(f"图片数 {len(a.get('images') or [])} 与 imageCount {expected_imgs} 不符: {aid}")
         text = " ".join([a.get("title", ""), a.get("summary", ""), " ".join(a.get("tags", [])), " ".join(a.get("body", []))])
         diac_text[loc] = diac_text.get(loc, "") + text
         for w in BANNED_ZH:

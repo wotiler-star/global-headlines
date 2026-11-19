@@ -1,0 +1,209 @@
+[
+  {
+    "id": "rss-orig-chip-voyage-2026-11o-fr",
+    "title": "Le voyage express d'une puce : elle sort, fait un détour, et laisse deux traces dans les comptes",
+    "summary": "Elle part de Shenzhen, fait un tour à Hong Kong et revient sans avoir rien fait de utile. Ce n'est pas de la science-fiction : c'est le trajet le plus surréaliste du monde des semi-conducteurs. Alors que la réunion de l'APEC met la résilience des chaînes d'approvisionnement régionales sur la table, le voyage de cette puce en est la note la plus vivante.",
+    "cover": "/original/chip-voyage-cover.webp",
+    "images": [
+      "/original/chip-voyage-cover.webp",
+      "/original/chip-voyage-fig1.webp",
+      "/original/chip-voyage-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Semi-conducteurs",
+      "Chaîne d'approvisionnement",
+      "Commerce de puces",
+      "Chiffres insolites",
+      "Industrie Asie-Pacifique"
+    ],
+    "category": "tech",
+    "locale": "fr",
+    "source": "Original",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795073900428,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Si vous trouvez votre trajet domicile-travail pénible — deux heures de correspondances dans le métro — c'est que vous n'avez jamais croisé la route d'une puce. Elle quitte une usine du continent, traverse la frontière vers Hong Kong, s'y attarde un peu, puis revient exactement dans l'état où elle est partie. Personne ne l'a usinée, personne ne l'a modifiée, on n'a même pas ouvert son emballage. Pourtant, à son retour, son nom figure solennellement sur deux registres différents : une exportation, une importation. C'est toujours la même puce, mais sa valeur a doublé sur le papier. Tandis que la réunion de l'APEC éclaire les liens entre les industries d'Asie-Pacifique, l'excursion d'une journée de cette puce explique la complexité des chaînes d'approvisionnement mieux que n'importe quel graphique.",
+      "Et ce n'est pas une blague : c'est ce qui s'est réellement passé au cours des neuf premiers mois de l'année. Une analyse a révélé que plus de 40 % des puces exportées du continent avaient Hong Kong pour destination, et que plus de 80 % des exportations de puces de Hong Kong repartaient vers le continent. Un lot traverse, fait un tour, rentre à la maison — exactement comme ce passager qui va jusqu'au terminus uniquement pour battre son record de trajets.",
+      "Le plus amusant, c'est que Hong Kong ne compte presque aucune usine de plaquettes et pas de ligne d'assemblage et de test à grande échelle. Autrement dit : faire un tour à Hong Kong ne transforme pas la puce en une puce plus performante. C'est comme sortir acheter une bouteille d'eau au dépanneur du coin : vous revenez avec la bouteille, mais vous restez exactement la même personne.",
+      "Alors, pourquoi ce détour ? La réponse se cache dans l'argent et dans le temps. Quelle devise utilise-t-on pour le règlement ? Comment calcule-t-on la détaxe ? Comment comptabilise-t-on les marchandises en entrepôt sous douane ? Autant de questions, dans le monde réel, bien plus complexes que n'importe quelle science-fiction. Et le « voyage d'une journée » est né : la marchandise a à peine bougé que la paperasse a déjà fait tout un parcours. C'est légal, conforme, et même logique — il ne manque que la pointe d'absurdité propre à une performance artistique.",
+      "Certains diront : mais c'est tout simplement de l'inflation des chiffres ! Pas tout à fait. Les montants à l'entrée et à la sortie se compensent à peu près, si bien que la balance commerciale ne bouge pas. Ce n'est donc pas une tromperie, c'est plutôt « l'inflation de l'échelle ». Imaginez : vous sortez chaque jour un billet de cent euros de votre poche gauche pour le glisser dans la droite, puis vous le ramenez. À la fin de la journée, vous avez « manipulé » deux cents euros, mais vous en avez toujours cent dans la poche. Les comptes des puces obéissent à la même logique.",
+      "Une fois l'eau retirée, les chiffres deviennent beaucoup plus sobres. Selon certaines analyses, en retirant les doubles comptabilisations, les exportations de puces du continent en septembre passent d'environ 45 milliards de dollars à environ 30 milliards, soit à peu près au niveau de Taïwan. Les données de Taïwan sont propres parce que les statistiques locales distinguent les « exportations de produits nationaux » des « réexportations » : une puce n'est comptée qu'une seule fois, claire et nette, comme quelqu'un qui ne participe jamais à la collecte de timbres.",
+      "Impossible d'évoquer ce sujet sans parler de la source de tout ce remue-ménage : l'intelligence artificielle. Dès que l'IA est devenue à la mode, le prix de la mémoire et des puces haute performance a grimpé en flèche, et les exportations de puces ont suivi un peu partout dans la région. Derrière une machine capable de discuter avec vous se cache une nuée de puces qui travaillent aux heures supplémentaires. Vous croyez avoir une conversation à cœur ouvert avec l'IA ; en réalité, vous faites tourner le chiffre d'affaires d'une usine de mémoire.",
+      "Le rapport d'octobre de FedEx et Frost & Sullivan a ajouté une toile de fond à cette histoire : la région Asie-Pacifique génère environ 58 % des revenus de l'industrie mondiale des semi-conducteurs, et la Chine continentale en est le plus grand marché unique, avec environ 30 % du total mondial. Taïwan, de son côté, détient environ 60 % de la production mondiale de fonderie de plaquettes. En résumé : la majeure partie du système nerveux de l'électronique mondiale est posée sur ce ruban Asie-Pacifique.",
+      "Le rapport prévoit également que plus de 2 000 centres de données seront construits dans le monde entre 2026 et 2035. Deux mille, cela veut dire quoi ? À peu près un « cœur numérique » par ville moyenne. Ces cœurs-là consomment de l'électricité, dégagent de la chaleur, exigent des réseaux — et surtout réclament des montagnes de puces pour les nourrir. Le voyage express de la puce n'a donc pas fini de s'agiter.",
+      "La question vient alors : avec autant de puces qui circulent entre plusieurs marchés, qui veille à ce qu'elles arrivent à l'heure et en bon état ? La logistique joue ici le rôle de l'entremetteuse. Lors d'un salon, des professionnels interrogés sur le critère numéro un dans le choix d'un partenaire logistique ont répondu à 44 % : « un transport international plus rapide ». Une puce qui arrive un jour en retard, et c'est toute une ligne de production qui rate son créneau — une frustration d'autant plus grande que celle d'une livraison de repas en retard.",
+      "Anecdote au passage : une voiture électrique avale bien plus de puces qu'une voiture à moteur thermique. Ajoutez la 5G, l'Internet des objets, les lunettes connectées et les montres intelligentes, et le champ des besoins ne cesse de s'élargir. La montre à votre poignet et les lunettes dans votre poche sont les petits sommets tout au bout de cette chaîne industrielle colossale.",
+      "Alors, la prochaine fois que vous tomberez sur un titre du genre « exportations de puces en flèche », souriez d'abord. Les chiffres contiennent de l'argent sonnant et trébuchant, mais aussi quelques carnets de voyage en rond. Ils nous rappellent que la chaîne d'approvisionnement mondiale est une œuvre à la fois ingénieuse et absurde : les marchandises réelles suivent une ligne, les chiffres comptables en suivent une autre, les deux se croisent parfois et s'écartent d'autres fois, composant ensemble le réalisme magique de notre époque.",
+      "Et la puce qui a fait son petit tour et rentre à la maison ? Elle est sans doute en train de dormir paisiblement sur une carte de circuit, en aidant une machine à réfléchir à sa propre existence. Elle ne dira à personne qu'elle a jadis franchi une frontière et laissé deux ombres dans deux registres. C'est sans doute le voyageur le plus discret : celui qui fait le plus de chemin et raconte le moins d'histoires."
+    ]
+  },
+  {
+    "id": "rss-orig-container-cargo-2026-11o-fr",
+    "title": "Dans un conteneur, bien plus que vous ne l'imaginez : cerises, langoustes et mille vies",
+    "summary": "Vous croyez qu'un conteneur ne contient que de l'acier et des pièces ? Détrompez-vous. Cette boîte de tôle renferme des cerises du Chili, des langoustes de Nouvelle-Zélande, et le panier d'un pays qui déborde de plus en plus. Dans le sillage de l'accent mis par la réunion de l'APEC sur la connectivité, ce conteneur en dit plus sur la division régionale du travail que n'importe quel point de l'ordre du jour.",
+    "cover": "/original/container-cargo-cover.webp",
+    "images": [
+      "/original/container-cargo-cover.webp",
+      "/original/container-cargo-fig1.webp",
+      "/original/container-cargo-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Conteneurs",
+      "Commerce d'importation",
+      "Logistique alimentaire",
+      "Chaîne d'approvisionnement mondiale",
+      "Consommation"
+    ],
+    "category": "crossborder",
+    "locale": "fr",
+    "source": "Original",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795073840428,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Quand on évoque un conteneur, l'image qui vient en tête, c'est celle de boîtes d'acier bien alignées, de grues et d'un port à l'allure industrielle. Mais si vous ouvriez vraiment l'une d'elles, vous sentiriez peut-être le vent marin, un parfum de fruits, voire la fierté butée d'une langouste. Ces boîtes de tôle ne sont plus l'apanage de l'industrie : elles sont les déménageurs des tables du monde entier. Pendant que la réunion de l'APEC parle de facilitation des échanges, les conteneurs réels ont déjà fait de la division mondiale du travail une routine quotidienne.",
+      "Au cours des huit premiers mois de l'année, la valeur totale du commerce extérieur de marchandises du pays a atteint 34,77 billions de yuans, en hausse de 17,6 % sur un an, dont 14,6 billions de yuans d'importations, en progression de 22 %. Chaque jour, des dizaines de milliards de yuans de biens arrivent des quatre coins du monde et remplissent un peu plus le « panier ». Dans ce panier, on trouve de tout : des puces d'IA aux cerises du Chili, des fleurs d'Éthiopie aux langoustes de Nouvelle-Zélande.",
+      "Commençons par les fruits. Le fruit, c'est une course contre la montre. De janvier à juillet, le port de Yangshan a inspecté 185 000 tonnes de fruits importés, les fruits africains progressant d'environ 30 %. La méthode des inspecteurs pour vérifier les myrtilles péruviennes est plutôt radicale : on écrase un échantillon dans une solution sucrée à 17 %, on laisse reposer vingt minutes, puis on guette si des larves ou des œufs remontent à la surface. C'est sans doute le contrôle qualité le plus « sucré » du monde — on pêche des vers avec de l'eau sucrée.",
+      "Les produits de la mer, eux, jouent avec les nerfs. Dans la zone d'inspection de la douane de l'aéroport de Shanghai-Pudong, langoustes de Nouvelle-Zélande, abalones noirs et grosses crevettes de Thaïlande passent sous la loupe. Leur sensibilité au temps est extrême : chaque minute perdue augmente le taux de mortalité, aussi faut-il les inspecter et les libérer au plus vite. Le pays est le deuxième importateur mondial de produits aquatiques : au premier semestre, 2,753 millions de tonnes ont été importées, soit une hausse de 21,4 % sur un an. De la pêche au large à l'assiette, il s'écoule généralement trois à cinq jours, parfois seulement une journée. Hier encore, ça se promenait dans l'hémisphère Sud ; aujourd'hui, c'est couché dans une assiette de l'hémisphère Nord. Un vrai voyage dans le temps, version fruits de mer.",
+      "Plus de 40 % des produits frais réfrigérés du pays entrent par la douane de Pudong : entre 350 et 500 tonnes par jour rejoignent le panier de Shanghai, dont 100 tonnes partent vers le delta du Yangtsé. Ces chiffres paraissent abstraits ; traduits, ils deviennent parlants : une ville moyenne engloutit chaque jour, rien qu'en fruits de mer importés, le poids de plusieurs éléphants.",
+      "Bien sûr, la part la plus lourde du panier reste celle des puces et des machines. Au premier semestre, les importations de circuits intégrés ont atteint 298,02 milliards de dollars, en hausse de 55,8 % sur un an, et ce pour le trentième mois consécutif. En juin seul, le montant a bondi de 72,3 % sur un an, battant un troisième record d'affilée. Les camions transfrontaliers du poste de Shenzhen Bay transportent des composants de haute précision qui, une heure plus tard, arrivent dans les usines de mémoire du delta de la Rivière des Perles.",
+      "Derrière tout cela se cache une réaction en chaîne amusante : une commande de terminal d'IA ne tire pas uniquement un module de mémoire, mais toute une file de matières premières et d'équipements. Au premier semestre, les produits de stockage pour l'IA ont progressé de 433,58 %. Vous commandez une paire de lunettes d'IA : cela ne coûte que quelques centaines de yuans, mais cela mobilise toute une cohorte de travailleurs, du sable à la machine.",
+      "Les produits mécaniques et électriques sont également de gros clients. Au cours des sept premiers mois, le pays a importé pour 5,31 billions de yuans de biens mécaniques et électriques, en hausse de 29,7 %. Sur les quais de Yangshan, moteurs de machines de chantier, dents de godets et bielles en provenance d'Europe et d'Amérique du Nord arrivent par lots, assurant la production de secteurs spécialisés. Ces pièces sont sans éclat, mais ce sont les articulations et les dents des géants du génie civil.",
+      "À regarder toutes ces marchandises ensemble, on comprend que le conteneur est en réalité un miroir. Il ne reflète pas « qui achète », mais « comment le monde se répartit les tâches ». Une puce est assemblée en Asie du Sud-Est, un camion de pièces part d'Europe, une langouste vole depuis l'hémisphère Sud : tous finissent par se retrouver dans les usines et sur les tables du pays, formant une histoire complète, bonne à produire et à vivre.",
+      "Fait intéressant : les marchandises ne restent plus uniquement dans le delta de la Rivière des Perles. De plus en plus d'importations filent vers le delta du Yangtsé et les parcs industriels de l'intérieur. Autrefois, le littoral mangeait la viande et l'intérieur buvait le bouillon ; désormais, l'intérieur monte aussi à table. La distance géographique s'efface peu à peu, sous les coups de la logistique et des chaînes industrielles.",
+      "Alors, la prochaine fois que vous prendrez une boîte de cerises importées au supermarché, ou que vous déballerez un nouvel appareil électronique, pensez à la boîte de tôle qu'il y a derrière. Elle a traversé l'océan, passé la douane, subi l'examen à l'eau sucrée, été poursuivie par le temps, avant d'apparaître paisiblement devant vous.",
+      "Un conteneur ne contient pas seulement des marchandises : il contient la vie bien remplie de milliers de gens qui s'activent pour rendre l'existence un peu meilleure.",
+      "Et ce « panier qui déborde » ne contient pas seulement des produits : il contient la preuve que ce monde a besoin des autres et les approvisionne. Chaque chose que vous achetez vote pour une chaîne industrielle lointaine : je veux continuer à vivre ainsi, merci."
+    ]
+  },
+  {
+    "id": "rss-orig-crossborder-decade-2026-11o-fr",
+    "title": "Dix ans de commerce transfrontalier : du lait rapporté dans une valise à cinq IA qui vendent pour vous en une phrase",
+    "summary": "Il y a dix ans, faire du commerce transfrontalier, c'était compter sur les valises de la famille. Aujourd'hui, c'est une phrase et cinq assistants IA qui répartissent les tâches en trente minutes. Un changement plus radical qu'un simple changement de voie. Les années où la réunion de l'APEC débattait du commerce numérique sont précisément celles où le commerce transfrontalier est passé des valises aux agents intelligents.",
+    "cover": "/original/crossborder-decade-cover.webp",
+    "images": [
+      "/original/crossborder-decade-cover.webp",
+      "/original/crossborder-decade-fig1.webp",
+      "/original/crossborder-decade-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Commerce électronique transfrontalier",
+      "Marché d'Asie du Sud-Est",
+      "Outils d'IA",
+      "E-commerce de contenu",
+      "Observatoire économique"
+    ],
+    "category": "finance",
+    "locale": "fr",
+    "source": "Original",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795073780428,
+    "readMinutes": 8,
+    "pinned": 1,
+    "body": [
+      "Si l'on tournait ces dix années de commerce transfrontalier en série télévisée, la star de la première saison serait sans conteste la valise. À cette époque, vendre à l'étranger, c'était attendre que quelqu'un parte en voyage et rapporte la marchandise : du lait maternisé plein la valise, des couches cachées sous les vêtements, et, au passage de la douane, un air qui disait « je ne suis qu'un touriste ». C'était un commerce électronique brut, plein de chaleur humaine et de sueur. Quand la réunion de l'APEC inscrit l'économie numérique dans son agenda de coopération, les entrepreneurs dirigent déjà cinq assistants IA d'une seule phrase pour vendre à l'autre bout du monde.",
+      "Dix ans plus tard, la star de la même histoire est devenue une phrase. Une plateforme a fait une démonstration : pour vendre 500 services à thé artisanaux de Jingdezhen à Los Angeles, la méthode classique mobilisait une équipe de cinq à sept personnes pendant plusieurs semaines ; désormais, une seule instruction en langage naturel suffit pour que cinq assistants IA répartissent toutes les tâches en trente minutes. De la valise aux cinq IA, l'écart est si grand qu'on se demande si l'on n'a pas changé de série en route.",
+      "L'échelle change elle aussi, discrètement. Selon l'étude e-Conomy SEA 2026 de Google, Temasek et Bain, le volume brut de marchandises (GMV) de l'économie numérique en Asie du Sud-Est atteint 368 milliards de dollars, en hausse de 17 % sur un an ; le GMV du commerce électronique représente 226 milliards de dollars, en progression de 18 %, et devrait atteindre 820 milliards d'ici 2035. Cette région, longtemps traitée comme un simple débouché à bas prix pour écouler les stocks, est devenue l'un des moteurs de croissance les plus féroces.",
+      "Le remaniement des plateformes est plus palpitant encore que l'intrigue. En 2025, Shopee, Lazada et TikTok Shop représentaient ensemble 98,8 % du GMV du e-commerce sur plateforme ; mais en 2026, les cartes ont été rebattues de l'intérieur : au premier semestre, Shopee occupait environ 55 % du marché, TikTok Shop est passé de 27 % à 39 % sur un an, tandis que Lazada a vu sa part divisée par deux, de 12 % à 6 %. Quand les uns rient, les autres pleurent : le commerce est une compétition rude, mais sans bruit.",
+      "La courbe la plus raide s'appelle e-commerce de contenu. En 2025, les trois grandes plateformes ont totalisé 49,7 milliards de dollars de GMV dans ce secteur, en hausse de 98 % sur un an ; au premier semestre 2026, le montant atteignait déjà 33,8 milliards, avec une projection de 77,9 milliards pour l'année entière, et une part passée d'environ 20 % à 37 %. La pénétration du e-commerce en direct atteint 61 % en Thaïlande, 55 % au Vietnam et 48 % aux Philippines. Avant, c'était l'acheteur qui cherchait le produit ; désormais, c'est le produit qui court après l'acheteur — l'animateur hurle à l'écran, et la main qui clique va plus vite que le cerveau.",
+      "Chaque pays a d'ailleurs son tempérament. L'Indonésie reste le plus grand marché unique, avec environ 37 % de part, mais sa croissance ralentit à 2,2 % ; la Thaïlande et la Malaisie ont progressé de 51,8 % et 47,6 % en 2025, et les Philippines ont pris la tête au premier semestre 2026 avec 40 %. Traiter l'Asie du Sud-Est comme un marché unique est l'erreur la plus répandue : c'est plutôt un groupe de voisins aux caractères bien trempés, à qui l'on doit frapper chez chacun, un par un.",
+      "Le paiement est ce détail facile à négliger et pourtant décisif. Un rapport indique que 51 % des consommateurs indonésiens ont déjà abandonné un achat faute de moyen de paiement qui leur convienne. Autrement dit : aussi bonne que soit votre marchandise, aussi joli que soit l'animateur, si le client veut payer à la livraison et que vous n'acceptez que la carte de crédit, la commande s'envole. Celui qui propose le plus de paiements locaux perd le moins de commandes — une phrase si simple qu'elle en devient banale, mais qui coûte cher en argent sonnant.",
+      "La logistique rattrape elle aussi son retard. J&T Express a traité 9,584 milliards de colis dans le monde au troisième trimestre 2026, soit une hausse de 24,8 % sur un an ; en Asie du Sud-Est seule, le trimestre a totalisé 2,886 milliards de colis, en progression de 44,5 %, soit 31,4 millions de colis par jour. Sur les trois premiers trimestres, le volume cumulé dans la région a bondi de 61 %. Le rayon d'exécution se raccourcit, et l'angoisse du délai d'expédition transfrontalière se dissout peu à peu.",
+      "Mais ne croyez pas que cette route ne soit jonchée que de louanges. Les coûts de conformité montent en flèche : la Thaïlande a supprimé la franchise de droits sur les petites importations, portant la charge fiscale globale à 17,7 %, et le Vietnam soumet désormais les vendeurs étrangers à une retenue à la source par la plateforme. Le modèle de l'envoi direct à bas prix devient de plus en plus impraticable sur les grands marchés. Cette époque confortable où l'on expédiait depuis le pays, offrait la livraison gratuite et empochait la différence est bel et bien révolue.",
+      "Aussi le « développement sauvage » a-t-il cédé la place à la « culture attentive ». En 2026, la fiscalité du commerce transfrontalier change de visage : les entreprises dont la comptabilité est en règle passent, par principe, à une imposition sur le bénéfice réel. Trois systèmes se resserrent en même temps : la déclaration des données fiscales par les plateformes, l'échange d'informations transfrontalières et l'imposition sur les sociétés au réel. L'ère où l'on s'enrichissait en dormant sur une asymétrie d'information est terminée : place au vrai savoir-faire.",
+      "Fait intéressant : de l'autre côté de ce resserrement, l'IA entre en scène à plein régime. Le système douanier intelligent de Cainiao classe les marchandises, calcule les taxes en dynamique et vérifie la conformité des accès, réduisant de 80 % le temps de dédouanement par envoi. Les vendeurs de tête confient la sélection des produits, la publicité et le service client à des agents intelligents : la productivité grimpe, les coûts baissent. Avant, une personne faisait le travail de cinq postes ; aujourd'hui, une personne dirige cinq IA qui occupent cinq postes.",
+      "En regardant ces dix ans, le scénario a changé plusieurs fois de texte : de la valise à l'entrepôt à l'étranger, de l'envoi direct à bas prix à l'ancrage local, du service client humain à la coordination d'agents intelligents. La seule chose qui n'a pas bougé, c'est l'élan : il y aura toujours quelqu'un pour vouloir vendre de belles choses plus loin, et toujours quelqu'un pour accepter de payer pour ce qui vient de loin.",
+      "Ne sous-estimez donc pas cette application d'achat anodine dans votre téléphone. Derrière elle se cache une course de relais de dix ans : le premier coureur était le parent qui rapportait du lait, le deuxième l'animateur en direct, le troisième peut-être cinq IA infatigables. Quant au prochain, personne ne sait. Le charme de ce secteur, c'est qu'on ne devine jamais le texte de la saison suivante.",
+      "Une seule certitude : l'époque romantique où l'on se lançait à l'aventure avec une valise est devenue une petite ligne en caractères fins dans les livres d'histoire. Dans la nouvelle histoire, les héros s'appellent une phrase, cinq assistants, et tout un marché asiatique en train d'être reconnecté."
+    ]
+  },
+  {
+    "id": "rss-orig-smart-port-2026-11o-fr",
+    "title": "Où sont passés les chauffeurs du port ? La réponse roule dans les trajectoires des camions sans conducteur",
+    "summary": "Sur les quais d'autrefois, le monde ne manquait pas de monde. Aujourd'hui, c'est aussi calme qu'un bureau à cinq heures du matin. Les portiques se lèvent seuls, les camions roulent seuls. Et les chauffeurs ? Ils ont pris place dans la salle de contrôle. Lors de la réunion de l'APEC, la modernisation de la logistique d'Asie-Pacifique est devenue un point focal — et ces terminaux autonomes avaient la réponse depuis longtemps.",
+    "cover": "/original/smart-port-cover.webp",
+    "images": [
+      "/original/smart-port-cover.webp",
+      "/original/smart-port-fig1.webp",
+      "/original/smart-port-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Port intelligent",
+      "Conduite autonome",
+      "Terminal sans conducteur",
+      "Technologie logistique",
+      "Infrastructure en Asie"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "Original",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795073720428,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Si vous entrez aujourd'hui dans certains terminaux, votre première réaction sera probablement : mais où sont les gens ? Dans l'imaginaire collectif, un port est bruyant, affairé, plein de gestes qui commandent et de voix qui hurlent pour aligner les conteneurs. À présent, les camions roulent seuls le long des voies, les portiques se lèvent et s'abaissent au loin, et la cour de triage est aussi silencieuse qu'un immeuble de bureaux un week-end. Les chauffeurs n'ont pas disparu : ils ont simplement changé de poste — d'une cabine à trente mètres de haut vers une salle de contrôle climatisée. Avec la réunion de l'APEC qui met en avant l'interconnectivité, les camions sans conducteur des quais poussent le mot « efficacité » à son comble.",
+      "Le port intelligent de Mawan, à Shenzhen, en est un bel exemple. Construit en 1989, ce n'était à l'origine qu'un terminal ordinaire, avec une cour étriquée et des installations vétustes ; les travaux de modernisation devaient se faire sans arrêter la production, une difficulté que l'on comparait à « faire un exercice d'acrobatie dans une coquille d'escargot ». Aujourd'hui, le site compte 38 camions autonomes 5G — la plus grande flotte sans conducteur d'un seul terminal du pays —, épaulés par 53 véhicules intelligents.",
+      "Après la modernisation, l'efficacité globale a gagné 30 %, les risques d'accident ont chuté de 50 %, les émissions de carbone ont baissé de 90 %. En 2026, le volume traité en mode autonome devrait dépasser 800 000 EVP, avec un taux de pénétration supérieur à 20 %, et une économie annuelle d'environ 30 millions de yuans sur les coûts de main-d'œuvre. Derrière ces chiffres se cache une vérité toute simple : une machine ne se plaint pas, ne pose pas de congé et n'exige pas de repas de fin d'année.",
+      "Le terminal de Yuanhai, à Xiamen, offre un autre point de vue. Un responsable des opérations se souvient qu'il y a dix ans, le grutier devait rester à trente mètres de haut, exposé au soleil et à la pluie, alignant les conteneurs à l'œil nu et à l'expérience ; aujourd'hui, assis dans la salle de contrôle, une seule personne gère quatre à six portiques, avec un gain d'efficacité de 20 % par rapport à un terminal classique. Ce contraste mérite le nom de « conte de promotion professionnelle » : du travail en hauteur, battu par les intempéries, au bureau avec une tasse de thé — entre les deux, toute une génération de technologie.",
+      "Ce qui rend tout cela possible, c'est la combinaison « 5G + BeiDou + conduite autonome ». Les camions sans cabine sont pilotés de bout en bout de façon intelligente : chargement à bord, transfert, dépose au sol, vingt-quatre heures sur vingt-quatre, sans interruption. Cela paraît compliqué ; en réalité, il s'agit simplement de rendre la destination de chaque colis parfaitement traçable — où il est, où il va, quand il arrive : le système le sait mieux que le propriétaire lui-même.",
+      "La quatrième phase du port de Nansha, à Guangzhou, va encore plus loin : c'est le premier terminal au monde entièrement automatisé à combiner transport fluvial, maritime et ferroviaire. Les véhicules guidés intelligents (IGV) glissent silencieusement comme un banc de poissons orange, les portiques saisissent les conteneurs tout seuls, les grues sur rails empilent sans intervention humaine. Dans cette vaste zone de travail, on croise à peine un ouvrier. Un système unique, mêlant navigation BeiDou, communication 5G et intelligence artificielle, coordonne le tout : du déchargement du navire à la cour de triage, plus aucun être humain n'est nécessaire.",
+      "Les chiffres d'efficacité parlent d'eux-mêmes. Le pays a construit plus de 60 terminaux automatisés, et se classe premier au monde par l'échelle, la technologie et la productivité ; parmi eux, 30 terminaux à conteneurs automatisés, soit 27 % du total mondial. Les terminaux automatisés de Shanghai et de Qingdao dépassent 60 mouvements de conteneurs par heure et par machine ; à Qingdao, la moyenne des portiques atteint 62,62 mouvements par heure, le meilleur niveau d'efficacité de chargement et de déchargement au monde.",
+      "La quatrième phase de Yangshan, à Shanghai, a même frôlé les 63,88 mouvements par heure et par machine, avec un volume d'environ 24 000 EVP en vingt-quatre heures et une productivité du travail égale à 213 % d'un terminal classique. En langage clair : là où dix personnes s'affairaient hier, trois ou quatre suffisent aujourd'hui, et elles vont plus vite et plus juste.",
+      "Le plus astucieux reste la liaison « mer-fer ». En juillet 2026, le terminal de Haicang, à Xiamen, a ouvert la première ligne ferroviaire du pays à entrer « perpendiculairement au quai, jusqu'au bord de l'eau », longue de 1 586 mètres. Une fois le train arrivé au pied du quai, la marchandise ne parcourt plus que 70 mètres avant d'être chargée à bord : le transbordement mer-fer s'effectue en neuf minutes. Soixante-dix mètres, neuf minutes — un record de sprint écrit pour les marchandises de l'intérieur qui veulent prendre la mer.",
+      "Ces terminaux ont aussi une réussite cachée : rendre les tâches pénibles plus légères. Avant, on chargeait à l'expérience ; désormais, on charge aux données. Avant, on alignait à l'œil ; désormais, on aligne au BeiDou. Un journaliste étranger, après une visite, a souligné que les machines exécutent tout, avec une rapidité de décision impressionnante. Ce compliment adressé aux machines est en réalité adressé à tout un système qui libère l'être humain des postes dangereux, répétitifs et éprouvants.",
+      "Bien sûr, un terminal sans conducteur n'est pas une « ville sans habitants ». Ce qui change vraiment, c'est la place de l'homme : le chauffeur devient régulateur, le geste devient programmation, l'effort physique devient effort mental. Ces maîtres qui se tenaient autrefois en hauteur, sous le soleil, à aligner les conteneurs, sont aujourd'hui assis devant des écrans à surveiller plusieurs engins. Le travail n'a pas disparu : il est passé des intempéries à la stratégie.",
+      "Certaines prévisions avancent que, d'ici la fin de la décennie, le pays comptera plus de 90 terminaux automatisés et plus de 350 postes de 10 000 tonnes et au-delà, les étapes essentielles de la production étant presque entièrement sans présence humaine sur site. Autrement dit, dans quelques années, la question « pourquoi n'y a-t-il personne au port ? » deviendra « pourquoi y a-t-il tant de monde au port ? — mais dans les bureaux ».",
+      "Alors, la prochaine fois que vous lirez un article sur un « terminal sans conducteur », n'imaginez pas tout de suite un film de science-fiction. C'est plutôt une promotion discrète dans la vie professionnelle : les machines reprennent les tâches les plus dures et les plus risquées, tandis que l'homme recule d'un pas pour prendre des décisions plus nobles. Les camions qui roulent en silence le long du quai transportent non seulement des conteneurs, mais aussi la réponse durable d'un secteur à la question : comment travailler plus intelligemment ?"
+    ]
+  },
+  {
+    "id": "rss-orig-oem-to-brand-2026-11o-fr",
+    "title": "Du sous-traitant à sa propre marque : comment un cuiseur à riz et un flacon de parfum ont retourné la situation",
+    "summary": "Avant, c'était l'autre qui dessinait et vous qui fabriquiez ; aujourd'hui, c'est vous qui concevez et les autres qui font la queue. De la sous-traitance à la marque, la « fabrication chinoise » a parcouru des décennies, avec une histoire plus intéressante qu'on ne l'imagine. Quand la réunion de l'APEC discutait de la montée en gamme industrielle régionale, la transformation des cuiseurs de riz et des flacons de parfum racontait l'histoire mieux que n'importe quel rapport.",
+    "cover": "/original/oem-to-brand-cover.webp",
+    "images": [
+      "/original/oem-to-brand-cover.webp",
+      "/original/oem-to-brand-fig1.webp",
+      "/original/oem-to-brand-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Fabrication chinoise",
+      "Marques à l'international",
+      "Montée en gamme",
+      "Petit électroménager",
+      "Marques de consommation"
+    ],
+    "category": "culture",
+    "locale": "fr",
+    "source": "Original",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795073660428,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Le mot « sous-traitance » sonne d'emblée modeste : l'autre apporte la marque, le design et les circuits de distribution ; vous apportez l'usine, les ouvriers et les nuits blanches. La plus grosse part du profit va au donneur d'ordre, et vous gagnez votre vie à la sueur du front. Comme le disait plaisamment quelqu'un : sous-traiter, c'est être le cuisinier du mariage de quelqu'un d'autre — c'est vous qui faites le plat, c'est l'autre qui empoche les enveloppes. Portées par l'élan de la réunion de l'APEC vers des chaînes de valeur régionales, de plus en plus d'usines inscrivent leur nom sur leurs produits.",
+      "Mais depuis quelques années, ce scénario est en train d'être réécrit. De plus en plus d'usines ne se contentent plus du rôle de cuisinier : elles organisent leur propre mariage. Du cuiseur à riz à la chaussure de sport, du flacon de parfum à l'électroménager connecté, les mots « fabriqué en Chine » glissent de « pas cher et capable de produire » vers « bien conçu, réactif, et avec un nom à soi ».",
+      "Commençons par le cuiseur à riz. Sur un stand de la Foire de Canton, dans l'atelier d'une entreprise, les machines ronronnent : emboutissage de la cuve, revêtement, assemblage électronique avancent en cadence ; dans le laboratoire voisin, plusieurs cuiseurs tournent jour et nuit, et les ingénieurs recalibrent sans cesse la courbe de cuisson « faible sucre » pour les différentes variétés de riz d'Asie du Sud-Est. Pour une seule fonction « riz peu sucré », ils peuvent essayer pendant des mois. Ce n'est pas fabriquer une marmite : c'est chercher comment rendre un bol de riz à la fois délicieux et moins lourd pour la conscience.",
+      "Une autre entreprise a inscrit la recherche dans sa stratégie de long terme : chaque année, elle consacre 5 % de son chiffre d'affaires à la R&D, avec une équipe technique de plus de 30 personnes et plus de 60 brevets accumulés. Dans l'atelier automatisé, les bras mécaniques s'élèvent et retombent : en quelques instants à peine, 21 cuiseurs à riz quittent la chaîne. Le responsable est direct : hier, on ne faisait que produire sans affronter le marché ; aujourd'hui, en passant de la sous-traitance à la marque propre à l'exportation, on a lentement bâti une réputation.",
+      "L'aspect le plus amusant, c'est l'intelligence. Certaines entreprises se sont branchées sur l'écosystème HarmonyOS, glissant l'Internet des objets et l'interconnexion intelligente dans la marmite traditionnelle, et le prix unitaire à l'exportation des modèles connectés a nettement augmenté. Même marmite, mais la sous-traitance la vendait au coût plus une marge, tandis qu'avec l'intelligence, son statut change du tout au tout. Autrement dit : la même marmite, un destin différent.",
+      "Passons au vêtement et à la chaussure. Dans les cas d'entreprises de la ville de Jinjiang présentés comme exemples de répartition mondiale du travail, douze sociétés — dont Anta, Xtep et 361° — ont été sélectionnées, toutes suivant la même trajectoire : passer de « l'exportation de produits » à « l'exportation de compétences », de marque et de normes. L'une d'elles a racheté une vieille marque espagnole de sport, passant directement du statut de sous-traitant OEM à celui d'exploitante d'une marque internationale. C'est la forme la plus délicieuse de la revanche : hier, on travaillait pour les autres ; aujourd'hui, on rachète l'entreprise du patron.",
+      "D'autres jouent la carte des « deux bases » : recherche et fabrication de pointe restent au pays, capacité et sous-traitance s'étendent vers l'Asie du Sud-Est, donnant lieu à un modèle « siège et R&D à la maison, production à l'étranger ». Plus de 90 % des commandes sont des personnalisations haut de gamme, et ces usines approvisionnent depuis longtemps les grandes marques mondiales. L'intelligence de cette répartition tient en une phrase : garder le cerveau le plus précieux, tendre vers le marché les mains et les pieds.",
+      "L'histoire de la petite ville de Mapo, dans le Jiangsu, a quant à elle un parfum plus familier. Cette ville ne cultive aucun parfum, mais elle abrite les flacons du monde entier. Fabricants de verre, de bouchons, de transformation et exportateurs de café y forment une chaîne. Ceux qui font les bouchons veillent sur trois mots — « ça s'ouvre » — et leur bouchon facile à ouvrir réduit de 60 % la force nécessaire ; ceux qui font la transformation pulvérisent, sérigraphient, appliquent la dorure et cuisent les décors, traitant plus de 100 millions de flacons de parfum par an.",
+      "Le tournant de Mapo est très représentatif. Autrefois, un flacon se vendait à la tonne, avec une marge de profit durablement basse ; aujourd'hui, des marques étrangères viennent frapper à la porte avec leurs plans, attirées non seulement par le faible coût de gestes complexes, mais surtout par la capacité locale à proposer des solutions innovantes teintées d'esthétique orientale. Un flacon, de la sous-traitance sur plan à la participation à la conception, de la compétition sur les volumes à celle sur les délais et le goût : le nom n'a pas changé, mais la valeur, si.",
+      "Certains encore mettent du café lyophilisé importé dans leurs propres flacons de verre borosilicaté et l'exportent en bloc via le e-commerce transfrontalier. Pendant que les autres se livrent une concurrence acharnée sur le prix du flacon, lui vend le « flacon + café » en pack. L'astuce de cette idée est simple : plutôt que de se presser les uns les autres dans le même océan rouge, autant redéfinir ce que l'on vend.",
+      "En alignant ces histoires, on dégage une trajectoire nette : à l'étape de la sous-traitance, on joue sur « sait-on fabriquer » ; à l'étape de la marque, on joue sur « l'idée est-elle assez bonne, la réaction assez rapide ». Recherche en amont, différenciation, expression esthétique, service local — ces mots sonnent très business, mais traduits en produit, ils donnent un repas plus savoureux, une chaussure mieux ajustée, un flacon plus élégant.",
+      "Bien sûr, la reconversion n'est pas un dîner offert. La recherche exige de l'argent sonnant, les brevets demandent des années, et la réputation de marque se construit petit à petit. Une entreprise participe au salon depuis plus de vingt ans, présentant des nouveautés à chaque édition, celles-ci représentant environ 20 % des produits exposés. Ce que l'on appelle « accumuler pour mieux jaillir », c'est transformer lentement le « faible profit » en « profit épais ».",
+      "Pour le consommateur ordinaire, l'avantage le plus visible de cette mutation est le suivant : à un prix plus raisonnable, vous achetez des objets mieux conçus et plus fiables. Ces usines qui n'apparaissaient que derrière le logo d'un autre osent enfin imprimer leur propre nom sur le produit et entrer dans votre vie la tête haute.",
+      "Passer de la marque d'autrui à la sienne, c'est au fond « écrire son nom sur son propre produit ». Cela ne semble ajouter que quelques lettres, mais derrière, c'est toute une industrie qui grandit depuis des décennies. Le cuiseur à riz et le flacon de parfum ne contiennent pas seulement du riz et du parfum : ils contiennent aussi le souffle de gens qui ont enfin repris leur destin en main."
+    ]
+  }
+]

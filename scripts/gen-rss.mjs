@@ -19,14 +19,14 @@ const SITE_NAME = "starteday";
 // cov42：语种清单从 i18n 单一真相源读取。此前这里硬编码 6 个语种，
 // 站点却是 8 语种，导致 /pt/rss.xml 与 /tr/rss.xml 长期 404（数据其实各有 40/130 篇）。
 function readLocales() {
-  const fallback = ["zh", "en", "ja", "ko", "es", "fr", "de", "it", "pt", "tr", "ru", "uk", "ar", "hi", "id", "ms", "fil", "vi", "th", "my", "bn", "ur"];
+  const fallback = ["zh", "zh-Hant", "en", "ja", "ko", "es", "fr", "de", "it", "pt", "tr", "ru", "uk", "ar", "hi", "id", "ms", "fil", "vi", "th", "my", "bn", "ur"];
   try {
     const src = readFileSync(join(ROOT, "src", "i18n", "config.ts"), "utf8");
     const m = src.match(/export const locales\s*=\s*\[([^\]]+)\]/);
     if (!m) throw new Error("locales 声明未找到");
-    // 注意：语种码长度不一（zh/en... 2 位，fil 为 ISO 639-2 的 3 位），必须匹配 2~3 位，
-    // 否则 fil 会被静默漏掉（线上 fil/rss.xml 长期 404）。
-    const list = [...m[1].matchAll(/["']([a-z]{2,3})["']/g)].map((x) => x[1]);
+    // 语种码长度不一：zh/en 2 位、fil 3 位、zh-Hant 带连字符+大写，
+    // 必须宽松匹配引号内整串，否则 fil / zh-Hant 会被静默漏掉（历史 404 教训）。
+    const list = [...m[1].matchAll(/["']([a-zA-Z-]+)["']/g)].map((x) => x[1]);
     if (list.length < 2) throw new Error("locales 过短");
     return list;
   } catch (e) {

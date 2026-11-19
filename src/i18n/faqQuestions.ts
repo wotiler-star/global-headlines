@@ -20,6 +20,16 @@ const faqCopyRaw: Record<Exclude<Locale, NewLocale>, FaqCopy> = {
       "发现事实错误或署名遗漏怎么联系？",
     ],
   },
+  "zh-Hant": {
+    title: "常見問題",
+    questions: [
+      "starteday 是什麼？",
+      "文章是翻譯或摘要嗎？",
+      "配圖可以轉載嗎？需要怎麼署名？",
+      "可以整篇轉載或用於商業用途嗎？",
+      "發現事實錯誤或署名遺漏怎麼聯繫？",
+    ],
+  },
   en: {
     title: "Frequently asked questions",
     questions: [

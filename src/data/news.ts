@@ -32,6 +32,12 @@ const titleTplRaw: Record<Exclude<Locale, NewLocale>, string[]> = {
     "{topic}最新进展引发广泛关注",
     "{topic}将如何改变我们的未来",
   ],
+  "zh-Hant": [
+    "{topic}迎來重大突破",
+    "{topic}成為行業新焦點",
+    "{topic}最新進展引發廣泛關注",
+    "{topic}將如何改變我們的未來",
+  ],
   en: [
     "{topic} sees a major breakthrough",
     "{topic} becomes the new industry focus",
@@ -123,6 +129,10 @@ const summaryTplRaw: Record<Exclude<Locale, NewLocale>, string[]> = {
     "据{topic}相关报道，{source}透露，近期该领域出现多项关键进展，引发业界高度关注。",
     "{source}发布最新分析称，{topic}正加速渗透各行各业，未来影响值得持续追踪。",
   ],
+  "zh-Hant": [
+    "據{topic}相關報道，{source}透露，近期該領域出現多項關鍵進展，引發業界高度關注。",
+    "{source}發佈最新分析稱，{topic}正加速滲透各行各業，未來影響值得持續追蹤。",
+  ],
   en: [
     "According to coverage on {topic}, {source} reports several key developments drawing strong industry attention.",
     "{source} published a fresh analysis saying {topic} is rapidly penetrating every sector and deserves close tracking.",
@@ -186,6 +196,11 @@ const bodyExtraRaw: Record<Exclude<Locale, NewLocale>, string[]> = {
     "多位专家在接受采访时表示，{topic}的演进速度超出预期，相关投入也在持续增加。",
     "从全球范围看，不同地区在{topic}上的布局各有侧重，合作与竞争并存。",
     "分析认为，未来一至两年内，{topic}有望带来更明显的实际落地成果。",
+  ],
+  "zh-Hant": [
+    "多位專家在接受採訪時表示，{topic}的演進速度超出預期，相關投入也在持續增加。",
+    "從全球範圍看，不同地區在{topic}上的佈局各有側重，合作與競爭並存。",
+    "分析認為，未來一至兩年內，{topic}有望帶來更明顯的實際落地成果。",
   ],
   en: [
     "Several experts said the pace of {topic} is faster than expected, with investment continuing to grow.",
@@ -261,6 +276,7 @@ const bodyExtraRaw: Record<Exclude<Locale, NewLocale>, string[]> = {
 
 const sourcesRaw: Record<Exclude<Locale, NewLocale>, string[]> = {
   zh: ["环球时报", "新华社", "财新网", "36氪", "钛媒体"],
+  "zh-Hant": ["環球時報", "新華社", "財新網", "36氪", "鈦媒體"],
   en: ["Global Wire", "Daily Chronicle", "Tech Observer", "World Pulse", "The Mercury"],
   ja: ["朝日通信", "日経デジタル", "共同ニュース", "週刊科学"],
   ko: ["서울경제", "한국일보", "연합통신", "테크투데이"],

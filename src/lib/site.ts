@@ -56,10 +56,11 @@ export function buildSitemapAlternates(locale: Locale, path = "") {
   return { canonical: absUrl(locale, path), languages };
 }
 
-// 原创稿（rss-orig-*）每个主题都有 8 份独立撰写的本地化版本：
-// 中文用基础 id，其余语种为 <baseId>-<lang>。非原创稿仍按「跨语言共享 id」处理。
+// 原创稿（rss-orig-*）每个主题都有多份独立撰写的本地化版本：
+// 简体中文（默认 locale）用基础 id，其余语种为 <baseId>-<lang>（繁体为 -zh-Hant）。
+// 非原创稿仍按「跨语言共享 id」处理。
 export function articleBaseId(id: string) {
-  const m = /^(.*)-(en|ja|ko|es|fr|de|it|pt|tr|ru|uk|ar|hi|id|ms|fil|vi|th|my|bn|ur)$/.exec(id);
+  const m = /^(.*)-(en|ja|ko|es|fr|de|it|pt|tr|ru|uk|ar|hi|id|ms|fil|vi|th|my|bn|ur|zh-Hant)$/.exec(id);
   return m ? m[1] : id;
 }
 

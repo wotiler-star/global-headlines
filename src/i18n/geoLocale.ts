@@ -5,14 +5,17 @@ import { Locale, isLocale } from "./config";
 //
 // 设计原则：
 //  1) 官方/通用语言优先；多官方语言国家取覆盖人口最多或国际通用度最高的语种。
-//  2) 站点支持 22 个语种，未覆盖地区回落到 en（国际通用语），不强塞中文。
+//  2) 站点支持 23 个语种（含简体 zh / 繁體 zh-Hant），未覆盖地区回落到 en（国际通用语），不强塞中文。
 //  3) 只用于「首次访客建议语种」；用户手动选择（cookie）与显式 /xx/ URL 永远优先。
 //  4) 站点无国家专属内容，所以同一语种下所有地区共享同一 URL，地区差异仅体现在
 //     hreflang 地区变体（config.ts localeRegions）与自动切换建议。
 // ---------------------------------------------------------------------------
 
 const GROUPS: { codes: string; locale: Locale }[] = [
-  { codes: "CN TW HK MO SG", locale: "zh" },
+  // 简体中文地区：中国大陆、新加坡（新加坡华文教育用简体）
+  { codes: "CN SG", locale: "zh" },
+  // 繁體中文地区：台湾、香港、澳门（中国台湾/中国香港/中国澳门，用繁體）
+  { codes: "TW HK MO", locale: "zh-Hant" },
   { codes: "JP", locale: "ja" },
   { codes: "KR", locale: "ko" },
   // 俄语及前苏联俄语通用地区
@@ -92,7 +95,13 @@ export function acceptLanguageToLocale(header?: string | null): Locale | undefin
   scored.sort((a, b) => b.q - a.q);
   for (const { lang, q } of scored) {
     if (q <= 0) continue;
-    const base = lang.split("-")[0];
+    const parts = lang.split("-");
+    const base = parts[0];
+    // 中文需按脚本/地区细分简繁：zh-TW/HK/MO/Hant → 繁體，其余 → 简体。
+    if (base === "zh") {
+      const sub = parts.slice(1).join("-");
+      return /hant|tw|hk|mo/.test(sub) ? "zh-Hant" : "zh";
+    }
     if (isLocale(base)) return base;
   }
   return undefined;

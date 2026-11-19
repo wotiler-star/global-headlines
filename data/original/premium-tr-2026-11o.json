@@ -1,0 +1,208 @@
+[
+  {
+    "id": "rss-orig-chip-voyage-2026-11o-tr",
+    "title": "Bir Çipin Dünya Turu: Yurt Dışına Çıktı, Deftere İki Satır Düştü",
+    "summary": "Shenzhen'den yola çıktı, Hong Kong'da bir tur attı ve olduğu gibi geri döndü. Hiçbir şey yapmadı ama iki ayrı raporda iz bıraktı. Bu bilim kurgu değil, çip dünyasının en tuhaf işe gidiş hikâyesi. APEC toplantısı bu yıl bölgesel tedarik zinciri dayanıklılığını gündeme getirirken, bu çipin yolculuğu o tartışmanın en canlı dipnotu oldu.",
+    "cover": "/original/chip-voyage-cover.webp",
+    "images": [
+      "/original/chip-voyage-cover.webp",
+      "/original/chip-voyage-fig1.webp",
+      "/original/chip-voyage-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Yarı İletken",
+      "Tedarik Zinciri",
+      "Çip Ticareti",
+      "Veri Analizi",
+      "Asya-Pasifik Üretim"
+    ],
+    "category": "tech",
+    "locale": "tr",
+    "source": "Özgün",
+    "author": "starteday Editör",
+    "publishedAt": 1795073900428,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Kendi işe gidişinizin kötü olduğunu mu düşünüyorsunuz? Her gün iki saat metro aktarması yapıyorsanız, bir çipin işe gidişini görmemişsiniz demektir. Çin anakarasındaki bir fabrikadan yola çıkan çip, sınırı geçip Hong Kong'a gidiyor, orada bir duraklıyor, sonra olduğu gibi geri taşınıyor. Ne işlenmiş, ne değiştirilmiş, hatta ambalajı bile açılmamış. Ama eve döndüğünde iki tarafın defterine de ciddi ciddi adı yazılmış: bir kez ihracat, bir kez ithalat. Aynı çip, aynı kimlik, ama raporlardaki değeri sessizce ikiye katlanmış. APEC toplantısı Asya-Pasifik endüstrilerinin nasıl bağlandığına ışık tutarken, bu çipin bir günlük gezisi tedarik zincirlerinin karmaşıklığını herhangi bir grafikten daha iyi anlatıyor.",
+      "Bu bir espri değil; bu yılın ilk dokuz ayında gerçekten yaşanan bir şey. Bir istatistik, anakaradan ihraç edilen çiplerin yüzde 40'tan fazlasının Hong Kong'a gittiğini, Hong Kong'un çip ihracatının da yüzde sekseninden fazlasının geri döndüğünü ortaya koyuyor. Bir sevkiyat çıkıp tur atıp geri geliyor; tıpkı tur sayısını tamamlamak için son durağa kadar gidip tekrar geri oturan metro yolcusu gibi.",
+      "İşin daha güzel yanı şu: Hong Kong'da neredeyse hiç wafer fabrikası yok, ölçekli paketleme ve test hattı da yok. Yani çip orada bir tur attıktan sonra daha gelişkin bir çipe dönüşmüyor. Tıpkı marketten bir şişe su alıp çıkmak gibi; elinizde bir şişe su artıyor, ama insan aynı insan.",
+      "Peki bu tur neden atılıyor? Cevap para ve zamanda gizli. Hangi para birimiyle ödeme yapılacağı, vergi iadesinin nasıl hesaplanacağı, gümrük antrepolarındaki malın nasıl kaydedileceği... Bunlar, gerçek hayatta bilim kurgudan daha karmaşık meseleler. Böylece 'günlük tur' doğdu: Mal pek yerinden oynamıyor, ama defter bütün bir süreci tamamlıyor. Yasal, usule uygun, mantığa da uygun — sadece biraz performans sanatı gibi duruyor.",
+      "Biri 'bu sadece rakam şişirme değil mi?' diyebilir. Aslında pek öyle değil. Giriş ve çıkış tutarları kabaca birbirini dengeliyor, ticaret dengesi değişmiyor; yani bu bir yalan değil, 'ölçeğin enflasyonu'. Şöyle düşünün: her gün aynı yüz liralık kâğıdı sol cebinizden sağ cebinize, sonra tekrar sola çıkarıyorsunuz; gün sonunda elinizden geçen para iki yüz lira oluyor, ama cebinizde yine yüz lira var. Çipin defteri de tam bu mantıkla işliyor.",
+      "Suyu süzünce rakamlar daha sade bir hale geliyor. Bazı analizlere göre tekrarlanan kayıtlar çıkarıldığında Eylül ayında anakara çip ihracatı yaklaşık 45 milyar dolardan 30 milyar dolara düşüyor; bu da Tayvanla kabaca aynı seviyeye geliyor. Tayvan'ın verisinin temiz olmasının nedeni, 'yerli malı ihracatı' ile 'yeniden ihracatı' ayrı tutması: bir çip yalnızca bir kez kaydediliyor, tertemiz — tıpkı pul koleksiyonuna hiç katılmayan dürüst bir muhasebeci gibi.",
+      "Buraya gelince, bu heyecanın kaynağından bahsetmemek olmaz: yapay zekâ. Yapay zekâ moda olunca bellek ve yüksek performanslı çiplerin fiyatları da roket gibi fırladı; iki yakadaki çip ihracatı birlikte yükseldi. Sizinle sohbet eden bir makinenin arkasında, fazla mesai yapan bir çip yığını var. Siz yapay zekâyla dertleştiğinizi sanıyorsunuz, aslında bir bellek fabrikasının cirosunu yükseltiyorsunuz.",
+      "FedEx ile Frost & Sullivan'ın Ekim ayındaki raporu olaya büyük bir arka plan ekliyor: Asya-Pasifik, küresel yarı iletken gelirinin yaklaşık yüzde 58'ini üretiyor; Çin anakarası en büyük tek pazar olarak küreselin yaklaşık yüzde 30'unu oluşturuyor. Tayvan ise küresel wafer üretiminin yaklaşık yüzde 60'ını elinde tutuyor. Tek cümleyle söylemek gerekirse, dünyanın elektronik ürünlerinin can damarının büyük bölümü bu Asya-Pasifik kuşağına yayılıyor.",
+      "Rapor ayrıca 2026'dan 2035'e kadar dünyada iki binden fazla veri merkezi kurulacağını öngörüyor. İki bin ne demek? Her orta ölçekli şehre bir 'dijital kalp' takmak gibi. Bu kalplerin enerjiye ihtiyacı var, soğutmaya ihtiyacı var, bağlantıya ihtiyacı var ve en çok da sayısız çiple beslenmeye ihtiyacı var. Çipin dünya turu bundan sonra daha da yoğunlaşacak.",
+      "O zaman soru şu: bu kadar çok çip birden fazla pazar arasında gidip gelirken, zamanında ve sağlam teslim edilmesini kim sağlıyor? Lojistik, bu ilişkinin çöpçatanı oluyor. Bir fuarda sektör çalışanlarına lojistik ortağı seçerken en çok neye baktıkları sorulduğunda yüzde 44'ü 'daha hızlı uluslararası taşımacılık'ı seçmiş. Çip öyle bir şey ki, bir gün gecikse bütün bir üretim hattının programını kaçırabilir; bu, yemek siparişinin geç gelmesinden bile daha sinir bozucu.",
+      "Bir de küçük bir bilgi: elektrikli arabalar çip konusunda benzinli araçlardan çok daha açgözlü. Üstüne 5G, nesnelerin interneti, akıllı gözlükler ve akıllı saatler eklenince çip talebinin yelpazesi gittikçe genişliyor. Bileğinizdeki saat ve cebinizdeki gözlük, bu devasa tedarik zincirinin en uçtaki küçük noktaları.",
+      "Yani 'çip ihracatı patladı' gibi bir manşet gördüğünüzde önce gülümseyin. Rakamların içinde gerçek para da var, biraz da tur atan seyahat kayıtları var. Bu bize şunu hatırlatıyor: küresel tedarik zinciri, hem incelikli hem de absürt bir eser; gerçek malın aktığı bir çizgi, defter rakamlarının aktığı başka bir çizgi; bazen üst üste geliyor, bazen ayrı yürüyor ve birlikte bu çağın büyülü gerçekçiliğini oluşturuyor.",
+      "Ve o tur atıp eve dönen çip, şu anda büyük ihtimalle bir devre kartının üzerinde sessizce bir makinenin hayatı üzerine düşünüyor. Kimseye bir yurt dışı gezisi yaptığını, iki raporda birer gölge bıraktığını söylemeyecek. Bu, en mütevazı gezgin olsa gerek: en çok yolu giden, en az hikâye anlatan."
+    ]
+  },
+  {
+    "id": "rss-orig-container-cargo-2026-11o-tr",
+    "title": "Konteynerin İçi Sandığınızdan Farklı: Vişne, Kaya İstakozu ve Bin Çeşit Hayat",
+    "summary": "Konteynerin içinin çelik ve parça dolu olduğunu mu sanıyorsunuz? Yanılıyorsunuz. Bu teneke kutunun içinde Şili vişnesi, Yeni Zelanda kaya istakozu ve gittikçe büyüyen bir alışveriş sepeti var. APEC toplantısının bağlantıya odaklanması arka planında, bu tek konteyner bölgesel iş bölümünü herhangi bir gündem maddesinden daha iyi anlatıyor.",
+    "cover": "/original/container-cargo-cover.webp",
+    "images": [
+      "/original/container-cargo-cover.webp",
+      "/original/container-cargo-fig1.webp",
+      "/original/container-cargo-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Konteyner",
+      "İthalat Ticareti",
+      "Taze Ürün Lojistiği",
+      "Küresel Tedarik Zinciri",
+      "Tüketim Gözlemi"
+    ],
+    "category": "crossborder",
+    "locale": "tr",
+    "source": "Özgün",
+    "author": "starteday Editör",
+    "publishedAt": 1795073840428,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Konteyner dendiğinde aklınıza düzenli dizilmiş çelik kutular, vinçler ve endüstriyel bir liman geliyor büyük ihtimalle. Ama içinizden birini gerçekten açacak olursanız deniz kokusu, meyve kokusu, hatta bir istakozun inatçı nefesiyle karşılaşabilirsiniz. Bu teneke kutular çoktan 'endüstriyel' olmanın ötesine geçti; onlar dünyanın sofrasını taşıyan nakliyeciler. APEC toplantısı ticaretin kolaylaştırılmasından söz ederken, gerçek konteynerler küresel iş bölümünü çoktan günlük rutine dönüştürdü.",
+      "Bu yılın ilk sekiz ayında ülkenin toplam mal ticareti 34,77 trilyon yuan oldu; bu geçen yılın aynı dönemine göre yüzde 17,6 artış demek. Bunun 14,6 trilyon yuanı ithalat ve burada artış yüzde 22. Her gün yüz milyarlarca yuan değerinde mal dünyanın dört bir yanından akıp geliyor, alışveriş sepetini gittikçe dolduruyor. O sepette yapay zekâ çipinden Şili vişnesine, Etiyopya çiçeğinden Yeni Zelanda kaya istakozuna her şey var.",
+      "Önce meyveye bakalım. Meyve, zamanla yapılan bir yarış oynuyor. Bu yıl Ocak-Temmuz arasında Yangshan Limanı 185.000 ton ithal meyve kontrol etti; Afrika menşeli meyveler yaklaşık yüzde 30 arttı. Müfettişlerin Peru yaban mersinini kontrol etme biçimi oldukça sert: numuneyi ezip yüzde 17'lik şekerli suya döküp yirmi dakika bekletiyor, sonra larva ve yumurtaların yüzeye çıkıp çıkmadığını izliyor. Bu, dünyanın en 'tatlı' kalite kontrol işi olsa gerek — şekerli suyla balık tutuyorsunuz, ama avınız böcek.",
+      "Sonra deniz ürünleri var; burada iş nabız oynatıyor. Şanghai Pudong Havalimanı gümrüğünün kontrol alanında Yeni Zelanda kaya istakozu, siyah altın abalone ve Tayland kaplan karidesi tek tek inceleniyor. Bunlar zamana aşırı duyarlı; bir dakika fazla gecikse ölüm oranı bir tık yükseliyor, bu yüzden ilk fırsatta kontrol edilip geçiriliyor. Çin, su ürünleri ithalatında dünyanın ikinci büyük ülkesi; ilk yarıda 2.753.000 ton su ürünü ithal edildi, bu geçen yılın aynı dönemine göre yüzde 21,4 artış. Yabancı sularda avlanmaktan sofraya gelmesi genelde üç ile beş gün, en hızlısı sadece bir gün sürüyor. Dün güney yarım kürenin denizinde yana yana yürüyen istakoz, bugün kuzey yarım kürede tabakta yatıyor; bu verim 'deniz ürünleri dünyasında zaman yolculuğu'na benziyor.",
+      "Ülke genelindeki taze ürünlerin yüzde 40'tan fazlası Pudong gümrüğünden giriyor; günde yaklaşık 350 ile 500 ton Şanghai'nin sepetine, 100 ton ise Yangtze Nehri Deltası'na akıyor. Bu rakamlar soyut geliyor ama çevirince canlılaşıyor: orta ölçekli bir şehir günde sadece ithal deniz ürünü için birkaç fil ağırlığında yemek yiyor.",
+      "Tabii sepetin en ağır kısmı hâlâ çipler ve makineler. İlk yarıda 298,02 milyar dolarlık entegre devre ithal edildi; bu yüzde 55,8 artış ve üst üste otuz ay yükseliş anlamına geliyor. Haziran ayında tek başına yüzde 72,3 artış oldu ve bu, üst üste üçüncü rekor ay. Shenzhen Körfezi geçitindeki kamyonlar yüksek hassasiyetli bileşenler taşıyor ve bir saat içinde İnci Nehri Deltası'ndaki bellek fabrikalarına ulaşıyor.",
+      "Bunun arkasında ilginç bir zincirleme tepki var: tek bir yapay zekâ cihazı siparişi, yalnızca bir bellek modülünü değil, hammadde ve ekipman alımından oluşan uzun bir listeyi hareket ettiriyor. İlk yarıda yapay zekâ bellek ürünleri yüzde 433,58 arttı. Siz bir çift akıllı gözlük alıp birkaç yüz yuan harcadığınızı sanıyorsunuz, ama aslında kumdan makineye kadar uzanan bir dizi üretim çalışanını harekete geçirdiniz.",
+      "Elektromekanik ürünler de ithalatta büyük pay sahibi. İlk yedi ayda 5,31 trilyon yuanlık elektromekanik ürün ithal edildi; artış yüzde 29,7. Yangshan Limanı'nda Avrupa ve Amerika'dan gelen iş makinesi motorları, dişler ve biyel kolları toplu halde limana varıyor; bunlar ülkedeki özel mühendislik alanlarının üretimini ayakta tutuyor. Bu parçalar görünüşte sıradan, ama bir altyapı devinin eklemleri ve dişleri.",
+      "Bütün bu malları bir araya getirince konteynerin aslında bir ayna olduğunu görüyorsunuz. O, 'kim alıyor'u değil, 'dünya nasıl iş bölümü yapıyor'u yansıtıyor. Bir çip Güneydoğu Asya'da paketleniyor, bir kamyon dolusu parça Avrupa'dan yola çıkıyor, bir istakoz güney yarım küreden gelip kontrol ediliyor; hepsi sonunda çin'in fabrikalarında ve sofralarında buluşup hem üretilebilir hem yaşanabilir bir hikâyeye dönüşüyor.",
+      "İlginç olan, malların artık sadece İnci Nehri Deltası'nda kalmaması. Gittikçe daha fazla ithal mal Yangtze Deltası'na ve iç kesimlerdeki sanayi parklarına akıyor. Eskiden kıyı et yer, iç kesimler çorba içerdi; şimdi iç kesimler de yavaş yavaş sofraya oturuyor. Coğrafi mesafe, lojistik ve tedarik zinciri tarafından adım adım siliniyor.",
+      "Yani süpermarketten bir kutu ithal vişne alıp ya da yepyeni bir elektronik cihazın ambalajını açıp, arkasındaki o teneke kutuyu bir düşünün. Denizi aştı, gümrükten geçti, şekerli suyla kontrol edildi, zamanın peşinden koştu ve sonunda sessizce karşınıza çıktı. Bir konteynerin içinde sadece mal değil, hayatı biraz daha iyi hale getirmek için koşuşturup duran sayısız insanın emeği var.",
+      "Ve o 'gittikçe büyüyen' alışveriş sepeti, sadece ürün değil, dünyanın birbirine ihtiyaç duyduğunun ve birbirini tedarik ettiğinin kanıtını taşıyor. Aldığınız her şey, uzaktaki bir tedarik zincirine oy veriyor: Bu şekilde yaşamaya devam etmek istiyorum, teşekkürler."
+    ]
+  },
+  {
+    "id": "rss-orig-crossborder-decade-2026-11o-tr",
+    "title": "Sınır Ötesi Ticarette On Yıl: Bir Bavul Maldan, Tek Cümleyle Beş Yapay Zekâya",
+    "summary": "On yıl önce sınır ötesi ticaret, akrabaların bavuluyla yapılıyordu; on yıl sonra tek bir cümle ve otuz dakikada iş dağıtan beş yapay zekâ yardımcısıyla. Bu değişim, pist değiştirmekten bile daha köklü. APEC toplantısının dijital ticareti tartıştığı yıllar, sınır ötesi ticaretin bavullardan akıllı ajanlara evrildiği on yılın ta kendisiydi.",
+    "cover": "/original/crossborder-decade-cover.webp",
+    "images": [
+      "/original/crossborder-decade-cover.webp",
+      "/original/crossborder-decade-fig1.webp",
+      "/original/crossborder-decade-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Sınır Ötesi E-Ticaret",
+      "Güneydoğu Asya Pazarı",
+      "Yapay Zekâ Araçları",
+      "İçerik Ticareti",
+      "Ticaret Gözlemi"
+    ],
+    "category": "finance",
+    "locale": "tr",
+    "source": "Özgün",
+    "author": "starteday Editör",
+    "publishedAt": 1795073780428,
+    "readMinutes": 8,
+    "pinned": 1,
+    "body": [
+      "Sınır ötesi ticaretin bu on yılını bir diziye çekecek olsak, ilk sezonun kahramanı kesinlikle bavul olurdu. O dönemde ticaret, birinin yurt dışına gidip mal taşımasıyla yapılıyordu: bavul ürünle doldurulur, üstüne giysiler yığılır, gümrükte yüz ifadesi 'ben sadece gezmeye geldim' derdi. Bu, insan kokan ama ter kokan da bir ilkel e-ticaretti. APEC toplantısı dijital ekonomiyi işbirliği gündemine yazarken, girişimciler tek bir cümleyle beş yapay zeka yardımcısını dünyanın öbür ucuna mal satmak için yönlendiriyor.",
+      "Bugün aynı işin kahramanı tek bir cümle. Bir platform gösterimi yapmış: Jingdezhen'den 500 takım el yapımı çay takımını Los Angeles'a satmak için geleneksel yöntem beş ile yedi kişilik bir ekibin haftalarca uğraşmasını gerektiriyordu; şimdi tek bir doğal dil komutuyla beş yapay zekâ yardımcısı otuz dakikada bütün ekibe iş dağıtıyor. Bavuldan beş yapay zekâya olan mesafe, insanı 'yanlış mı okudum?' diye şüpheye düşürüyor.",
+      "Ölçek de sessizce vites değiştiriyor. Google, Temasek ve Bain'in e-Conomy SEA 2026 raporuna göre Güneydoğu Asya dijital ekonomisinin brüt işlem değeri 368 milyar dolara ulaştı; bu yüzde 17 artış demek. Bunun 226 milyar doları e-ticaret ve burada artış yüzde 18; 2035'e kadar 820 milyar dolara çıkması bekleniyor. Bir zamanlar 'ucuz mal satılan pazar' sanılan bu bölge, şimdi en hızlı büyüyen motorlardan biri.",
+      "Platformların yer değiştirmesi kurgudan daha heyecanlı. Shopee, Lazada ve TikTok Shop üçü 2025'te platform e-ticaretinin yüzde 98,8'ini paylaşıyordu; 2026'da ise içlerinde ciddi bir yer değişimi yaşandı: ilk yarıda Shopee yaklaşık yüzde 55, TikTok Shop geçen yılın aynı dönemindeki yüzde 27'sinden yüzde 39'a fırladı, Lazada ise yüzde 12'den yüzde 6'ya yarıya indi. Biri güler, biri ağlar; ticaret hiç de sakin bir iş değil.",
+      "En dik yükselen çizgi ise içerik ticareti. Üç platformun içerik ticareti brüt işlem değeri 2025'te toplam 49,7 milyar dolar oldu; bu yüzde 98 artış. 2026 ilk yarısında 33,8 milyara ulaştı ve yıl sonu için 77,9 milyar bekleniyor; payı yüzde 20'lerden yüzde 37'ye çıktı. Canlı yayınla satışın Tayland, Vietnam ve Filipinler'deki nüfuzu sırasıyla yüzde 61, 55 ve 48. Eskiden insan malı arardı, şimdi mal insanın peşinden koşuyor — yayıncı ekranın öbür ucunda bir seslendi mi, bu tarafta siparişi veren parmak kafasından hızlı davranıyor.",
+      "Ülkelerin de kendine has huyları var. Endonezya hâlâ en büyük tek pazar, payı yaklaşık yüzde 37, ama büyüme yüzde 2,2'ye yavaşladı; Tayland ve Malezya 2025'te sırasıyla yüzde 51,8 ve 47,6 büyüdü, Filipinler ise 2026 ilk yarısında yüzde 40'la öne geçti. Güneydoğu Asya'yı tek bir pazar sanmak en yaygın yanılgı; o daha çok, her birine ayrı ayrı kapı çalmanız gereken, huyları farklı komşulara benziyor.",
+      "Ödeme, gözden kaçan ama sonucu belirleyen bir ayrıntı. Bir rapora göre Endonezya'daki tüketicilerin yüzde 51'i, tercih ettikleri ödeme yöntemi olmadığı için alışverişten vazgeçti. Yani malınız ne kadar iyi, yayıncınız ne kadar güzel olsa da, karşı taraf kapıda ödeme istiyor, sizse sadece kredi kartı kabul ediyorsanız sipariş uçup gidiyor. Yerel ödeme yöntemlerini ne kadar eksiksiz bağlarsanız, o kadar az sipariş kaçırıyorsunuz — bu cümle düpedüz açık kapı, ama altın değerinde bir ders.",
+      "Lojistik halkası da eksiğini kapatıyor. J&T Express'in 2026 üçüncü çeyreğindeki küresel paket hacmi 9,584 milyar adet oldu; bu yüzde 24,8 artış. Bunun 2,886 milyarı sadece Güneydoğu Asya'da ve burada artış yüzde 44,5; günlük ortalama 31,4 milyon paket. İlk dokuz ayda Güneydoğu Asya'daki kümülatif paket hacmi yüzde 61 arttı. Teslimat yarıçapı kısalıyor, sınır ötesi doğrudan gönderimin zaman endişesi yavaş yavaş eriyor.",
+      "Ama bu yolun üzerinde sadece alkış yok. Uyum maliyeti sistematik biçimde artıyor: Tayland küçük ithalat muafiyetini kaldırdı ve toplam vergi yükü yüzde 17,7'ye çıktı, Vietnam yurt dışındaki satıcıları platform üzerinden vergi kesintisine tabi tuttu; düşük fiyatlı doğrudan posta modeli ana pazarlarda giderek tıkanıyor. Eskiden 'içeride gönder, ucuz kargoyla paketle, aradaki farkı kazan' diye rahat bir dönem vardı; o günler geride kaldı.",
+      "Böylece 'vahşi büyüme' yerini 'titiz işçiliğe' bıraktı. 2026'da sınır ötesi ticaret vergisinde büyük bir değişim var: mali sistemi düzgün işletmeler prensipte gerçek kâr üzerinden beyanname vererek defter esasına geçiyor. Platform vergi verisi bildirimi, sınır ötesi bilgi alışverişi ve kurumlar vergisinde defter esası — üç sistem birden sıkılaşıyor. Bilgi farkıyla yatıp kalkma dönemi bitti; şimdi iş gerçek yetenekle yapılıyor.",
+      "İlginç olan, sıkılaşmanın öteki ucunda yapay zekânın tam anlamıyla sahneye girmesi. Cainiao'nun yapay zekâ gümrük sistemi akıllı sınıflandırma, dinamik vergi hesabı ve uyum kontrolü yapabiliyor; tek bir sevkiyatın gümrük süresini yüzde 80 kısaltıyor. Önde gelen satıcılar ürün seçimini, reklamı ve müşteri hizmetini akıllı ajanlara devrediyor; verimlilik artıyor, maliyet düşüyor. Eskiden bir kişi beş işin işini yapardı, şimdi bir kişi beş yapay zekâya beş işin işini yaptırıyor.",
+      "Bu on yıla geri dönüp bakınca, sınır ötesi ticaretin senaryosu birkaç kez değişti: bavuldan yurt dışı depoya, ucuz doğrudan postadan yerelleştirilmiş operasyona, insan müşteri hizmetinden akıllı ajan iş birliğine. Değişmeyen tek şey o şevk: biri hep güzel şeyleri daha uzağa satmak istiyor, biri de uzaktan gelen şeye para ödemeye razı oluyor.",
+      "O yüzden telefonunuzdaki o göze çarpmayan alışveriş uygulamasını küçümsemeyin. Arkasında on yıllık bir röle var: ilk bayrağı mal taşıyan akraba, ikincisini canlı yayıncı, üçüncüsünü belki de yorulmak bilmeyen beş yapay zekâ alıyor. Bir sonraki bayrağı kim alır, kimse bilmiyor. Bu sektörün en büyüleyici yanı, bir sonraki sezonun senaryosunu hiçbir zaman tahmin edememeniz.",
+      "Tek kesin olan şu: bavulla dünyayı dolaşan o romantik dönem, tarih kitabında küçük bir satıra dönüştü. Yeni hikâyede kahramanlar bir cümle, beş yardımcı ve yeniden bağlanmakta olan bütün bir Asya pazarı."
+    ]
+  },
+  {
+    "id": "rss-orig-smart-port-2026-11o-tr",
+    "title": "Limanın Şoförleri Nereye Gitti? Cevap Sürücüsüz Kamyonların İzinde",
+    "summary": "Geleneksel limanda en bol şey insan gölgesidir; bugün ise sabahın erken saatlerindeki bir ofis kadar sessiz. Vinçler kendi kalkıp iniyor, kamyonlar kendi koşuyor. Şoförler nereye gitti? Kontrol odasına oturdular. APEC toplantısında Asya-Pasifik lojistiğinin modernleşmesi odak noktası olurken, bu insansız terminaller cevabı çoktan vermişti.",
+    "cover": "/original/smart-port-cover.webp",
+    "images": [
+      "/original/smart-port-cover.webp",
+      "/original/smart-port-fig1.webp",
+      "/original/smart-port-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Akıllı Liman",
+      "Otonom Sürüş",
+      "Sürücüsüz Liman",
+      "Lojistik Teknoloji",
+      "Asya Altyapısı"
+    ],
+    "category": "science",
+    "locale": "tr",
+    "source": "Özgün",
+    "author": "starteday Editör",
+    "publishedAt": 1795073720428,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Bugün bazı limanlara girerseniz ilk tepkiniz şu olabilir: İnsanlar nerede? Eskiden liman gürültülü, hareketli, el sallayan ve pozisyon için bağıran insanlarla doluydu. Şimdi kamyonlar rota üzerinde kendi başına gidiyor, vinçler uzakta kendi kalkıp iniyor, depo alanı hafta sonu bir ofis kadar sessiz. Şoförler kaybolmadı, sadece masalarını değiştirdiler — onlarca metre yüksekliğindeki operatör kabininden, klimalı bir kontrol odasına taşındılar. APEC toplantısı birbirine bağlılığı vurgularken, rıhtımdaki sürücüsüz kamyonlar 'verimlilik' kelimesini son noktasına taşıyor.",
+      "Shenzhen'in Mawan akıllı limanı tipik bir örnek. 1989'da kuruldu; eskiden sıradan bir limandı, depo alanı dar, tesisler eskiydi ve yükseltme çalışması üretim devam ederken yapılmak zorundaydı; zorluk 'salyangoz kabuğunda tai chi yapmak' diye tarif edilmişti. Bugün limanda 38 adet 5G otonom kamyon var; bu, tek bir limandaki en büyük sürücüsüz filo. Ayrıca 53 akıllı düz kamyon onlara eşlik ediyor.",
+      "Dönüşümden sonra genel çalışma verimliliği yüzde 30 arttı, güvenlik riskleri yüzde 50 azaldı, karbon salımı yüzde 90 düştü. 2026'da burada otonom çalışma hacminin 800 bin TEU'yu aşması, nüfuzun yüzde 20'yi geçmesi ve yılda yaklaşık 30 milyon yuan iş gücü maliyeti tasarrufu sağlanması bekleniyor. Bu rakamların arkasında sade, bir o kadar da net bir gerçek var: makine yorulmuyor, izin istemiyor, yıl sonu yemeği de talep etmiyor.",
+      "Xiamen Yuanhai limanı başka bir pencere açıyor. Operasyon bölümünden bir çalışan, on yıl önce vinç operatörlerinin onlarca metre yüksekte, güneş altında yağmurda çalıştığını ve gözle deneyimle pozisyon ayarladığını hatırlatıyor; şimdi kontrol odasında oturup tek başına dört ile altı gantry vinci yönetiyor, verimlilik geleneksel limanlara göre yüzde 20 artmış. Bu kıyaslama, iş hayatının en güzel hikâyelerinden birine benziyor: 'yüksekte güneş yağmur altında çalışmak'tan 'ofiste oturup bir fincan çay içmeye', aradaki fark bütün bir teknoloji yükseltmesi.",
+      "Bütün bunı destekleyen şey '5G + Beidou + sürücüsüz sürüş' bileşimi. Sürücü kabini olmayan kamyonlar akıllı bir şekilde yönlendiriliyor; yüklemeyi, aktarmayı ve konteyneri bırakmayı kendiliğinden yapıyor, yirmi dört saat durmadan çalışıyor. Kulağa karmaşık geliyor ama özü şu: her sevkiyatın nereye gittiği net bir şekilde izlenebiliyor — mal nerede, nereye gidiyor, ne zaman varacak; sistem bunları yük sahibinden bile iyi biliyor.",
+      "Guangzhou Nansha limanının dördüncü fazı daha da ileri gidiyor; dünyanın ilk nehir-deniz-demiryolu çok modlu tam otomatik limanı. IGV akıllı yönlendirme araçları turuncu bir balık sürüsü gibi sessizce süzülüyor, vinçler konteyneri otomatik alıyor, raylı vinçler otomatik istifliyor; devasa çalışma alanında neredeyse işçi görünmüyor. Beidou navigasyonu, 5G iletişimi ve yapay zekâyı birleştiren bir sistem hepsini tek elden yönetiyor ve 'gemiden depoya' kadar olan bütün süreci insansız hale getiriyor.",
+      "Verimlilik rakamları da iddialı. Ülkede 60'tan fazla otomatik liman inşa edildi; ölçek, teknoloji ve çalışma verimliliği açısından dünya birincisi. Bunlardan 30'u otomatik konteyner limanı ve dünya toplamının yüzde 27'sini oluşturuyor. Şanghai ve Qingdao limanlarının en hızlı tek makine verimi saatte 60 doğal konteyneri aşıyor; Qingdao limanında vinçlerin ortalama tek makine verimi saatte 62,62 doğal konteyner ve bu, dünyadaki en yüksek yükleme-boşaltma seviyesi.",
+      "Şanghai Yangshan dördüncü fazının en yüksek tek makine verimi saatte 63,88 doğal konteynere ulaştı; bir günlük çalışma hacmi yaklaşık 24 bin standart konteyner ve iş gücü verimliliği geleneksel limanların yüzde 213'ü. İnsan diline çevirirsek: eskiden on kişinin yaptığı işi şimdi üç-dört kişi yapıyor, hem de daha hızlı ve daha isabetli.",
+      "Bir de 'deniz-demiryolu taşımacılığı' var ki, işin en güzel yanı. Xiamen Haicang limanı, 2026 Temmuz'unda ülkenin ilk 'kıyıya dik, limana doğrudan' deniz-demiryolu hattını açtı; uzunluğu 1.586 metre. Tren limanın ön tarafına doğrudan varınca yük sadece 70 metre hareket ederek gemiye yükleniyor ve dokuz dakikada aktarma tamamlanıyor. 70 metre, dokuz dakika — iç kesimlerin denize açılması için yazılmış bir kısa mesafe rekoru.",
+      "Bu limanların gizli bir başarısı daha var: ağır işi hafifletmek. Eskiden yükleme deneyime dayanırdı, şimdi veriye; eskiden pozisyon gözle ayarlanırdı, şimdi Beidou ile. Yabancı bir basın mensubu gezdikten sonra şöyle demiş: makineler her şeyi yapıyor, kararlar çok hızlı alınıyor. Bu söz makineyi övüyor gibi geliyor ama aslında, insanı tehlikeli, tekrarlayan ve yorucu işlerden kurtaran bütün bir sistemi övüyor.",
+      "Tabii insansız liman, 'insansız şehir' anlamına gelmiyor. Gerçekten değişen şey insanın yeri: şoför dispatchere dönüşüyor, komuta programlamaya, kas emeği beyin emeğine. Eskiden yüksekte, güneş altında pozisyon ayarlayan ustalar, şimdi ekranın karşısında oturup birkaç cihazı yönetiyor — iş yok olmadı, sadece güneş altından strateji masasına taşındı.",
+      "Bir öngörüye göre, önümüzdeki plan döneminin sonuna kadar ülkede 90'dan fazla otomatik liman, 350'den fazla on bin tonluk ve üzeri rıhtım olacak ve temel üretim süreçlerinde saha çalışması büyük ölçüde insansızlaşacak. Yani birkaç yıl sonra 'limanda neden kimse yok?' sorusu, 'limanda neden herkes var — hem de ofiste?' sorusuna dönüşecek.",
+      "O yüzden 'insansız liman' haberi gördüğünüzde hemen bilim kurgu filmi hayal etmeyin. Bu daha çok sessiz bir iş yükseltmesi: makine en zor ve en tehlikeli işi devralıyor, insan ise bir adım geri çekilip daha değerli kararlar veriyor. Kıyıda sessizce koşan o kamyonlar sadece konteyner taşımıyor; bir sektörün 'nasıl daha akıllı çalışırız' sorusuna verdiği uzun vadeli bir cevabı da taşıyor."
+    ]
+  },
+  {
+    "id": "rss-orig-oem-to-brand-2026-11o-tr",
+    "title": "Fason Üretimden Kendi Markasına: Bir Pirinç Pişirici ve Bir Parfümün Yükseliş Hikâyesi",
+    "summary": "Eskiden başkası çizer, siz üretirdiniz; şimdi siz tasarlıyorsunuz, başkaları sıraya giriyor. Fason üretimden markaya giden yol Çin üretiminin on yıllarını aldı ve hikâye tahmin edilenden daha ilginç. APEC toplantısı bölgesel sanayi yükselişini tartışırken, pirinç pişirici ve parfüm şişesinin dönüşüm hikayesi herhangi bir rapordan daha yakın.",
+    "cover": "/original/oem-to-brand-cover.webp",
+    "images": [
+      "/original/oem-to-brand-cover.webp",
+      "/original/oem-to-brand-fig1.webp",
+      "/original/oem-to-brand-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Çin Üretimi",
+      "Marka İhracatı",
+      "Sanayi Yükselmesi",
+      "Küçük Ev Aletleri",
+      "Tüketici Markası"
+    ],
+    "category": "culture",
+    "locale": "tr",
+    "source": "Özgün",
+    "author": "starteday Editör",
+    "publishedAt": 1795073660428,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "'Fason üretim' kelimesi kulağa biraz ezici geliyor: başkası markayı, tasarımı ve dağıtımı koyuyor; siz fabrikayı, işçiyi ve uykusuz geceleri. Kârın büyük kısmını marka sahibi alıyor, size ise alın teri kalıyor. Birinin dediği gibi, fason üretim başkasının düğününe aşçı olmak gibi: yemeği siz yapıyorsunuz, zarfı başkası topluyor. APEC toplantısının bölgesel değer zinciri yükselişi rüzgarıyla, giderek daha fazla fabrika adını ürününün üzerine yazıyor.",
+      "Ama son birkaç yılda bu senaryo yeniden yazılıyor. Gittikçe daha fazla fabrika sadece aşçı olmaya razı değil; kendi düğününü kendisi yapmaya başlıyor. Pirinç pişiriciden spor ayakkabıya, parfüm şişesinden akıllı ev aletlerine, 'Çin üretimi' ifadesi 'ucuza üretilir'den 'iyi tasarlanır, hızlı yanıt verir ve kendi adı var' anlamına kayıyor.",
+      "Önce pirinç pişiriciye bakalım. Kanton Fuarı'nda bir firmanın atölyesinde makineler usulca çalışıyor; iç kap presleme, kaplama püskürtme, elektronik kontrol montajı sırayla ilerliyor. Yan laboratuvarda ise birkaç pirinç pişirici gece gündüz test ediliyor; mühendisler Güneydoğu Asya'nın farklı pirinç çeşitleri için düşük şekerli pişirme eğrilerini tekrar tekrar kalibre ediyor. Tek bir 'düşük şekerli pilav' özelliği için aylarca deneme yapabiliyorlar — bu bir tencere yapmak değil, bir kase pilavı hem lezzetli hem daha az yükleyici hale getirmenin peşinden gitmek.",
+      "Bir başka firma araştırmayı uzun vadeli bir strateji olarak yazmış: her yıl cirosunun yüzde 5'ini Ar-Ge'ye ayırıyor, 30 kişiden fazla bir teknik ekip kuruyor ve toplam 60'ın üzerinde patent almış. Otomatik atölyede robot kollar kalkıp iniyor ve kısa sürede sadece 21 pirinç pişirici üretim hattından çıkıyor. Sorumlu kişi çok açık konuşuyor: eskiden sadece üretimden sorumluyduk, piyasayla yüzleşmek zorunda değildik; şimdi fason üretimden kendi markamıza geçtik, yavaş yavaş itibar biriktirdik.",
+      "Daha ilginç olan akıllı özellik. Bir firma HarmonyOS ekosistemine katıldı; nesnelerin internetini ve akıllı bağlantıyı geleneksel pirinç tenceresine soktu ve akıllı modellerin ihraç birim fiyatı belirgin şekilde arttı. Aynı tencere, fasonken maliyet üzerine biraz eklenerek satılıyordu; akıllılaştırılınca fiyatı bir anda değişti. Bu, 'aynı tencere, farklı sonuç' meselesi olsa gerek.",
+      "Ayakkabı ve giyime bakalım. Jinjiang'ın yayımladığı üretim firmalarının küresel iş bölümü örneklerinde Anta, Xtep, 361 Degrees gibi 12 firma seçildi; yolları birbirine çok benziyor: 'ürün ihraç etmek'ten 'yetenek ihraç etmeye', 'marka ihraç etmeye' ve 'standart ihraç etmeye' yükselmek. Bir firma köklü bir İspanyol spor markasını satın aldı; fason üretimden doğrudan uluslararası marka operatörüne geçti. Bu, en keyifli dönüşüm biçimi: eskiden başkasına çalışıyordunuz, şimdi patronun şirketini satın alıyorsunuz.",
+      "Başka bir firma 'çift üs' oynuyor: Ar-Ge ve ana üretim memleketinde kalıyor, kapasite ve yan sanayi Güneydoğu Asya'ya yayılıyor; böylece 'merkezde Ar-Ge + yurt dışında üretim' düzeni oluşuyor. Yüksek özel siparişlerin payı yüzde 90'ın üzerinde ve uzun süredir dünyanın önde gelen markalarına tedarik yapıyorlar. Bu iş bölümünün akıllı yanı şu: en değerli beyin gücünü elde tutuyorsunuz, pazara yakın olması gereken elleri ve ayakları dışarı uzatıyorsunuz.",
+      "Jiangsu'nun Mapo kasabasının hikâyesinde ise daha fazla sokak kokusu var. Bu küçük kasaba hiç parfüm üretmiyor ama dünyanın bütün parfümlerini taşıyor. Kasabada cam şişe yapanlar, kapak yapanlar, derin işleme yapanlar ve kahve ihraç edenler var; hepsi bir zincire dizili. Kapak yapanlar 'sıkılabilen' üç kelimesine odaklanmış; geliştirdikleri kolay açılan kapak, açma kuvvetini yüzde 60 düşürdü. Derin işleme yapanlar şişeye püskürtme, ipek baskı, sıcak damga ve fırınlama uyguluyor; yılda 100 milyondan fazla parfüm şişesi işliyorlar.",
+      "Mapo'nun dönüşümü oldukça temsilî. Eskiden bir şişe ton üzerinden satılır, kâr marjı uzun süre düşük kalırdı; şimdi yabancı marka sahipleri çizimlerle kapıya geliyor ve sadece düşük maliyetle karmaşık işçilik yapıldığı için değil, buranın Doğu estetiği taşıyan yenilikçi çözümler sunabildiği için geliyorlar. Bir parfüm şişesi, çizime göre fason üretimden tasarıma katılmaya, kapasite yarışından teslimat ve estetik yarışına geçti — adı aynı, değeri değişti.",
+      "Biri ithal dondurulmuş kahveyi kendi yüksek borosilikat cam şişesine koyup sınır ötesi ticaretle birlikte ihraç ediyor. Başkaları şişenin üzerinde fiyat rekabeti yaparken, o 'şişe + kahve' paketini birlikte satmayı seçiyor. Bu yaklaşımın güzelliği şu: aynı kızıl okyanosta birbirinin fiyatını düşürmek yerine, ne sattığınızı yeniden tanımlıyorsunuz.",
+      "Bu hikâyeleri yan yana koyunca net bir çizgi görünüyor: fason aşamasında 'üretebilir miyiz' yarışı yapılır, marka aşamasında ise 'ne kadar iyi düşündük, ne kadar hızlı yanıt verdik' yarışı yapılır. Ar-Ge'yi öne almak, farklılaştırma, estetik ihraç etmek, yerel hizmet — bu kelimeler kulağa çok ticari geliyor ama ürüne indiğinde daha lezzetli bir pilav, ayağa daha iyi oturan bir ayakkabı, daha güzel bir şişe anlamına geliyor.",
+      "Tabii dönüşüm bir ziyafet daveti değil. Ar-Ge yatırımı gerçek para ister, patent birikimi yıllar alır, marka itibarı ise damla damla birikir. Bir firma yirmi yıldan fazla fuara katıldı, her seferinde yeni ürün getirdi ve yeniler sergilenen ürünlerin yaklaşık yüzde 20'sini oluşturuyor. 'Birikimden patlama' dedikleri şey, kabaca bu: ince kârı yavaş yavaş kalın kâra çevirmek.",
+      "Sıradan bir tüketici içinse bu dönüşümün en somut faydası şu: daha makul bir fiyatla, daha iyi tasarlanmış ve daha istikrarlı kalitede bir ürün alabiliyorsunuz. Eskiden sadece başkasının logosunun arkasında görünen o fabrikalar, sonunda kendi adlarını ürünün üzerine yazmaya cesaret ediyor ve rahatça hayatınıza giriyorlar.",
+      "Fason üretimden markaya geçiş, özünde 'adını kendi ürününün üzerine yazma' süreci. Kulağa sadece birkaç harf eklenmiş gibi geliyor ama arkasında bütün bir sanayinin on yıllarca büyümesi var. O pirinç pişirici ve o parfüm şişesi, sadece pilav ve koku değil; bir grup insanın geleceğini sonunda kendi eline almış olmanın nefesini de taşıyor."
+    ]
+  }
+]

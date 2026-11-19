@@ -1,0 +1,131 @@
+[
+  {
+    "id": "rss-orig-locust-cannibalism-scent-2026-11n-fr",
+    "title": "Une molécule, deux destins : l'interrupteur à seuil du cannibalisme chez le criquet",
+    "summary": "Publiée dans Nature le 18 novembre, l'étude de l'Institut de génomique agricole de l'Académie chinoise des sciences agricoles identifie le gaïacol, issu de bactéries de la blessure, comme le signal qui déclenche le cannibalisme du criquet migrateur. Deux récepteurs olfactifs se révèlent nécessaires, et la molécule inverse son rôle selon la dose : protectrice à faible concentration, funeste au-delà d'un seuil. Une cible inédite pour moduler les populations, à condition de ne pas confondre un gradient de laboratoire avec un champ ouvert.",
+    "cover": "/original/locust-cannibalism-scent-cover.webp",
+    "images": [
+      "/original/locust-cannibalism-scent-cover.webp",
+      "/original/locust-cannibalism-scent-fig1.webp",
+      "/original/locust-cannibalism-scent-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "criquet migrateur",
+      "cannibalisme",
+      "gaïacol",
+      "récepteurs olfactifs",
+      "édition génétique",
+      "écologie chimique"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://caas.cn/xwzx/tpxw/723a9117ba3f491ab6d76c57784983a6.htm",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795062810789,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Le cannibalisme n'est pas une anecdote de naturaliste : chez les insectes grégaires, c'est un levier de régulation qui pèse sur la densité même des populations. Le traiter comme un simple « comportement » plutôt que comme une question de chimie a longtemps constitué notre angle mort, et c'est précisément cet angle mort que l'étude parue dans Nature le 18 novembre vient combler.",
+      "Le criquet migrateur compte parmi les ravageurs les plus coûteux de la planète, parce que tout, chez lui, dépend du nombre : la densité déclenche la grégarisation, la grégarisation déclenche les pullulations. Dans un tel système, tout facteur qui retranche une part mesurable d'individus mérite d'être pris au sérieux, et l'on sait que la morsure entre congénères fait exactement ce travail.",
+      "On savait déjà que les criquets grégaires émettent une odeur protectrice, une sorte de panneau « ne pas manger » qui réduit sensiblement le risque d'être dévoré par un voisin. Cette moitié du mécanisme était correctement décrite, et elle suffisait à expliquer pourquoi certains individus échappent à la morsure sans jamais expliquer pourquoi d'autres y succombent.",
+      "Il manquait pourtant l'autre moitié : quel signal, à l'inverse, appelle activement les congénères à s'approcher et à mordre ? Les disciplines avancent souvent moins par découverte d'un mécanisme que par repérage d'un blanc laissé pour vide, et ce blanc-là était d'autant plus trompeur qu'il ressemblait à une absence de réponse plutôt qu'à une question posée.",
+      "L'équipe de l'Institut de génomique agricole de l'Académie chinoise des sciences agricoles a retourné le problème du côté de la blessure : ce ne sont pas les tissus du criquet qui parlent, mais des bactéries symbiotiques qui prolifèrent dans la plaie et libèrent un composé volatil, le gaïacol. L'idée est dérangeante et féconde, car l'appel au festin n'émanerait pas de la victime elle-même mais de ses hôtes microscopiques.",
+      "Par analyse des odeurs, les chercheurs ont isolé la molécule du mélange puis identifié deux récepteurs olfactifs dont elle dépend. Transformer un « ça sent » en « tel pic chromatographique produit tel acte » est un travail ingrat, mais c'est le seul moyen de faire sortir l'olfaction du domaine de l'impression pour la faire entrer dans celui de la mesure.",
+      "L'étape la plus convaincante est pourtant l'inverse : supprimer l'un ou l'autre de ces récepteurs par édition génétique, et le gaïacol cesse de déclencher le cannibalisme. On passe ainsi de la corrélation à la causalité par la voie la plus sûre qui soit, démonter l'interrupteur pour vérifier que la lumière s'éteint : la molécule, le récepteur et la conduite ne forment plus dès lors qu'une seule ligne vérifiable.",
+      "Le résultat le plus remarquable tient à un renversement de sens : à faible dose, le gaïacol active les défenses immunitaires du blessé et améliore sa survie ; au-delà d'un seuil, la même molécule attire les congénères qui l'attaquent et le dévorent. Un signal unique, deux issues opposées, et pour toute frontière une simple différence de concentration : voilà qui devrait rendre prudents ceux qui raisonnent encore en « molécule bénéfique » ou « molécule nocive ».",
+      "Je le lirais volontiers comme un interrupteur à seuil, plus économe que deux circuits distincts, l'un pour soigner et l'autre pour attirer, et l'évolution raffole de cette parcimonie. Mais un circuit économe est aussi un circuit fragile : déplacer légèrement la dose suffit à inverser le destin de l'individu, ce qui rend le système à la fois élégant et délicat à manipuler.",
+      "L'intérêt appliqué change du même coup de nature : au lieu de « tuer » à coups d'insecticides à large spectre, on envisage de moduler un comportement. Ce n'est pas une victoire de la douceur, c'est une victoire de la précision ; or une précision accrue réduit les dégâts collatéraux tout en rendant les rétroactions écologiques plus difficiles à anticiper.",
+      "Concrètement, la piste ouverte est double : disposer d'une cible moléculaire pour moduler le cannibalisme, et disposer d'un indicateur olfactif pour surveiller et contrôler les populations. Si une odeur suffit à ramener la densité sous contrôle, la lutte cesse d'être une affaire de surface épandue pour devenir une affaire d'information diffusée, ce qui déplace l'effort de l'épandage vers le dosage.",
+      "Reste la distance, peu spectaculaire mais décisive, entre le gradient propre du laboratoire et le champ ouvert : le vent disperse, l'humidité dilue, les surfaces adsorbent, et la belle ligne de seuil se change en nuage. Un résultat obtenu en enceinte close ne préjuge pas de son comportement à l'air libre, et c'est précisément là que bien des élégances moléculaires s'évanouissent.",
+      "La question qui demeure n'est donc pas de savoir si l'interrupteur fonctionne, mais qui d'autre, dans l'écosystème, est capable de l'entendre, et ce qu'un apport exogène de gaïacol déplacerait ailleurs que chez le criquet. Tant que la sécurité écologique n'a pas été instruite avec la même rigueur que la causalité, la réserve n'est pas un manque d'enthousiasme : c'est la seule attitude professionnelle."
+    ]
+  },
+  {
+    "id": "rss-orig-fluorinated-electrolyte-battery-2026-11n-fr",
+    "title": "Le solvant sort de l'ombre : ce que l'électrolyte fluoré promet, et ce qu'il ne promet pas",
+    "summary": "Parue dans Nature le 18 novembre, une étude repense la molécule de solvant et fait passer la coordination du lithium de l'oxygène au fluor, via des hydrocarbures fluorés conçus pour une interaction volontairement faible. Désolvatation facilitée, tenue à haute tension, résistance au froid et au feu : à volume et masse égaux, la densité énergétique pourrait plus que doubler et rendre les mille kilomètres envisageables. Il s'agit d'une borne supérieure mesurée en système de laboratoire et d'une validation de voie, non d'un produit lancé ni de l'autonomie réelle d'un véhicule en vente.",
+    "cover": "/original/fluorinated-electrolyte-battery-cover.webp",
+    "images": [
+      "/original/fluorinated-electrolyte-battery-cover.webp",
+      "/original/fluorinated-electrolyte-battery-fig1.webp",
+      "/original/fluorinated-electrolyte-battery-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "batterie lithium",
+      "électrolyte fluoré",
+      "désolvatation",
+      "densité énergétique",
+      "haute tension",
+      "véhicule électrique"
+    ],
+    "category": "tech",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://news.qq.com/rain/a/20261118A0BT3T00",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795062750789,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Pendant une décennie, le débat sur l'autonomie s'est joué presque exclusivement sur les cathodes et les anodes, comme si la performance d'une batterie se décidait aux deux extrémités. L'électrolyte, lui, était traité en milieu inerte d'arrière-plan : présent, indispensable, mais jamais considéré comme un élément que l'on pourrait concevoir plutôt que subir.",
+      "L'équipe dont les travaux paraissent dans Nature le 18 novembre a précisément refusé cette hiérarchie, en reprenant la molécule de solvant depuis la base plutôt qu'en l'ajustant à la marge. Le geste intellectuel compte ici plus que le résultat chiffré : on ne demande plus « quelle électrode est la meilleure », mais « dans quoi l'ion voyage-t-il ».",
+      "La modification tient en un changement de coordination : le couple « lithium–oxygène » cède la place au couple « lithium–fluor », par le truchement de solvants hydrocarbures fluorés. Un remplacement d'atome à peine visible sur un schéma suffit à modifier toute la thermodynamique du trajet, ce qui rappelle qu'en chimie les petites substitutions font souvent les grandes ruptures.",
+      "La métaphore mérite d'être retournée : le solvant est le véhicule dans lequel l'ion effectue sa traversée, et non la route inerte qu'il se contenterait d'emprunter. Hier, c'était un « attelage à oxygène », lent, faiblement chargé et craignant le froid ; aujourd'hui, c'est une « voiture de sport fluorée », et l'image n'a rien d'un agrément puisqu'elle désigne une fonction que l'on persistait à ne pas voir.",
+      "Voici le contre-intuitif, et c'est là que l'article est le plus intéressant : le fluor est l'élément le plus électronégatif du tableau, donc le plus enclin à retenir, et l'équipe a délibérément dessiné une interaction « juste assez faible ». Faire du « faible » un cahier des charges et non un défaut à corriger inverse le réflexe du chimiste, qui cherche spontanément le lien le plus solide.",
+      "La logique est pourtant limpide : il faut retenir l'ion de façon stable pendant le transport, puis le libérer sans effort à l'interface de l'électrode, autrement dit améliorer la désolvatation, cette efficacité avec laquelle on monte et descend du véhicule. Tenir ferme et lâcher vite sont deux exigences contradictoires ; la solution consiste à rendre la fermeté provisoire, valable seulement le temps du trajet.",
+      "Les solvants hautement fluorés apportent en outre une stabilité à l'oxydation très élevée, ce qui autorise une tension de fonctionnement supérieure et, par ricochet, l'appariement avec des cathodes à haut voltage. Le plafond de densité énergétique ne se relève donc pas en stockant davantage, mais en osant monter : le frein était électrochimique avant d'être quantitatif.",
+      "À ces gains s'ajoutent deux propriétés que l'on range trop souvent parmi les agréments : ces solvants sont ignifuges et leur point de congélation est très bas, si bien que l'électrolyte brûle moins et demeure fluide par grand froid. Or la sécurité et la tenue hivernale ne sont pas des bonus de confort, elles décident si une chimie peut jamais quitter l'enceinte thermostatée du laboratoire.",
+      "À volume et masse égaux, la densité énergétique pourrait plus que doubler face aux meilleures batteries lithium conventionnelles actuelles, ce qui rend plausible le franchissement des mille kilomètres d'autonomie. Il faut savourer le mot « plausible » sans le confondre avec « disponible » : entre une borne supérieure et un véhicule immatriculé, il y a toute une industrie.",
+      "Les usages que cette perspective libère ne se limitent pas à l'automobile : économie de basse altitude et drones logistiques, robots humanoïdes et exosquelettes, alimentation de secours des centres de données. À vrai dire, les premiers bénéficiaires seront probablement les appareils que le poids bride aujourd'hui, plutôt que les berlines déjà largement dimensionnées.",
+      "Une mise au point s'impose, et elle n'est pas une précaution de style : ce chiffre est une borne supérieure mesurée en système de laboratoire, une validation de voie, ni un lancement de produit ni l'autonomie réelle d'aucune voiture en vente. Lire une limite haute comme un calendrier est l'erreur la plus répandue du commentaire technologique, car elle transforme une démonstration en promesse que personne n'a formulée.",
+      "L'article énumère lui-même trois obstacles, et l'honnêteté mérite d'être soulignée : la synthèse et la purification à grande échelle et à bas coût des solvants fluorés, la réoptimisation du couple cathode/anode compatible, enfin un procédé de fabrication et un contrôle qualité entièrement nouveaux, avec un à deux ans de travaux au minimum et sans doute davantage. Coût de revient, durée de vie en cycles et rendement de production restent sans chiffre public ; ce sont pourtant ces trois inconnues, et non la densité affichée, qui décideront de l'issue.",
+      "Il serait donc déplacé d'en conclure « on pourra l'acheter l'an prochain ». Ce qui mérite l'enthousiasme est qu'une direction longtemps négligée se révèle fructueuse ; ce qui mérite la retenue est que le délai, presque toujours, est sous-estimé, et tenir les deux ensemble est précisément ce qui distingue une information d'une rumeur."
+    ]
+  },
+  {
+    "id": "rss-orig-smart-floss-metabolism-2026-11n-fr",
+    "title": "Passer le fil, lire le métabolisme : quand une habitude devient un bilan",
+    "summary": "À HKUST, l'équipe de Hnin Yin Yin Nyein a glissé une chambre microfluidique et des biocapteurs dans un fil dentaire d'apparence ordinaire : quelques minutes suffisent pour doser glucose, acide urique, peroxyde d'hydrogène et pH, puis transmettre le tout à un téléphone (Science Advances, étude relayée par ScienceAlert le 19 novembre 2026). L'astuce tient au prélèvement du fluide créviculaire gingival, ou GCF, que le passage du fil emporte naturellement et qui échange avec le sang. Corrélations encourageantes, mais salive mêlée, effectif réduit et appel à un essai clinique : il est encore trop tôt pour ranger le glucomètre.",
+    "cover": "/original/smart-floss-metabolism-cover.webp",
+    "images": [
+      "/original/smart-floss-metabolism-cover.webp",
+      "/original/smart-floss-metabolism-fig1.webp",
+      "/original/smart-floss-metabolism-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "fil dentaire",
+      "fluide créviculaire gingival",
+      "GCF",
+      "biocapteurs",
+      "microfluidique",
+      "diagnostic domestique"
+    ],
+    "category": "health",
+    "locale": "fr",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.163.com/dy/article/LC39GVRD05561FYF_pdya11y.html",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795062690789,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "La santé des dents et des gencives n'est pas une province isolée du corps : une mauvaise santé orale est associée à la démence, au diabète, à l'accident vasculaire cérébral et aux maladies cardiaques. Continuer à la traiter comme une spécialité étanche est un partage commode pour les disciplines, mais coûteux pour le diagnostic, car il écarte précisément le compartiment qui renseigne le mieux.",
+      "L'équipe de Hnin Yin Yin Nyein, à l'Université des sciences et technologies de Hong Kong (HKUST), a publié dans Science Advances un dispositif relayé par ScienceAlert le 19 novembre 2026. La nouveauté n'est pas « encore un capteur portable », mais le choix d'un point d'entrée que personne ne se disputait : un geste banal, déjà accompli, et donc déjà financé par l'habitude.",
+      "À l'œil, l'objet ressemble à un fil dentaire ordinaire ; à l'intérieur, un système de poulies achemine le liquide prélevé vers une chambre microfluidique garnie de biocapteurs. La meilleure ingénierie est celle qui rend la complexité invisible à l'usager, et ce fil est un petit chef-d'œuvre de dissimulation bien plus qu'un gadget démonstratif.",
+      "Quelques minutes après le passage du fil, les capteurs dosent le glucose, l'acide urique, le peroxyde d'hydrogène et le pH, puis transmettent les résultats sans fil à un téléphone. Pris séparément, chacun de ces paramètres est modeste ; réunis, ils composent une coupe métabolique et inflammatoire que nul brossage n'avait jamais prétendu fournir.",
+      "Le point décisif est ailleurs : le dispositif ne prélève pas de salive, mais du fluide créviculaire gingival, ou GCF, logé dans les sillons qui entourent et séparent les dents, au contact de la surface gingivale. Ce liquide échange avec le sang métabolites, protéines et marqueurs d'inflammation ; choisir le bon compartiment où l'on puise vaut mieux que raffiner indéfiniment le capteur.",
+      "Voilà des décennies que le GCF pose le même paradoxe : il est extraordinairement informatif, mais produit en quantités infimes et presque impossibles à capturer sans traumatiser le sillon. Ce qui manquait au domaine n'était donc pas une sensibilité supplémentaire, c'était une cuillère assez discrète pour ne rien changer au geste.",
+      "Or le simple passage du fil en entraîne une partie : l'équipe n'a pas inventé un mouvement nouveau, elle a branché un tube sur une habitude déjà là. Convertir un acte pratiqué chaque jour par des milliards de personnes en acte diagnostique réduit le coût d'observance à presque rien, et c'est un avantage qu'aucune précision analytique ne remplacera.",
+      "L'essai reste de petite taille, avec des personnes saines aux côtés de personnes diabétiques, hyperuricémiques ou en mauvaise santé orale, et les lectures se sont distinguées selon les groupes. Un effectif modeste ne prouve pas une généralisation, mais il établit au moins la première chose qu'une faisabilité doit démontrer : le dispositif sait-il distinguer les profils ?",
+      "Les résultats les plus solides concernent le glucose, qui concordait étroitement avec l'analyse sanguine, et l'acide urique, fortement corrélé. Une concordance pareille fait passer le GCF du rang de « liquide intéressant » à celui de matrice calibrable, ce qui est un changement de statut bien plus important qu'un énième chiffre de sensibilité.",
+      "Plus inattendu : l'acidité et le peroxyde ont permis d'estimer assez fiablement la profondeur des poches parodontales, l'indicateur qu'utilisent les dentistes pour diagnostiquer la parodontite. Un appareil pensé pour la chimie métabolique fournit ainsi, par surcroît, une donnée quasi morphologique : c'est le genre de bonus qui trahit un échantillon bien choisi.",
+      "L'article assume des limites qu'il aurait été facile de taire : la salive constituait près de la moitié du liquide recueilli, et du sang pouvait s'y mêler ; testée seule, la salive n'informait presque pas sur le glucose. Publier la contamination plutôt qu'un chiffre plus flatteur est un signe de sérieux, mais c'est aussi un avertissement sur la pureté réelle d'un échantillon domestique.",
+      "Pour l'heure, il s'agit de corrélation et de faisabilité, et l'équipe elle-même appelle à un futur essai clinique destiné à vérifier si un suivi guidé par le GCF améliore réellement le pronostic. Mesurer une différence n'est pas modifier une issue : entre « le capteur voit juste » et « le patient va mieux », il reste l'épaisseur entière de la clinique.",
+      "Reste enfin ce que le dispositif fait entrer dans la salle de bains : la surinterprétation d'un chiffre, la vie privée d'une donnée envoyée au téléphone, la dérive de calibration d'un capteur domestique et les frontières réglementaires du diagnostic à domicile. Ranger le glucomètre au placard serait prématuré ; la vraie difficulté ne sera jamais de mesurer, mais de décider qui a légitimité pour lire et pour agir."
+    ]
+  }
+]

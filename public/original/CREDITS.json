@@ -1092,5 +1092,470 @@
         "size_kb": 277
       }
     ]
+  },
+  "locust-cannibalism-scent": {
+    "cover": {
+      "file": "/original/locust-cannibalism-scent-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Desert locust - Wüstenheuschrecke - Criquet pèlerin - Schistocerca gregaria.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Desert_locust_-_W%C3%BCstenheuschrecke_-_Criquet_p%C3%A8lerin_-_Schistocerca_gregaria.jpg",
+      "artist": "NorbertNagel",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 218
+    },
+    "figs": [
+      {
+        "file": "/original/locust-cannibalism-scent-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Grasshopper on a plant stem (54731861588).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Grasshopper_on_a_plant_stem_(54731861588).jpg",
+        "artist": "U.S. Fish and Wildlife Service - Midwest Region",
+        "license": "Public domain",
+        "size_kb": 89
+      },
+      {
+        "file": "/original/locust-cannibalism-scent-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Migratory Locust (Locusta migratoria) nymph ... (44444458721).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Migratory_Locust_(Locusta_migratoria)_nymph_..._(44444458721).jpg",
+        "artist": "Bernard DUPONT from FRANCE",
+        "license": "CC BY-SA 2.0",
+        "size_kb": 202
+      }
+    ]
+  },
+  "fluorinated-electrolyte-battery": {
+    "cover": {
+      "file": "/original/fluorinated-electrolyte-battery-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Philips BT6000A-12 - Lithium Ion Battery ICR18650-9168.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Philips_BT6000A-12_-_Lithium_Ion_Battery_ICR18650-9168.jpg",
+      "artist": "Raimond Spekking",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 113
+    },
+    "figs": [
+      {
+        "file": "/original/fluorinated-electrolyte-battery-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Electric car charging station in Begumpet, Hyderabad.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Electric_car_charging_station_in_Begumpet,_Hyderabad.jpg",
+        "artist": "iMahesh",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 256
+      },
+      {
+        "file": "/original/fluorinated-electrolyte-battery-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Electric car charging station equipment 2, Vancouver, WA, March 2020.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Electric_car_charging_station_equipment_2,_Vancouver,_WA,_March_2020.jpg",
+        "artist": "Steven Baltakatei Sandoval",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 274
+      }
+    ]
+  },
+  "smart-floss-metabolism": {
+    "cover": {
+      "file": "/original/smart-floss-metabolism-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Dental Floss.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Dental_Floss.jpg",
+      "artist": "Texas Lane",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 71
+    },
+    "figs": [
+      {
+        "file": "/original/smart-floss-metabolism-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:(20250417) Blood glucose meter 09.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:(20250417)_Blood_glucose_meter_09.jpg",
+        "artist": "Roy Zuo",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 36
+      },
+      {
+        "file": "/original/smart-floss-metabolism-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Microfluidic chip for point-of-care medical devices.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Microfluidic_chip_for_point-of-care_medical_devices.jpg",
+        "artist": "FMNLab",
+        "license": "CC BY 4.0",
+        "size_kb": 381
+      }
+    ]
+  },
+  "chip-voyage": {
+    "cover": {
+      "file": "/original/chip-voyage-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:EPROM Microchip SuperMacro.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:EPROM_Microchip_SuperMacro.jpg",
+      "artist": "Zephyris",
+      "license": "CC BY-SA 3.0",
+      "size_kb": 118
+    },
+    "figs": [
+      {
+        "file": "/original/chip-voyage-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:V11-wafer-dc328.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:V11-wafer-dc328.jpg",
+        "artist": "Retro-Computing Society of Rhode Island",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 242
+      },
+      {
+        "file": "/original/chip-voyage-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Wafer - 3.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Wafer_-_3.jpg",
+        "artist": "Windell Oskay",
+        "license": "CC BY 2.0",
+        "size_kb": 109
+      }
+    ]
+  },
+  "container-cargo": {
+    "cover": {
+      "file": "/original/container-cargo-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:2025-08-31 D300-7711 Achim-Lammerts Mannheim-Rheinhafen.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:2025-08-31_D300-7711_Achim-Lammerts_Mannheim-Rheinhafen.jpg",
+      "artist": "Achim Lammerts (Syntaxys)",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 205
+    },
+    "figs": [
+      {
+        "file": "/original/container-cargo-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Aerial image of the Eurogate and Burchardkai container terminals (view from the southeast).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Eurogate_and_Burchardkai_container_terminals_(view_from_the_southeast).jpg",
+        "artist": "Carsten Steger",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 354
+      },
+      {
+        "file": "/original/container-cargo-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Container-Terminal Bremerhaven 02.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Container-Terminal_Bremerhaven_02.jpg",
+        "artist": "H. Zell",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 136
+      }
+    ]
+  },
+  "crossborder-decade": {
+    "cover": {
+      "file": "/original/crossborder-decade-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Neo 2 by Avidbots.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Neo_2_by_Avidbots.jpg",
+      "artist": "Skylarlawrencelebel",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 123
+    },
+    "figs": [
+      {
+        "file": "/original/crossborder-decade-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Dock Leveler BY Gandhi Automation.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Dock_Leveler_BY_Gandhi_Automation.jpg",
+        "artist": "Gandhi automation",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 292
+      },
+      {
+        "file": "/original/crossborder-decade-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Tugger AGV with trailers, courtesy of Egemin Automation Inc..jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Tugger_AGV_with_trailers,_courtesy_of_Egemin_Automation_Inc..jpg",
+        "artist": "AGVExpertJS",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 208
+      }
+    ]
+  },
+  "smart-port": {
+    "cover": {
+      "file": "/original/smart-port-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Container-Terminal Bremerhaven 01.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Container-Terminal_Bremerhaven_01.jpg",
+      "artist": "H. Zell",
+      "license": "CC BY-SA 3.0",
+      "size_kb": 185
+    },
+    "figs": [
+      {
+        "file": "/original/smart-port-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Container-Terminal Bremerhaven 03.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Container-Terminal_Bremerhaven_03.jpg",
+        "artist": "H. Zell",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 101
+      },
+      {
+        "file": "/original/smart-port-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Container-Terminal Bremerhaven 05.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Container-Terminal_Bremerhaven_05.jpg",
+        "artist": "H. Zell",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 124
+      }
+    ]
+  },
+  "oem-to-brand": {
+    "cover": {
+      "file": "/original/oem-to-brand-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Panasonic RICE COOKER SR-DQ102-N.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Panasonic_RICE_COOKER_SR-DQ102-N.jpg",
+      "artist": "Dinkun Chen",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 63
+    },
+    "figs": [
+      {
+        "file": "/original/oem-to-brand-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Panasonic RICE COOKER SR-L15H8.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Panasonic_RICE_COOKER_SR-L15H8.jpg",
+        "artist": "Dinkun Chen",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 131
+      },
+      {
+        "file": "/original/oem-to-brand-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Rival Rice Cooker.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Rival_Rice_Cooker.jpg",
+        "artist": "Jugo Yokomizo",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 117
+      }
+    ]
+  },
+  "apec-shenzhen-33rd-summit": {
+    "cover": {
+      "file": "/original/apec-shenzhen-33rd-summit-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:TOP OF THE DIWANG BUILDING SEE SHENZHEN SKYLINE (10).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ATOP%20OF%20THE%20DIWANG%20BUILDING%20SEE%20SHENZHEN%20SKYLINE%20%2810%29.jpg",
+      "artist": "Dinkun Chen",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 72
+    },
+    "figs": [
+      {
+        "file": "/original/apec-shenzhen-33rd-summit-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Beijing Yanqi Lake International Convention and Exhibition Center (20190915160152).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3ABeijing%20Yanqi%20Lake%20International%20Convention%20and%20Exhibition%20Center%20%2820190915160152%29.jpg",
+        "artist": "N509FZ",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 316
+      },
+      {
+        "file": "/original/apec-shenzhen-33rd-summit-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Shenzhen Bay Bridge night.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AShenzhen%20Bay%20Bridge%20night.jpg",
+        "artist": "Alex Bishton",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 57
+      }
+    ]
+  },
+  "apec-founders-1989": {
+    "cover": {
+      "file": "/original/apec-founders-1989-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Old and new Parliament Houses; Canberra Australia.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AOld%20and%20new%20Parliament%20Houses%3B%20Canberra%20Australia.jpg",
+      "artist": "Thennicke",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 178
+    },
+    "figs": [
+      {
+        "file": "/original/apec-founders-1989-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Bob-Hawke-1968-Sydney.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3ABob-Hawke-1968-Sydney.jpg",
+        "artist": "Tribune (Australian newspaper)",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 178
+      },
+      {
+        "file": "/original/apec-founders-1989-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Clarke Quay and Singapore River (3170381029).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AClarke%20Quay%20and%20Singapore%20River%20%283170381029%29.jpg",
+        "artist": "edwin.11",
+        "license": "CC BY 2.0",
+        "size_kb": 188
+      }
+    ]
+  },
+  "apec-expansion-37-years": {
+    "cover": {
+      "file": "/original/apec-expansion-37-years-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Pudong Shanghai November 2017 HDR panorama.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3APudong%20Shanghai%20November%202017%20HDR%20panorama.jpg",
+      "artist": "King of Hearts",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 114
+    },
+    "figs": [
+      {
+        "file": "/original/apec-expansion-37-years-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Seattle skyline from Waterfront Park.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3ASeattle%20skyline%20from%20Waterfront%20Park.jpg",
+        "artist": "Joe Mabel",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 229
+      },
+      {
+        "file": "/original/apec-expansion-37-years-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Bogor Botanical Gardens Java23.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3ABogor%20Botanical%20Gardens%20Java23.jpg",
+        "artist": "Arabsalam",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 253
+      }
+    ]
+  },
+  "apec-shenzhen-summit-2026": {
+    "cover": {
+      "file": "/original/apec-shenzhen-summit-2026-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Shenzhen Skyline At Night (214551663).jpeg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AShenzhen%20Skyline%20At%20Night%20%28214551663%29.jpeg",
+      "artist": "Andreas Bunen",
+      "license": "CC BY 3.0",
+      "size_kb": 99
+    },
+    "figs": [
+      {
+        "file": "/original/apec-shenzhen-summit-2026-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Civic Center, Shenzhen Lianhuashan Park (2018.9) Daytime.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3ACivic%20Center%2C%20Shenzhen%20Lianhuashan%20Park%20%282018.9%29%20Daytime.jpg",
+        "artist": "Sparktour",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 229
+      },
+      {
+        "file": "/original/apec-shenzhen-summit-2026-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Shenzhen Convention & Exhibition Center (10).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AShenzhen%20Convention%20%26%20Exhibition%20Center%20%2810%29.jpg",
+        "artist": "Dinkun Chen",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 205
+      }
+    ]
+  },
+  "apec-crisis-moments": {
+    "cover": {
+      "file": "/original/apec-crisis-moments-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:2016 Kuala Lumpur, Dataran Merdeka (02).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3A2016%20Kuala%20Lumpur%2C%20Dataran%20Merdeka%20%2802%29.jpg",
+      "artist": "Marcin Konsek",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 178
+    },
+    "figs": [
+      {
+        "file": "/original/apec-crisis-moments-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Gran Santiago Tower, Views from San Critóbal Hill - Santiago - Chile 08.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AGran%20Santiago%20Tower%2C%20Views%20from%20San%20Crit%C3%B3bal%20Hill%20-%20Santiago%20-%20Chile%2008.jpg",
+        "artist": "3BRBS",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 287
+      },
+      {
+        "file": "/original/apec-crisis-moments-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Onlineteacher.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AOnlineteacher.jpg",
+        "artist": "Phil Roeder from Des Moines, IA, USA",
+        "license": "CC BY 2.0",
+        "size_kb": 112
+      }
+    ]
+  },
+  "apec-deliverables": {
+    "cover": {
+      "file": "/original/apec-deliverables-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Container-Terminal Bremerhaven 02.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AContainer-Terminal%20Bremerhaven%2002.jpg",
+      "artist": "H. Zell",
+      "license": "CC BY-SA 3.0",
+      "size_kb": 150
+    },
+    "figs": [
+      {
+        "file": "/original/apec-deliverables-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Changi Airport, Singapore - Interior February 2023.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AChangi%20Airport%2C%20Singapore%20-%20Interior%20February%202023.jpg",
+        "artist": "Sharon Hahn Darlin",
+        "license": "CC BY 2.0",
+        "size_kb": 310
+      },
+      {
+        "file": "/original/apec-deliverables-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Chiwan Container Terminal 2006.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AChiwan%20Container%20Terminal%202006.jpg",
+        "artist": "Niels Johannes",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 165
+      }
+    ]
+  },
+  "apec-trade-basket": {
+    "cover": {
+      "file": "/original/apec-trade-basket-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:A semiconductor wafer being removed from processing equipment.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3AA%20semiconductor%20wafer%20being%20removed%20from%20processing%20equipment.jpg",
+      "artist": "YouTube — Purdue Engineering",
+      "license": "CC BY 4.0",
+      "size_kb": 64
+    },
+    "figs": [
+      {
+        "file": "/original/apec-trade-basket-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Mike Starkey Soybean Harvest (52490323277).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AMike%20Starkey%20Soybean%20Harvest%20%2852490323277%29.jpg",
+        "artist": "USDAgov",
+        "license": "Public domain",
+        "size_kb": 187
+      },
+      {
+        "file": "/original/apec-trade-basket-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Car carrier ELEKTRA au port à Casablanca.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3ACar%20carrier%20ELEKTRA%20au%20port%20%C3%A0%20Casablanca.jpg",
+        "artist": "Farid mernissi",
+        "license": "CC BY 4.0",
+        "size_kb": 85
+      }
+    ]
   }
 }

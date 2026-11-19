@@ -30,6 +30,7 @@ type Copy = {
 
 const COPYRaw: Record<Exclude<Locale, NewLocale>, Copy> = {
   zh: { auto: (l) => `已根据您所在地区切换到 ${l}`, undo: "撤销", suggest: (l) => `您所在地区建议使用 ${l}，是否切换？`, switchTo: "切换", keep: "保持当前" },
+  "zh-Hant": { auto: (l) => `已根據您所在地區切換到 ${l}`, undo: "撤銷", suggest: (l) => `您所在地區建議使用 ${l}，是否切換？`, switchTo: "切換", keep: "保持當前" },
   en: { auto: (l) => `Switched to ${l} based on your region`, undo: "Undo", suggest: (l) => `${l} is recommended for your region. Switch?`, switchTo: "Switch", keep: "Stay here" },
   ja: { auto: (l) => `地域に基づき ${l} に切り替えました`, undo: "元に戻す", suggest: (l) => `お住まいの地域では ${l} がおすすめです。切り替えますか？`, switchTo: "切り替える", keep: "このまま" },
   ko: { auto: (l) => `지역에 따라 ${l}(으)로 전환했습니다`, undo: "되돌리기", suggest: (l) => `해당 지역에서는 ${l}을(를) 권장합니다. 전환할까요?`, switchTo: "전환", keep: "현재 유지" },
@@ -111,7 +112,10 @@ export default function GeoLocaleGuard({ locale }: { locale: Locale }) {
           setCookie(locale);
           return;
         }
-        const isHome = /^\/[a-z]{2}\/?$/.test(pathname) || pathname === "/";
+        // 语言前缀可能是 2~3 位小写（en/fil）或 zh-Hant（连字符+大写），
+        // 用「首段是已知 locale」判断首页，避免繁体首页被误判为深层页。
+        const firstSeg = pathname.split("/").filter(Boolean)[0] || "";
+        const isHome = isLocale(firstSeg) || pathname === "/";
         if (isHome) {
           // 自动切换（仅首页），记录来源以便撤销
           try {

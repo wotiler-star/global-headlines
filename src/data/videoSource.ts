@@ -19,6 +19,7 @@ const BILIBILI_COOKIE = process.env.BILIBILI_COOKIE; // 可选，提升 B 站命
 // 各语言的检索词（用该语言，保证标题/描述本地化）
 const VIDEO_QUERY_RAW: Record<Exclude<Locale, NewLocale>, string> = {
   zh: "科技 自然 太空 纪录片",
+  "zh-Hant": "科技 自然 太空 紀錄片",
   en: "technology nature space documentary",
   ja: "テクノロジー 自然 宇宙 ドキュメンタリー",
   ko: "기술 자연 우주 다큐멘터리",
