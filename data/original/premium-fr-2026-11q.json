@@ -1,0 +1,142 @@
+[
+  {
+    "id": "rss-orig-twisted-oxide-moire-2026-11q-fr",
+    "title": "Et si la densité d'une mémoire se réglait en tournant deux cristaux, plutôt qu'en la gravant ?",
+    "summary": "Publiée le 19 novembre dans Nature, une expérience d'une simplicité trompeuse : deux lamelles de titanate de strontium d'environ 10 nanomètres, empilées puis légèrement désaxées, voient les atomes de leur interface s'organiser en un réseau carré de dislocations. L'enjeu dépasse l'élégance du motif, car l'angle de torsion commande l'espacement de la grille : à côté de la lithographie descendante s'ouvre une voie ascendante, prédite par apprentissage automatique avant d'être confirmée en microscopie électronique.",
+    "cover": "/original/twisted-oxide-moire-cover.webp",
+    "images": [
+      "/original/twisted-oxide-moire-cover.webp",
+      "/original/twisted-oxide-moire-fig1.webp",
+      "/original/twisted-oxide-moire-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Science des matériaux",
+      "Titanate de strontium",
+      "Motif de moiré",
+      "Réseau de dislocations",
+      "Mémoire électronique"
+    ],
+    "category": "science",
+    "locale": "fr",
+    "source": "Original starteday",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/20/content_615885.html",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795147843666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Empilez deux feuillets de cristal, imprimez-leur une légère rotation, puis attendez : à l'interface, les atomes se réorganisent d'eux-mêmes en un réseau de carrés. Publiée le 19 novembre dans Nature, l'expérience a quelque chose de presque déroutant pour de la science des matériaux — on se croirait en train de superposer deux feuilles de papier millimétré plutôt que de régler un microscope électronique.",
+      "Le matériau vedette est le titanate de strontium (SrTiO3), en deux lamelles d'environ 10 nanomètres d'épaisseur. Son intérêt ne tient pas à la rareté, bien au contraire : dur, chimiquement stable, il sert depuis des décennies de modèle à l'électronique des oxydes. Là où tant de matériaux bidimensionnels se dégradent au moindre contact, celui-ci supporte d'être empilé sur une puce — un détail pratique qui compte autant que la physique.",
+      "Une moirure, mais pas seulement",
+      "Le phénomène de moiré est familier : deux trames régulières croisées et légèrement désaxées font apparaître un motif plus large, plus lent. Deux cristaux superposés à faible angle produisent la même illusion. Jusqu'ici, ce que les microscopes montraient relevait essentiellement de cette géométrie — joli, mais simple jeu d'ombres entre deux réseaux.",
+      "Le résultat publié change de nature. La liaison forte entre les deux feuillets contraint les atomes de part et d'autre de l'interface à se réarranger pour s'épouser ; le désaccord résiduel, incapable de disparaître, se trouve chassé dans d'étroites lignes de cristal déformé. Ces lignes, les dislocations, se referment bout à bout jusqu'à dessiner une grille carrée.",
+      "Autrement dit, le quadrillage n'est pas une figure optique due à la superposition : c'est la trace d'atomes qui ont réellement déménagé. Toute la différence entre un motif et de la matière se joue là, et c'est précisément le point qu'une lecture rapide de l'article risque d'aplatir.",
+      "Prédire d'abord, regarder ensuite",
+      "L'ordre des opérations mérite qu'on s'y attarde. La réorganisation atomique a d'abord été prédite par simulation, alors que les premières images de microscopie ne laissaient voir qu'une moirure banale, sans la moindre grille. L'équipe a alors confié à un modèle d'apprentissage automatique le soin de calculer le mouvement des atomes lors de la mise en liaison et de la torsion : le modèle a annoncé la forme du réseau carré et indiqué où le chercher.",
+      "L'expérience a suivi cette boussole. En simulant la traversée du faisceau d'électrons dans l'échantillon, puis en découpant celui-ci selon plusieurs orientations pour l'observer en coupe, les microscopistes de l'Université d'Anvers et du laboratoire britannique SuperSTEM ont obtenu des images en accord étroit avec la prédiction.",
+      "Ce renversement n'est pas anodin : on ne voit plus pour expliquer ensuite, on laisse d'abord le modèle circonscrire la zone à explorer, puis l'instrument confirme. En découverte de matériaux, cette séquence cesse d'être l'exception pour devenir la règle.",
+      "Des tourbillons électriques au cœur de la maille",
+      "Les calculs livrent une seconde information, plus précieuse encore. Autour des dislocations, la déformation sépare légèrement les charges positives et négatives, crée une polarisation et l'ordonne en motifs de vortex. Or le contrôle de la polarisation est précisément le levier central du stockage de l'information et de l'énergie : ces tourbillons nanométriques ne sont donc pas qu'une curiosité esthétique, ils pourraient se comporter comme des cellules inscriptibles.",
+      "Mieux encore, l'angle de torsion règle directement l'espacement du réseau. L'équipe le dit sans détour : ajuster la rotation suffit à régler la taille de la structure. Pour qui travaille sur les mémoires, une maille dont on commande le pas en continu est presque le point de départ de tous les rêves d'ingénieur — la densité ne se grave plus seulement, elle se règle aussi en tournant.",
+      "Rien, pour l'heure, à inscrire dans une feuille de route",
+      "Deux questions restent ouvertes : les lignes du réseau conduisent-elles le courant ? Les motifs électriques peuvent-ils être écrits, effacés, réécrits à volonté ? Sans réponse, on ne franchit pas encore le seuil de l'application. Les auteurs s'en tiennent d'ailleurs à une formulation prudente, évoquant seulement l'exploration de comportements électriques utiles dans le titanate de strontium ou dans d'autres oxydes.",
+      "Prenons du recul. Les filières de mémoire actuelles descendent en gravant toujours plus fin par lithographie, avec des équipements et des coûts sous tension croissante ; l'auto-assemblage, cette vieille promesse d'un matériau qui se construirait seul, s'est toujours heurté à des structures récalcitrantes. Ce travail démontre au moins que l'angle de torsion peut servir de bouton continu et prévisible.",
+      "Sa portée tient peut-être moins au composant qu'au changement de regard. Dislocations et joints de grains ont longtemps été rangés parmi les défauts à éliminer ; ici, ils deviennent une variable de conception que l'on ajuste sans à-coups. Passer de la tolérance du défaut à sa réquisition discrète : à sa manière, la science des matériaux vient de changer de posture."
+    ]
+  },
+  {
+    "id": "rss-orig-glucose-powered-neuroaxis-2026-11q-fr",
+    "title": "Ni batterie ni programme : un implant nourri au glucose laisse le corps reprendre la main sur sa glycémie",
+    "summary": "Le 19 novembre, Nature publie les travaux menés par l'Université nationale de Singapour et l'Université des Postes et Télécommunications de Nanjing : NeuroAxis, un implant souple sans batterie, alimenté par le glucose sanguin, qui stimule le nerf vague en boucle fermée. En deux semaines, la glycémie de rats atteints de diabète de type 2 revient près des valeurs saines. Le vrai basculement n'est pas la baisse du sucre, mais le passage d'une décharge programmée à une régulation qui écoute le corps — chez le rat uniquement, et sans valeur d'avis médical.",
+    "cover": "/original/glucose-powered-neuroaxis-cover.webp",
+    "images": [
+      "/original/glucose-powered-neuroaxis-cover.webp",
+      "/original/glucose-powered-neuroaxis-fig1.webp",
+      "/original/glucose-powered-neuroaxis-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Diabète de type 2",
+      "Nerf vague",
+      "Bioélectronique",
+      "Implant auto-alimenté",
+      "Régulation en boucle fermée"
+    ],
+    "category": "health",
+    "locale": "fr",
+    "source": "Original starteday",
+    "sourceUrl": "https://tech.ifeng.com/c/8yBBJKDpYAi",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795147783666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Mesurer sa glycémie au bout du doigt, caler une injection à heure fixe, compter les glucides de chaque repas : si cette ronde est si difficile à quitter, c'est que la plupart des outils actuels décident à la place du corps, de l'extérieur, plutôt que de lui réapprendre à se régler. Une étude parue le 19 novembre dans Nature bouscule précisément ce présupposé.",
+      "L'équipe de Liu Yuxin, à l'Université nationale de Singapour, associée à celle de Wang Lianhui à l'Université des Postes et Télécommunications de Nanjing, présente NeuroAxis : un implant souple, sorte d'axe neuro-immunitaire artificiel. Aucune batterie : il tire son énergie du glucose sanguin et stimule le nerf vague en boucle fermée. Chez des rats atteints de diabète de type 2, la glycémie est revenue près des valeurs saines.",
+      "La voie de passage : le nerf vague",
+      "Le nerf vague relie le cerveau aux viscères comme une autoroute à double sens. Au moment du repas, il fait remonter les signaux du tube digestif tout en adressant au pancréas l'ordre de sécréter l'insuline. Il pilote aussi un réflexe inflammatoire : lors d'une inflammation chronique, sa stimulation électrique freine la libération des médiateurs de l'inflammation et atténue la réponse.",
+      "On savait depuis longtemps que stimuler ce nerf améliore la sensibilité à l'insuline et peut protéger les cellules pancréatiques. Or le diabète de type 2 s'accompagne typiquement d'obésité, d'insulinorésistance et d'inflammation chronique — trois phénomènes qui tombent exactement dans le périmètre de ce nerf. Le choix de la cible n'a donc rien d'un hasard.",
+      "Deux verrous sur les stimulateurs classiques",
+      "Les stimulateurs du nerf vague conventionnels butent sur deux obstacles tenaces. D'abord la batterie et les fils rigides : encombrants, ils s'épuisent, et chaque remplacement impose une nouvelle intervention chirurgicale. Ensuite la boucle ouverte : l'appareil décharge selon un programme figé, sans égard pour la glycémie du moment.",
+      "Les conséquences sont faciles à imaginer. La glycémie est déjà rentrée dans la norme que l'appareil continue de stimuler, au risque de ralentir le cœur ou de provoquer des troubles digestifs. C'est un arrosage branché sur une minuterie : il déclenche la pluie à heure fixe, que la terre soit sèche ou déjà gorgée d'eau.",
+      "Le défaut ne tient donc pas à la stimulation, mais à l'incapacité du dispositif à savoir quand s'arrêter. Une bonne part des efforts consentis depuis dix ans dans l'électronique médicale implantable a consisté à combler ce savoir manquant.",
+      "Puiser dans le sang, obéir à la glycémie",
+      "La réponse de NeuroAxis est d'une certaine élégance. Aucune batterie : le glucose du sang sert de carburant et fournit l'énergie. La stimulation passe en boucle fermée : l'implant travaille quand la glycémie monte, se met au repos quand elle revient à la normale. Énergie et décision sont confiées au même signal chimique du corps ; le dispositif se réduit au rang d'amplificateur.",
+      "Le protocole est d'une simplicité assumée : des rats malades répartis en groupes comparés. Chez ceux qui portent un NeuroAxis fonctionnel, la prise alimentaire, le poids et la graisse abdominale reculent nettement — et ces changements précèdent les indicateurs glycémiques.",
+      "Le facteur décisif reste le calendrier. Au bout de deux semaines seulement, la glycémie de ce groupe rejoint presque celle de rats sains, tandis que l'indice de résistance à l'insuline chute significativement. Autrement dit, l'organisme a recouvré sa sensibilité à l'insuline ; le résultat n'a pas été imposé par une contrainte extérieure.",
+      "L'idée et ses limites, à traiter séparément",
+      "Ce qui mérite réflexion n'est pas tant la baisse du sucre que la restauration d'une autorégulation. Retirez un traitement de substitution et le problème réapparaît d'ordinaire tel quel ; une approche de réveil vise, elle, à remettre au travail un circuit déjà présent. C'est un déplacement de philosophie dans la conception des dispositifs médicaux.",
+      "L'auto-alimentation ne fait pas qu'économiser une pile. Elle fusionne en une seule grandeur la question de l'énergie et celle du signal : le dispositif n'est structurellement actif que lorsque le carburant abonde, ce qui retire d'emblée une couche de faux déclenchements.",
+      "La frontière doit rester nette : il s'agit d'un modèle chez le rat, pas chez l'humain. Biocompatibilité à long terme, modalités d'implantation et charge chirurgicale, dérive du signal au fil du temps, efficacité énergétique à l'échelle d'un corps humain : rien n'a encore de réponse. Le compte rendu initial précise d'ailleurs qu'il relève du décryptage d'un article spécialisé et ne constitue pas un avis médical.",
+      "La formulation juste est donc celle d'une piste thérapeutique éclairée, non d'une ordonnance délivrée. Pour qui vit au rythme d'interventions extérieures destinées à tenir sa glycémie, l'intérêt de cette piste tient justement à son ambition : laisser l'organisme reprendre la main."
+    ]
+  },
+  {
+    "id": "rss-orig-folding-steering-suv-2026-11q-fr",
+    "title": "Le volant qui s'efface, ou l'aveu qu'une voiture n'est pas toujours en train de rouler",
+    "summary": "Lancé le 20 novembre à partir de 279 900 yuans, le Fangchengbao Tai 9 de BYD aligne six places en 2+2+2, un écran panoramique de 30 pouces, un AR-HUD de 50 pouces et une autonomie combinée de plus de 1 600 kilomètres. Son argument le plus neuf tient pourtant à un geste : un volant repliable qui se range dans la planche de bord, une première mondiale en série développée en interne. Au-delà des chiffres, c'est la première fois qu'un habitacle traite le temps de conduite et le temps d'arrêt comme deux usages séparés.",
+    "cover": "/original/folding-steering-suv-cover.webp",
+    "images": [
+      "/original/folding-steering-suv-cover.webp",
+      "/original/folding-steering-suv-fig1.webp",
+      "/original/folding-steering-suv-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Fangchengbao Tai 9",
+      "Volant repliable",
+      "Plateforme hybride",
+      "SUV six places",
+      "Habitacle modulable"
+    ],
+    "category": "tech",
+    "locale": "fr",
+    "source": "Original starteday",
+    "sourceUrl": "https://www.ithome.com/1/029/755.htm",
+    "author": "Rédaction starteday",
+    "publishedAt": 1795147723666,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "Le 20 novembre, lors du lancement du Fangchengbao Tai 9 de BYD, ce qui a le plus circulé n'était ni l'écran panoramique de 30 pouces ni l'affichage tête haute en réalité augmentée de 50 pouces, mais un geste : le volant qui se replie et disparaît dans la planche de bord.",
+      "À partir de 279 900 yuans, un grand SUV de six places en configuration 2+2+2, la plateforme hybride DMS, 310 kilomètres d'autonomie électrique en cycle WLTC et plus de 1 600 kilomètres d'autonomie combinée : la fiche est copieuse. Mais ce qui mérite qu'on s'y arrête, c'est ce volant escamotable, parce qu'il traite pour la première fois la voiture en mouvement et la voiture à l'arrêt comme deux espaces distincts.",
+      "Un geste, deux états",
+      "Depuis un siècle, l'habitacle s'organise autour du poste de conduite : volant fixé devant soi, planche de bord inclinée vers le conducteur, tous les sièges orientés selon le même présupposé, celui d'un véhicule en train de rouler. Même à l'arrêt, la première rangée reste un cockpit, simplement privé de mains sur le volant.",
+      "Le repli desserre ce présupposé. Une fois le véhicule parqué, le volant s'efface, la place avant libère un volume continu et le siège du conducteur peut se retourner en position de conversation. Le constructeur parle d'habitacle intelligent pliable, insiste sur un développement entièrement interne et sur une première mondiale en série : le vocabulaire trahit l'importance accordée à ce simple mouvement.",
+      "Pourquoi personne ne l'avait fait plus tôt",
+      "Ce n'est pas faute d'y avoir pensé, c'est faute de marges de manœuvre. La direction doit conserver une redondance mécanique, satisfaire à la protection des occupants en cas de choc, et tout mécanisme mobile doit passer l'épreuve des vibrations, des bruits parasites, de l'endurance et des déclenchements intempestifs. Un volant n'est pas un écran : il appartient à la chaîne de sécurité, et le modifier coûte plus cher et prend plus de temps que de revoir une console centrale.",
+      "Aussi le point critique n'est-il pas de savoir le replier, mais de décider quand le repli est autorisé. Un tel mécanisme ne peut se déverrouiller qu'à l'arrêt, en stationnement, et doit rester verrouillé en roulage ; si la frontière entre les états est mal tenue, on quitte le domaine du confort pour celui de la sécurité. Oser l'inscrire dans la liste des équipements d'un modèle de série suppose que ce verrouillage a franchi les validations internes.",
+      "L'autre moitié : trois lignes réunies",
+      "Présentée le même soir, la plateforme DMS rassemble en une seule architecture trois filières jusqu'ici séparées : DM-i pour la sobriété, DM-p pour les performances, DMO pour le tout-terrain. Le contrôle vectoriel sur l'essieu arrière, présenté comme une première, combine différentiel, blocage, limitation électronique du glissement et découplage à la roue. L'objectif affiché tient en une formule : grand et puissant, grand et agile, grand et stable, grand et économe.",
+      "Traduit en chiffres : 310 kilomètres en tout électrique selon le cycle WLTC, de quoi rouler au quotidien comme en voiture électrique ; plus de 1 600 kilomètres en autonomie combinée, de quoi aborder un long trajet sans dépendre du rythme des ravitaillements. Pour un véhicule de cette taille, voir les deux tenir simultanément compte davantage qu'un record isolé sur une seule ligne.",
+      "La gamme de prix, plus parlante que la fiche technique",
+      "Réunir six places, une longue autonomie et un habitacle repliable sous la barre des 280 000 yuans change d'abord la question de savoir qui peut y prétendre. Il y a peu, ce niveau d'équipement se rencontrait surtout sur des tarifs sensiblement plus élevés ; il entre désormais dans le budget courant d'un renouvellement familial, et le centre de gravité de la concurrence se déplace de l'accumulation d'options vers l'efficacité de l'espace.",
+      "Le signal côté usage est tout aussi lisible : l'évaluation d'une voiture familiale glisse d'un centre conducteur vers un centre passagers. Écrans toujours plus vastes, sièges qui empruntent au canapé, volant désormais prêt à s'effacer : autant de facettes d'un même mouvement, où les deux heures passées à l'arrêt commencent à être traitées comme un scénario d'usage à part entière.",
+      "Trente secondes de lucidité",
+      "Le retour d'une pièce mobile a toutefois un coût. Endurance du mécanisme de repli sur la durée, maîtrise des bruits, coût des réparations, valeur de revente : tout cela ne sera tranché que par quelques années de marché. Après tant de discours sur la voiture définie par logiciel, voir un organe mécanique mobile redevenir un argument commercial relève du complément à contresens, non du remplacement.",
+      "Une dernière réalité tempère l'enthousiasme : l'intérêt du volant repliable dépend étroitement du temps passé en stationnement. Si un véhicule roule l'essentiel de sa vie, ce geste ressemble davantage aux trois secondes les plus photogéniques d'une conférence de presse qu'à une fonction utilisée chaque jour. Qu'il devienne une habitude plutôt qu'un sujet de conversation dépendra de la disposition des usagers à réorganiser leur temps à bord autour des moments où la voiture ne roule pas.",
+      "Qu'une voiture accepte de ranger son volant revient, au fond, à reconnaître qu'elle n'est pas toujours en train de conduire. Cet aveu en dit plus long sur la direction que prend le design des habitacles que n'importe quelle diagonale d'écran."
+    ]
+  }
+]

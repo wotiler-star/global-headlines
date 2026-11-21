@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { locales, categories, Locale } from "@/i18n/config";
+import { locales, categories, Locale, hasCategoryPage } from "@/i18n/config";
 import { getArticles } from "@/data/newsSource";
 import { absUrl, buildSitemapAlternates, buildSitemapArticleAlternates } from "@/lib/site";
 import { buildTagIndex, indexableTags, loadTagSourceArticles } from "@/lib/tags";
@@ -83,7 +83,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const allInLocale = await getArticles(loc);
     const catsWithContent = new Set(allInLocale.map((a) => a.category));
     for (const c of categories) {
-      if (c === "recommend") continue;
+      if (c === "recommend" || !hasCategoryPage(c)) continue;
       if (!catsWithContent.has(c)) continue;
       const alts = buildSitemapAlternates(loc, `/category/${c}`);
       urls.push({

@@ -1557,5 +1557,129 @@
         "size_kb": 85
       }
     ]
+  },
+  "twisted-oxide-moire": {
+    "cover": {
+      "file": "/original/twisted-oxide-moire-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Zinc oxide crystal (4071616901).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Zinc_oxide_crystal_(4071616901).jpg",
+      "artist": "Oak Ridge National Laboratory",
+      "license": "CC BY 2.0",
+      "size_kb": 210
+    },
+    "figs": [
+      {
+        "file": "/original/twisted-oxide-moire-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:FZU AV CR Silicon Single Crystal A.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:FZU_AV_CR_Silicon_Single_Crystal_A.jpg",
+        "artist": "Mojmir Churavy",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 270
+      },
+      {
+        "file": "/original/twisted-oxide-moire-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Scanning electron microscope - UFCH JH (2020) 01.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Scanning_electron_microscope_-_UFCH_JH_(2020)_01.jpg",
+        "artist": "Tadeáš Bednarz",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 155
+      }
+    ]
+  },
+  "glucose-powered-neuroaxis": {
+    "cover": {
+      "file": "/original/glucose-powered-neuroaxis-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:(20250417) Blood glucose meter 09.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:(20250417)_Blood_glucose_meter_09.jpg",
+      "artist": "Roy Zuo",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 56
+    },
+    "figs": [
+      {
+        "file": "/original/glucose-powered-neuroaxis-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:(20250417) Blood glucose meter 06.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:(20250417)_Blood_glucose_meter_06.jpg",
+        "artist": "Roy Zuo",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 89
+      },
+      {
+        "file": "/original/glucose-powered-neuroaxis-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Accu-chek blood glucose test strips.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Accu-chek_blood_glucose_test_strips.jpg",
+        "artist": "Karl101",
+        "license": "CC BY-SA 3.0",
+        "size_kb": 241
+      }
+    ]
+  },
+  "folding-steering-suv": {
+    "cover": {
+      "file": "/original/folding-steering-suv-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:The interior of Mercedes-Benz EQS 450 4MATIC SUV (X296).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:The_interior_of_Mercedes-Benz_EQS_450_4MATIC_SUV_(X296).jpg",
+      "artist": "Tokumeigakarinoaoshima",
+      "license": "CC BY-SA 4.0",
+      "size_kb": 225
+    },
+    "figs": [
+      {
+        "file": "/original/folding-steering-suv-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Caterham steering wheel at Goodwood 2012.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:Caterham_steering_wheel_at_Goodwood_2012.jpg",
+        "artist": "Nic Redhead from Birmingham, UK",
+        "license": "CC BY-SA 2.0",
+        "size_kb": 139
+      },
+      {
+        "file": "/original/folding-steering-suv-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:2022 Citroen C5 Aircross SUV blue interior view in Brunei.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File:2022_Citroen_C5_Aircross_SUV_blue_interior_view_in_Brunei.jpg",
+        "artist": "AIMHO'S REBELLION 8490s",
+        "license": "CC BY-SA 4.0",
+        "size_kb": 110
+      }
+    ]
+  },
+  "apec-hawke-founder-story": {
+    "cover": {
+      "file": "/original/apec-hawke-founder-story-cover.webp",
+      "source": "Wikimedia Commons",
+      "commons_title": "File:Bob Hawke (4236645208).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File%3ABob%20Hawke%20%284236645208%29.jpg",
+      "artist": "Jan Smith",
+      "license": "CC BY 2.0",
+      "size_kb": 81
+    },
+    "figs": [
+      {
+        "file": "/original/apec-hawke-founder-story-fig1.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Minimalist meeting room (Unsplash).jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AMinimalist%20meeting%20room%20%28Unsplash%29.jpg",
+        "artist": "Breather breather",
+        "license": "CC0",
+        "size_kb": 69
+      },
+      {
+        "file": "/original/apec-hawke-founder-story-fig2.webp",
+        "source": "Wikimedia Commons",
+        "commons_title": "File:Aerial view of shipping containers, and big container cranes at Tacoma's container port -a.jpg",
+        "commons_page": "https://commons.wikimedia.org/wiki/File%3AAerial%20view%20of%20shipping%20containers%2C%20and%20big%20container%20cranes%20at%20Tacoma%27s%20container%20port%20-a.jpg",
+        "artist": "Brian Harris",
+        "license": "Public domain",
+        "size_kb": 347
+      }
+    ]
   }
 }

@@ -148,7 +148,7 @@ export default async function AboutPage({
         ethicsPolicy: canonical,
         correctionsPolicy: canonical,
         actionableFeedbackPolicy: canonical,
-        knowsAbout: ["technology", "business", "science", "culture", "consumer", "health"],
+        knowsAbout: ["technology", "technology news", "artificial intelligence", "science", "science news", "health", "health news", "medical research", "business", "finance", "culture", "world news", "multilingual journalism", "original reporting"],
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "editorial",

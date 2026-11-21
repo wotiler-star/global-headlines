@@ -1,0 +1,137 @@
+[
+  {
+    "id": "rss-orig-twisted-oxide-moire-2026-11q-en",
+    "title": "The Grid No One Etched: How a Twist Coaxes an Oxide to Pattern Itself",
+    "summary": "Published in Nature on November 19, a deceptively minimal experiment stacks two ultrathin sheets of strontium titanate, rotates one against the other, and watches the interface atoms rearrange into a square dislocation network. The real prize is not the pattern but the knob behind it: the twist angle sets the grid spacing, opening a bottom-up route alongside the top-down etching that dominates memory manufacturing. Whether those grid lines conduct, and whether the electrical patterns can be written and erased repeatedly, remain open questions.",
+    "cover": "/original/twisted-oxide-moire-cover.webp",
+    "images": [
+      "/original/twisted-oxide-moire-cover.webp",
+      "/original/twisted-oxide-moire-fig1.webp",
+      "/original/twisted-oxide-moire-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "materials science",
+      "strontium titanate",
+      "moire patterns",
+      "dislocation networks",
+      "data storage"
+    ],
+    "category": "science",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/20/content_615885.html",
+    "author": "starteday Editorial",
+    "publishedAt": 1795147843666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "It is the sort of experiment that looks almost too simple to be real. Take two ultrathin crystal sheets, set one on top of the other, rotate it by a small angle, and then wait. According to a paper in Nature dated November 19, led by the Technical University of Denmark, the atoms at the seam rearrange themselves into a square grid, with no patterning tool touching the sample at all.",
+      "The material is strontium titanate, SrTiO3, and each sheet is roughly 10 nanometers thick. It was chosen precisely because it is unremarkable: hard, chemically stable, and a workhorse model oxide that electronics researchers have leaned on for decades. Unlike many delicate two-dimensional materials, it survives being stacked onto a chip, which makes it a practical candidate rather than a laboratory curiosity.",
+      "The first layer is the familiar one: ordinary moire.",
+      "Lay two mesh screens across each other and give one a slight turn, and a larger repeating pattern seems to float above them. Two regularly ordered crystals overlapping at a small angle produce much the same thing. Under a microscope, that is usually all researchers have been looking at: a geometric shadow, pretty, but not a physical structure.",
+      "This time the interface does more than cast a shadow. Strong bonding forces the atoms on both sides to shift and accommodate each other, and the leftover mismatch has nowhere to go, so it is squeezed into narrow lines of strained crystal. Those lines are dislocations, and here they link end to end into a square network.",
+      "That distinction matters. The grid is not a visual trick produced by overlapping lattices; it is the structure left behind after atoms physically moved. Confusing pattern with matter is the easiest way to read this paper too shallowly, and it is a mistake worth naming explicitly.",
+      "What makes the result interesting is the order: prediction came before the picture.",
+      "The atomic rearrangement was first anticipated in simulation, yet the early micrographs showed only ordinary moire, with no sign of the grid. The team turned to machine-learning models that compute how atoms move when thin layers bond and twist, and those models predicted what the square network should look like and where to hunt for it.",
+      "Only then did the experiment catch up. By simulating how an electron beam travels through the material, and by cutting the sample along several directions to inspect cross-sections, the researchers at the University of Antwerp in Belgium and the SuperSTEM facility in the UK produced microscopy that lined up closely with the theory.",
+      "That methodology deserves its own line. This was not see-it-then-explain-it; a model narrowed the search space first, and the electron microscope was sent in to confirm. In materials discovery, that ordering is quietly shifting from exception to routine, and it is arguably the transferable result here.",
+      "The third layer is the one with electrical consequences.",
+      "The models also predict something more valuable than the grid itself. Around each dislocation, the strain nudges positive and negative charge slightly apart, creating local polarization that settles into vortex-like patterns. Polarization is precisely the knob that data storage and energy storage keep trying to turn, so these nanoscale vortices are not merely decorative. They could, in principle, be writable cells.",
+      "And the twist angle sets the spacing between dislocations, which is to say it sets the size of the grid. One team member put it plainly: the structural dimensions are tunable by rotation. For memory technology, controllable cell pitch is close to the starting point of every engineering ambition, because it suggests density need not only be etched downward. It might be dialed in by a twist.",
+      "Before anyone draws a roadmap, two questions are still hanging.",
+      "Do the grid lines actually conduct? Can the electrical patterns inside the cells be written and erased repeatedly, cycle after cycle? Until both are answered, there is no serious claim of reaching a practical threshold. The team's own next step is worded carefully: explore whether strontium titanate or other oxides can yield useful electrical behavior. That restraint is a signal in itself.",
+      "Step back, and the context is clear. Today's memory roadmap is dominated by lithography, pushing features smaller at ever tighter equipment and cost pressure, while self-assembly has long been promised as a way to let materials build themselves and has just as long been dogged by structures that refuse to behave. This work at least demonstrates that twist angle can serve as a continuous, predictable dial. But the deeper shift may be one of attitude rather than devices. Dislocations and grain boundaries have spent decades being treated as defects to eliminate; here they are recruited as a design variable that can be tuned continuously. From tolerating defects to conscripting them, materials science has quietly changed its mind about what counts as useful."
+    ]
+  },
+  {
+    "id": "rss-orig-glucose-powered-neuroaxis-2026-11q-en",
+    "title": "The Implant That Runs on Blood Sugar and Knows When to Stop",
+    "summary": "A November 19 Nature paper from teams at the National University of Singapore and Nanjing University of Posts and Telecommunications introduces NeuroAxis, a soft, battery-free implant that draws power from glucose in the blood and stimulates the vagus nerve in a closed loop. In a rat model of type 2 diabetes, two weeks of treatment brought blood sugar close to healthy levels, cut insulin resistance markedly, and reduced food intake, body weight and abdominal fat. The sharper idea is not the glucose drop but the control logic: the device fires only when sugar is high, and this remains an animal study, not medical advice.",
+    "cover": "/original/glucose-powered-neuroaxis-cover.webp",
+    "images": [
+      "/original/glucose-powered-neuroaxis-cover.webp",
+      "/original/glucose-powered-neuroaxis-fig1.webp",
+      "/original/glucose-powered-neuroaxis-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "type 2 diabetes",
+      "vagus nerve",
+      "bioelectronics",
+      "self-powered implants",
+      "closed-loop control"
+    ],
+    "category": "health",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://tech.ifeng.com/c/8yBBJKDpYAi",
+    "author": "starteday Editorial",
+    "publishedAt": 1795147783666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Finger-prick tests on a schedule, injections timed to the clock, meals counted in carbohydrates: the daily management of type 2 diabetes is built around tools that make decisions from outside the body. A study in Nature dated November 19 asks whether that premise can be flipped, by letting the body's own chemistry run the device instead.",
+      "Led by Yuxin Liu at the National University of Singapore and Lianhui Wang at Nanjing University of Posts and Telecommunications, the team built a soft implant called NeuroAxis, described as an artificial neuro-immune axis. It carries no battery, runs on glucose drawn from the blood, and stimulates the vagus nerve in a closed loop. In a rat model of type 2 diabetes, it brought blood sugar back close to healthy levels.",
+      "To see why the target was chosen, start with the vagus nerve.",
+      "The vagus nerve is a two-way trunk line between the brain and the internal organs. During a meal it carries signals up from the gut and issues instructions back to the pancreas to prompt insulin release. It also oversees an inflammatory reflex: when chronic inflammation is present, electrical stimulation of the nerve can dampen the release of inflammatory signals and ease the response.",
+      "Researchers have long known that stimulating this nerve can improve insulin sensitivity and even help protect insulin-producing cells. Type 2 diabetes tends to arrive bundled with obesity, insulin resistance and low-grade chronic inflammation, which land squarely on the three things this nerve helps regulate. The choice of target is not an accident.",
+      "Two stubborn limits have shaped the older hardware.",
+      "Conventional vagus nerve stimulators run into two problems that are hard to route around. The first is the battery and the rigid leads: they take up space, the charge eventually runs out, and swapping it means another operation. The second is open-loop control, which fires on a fixed program regardless of the current blood sugar.",
+      "The consequence of open loop is easy to picture. Once sugar is already back to normal, the device keeps stimulating, which can slow the heart rate or cause gastrointestinal discomfort. It behaves like a timed sprinkler that keeps watering long after the soil is wet, instead of one that pauses to read the moisture. The flaw is not the stimulation; it is that the hardware has no idea when to stop.",
+      "Put differently, the missing piece is awareness, not force. A large share of the past decade's iteration in implantable medical electronics has gone into supplying exactly that awareness, and closed-loop designs are the direction of travel.",
+      "The NeuroAxis answer is to take both power and judgment from the blood.",
+      "Its solution is neat: fit no battery at all, and use glucose in the bloodstream as fuel for self-power; at the same time, make the stimulation closed loop, so the device works only when sugar is high and rests once it returns to normal. Both the energy supply and the decision to fire are handed to the body's own chemical signals. The implant demotes itself to something closer to a reflex amplifier.",
+      "The experiment was deliberately plain. Diabetic rats were split into comparison groups. The group carrying a functioning NeuroAxis ate noticeably less, lost body weight, and carried relatively less abdominal fat, and these changes showed up before the blood-sugar numbers moved.",
+      "Timing is the sharper result. After just two weeks of treatment, that group's blood sugar fell to near the level of healthy rats, and its insulin resistance index dropped markedly. That second figure matters: it says the body regained sensitivity to its own insulin rather than being pushed down by an external force.",
+      "What the result means and what it does not are worth separating.",
+      "The most interesting part is not that sugar fell, but that self-regulation came back. Replacement-style therapy tends to see the problem return as soon as the intervention is withdrawn; a wake-up approach tries to get a circuit that already exists to work again. That is a genuine change in the design philosophy of a medical device. Self-power is not merely about saving a battery either. It merges 'where the energy comes from' with 'what the signal is' into a single variable, so the device is active by construction only when fuel is plentiful, which removes one layer of false triggering from the architecture.",
+      "The boundary has to be drawn just as firmly. This is a rat model, not a human trial. Long-term biocompatibility, the surgical burden of implantation, signal drift over time, and whether the power harvest scales to human dimensions all remain unanswered. The original reporting is explicitly framed as a professional reading of a paper and not as medical advice. So the accurate claim is that a direction for a new therapy has been lit up, not that a prescription has been delivered. For people who currently keep their sugar in range through outside intervention, the weight of that direction lies precisely in its ambition to hand control back to the body."
+    ]
+  },
+  {
+    "id": "rss-orig-folding-steering-suv-2026-11q-en",
+    "title": "A Folding Steering Wheel Is Really a Bet on the Hours a Car Sits Still",
+    "summary": "Launched on the evening of November 20, BYD's Fangchengbao Tai 9 starts at 279,900 yuan and pairs a 2+2+2 six-seat cabin with a 30-inch panoramic screen, a 50-inch AR head-up display, and the first mass-produced steering wheel that folds into the dashboard. Underneath sits a DMS Super Hybrid platform rated at 310 km of WLTC electric range and more than 1,600 km combined. The more interesting move is conceptual: for the first time, a cabin is laid out around two distinct states, driving and parked, rather than one.",
+    "cover": "/original/folding-steering-suv-cover.webp",
+    "images": [
+      "/original/folding-steering-suv-cover.webp",
+      "/original/folding-steering-suv-fig1.webp",
+      "/original/folding-steering-suv-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Fangchengbao Tai 9",
+      "folding steering wheel",
+      "hybrid platform",
+      "six-seat SUV",
+      "smart cabin"
+    ],
+    "category": "tech",
+    "locale": "en",
+    "source": "starteday Original",
+    "sourceUrl": "https://www.ithome.com/1/029/755.htm",
+    "author": "starteday Editorial",
+    "publishedAt": 1795147723666,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "At the launch event on the evening of November 20, the detail that traveled furthest was neither the 30-inch panoramic screen nor the 50-inch AR head-up display. It was a single motion: the steering wheel folding up and retracting into the dashboard.",
+      "BYD's Fangchengbao Tai 9 starts at 279,900 yuan, seats six in a 2+2+2 layout, and debuts a DMS Super Hybrid platform rated at 310 km of electric range on the WLTC cycle and more than 1,600 km combined. The spec sheet is crowded. But the folding wheel is the one item worth pulling out on its own, because it treats a car in motion and a car at rest as two different spaces for the first time.",
+      "One motion splits two states that used to be treated as one.",
+      "For roughly a century, cabin layout has been organized around the driver's seat: a fixed wheel up front, a dashboard tilted toward the person holding it, and every seat oriented toward the assumption that the car is being driven. Even when parked, the front row stayed a cockpit in waiting, simply with nobody at the controls.",
+      "Folding releases that assumption. Once parked, the wheel stows away, the front row opens into one continuous space, and the driver's position can turn to face the cabin as a conversational seat. The company calls it a folding smart cabin, stresses that it was developed fully in-house, and bills it as the first mass-produced deployment of its kind. The wording signals how much weight it places on this one gesture.",
+      "Why nobody shipped this sooner is a question of constraints, not imagination.",
+      "It was not a missing idea; it was a pile of constraints. Steering has to keep mechanical redundancy, crash protection has to hold for occupants, and any moving mechanism has to clear vibration, rattle, durability and false-trigger thresholds. A steering wheel is not a screen. It is tied to safety hardware, which makes changing it far costlier and slower than redesigning a center display.",
+      "So the hard engineering question is not whether the wheel can fold, but when it is allowed to. Such a mechanism almost has to unlock only in a parked or stationary state and stay locked while driving; if that state boundary is not airtight, the issue stops being about comfort. Putting it into a mass-production spec sheet at all suggests the interlock has cleared the company's own validation.",
+      "The other half of the launch is a platform that merges three lineages.",
+      "The DMS platform folds the efficiency bias of DM-i, the performance bias of DM-p, and the off-road bias of DMO into one architecture, presented under an all-capable banner. A claimed first, rear-drive vectoring control bundles the differential, the differential lock, electronic limited-slip and wheel-end decoupling, with a plain goal: make a large vehicle strong, agile, stable and efficient at once.",
+      "On paper that yields 310 km of electric range on the WLTC cycle, enough for daily commuting to run as an electric car, and more than 1,600 km combined, enough for long trips without being steered by charging stops. For a big six-seater, having both numbers hold at once is more meaningful than any single record.",
+      "The price band may matter more than the spec sheet.",
+      "Compressing a large six-seater, long range and a folding cabin into the roughly 280,000-yuan bracket changes who can reach this class of product. A few years ago such equipment mostly sat at higher price points; it now sits inside the mainstream budget of a household upgrading its car, and the competitive center of gravity shifts from piling on features to using space well.",
+      "The demand-side signal is consistent: judgment of a family car is drifting from driver-centered to occupant-centered. Screens grow, seats edge closer to sofas, and now the wheel is willing to yield its place. These are different faces of the same decision, namely that the hours a car sits parked are starting to be designed for as a serious use case.",
+      "The moving-part comeback has a bill attached. Long-term durability of the folding mechanism, rattle control, repair costs and resale value all need a few years of real market mileage before anyone can score them. After years of talk about the software-defined vehicle, hardware that physically moves is being brought back as a selling point, which reads as a complement to that trend rather than a replacement for it.",
+      "There is also a plain reality check: the value of a folding wheel depends heavily on how long the car stays parked. If a vehicle spends most of its life on the road, the gesture is closer to the three most photogenic seconds of a launch film than to a function used every day. Whether it moves from talking point to habit depends on owners rearranging their time inside the cabin around the parked state. A car willing to put its wheel away is, at bottom, admitting that it is not always driving. That admission says more about where cabin design is heading than any screen does."
+    ]
+  }
+]

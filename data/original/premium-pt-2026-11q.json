@@ -1,0 +1,138 @@
+[
+  {
+    "id": "rss-orig-twisted-oxide-moire-2026-11q-pt",
+    "title": "Girar, não gravar: duas películas de óxido fazem a rede de discordâncias nascer sozinha na interface",
+    "summary": "Publicado na Nature em 19 de novembro, um experimento de simplicidade quase desconcertante: duas lâminas de titanato de estrôncio com cerca de 10 nanômetros, empilhadas e levemente torcidas, levam os átomos da interface a se reorganizarem numa rede quadrada de discordâncias. O que vale ouro não é a estética do padrão, e sim o fato de que o ângulo de torção regula o espaçamento da malha: uma rota que nasce do material e se soma à litografia, em vez de depender dela.",
+    "cover": "/original/twisted-oxide-moire-cover.webp",
+    "images": [
+      "/original/twisted-oxide-moire-cover.webp",
+      "/original/twisted-oxide-moire-fig1.webp",
+      "/original/twisted-oxide-moire-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "ciência de materiais",
+      "titanato de estrôncio",
+      "padrão de moiré",
+      "rede de discordâncias",
+      "memórias eletrônicas"
+    ],
+    "category": "science",
+    "locale": "pt",
+    "source": "Original starteday",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/20/content_615885.html",
+    "author": "Redação starteday",
+    "publishedAt": 1795147843666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Empilhe duas lâminas cristalinas, gire uma delas alguns graus e espere. Sem qualquer comando externo, os átomos da interface se arrumam numa malha quadriculada. O experimento que a Nature traz em 19 de novembro tem um gesto tão enxuto que mais parece um truque de ótica do que ciência de materiais.",
+      "O protagonista é o titanato de estrôncio, SrTiO3, em duas películas de aproximadamente 10 nanômetros cada. A escolha não tem nada de exótica, pelo contrário. O material é duro, quimicamente estável e há décadas serve de referência na eletrônica de óxidos; ao contrário de tantas camadas bidimensionais que se desfazem ao menor contato, ele suporta ser depositado sobre um chip.",
+      "◆ O moiré que qualquer um já viu",
+      "Sobreponha duas telas de arame e gire-as um pouco: surgem faixas maiores, o chamado padrão de moiré. O mesmo vale para dois cristais de rede regular superpostos em ângulo pequeno. Até aqui, era basicamente isso que a microscopia mostrava: uma ilusão geométrica, elegante, porém sem substância por trás.",
+      "Desta vez o desfecho é outro. A ligação forte entre as superfícies obriga os átomos dos dois lados a se reacomodarem, e a incompatibilidade estrutural que sobra não tem para onde escapar: fica comprimida em linhas estreitas de cristal deformado. São as discordâncias, que se conectam umas às outras até fechar uma rede quadrada.",
+      "A distinção merece ser sublinhada, porque é onde o artigo costuma ser lido de maneira rasa. A malha não é um efeito de sobreposição, é matéria que mudou de lugar depois de os átomos se deslocarem de verdade. Vai aqui a diferença entre 'padrão' e 'estrutura'.",
+      "◆ Primeiro o cálculo, depois a imagem",
+      "A ordem em que a descoberta aconteceu é o mais instigante. A reorganização atômica apareceu antes nas simulações: as primeiras imagens de microscopia só revelavam o moiré de sempre, e a rede quadrada teimava em não aparecer. A equipe, liderada pela Universidade Técnica da Dinamarca, recorreu então a um modelo de aprendizado de máquina para calcular como os átomos se movem quando as películas se ligam e são torcidas, e ele previu com precisão tanto o formato da malha quanto o lugar onde procurá-la.",
+      "Com a direção traçada, a experimentação veio atrás. Simulou-se o percurso do feixe de elétrons através do material, cortaram-se as amostras em diferentes orientações e examinaram-se as seções transversais. As imagens de microscopia eletrônica da Universidade de Antuérpia, na Bélgica, e do laboratório britânico SuperSTEM coincidiram com o que a teoria antecipara.",
+      "Vale um parêntese de método: não se viu primeiro para explicar depois. O modelo cercou a região de busca e o microscópio apenas confirmou. Na descoberta de materiais, essa inversão vem deixando de ser exceção para se tornar rotina, e muda o papel da intuição no laboratório.",
+      "◆ Dentro da malha, uma paisagem elétrica",
+      "Os cálculos entregaram algo ainda mais valioso do que a geometria. A distorção ao redor da rede separa levemente cargas positivas e negativas, criando polarização que se organiza em desenhos de redemoinho. Controlar a polarização é justamente o botão que governa o armazenamento de informação e de energia; por isso esses vórtices nanométricos não são apenas bonitos, podem ser células nas quais se escreve algo.",
+      "E há um controle de uma simplicidade quase suspeita: o ângulo de torção define o espaçamento entre as discordâncias. Como resumiram os pesquisadores, basta girar para ajustar a dimensão da estrutura. Para quem projeta memórias, 'espaçamento ajustável' é praticamente o ponto de partida de toda ambição de engenharia: a densidade deixa de depender só do que se consegue entalhar e passa a depender também do quanto se torce.",
+      "◆ Ainda não é um roteiro de produto",
+      "Duas perguntas seguem sem resposta: as linhas da rede conduzem mesmo eletricidade? O padrão elétrico dentro da malha pode ser gravado e apagado muitas vezes seguidas? Sem isso resolvido, não há nem sequer como falar em aplicação. A própria equipe descreve o próximo passo com vocabulário deliberadamente contido: investigar se o titanato de estrôncio, ou outros óxidos, geram comportamentos elétricos que prestem.",
+      "Ampliando o quadro, as rotas atuais de memória dependem da litografia, que quanto mais desce em escala mais aperta equipamentos e custos. A auto-organização sempre foi apontada como a alternativa de 'deixar o material crescer', mas esbarrava num problema teimoso: o que crescia não obedecia. Aqui, ao menos, demonstra-se que o ângulo de torção funciona como um botão contínuo e previsível.",
+      "Talvez o peso maior do estudo nem esteja no dispositivo, e sim na troca de olhar. Discordâncias e contornos de grão, durante décadas tratados como defeitos a extinguir, aparecem agora como variável de projeto que se regula sem sobressaltos. De tolerar o defeito a recrutá-lo, a ciência de materiais mudou de perspectiva em silêncio."
+    ]
+  },
+  {
+    "id": "rss-orig-glucose-powered-neuroaxis-2026-11q-pt",
+    "title": "Sem bateria e sem cronômetro: um implante alimentado pela própria glicose faz o nervo vago voltar a regular o açúcar no sangue",
+    "summary": "Na Nature de 19 de novembro, a equipe de Liu Yuxin, da Universidade Nacional de Singapura, e a de Wang Lianhui, da Universidade de Correios e Telecomunicações de Nanjing, apresentam o NeuroAxis: um implante flexível, sem bateria, que tira energia da glicose do sangue e estimula o nervo vago em malha fechada. Em duas semanas, ratos com diabetes tipo 2 voltaram a níveis glicêmicos próximos dos saudáveis. O decisivo não é a queda do açúcar, e sim trocar a descarga programada de tempos em tempos por um estímulo que escuta o próprio organismo.",
+    "cover": "/original/glucose-powered-neuroaxis-cover.webp",
+    "images": [
+      "/original/glucose-powered-neuroaxis-cover.webp",
+      "/original/glucose-powered-neuroaxis-fig1.webp",
+      "/original/glucose-powered-neuroaxis-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "diabetes tipo 2",
+      "nervo vago",
+      "bioeletrônica",
+      "implante autônomo",
+      "controle em malha fechada"
+    ],
+    "category": "health",
+    "locale": "pt",
+    "source": "Original starteday",
+    "sourceUrl": "https://tech.ifeng.com/c/8yBBJKDpYAi",
+    "author": "Redação starteday",
+    "publishedAt": 1795147783666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Furar o dedo todo dia, aplicar insulina no horário, contar carboidratos em cada refeição. Esse ciclo é difícil de romper porque quase tudo o que existe hoje decide pelo corpo, de fora dele, em vez de devolver ao organismo a capacidade de se regular. Um estudo publicado na Nature em 19 de novembro tenta mexer justamente nessa premissa.",
+      "A equipe de Liu Yuxin, da Universidade Nacional de Singapura, trabalhou com o grupo de Wang Lianhui, da Universidade de Correios e Telecomunicações de Nanjing, para construir o NeuroAxis, um implante flexível descrito como eixo neuroimune artificial. Não leva bateria: alimenta-se da glicose presente no sangue e estimula o nervo vago em malha fechada. Em ratos com diabetes tipo 2, a glicemia voltou a níveis próximos dos de animais saudáveis.",
+      "◆ A via de mão dupla que liga cérebro e vísceras",
+      "O nervo vago é uma rodovia de duas mãos entre o cérebro e os órgãos internos. Durante a refeição, leva para cima os sinais do trato digestivo e, ao mesmo tempo, envia ao pâncreas a ordem de secretar insulina. Também comanda um reflexo inflamatório: diante de inflamação crônica, a estimulação elétrica desse nervo consegue conter a liberação de mediadores e amortecer a resposta.",
+      "Já se sabia, há tempo, que estimular o nervo vago melhora a sensibilidade à insulina e chega a proteger as células pancreáticas. O diabetes tipo 2 costuma chegar acompanhado de obesidade, resistência à insulina e inflamação crônica, exatamente os três assuntos que esse nervo administra. O alvo, portanto, não foi escolhido por acaso.",
+      "◆ Os dois nós do equipamento convencional",
+      "Os estimuladores tradicionais esbarram em dois problemas difíceis de contornar. O primeiro é a bateria com seus fios rígidos: ocupam espaço, a carga se esgota e cada troca significa uma nova cirurgia. O segundo é o controle em malha aberta: o aparelho dispara conforme um programa fixo, sem perguntar qual é a glicemia naquele instante.",
+      "A consequência do segundo é fácil de imaginar. Mesmo com o açúcar já normalizado, o aparelho continua estimulando e pode provocar queda da frequência cardíaca ou desconforto gastrointestinal, como um ar-condicionado que não consulta o termômetro e segue soprando frio quando a sala já está gelada. Repare que a falha não está no estímulo em si, mas no fato de o dispositivo não saber quando parar: boa parte da evolução da eletrônica implantável na última década foi gasta para acrescentar esse 'saber' que faltava.",
+      "◆ Energia do sangue, decisão do sangue",
+      "A saída do NeuroAxis tem algo de elegante: elimina a bateria e usa a própria glicose do sangue como combustível, ao mesmo tempo que converte o estímulo em malha fechada, só atua quando o açúcar sobe e descansa quando ele volta ao normal. Energia e critério de disparo passam a vir do mesmo sinal químico do corpo; o aparelho recua à posição de um amplificador, não de um decisor.",
+      "O desenho do experimento foi direto: ratos doentes separados em grupos comparados entre si. Naquele que recebeu o NeuroAxis funcionando, caíram o consumo de alimento e o peso corporal, e a gordura abdominal também diminuiu, alterações que apareceram antes mesmo dos números da glicemia.",
+      "O dado mais forte, porém, é o tempo. Bastaram duas semanas para a glicemia daquele grupo se aproximar da de ratos saudáveis, com queda significativa do índice de resistência à insulina. O detalhe importa: não foi um valor derrubado à força por uma intervenção externa, e sim a sensibilidade do organismo ao hormônio que voltou a funcionar.",
+      "◆ O que muda de fato, e o que ainda não muda",
+      "O mais instigante não é 'baixou o açúcar', e sim 'recuperou a regulação'. Terapias de substituição, quando retiradas, costumam devolver o problema tal como estava; a lógica de despertar um circuito aposta em fazer o mecanismo que já existe voltar a trabalhar, o que é uma troca de filosofia no projeto de dispositivos médicos. A autogeração de energia também não é só economia de uma pilha: ao fundir 'de onde vem a energia' e 'qual é o sinal' numa única variável, o sistema fica naturalmente ativo apenas quando há combustível, e remove uma camada inteira de disparos indevidos.",
+      "Mas a fronteira precisa ficar clara: trata-se de um modelo em ratos, não de pessoas. Biocompatibilidade de longo prazo, o peso da cirurgia de implante, o desvio do sinal ao longo do tempo e a eficiência do fornecimento de energia na escala humana seguem sem resposta. A reportagem de origem classifica o texto como leitura de um artigo especializado e avisa expressamente que não é aconselhamento médico.",
+      "A formulação honesta, portanto, é outra: acendeu-se uma direção de tratamento, não se entregou uma receita. Para quem depende todos os dias de intervenções externas para manter a glicemia, o valor dessa direção está justamente na ambição de fazer o próprio corpo retomar o volante."
+    ]
+  },
+  {
+    "id": "rss-orig-folding-steering-suv-2026-11q-pt",
+    "title": "O volante que desaparece no painel: o Tai 9 separa, pela primeira vez, o carro que dirige do carro que fica parado",
+    "summary": "Lançado em 20 de novembro a partir de 279.900 yuans, o BYD Fangchengbao Tai 9 chega como SUV grande de seis lugares em disposição 2+2+2, com tela panorâmica de 30 polegadas e AR-HUD de 50 polegadas, e estreia um volante dobrável que se recolhe no painel. A plataforma híbrida DMS entrega 310 km de autonomia elétrica no ciclo WLTC e mais de 1.600 km no combinado. Para além da ficha técnica, o que merece leitura é a decisão de projeto: desenhar o habitáculo para dois estados que, até agora, eram tratados como um só.",
+    "cover": "/original/folding-steering-suv-cover.webp",
+    "images": [
+      "/original/folding-steering-suv-cover.webp",
+      "/original/folding-steering-suv-fig1.webp",
+      "/original/folding-steering-suv-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "SUV de seis lugares",
+      "volante dobrável",
+      "plataforma híbrida",
+      "cabine inteligente",
+      "autonomia elétrica"
+    ],
+    "category": "tech",
+    "locale": "pt",
+    "source": "Original starteday",
+    "sourceUrl": "https://www.ithome.com/1/029/755.htm",
+    "author": "Redação starteday",
+    "publishedAt": 1795147723666,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "No lançamento do BYD Fangchengbao Tai 9, na noite de 20 de novembro, o que mais circulou não foi a tela panorâmica de 30 polegadas nem o AR-HUD de 50 polegadas, mas um gesto: o volante se dobra e desaparece dentro do painel.",
+      "A ficha é farta. Parte de 279.900 yuans, acomoda seis ocupantes em disposição 2+2+2, estreia a plataforma híbrida DMS e anuncia 310 km de autonomia elétrica no ciclo WLTC, com alcance combinado acima de 1.600 km. Ainda assim, o que merece uma conversa à parte é o volante dobrável, porque ele é a primeira vez que 'o carro andando' e 'o carro parado' são tratados como dois espaços diferentes.",
+      "◆ Um gesto que separa dois estados",
+      "Por quase um século, o interior de um automóvel se organizou em torno do posto de direção: volante fixo à frente, painel inclinado para o motorista, todos os assentos voltados para a mesma suposição de que alguém está guiando. Mesmo com o carro estacionado, a fileira dianteira continuava sendo um cockpit, só que sem ninguém ao volante.",
+      "A recolhida do volante afrouxa essa suposição. Depois de estacionar, o aro se guarda, a frente libera uma área contínua e o lugar do motorista pode girar e virar posição de conversa. A fabricante chama isso de cabine inteligente dobrável, sublinha desenvolvimento próprio integral e reivindica a primeira montagem em série do mundo, um vocabulário que deixa claro quanto peso deposita no movimento.",
+      "◆ Por que ninguém tinha feito antes",
+      "Não foi falta de imaginação, foi excesso de restrições: o sistema de direção precisa manter redundância mecânica, atender à proteção dos ocupantes em colisão e qualquer mecanismo móvel tem de sobreviver a vibração, ruído, durabilidade e acionamento indevido, pois um volante não é uma tela e está preso a um componente de segurança. Por isso o que decide a engenharia não é 'consegue dobrar', mas 'quando se permite dobrar': a solução só pode ser destravada com o veículo parado e precisa ficar rigorosamente travada em movimento; se a fronteira entre os estados vazar, deixa de ser questão de conforto. Ter inscrito o item na tabela de configuração indica que esse intertravamento passou pela validação interna.",
+      "◆ A outra metade: três linhas numa plataforma só",
+      "A DMS apresentada no mesmo evento reúne num único arcabouço a eficiência do DM-i, o desempenho do DM-p e a vocação fora de estrada do DMO. O controle vetorial traseiro, anunciado como estreia, combina diferencial, bloqueio de diferencial, limitação eletrônica de escorregamento e desacoplamento na roda. A ambição é explícita: um carro grande que seja também ágil, estável e econômico.",
+      "Traduzido em números: os 310 km elétricos no WLTC bastam para tratar o trajeto diário como se fosse um carro a bateria, enquanto os mais de 1.600 km combinados livram a viagem longa de ficar refém do ritmo de recarga. Num SUV de seis lugares, que as duas contas fechem ao mesmo tempo diz mais do que qualquer recorde isolado.",
+      "◆ A faixa de preço fala mais alto que a ficha",
+      "Colocar seis lugares, autonomia longa e cabine dobrável na casa dos 279.900 yuans muda quem pode alcançar esse tipo de produto. Há poucos anos, configurações assim ficavam penduradas em faixas bem mais altas; agora começam a entrar no orçamento corrente de quem troca de carro de família, e o eixo da disputa se desloca de 'quem empilha mais equipamento' para 'quem aproveita melhor o espaço'.",
+      "O recado do lado do consumo é coerente: o centro de gravidade da avaliação vem migrando do motorista para os passageiros. Telas maiores, poltronas cada vez mais parecidas com sofá e um volante disposto a ceder o lugar são facetas da mesma coisa: as duas horas em que o carro está parado passaram a ser desenhadas como cenário de uso legítimo, e não como intervalo esquecido.",
+      "◆ Meio minuto de cautela",
+      "A volta de uma peça móvel cobra seu preço. Durabilidade do mecanismo ao longo dos anos, controle de ruídos, custo de reparo e até o valor de revenda só serão conhecidos depois que o mercado rodar alguns anos com o carro. Depois de tanta conversa sobre carro definido por software, recolocar hardware móvel como argumento de venda soa mais como complemento na direção contrária do que como substituição.",
+      "Há ainda uma realidade prática: o valor do volante dobrável depende muito de quanto tempo o veículo passa efetivamente parado, e se a maior parte da vida útil acontece na estrada o gesto corre o risco de ser os três segundos mais fotografáveis da apresentação, não um hábito de todo dia. No fundo, um automóvel que aceita guardar o volante está admitindo uma coisa simples: ele não está sempre em movimento, e essa admissão diz mais sobre para onde o projeto de interiores caminha do que qualquer polegada de tela."
+    ]
+  }
+]

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Locale, categories } from "@/i18n/config";
+import { Locale, categories, hasCategoryPage } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import NewsCard from "@/components/NewsCard";
 
@@ -60,7 +60,7 @@ export default function SearchResults({
   };
 
   const tabs = [{ key: "all", label: d.searchAllTab }].concat(
-    categories.filter((c) => c !== "recommend").map((c) => ({ key: c, label: d.categories[c] }))
+    categories.filter((c) => c !== "recommend" && hasCategoryPage(c)).map((c) => ({ key: c, label: d.categories[c] }))
   );
 
   // tab 方向键导航（WAI-ARIA tabs 模式）：←/→/Home/End 移动焦点并自动切换分类；

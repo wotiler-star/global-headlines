@@ -1,10 +1,11 @@
 import { Suspense } from "react";
-import { isLocale, Locale, locales, ogLocale, isCategory, Category } from "@/i18n/config";
+import { isLocale, Locale, locales, ogLocale, isCategory, Category, hasCategoryPage } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { getArticles } from "@/data/newsSource";
 import { formatRelativeTime, type Article } from "@/data/news";
 import { getHotBoard } from "@/services/feed";
 import { buildAlternates, absUrl, SITE_URL } from "@/lib/site";
+import { SITE_KEYWORDS, categoryKeywordMeta } from "@/lib/seoKeywords";
 import SearchChips from "@/components/SearchChips";
 import HeroHead from "@/components/HeroHead";
 import TodayBrief from "@/components/TodayBrief";
@@ -54,14 +55,19 @@ export async function generateMetadata({
   const alts = buildAlternates(loc, "");
   const d = getDict(loc);
   // cov47：分类页与首页共用模板，若无差异化元数据会被 Google 判为重复内容。
-  const catName = typeof sp.cat === "string" && isCategory(sp.cat) && sp.cat !== "recommend"
-    ? d.categories[sp.cat as Category]
+  const catKey = typeof sp.cat === "string" && isCategory(sp.cat) && sp.cat !== "recommend" && hasCategoryPage(sp.cat as Category)
+    ? (sp.cat as Category)
     : null;
-  const pageTitle = catName ? `${catName} · ${d.siteName}` : d.homeTitle;
-  const pageDesc = catName ? `${d.homeDesc} 当前栏目：${catName}。` : d.homeDesc;
+  const catName = catKey ? d.categories[catKey] : null;
+  // 关键词优化：?cat= 变体 canonical 指向首页（避免重复内容），但 title/description
+  // 仍用本地化主关键词，让这个入口在被抓取时语义与独立栏目页一致。
+  const catKw = catKey ? categoryKeywordMeta(loc, catKey) : null;
+  const pageTitle = catKw ? catKw.title : d.homeTitle;
+  const pageDesc = catKw ? catKw.description : d.homeDesc;
   return {
     title: pageTitle,
     description: pageDesc,
+    keywords: catKw ? catKw.keywords : SITE_KEYWORDS[loc],
     alternates: { canonical: alts.canonical, languages: alts.languages },
     // OG locale：社交平台按地区/语言呈现；alternateLocale 声明全部可用语种
     openGraph: {

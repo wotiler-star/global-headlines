@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams, usePathname } from "next/navigation";
-import { Locale, Category, categories, isCategory } from "@/i18n/config";
+import { Locale, Category, categories, isCategory, hasCategoryPage } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { categoryHref, homeHref } from "@/lib/paths";
 
@@ -34,7 +34,8 @@ export default function CategoryNav({
       : catParam && isCategory(catParam)
         ? catParam
         : "recommend";
-  const cats = categories;
+  // 空栏目（如 sports，全站 0 篇）不露出，避免把用户引到 thin/soft-404 空页。
+  const cats = categories.filter(hasCategoryPage);
   // 切分类时保留当前搜索词与标签，避免「搜索后点分类丢词」。
   const keep = [
     sp.get("q") && `q=${encodeURIComponent(sp.get("q") as string)}`,

@@ -120,6 +120,14 @@ export const categories = [
 ] as const;
 export type Category = (typeof categories)[number];
 
+// 不建静态栏目页、也不进导航的栏目（内容为空，建页会形成 thin/soft-404 空壳页）。
+// sports 全站 0 篇：保留 category 枚举（历史文章/数据兼容），但停止建页与导航露出。
+// 若将来真正开始产体育内容，把 "sports" 从本列表移除即可自动恢复栏目页。
+export const NO_CATEGORY_PAGE: readonly Category[] = ["sports"];
+export function hasCategoryPage(c: Category): boolean {
+  return !NO_CATEGORY_PAGE.includes(c);
+}
+
 export function isLocale(v: string): v is Locale {
   return (locales as readonly string[]).includes(v);
 }

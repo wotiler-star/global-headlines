@@ -196,10 +196,23 @@ async function main() {
       });
     }
   }
+  // 合并式写出: 以现有文件为基底, 只用真译文替换对应篇目, 未翻译篇目保留原样(继续 noindex 止血)。
+  // 避免进度部分完成时整文件覆盖导致各语种篇目骤减而 404。
   for (const l of LANGS) {
-    fs.writeFileSync(path.join(ORIG, `premium-${l}-2026-11.json`), JSON.stringify(out[l], null, 2));
-    console.log(`[gen] 写出 premium-${l}-2026-11.json (${out[l].length} 篇)`);
+    const fp = path.join(ORIG, `premium-${l}-2026-11.json`);
+    let existing = [];
+    try { existing = JSON.parse(fs.readFileSync(fp, 'utf8')); } catch {}
+    const trById = new Map(out[l].map(a => [a.id, a]));
+    const final = existing.map(a => {
+      if (!trById.has(a.id)) return a;
+      const t = trById.get(a.id);
+      trById.delete(a.id);
+      return t;
+    });
+    for (const [, a] of trById) final.push(a);
+    fs.writeFileSync(fp, JSON.stringify(final, null, 2));
+    console.log(`[gen] ${path.basename(fp)}: ${final.length} 篇 (真译文 ${out[l].length}, 保留原文 ${final.length - out[l].length})`);
   }
-  console.log(`[gen] 完成. 缺失 ${missing.length} 条:`, missing.slice(0, 40).join(', '));
+  console.log(`[gen] 完成. 进度 ${Object.keys(progress).length} 条, 缺失 ${missing.length} 条`);
 }
 main().catch(e => { console.error('FATAL', e); process.exit(1); });

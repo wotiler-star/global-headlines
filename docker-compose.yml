@@ -12,6 +12,8 @@ services:
     environment:
       NODE_ENV: production
       SITE_URL: "https://starteday.com"
+      # Bing 站点验证：Bing Webmaster Tools Meta 标签方式
+      BING_SITE_VERIFICATION: "9A1751BD4237EA0AD18DE5A5334420F9"
     volumes:
       - gh-data:/app/data
     networks:

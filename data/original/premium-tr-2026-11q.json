@@ -1,0 +1,138 @@
+[
+  {
+    "id": "rss-orig-twisted-oxide-moire-2026-11q-tr",
+    "title": "İki kristali biraz burunca arayüz kendi ağını ördü: bellek üretiminde kazıma şart olmaktan çıkıyor",
+    "summary": "19 Kasım'da Nature'da yayımlanan deney neredeyse fazla sade: yaklaşık 10 nanometre kalınlığındaki iki stronsiyum titanat tabakası üst üste konup birbirine göre döndürülünce, arayüzdeki atomlar kare biçimli bir dislokasyon ızgarasına kendiliğinden diziliyor. Asıl değerli olan ağın güzelliği değil, aralığının burulma açısıyla ayarlanabilmesi; yukarıdan aşağıya fotolitografiye, aşağıdan yukarıya büyüyen bir yol daha eklendi.",
+    "cover": "/original/twisted-oxide-moire-cover.webp",
+    "images": [
+      "/original/twisted-oxide-moire-cover.webp",
+      "/original/twisted-oxide-moire-fig1.webp",
+      "/original/twisted-oxide-moire-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Malzeme bilimi",
+      "Stronsiyum titanat",
+      "Moiré deseni",
+      "Dislokasyon ızgarası",
+      "Bellek teknolojileri"
+    ],
+    "category": "science",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/20/content_615885.html",
+    "author": "starteday Editör",
+    "publishedAt": 1795147843666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "İki ince kristali üst üste koyup birbirine göre hafifçe çeviriyorsunuz, sonra bekliyorsunuz: ek yerindeki atomlar kendi kendine düzgün bir kare ağa diziliyor. 19 Kasım'da Nature'da yayımlanan deney, malzeme biliminden çok iki kat tülü üst üste getirip arkasından süzülen ışığa bakmak kadar sade görünüyor.",
+      "Başrolde stronsiyum titanat (SrTiO3) var; iki tabaka, her biri yaklaşık 10 nanometre kalınlığında. Tercihin nedeni egzotik olması değil, tam tersine fazla tanıdık olması: sert, kimyasal açıdan kararlı, oksit elektroniğinde on yıllardır model malzeme olarak kullanılan bir kristal. İncecik iki boyutlu tabakalar gibi en ufak temasta bozulmadığı için çip üstüne istiflemeye de yatkın. Çalışmayı Danimarka Teknik Üniversitesi öncülüğündeki bir ekip yürüttü.",
+      "Moiré'nin herkesin bildiği yüzü",
+      "İki tel süzgeci çapraz koyup azıcık döndürdüğünüzde gözünüzün önünde daha iri, yinelenen bir desen belirir; buna moiré denir. Düzenli dizilmiş iki kristal küçük bir açıyla üst üste gelince de benzeri olur. Mikroskop altında şimdiye dek görülen hemen hemen yalnızca bu katmandı: hoş bir geometrik çakışma, ama sonuçta bir gölge.",
+      "Bu kez farklı. Güçlü bağlanma, arayüzün iki yakasındaki atomları yeniden dizilip birbirine uymaya zorluyor; geriye kalan yapısal uyumsuzluğun gidecek yeri kalmıyor ve dar, bozulmuş kristal çizgilerine sıkışıyor. Bunlara dislokasyon deniyor; uç uca eklenip sonunda kare biçimli bir ızgara kuruyorlar.",
+      "Yani ağ, üst üste binmenin ürettiği görsel bir yanılsama değil, atomlar gerçekten yer değiştirdikten sonra geriye kalan yapının ta kendisi. «Desen» ile «madde» arasındaki bu ayrım, makalenin en kolay üstünden geçilen yeri; acele okunduğunda yenilik sanki yalnızca güzel bir fotoğraf sanılabiliyor.",
+      "Önce hesap, sonra görüntü",
+      "Doğrulama sırası da ayrıca ilginç. Atomların yeniden dizileceği ilk önce benzetimden çıktı, ama erken mikroskop görüntüleri sıradan moiré'den başka bir şey göstermiyor, o kare ağ bir türlü bulunamıyordu. Ekip makine öğrenmesi modeliyle ince tabakanın bağlanma ve burulma anındaki atom hareketini hesapladı; model ağın nasıl görüneceğini ve nerede aranması gerektiğini önceden söyledi.",
+      "Yön belliyse deney de peşinden gelir: elektron demetinin malzemenin içinden geçişini benzetip numuneyi değişik doğrultularda keserek kesitten bakmak. Belçika'daki Anvers Üniversitesi ile İngiltere'deki SuperSTEM laboratuvarının elektron mikroskobu görüntüleri, kuramsal öngörüyle yüksek uyum gösterdi.",
+      "Bu yöntemi ayrı bir yere koymak gerekiyor: önce görüp sonra açıklamak değil, modelin arama alanını daraltıp mikroskobun yalnızca onay vermesi. Malzeme keşfinde bu sıralama istisna olmaktan çıkıp olağan düzene dönüşüyor.",
+      "Izgaranın içinde bir de elektriksel desen var",
+      "Hesaplar daha değerli bir şey daha verdi: ızgaranın çevresindeki bozulma pozitif ve negatif yükleri hafifçe birbirinden ayırıyor, bir polarizasyon doğuruyor ve bunu girdap biçimli desenler hâlinde diziyor. Polarizasyonu yönetmek, bilgi depolamanın da enerji depolamanın da temel düğmesi olduğundan, bu nanoskopik girdaplar yalnızca hoş değil, yazılabilir birer hücre olmaya aday.",
+      "Ve kaç derece döndürdüğünüz, dislokasyonların arasındaki açıklığı doğrudan belirliyor. Ekip üyeleri bunu açıkça söylüyor: yapının boyutu burulma açısıyla ayarlanabiliyor. Depolama teknolojisi için «ızgara aralığı denetlenebilir» cümlesi neredeyse bütün mühendislik hayallerinin başlangıcı demek; yoğunluk artık yalnızca kazınarak değil, çevirilerek de üretilebilir.",
+      "Henüz yol haritasına yazılmaz",
+      "İki soru havada asılı: ızgara çizgileri gerçekten iletken mi, ve içindeki elektriksel desen defalarca yazılıp silinebiliyor mu? Bunlar yanıtlanmadan pratik bir eşiğe gelindiği söylenemez. Ekip de bir sonraki adım için yalnızca stronsiyum titanatta ya da başka oksitlerde işe yarar bir elektriksel davranış doğup doğmayacağını araştıracağını belirtiyor; dil son derece temkinli.",
+      "Biraz geri çekilip bakınca tablo daha net: bugünkü depolama hatları aşağı yukarı fotolitografiyle aşındıra aşındıra ilerliyor, ekipman ve maliyet her yıl biraz daha sıkışıyor; kendiliğinden kuruluma «malzemeyi kendi hâline bırak» diye umut bağlanmıştı ama büyüyen yapı hep söz dinlemiyordu. Burada en azından burulma açısının sürekli ve öngörülebilir bir düğme olarak çalıştığı gösterildi.",
+      "Asıl ağırlık belki de cihazda değil, bakışta: dislokasyon ve tane sınırı gibi kusurlar uzun süre yok edilmesi gereken şeyler sayılırken, burada ayarı yapılabilir bir tasarım değişkenine dönüştürüldü. Kusura katlanmaktan kusuru işe koşmaya, malzeme bilimi sessizce bir eksen daha değiştirdi."
+    ]
+  },
+  {
+    "id": "rss-orig-glucose-powered-neuroaxis-2026-11q-tr",
+    "title": "Pil yerine kan şekeri: kendi yakıtını ve kendi talimatını vücuttan alan implant, açık döngüyü kapattı",
+    "summary": "19 Kasım'da Nature'da yayımlanan Singapur Ulusal Üniversitesi ile Nanjing Posta ve Telekomünikasyon Üniversitesi ortak çalışması, NeuroAxis adlı yumuşak bir implant geliştirdi: pil yok, kan glukozuyla besleniyor, vagus sinirini kapalı döngüyle uyarıyor ve tip 2 diyabetli sıçanlarda iki haftada şekeri sağlıklı düzeye yaklaştırıyor. Asıl hamle şekerin düşmesi değil; programa göre boşalan açık döngünün, «şeker yüksekse çalış» diyen kapalı döngüye bırakılması.",
+    "cover": "/original/glucose-powered-neuroaxis-cover.webp",
+    "images": [
+      "/original/glucose-powered-neuroaxis-cover.webp",
+      "/original/glucose-powered-neuroaxis-fig1.webp",
+      "/original/glucose-powered-neuroaxis-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Diyabet",
+      "Vagus siniri",
+      "Biyoelektronik",
+      "Kendinden beslemeli implant",
+      "Kapalı döngü"
+    ],
+    "category": "health",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://tech.ifeng.com/c/8yBBJKDpYAi",
+    "author": "starteday Editör",
+    "publishedAt": 1795147783666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Parmak ucundan kan almak, saate bakıp doz ayarlamak, tabaktaki karbonhidratı hesaplamak... Bu döngüden kurtulmanın zor olmasının bir nedeni var: eldeki araçların çoğu vücudun dışında durup onun yerine karar veriyor, vücudun kendi düzenini yeniden öğrenmesini beklemiyor. 19 Kasım'da Nature'da çıkan çalışma tam bu varsayımı dürttü.",
+      "Singapur Ulusal Üniversitesi'nden Liu Yuxin'in ekibi, Nanjing Posta ve Telekomünikasyon Üniversitesi'nden Wang Lianhui'nin ekibiyle birlikte NeuroAxis adlı yumuşak bir implant geliştirdi; yapay nöroimmün eksen diye de anılıyor. Pil yok: kanındaki glukozu yakıt alıp kendi kendini besliyor, vagus sinirini kapalı döngüyle uyarıyor ve tip 2 diyabetli sıçanlarda kan şekerini iki haftada sağlıklı düzeylere yaklaştırdı.",
+      "Önce o çift yönlü hattı tanımak gerek",
+      "Vagus siniri beyni iç organlara bağlayan iki yönlü bir hat. Yemek sırasında mide ve bağırsaktan gelen sinyalleri yukarı taşıyor, aynı anda pankreasa insülin salgılaması için emir gönderiyor. Bir de enflamasyon refleksini yönetiyor: kronik enflamasyonda sinire elektriksel uyarı vermek, iltihap aracı maddelerin salınmasını baskılayıp tepkiyi hafifletiyor.",
+      "Vagusu uyarmanın insülin duyarlılığını artırdığı, hatta pankreas hücrelerini koruduğu uzun süredir biliniyor. Tip 2 diyabet ise çoğu zaman obezite, insülin direnci ve kronik enflamasyonla birlikte geliyor; yani tam da bu sinirin üstlendiği üç işin üstüne oturuyor. Hedefin buradan seçilmesi tesadüf değil.",
+      "Eski cihazların iki çıkmazı",
+      "Klasik vagus uyarıcılarının önünde iki engel var. Biri pil ve sert kablolar: yer kaplıyor, enerji er geç tükeniyor, değiştirmek demek yeniden ameliyat demek. Öteki açık döngü denetimi: o andaki kan şekeri kaç olursa olsun, cihaz önceden yazılmış programa göre ayrım gözetmeden boşalıyor.",
+      "Açık döngünün sonucunu kestirmek zor değil. Şeker çoktan normale dönmüşken sinir hâlâ uyarılıyorsa nabzın yavaşlaması ya da mide bağırsak rahatsızlığı kapıyı çalabilir; yağmur yağarken sulamayı sürdüren bir fıskiye gibi, ortamın ıslak olup olmadığına hiç bakmıyor. Burada sorun uyarının kendisi değil, cihazın ne zaman durması gerektiğini bilmemesi. İmplante tıbbi elektroniğin son on yılı, işte bu «bilme»nin peşinde geçti.",
+      "Yakıtı kandan, talimatı şekerden",
+      "NeuroAxis'in çözümü zarif: pile hiç gerek yok, kan glukozu doğrudan yakıt olarak kullanılıyor; uyarım da kapalı döngüye alınmış, yani şeker yüksekken çalışıp normale dönünce dinleniyor. Enerjinin nereden geldiği de kararın neye dayandığı da aynı kimyasal sinyale bırakılmış; cihaz kendi karar merkezi olmaktan çıkıp bir yükselteç konumuna çekiliyor.",
+      "Deneyin kurulumu gösterişsiz: hasta sıçanlar gruplara ayrılıp karşılaştırılmış. Çalışan NeuroAxis takılı grupta yemek miktarı, kilo ve karın yağı azalmış; üstelik bu değişimler kan şekeri göstergelerinden önce ortaya çıkmış.",
+      "Daha belirleyici olan zaman. Yalnızca iki haftalık tedaviden sonra o grubun kan şekeri sağlıklı sıçanların düzeyine yaklaşmış; insülin direnci endeksi anlamlı biçimde düşmüş. Bu, duyarlılığın geri geldiğini gösteriyor: şeker bir dış kuvvetle aşağı bastırılmış değil, vücut yeniden kendi insülinine yanıt verir olmuş.",
+      "Anlamı ile sınırı ayrı yazmalı",
+      "Burada üzerinde durulası şey «şeker düştü» cümlesi değil, kendi kendini ayarlama yetisinin geri dönmesi. İkame tedavilerde araç çekilince sorun genellikle aynen geri gelir; uyandıran yaklaşım ise zaten var olan devreyi yeniden çalıştırmayı hedefler. Bu, tıbbi cihaz tasarımının felsefesinde bir yer değiştirmedir. Kendiliğinden beslenmek de sadece bir pil tasarrufu değil: enerjinin kaynağıyla sinyalin kendisi tek değişkende birleştiği için, yapısal olarak yanlış tetiklenme ihtimali bir kat azalıyor.",
+      "Ama sınırı net çizmek şart: bu bir sıçan modeli, insan değil. Uzun vadeli biyouyumluluk, implantın yerleştirilme biçimi ve cerrahi yükü, sinyalin zamanla kayması, insan ölçeğinde enerji veriminin yetip yetmeyeceği; hiçbiri henüz yanıtlanmış değil. Orijinal haber de metni tıbbi tavsiye sayılmayan bir makale yorumu olarak açıkça işaretliyor.",
+      "Dolayısıyla doğru cümle şu: yeni bir tedavi yönü aydınlatıldı, bir reçete teslim edilmedi. Kan şekerini her gün dışarıdan müdahaleyle ayakta tutanlar için bu yönün ağırlığı tam da şurada: vücudun dümeni yeniden kendi eline almasını istiyor."
+    ]
+  },
+  {
+    "id": "rss-orig-folding-steering-suv-2026-11q-tr",
+    "title": "Direksiyonunu içeri alan bir SUV: 279.900 yuanlık altı koltuklu kutu, «gidiyor» ile «duruyor»u iki ayrı mekân olarak tasarladı",
+    "summary": "20 Kasım akşamı BYD'nin Fangchengbao Tai 9'u 279.900 yuandan başlayan fiyatla sahneye çıktı; 2+2+2 altı koltuk, 30 inç panoramik ekran ve 50 inç AR-HUD'un yanında ilk kez gösterge paneline katlanıp saklanan bir direksiyon getirdi. DMS süper hibrit aynı gövdeye WLTC'de 310 km saf elektrik ve 1.600 km'yi aşan toplam menzil sığdırdı; ama parametrelerin ötesinde asıl yenilik, hareket hâliyle park hâlinin ilk kez iki ayrı iç mekân gibi ele alınması.",
+    "cover": "/original/folding-steering-suv-cover.webp",
+    "images": [
+      "/original/folding-steering-suv-cover.webp",
+      "/original/folding-steering-suv-fig1.webp",
+      "/original/folding-steering-suv-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Fangchengbao Tai 9",
+      "Katlanabilir direksiyon",
+      "Hibrit platform",
+      "Altı koltuklu SUV",
+      "Akıllı kabin"
+    ],
+    "category": "tech",
+    "locale": "tr",
+    "source": "starteday Özgün",
+    "sourceUrl": "https://www.ithome.com/1/029/755.htm",
+    "author": "starteday Editör",
+    "publishedAt": 1795147723666,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "20 Kasım akşamı BYD'nin Fangchengbao Tai 9 lansmanında en çok konuşulan şey ne 30 inçlik panoramik ekran oldu ne de 50 inçlik AR-HUD; tek bir hareketti: direksiyon katlanıp gösterge panelinin içine girdi.",
+      "279.900 yuandan başlayan fiyat, 2+2+2 dizilimli büyük altı koltuk, ilk kez sunulan DMS süper hibrit platformu, WLTC'ye göre yalnız elektrikle 310 kilometre ve toplamda 1.600 kilometreyi aşan menzil... Liste dolu, ama ayrıp konuşmaya değen o katlanan direksiyon: «araç gidiyor» ile «araç duruyor» hâlini ilk kez iki ayrı iç mekân gibi ele alıyor.",
+      "Tek bir hareket, iki ayrı hâl",
+      "Yüz yıla yakın süredir kabin düzeni sürücü koltuğuna göre kuruldu: direksiyon sabit önde, gösterge paneli insana doğru eğik, bütün koltuklar «şu anda araç sürülüyor» varsayımına bakıyor. Araç park etmişken bile ön sıra bir kokpit olarak kalıyor, yalnızca direksiyonu tutan kimse yok.",
+      "Katlanıp saklanma bu varsayımı gevşetti. Parktan sonra direksiyon içeri alınınca ön sırada tam bir boşluk açılıyor, sürücü koltuğu dönüp bir sohbet koltuğuna dönüşebiliyor. Üretici buna katlanabilir akıllı kabin diyor; geliştirmenin tamamen kurum içinde yapıldığı ve bunun dünyadaki ilk seri üretim uygulaması olduğu vurgusu, bu harekete biçilen değeri ele veriyor.",
+      "Neden daha önce yapılmadı?",
+      "Mesele akıl kıtlığı değil, kısıtların çokluğu. Direksiyon sistemi mekanik yedeklilik ister, çarpışmada yolcu korumasını karşılamak zorundadır, hareketli her parça titreşim, çıtırtı, dayanıklılık ve yanlış tetikleme sınavlarından geçmek zorundadır. Direksiyon bir ekran değil; doğrudan güvenlik donanımına bağlı, ona dokunmak orta konsola dokunmaktan çok daha pahalı ve çok daha yavaş bir iş.",
+      "O yüzden mühendislikte kritik olan «katlanabilmesi» değil, «ne zaman katlanmasına izin verildiği». Böyle bir mekanizma neredeyse zorunlu olarak yalnız park ya da durma hâlinde açılır, sürüş boyunca kilitli kalmalıdır; durum sınırı temiz çizilmezse mesele konfor olmaktan çıkıp güvenlik olur. Seri üretimde bunu donanım listesine yazabilmiş olmak, bu kilitlemenin üreticinin kendi doğrulamasından geçtiğini gösteriyor.",
+      "Üç çizgi, tek çatı altında",
+      "Aynı sahnede çıkan DMS süper hibrit platformu, DM-i'nin verimlilik, DM-p'nin performans ve DMO'nun arazi çizgisini tek bir mimaride birleştiriyor; üreticinin «her koşula hazır» diye özetlediği iddia buradan geliyor. İlk kez uygulanan arkadan çekiş vektör kontrolü ise diferansiyeli, diferansiyel kilidini, elektronik sınırlı kaymayı ve tekerlek ucu ayrıştırmayı bir araya topluyor. Hedef açık: büyük ama güçlü, büyük ama çevik, büyük ama dengeli, büyük ama tutumlu.",
+      "Rakamlara inince iş daha somut: WLTC ölçümünde yalnız elektrikle 310 kilometre, yani günlük işe gidiş gelişte aracı neredeyse bir elektrikli gibi kullanmak mümkün; toplam menzil 1.600 kilometrenin üzerinde, uzun yolda ikmal temposuna bağlı kalmıyorsunuz. Altı koltuklu iri bir gövdede bu iki sayının aynı anda doğru olması, tek başına kırılan bir rekor sayıdan daha anlamlı.",
+      "Fiyat bandı, parametrelerden fazlasını söylüyor",
+      "Büyük altı koltuğu, uzun menzili ve katlanabilir kabini bir arada 280 bin yuan mertebesine sıkıştırmak, asıl «kim ulaşabilir» sorusunu değiştiriyor. Birkaç yıl önce bu donanım daha üst fiyat katmanlarında asılı dururken şimdi aile arabasını değiştirmenin ana bütçe aralığına iniyor; rekabetin ağırlığı donanım yığmaktan mekân verimine kayıyor. Tüketim tarafındaki işaret de aynı yönde: aile otomobilini değerlendirmenin merkezi «sürücü merkezli» olmaktan çıkıp «yolcu merkezli»ye kayıyor. Ekranların büyümesi, koltukların kanepeye benzemesi, direksiyonun yer vermeye razı olması aynı hikâyenin ayrı yüzleri; aracın dururken geçirdiği şu iki saat artık ciddi bir kullanım senaryosu olarak tasarlanıyor.",
+      "Yarım dakika soğukkanlı",
+      "Hareketli parçanın geri dönüşünün bedeli var: katlama mekanizmasının uzun vadeli dayanıklılığı, gürültü ve çıtırtı denetimi, onarım maliyeti ile ikinci el değeri, ancak piyasada birkaç yıl koştuktan sonra belli olur. Yazılım tanımlı otomobil bu kadar konuşulurken donanımsal bir hareketli parçanın yeniden satış argümanı yapılması, onun yerine geçmek değil, ters yönden gelen bir tamamlama sayılmalı.",
+      "Bir gerçek daha: katlanır direksiyonun değeri, park senaryosunun ne kadar sürdüğüne sıkı bağlı. Bir aracın zamanının çoğu yolda geçiyorsa bu hareket, lansmanda en çok fotoğraflanan üç saniye olmaya yakın, her gün kullanılan bir işlev olmaya uzak kalır. Konudan alışkanlığa dönüşüp dönüşmeyeceği, kullanıcının «dururken» geçen zamana kabin içinde gerçekten yer açmaya razı olup olmamasına bakıyor. Ne olursa olsun bir otomobilin direksiyonunu içeri almayı kabul etmesi, özünde şunu söylüyor: sürekli sürülmüyorum. Bu kabul, hiçbir ekranın anlatamayacağı kadar net gösteriyor kabin tasarımının nereye gittiğini."
+    ]
+  }
+]

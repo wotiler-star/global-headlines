@@ -1,7 +1,8 @@
-import { isLocale, Locale, locales, categories, isCategory, Category, ogLocale } from "@/i18n/config";
+import { isLocale, Locale, locales, categories, isCategory, Category, ogLocale, hasCategoryPage } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { getArticles } from "@/data/newsSource";
 import { absUrl, buildAlternates } from "@/lib/site";
+import { categoryKeywordMeta } from "@/lib/seoKeywords";
 import { homeHref, categoryHref } from "@/lib/paths";
 import NewsCard from "@/components/NewsCard";
 import Link from "next/link";
@@ -19,7 +20,7 @@ export function generateStaticParams() {
   const params: { locale: string; cat: string }[] = [];
   for (const l of locales) {
     for (const c of categories) {
-      if (c === "recommend") continue;
+      if (c === "recommend" || !hasCategoryPage(c)) continue;
       params.push({ locale: l, cat: c });
     }
   }
@@ -34,15 +35,19 @@ export async function generateMetadata({
   const { locale, cat } = await params;
   const loc = locale as Locale;
   const c = cat as Category;
-  if (!isLocale(loc) || !isCategory(c) || c === "recommend") return {};
+  if (!isLocale(loc) || !isCategory(c) || c === "recommend" || !hasCategoryPage(c)) return {};
   const d = getDict(loc);
   const catName = d.categories[c];
-  const pageTitle = `${catName} · ${d.siteName}`;
-  const pageDesc = `${catName} · ${d.homeDesc}`;
+  // 关键词优化：栏目落地页是本主题词的收录入口。用本地化的主关键词做 title、
+  // 自然句式做 description（含 1–2 个长尾词），并输出 keywords meta（Bing/Yandex/百度仍参考）。
+  const kw = categoryKeywordMeta(loc, c);
+  const pageTitle = kw.title;
+  const pageDesc = kw.description;
   const alts = buildAlternates(loc, `/category/${c}`);
   return {
-    title: catName,
+    title: pageTitle,
     description: pageDesc,
+    keywords: kw.keywords,
     alternates: { canonical: alts.canonical, languages: alts.languages },
     openGraph: {
       title: pageTitle,

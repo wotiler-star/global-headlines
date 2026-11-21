@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Locale, categories } from "@/i18n/config";
+import { Locale, categories, hasCategoryPage } from "@/i18n/config";
 import { getDict } from "@/i18n/dictionaries";
 import { Article } from "@/data/news";
 import { articleHref } from "@/lib/paths";
@@ -63,7 +63,7 @@ export default function HotBoard({ locale, items }: { locale: Locale; items: Art
 
   const tabs: { key: string; label: string }[] = [
     { key: "all", label: d.hotAll },
-    ...categories.filter((c) => c !== "recommend").map((c) => ({ key: c, label: d.categories[c] })),
+    ...categories.filter((c) => c !== "recommend" && hasCategoryPage(c)).map((c) => ({ key: c, label: d.categories[c] })),
   ];
 
   return (

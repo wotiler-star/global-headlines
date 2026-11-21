@@ -2,6 +2,7 @@ import { locales, localeMeta, ogLocale, Locale, isLocale } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { getDict } from "@/i18n/dictionaries";
 import { absUrl, SITE_URL } from "@/lib/site";
+import { SITE_KEYWORDS } from "@/lib/seoKeywords";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
@@ -38,6 +39,7 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title: { default: d.homeTitle, template: `%s · ${d.siteName}` },
     description: d.homeDesc,
+    keywords: SITE_KEYWORDS[loc],
     manifest: "/manifest.webmanifest",
     // 站点所有权验证：Google 已固定；Bing / 百度 / Yandex 由环境变量注入，
     // 拿到各站长平台的验证码后只需在 docker compose 环境里加变量，无需改代码。
@@ -147,7 +149,7 @@ export default async function LocaleLayout({
                   publishingPrinciples: `${SITE_URL}/${loc}/about`,
                   ethicsPolicy: `${SITE_URL}/${loc}/about`,
                   correctionsPolicy: `${SITE_URL}/${loc}/about`,
-                  knowsAbout: ["technology", "business", "science", "culture", "consumer", "health"],
+                  knowsAbout: ["technology", "technology news", "artificial intelligence", "science", "science news", "health", "health news", "medical research", "business", "finance", "culture", "world news", "multilingual journalism", "original reporting"],
                   contactPoint: {
                     "@type": "ContactPoint",
                     contactType: "editorial",

@@ -87,6 +87,11 @@ export async function generateMetadata({
   return {
     title: article.title,
     description: article.summary,
+    // 关键词 meta：文章标签已是天然主题词；补上本地化栏目名强化主题信号。
+    keywords: [
+      (getDict(loc).categories as Record<string, string>)[article.category] || article.category,
+      ...(article.tags || []),
+    ].filter(Boolean).join(", "),
     alternates: { canonical: alts.canonical, languages: alts.languages },
     // 允许大图预览与完整摘要，提升搜索结果/社交卡片展示
     robots: {

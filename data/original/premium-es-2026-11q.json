@@ -1,0 +1,137 @@
+[
+  {
+    "id": "rss-orig-twisted-oxide-moire-2026-11q-es",
+    "title": "La red que ya no se graba, se tuerce: dos láminas de óxido y los átomos se ordenan solos",
+    "summary": "Publicado en Nature el 19 de noviembre, el experimento es de una simplicidad engañosa: dos láminas de titanato de estroncio de unos 10 nanómetros apiladas y giradas, y los átomos de la interfaz se reordenan solos en una red cuadrada de dislocaciones. Lo valioso no es la estampa, sino que el ángulo de giro gradúa el espaciado: frente a la litografía que graba desde arriba, se abre una vía en la que la estructura crece desde abajo.",
+    "cover": "/original/twisted-oxide-moire-cover.webp",
+    "images": [
+      "/original/twisted-oxide-moire-cover.webp",
+      "/original/twisted-oxide-moire-fig1.webp",
+      "/original/twisted-oxide-moire-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Ciencia de materiales",
+      "Titanato de estroncio",
+      "Patrón de moiré",
+      "Red de dislocaciones",
+      "Dispositivos de memoria"
+    ],
+    "category": "science",
+    "locale": "es",
+    "source": "Original starteday",
+    "sourceUrl": "https://www.stdaily.com/web/gdxw/2026-11/20/content_615885.html",
+    "author": "Redacción starteday",
+    "publishedAt": 1795147843666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Hay experimentos cuyo planteamiento cabe en una frase y cuya lectura ocupa meses. El que publicó Nature el 19 de noviembre pertenece a ese grupo: un equipo dirigido por la Universidad Técnica de Dinamarca apiló dos láminas cristalinas, les dio un pequeño giro y esperó a que la propia interfaz decidiera cómo ordenarse. Lo que apareció no fue una mancha difusa, sino una red cuadrada y regular.",
+      "El material elegido fue titanato de estroncio (SrTiO3), en dos láminas de apenas unos 10 nanómetros de grosor. La elección tiene su ironía: no se buscó un compuesto exótico, sino todo lo contrario. El SrTiO3 es duro, químicamente estable y lleva décadas sirviendo de modelo en la electrónica de óxidos; a diferencia de muchos materiales bidimensionales, no se deshace al menor contacto, así que soporta bien la idea de apilarlo sobre un chip.",
+      "◆ El moiré que cualquiera ha visto al superponer dos rejillas",
+      "Crucen dos mallas de alambre o dos telas finas y gírenlas un poco: encima aparece un dibujo más grande que las dos originales. Es el patrón de moiré, un efecto puramente geométrico. Cuando dos cristales se solapan con un ángulo pequeño, el microscopio solía mostrar exactamente eso: una interferencia bonita, una ilusión de orden que no implicaba que ningún átomo se hubiera movido de su sitio.",
+      "Aquí la cosa cambia de naturaleza. La unión fuerte entre ambas caras obliga a los átomos de la interfaz a reacomodarse para encajar, y el desajuste que no cabe en ninguna parte se concentra en líneas estrechas de cristal deformado. Esas líneas son dislocaciones: se cierran unas sobre otras y terminan dibujando una cuadrícula perfecta.",
+      "Conviene no leerlo deprisa. Una cosa es un patrón que se ve y otra una estructura que existe: la red de este trabajo no es un efecto óptico superpuesto, es el rastro físico de átomos que se han desplazado. Entre «dibujo» y «materia» hay la misma distancia que entre una sombra y el objeto que la proyecta, y es ahí donde el artículo se malinterpreta con más facilidad.",
+      "◆ Primero lo predijo un modelo, después lo vio el microscopio",
+      "El orden de los hechos es lo más llamativo. La reordenación atómica se anticipó por simulación, pero las primeras imágenes solo devolvían el moiré de siempre: la cuadrícula no aparecía por ningún lado y, durante un tiempo, la teoría fue por delante del instrumento. El desbloqueo llegó con un modelo de aprendizaje automático que calcula cómo se mueven los átomos al unirse y torcerse dos capas delgadas: no solo pronosticó la forma de la red, también señaló dónde había que mirar, y acotar la búsqueda valió casi tanto como acertar.",
+      "Con esa pista el experimento se reorientó: se simuló el paso del haz de electrones por el material y se cortaron muestras en distintas direcciones para observarlas en sección transversal. Los resultados de microscopía electrónica de la Universidad de Amberes y del laboratorio británico SuperSTEM coincidieron estrechamente con lo previsto.",
+      "Merece la pena subrayar el método, porque se está volviendo rutina. Ya no se mira primero y se explica después: un modelo acota el espacio de búsqueda y el microscopio confirma. En el descubrimiento de materiales, esta inversión del orden ha dejado de ser una anécdota para convertirse en forma de trabajar.",
+      "◆ Dentro de la cuadrícula asoma un patrón eléctrico",
+      "Los cálculos añadieron una capa aún más interesante. La distorsión que rodea cada línea separa ligeramente las cargas positivas de las negativas, genera polarización y la organiza en remolinos. Controlar la polarización es, justamente, el tornillo con el que se ajustan el almacenamiento de información y el de energía; así que esos vórtices nanométricos no son solo decorativos: apuntan a celdas que quizá se puedan escribir.",
+      "Y hay un mando sorprendentemente simple para graduar el invento: el ángulo de giro fija la separación entre dislocaciones. El equipo lo dice sin rodeos: con solo torcer se ajusta el tamaño de la estructura. Para quien diseña memorias, «espaciado controlable» es el punto de partida de casi cualquier ambición, porque significa que la densidad ya no depende únicamente de lo que sepa grabar una máquina, sino de cuánto se gire la muñeca.",
+      "◆ Todavía no lo apunten en la hoja de ruta",
+      "Faltan dos respuestas que no son menores: ¿conducen electricidad esas líneas? ¿Se puede escribir y borrar el patrón una y otra vez sin que se degrade? Sin ellas no hay ni siquiera umbral de aplicación. Los propios autores se muestran prudentes y, de momento, solo hablan de explorar si el titanato de estroncio u otros óxidos producen comportamientos eléctricos aprovechables.",
+      "Tomando distancia, el contraste de fondo resulta elocuente. La fabricación actual baja desde arriba, grabando con litografía a base de equipos cada vez más caros; la autoorganización prometía lo contrario, dejar que el material crezca solo, pero siempre se atrancaba en que lo crecido no obedecía. Este trabajo demuestra al menos que el ángulo de giro funciona como un mando continuo y predecible. Y quizá lo de más calado no esté en el dispositivo, sino en la mirada: dislocaciones y fronteras de grano se han tratado durante décadas como defectos a erradicar y aquí pasan a ser una variable de diseño que se regula con continuidad. De tolerar el defecto a reclutarlo va un giro silencioso que, sin ruido, reordena una disciplina entera."
+    ]
+  },
+  {
+    "id": "rss-orig-glucose-powered-neuroaxis-2026-11q-es",
+    "title": "Un implante que sabe cuándo parar: sin batería, alimentado por la glucosa, devolvió a las ratas diabéticas el control de su azúcar",
+    "summary": "Un equipo de la Universidad Nacional de Singapur y de la Universidad de Correos y Telecomunicaciones de Nanjing presenta en Nature un implante blando, NeuroAxis, que prescinde de batería: se alimenta de la glucosa sanguínea y estimula el nervio vago en bucle cerrado. En ratas con diabetes de tipo 2, dos semanas bastaron para acercar la glucemia a valores sanos y reducir también la resistencia a la insulina; lo de fondo no es la bajada, sino que el aparato aprende a detenerse cuando el azúcar ya está a raya.",
+    "cover": "/original/glucose-powered-neuroaxis-cover.webp",
+    "images": [
+      "/original/glucose-powered-neuroaxis-cover.webp",
+      "/original/glucose-powered-neuroaxis-fig1.webp",
+      "/original/glucose-powered-neuroaxis-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "Diabetes",
+      "Nervio vago",
+      "Bioelectrónica",
+      "Implante autoalimentado",
+      "Regulación en bucle cerrado"
+    ],
+    "category": "health",
+    "locale": "es",
+    "source": "Original starteday",
+    "sourceUrl": "https://tech.ifeng.com/c/8yBBJKDpYAi",
+    "author": "Redacción starteday",
+    "publishedAt": 1795147783666,
+    "readMinutes": 7,
+    "pinned": 1,
+    "body": [
+      "Pincharse el dedo a diario, calcular raciones, clavarse la inyección a su hora: ese circuito cuesta romperlo porque casi todo lo que existe decide desde fuera lo que el cuerpo ya no decide por sí solo. Un estudio publicado en Nature el 19 de noviembre se atreve a discutir justo esa premisa, en lugar de limitarse a mejorar la aguja.",
+      "Lo firman el equipo de Liu Yuxin, de la Universidad Nacional de Singapur, junto al de Wang Lianhui, de la Universidad de Correos y Telecomunicaciones de Nanjing. Presentan NeuroAxis, un implante blando al que describen como eje neuroinmune artificial: no lleva batería, se alimenta de la glucosa de la sangre y estimula el nervio vago en bucle cerrado. En ratas con diabetes de tipo 2, la glucemia volvió a acercarse a valores sanos.",
+      "◆ La autopista de información que ya teníamos dentro",
+      "El nervio vago une el cerebro con las vísceras y funciona en los dos sentidos. Durante la ingesta, sube las señales del aparato digestivo y, a la vez, cursa órdenes al páncreas para que libere insulina. Administra además un reflejo inflamatorio: ante una inflamación crónica, su estimulación eléctrica frena la liberación de mediadores y amortigua la respuesta.",
+      "Que estimular ese nervio mejora la sensibilidad a la insulina e incluso protege las células pancreáticas se sabía desde hace tiempo. Y la diabetes de tipo 2 suele llegar acompañada de obesidad, resistencia a la insulina e inflamación crónica: tres frentes que, casualmente, caen todos bajo la jurisdicción de este nervio. El blanco no se eligió al azar.",
+      "◆ Los dos nudos que arrastran los estimuladores de siempre",
+      "El estimulador convencional tropieza con dos límites difíciles de esquivar. El primero es físico: batería y cables rígidos ocupan sitio, la carga se agota y reponerla implica otra cirugía. El segundo es de lógica: funciona en bucle abierto, descargando impulsos según un programa fijo, sin importarle lo que marque la glucosa en ese instante.",
+      "Las consecuencias del bucle abierto se imaginan solas. Si el azúcar ya está en su sitio y el aparato sigue estimulando, aparecen riesgos como la ralentización del ritmo cardíaco o las molestias gastrointestinales. Es un termostato que no lee el termómetro: sopla y sopla aunque la habitación esté ya demasiado fría. El fallo no está en la estimulación, sino en que el dispositivo ignora cuándo debe callar.",
+      "Cabría decir que buena parte de la electrónica implantable de la última década ha consistido, precisamente, en añadir ese «saber» que faltaba. No se trataba de estimular mejor, sino de dotar al aparato de criterio sobre el momento.",
+      "◆ Sacar la energía de la sangre y dejar que hable la glucosa",
+      "La solución de NeuroAxis tiene algo de elegancia radical: prescinde de la batería y toma la glucosa circulante como combustible; al mismo tiempo, convierte la estimulación en un bucle cerrado que solo actúa cuando el azúcar sube y se retira cuando vuelve a la normalidad. Energía y decisión quedan fundidas en la misma señal química, y el implante se repliega al papel de amplificador de un circuito que ya existía.",
+      "El diseño experimental fue de una sencillez deliberada: ratas enfermas repartidas en grupos de comparación. En las que recibieron un NeuroAxis operativo cayeron antes la ingesta, el peso y la grasa abdominal; esos cambios se adelantaron a las propias cifras de glucemia.",
+      "Lo decisivo fue el plazo. Bastaron dos semanas para que la glucosa de ese grupo se situara cerca de la de ratas sanas, y el índice de resistencia a la insulina descendió de forma significativa. El matiz importa: la sensibilidad se recuperó, no fue aplastada por una fuerza externa.",
+      "◆ Una cosa es el hallazgo y otra su alcance",
+      "Lo más sugerente no es que bajara el azúcar, sino que reapareciera la autorregulación. Un tratamiento sustitutivo, en cuanto se retira, suele devolver el problema tal cual estaba; la lógica de «despertar» busca en cambio que un circuito propio, intacto pero dormido, vuelva a trabajar. Que la autoalimentación funde en una sola variable el «de dónde sale la energía» y el «qué hay que medir» reduce además, por construcción, una capa entera de disparos indebidos.",
+      "Pero la raya hay que trazarla con claridad: esto son ratas, no personas. La biocompatibilidad a largo plazo, la carga de la implantación, la deriva de la señal con el tiempo y si la eficiencia del suministro aguanta a escala humana siguen sin respuesta. El propio reporte se etiqueta como lectura divulgativa de un artículo y advierte de que no es consejo médico. Lo honesto es hablar de una dirección que se ilumina, no de una receta entregada: su ambición, justamente, es que el organismo vuelva a tomar el mando."
+    ]
+  },
+  {
+    "id": "rss-orig-folding-steering-suv-2026-11q-es",
+    "title": "Cuando el volante se pliega y el habitáculo respira: el Tai 9 diseña el coche parado con otra lógica",
+    "summary": "Presentado el 20 de noviembre desde 279.900 yuanes, el BYD Fangchengbao Tai 9 es un seis plazas 2+2+2 con pantalla de 30 pulgadas, AR-HUD de 50 y una plataforma híbrida DMS que anuncia 310 km eléctricos y más de 1.600 combinados. Su rasgo más discutido, eso sí, es un volante plegable que se guarda en el salpicadero: la primera vez que «conducir» y «estar aparcado» se proyectan como dos espacios diferentes.",
+    "cover": "/original/folding-steering-suv-cover.webp",
+    "images": [
+      "/original/folding-steering-suv-cover.webp",
+      "/original/folding-steering-suv-fig1.webp",
+      "/original/folding-steering-suv-fig2.webp"
+    ],
+    "imageCount": 3,
+    "tags": [
+      "BYD Fangchengbao Tai 9",
+      "Volante plegable",
+      "Plataforma híbrida",
+      "SUV de seis plazas",
+      "Cabina inteligente"
+    ],
+    "category": "tech",
+    "locale": "es",
+    "source": "Original starteday",
+    "sourceUrl": "https://www.ithome.com/1/029/755.htm",
+    "author": "Redacción starteday",
+    "publishedAt": 1795147723666,
+    "readMinutes": 6,
+    "pinned": 1,
+    "body": [
+      "En la presentación del 20 de noviembre, lo que más circuló no fue la pantalla panorámica de 30 pulgadas ni el AR-HUD de 50, sino un gesto mucho más simple: el volante se pliega y desaparece dentro del salpicadero. Un movimiento de apenas unos segundos que dice más sobre el coche que toda la ficha técnica.",
+      "Hablamos del BYD Fangchengbao Tai 9, un SUV grande de seis plazas en configuración 2+2+2 que arranca en 279.900 yuanes. Estrena la plataforma híbrida DMS, con 310 kilómetros de autonomía eléctrica WLTC y más de 1.600 kilómetros de autonomía combinada. La tabla viene cargada, pero merece la pena detenerse en ese volante plegable: por primera vez, «coche en marcha» y «coche parado» se tratan como dos espacios distintos.",
+      "◆ Un gesto que separa dos estados",
+      "Durante un siglo, el habitáculo se ha organizado alrededor de quien conduce: volante fijo delante, salpicadero inclinado hacia el puesto, butacas orientadas a un mismo supuesto, el de que alguien va al mando. Incluso aparcado, el coche seguía siendo una cabina de conducción en la que nadie sostenía el volante.",
+      "Plegarlo afloja ese supuesto. Una vez estacionado, el aro se guarda, la primera fila gana un hueco continuo y la plaza del conductor puede girarse para mirar a quien viaja detrás. La marca lo bautiza como cabina inteligente plegable, subraya que el desarrollo es íntegramente propio y lo presenta como primer montaje en serie a escala mundial: hay un orgullo evidente en cómo se ha elegido contar este detalle.",
+      "◆ Por qué nadie lo había hecho antes",
+      "No fue falta de imaginación, sino exceso de restricciones. La dirección debe conservar redundancia mecánica, la estructura ha de proteger a los ocupantes en un impacto y cualquier mecanismo móvil tiene que sobrevivir a vibración, ruidos, durabilidad y accionamientos involuntarios. Un volante no es una pantalla: va atornillado a un elemento de seguridad, y moverlo sale mucho más caro y mucho más lento que rediseñar la consola.",
+      "Por eso lo crítico no es «que pueda plegarse», sino «cuándo se le permite». Un mecanismo así solo se desbloquea al estacionar y queda bloqueado en marcha; si el límite entre estados no está impecable, deja de ser un asunto de confort. Que se haya atrevido a llevarlo a la lista de equipamiento de serie indica que ese enclavamiento ya pasó su propia validación.",
+      "◆ La otra mitad: tres líneas en una sola plataforma",
+      "En el mismo acto se presentó la plataforma DMS, que reúne bajo una arquitectura la eficiencia de DM-i, las prestaciones de DM-p y la vocación todoterreno de DMO. El control vectorial trasero, que el fabricante dice estrenar, integra diferencial, bloqueo, limitación electrónica de deslizamiento y desacople en rueda. La intención se resume sin ambigüedad: grande y potente, grande y ágil, grande y estable, grande y eficiente.",
+      "Traducido a cifras: los 310 kilómetros eléctricos WLTC permiten usar el coche como un eléctrico en el día a día, mientras que los más de 1.600 combinados liberan al viaje largo de ir pendiente del siguiente repostaje. Que ambas cosas se sostengan a la vez en un seis plazas de este tamaño dice más que cualquier récord suelto.",
+      "◆ La franja de precio importa más que la ficha",
+      "Meter seis plazas, esa autonomía y una cabina plegable por debajo de la barrera de los 280.000 yuanes cambia quién puede acceder a este tipo de producto. Hace pocos años, un conjunto así colgaba de escalones bastante más altos; ahora entra en el presupuesto corriente de quien renueva coche, y la competencia se desplaza de acumular componentes a gestionar mejor el espacio.",
+      "La señal del lado del comprador es coherente: el peso de la valoración se mueve del «puesto de conducción» hacia «las plazas donde se viaja». Pantallas cada vez mayores, asientos que se parecen a un sofá y un volante dispuesto a ceder sitio son caras de lo mismo: el tiempo en que el coche está detenido empieza a diseñarse como un uso legítimo, no como una pausa.",
+      "◆ Medio minuto de cautela",
+      "Que la pieza móvil vuelva tiene peaje: la durabilidad del mecanismo, el control de ruidos, el coste de reparación y el valor de reventa los dictaminará el mercado tras unos años. Y su utilidad depende por completo de cuánto tiempo pase el coche aparcado: si rueda casi siempre, el plegado se quedará en los tres segundos más fotogénicos de la presentación y no en un hábito. Convertirlo en costumbre exigirá que el propietario reordene de verdad sus ratos a bordo, con el motor parado. En el fondo, guardar el volante equivale a admitir que el coche no siempre está conduciéndose; y esa admisión dice más del rumbo de la cabina que cualquier pantalla."
+    ]
+  }
+]
