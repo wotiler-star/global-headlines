@@ -7,6 +7,7 @@ import { absUrl, buildArticleAlternates, SITE_URL, articleBaseId } from "@/lib/s
 import { articleVersionMap } from "@/lib/articleVersions";
 import { isEnglishClone } from "@/lib/translationSeo";
 import { ogImageFor } from "@/lib/og";
+import { displayTitle, displayDescription } from "@/lib/serpDisplay";
 import { IMAGE_CREDITS } from "@/lib/imageCredits";
 import { videoEmbedSrc } from "@/lib/video";
 import { homeHref, articleHref, categoryHref } from "@/lib/paths";
@@ -84,9 +85,13 @@ export async function generateMetadata({
   const url = absUrl(loc, `/article/${id}`);
   const iso = new Date(article.publishedAt).toISOString();
   const og = ogImageFor(article.cover || (article.images || [])[0], article.title);
+  // SERP/社交展示位用语义截断后的文本（正文源与 JSON-LD 仍保留完整值）。
+  // title 不含品牌——layout 的 title.template 统一追加 " · starteday"。
+  const seoTitle = displayTitle(article.title, loc);
+  const seoDesc = displayDescription(article.summary, loc);
   return {
-    title: article.title,
-    description: article.summary,
+    title: seoTitle,
+    description: seoDesc,
     // 关键词 meta：文章标签已是天然主题词；补上本地化栏目名强化主题信号。
     keywords: [
       (getDict(loc).categories as Record<string, string>)[article.category] || article.category,
@@ -102,8 +107,8 @@ export async function generateMetadata({
       "max-video-preview": -1,
     },
     openGraph: {
-      title: article.title,
-      description: article.summary,
+      title: seoTitle,
+      description: seoDesc,
       images: [og],
       type: "article",
       url,
@@ -118,8 +123,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: article.title,
-      description: article.summary,
+      title: seoTitle,
+      description: seoDesc,
       images: [og.url],
     },
   };
