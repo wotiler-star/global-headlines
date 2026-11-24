@@ -44,8 +44,14 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    // 全量 URL（23 语种首页 + 全部文章）与 Google 新闻专用（最近 48h）并列声明。
-    // news-sitemap.xml 由 scripts/gen-news-sitemap.mjs 在容器内生成到 public/。
-    sitemap: [`${SITE_URL}/sitemap.xml`, `${SITE_URL}/news-sitemap.xml`],
+    // 三个 sitemap 并列声明：
+    // - sitemap.xml：全量 URL（23 语种首页 + 全部文章）
+    // - news-sitemap.xml：Google 新闻专用（最近 48h），route handler 实时生成
+    // - image-sitemap.xml：Google 图片搜索专用（每篇文章的真实配图），route handler 实时生成
+    sitemap: [
+      `${SITE_URL}/sitemap.xml`,
+      `${SITE_URL}/news-sitemap.xml`,
+      `${SITE_URL}/image-sitemap.xml`,
+    ],
   };
 }

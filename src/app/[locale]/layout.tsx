@@ -197,6 +197,36 @@ export default async function LocaleLayout({
         </AuthProvider>
         <BackToTop />
         <PwaRegister />
+        {/* Adsterra popunder — 全站广告位。用原生 script 让完整标签进入 SSR HTML，
+            否则 next/script 只输出 preload、真实标签靠客户端注入，广告脚本不够稳。
+            属性与官方代码逐字一致：async / fetchpriority="high" / data-cfasync="false"。 */}
+        <div id="container-5817c941cc4410d39dbf0dbc39480cbc" />
+        <script
+          async
+          fetchPriority="high"
+          data-cfasync="false"
+          src="https://bicea.org/21/5817c941cc4410d39dbf0dbc39480cbc"
+        />
+        {/* Adsterra iframe banner 468x60 — atOptions 定义必须在加载脚本之前，逐字还原 */}
+        <script
+          data-cfasync="false"
+          dangerouslySetInnerHTML={{
+            __html:
+              "atOptions = { 'key' : '3e49078f7af09ee718d21987b3623ea6', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };",
+          }}
+        />
+        <script data-cfasync="false" src="https://bicea.org/22/3e49078f7af09ee718d21987b3623ea6" />
+        {/* Adsterra iframe banner 160x300 — atOptions 定义紧跟加载脚本，避免全局变量覆盖 */}
+        <script
+          data-cfasync="false"
+          dangerouslySetInnerHTML={{
+            __html:
+              "atOptions = { 'key' : '639fbde2a8cd11232aafa0a74c4a4bfc', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };",
+          }}
+        />
+        <script data-cfasync="false" src="https://bicea.org/22/639fbde2a8cd11232aafa0a74c4a4bfc" />
+        {/* Adsterra 广告脚本 /14/ — 独立脚本，无 atOptions，逐字还原 */}
+        <script data-cfasync="false" src="https://bicea.org/14/328f00f19a454625bf269ccedd032be4" />
       </body>
     </html>
   );

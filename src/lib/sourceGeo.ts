@@ -263,6 +263,34 @@ const DOMAIN_TO_CODE: Record<string, string> = {
   "thecitypaperbogota.com": "BOG",
   "astanatimes.com": "ALA",
   "themalaysianreserve.com": "KUL", "todayonline.com": "SIN",
+  // cov50 地球仪数据完整性修复：生产库 797 篇中有 682 篇(85%)的 sourceUrl host 未进映射表，
+  // 导致 aggregateRegions 只剩 sciencedaily→NYC 约 80 篇，全球信号地球坍缩成单城。
+  // 下列为实测高频真实落库 host：中国媒体/机构归 BJS，国际机构按出版地归属。
+  // —— 中国媒体 / 机构（出海与主站采集）——
+  "163.com": "BJS", "qq.com": "BJS", "news.qq.com": "BJS", "sina.com.cn": "BJS",
+  "gmw.cn": "BJS", "news.gmw.cn": "BJS", "cctv.cn": "BJS", "news.cctv.cn": "BJS",
+  "cas.cn": "BJS", "caas.cn": "BJS", "sciencenet.cn": "BJS", "paper.sciencenet.cn": "BJS",
+  "stdaily.com": "BJS", "cnfin.com": "BJS", "cqn.com.cn": "BJS", "cei.cn": "BJS",
+  "199it.com": "BJS", "21ic.com": "BJS", "lmtw.com": "BJS", "data.lmtw.com": "BJS",
+  "itheat.com": "BJS", "ithome.com": "BJS", "ifeng.com": "BJS", "tech.ifeng.com": "BJS",
+  "china.com.cn": "BJS", "news.china.com.cn": "BJS", "cnii.com.cn": "BJS", "nju.edu.cn": "BJS",
+  "sdu.edu.cn": "BJS", "phy.sdu.edu.cn": "BJS", "ebiotrade.com": "BJS", "juduanduan.com": "BJS",
+  "haicang.gov.cn": "BJS", "apec.org": "BJS", // apec.org 中文稿件（APEC 会议报道）按内容语种落 BJS
+  // —— 中国出海垂直媒体 / 企业博客（中文内容，归 BJS）——
+  "cherumbu.com": "BJS", "scea.co": "BJS", "wo-tile.com": "BJS", "alizila.com": "BJS",
+  // —— 国际机构（按出版地）——
+  "sciencenews.org": "NYC",   // Science News（美国华盛顿，归 NYC 美东代表站）
+  "newzoo.com": "AMS",        // Newzoo 游戏市场研究（荷兰阿姆斯特丹）
+  "zmescience.org": "WAW",    // ZME Science（东欧，归华沙代表站）
+};
+
+// locale → 代表城市：当 sourceUrl 无匹配时的兜底，保证任何文章都不会从地球仪「消失」。
+// 仅用于可视化聚合与地区筛选的一致性；精确 host 映射始终优先。
+const LOCALE_FALLBACK_CODE: Record<string, string> = {
+  zh: "BJS", "zh-Hant": "BJS", en: "NYC", ja: "TYO", ko: "ICN", es: "MAD",
+  fr: "PAR", de: "BER", it: "ROM", pt: "SAO", tr: "IST", ru: "MOW", uk: "KBP",
+  ar: "RUH", hi: "MAA", id: "JKT", ms: "KUL", fil: "MNL", vi: "HAN", th: "BKK",
+  my: "BKK", bn: "DAC", ur: "ISB",
 };
 
 // 地区运行时指标（首页地球面板用）
@@ -295,13 +323,15 @@ function bareHost(url?: string): string {
   }
 }
 
-export function geoCodeOf(url?: string): string | undefined {
+export function geoCodeOf(url?: string, locale?: string): string | undefined {
   const h = bareHost(url);
-  if (!h) return undefined;
-  for (const dom of Object.keys(DOMAIN_TO_CODE)) {
-    if (h === dom || h.endsWith("." + dom)) return DOMAIN_TO_CODE[dom];
+  if (h) {
+    for (const dom of Object.keys(DOMAIN_TO_CODE)) {
+      if (h === dom || h.endsWith("." + dom)) return DOMAIN_TO_CODE[dom];
+    }
   }
-  return undefined;
+  // cov50 兜底：host 无精确映射时按内容语种归到代表城市，避免文章从地球仪消失。
+  return locale ? LOCALE_FALLBACK_CODE[locale] : undefined;
 }
 
 export function cityName(code: string, locale: Locale): string {
@@ -412,7 +442,7 @@ export function geoLabel(name?: string, nameZh?: string): GeoLabel {
 export function aggregateRegions(articles: Article[], locale: Locale): RegionStat[] {
   const groups = new Map<string, Article[]>();
   for (const a of articles) {
-    const code = geoCodeOf(a.sourceUrl);
+    const code = geoCodeOf(a.sourceUrl, a.locale);
     if (!code) continue;
     if (!groups.has(code)) groups.set(code, []);
     groups.get(code)!.push(a);

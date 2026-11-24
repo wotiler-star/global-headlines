@@ -87,7 +87,7 @@ export default function InfiniteFeed({
     const base = srcParam ? effectiveAll : articles;
     return base.filter((a) => {
       // 地区筛选：点地球某地区时，按 sourceUrl 所属城市代码过滤（跨语言聚合）
-      if (srcParam && geoCodeOf(a.sourceUrl) !== srcParam) return false;
+      if (srcParam && geoCodeOf(a.sourceUrl, a.locale) !== srcParam) return false;
       if (isBookmarks && !bookmarks.has(a.id)) return false;
       // 关注页：未关注任何来源时回退到推荐流，避免首屏空框
       if (isFollowing && follows.size > 0 && !follows.has(a.source)) return false;

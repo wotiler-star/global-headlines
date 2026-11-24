@@ -325,7 +325,12 @@ export default async function ArticlePage({
           <div className="article-byline">
             <div className="article-meta">
               <span className="src">{article.source}</span>
-              <span>{formatRelativeTime(loc, article.publishedAt, d)}</span>
+              {/* SEO/GEO：发布时间语义化。可见文本保留相对时间，datetime 提供机器可读的
+                  ISO 绝对日期，title 悬停显示完整日期，帮助搜索引擎识别内容新鲜度。 */}
+              <time
+                dateTime={new Date(article.publishedAt).toISOString()}
+                title={new Date(article.publishedAt).toLocaleDateString(loc, { year: "numeric", month: "long", day: "numeric" })}
+              >{formatRelativeTime(loc, article.publishedAt, d)}</time>
               <span>{readMin} min</span>
               <ViewTracker articleId={article.id} locale={loc} category={article.category} />
               <span>{d.categories[article.category]}</span>

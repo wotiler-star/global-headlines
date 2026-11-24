@@ -16,7 +16,7 @@ export const dynamic = "force-dynamic";
 export async function GET(req: NextRequest) {
   const src = (req.nextUrl.searchParams.get("src") || "").trim().toUpperCase();
   let items = (await Promise.all(locales.map((l) => getArticles(l)))).flat();
-  if (src) items = items.filter((a) => geoCodeOf(a.sourceUrl) === src);
+  if (src) items = items.filter((a) => geoCodeOf(a.sourceUrl, a.locale) === src);
   const slim = items.map((a) => ({ ...a, body: [] as string[] }));
   return NextResponse.json(
     { articles: slim },

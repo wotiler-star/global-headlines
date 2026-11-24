@@ -22,6 +22,8 @@ type Article = {
   summary?: string;
   category?: string;
   tags?: string[];
+  cover?: string;
+  images?: string[];
 };
 
 function loadArticles(): Article[] {
@@ -143,6 +145,40 @@ export function buildNewsSitemap(): string {
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+${urls}
+</urlset>
+`;
+}
+
+// Google 图片搜索专用 sitemap：每个可索引文章页挂其真实 Wikimedia 配图。
+// 本站每篇 3 张图（cover + fig1 + fig2），此前只在页面 ImageObject JSON-LD 里声明，
+// 没有 image sitemap → Google Images 主要靠此入口发现图片。属纯增量、不改现有逻辑。
+// 与 news-sitemap 共用 indexableArticles()：未翻译的英文复读页不推，避免重复图片信号。
+export function buildImageSitemap(): string {
+  const articles = indexableArticles();
+  const urls = articles
+    .map((a) => {
+      const imgs = [...new Set([...(a.images || []), a.cover].filter(Boolean))] as string[];
+      if (!imgs.length) return "";
+      const imageTags = imgs
+        .map((src) => {
+          const absolute = src.startsWith("http") ? src : `${SITE_URL}${src}`;
+          return `    <image:image>
+      <image:loc>${esc(absolute)}</image:loc>
+      <image:title>${esc(a.title as string)}</image:title>
+    </image:image>`;
+        })
+        .join("\n");
+      return `  <url>
+    <loc>${esc(articleUrl(a))}</loc>
+${imageTags}
+  </url>`;
+    })
+    .filter(Boolean)
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls}
 </urlset>
 `;

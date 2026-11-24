@@ -1021,6 +1021,14 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .sd-fb-name { flex: 1; font-size: 12px; color: var(--ink-2); }
 .sd-fb-count { font-size: 12px; color: var(--ink); }
 .sd-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; font-family: var(--font-mn); font-size: 10.5px; letter-spacing: .08em; color: var(--ink-3); }
+/* 信号面板滚动条：深色细条，避免浏览器原生亮白滚动条压住 GLOBAL 标题 */
+.sd-panel, .sd-legend, .sd-country-card {
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent; -webkit-overflow-scrolling: touch;
+}
+.sd-panel::-webkit-scrollbar, .sd-legend::-webkit-scrollbar, .sd-country-card::-webkit-scrollbar { width: 5px; height: 5px; }
+.sd-panel::-webkit-scrollbar-track, .sd-legend::-webkit-scrollbar-track, .sd-country-card::-webkit-scrollbar-track { background: transparent; }
+.sd-panel::-webkit-scrollbar-thumb, .sd-legend::-webkit-scrollbar-thumb, .sd-country-card::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+.sd-panel::-webkit-scrollbar-thumb:hover, .sd-legend::-webkit-scrollbar-thumb:hover, .sd-country-card::-webkit-scrollbar-thumb:hover { background: var(--ink-3); }
 .sd-panel { position: absolute; top: 14px; right: 16px; width: 248px; background: rgba(16,22,31,.92); border: 1px solid var(--brand); border-radius: 8px; padding: 12px 12px 14px; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); box-shadow: 0 8px 28px rgba(0,0,0,.45); z-index: 5; max-height: calc(100% - 28px); overflow: auto; animation: sd-panel-in .3s cubic-bezier(.22,1,.36,1) both; }
 @keyframes sd-panel-in { from { opacity: 0; transform: translateY(-8px) scale(.985); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .sd-panel { animation: none; } }
@@ -1029,6 +1037,7 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 .sd-panel-name { font-size: 16px; font-weight: 700; color: var(--ink); margin-top: 2px; }
 .sd-clear { background: transparent; border: none; color: var(--ink-3); font-size: 20px; line-height: 1; cursor: pointer; padding: 0 2px; }
 .sd-clear:hover { color: var(--alert); }
+.sd-stale-note { margin-top: 8px; padding: 5px 7px; font-size: 10px; line-height: 1.45; color: var(--ink-3); background: rgba(255,178,58,.07); border: 1px solid rgba(255,178,58,.22); border-radius: 5px; }
 .sd-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0 8px; }
 .sd-metric { background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; }
 .sd-m-label { display: block; font-family: var(--font-mn); font-size: 9px; letter-spacing: .1em; color: var(--ink-3); }

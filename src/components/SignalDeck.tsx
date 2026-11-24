@@ -382,17 +382,39 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   };
 
   const total = regions.reduce((s, r) => s + r.signalCount, 0);
-  // 近 1 小时全球新增信号（hourDist 桶 23）
-  const new1h = regions.reduce((s, r) => s + ((r.hourDist && r.hourDist[23]) || 0), 0);
+  // 全区 24h 分布（各地区 hourDist 叠加）——实时指标的锚点来源
+  const dist24 = regions.reduce<number[]>(
+    (acc, r) => acc.map((v, i) => v + ((r.hourDist && r.hourDist[i]) || 0)),
+    new Array(24).fill(0) as number[]
+  );
+  // cov52 陈旧数据降级：hourDist 是绝对时间桶（桶23=最近1h）。采集停止数日后全桶归零，
+  // 面板会显示"活跃0/速率0"看似故障。这里从桶23往回定位"最近一个有信号的小时"作为锚点，
+  // 用该时段数据驱动活跃度/速率/动量；staleH=距当前小时的偏移，UI 据此标注真实口径。
+  let anchorBucket = 23;
+  let bucketHit = false;
+  for (let i = 23; i >= 0; i--) { if (dist24[i] > 0) { anchorBucket = i; bucketHit = true; break; } }
+  // 全部 24 桶皆空（采集停 >24h）：锚点失效，改用最新信号距今的小时数作为陈旧度，
+  // 并让活跃指标归 0（诚实反映"当前无新信号"），stale 提示仍会据此显示。
+  const latestSignalMs = regions.reduce((m, r) => Math.max(m, r.lastSignal || 0), 0);
+  const staleFromTime = latestSignalMs > 0 ? Math.max(1, Math.floor((Date.now() - latestSignalMs) / 3_600_000)) : 0;
+  const staleH = bucketHit ? (23 - anchorBucket) : staleFromTime; // 0=最近1h有信号；>0=数据停留在 N 小时前
+  // 近 1 小时全球新增信号（锚点桶；正常时即桶23）
+  const new1h = dist24[anchorBucket] || 0;
   // cov44b：文章库可为空（内容重置态），peak 允许为 null，下游一律兜底
   const peak = [...regions].sort((a, b) => b.signalCount - a.signalCount)[0] || null;
 
   // cov48b 全局面板"活"指标（参照 FlightRadar24 / Windy / USGS 等主流地球仪仪表盘口径）
-  // 上一小时全球新增 → 与当前小时比较得动量；实时速率=近1h÷60；活跃地区=近1h有信号的地区数
-  const new1hPrev = regions.reduce((s, r) => s + ((r.hourDist && r.hourDist[22]) || 0), 0);
+  // 锚点上一小时 → 与锚点比较得动量；速率=锚点新增÷60；活跃地区=锚点有信号的地区数
+  const new1hPrev = anchorBucket > 0 ? (dist24[anchorBucket - 1] || 0) : 0;
   const ratePerMin = new1h > 0 ? Math.round(new1h / 60) : 0;
-  const activeRegions = regions.filter((r) => (r.hourDist && r.hourDist[23] || 0) > 0).length;
+  const activeRegions = regions.filter((r) => (((r.hourDist && r.hourDist[anchorBucket]) || 0) > 0)).length;
   const momentum = new1h - new1hPrev; // >0 升温 / <0 降温 / =0 持平
+  // 锚点对应的 UTC 小时（桶i = (i-23)小时前），用于 UI 标注"数据截至 HH:00Z"
+  const anchorUtcHour = bucketHit
+    ? (new Date().getUTCHours() - staleH + 24) % 24
+    : (latestSignalMs > 0 ? new Date(latestSignalMs).getUTCHours() : 0);
+  // 陈旧口径相关 UI 仅在挂载后启用，避免 SSR/客户端 Date.now() 差异触发水合警告
+  const staleReady = mounted && staleH > 0;
 
   // 分站切换栏：按信号量取 top-N 分站；若当前选中分站不在前 N（如弱信号站），前置插入确保可见可点。
   const topStations = useMemo(() => {
@@ -432,11 +454,8 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   const globalCatTop4 = Object.entries(globalCat)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 4);
-  // 全区 24h 信号分布（各地区 hourDist 叠加）
-  const globalHourDist = regions.reduce<number[]>(
-    (acc, r) => acc.map((v, i) => v + ((r.hourDist && r.hourDist[i]) || 0)),
-    new Array(24).fill(0) as number[]
-  );
+  // 全区 24h 信号分布（复用上方锚点计算所用的 dist24）
+  const globalHourDist = dist24;
   // 全局平均新鲜度（按信号量加权）
   const globalAvgAge = total
     ? Math.round(regions.reduce((s, r) => s + r.avgAgeMin * r.signalCount, 0) / total)
@@ -1365,8 +1384,9 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
 
   // cov42 面板口径：与榜单行同一套增量/趋势（▲▼ + 近1h新增），预览优先
   const pnl = panelRegion;
-  const pnlD1 = (pnl && pnl.hourDist && pnl.hourDist[23]) || 0;
-  const pnlD0 = (pnl && pnl.hourDist && pnl.hourDist[22]) || 0;
+  // cov52：与 GLOBAL 面板同口径，数据陈旧时用锚点桶而非固定桶23
+  const pnlD1 = (pnl && pnl.hourDist && pnl.hourDist[anchorBucket]) || 0;
+  const pnlD0 = (pnl && pnl.hourDist && anchorBucket > 0 && pnl.hourDist[anchorBucket - 1]) || 0;
   const pnlTrend = pnlD1 > pnlD0 ? "▲" : pnlD1 < pnlD0 ? "▼" : "▬";
   const pnlTrendCls = pnlD1 > pnlD0 ? " up" : pnlD1 < pnlD0 ? " down" : "";
   const pnlPeak = pnl ? peakBucket(pnl.hourDist) : null;
@@ -1757,6 +1777,13 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
               <div className="sd-panel-name">全球概览</div>
             </div>
           </div>
+          {staleReady && (
+            <div className="sd-stale-note" suppressHydrationWarning>
+              {bucketHit
+                ? `⏱ 活跃指标回退至最近有信号时段（${String(anchorUtcHour).padStart(2, "0")}:00Z，距今 ${staleH}h）`
+                : `⏱ 近 24h 无新信号，活跃指标暂为 0 · 最新 ${String(anchorUtcHour).padStart(2, "0")}:00Z（${staleH}h 前）`}
+            </div>
+          )}
           <div className="sd-metrics">
             <div className="sd-metric">
               <span className="sd-m-label">信号总量 TOTAL</span>
@@ -1767,14 +1794,14 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
               <span className="sd-m-val"><CountUp value={regions.length} /></span>
             </div>
             <div className="sd-metric">
-              <span className="sd-m-label">活跃地区 ACTIVE/1H</span>
+              <span className="sd-m-label">{staleReady ? "活跃地区 ACTIVE" : "活跃地区 ACTIVE/1H"}</span>
               <span className="sd-m-val">
                 <CountUp value={activeRegions} />
                 <span className="sd-m-sub">/{regions.length}</span>
               </span>
             </div>
             <div className="sd-metric">
-              <span className="sd-m-label">近 1 小时 NEW/1H</span>
+              <span className="sd-m-label">{staleReady ? "该时段新增 NEW" : "近 1 小时 NEW/1H"}</span>
               <span className="sd-m-val">
                 +<CountUp value={new1h} />
                 <span className={"sd-mom" + (momentum > 0 ? " up" : momentum < 0 ? " down" : "")}>
@@ -1783,7 +1810,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
               </span>
             </div>
             <div className="sd-metric">
-              <span className="sd-m-label">实时速率 RATE/MIN</span>
+              <span className="sd-m-label">{staleReady ? "该时段速率 RATE" : "实时速率 RATE/MIN"}</span>
               <span className="sd-m-val">≈<CountUp value={ratePerMin} /></span>
             </div>
             <div className="sd-metric sd-m-full">
@@ -1870,8 +1897,8 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
               <span className="sd-m-val" title="近 14 天累计信号数"><CountUp value={pnl.signalCount} /></span>
             </div>
             <div className="sd-metric">
-              <span className="sd-m-label">近 1 小时 NEW/1H</span>
-              <span className={"sd-m-val" + pnlTrendCls} title="与上一小时对比（与榜单行 ▲▼ 同口径）">
+              <span className="sd-m-label">{staleReady ? "该时段新增 NEW" : "近 1 小时 NEW/1H"}</span>
+              <span className={"sd-m-val" + pnlTrendCls} title={staleReady ? "最近有信号时段与前一小时对比" : "与上一小时对比（与榜单行 ▲▼ 同口径）"}>
                 {pnlTrend} +<CountUp value={pnlD1} />
               </span>
             </div>
