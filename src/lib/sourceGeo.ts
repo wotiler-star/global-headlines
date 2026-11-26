@@ -287,10 +287,39 @@ const DOMAIN_TO_CODE: Record<string, string> = {
 // locale → 代表城市：当 sourceUrl 无匹配时的兜底，保证任何文章都不会从地球仪「消失」。
 // 仅用于可视化聚合与地区筛选的一致性；精确 host 映射始终优先。
 const LOCALE_FALLBACK_CODE: Record<string, string> = {
-  zh: "BJS", "zh-Hant": "BJS", en: "NYC", ja: "TYO", ko: "ICN", es: "MAD",
+  zh: "BJS", en: "NYC", ja: "TYO", ko: "ICN", es: "MAD",
   fr: "PAR", de: "BER", it: "ROM", pt: "SAO", tr: "IST", ru: "MOW", uk: "KBP",
   ar: "RUH", hi: "MAA", id: "JKT", ms: "KUL", fil: "MNL", vi: "HAN", th: "BKK",
   my: "BKK", bn: "DAC", ur: "ISB",
+};
+
+// cov51 分站语言纯净：城市 → 代表语种（可多个）。译文与原文共用同一 sourceUrl host，
+// 若不按语种过滤，23 种语言的文章会全部堆进 BJS/NYC 等原站城市——用户要求
+// 「北京只显示简体汉字文章」。规则：每个分站只聚合其代表语种的文章；
+// 国际桶城市（cov30/31/32 注明挂 en.world 的）归 en；兜底城市必须包含其兜底语种，
+// 否则无 host 映射的文章会被过滤掉、违背 LOCALE_FALLBACK_CODE 的兜底承诺。
+const REGION_LOCALES: Record<string, Locale[]> = {
+  // —— 各语种代表城市 / 语言专属分站 ——
+  BJS: ["zh"],
+  NYC: ["en"], LON: ["en"], YTO: ["en"], SYD: ["en"], JNB: ["en"],
+  TYO: ["ja"], ICN: ["ko"], MAD: ["es"], PAR: ["fr"], BER: ["de"],
+  ROM: ["it"], SAO: ["pt"], IST: ["tr"], MOW: ["ru"], KBP: ["uk"],
+  RUH: ["ar"], MAA: ["hi"], JKT: ["id"], KUL: ["ms"], MNL: ["fil"],
+  HAN: ["vi"], BKK: ["th", "my"], DAC: ["bn"],
+  // —— 原语种专属但被归入国际桶的分站（法语/阿语/西语/葡语源城市）——
+  EZE: ["es"], MEX: ["es"], SCL: ["es"], CCS: ["es"], BOG: ["es"], LIM: ["es"],
+  LIS: ["pt"], LAD: ["pt"], MPM: ["pt"], RIO: ["pt"],
+  DKR: ["fr"], TUN: ["fr"], CMN: ["ar"],
+  // —— 国际桶（cov30/31/32：中亚/北欧/巴尔干/南亚/中东，英文采集）——
+  CAI: ["en"], AMS: ["en"], STO: ["en"], WAW: ["en"],
+  DXB: ["en"], TLV: ["en"], DOH: ["en"], AMM: ["en"],
+  NBO: ["en"], CPT: ["en"], ADD: ["en"], GHA: ["en"], LOS: ["en"],
+  ALA: ["en"], TAS: ["en"], FRU: ["en"], DUSH: ["en"], BAK: ["en"],
+  OSL: ["en"], CPH: ["en"], HEL: ["en"],
+  BEG: ["en"], SKP: ["en"], ZAG: ["en"], SOF: ["en"], SAR: ["en"],
+  DEL: ["en"], BOM: ["en"], KTM: ["en"], CMB: ["en"],
+  ISB: ["ur", "en"], KHI: ["ur", "en"], LAH: ["ur", "en"],
+  ULN: ["en"], ASH: ["en"], SIN: ["en"],
 };
 
 // 地区运行时指标（首页地球面板用）
@@ -438,12 +467,14 @@ export function geoLabel(name?: string, nameZh?: string): GeoLabel {
   return { zh: ov ? ov.zh : nameZh || en, en: ov ? ov.en : en };
 }
 
-// 从文章列表聚合各地区实时指标（按 locale 过滤）
+// 从文章列表聚合各地区实时指标（按 locale 过滤；cov51 起每个城市只聚合其代表语种文章）
 export function aggregateRegions(articles: Article[], locale: Locale): RegionStat[] {
   const groups = new Map<string, Article[]>();
   for (const a of articles) {
     const code = geoCodeOf(a.sourceUrl, a.locale);
     if (!code) continue;
+    const allowed = REGION_LOCALES[code];
+    if (!allowed || !allowed.includes(a.locale)) continue;
     if (!groups.has(code)) groups.set(code, []);
     groups.get(code)!.push(a);
   }
@@ -473,7 +504,7 @@ export function aggregateRegions(articles: Article[], locale: Locale): RegionSta
       ageN += 1;
     }
     const latest = items.reduce((m, i) => ((i.publishedAt || 0) > (m.publishedAt || 0) ? i : m), items[0]);
-    // 最新 5 条资讯（按发布时间倒序）；跨语言按源聚合，点击各走自身 locale 详情页
+    // 最新 5 条资讯（按发布时间倒序）；cov51 起分站内单语种，点击各走自身 locale 详情页
     const headlines: RegionHeadline[] = items
       .slice()
       .sort((a, b) => (b.publishedAt || 0) - (a.publishedAt || 0))
