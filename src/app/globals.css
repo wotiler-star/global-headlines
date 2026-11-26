@@ -1920,6 +1920,16 @@ html[data-reading="l"] .article-body p { font-size: 18px; }
 /* 头部 PEAK 可点击定位 */
 .sd-peak-btn { background: none; border: none; padding: 0; color: inherit; font: inherit; cursor: pointer; }
 .sd-peak-btn:hover { color: var(--brand); text-decoration: underline; }
+/* cov52 分享当前视图（复制带 ?src= 的分站链接） */
+.sd-share-btn {
+  margin-left: 10px; padding: 2px 8px; cursor: pointer;
+  font: inherit; letter-spacing: .04em;
+  color: var(--ink-3); background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.14); border-radius: 4px;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.sd-share-btn:hover { color: var(--brand); border-color: var(--brand); background: rgba(234,95,34,.08); }
+.sd-share-btn:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 /* 悬停预览徽标 */
 .sd-prev-tag {
   font-family: var(--font-mn); font-size: 8px; color: #ffb224;

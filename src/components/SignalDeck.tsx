@@ -310,6 +310,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   const [noWebGL, setNoWebGL] = useState(false);
   const [syncing, setSyncing] = useState(false);
   const [lastSync, setLastSync] = useState<number | null>(null);
+  const [copied, setCopied] = useState<"ok" | "fail" | null>(null); // cov52 分享视图复制反馈
   // cov41 榜单交互：排序 + 搜索过滤
   const [sortKey, setSortKey] = useState<"signals" | "fresh" | "activity">("signals");
   const [q, setQ] = useState("");
@@ -611,6 +612,18 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
     } catch {}
   }, []);
 
+  // cov52 设置持久化：自转开关 + 贴图模式（此前刷新即丢，用户调成日间/暂停后下次又要重设）。
+  // 与 hard/layers 同一套 localStorage 约定，读取放挂载 effect 避免 SSR 水合树不一致。
+  useEffect(() => {
+    try {
+      const rot = localStorage.getItem("gh-globe-rotating");
+      if (rot === "0") setRotating(false);
+      else if (rot === "1") setRotating(true);
+      const mm = localStorage.getItem("gh-globe-mapmode");
+      if (mm === "1" || mm === "2") setMapMode(mm === "1" ? 1 : 2);
+    } catch {}
+  }, []);
+
   // 自动巡览：每 6s 轮换地区（replace 不进历史栈；POV/弧线/面板由 active 驱动链自动跟随）
   useEffect(() => {
     if (!tour || regions.length === 0) return;
@@ -643,7 +656,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
           router.push(homeHref(locale));
         }
       } else if (e.key === "r" || e.key === "R") {
-        setRotating((v) => !v);
+        setRotatePref(!rotatingRef.current);
       } else if (e.key === "+" || e.key === "=") {
         e.preventDefault();
         zoomBy(1 / 1.35); // 放大 = 视距变小
@@ -1292,8 +1305,13 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
     }
   }, [hour]);
 
+  // cov52 自转偏好：按钮与键盘 R 共用，写入 localStorage（刷新后保持）
+  function setRotatePref(v: boolean) {
+    setRotating(v);
+    try { localStorage.setItem("gh-globe-rotating", v ? "1" : "0"); } catch {}
+  }
   function toggleRotate() {
-    setRotating((r) => !r);
+    setRotatePref(!rotatingRef.current);
   }
   function toggleHard() {
     setHard((h) => {
@@ -1304,6 +1322,14 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   }
   function toggleTour() {
     setTour((t) => !t);
+  }
+  // cov52 贴图模式切换：写入 localStorage，刷新后保持上次选择
+  function cycleMapMode() {
+    setMapMode((m) => {
+      const nv = m === 0 ? 1 : m === 1 ? 2 : 0;
+      try { localStorage.setItem("gh-globe-mapmode", String(nv)); } catch {}
+      return nv;
+    });
   }
   // cov46 缩放：按钮/键盘共用，读数同步（1.4~6.5 倍视距）
   function zoomBy(factor: number) {
@@ -1325,6 +1351,37 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
   function resetView() {
     if (worldRef.current) worldRef.current.pointOfView({ lat: 20, lng: 0, altitude: 2.5 }, 800);
     router.push(homeHref(locale)); // 复位镜头 + 清除 ?src 筛选
+  }
+  // cov52 分享当前视图：把选中地区（?src=）编进链接，复制给他人可直接落到同一分站。
+  // 用 navigator.clipboard，失败时回退到 execCommand，保证 http/老浏览器也能用。
+  async function shareView() {
+    const url = active
+      ? `${window.location.origin}${homeHref(locale)}?src=${encodeURIComponent(active)}`
+      : `${window.location.origin}${homeHref(locale)}`;
+    let ok = false;
+    // 优先 async clipboard；权限被拒（含无头/受限环境）时回退 execCommand，两条路都失败才静默
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(url);
+        ok = true;
+      }
+    } catch {}
+    if (!ok) {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = url;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+      } catch {}
+    }
+    // 成功 / 失败都给反馈：失败时弹出可手动复制的链接，避免点了没反应
+    setCopied(ok ? "ok" : "fail");
+    if (!ok) window.prompt("复制此分站链接", url);
+    window.setTimeout(() => setCopied(null), 2400);
   }
   function pick(code: string) {
     setTour(false); // 显式选择地区 → 退出自动巡览
@@ -1415,6 +1472,14 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
               </button>
             </>
           ) : null}
+          <button
+            className="sd-share-btn"
+            onClick={shareView}
+            title={active ? "复制当前分站链接" : "复制全球视图链接"}
+            aria-label="分享当前视图"
+          >
+            {copied === "ok" ? "✓ 已复制" : copied === "fail" ? "⚠ 请手动复制" : "⧉ 分享"}
+          </button>
         </span>
       </div>
 
@@ -1753,7 +1818,7 @@ export default function SignalDeck({ regions: initialRegions, locale }: { region
           <button className={"sd-rot hard" + (hard ? " on" : "")} onClick={toggleHard} aria-label={hard ? "关闭硬核模式" : "开启硬核模式"}>
             {hard ? "⚡ 硬核" : "⚡ HARD"}
           </button>
-          <button className="sd-rot" onClick={() => setMapMode((m) => (m === 0 ? 1 : m === 1 ? 2 : 0))} aria-label="切换贴图模式">
+          <button className="sd-rot" onClick={cycleMapMode} aria-label="切换贴图模式" title="切换贴图模式（昼夜 / 日间 / 夜间）">
             {mapMode === 0 ? "◐ 昼夜" : mapMode === 1 ? "◑ 日间" : "◉ 夜间"}
           </button>
           <span
