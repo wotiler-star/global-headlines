@@ -26,6 +26,11 @@ const AI_AGENTS = [
   "Diffbot",
   "Amazonbot",
   "AI2Bot",
+  // GoogleOther 是 Google 用于搜索/AI 功能抓取的通用 UA（区别于 Googlebot 与
+  // Google-Extended）；Bytespider 为字节系 AI 抓取器。显式列出确保走 allow
+  // 段而非落入更严格的通用规则，也向 AI 引擎表明本站欢迎抓取的意图。
+  "GoogleOther",
+  "Bytespider",
 ];
 
 export default function robots(): MetadataRoute.Robots {

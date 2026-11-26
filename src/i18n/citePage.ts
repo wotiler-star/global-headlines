@@ -66,7 +66,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "站点速览",
     },
     facts: [
-      { label: "语种", value: "8（中 / 英 / 日 / 韩 / 西 / 法 / 葡 / 土）" },
+      { label: "语种", value: "以 i18n/config.ts 的 locales 为准（about 页渲染时动态填充）" },
       { label: "更新", value: "每日 3 个原创话题" },
       { label: "图片", value: "每篇 3 张真实照片 · CC 许可署名" },
       { label: "规范域", value: SITE },
@@ -105,7 +105,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "站點速覽",
     },
     facts: [
-      { label: "語種", value: "8（中 / 英 / 日 / 韓 / 西 / 法 / 葡 / 土）" },
+      { label: "語種", value: "以 i18n/config.ts 的 locales 為準（about 頁渲染時動態填充）" },
       { label: "更新", value: "每日 3 個原創話題" },
       { label: "圖片", value: "每篇 3 張真實照片 · CC 許可署名" },
       { label: "規範域", value: SITE },
@@ -144,7 +144,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "At a glance",
     },
     facts: [
-      { label: "Languages", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Languages", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Cadence", value: "3 original topics daily" },
       { label: "Imagery", value: "3 real photos per article · CC credited" },
       { label: "Canonical domain", value: SITE },
@@ -183,7 +183,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "サイト概要",
     },
     facts: [
-      { label: "言語", value: "8（中・英・日・韓・西・仏・葡・土）" },
+      { label: "言語", value: "i18n/config.ts の locales を参照（about ページで動的に表示）" },
       { label: "更新", value: "毎日 3 つのオリジナル話題" },
       { label: "画像", value: "1 記事 3 枚の実写・CC クレジット付き" },
       { label: "正規ドメイン", value: SITE },
@@ -222,7 +222,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "한눈에 보기",
     },
     facts: [
-      { label: "언어", value: "8개(중·영·일·한·서·불·포·터)" },
+      { label: "언어", value: "i18n/config.ts 의 locales 참조 (about 페이지에서 동적으로 표시)" },
       { label: "갱신", value: "매일 오리지널 주제 3개" },
       { label: "이미지", value: "기사당 실사진 3장 · CC 출처 표기" },
       { label: "정규 도메인", value: SITE },
@@ -261,7 +261,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "De un vistazo",
     },
     facts: [
-      { label: "Idiomas", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Idiomas", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Ritmo", value: "3 temas originales al día" },
       { label: "Imágenes", value: "3 fotos reales por artículo · créditos CC" },
       { label: "Dominio canónico", value: SITE },
@@ -300,7 +300,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "En bref",
     },
     facts: [
-      { label: "Langues", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Langues", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Rythme", value: "3 sujets originaux par jour" },
       { label: "Images", value: "3 photos réelles par article · crédits CC" },
       { label: "Domaine canonique", value: SITE },
@@ -339,7 +339,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "Auf einen Blick",
     },
     facts: [
-      { label: "Sprachen", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Sprachen", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Rhythmus", value: "3 Originalthemen täglich" },
       { label: "Bilder", value: "3 echte Fotos pro Artikel · CC-Quellenangabe" },
       { label: "Kanonische Domain", value: SITE },
@@ -378,7 +378,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "In breve",
     },
     facts: [
-      { label: "Lingue", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Lingue", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Ritmo", value: "3 temi originali al giorno" },
       { label: "Immagini", value: "3 foto reali per articolo · crediti CC" },
       { label: "Dominio canonico", value: SITE },
@@ -417,7 +417,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "Em resumo",
     },
     facts: [
-      { label: "Idiomas", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Idiomas", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Ritmo", value: "3 temas originais por dia" },
       { label: "Imagens", value: "3 fotos reais por artigo · créditos CC" },
       { label: "Domínio canónico", value: SITE },
@@ -456,7 +456,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "Kısaca",
     },
     facts: [
-      { label: "Diller", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Diller", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Tempo", value: "Günde 3 özgün konu" },
       { label: "Görseller", value: "Yazı başına 3 gerçek fotoğraf · CC atıflı" },
       { label: "Kurallı alan adı", value: SITE },
@@ -495,7 +495,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "Кратко",
     },
     facts: [
-      { label: "Языки", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Языки", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Частота", value: "3 оригинальные темы в день" },
       { label: "Изображения", value: "3 настоящие фото на статью · с указанием CC" },
       { label: "Канонический домен", value: SITE },
@@ -534,7 +534,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "Коротко",
     },
     facts: [
-      { label: "Мови", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Мови", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Частота", value: "3 оригінальні теми на день" },
       { label: "Зображення", value: "3 справжні фото на статтю · із зазначенням CC" },
       { label: "Канонічний домен", value: SITE },
@@ -573,7 +573,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "نظرة سريعة",
     },
     facts: [
-      { label: "اللغات", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "اللغات", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "الوتيرة", value: "3 مواضيع أصلية يومياً" },
       { label: "الصور", value: "3 صور حقيقية لكل مقال · بإسناد CC" },
       { label: "النطاق المعتمد", value: SITE },
@@ -612,7 +612,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "एक नज़र में",
     },
     facts: [
-      { label: "भाषाएँ", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "भाषाएँ", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "लय", value: "प्रतिदिन 3 मौलिक विषय" },
       { label: "चित्र", value: "प्रति लेख 3 वास्तविक फ़ोटो · CC श्रेय" },
       { label: "मानक डोमेन", value: SITE },
@@ -651,7 +651,7 @@ const citeCopyRaw: Record<Exclude<Locale, NewLocale>, CiteCopy> = {
       factsTitle: "Sekilas",
     },
     facts: [
-      { label: "Bahasa", value: "8 (zh / en / ja / ko / es / fr / pt / tr)" },
+      { label: "Bahasa", value: "See i18n/config.ts locales (filled dynamically on about page)" },
       { label: "Ritme", value: "3 topik asli setiap hari" },
       { label: "Gambar", value: "3 foto asli per artikel · atribusi CC" },
       { label: "Domain kanonik", value: SITE },

@@ -188,7 +188,10 @@ export function buildLlmsTxt(): string {
   const homeLinks = locales
     .map((l) => `- [${l} 首页](${SITE_URL}/${l}): starteday ${l} 语首页`)
     .join("\n");
-  const latest = validArticles()
+  // GEO：llms.txt 是给 AI 引擎的可引用索引，必须用 indexableArticles() 排除
+  // noindex 的英文复读页（克隆语种 bn/fil/ms/my/th/ur/vi 等）。否则 AI 会把
+  // 与英文逐字相同的重复内容当作独立原创来源，稀释本站引用质量。
+  const latest = indexableArticles()
     .slice(0, 30)
     .map((a) => `- [${flat(a.title)}](${articleUrl(a)}): ${flat(a.summary || "").slice(0, 110)}`)
     .join("\n");
@@ -231,7 +234,10 @@ ${latest}
 // llms-full.txt（llmstxt.org 约定）：全量文章的纯文本索引，供 AI 搜索 / 语言模型
 // 建立可引用索引。按语种分组，每行给出标题、绝对链接、发布日期、栏目与摘要。
 export function buildLlmsFullTxt(): string {
-  const all = validArticles();
+  // 与 news-sitemap / image-sitemap 同口径：只列应被索引的原创稿，排除克隆语种的
+  // 英文复读页。这类页在文章页已输出 noindex，若进 llms-full.txt，AI 引擎会把
+  // 224+ 篇重复正文误算成独立来源，损害「原创多语种」实体信号。
+  const all = indexableArticles();
   const groups = locales
     .map((l) => {
       const rows = all.filter((a) => a.locale === l);

@@ -259,12 +259,20 @@ export default async function AboutPage({
         <section className="cite-sec" id="facts">
           <h2>{s.factsTitle}</h2>
           <dl className="cite-facts">
-            {c.facts.map((f) => (
-              <div key={f.label}>
-                <dt>{f.label}</dt>
-                <dd>{f.value}</dd>
-              </div>
-            ))}
+            {c.facts.map((f, i) => {
+              // GEO/E-E-A-T：语种数清单必须跟随 i18n/config 的 locales 单一真相源。
+              // 16 个语种的 facts 首项都是语种条目，但 label 各异（语种/語種/Languages/
+              // 言語/언어/Idiomas/…），旧文案硬编码「8 语种」与 llms.txt 声明的 23 语种
+              // 矛盾，AI 引擎引用 about 页时会得出错误的实体规模。按位置 i===0 覆盖，
+              // 避免为每个语种维护 label 映射而再次漂移。
+              const value = i === 0 ? `${locales.length} · ${locales.join(" / ")}` : f.value;
+              return (
+                <div key={f.label}>
+                  <dt>{f.label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              );
+            })}
           </dl>
         </section>
 
